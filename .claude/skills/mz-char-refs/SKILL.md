@@ -50,4 +50,7 @@ boots, grey eye rings, droopy lid); identity = HAIR + card color:
 ## ZLUDA hang note
 Long batches can wedge the GPU (queue frozen >15 min). `/interrupt` won't
 help: kill the ComfyUI python process, the launcher loop relaunches, requeue
-only the missing variants with `--only`/`--variants-only` (see mz-art-run).
+only the missing variants with `--only`/`--variants-only`. After ANY
+kill-relaunch, verify `vram_free` ≈ 15.8GB AND watch one render complete
+before walking away — a leaked-VRAM relaunch stalls silently at 0%
+(full procedure: mz-art-run §3).

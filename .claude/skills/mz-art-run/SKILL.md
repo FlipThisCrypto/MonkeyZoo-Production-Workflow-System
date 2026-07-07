@@ -34,6 +34,12 @@ selected_panels. Calibrated on this rig (RX 6800 16GB, ~90s/image warm).
    (`Get-Process python | Where Path -like "I:\ai\ComfyUI*" | Stop-Process
    -Force`) — the run_zluda.bat loop auto-relaunches in ~90s. Requeue ONLY
    missing items (diff output files vs expected, use `--only`).
+   **VRAM-LEAK TRAP:** the relaunch can come up with the dead process's VRAM
+   still held — server log shows `loaded partially; 0.00 MB usable` and the
+   sampler sits at 0% forever. ALWAYS verify recovery: (a) `/system_stats`
+   `vram_free` ≈ 15.8GB, and (b) one render actually completes (watch the
+   output dir), before trusting a requeued batch. If leaked: kill and
+   relaunch again — second restart claims the memory.
 4. **Collect:** copy outputs from `I:\ai\nft\output\<ISSUE-ID>/` into
    `generated_art/raw_panels/`.
 5. **Art QA (Gate A, `00_SYSTEM/qa_checklist.md`):** build 3×3 contact sheets
