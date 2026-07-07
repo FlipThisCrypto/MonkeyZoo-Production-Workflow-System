@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "monkeyzoo/issue_brief_schema.json",
+  "title": "MonkeyZoo Issue Brief",
+  "type": "object",
+  "required": [
+    "issue_id", "issue_month", "issue_number", "working_title", "core_idea",
+    "theme", "satire_target", "emotional_core", "main_character",
+    "supporting_characters", "conflict", "antagonist_or_problem", "setting",
+    "running_joke", "ending", "next_issue_teaser", "required_visuals",
+    "forbidden_changes", "continuity_risks", "release_assets_needed"
+  ],
+  "properties": {
+    "issue_id": { "type": "string", "pattern": "^MZ-\\d{4}-\\d{2}-\\d{2}$" },
+    "issue_month": { "type": "string", "pattern": "^\\d{4}-\\d{2}$" },
+    "issue_number": { "type": "integer", "minimum": 1 },
+    "working_title": { "type": "string", "minLength": 1 },
+    "core_idea": { "type": "string", "minLength": 10 },
+    "theme": { "type": "string", "minLength": 1 },
+    "satire_target": { "type": "string", "minLength": 1 },
+    "emotional_core": { "type": "string", "minLength": 1 },
+    "main_character": {
+      "type": "string",
+      "enum": ["Moodz", "TwoTone", "Static", "Ash", "NeonBlue", "Scarline"]
+    },
+    "supporting_characters": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 0
+    },
+    "conflict": { "type": "string", "minLength": 1 },
+    "antagonist_or_problem": { "type": "string", "minLength": 1 },
+    "setting": { "type": "string", "minLength": 1 },
+    "running_joke": { "type": "string", "minLength": 1 },
+    "ending": { "type": "string", "minLength": 1 },
+    "next_issue_teaser": { "type": "string", "minLength": 1 },
+    "required_visuals": { "type": "array", "items": { "type": "string" } },
+    "forbidden_changes": { "type": "array", "items": { "type": "string" } },
+    "continuity_risks": { "type": "array", "items": { "type": "string" } },
+    "release_assets_needed": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,589 @@
+{
+  "issue_id": "MZ-2026-08-06",
+  "issue_title": "The Broken Signal",
+  "page_count": 8,
+  "pages": [
+    {
+      "page_number": 1,
+      "page_purpose": "Hook — Static hears the signal; the wrong-rhythm mast",
+      "layout_recipe": "half+half",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-06_P01_PANEL01",
+          "panel_size": "half",
+          "characters": [
+            "Static",
+            "Moodz",
+            "TwoTone",
+            "Ash",
+            "NeonBlue",
+            "Scarline",
+            "Patch"
+          ],
+          "location": "Zoo City rooftop, night, after rain",
+          "camera_angle": "medium-wide, squad strung along rooftop edge",
+          "action": "Static stopped dead, one mitten hand cupped to his ear, listening hard; the others turn back",
+          "emotion": "something is different tonight",
+          "dialogue": "STATIC: \"Something's… broadcasting.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "Patch at line's end (travels with squad now); DEEP BG: tiny red-masked silhouette on far rooftop (Super cameo — findable, not featured)",
+          "continuity_notes": "Ear-cup listening beat (headphones removed from canon, ERR-2026-07-06); Patch squad-adjacent resolves Issue 05 threshold; cameo keeps Super teaser warm",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P01_PANEL01",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P01_PANEL01",
+          "references_required": [
+            "all six lead ref folders",
+            "zombie.png (Patch)",
+            "super.png (distant silhouette only)"
+          ],
+          "lora_required": [],
+          "controlnet_required": "depth",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-06_P01_PANEL02",
+          "panel_size": "half",
+          "characters": [],
+          "location": "Rooftop POV toward Old Quarter skyline",
+          "camera_angle": "wide POV past squad's backs to horizon",
+          "action": "Ancient relay mast rises from the Old Quarter, one red light blinking in a stuttering WRONG rhythm",
+          "emotion": "wrongness you can't name",
+          "dialogue": "",
+          "caption": "FusionZoo shut the old network down years ago. Someone forgot to tell the network.",
+          "sfx": "",
+          "visual_notes": "Signal palette established: amber/red. NO green this issue",
+          "continuity_notes": "NEW LORE — the Signal, first appearance",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P01_PANEL02",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P01_PANEL02",
+          "references_required": [
+            "references/background_refs/old_quarter_skyline (from plate)"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "page_purpose": "Debate — rescue / loop / trap; Patch leads without explaining",
+      "layout_recipe": "third-x3",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-06_P02_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "NeonBlue",
+            "TwoTone"
+          ],
+          "location": "Rooftop",
+          "camera_angle": "two-shot, eye level",
+          "action": "NeonBlue lights up, halfway to the fire escape; TwoTone listens, head tilted, analytical",
+          "emotion": "hope vs analysis",
+          "dialogue": "NEONBLUE: \"It's a distress call. Someone needs us!\" / TWOTONE: \"It repeats. It's a loop.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "NeonBlue earnest this issue — no ad-copy face",
+          "continuity_notes": "Idea beats: NeonBlue believes rescue; TwoTone hears structure",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P02_PANEL01",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P02_PANEL01",
+          "references_required": [
+            "neonblue refs",
+            "twotone refs"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-06_P02_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "Moodz"
+          ],
+          "location": "Rooftop",
+          "camera_angle": "close-up",
+          "action": "Moodz stares at the far blink, unconvinced, arms crossed; fringe catches the distant red",
+          "emotion": "suspicion with self-protection underneath",
+          "dialogue": "MOODZ: \"Traps hum. That's a hum.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "Red blink reflection as the only warm tone on him",
+          "continuity_notes": "Idea beat: Emo(→Moodz) thinks trap",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P02_PANEL02",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P02_PANEL02",
+          "references_required": [
+            "moodz refs"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_character_base"
+        },
+        {
+          "panel_id": "MZ-2026-08-06_P02_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "Patch",
+            "NeonBlue"
+          ],
+          "location": "Rooftop, fire-escape end",
+          "camera_angle": "medium, Patch facing away toward the mast",
+          "action": "Patch already walking toward the signal, alone, unasked; NeonBlue calling after him",
+          "emotion": "recognition he can't voice",
+          "dialogue": "PATCH: \"…home frequency.\" / NEONBLUE: \"The what? Patch — the WHAT?\"",
+          "caption": "Patch doesn't explain things. Mostly, he doesn't know how anymore.",
+          "sfx": "",
+          "visual_notes": "The squad follows a zombie for the first time",
+          "continuity_notes": "Idea beat: Patch recognizes, won't explain; HOW stays unrevealed",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P02_PANEL03",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P02_PANEL03",
+          "references_required": [
+            "zombie.png (Patch)",
+            "neonblue refs"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 3,
+      "page_purpose": "Descent — the Old Quarter; Relay 1 door; the warm console",
+      "layout_recipe": "third-x3",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-06_P03_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "Moodz",
+            "TwoTone",
+            "Static",
+            "Ash",
+            "NeonBlue",
+            "Scarline",
+            "Patch"
+          ],
+          "location": "Old Quarter, street level",
+          "camera_angle": "wide establishing, high angle",
+          "action": "Squad descends into the Old Quarter: pre-neon architecture, dead cable bundles sagging like vines, analog signage, only the mast's red blink for light; Patch leading",
+          "emotion": "walking into a museum nobody curates",
+          "dialogue": "",
+          "caption": "The Old Quarter. Zoo City's first draft. The city never tore it down. It just stopped looking.",
+          "sfx": "",
+          "visual_notes": "NEW LOCATION — plate required; rounder/older architecture; cables-as-vines motif",
+          "continuity_notes": "NEW LORE — Old Quarter first appearance",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P03_PANEL01",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P03_PANEL01",
+          "references_required": [
+            "references/background_refs/old_quarter_plate.png (P00_PLATE01 — generate first)",
+            "all lead refs (small figures)"
+          ],
+          "lora_required": [],
+          "controlnet_required": "depth",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-06_P03_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "Static",
+            "Ash"
+          ],
+          "location": "Relay 1 door, Old Quarter alley",
+          "camera_angle": "medium on rusted stencil door",
+          "action": "Squad at the door; the signal now felt as vibration lines off the doorframe; amber seam light",
+          "emotion": "threshold dread, lighter than Issue 05's",
+          "dialogue": "STATIC: \"Danger level: three.\" / ASH: \"Generous.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "Stencil 'FUSIONZOO RELAY 1 — AUTHORIZED PERSONNEL' applied at lettering; AMBER seam not green",
+          "continuity_notes": "Danger meter continues; Ash ≤4 words",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P03_PANEL02",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P03_PANEL02",
+          "references_required": [
+            "static refs",
+            "ash refs",
+            "old_quarter_plate.png"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-06_P03_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "Moodz"
+          ],
+          "location": "Relay 1 interior, control room",
+          "camera_angle": "close on ancient console, one live screen",
+          "action": "One screen alive among dead ones, pulsing a slow amber heartbeat waveform; Moodz's mitt hovers, not touching",
+          "emotion": "held breath",
+          "dialogue": "MOODZ: \"Still warm.\"",
+          "caption": "",
+          "sfx": "bmp… bmp…",
+          "visual_notes": "Heartbeat waveform = the signal made visible; SFX small, rhythmic",
+          "continuity_notes": "NEW LORE — Relay 1 interior; console = Ed.4 tech one generation older",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P03_PANEL03",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P03_PANEL03",
+          "references_required": [
+            "references/background_refs/relay_room_plate.png (P00_PLATE02 — generate first)",
+            "moodz refs (mitt)"
+          ],
+          "lora_required": [],
+          "controlnet_required": "depth",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 4,
+      "page_purpose": "Peak — SPLASH: the Pending revealed",
+      "layout_recipe": "splash",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-06_P04_PANEL01",
+          "panel_size": "splash",
+          "characters": [
+            "The Pending (6-8)",
+            "Moodz",
+            "TwoTone",
+            "Static",
+            "Ash",
+            "NeonBlue",
+            "Scarline",
+            "Patch"
+          ],
+          "location": "Relay 1, prototype chamber hall",
+          "camera_angle": "wide, slightly low, down the hall",
+          "action": "Between rows of dead prototype chambers stand THE PENDING — monkeys rendered as clean lineart with UNFINISHED COLOR (patches of fill missing), outlines flickering between two silhouettes. Not shambling. WAITING — a queue that stopped moving thirteen years ago. Squad small at the doorway",
+          "emotion": "awe + heartbreak; thesis as image",
+          "dialogue": "",
+          "caption": "Modern fusion is all-or-nothing. The machines guarantee it now. / These are from before the guarantee.",
+          "sfx": "",
+          "visual_notes": "DECLARED ART EXCEPTION (issue-scoped): Pending break flat-color rule ON PURPOSE — everything else obeys bible fully so the exception reads as condition, not drift. Amber only. NOT zombies: no brains, no green, no decay",
+          "continuity_notes": "NEW LORE — the Pending. Tech grounding: nft_fusion_reference.md §5 (atomicity is modern; prototypes predate it)",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P04_PANEL01",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P04_PANEL01",
+          "references_required": [
+            "references/background_refs/prototype_hall_plate.png (P00_PLATE03 — generate first)",
+            "references/pose_refs/p04_splash_sketch.png (composition sketch REQUIRED)"
+          ],
+          "lora_required": [],
+          "controlnet_required": "depth",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 5,
+      "page_purpose": "Contact — 'Is it done yet?' / the consent boundary / Patch knows this room",
+      "layout_recipe": "third-x3",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-06_P05_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "One Pending monkey",
+            "Moodz",
+            "NeonBlue"
+          ],
+          "location": "Prototype hall",
+          "camera_angle": "medium two-depth shot",
+          "action": "A Pending monkey turns to them — polite, patient, outline quietly flickering between two head shapes",
+          "emotion": "the saddest small talk ever",
+          "dialogue": "PENDING: \"Is it done yet?\"",
+          "caption": "They've been asking since the experiments ended. Thirteen years. Same question.",
+          "sfx": "",
+          "visual_notes": "Microwave-popcorn casualness; the horror is the patience",
+          "continuity_notes": "The Pending speak normally (unlike the Stayed's chant) — unresolved, not degraded",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P05_PANEL01",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P05_PANEL01",
+          "references_required": [
+            "prototype_hall_plate.png",
+            "moodz refs",
+            "neonblue refs"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-06_P05_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "NeonBlue",
+            "One Pending monkey"
+          ],
+          "location": "Prototype hall",
+          "camera_angle": "two-shot, tension staging",
+          "action": "NeonBlue steps forward hands-out helper-mode; the Pending recoils, flicker SPIKES — outline stuttering hard",
+          "emotion": "good intentions meeting a boundary",
+          "dialogue": "NEONBLUE: \"We can get help — there are new machines, they could finish—\" / PENDING: \"Don't. Touch. The state.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "Flicker intensity = distress meter; earnest face not salesman face",
+          "continuity_notes": "Consent theme; 'the state' is literal singleton-state language (nft_fusion_reference.md §4)",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P05_PANEL02",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P05_PANEL02",
+          "references_required": [
+            "neonblue refs",
+            "prototype_hall_plate.png"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-06_P05_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "Patch",
+            "Moodz",
+            "TwoTone"
+          ],
+          "location": "Prototype hall, console alcove",
+          "camera_angle": "medium, Patch at old console",
+          "action": "While the others talk, Patch rests his mitt flat on a secondary console like it's a gravestone. He knows this room",
+          "emotion": "memory without access",
+          "dialogue": "MOODZ: \"They're mid-something.\" / TWOTONE: \"Mid-everything.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "Patch's stillness = grief; the Pending's stillness = queueing — stage the difference",
+          "continuity_notes": "HOW Patch knows Relay 1 = deliberately unanswered; do not foreshadow in art",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P05_PANEL03",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P05_PANEL03",
+          "references_required": [
+            "zombie.png (Patch)",
+            "moodz refs",
+            "twotone refs"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 6,
+      "page_purpose": "Turn — the Keeper's vigil; the only good question",
+      "layout_recipe": "half+half",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-06_P06_PANEL01",
+          "panel_size": "half",
+          "characters": [
+            "Static",
+            "TwoTone"
+          ],
+          "location": "Relay 1 control room, behind the main console",
+          "camera_angle": "over-console angle revealing the floor behind it",
+          "action": "Behind the console: FRESH jury-rigged power splices, new cable ties, a folded tarp bed. Screen scrolls: 'STATE: PENDING — AWAITING FINALIZATION — DAY 4,749' (text at lettering)",
+          "emotion": "mystery lands — not abandonment, a vigil",
+          "dialogue": "STATIC: \"Danger level: someone's been HERE.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "Keeper = EVIDENCE ONLY, no figure/shadow/silhouette; fresh cable ties vs ancient dust contrast",
+          "continuity_notes": "NEW LORE — the Keeper (unseen); DAY 4,749 ≈ 13 years; open thread: who keeps the vigil",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P06_PANEL01",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P06_PANEL01",
+          "references_required": [
+            "relay_room_plate.png",
+            "static refs",
+            "twotone refs"
+          ],
+          "lora_required": [],
+          "controlnet_required": "depth",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-06_P06_PANEL02",
+          "panel_size": "half",
+          "characters": [
+            "Moodz",
+            "The Pending (gathered)",
+            "TwoTone",
+            "Static",
+            "Ash",
+            "NeonBlue",
+            "Scarline",
+            "Patch"
+          ],
+          "location": "Prototype hall",
+          "camera_angle": "medium-wide, Moodz between squad and the Pending",
+          "action": "The Pending gathered — present, flickering softly, not hostile. Moodz steps forward, lowers his shoulders, asks the question nobody has asked in thirteen years",
+          "emotion": "the turn: from 'what should we do' to 'what do you want'",
+          "dialogue": "MOODZ: \"Then what do you want?\" / THE PENDING (together, small): \"Company.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "Flicker SETTLES as they answer; give the balloons air",
+          "continuity_notes": "Moodz growth panel — asks calmly what he once screamed; consent thesis continuity Ed.4→05→06",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P06_PANEL02",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P06_PANEL02",
+          "references_required": [
+            "prototype_hall_plate.png",
+            "all lead refs"
+          ],
+          "lora_required": [],
+          "controlnet_required": "depth",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 7,
+      "page_purpose": "Land — the visit; Scarline's verdict; Patch's offering",
+      "layout_recipe": "third-x3",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-06_P07_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "Moodz",
+            "TwoTone",
+            "Static",
+            "Ash",
+            "NeonBlue",
+            "Scarline",
+            "Patch",
+            "The Pending"
+          ],
+          "location": "Prototype hall",
+          "camera_angle": "wide, warm, gentle symmetry",
+          "action": "WORDLESS. The squad stays a while. Static sits cross-legged next to a Pending monkey doing the same; Ash shares his doorframe lean; NeonBlue listens to one. Nobody fixes anything",
+          "emotion": "mercy as presence",
+          "dialogue": "",
+          "caption": "Some rescues are just visits.",
+          "sfx": "",
+          "visual_notes": "THE panel of the issue; amber warmth at maximum; flickers at their calmest",
+          "continuity_notes": "Static grounding pose canon since Ed.4; visual rule: attention stabilizes the Pending",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P07_PANEL01",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P07_PANEL01",
+          "references_required": [
+            "prototype_hall_plate.png",
+            "all lead refs",
+            "references/pose_refs/p07_visit.png"
+          ],
+          "lora_required": [],
+          "controlnet_required": "depth",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-06_P07_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "Scarline",
+            "Moodz"
+          ],
+          "location": "Relay 1 exit",
+          "camera_angle": "two-shot at the door",
+          "action": "Squad files out; Moodz looks back, Issue 05's open-door guilt resurfacing; Scarline stops beside him",
+          "emotion": "absolution, one sentence's worth",
+          "dialogue": "SCARLINE: \"Leaving isn't abandoning if you come back.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "Her steady, him unsteady, door light between them",
+          "continuity_notes": "Scarline's ONE line; thesis line; squad's standing return-promise → ledger",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P07_PANEL02",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P07_PANEL02",
+          "references_required": [
+            "scarline refs",
+            "moodz refs"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-06_P07_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "Patch"
+          ],
+          "location": "Relay 1 control room, console",
+          "camera_angle": "close on console edge, Patch's mitt exiting frame",
+          "action": "Last to leave, Patch places his crumpled pastel recall notice from Issue 05 flat on the console beside the heartbeat screen. Smooths it once. Leaves",
+          "emotion": "everything he can't say, said",
+          "dialogue": "",
+          "caption": "",
+          "sfx": "bmp… bmp…",
+          "visual_notes": "The notice must read as THE Issue 05 prop (same pastel, crumpled, rain-spotted); NO caption — silence is the point",
+          "continuity_notes": "PROP CONTINUITY: recall notice carried since Issue 05 P08_PANEL02; Patch gives the waiting what worked on him",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P07_PANEL03",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P07_PANEL03",
+          "references_required": [
+            "zombie.png (Patch mitt)",
+            "relay_room_plate.png",
+            "Issue 05 notice prop ref (P01_PANEL02 selected art when generated)"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 8,
+      "page_purpose": "Door-to-next — walking out; RETURN PROTOCOL INITIATED",
+      "layout_recipe": "half+half",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-06_P08_PANEL01",
+          "panel_size": "half",
+          "characters": [
+            "Moodz",
+            "TwoTone",
+            "Static",
+            "Ash",
+            "NeonBlue",
+            "Scarline",
+            "Patch"
+          ],
+          "location": "Old Quarter street, first grey of dawn",
+          "camera_angle": "wide from behind, mast receding above rooflines",
+          "action": "The squad walks out. Nobody talks for a block. Patch walks INSIDE the group now, not at the end of the line",
+          "emotion": "tired, changed, resolved",
+          "dialogue": "ASH: \"They waved.\" / STATIC: \"Danger level: one. The good kind.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "Bookend of P3.1 reversed; Patch's position = one-panel arc",
+          "continuity_notes": "Danger meter third beat; return-promise now canon",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P08_PANEL01",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P08_PANEL01",
+          "references_required": [
+            "old_quarter_plate.png",
+            "all lead refs (back views)",
+            "zombie.png"
+          ],
+          "lora_required": [],
+          "controlnet_required": "depth",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-06_P08_PANEL02",
+          "panel_size": "half",
+          "characters": [],
+          "location": "Relay 1 control room, empty",
+          "camera_angle": "static shot, console alone, notice beside screen",
+          "action": "Empty room. The heartbeat waveform stutters — then changes rhythm. Screen refreshes: 'SIGNAL ACKNOWLEDGED — RETURN PROTOCOL INITIATED' (text at lettering)",
+          "emotion": "the floor drops out",
+          "dialogue": "",
+          "caption": "It was never calling for help. It was calling something back.",
+          "sfx": "bmp-bmp. bmp-bmp.",
+          "visual_notes": "Identical framing to P3.3 (rhyme), unoccupied; heartbeat SFX doubles; the notice sits in frame",
+          "continuity_notes": "NEW OPEN THREAD — Return Protocol; WHAT answers stays unrevealed; rear cover echoes with second light",
+          "art_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P08_PANEL02",
+          "negative_prompt": "SEE art_prompt_pack.json MZ-2026-08-06_P08_PANEL02",
+          "references_required": [
+            "relay_room_plate.png",
+            "P03_PANEL03 selected art (framing match)"
+          ],
+          "lora_required": [],
+          "controlnet_required": "depth",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "format": "CHIP-0015",
+  "name": "MonkeyZoo: The Ones Who Stayed",
+  "description": "The Ones Who Stayed is a MonkeyZoo comic that answers the question STILL ME left glowing on its back cover. A cheerful Wellness Recall leads the Emo Faction back into the Annex, to Chamber 0 — cracked, humming, leaking green — and to the monkeys who never stopped fusing. They shuffle in a slow orbit around the machine, still queuing for one more upgrade, still whispering the only word they kept: MORE. Part zombie story and part satire of endless self-optimization, the issue gives NeonBlue a reunion he never wanted, shows Moodz aborting the machine calmly where he once had to scream, and ends the only way MonkeyZoo endings go: with a door left open, on their terms. Choice is the upgrade.",
+  "minting_tool": "Sage Wallet",
+  "sensitive_content": false,
+  "attributes": [
+    { "trait_type": "Category", "value": "Comic" },
+    { "trait_type": "Series", "value": "MonkeyZoo" },
+    { "trait_type": "Topic", "value": "The Stayed" },
+    { "trait_type": "Difficulty", "value": "Beginner" },
+    { "trait_type": "Format", "value": "PDF" },
+    { "trait_type": "Artist", "value": "Fiend Studios" },
+    { "trait_type": "Website", "value": "TODO-IPFS: issue PDF url after upload" }
+  ],
+  "collection": {
+    "id": "f532c517-15b7-4b4a-ae2c-b714e6067de8",
+    "name": "FlipThisComics",
+    "attributes": [
+      {
+        "type": "description",
+        "value": "Flip This Comics: by Fiend Studios. Flip This Comics is a bold, comic-book-style educational series created by Fiend Studios to onboard and empower new users in the Chia blockchain ecosystem. Each issue breaks down complex concepts - like NFTs, CATs, farming, offers, and decentralized data - in a visually engaging, story-driven way. Through dynamic art, clever humor, and approachable storytelling, Flip This Comics transforms blockchain learning into something fun, collectible, and easy to follow. Each comic doubles as both a guide and a collectible, designed to help newcomers and veterans alike understand the tools, culture, and creativity thriving within Chia. Utility & Purpose: Educational resources presented as serialized comics. Explains blockchain, minting, and decentralized concepts in plain language. Bridges art and accessibility - built to entertain while teaching. Connects directly to real projects and creators within the Chia community."
+      },
+      {
+        "type": "icon",
+        "value": "https://defiant-black-skink.myfilebase.com/ipfs/QmWB77vJShdRANXzTe554uRfGd5h2SaKqk4BMoKTAs4JfV"
+      },
+      {
+        "type": "banner",
+        "value": "https://defiant-black-skink.myfilebase.com/ipfs/QmcJGHxyBouP6SbXNSNybFCBXF6HfH7Xbg42HejenbguX9"
+      }
+    ]
+  },
+  "data": {
+    "@context": "https://schema.org/",
+    "@type": "DigitalDocument",
+    "encodingFormat": "application/pdf",
+    "name": "MonkeyZoo: The Ones Who Stayed",
+    "url": "TODO-IPFS: issue PDF url after upload",
+    "sha256": "TODO-IPFS: sha256 of final PDF",
+    "creator": {
+      "@type": "Organization",
+      "name": "Fiend Studios",
+      "url": "https://mintgarden.io/TheWardedOnes",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "Twitter",
+        "value": "@fiendstudios"
+      }
+    },
+    "thumbnail": {
+      "@type": "ImageObject",
+      "encodingFormat": "image/png",
+      "name": "thumbnail.png",
+      "url": "TODO-IPFS: thumbnail url after upload",
+      "sha256": "TODO-IPFS: sha256 of thumbnail"
+    }
+  }
+}

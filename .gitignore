@@ -1,0 +1,32 @@
+# ── Heavy generated art ─────────────────────────────────────────────
+# Reproducible from art_prompt_pack.json (prompts + seeds + engine recipe
+# in generation_log.md). Only QA-selected art is tracked.
+02_MONTHLY_ISSUES/*/generated_art/raw_panels/
+02_MONTHLY_ISSUES/*/generated_art/upscaled/
+02_MONTHLY_ISSUES/*/generated_art/edited/
+
+# Print-resolution page masters (rebuild with assemble_pages.py; web_layout
+# and social_crops stay tracked as the review record)
+02_MONTHLY_ISSUES/*/layout/print_layout/
+
+# Packaged exports (some exceed GitHub's 100MB file limit; rebuild with
+# assemble_pages.py + build_release.py)
+02_MONTHLY_ISSUES/*/exports/*.pdf
+02_MONTHLY_ISSUES/*/exports/*.zip
+02_MONTHLY_ISSUES/*/exports/*.cbz
+
+# Rejected outputs and release archive (local working history only)
+04_REJECTED_OUTPUTS/
+05_RELEASE_ARCHIVE/
+
+# ── OS / tooling noise ──────────────────────────────────────────────
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Local-only files (never publish) ────────────────────────────────
+*.local.*
+.env
+.env.*

@@ -1,0 +1,974 @@
+{
+  "issue_id": "MZ-2026-08-06",
+  "style_lock_phrase": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop",
+  "base_negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes",
+  "comfyui_defaults": {
+    "checkpoint": "TODO: house checkpoint (SDXL-class recommended)",
+    "steps": 30,
+    "cfg": 6.0,
+    "sampler": "dpmpp_2m_karras",
+    "base_resolutions": {
+      "wide": "1216x832",
+      "square": "1024x1024",
+      "tall": "832x1216"
+    }
+  },
+  "panels": [
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 0,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-06_P00_PLATE01",
+      "character_tokens": [],
+      "character_design_reminders": [],
+      "pose": "n/a — empty environment plate",
+      "expression": "n/a",
+      "environment": "The Old Quarter: Zoo City's pre-neon first draft — rounder older low-rise architecture, dead cable bundles sagging between buildings like vines, faded analog signage, cracked pavement, ancient relay mast rising above rooflines with one red blinking light",
+      "camera_angle": "wide establishing, high angle down a main street",
+      "lighting": "near-dark, single red mast blink as key light, cool grey ambient",
+      "color_palette": "aged browns, soot grey, single red accent; NO neon, NO green",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, EMPTY BACKGROUND PLATE with no characters, high wide angle over an aged pre-neon district street, rounder older low-rise cartoon architecture, thick dead cable bundles sagging between buildings like jungle vines, faded blank analog signboards, cracked pavement, an ancient radio relay mast rising above the rooflines with a single red blinking light, near-dark scene lit only by that red blink and cool grey ambient, aged browns and soot greys, soft-focus background simplification",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, any characters, monkeys, creatures, neon signs, green glow, readable text on signs",
+      "references_required": [
+        "world_bible.md section 2 (Zoo City) for contrast",
+        "emo.png backdrop (what the NEW city looks like — this plate must look older)"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60001,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "n/a — plate"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 0,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-06_P00_PLATE02",
+      "character_tokens": [],
+      "character_design_reminders": [],
+      "pose": "n/a — empty environment plate",
+      "expression": "n/a",
+      "environment": "Relay 1 control room: cramped old control room, wall of dead dark consoles and screens, ONE screen alive with a slow amber heartbeat waveform, dust, hanging cables, a rusted door",
+      "camera_angle": "medium-wide interior, slight low angle toward the console wall",
+      "lighting": "single amber screen-glow key light, deep shadows",
+      "color_palette": "charcoal, dust brown, single amber glow; NO green",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, EMPTY BACKGROUND PLATE with no characters, cramped ancient control room interior, a wall of dead dark consoles and screens covered in dust, exactly one screen alive glowing warm amber with a slow heartbeat waveform line, hanging cables, rusted door at frame edge, single amber key light with deep shadows, retro-futuristic analog technology one generation older than sleek modern labs, soft-focus background simplification",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, any characters, monkeys, creatures, green glow, readable text on screens, modern sleek technology",
+      "references_required": [
+        "world_bible.md section 2 (Ed.4 facility tech, aged down a generation)"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60002,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "n/a — plate"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 0,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-08-06_P00_PLATE03",
+      "character_tokens": [],
+      "character_design_reminders": [],
+      "pose": "n/a — empty environment plate",
+      "expression": "n/a",
+      "environment": "Prototype chamber hall: long hall behind the control room, two rows of bulky first-generation fusion chamber prototypes (cruder, boxier ancestors of the sleek Ed.4 cylinder), all dead and dark, amber emergency strips along the floor",
+      "camera_angle": "wide, slightly low, down the central aisle",
+      "lighting": "dim amber floor strips, dusty air shafts of light",
+      "color_palette": "gunmetal, dust, amber strips; NO green",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, EMPTY BACKGROUND PLATE with no characters, long industrial hall seen slightly low down the central aisle, two rows of bulky boxy first-generation machine chamber prototypes with riveted panels and round porthole windows, all dead and dark, dim amber emergency light strips along the floor, dusty shafts of light, retro prototype laboratory feeling, soft-focus background simplification",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, any characters, monkeys, creatures, green glow, sleek glass cylinders, readable text",
+      "references_required": [
+        "Ed.4 chamber description (world_bible.md) as the DESCENDANT design — these must look older"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60003,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      },
+      "resolution": "832x1216",
+      "bubble_space_note": "n/a — plate"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 1,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-06_P01_PANEL01",
+      "character_tokens": [
+        "mz_static",
+        "mz_moodz",
+        "mz_twotone",
+        "mz_ash",
+        "mz_neonblue",
+        "mz_scarline",
+        "mz_faction_zombie"
+      ],
+      "character_design_reminders": [
+        "Static: grey fur, glossy black slicked helmet hair, grey under-eye rings — one hand cupped to his ear (sanctioned beat), frozen mid-step",
+        "Moodz: pale face, black fringe with blue streak; TwoTone: half-black-half-white split hairstyle; Ash: white fringe over one eye; NeonBlue: white-cyan spike crown, black vest; Scarline: black studded biker jacket",
+        "Patch: pale-green zombie monkey, bitten left ear, bone-stump forearm — at the END of the line, part of the group"
+      ],
+      "pose": "squad strung along a rooftop edge mid-crossing, all turned back toward Static who has stopped dead with one hand cupped to his ear; COMPOSE IN LAYERS: rooftop plate + two character groups",
+      "expression": "Static transfixed listening; others surprised, turning",
+      "environment": "Zoo City rooftop at night after rain, puddles, skyline behind; DEEP BACKGROUND: tiny red-masked silhouette on a far rooftop",
+      "camera_angle": "medium-wide along the rooftop edge",
+      "lighting": "cool post-rain night, distant neon rim",
+      "color_palette": "night greys and blues, tiny distant red accent",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, medium-wide shot along a rooftop edge at night after rain, seven chibi monkeys crossing in a loose line all turning back toward mz_static (grey monkey, glossy black slicked helmet hair, heavy grey rings under his eyes, one mitten hand cupped to his ear, frozen mid-step, transfixed), the group: mz_moodz (pale face, black fringe with blue streak), mz_twotone (half-black-half-white split hair), mz_ash (silver-white shaggy fringe), mz_neonblue (white-cyan spike crown, black vest), mz_scarline (silver-white hair and palest face, black studded biker jacket), and a mz_faction_zombie monkey with a bitten left ear and bone-stump forearm walking at the end of the line as part of the group, puddle reflections, far deep background a tiny red-masked silhouette on a distant rooftop, cool night blues and greys, top fifth clear for balloon",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, any headphones, eighth monkey, detailed distant silhouette",
+      "references_required": [
+        "all six lead ref folders",
+        "zombie.png (Patch)",
+        "super.png (distant silhouette shape only)",
+        "references/background_refs/rooftop from Issue 05 street plate family"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60101,
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/pose_refs/p01_rooftop_line.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "each lead x1",
+          "zombie.png"
+        ]
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "one balloon top fifth, tail to Static"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 1,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-06_P01_PANEL02",
+      "character_tokens": [],
+      "character_design_reminders": [],
+      "pose": "no characters — skyline POV (squad backs may edge the bottom frame as dark shapes)",
+      "expression": "n/a",
+      "environment": "rooftop POV across Zoo City rooftops toward the Old Quarter: an ancient relay mast rising above old rooflines, single red light mid-blink",
+      "camera_angle": "wide POV toward horizon",
+      "lighting": "dark skyline, the red blink as focal point",
+      "color_palette": "ink blues and blacks, one red light",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, wide point-of-view shot across dark city rooftops toward an old district, an ancient radio relay mast rising above aged rooflines with a single red warning light caught mid-blink, the red light is the only warm point in an ink-blue and black skyline, optional dark monkey head shapes edging the bottom of frame, vast quiet composition, lower third clear for caption",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, neon signs near the mast, readable text",
+      "references_required": [
+        "references/background_refs/old_quarter_plate.png (P00_PLATE01)"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60102,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "caption box lower third"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 2,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-06_P02_PANEL01",
+      "character_tokens": [
+        "mz_neonblue",
+        "mz_twotone"
+      ],
+      "character_design_reminders": [
+        "NeonBlue: white-cyan spike crown, black studded vest — EARNEST bright energy, already moving",
+        "TwoTone: half-black-half-white split hairstyle, head tilted, listening, level mouth"
+      ],
+      "pose": "NeonBlue mid-stride toward a fire escape, one mitt pointing at the horizon; TwoTone planted, head tilted in analysis",
+      "expression": "NeonBlue lit-up hope; TwoTone measured skepticism",
+      "environment": "rooftop, fire-escape railing, night",
+      "camera_angle": "two-shot, eye level",
+      "lighting": "cool night, faint red blink reflections",
+      "color_palette": "night greys, neon blue accent, black-white split",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, eye-level rooftop two-shot at night, mz_neonblue (brown monkey with pale grey face, white spike crown with electric-cyan streaks, grey eye bags, black vest with white studs, earnest lit-up expression) mid-stride toward a fire escape pointing one mitten hand at the horizon, mz_twotone (pale-faced brown monkey with shaggy hair split vertically half jet-black half white, clean center parting, head tilted, level thin mouth) standing planted in analysis, faint red light reflections, hopeful motion versus grounded stillness, top third clear for two balloons",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, salesman grin, blended color split",
+      "references_required": [
+        "03_APPROVED_CANON/approved_characters/neonblue/",
+        "03_APPROVED_CANON/approved_characters/twotone/"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60201,
+      "controlnet": {
+        "required": true,
+        "type": "openpose",
+        "reference": "references/pose_refs/p02_debate.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "neonblue x2",
+          "twotone x2"
+        ]
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "two balloons top third: NeonBlue left, TwoTone right"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 2,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-06_P02_PANEL02",
+      "character_tokens": [
+        "mz_moodz"
+      ],
+      "character_design_reminders": [
+        "Moodz: pale face, black emo fringe with blue streak, grey eye rings — arms crossed, wary side-eye toward the distance"
+      ],
+      "pose": "close-up, arms crossed, eyes narrowed toward off-frame light",
+      "expression": "suspicion with self-protection underneath",
+      "environment": "rooftop night, abstract dark",
+      "camera_angle": "close-up",
+      "lighting": "distant red blink as the only warm reflection on his fringe",
+      "color_palette": "cool greys, one red glint",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, close-up portrait of mz_moodz (pale-faced brown monkey, black emo fringe with blue streak, grey eye rings, black studded cuffs) with arms crossed, eyes narrowed in wary side-eye toward an off-frame distant light, a faint red glint caught on the edge of his fringe as the only warm tone, cool grey night backdrop, guarded skeptical mood, bottom third clear for balloon",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, smiling, other characters",
+      "references_required": [
+        "03_APPROVED_CANON/approved_characters/moodz/"
+      ],
+      "seed_strategy": "per_character_base",
+      "seed": 100001,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "moodz x3"
+        ]
+      },
+      "resolution": "1024x1024",
+      "bubble_space_note": "one balloon bottom third"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 2,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-08-06_P02_PANEL03",
+      "character_tokens": [
+        "mz_faction_zombie",
+        "mz_neonblue"
+      ],
+      "character_design_reminders": [
+        "Patch: pale-green zombie monkey, exposed purple brain, bitten left ear, bone-stump forearm — walking AWAY toward the mast, unhurried",
+        "NeonBlue: at frame edge, calling after him, baffled"
+      ],
+      "pose": "Patch seen from three-quarter behind, mid-shuffle toward the fire escape and the distant mast; NeonBlue leaning into frame edge calling out",
+      "expression": "Patch unreadable from behind; NeonBlue baffled urgency",
+      "environment": "rooftop edge, fire escape, distant red-blink mast on horizon",
+      "camera_angle": "medium, following Patch's back",
+      "lighting": "cool night, red horizon accent",
+      "color_palette": "night greys, olive green figure, red point",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, medium shot from three-quarter behind, a mz_faction_zombie monkey (pale-green skin, exposed purple brain, bitten left ear, bone-stump forearm, olive plush body) shuffling unhurried toward a rooftop fire escape and a distant red-blinking mast on the horizon, mz_neonblue (white-cyan spike crown, black vest) leaning into the frame edge behind him calling out with baffled urgency, cool night palette with single red horizon accent, top third clear for balloons and caption",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, blood, gore, lunging pose",
+      "references_required": [
+        "zombie.png (Patch)",
+        "03_APPROVED_CANON/approved_characters/neonblue/"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60203,
+      "controlnet": {
+        "required": true,
+        "type": "openpose",
+        "reference": "references/pose_refs/p02_patch_walk.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "zombie.png",
+          "neonblue x1"
+        ]
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "Patch's ragged balloon + NeonBlue's balloon top third; caption bottom edge"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 3,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-06_P03_PANEL01",
+      "character_tokens": [
+        "mz_moodz",
+        "mz_twotone",
+        "mz_static",
+        "mz_ash",
+        "mz_neonblue",
+        "mz_scarline",
+        "mz_faction_zombie"
+      ],
+      "character_design_reminders": [
+        "All seven as SMALL figures — signature silhouettes readable (fringe, split, spikes, hood, flick, scarf, shuffle); Patch leading the line"
+      ],
+      "pose": "seven small figures descending a street into the old district, zombie figure at the FRONT; COMPOSE over Old Quarter plate",
+      "expression": "n/a at this scale — posture only",
+      "environment": "the Old Quarter: aged low-rise buildings, cable-vines, faded signage, red mast light above",
+      "camera_angle": "wide establishing, high angle",
+      "lighting": "near-dark, red blink key, grey ambient",
+      "color_palette": "aged browns, soot grey, red accent",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, high wide angle over an aged pre-neon district street with dead cable bundles sagging like vines between rounder older buildings, seven small chibi monkey figures descending into the district in a loose line with a small olive-green zombie monkey figure leading at the front, the other silhouettes readable by shape (black fringe, half-black-half-white split hairstyle, slick black hair, hood, white-cyan spike crown, red-streaked white hair), an ancient relay mast blinking red above the rooflines, near-dark aged browns and soot greys, characters small against the architecture, upper band clear for caption",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, neon signs, eighth figure, readable signage text",
+      "references_required": [
+        "references/background_refs/old_quarter_plate.png (P00_PLATE01)",
+        "all lead refs",
+        "zombie.png"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60301,
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/background_refs/old_quarter_plate.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "silhouette-scale: leads x1 each"
+        ]
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "caption box upper band"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 3,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-06_P03_PANEL02",
+      "character_tokens": [
+        "mz_static",
+        "mz_ash"
+      ],
+      "character_design_reminders": [
+        "Static: black slicked hair, grey eye rings, shake lines subtle",
+        "Ash: silver-white fringe over one eye, half-lidded, arms crossed, deadpan"
+      ],
+      "pose": "both facing a rusted stencil door with a faint amber seam glow at its base, vibration lines humming off the doorframe; squad shapes behind",
+      "expression": "Static keyed-up; Ash unimpressed",
+      "environment": "Old Quarter alley dead-end, rusted metal door with blank stencil plate",
+      "camera_angle": "medium on the door, characters at three-quarter",
+      "lighting": "grey alley dark, warm AMBER seam light at the door base",
+      "color_palette": "rust, soot, amber seam",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, medium shot of a rusted metal door with a blank stencil plate in a dead-end alley, warm amber light seeping from the door's bottom seam, cartoon vibration lines humming off the doorframe, mz_static (pale-grey-faced monkey, glossy black slicked hair with widow's peak, heavy grey rings under eyes, subtle shake lines, keyed-up expression) and mz_ash (pale-faced monkey, shaggy silver-white emo fringe over one eye, droopy grey-bagged eyes, open black vest, arms crossed, deadpan) facing the door in three-quarter view, dark squad shapes behind them, rust and soot palette with the amber seam as the only warmth, top third clear for two balloons",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, readable stencil text, open door",
+      "references_required": [
+        "03_APPROVED_CANON/approved_characters/static/",
+        "03_APPROVED_CANON/approved_characters/ash/",
+        "old_quarter_plate.png"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60302,
+      "controlnet": {
+        "required": true,
+        "type": "openpose",
+        "reference": "references/pose_refs/p03_door.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "static x2",
+          "ash x2"
+        ]
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "two balloons top third; stencil text 'FUSIONZOO RELAY 1 — AUTHORIZED PERSONNEL' applied at lettering"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 3,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-08-06_P03_PANEL03",
+      "character_tokens": [
+        "mz_moodz"
+      ],
+      "character_design_reminders": [
+        "Moodz: only his mitten hand and fringe edge in frame — hovering over the console, NOT touching"
+      ],
+      "pose": "close on console; Moodz's mitt hovering an inch above it, fringe edge at frame corner",
+      "expression": "held breath (implied)",
+      "environment": "Relay 1 control room: dead dark consoles, ONE live screen pulsing a slow amber heartbeat waveform",
+      "camera_angle": "close-up on the console",
+      "lighting": "amber screen-glow only",
+      "color_palette": "charcoal + amber",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, close-up of an ancient dusty control console where exactly one screen is alive glowing warm amber with a slow heartbeat waveform line, a chibi monkey's mitten hand hovering an inch above the console not touching it, the edge of a black fringe with blue streak entering the frame corner, all other screens dead and dark, amber glow as the only light, reverent quiet, bottom quarter clear for balloon and small SFX",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, hand touching console, readable screen text, full character visible",
+      "references_required": [
+        "references/background_refs/relay_room_plate.png (P00_PLATE02)",
+        "moodz refs (mitt/fringe)"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60303,
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/background_refs/relay_room_plate.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "moodz x1"
+        ]
+      },
+      "resolution": "1024x1024",
+      "bubble_space_note": "small balloon + 'bmp… bmp…' SFX bottom quarter"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 4,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-06_P04_PANEL01",
+      "character_tokens": [
+        "mz_moodz",
+        "mz_twotone",
+        "mz_static",
+        "mz_ash",
+        "mz_neonblue",
+        "mz_scarline",
+        "mz_faction_zombie"
+      ],
+      "character_design_reminders": [
+        "THE PENDING (6-8): DECLARED ART EXCEPTION — chibi monkeys rendered as clean black lineart with large areas of MISSING flat color fill, outlines subtly doubled as if flickering between two silhouettes, calm patient standing poses like a stopped queue; NO brains, NO green, NO decay",
+        "Squad + Patch: tiny at the doorway, fully rendered per bible — the contrast IS the effect"
+      ],
+      "pose": "the Pending standing spaced down the hall between dead prototype chambers, patient queue postures; squad cluster small in the doorway; COMPOSE over prototype hall plate",
+      "expression": "the Pending: mild patience; squad: awe",
+      "environment": "prototype chamber hall, amber floor strips, dust shafts",
+      "camera_angle": "wide, slightly low, down the central aisle",
+      "lighting": "dim amber, soft dust light",
+      "color_palette": "gunmetal + amber; the Pending partially UNCOLORED (white paper showing)",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, full-page splash slightly low and wide down the central aisle of an industrial hall of bulky dead prototype chambers, seven UNFINISHED chibi monkey figures standing spaced along the aisle rendered as clean black lineart with large areas of missing flat color fill showing blank white, their outlines subtly doubled like two silhouettes sharing one body, calm patient standing poses like a queue that stopped moving years ago, in the foreground doorway a small cluster of seven fully colored chibi monkeys (black fringe, vertical split, hair spikes, hood, white-cyan spike crown, scarf, one olive zombie) gazing in, dim amber emergency floor strips and dusty light shafts, monumental melancholy, upper band clear for caption",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, exposed brains, zombie decay on the lineart figures, ghosts, transparency effects, motion blur, horror shading",
+      "references_required": [
+        "references/background_refs/prototype_hall_plate.png (P00_PLATE03)",
+        "references/pose_refs/p04_splash_sketch.png (composition sketch REQUIRED)",
+        "all lead refs (doorway cluster)"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60401,
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/pose_refs/p04_splash_sketch.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "leads x1 each (doorway)"
+        ]
+      },
+      "resolution": "832x1216",
+      "bubble_space_note": "two-part caption in upper dark band; full bleed, no border"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 5,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-06_P05_PANEL01",
+      "character_tokens": [
+        "mz_moodz",
+        "mz_neonblue"
+      ],
+      "character_design_reminders": [
+        "One Pending monkey foreground: lineart with missing fills, doubled outline at the HEAD (two head shapes), polite posture",
+        "Moodz + NeonBlue behind: fully rendered, frozen"
+      ],
+      "pose": "the Pending monkey turned toward camera-left addressing the two leads standing a respectful distance behind",
+      "expression": "the Pending: mild, patient, polite; leads: stunned",
+      "environment": "prototype hall aisle",
+      "camera_angle": "medium two-depth shot",
+      "lighting": "amber dim",
+      "color_palette": "amber + uncolored white patches",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, medium two-depth shot in a dim amber prototype hall, foreground an UNFINISHED chibi monkey rendered as clean lineart with missing flat color fills and a subtly doubled head outline like two head shapes sharing one neck, standing politely with mitten hands folded, turned toward mz_moodz (pale face, black fringe with blue streak) and mz_neonblue (white-cyan spike crown, black vest) standing frozen a respectful distance behind, mild patient body language against their stunned stillness, top fifth clear for balloon, bottom band clear for caption",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, exposed brain, decay, menace, horror lighting",
+      "references_required": [
+        "prototype_hall_plate.png",
+        "moodz refs",
+        "neonblue refs",
+        "P04 approved splash (Pending look lock)"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60501,
+      "controlnet": {
+        "required": true,
+        "type": "openpose",
+        "reference": "references/pose_refs/p05_polite.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "moodz x1",
+          "neonblue x1"
+        ]
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "one balloon top fifth ('Is it done yet?'), caption bottom band"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 5,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-06_P05_PANEL02",
+      "character_tokens": [
+        "mz_neonblue"
+      ],
+      "character_design_reminders": [
+        "NeonBlue: earnest helper mode — hands out, leaning in, NOT salesman grin",
+        "Pending monkey: recoiling, outline doubling INTENSIFIED (three offset outlines), fills flickering"
+      ],
+      "pose": "NeonBlue stepping forward with both mitts out reassuringly; the Pending pulling back, outline stuttering hard",
+      "expression": "NeonBlue earnest concern; the Pending alarm",
+      "environment": "prototype hall aisle",
+      "camera_angle": "two-shot, slight dutch for tension",
+      "lighting": "amber, harsher on the recoil",
+      "color_palette": "amber, blue accent, stuttering white gaps",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, slightly tilted two-shot, mz_neonblue (white-cyan spike crown, black studded vest, earnest concerned face) stepping forward with both mitten hands out in a reassuring helper gesture, facing an UNFINISHED lineart chibi monkey recoiling backward with its doubled outline intensified into three offset stuttering outlines and its missing color fills flickering, alarm in its huge eyes, amber light gone harsher, boundary-crossing tension, top third clear for two balloons",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, salesman grin, aggression, motion blur, horror teeth",
+      "references_required": [
+        "neonblue refs",
+        "P04 approved splash (Pending look lock)",
+        "prototype_hall_plate.png"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60502,
+      "controlnet": {
+        "required": true,
+        "type": "openpose",
+        "reference": "references/pose_refs/p05_recoil.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "neonblue x2"
+        ]
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "NeonBlue balloon left, Pending's clipped staccato balloon right ('Don't. Touch. The state.')"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 5,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-08-06_P05_PANEL03",
+      "character_tokens": [
+        "mz_faction_zombie",
+        "mz_moodz",
+        "mz_twotone"
+      ],
+      "character_design_reminders": [
+        "Patch: bitten ear, bone stump — standing at a secondary console, mitt resting FLAT on it, head bowed slightly: grief posture",
+        "Moodz + TwoTone mid-ground, exchanging the realization"
+      ],
+      "pose": "Patch at console alcove in stillness; Moodz and TwoTone in mid-ground half-turned to each other",
+      "expression": "Patch: bowed, grieving stillness; Moodz grim; TwoTone level",
+      "environment": "prototype hall console alcove",
+      "camera_angle": "medium, Patch as the anchor of the frame",
+      "lighting": "amber, Patch half in shadow",
+      "color_palette": "amber, olive, shadow",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, medium shot anchored on a mz_faction_zombie monkey (pale-green, exposed purple brain, bitten left ear, bone-stump forearm) standing at an old console alcove with his remaining mitten hand resting flat on the dusty console and head bowed slightly in grieving stillness, half in shadow, mid-ground mz_moodz (black fringe with blue streak) and mz_twotone (half-black-half-white split hair) half-turned to each other in grim realization, dim amber light, the difference between grief and waiting made visible, top third clear for two balloons",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, blood, gore, Pending figures in frame",
+      "references_required": [
+        "zombie.png (Patch)",
+        "moodz refs",
+        "twotone refs",
+        "prototype_hall_plate.png"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60503,
+      "controlnet": {
+        "required": true,
+        "type": "openpose",
+        "reference": "references/pose_refs/p05_patch_console.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "zombie.png",
+          "moodz x1",
+          "twotone x1"
+        ]
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "two balloons top third: Moodz then TwoTone"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 6,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-06_P06_PANEL01",
+      "character_tokens": [
+        "mz_static",
+        "mz_twotone"
+      ],
+      "character_design_reminders": [
+        "Static: peering over the console edge, spikes first, eyes huge",
+        "TwoTone (split black-white hair): crouched examining fresh cable ties, analytical"
+      ],
+      "pose": "over-console reveal: behind the main console a nest of jury-rigged FRESH power splices, bright new cable ties, folded tarp bed; Static peering over the top edge, TwoTone crouched at the cables",
+      "expression": "Static spooked; TwoTone forensic",
+      "environment": "Relay 1 control room floor behind the console; live screen glow above (blank for lettering)",
+      "camera_angle": "high over-console angle looking down at the hidden nest",
+      "lighting": "amber from above, flashlight-clean on the fresh cables",
+      "color_palette": "dust everywhere EXCEPT the clean new cables — that contrast is the story",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, high angle looking down behind an ancient console revealing a hidden nest: jury-rigged power splices with bright NEW cable ties, neatly coiled fresh wiring, a folded tarp bed, everything else buried in years of dust while the new work is conspicuously clean, mz_static (black slicked hair, grey eye rings) peering wide-eyed over the console's top edge and mz_twotone (half-black-half-white split hair) crouched examining the cables forensically, blank amber screen glowing above, the contrast between old dust and fresh care as the visual subject, top fifth clear for balloon",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, any figure or silhouette of the keeper, footprints with detail, readable screen text",
+      "references_required": [
+        "relay_room_plate.png",
+        "static refs",
+        "twotone refs"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60601,
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/background_refs/relay_room_plate.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "static x2",
+          "twotone x2"
+        ]
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "one balloon top fifth; screen text 'STATE: PENDING — AWAITING FINALIZATION — DAY 4,749' applied at lettering"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 6,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-06_P06_PANEL02",
+      "character_tokens": [
+        "mz_moodz",
+        "mz_twotone",
+        "mz_static",
+        "mz_ash",
+        "mz_neonblue",
+        "mz_scarline",
+        "mz_faction_zombie"
+      ],
+      "character_design_reminders": [
+        "Moodz: front and center between the two groups, shoulders LOWERED, open posture — asking, not demanding",
+        "The Pending (4-6): gathered loosely, flickers SETTLED to gentle doubling",
+        "Squad behind Moodz in soft focus"
+      ],
+      "pose": "Moodz a step ahead of the squad, facing the loosely gathered Pending; both groups at conversational distance; COMPOSE over hall plate",
+      "expression": "Moodz calm sincerity; the Pending settling",
+      "environment": "prototype hall, wide floor between the groups",
+      "camera_angle": "medium-wide, side-on so both groups share the frame equally",
+      "lighting": "amber warmed slightly",
+      "color_palette": "amber, muted squad colors, white-gap lineart figures",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, medium-wide side-on shot giving equal frame to two groups facing each other across a prototype hall floor, left: mz_moodz (pale face, black fringe with blue streak) standing one step ahead of his squad with shoulders lowered and open sincere posture, his six companions in soft focus behind him including an olive zombie monkey, right: five UNFINISHED lineart chibi monkeys with missing color fills gathered loosely, their doubled outlines settled to a gentle calm, warm amber light, conversational distance, the stillness of a question that matters, top band clear for two balloons",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, confrontation staging, aggression, exposed brains on lineart figures",
+      "references_required": [
+        "prototype_hall_plate.png",
+        "all lead refs",
+        "zombie.png",
+        "P04 approved splash (Pending look lock)"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60602,
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/background_refs/prototype_hall_plate.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "moodz x2",
+          "others x1"
+        ]
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "Moodz balloon left, the Pending's small shared balloon right ('Company.') — give both air"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 7,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-06_P07_PANEL01",
+      "character_tokens": [
+        "mz_moodz",
+        "mz_twotone",
+        "mz_static",
+        "mz_ash",
+        "mz_neonblue",
+        "mz_scarline",
+        "mz_faction_zombie"
+      ],
+      "character_design_reminders": [
+        "Static: cross-legged grounding pose NEXT TO a Pending monkey mirroring it",
+        "Ash (white fringe): doorframe lean shared with a Pending monkey",
+        "NeonBlue: seated, listening to one",
+        "Flickers at their CALMEST — single clean doubled outline only"
+      ],
+      "pose": "WORDLESS ensemble: squad and Pending mingled in small pairs across the hall, seated and leaning, nobody fixing anything; COMPOSE over hall plate",
+      "expression": "quiet company",
+      "environment": "prototype hall, warm",
+      "camera_angle": "wide, gentle symmetry broken by seating clusters",
+      "lighting": "amber at its warmest",
+      "color_palette": "warm amber, calm",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, wide warm shot of a prototype hall where fully colored chibi monkeys and UNFINISHED lineart chibi monkeys sit and stand together in small mingled pairs, a pale-faced monkey with slick black hair sitting cross-legged beside a lineart monkey mirroring the same pose, a white-fringed monkey and a lineart monkey sharing a doorframe lean, a spike-crowned monkey seated and listening, an olive zombie monkey among them, doubled outlines at their calmest, amber light at its warmest, gentle broken symmetry, nobody doing anything but being there, lower band clear for caption",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, action, drama lighting, tears",
+      "references_required": [
+        "prototype_hall_plate.png",
+        "all lead refs",
+        "zombie.png",
+        "references/pose_refs/p07_visit.png"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60701,
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/pose_refs/p07_visit.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "leads x1 each"
+        ]
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "caption box lower band ('Some rescues are just visits.') — no balloons"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 7,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-06_P07_PANEL02",
+      "character_tokens": [
+        "mz_scarline",
+        "mz_moodz"
+      ],
+      "character_design_reminders": [
+        "Scarline: umber fur, scarlet hair streak left brow, black studded biker jacket — planted, steady, facing Moodz",
+        "Moodz: half-turned back toward the hall, guilt visible"
+      ],
+      "pose": "at the exit door: Moodz half-turned looking back into the hall, Scarline stopped beside him facing him squarely; door light between them",
+      "expression": "Moodz unsteady guilt; Scarline settled clarity",
+      "environment": "Relay 1 exit doorway, amber inside vs grey night outside",
+      "camera_angle": "two-shot at the threshold, eye level",
+      "lighting": "split: amber interior on Moodz's back, grey night on faces",
+      "color_palette": "amber/grey split, scarlet hair-streak accent",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, eye-level two-shot at a doorway threshold, mz_moodz (pale face, black fringe with blue streak) half-turned looking back into an amber-lit interior with visible unsteady guilt, mz_scarline (palest white-faced monkey, white bowl-cut with scarlet streak, open black biker jacket) stopped beside him facing him squarely with settled steady clarity, warm amber light on their backs and grey night light on their faces, the door light dividing the frame between them, quiet weight, top third clear for one balloon",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, multiple scars, scar on wrong side, other characters in frame",
+      "references_required": [
+        "scarline refs",
+        "moodz refs"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60702,
+      "controlnet": {
+        "required": true,
+        "type": "openpose",
+        "reference": "references/pose_refs/p07_threshold.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "scarline x3",
+          "moodz x2"
+        ]
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "one balloon top third, tail to Scarline ('Leaving isn't abandoning if you come back.')"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 7,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-08-06_P07_PANEL03",
+      "character_tokens": [
+        "mz_faction_zombie"
+      ],
+      "character_design_reminders": [
+        "Patch: only his mitten hand in frame, smoothing a crumpled rain-spotted pastel envelope flat on the console beside the amber heartbeat screen — THE Issue 05 recall notice prop"
+      ],
+      "pose": "close on console edge: Patch's mitt pressing the crumpled pastel notice flat, body already exiting frame",
+      "expression": "n/a — the gesture is the expression",
+      "environment": "Relay 1 console, amber heartbeat screen glowing",
+      "camera_angle": "close-up on the console edge",
+      "lighting": "amber screen glow on the pastel paper",
+      "color_palette": "charcoal, amber, one pastel note",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, intimate close-up of an ancient console edge lit by an amber heartbeat waveform screen, a pale-green zombie monkey's mitten hand gently smoothing a crumpled rain-spotted BLANK pastel envelope flat on the dusty console surface beside the screen, the body already stepping out of frame leaving only the arm, dust disturbed in a clean swipe where the paper lies, amber glow catching the pastel paper as the only soft color, tender finality, bottom quarter clear for small SFX",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, text on the envelope, letters, full character visible, face visible",
+      "references_required": [
+        "zombie.png (Patch mitt)",
+        "relay_room_plate.png",
+        "Issue 05 P01_PANEL02 selected art (notice prop match) when generated"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60703,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "zombie.png"
+        ]
+      },
+      "resolution": "1024x1024",
+      "bubble_space_note": "'bmp… bmp…' SFX small, bottom quarter; NO caption — silence is scripted"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 8,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-06_P08_PANEL01",
+      "character_tokens": [
+        "mz_moodz",
+        "mz_twotone",
+        "mz_static",
+        "mz_ash",
+        "mz_neonblue",
+        "mz_scarline",
+        "mz_faction_zombie"
+      ],
+      "character_design_reminders": [
+        "All seven from BEHIND, silhouette shapes readable; PATCH WALKS INSIDE THE GROUP now (between Static and NeonBlue), not at the line's end — this placement is the panel's whole point"
+      ],
+      "pose": "seven monkeys walking away up the Old Quarter street toward the brightening skyline, loose cluster not a line; COMPOSE over Old Quarter plate",
+      "expression": "posture only: tired, together",
+      "environment": "Old Quarter street at first grey of dawn, mast receding above rooflines, its red light still blinking",
+      "camera_angle": "wide from behind, street receding",
+      "lighting": "first dawn grey, red blink diminished",
+      "color_palette": "dawn greys, muted accents, small red point",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, wide shot from behind of seven chibi monkeys walking away up an aged district street at the first grey of dawn, walking as a loose cluster with a small olive-green zombie monkey in the MIDDLE of the group between a black-slick-haired pale monkey and a spike-crowned monkey, silhouettes readable (black fringe with blue streak, split black-white hair, slick black hair, shaggy white fringe, cyan spike crown, red-streaked white hair), dead cable-vines overhead, an old relay mast receding above the rooflines behind them with its red light still blinking small, dawn greys, weary togetherness, top fifth clear for balloons",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, faces visible, zombie at the end of the line, eighth figure",
+      "references_required": [
+        "old_quarter_plate.png",
+        "all lead refs (back views)",
+        "zombie.png"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60801,
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/background_refs/old_quarter_plate.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "leads x1 each",
+          "zombie.png"
+        ]
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "two small balloons top fifth: Ash then Static"
+    },
+    {
+      "issue_id": "MZ-2026-08-06",
+      "page_number": 8,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-06_P08_PANEL02",
+      "character_tokens": [],
+      "character_design_reminders": [],
+      "pose": "no characters — empty room, identical framing to P03_PANEL03 minus Moodz",
+      "expression": "n/a",
+      "environment": "Relay 1 control room, empty: the console, the live amber screen now pulsing a CHANGED double-beat waveform, the crumpled pastel notice lying beside it",
+      "camera_angle": "static close shot matching P03_PANEL03 framing exactly",
+      "lighting": "amber, slightly brighter than before — the machine is awake",
+      "color_palette": "charcoal, amber, pastel note",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, static close shot of an empty ancient control room, the same dusty console as before but with NO ONE present, the single live screen glowing amber now pulsing a doubled heartbeat waveform with two peaks, a crumpled rain-spotted blank pastel envelope lying flat beside the screen, the amber glow slightly brighter than before as if the machine woke up, the emptiness of the room as the subject, unsettling calm, bottom band clear for caption, screen area clean for lettering",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, any characters, monkeys, readable screen text, text on envelope",
+      "references_required": [
+        "relay_room_plate.png",
+        "P03_PANEL03 selected art (framing match)"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 60802,
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/background_refs/relay_room_plate.png"
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      },
+      "resolution": "1216x832",
+      "bubble_space_note": "caption bottom band; screen text 'SIGNAL ACKNOWLEDGED — RETURN PROTOCOL INITIATED' + doubled 'bmp-bmp.' SFX applied at lettering"
+    }
+  ]
+}

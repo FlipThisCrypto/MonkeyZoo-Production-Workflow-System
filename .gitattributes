@@ -1,0 +1,18 @@
+# Binary assets — never eol-normalize
+*.pdf  binary
+*.png  binary
+*.webp binary
+*.jpg  binary
+*.jpeg binary
+*.zip  binary
+*.cbz  binary
+*.safetensors binary
+
+# Text — normalize to LF in-repo
+*.md   text eol=lf
+*.json text eol=lf
+*.py   text eol=lf
+*.yaml text eol=lf
+*.yml  text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf

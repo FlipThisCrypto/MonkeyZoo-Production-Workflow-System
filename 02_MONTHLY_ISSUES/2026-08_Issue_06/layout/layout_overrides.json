@@ -1,0 +1,23 @@
+{
+  "MZ-2026-08-06_P02_PANEL02": { "crop": [0.02, 0.0, 0.86, 0.9], "bubble_y": 0.14, "caption_y": 0.84 },
+  "MZ-2026-08-06_P03_PANEL01": { "crop": [0.3, 0.0, 1.0, 1.0], "caption_y": 0.06 },
+  "MZ-2026-08-06_P03_PANEL02": { "crop": [0.05, 0.16, 0.95, 1.0], "screen_text": "FUSIONZOO RELAY 1 — AUTHORIZED PERSONNEL", "screen_x": 0.5, "screen_y": 0.3, "bubble_y": 0.13 },
+  "MZ-2026-08-06_P03_PANEL03": { "crop": [0.0, 0.22, 0.68, 1.0], "bubble_y": 0.15, "sfx_x": 0.6, "sfx_y": 0.78 },
+  "MZ-2026-08-06_P05_PANEL01": { "crop": [0.0, 0.0, 0.62, 1.0], "bubble_y": 0.14, "caption_y": 0.8 },
+  "MZ-2026-08-06_P05_PANEL03": { "bubble_y": 0.13 },
+  "MZ-2026-08-06_P06_PANEL01": { "crop": [0.0, 0.15, 1.0, 1.0], "screen_text": "STATE: PENDING — AWAITING FINALIZATION — DAY 4,749", "screen_x": 0.5, "screen_y": 0.16, "bubble_y": 0.42 },
+  "MZ-2026-08-06_P06_PANEL02": { "crop": [0.0, 0.14, 1.0, 1.0], "bubble_y": 0.14 },
+  "MZ-2026-08-06_P07_PANEL01": { "crop": [0.06, 0.12, 1.0, 1.0], "caption_y": 0.84 },
+  "MZ-2026-08-06_P07_PANEL02": { "crop": [0.0, 0.17, 1.0, 1.0], "bubble_y": 0.15 },
+  "MZ-2026-08-06_P07_PANEL03": { "sfx_x": 0.62, "sfx_y": 0.8 },
+  "MZ-2026-08-06_P08_PANEL01": { "crop": [0.0, 0.15, 1.0, 1.0], "bubble_y": 0.14 },
+  "MZ-2026-08-06_P08_PANEL02": { "screen_text": "SIGNAL ACKNOWLEDGED — RETURN PROTOCOL INITIATED", "screen_x": 0.5, "screen_y": 0.32, "caption_y": 0.8, "sfx_x": 0.06, "sfx_y": 0.08 },
+  "MZ-2026-08-06_P04_PANEL01": { "caption_y": 0.04 },
+  "MZ-2026-08-06_P01_PANEL02": { "caption_y": 0.78 },
+  "_social": {
+    "splash_1x1": { "panel": "MZ-2026-08-06_P04_PANEL01", "size": [1080, 1080] },
+    "teaser_16x9": { "panel": "MZ-2026-08-06_P03_PANEL02", "size": [1600, 900], "crop": [0.05, 0.16, 0.95, 1.0] },
+    "moodz_4x5": { "panel": "MZ-2026-08-06_P02_PANEL02", "size": [1080, 1350], "crop": [0.02, 0.0, 0.86, 0.9] },
+    "mast_4x5": { "panel": "MZ-2026-08-06_P01_PANEL02", "size": [1080, 1350] }
+  }
+}
