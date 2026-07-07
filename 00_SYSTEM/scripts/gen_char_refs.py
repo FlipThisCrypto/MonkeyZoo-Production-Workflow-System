@@ -147,7 +147,10 @@ def main():
             if args.dry_run:
                 print(f"DRY {name}_{vkey} seed={seed}")
                 continue
-            init = f"mz-canon/{name}.webp" if args.img2img else None
+            # flat PNG frame-0 extracts — NEVER the raw webps: neonblue's
+            # minted card is a 25-frame ANIMATED webp that expands to a
+            # 25-image batch in LoadImage and wedges ZLUDA (found 2026-07-07)
+            init = f"mz-canon/{name}.png" if args.img2img else None
             dn = 1.0
             if args.img2img:
                 dn = args.denoise or DENOISE_TIERS.get(vkey.split("_")[0], 0.8)

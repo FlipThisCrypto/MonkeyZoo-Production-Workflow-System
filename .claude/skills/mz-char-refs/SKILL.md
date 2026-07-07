@@ -23,8 +23,13 @@ boots, grey eye rings, droopy lid); identity = HAIR + card color:
 | Scarline | #1028 | white helmet hair + red stripe (viewer-left) | grey |
 
 ## Generate
-1. Ensure inits staged: minted webps copied to ComfyUI input
-   `I:\ai\nft\input\mz-canon\<name>.webp` (912×1216 lanczos scale in-graph).
+1. Ensure inits staged as **flat PNG frame-0 extracts** at ComfyUI input
+   `I:\ai\nft\input\mz-canon\<name>.png` (912×1216 lanczos scale in-graph).
+   **NEVER feed the raw minted webps to LoadImage:** NeonBlue's card is a
+   25-frame ANIMATED webp — LoadImage expands it to a 25-image batch and the
+   25× img2img wedges ZLUDA hard (root cause of the 2026-07-06/07 stalls;
+   masqueraded as a VRAM leak). Check any new minted asset with PIL
+   `n_frames` before use; extract frame 0 to PNG.
 2. `python 00_SYSTEM/scripts/gen_char_refs.py --img2img [--only ash,moodz]
    [--variants-only angry,walking]`
    - 14-variant matrix: 4 angles + portrait + 4 expressions + 5 poses.
