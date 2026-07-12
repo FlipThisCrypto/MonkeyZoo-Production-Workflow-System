@@ -1,0 +1,50 @@
+[
+    {
+        "panels":  20,
+        "release_log":  "Compiled PDF \u0026 CBZ",
+        "is_demo":  false,
+        "qa_status":  "Passed",
+        "completion":  "100%",
+        "owner":  "Lead Writer",
+        "issue_id":  "2026-07_Issue_05",
+        "title":  "MonkeyZoo: The Ones Who Stayed",
+        "stage":  "10. Release",
+        "pages":  8
+    },
+    {
+        "panels":  20,
+        "release_log":  "Draft Outline",
+        "is_demo":  false,
+        "qa_status":  "Pending",
+        "completion":  "40%",
+        "owner":  "Art Director",
+        "issue_id":  "MZ-2026-07-MANGO",
+        "title":  "The Meltdown at Mango Pier",
+        "stage":  "4. Script",
+        "pages":  8
+    },
+    {
+        "panels":  20,
+        "release_log":  "Concept Brief",
+        "is_demo":  false,
+        "qa_status":  "Pending",
+        "completion":  "10%",
+        "owner":  "Editor",
+        "issue_id":  "2026-08_Issue_06",
+        "title":  "MonkeyZoo: The Broken Signal",
+        "stage":  "1. Intake",
+        "pages":  8
+    },
+    {
+        "panels":  30,
+        "release_log":  "Progress demonstration only",
+        "is_demo":  true,
+        "qa_status":  "Pending",
+        "completion":  "60%",
+        "owner":  "AI Generator",
+        "issue_id":  "MZ-DEMO-ISSUE-01",
+        "title":  "Calibration Test",
+        "stage":  "6. Art Generation",
+        "pages":  10
+    }
+]

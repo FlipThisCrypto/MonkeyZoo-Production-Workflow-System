@@ -31,18 +31,186 @@ async function api(path, options = {}) {
 }
 
 async function loadCharacters() {
-  characters = await api("/api/characters");
-  if (!adventureStyles.length) {
-    adventureStyles = await api("/api/story/adventure-styles");
-    $("storyAdventureStyle").innerHTML = adventureStyles.map(style => `<option>${escapeHtml(style)}</option>`).join("");
-    $("storyAdventureStyle").value = "Low-stakes slice of life";
+  try {
+    characters = await api("/api/characters");
+    if ($("statusBackend")) {
+      $("statusBackend").textContent = "Connected (127.0.0.1:8765)";
+      $("statusBackend").className = "status-value connected";
+    }
+    if ($("sidebarStatusIndicator")) {
+      $("sidebarStatusIndicator").className = "status-indicator online";
+    }
+    if ($("sidebarStatusText")) {
+      $("sidebarStatusText").textContent = "Backend connected";
+    }
+    await loadIssuesMetadata();
+  } catch (err) {
+    console.error("Backend connection failed:", err);
+    if ($("statusBackend")) {
+      $("statusBackend").textContent = "Backend status unavailable";
+      $("statusBackend").className = "status-value disconnected";
+    }
+    if ($("sidebarStatusIndicator")) {
+      $("sidebarStatusIndicator").className = "status-indicator offline";
+    }
+    if ($("sidebarStatusText")) {
+      $("sidebarStatusText").textContent = "Backend status unavailable";
+    }
+    renderIssuesUnavailable();
   }
+  
+  if (!adventureStyles.length && characters.length) {
+    try {
+      adventureStyles = await api("/api/story/adventure-styles");
+      $("storyAdventureStyle").innerHTML = adventureStyles.map(style => `<option>${escapeHtml(style)}</option>`).join("");
+      $("storyAdventureStyle").value = "Low-stakes slice of life";
+    } catch (e) {
+      console.warn("Failed to load adventure styles:", e);
+    }
+  }
+  
   renderCharacterList();
   renderStoryCharacterList();
   
   // Update dashboard metrics and cast
   renderDashboardMetrics();
   renderDashboardCharacters();
+}
+
+async function loadIssuesMetadata() {
+  try {
+    const res = await fetch("./static/issues_metadata.json");
+    if (!res.ok) throw new Error("Metadata file missing");
+    const data = await res.json();
+    renderIssuesList(data);
+  } catch (err) {
+    console.warn("Issues metadata unavailable:", err);
+    renderIssuesUnavailable();
+  }
+}
+
+function renderIssuesList(issues) {
+  const grid = $("issuesWorkspaceGrid");
+  if (!grid) return;
+  
+  if (!issues || issues.length === 0) {
+    renderIssuesUnavailable();
+    return;
+  }
+  
+  grid.innerHTML = issues.map(issue => {
+    const isDemo = issue.is_demo;
+    const tagClass = isDemo ? "tag-demo" : "tag-repo";
+    const tagLabel = isDemo ? "[Demo Placeholder]" : "[Repository Metadata]";
+    const borderClass = isDemo ? "demo-border" : "";
+    const pillStyle = issue.stage.includes("Release") ? "background: rgba(74, 222, 128, 0.1); color: var(--ok);" : "background: rgba(56, 189, 248, 0.1); color: var(--accent);";
+    const pillLabel = issue.stage.includes("Release") ? "Released" : "In Production";
+    
+    let stageNum = 1;
+    if (issue.stage.includes("Continuity")) stageNum = 2;
+    else if (issue.stage.includes("Showrunner")) stageNum = 3;
+    else if (issue.stage.includes("Script")) stageNum = 4;
+    else if (issue.stage.includes("Direction")) stageNum = 5;
+    else if (issue.stage.includes("Generation") || issue.stage.includes("Gen")) stageNum = 6;
+    else if (issue.stage.includes("Art QA")) stageNum = 7;
+    else if (issue.stage.includes("Layout")) stageNum = 8;
+    else if (issue.stage.includes("Final QA")) stageNum = 9;
+    else if (issue.stage.includes("Release")) stageNum = 10;
+    
+    const barWidth = `${stageNum * 10}%`;
+    const barColor = stageNum === 10 ? "var(--ok)" : "var(--accent)";
+    
+    return `
+      <div class="issue-card ${borderClass}">
+        <div class="card-header">
+          <h4>${escapeHtml(issue.issue_id)} <span class="data-tag ${tagClass}">${tagLabel}</span></h4>
+          <span class="status-pill" style="${pillStyle}">${pillLabel}</span>
+        </div>
+        <p style="margin:0; font-size:14px; font-weight:600; color:#f8fafc;">${escapeHtml(issue.title)}</p>
+        <div class="progress-bar-container"><div class="progress-bar" style="width: ${barWidth}; background: ${barColor};"></div></div>
+        <div class="issue-meta-grid">
+          <div class="issue-meta-item"><span>Owner</span><span>${escapeHtml(issue.owner)}</span></div>
+          <div class="issue-meta-item"><span>Stage</span><span>${escapeHtml(issue.stage)}</span></div>
+          <div class="issue-meta-item"><span>QA Status</span><span>${escapeHtml(issue.qa_status)}</span></div>
+          <div class="issue-meta-item"><span>Release Log</span><span>${escapeHtml(issue.release_log)}</span></div>
+        </div>
+      </div>
+    `;
+  }).join("");
+  
+  // Pick active issue to render on dashboard
+  const activeIssue = issues.find(i => !i.stage.includes("Release")) || issues[0];
+  if (activeIssue) {
+    const isDemo = activeIssue.is_demo;
+    $("dashboardIssueSource").textContent = isDemo ? "[Demo Placeholder]" : "[Repository Metadata]";
+    $("dashboardIssueSource").className = `data-tag ${isDemo ? "tag-demo" : "tag-repo"}`;
+    $("dashboardIssueStage").textContent = activeIssue.stage;
+    $("dashboardIssueId").textContent = activeIssue.issue_id;
+    $("dashboardIssueTitle").textContent = activeIssue.title;
+    $("dashboardIssuePages").textContent = activeIssue.pages ? `${activeIssue.pages} Pages` : "8 Pages";
+    $("dashboardIssuePanels").textContent = activeIssue.panels ? `${activeIssue.panels} Panels` : "20 Panels";
+    $("pipelineProgressStageName").textContent = activeIssue.stage;
+    
+    let activeStageNum = 1;
+    if (activeIssue.stage.includes("Continuity")) activeStageNum = 2;
+    else if (activeIssue.stage.includes("Showrunner")) activeStageNum = 3;
+    else if (activeIssue.stage.includes("Script")) activeStageNum = 4;
+    else if (activeIssue.stage.includes("Direction")) activeStageNum = 5;
+    else if (activeIssue.stage.includes("Generation") || activeIssue.stage.includes("Gen")) activeStageNum = 6;
+    else if (activeIssue.stage.includes("Art QA")) activeStageNum = 7;
+    else if (activeIssue.stage.includes("Layout")) activeStageNum = 8;
+    else if (activeIssue.stage.includes("Final QA")) activeStageNum = 9;
+    else if (activeIssue.stage.includes("Release")) activeStageNum = 10;
+    
+    $("pipelineProgressBar").style.width = `${activeStageNum * 10}%`;
+    
+    const labels = document.querySelectorAll(".progress-labels span");
+    labels.forEach((el, index) => {
+      el.className = "";
+      el.style.fontWeight = "400";
+      if (index + 1 === activeStageNum) {
+        el.className = "text-accent";
+        el.style.fontWeight = "700";
+      }
+    });
+  }
+}
+
+function renderIssuesUnavailable() {
+  const grid = $("issuesWorkspaceGrid");
+  if (grid) {
+    grid.innerHTML = `
+      <div class="issue-card demo-border">
+        <div class="card-header">
+          <h4>No Issues Loaded <span class="data-tag tag-demo">[Demo Placeholder]</span></h4>
+          <span class="status-pill status-in-progress">Inactive</span>
+        </div>
+        <p style="margin:0; font-size:14px; font-weight:600; color:#f8fafc;">Current issue unavailable</p>
+        <div class="issue-meta-grid">
+          <div class="issue-meta-item"><span>Owner</span><span>Unavailable</span></div>
+          <div class="issue-meta-item"><span>Stage</span><span>Production stage unavailable</span></div>
+        </div>
+      </div>
+    `;
+  }
+  
+  if ($("dashboardIssueSource")) {
+    $("dashboardIssueSource").textContent = "[Demo Placeholder]";
+    $("dashboardIssueSource").className = "data-tag tag-demo";
+    $("dashboardIssueStage").textContent = "Production stage unavailable";
+    $("dashboardIssueId").textContent = "Current issue unavailable";
+    $("dashboardIssueTitle").textContent = "Current issue unavailable";
+    $("dashboardIssuePages").textContent = "Current issue unavailable";
+    $("dashboardIssuePanels").textContent = "Current issue unavailable";
+    $("pipelineProgressStageName").textContent = "Production stage unavailable";
+    $("pipelineProgressBar").style.width = "0%";
+    
+    const labels = document.querySelectorAll(".progress-labels span");
+    labels.forEach(el => {
+      el.className = "";
+      el.style.fontWeight = "400";
+    });
+  }
 }
 
 function renderCharacterList() {
@@ -95,6 +263,11 @@ async function loadCharacter(characterId) {
   $("emptyState").classList.add("hidden");
   $("detailView").classList.remove("hidden");
   $("undoBtn").disabled = false;
+  
+  if ($("statusCharacter")) {
+    $("statusCharacter").textContent = current.summary.display_name;
+  }
+  
   renderCharacterList();
   renderDetail();
 }
@@ -538,6 +711,10 @@ document.querySelectorAll(".nav-item").forEach(btn => {
     const label = btn.innerText.replace(/Soon$/, "").trim();
     $("activeViewLabel").textContent = label;
     
+    if ($("statusWorkspace")) {
+      $("statusWorkspace").textContent = label;
+    }
+    
     // Hide all view containers
     document.querySelectorAll(".workspace-view").forEach(el => el.classList.add("hidden"));
     
@@ -545,11 +722,14 @@ document.querySelectorAll(".nav-item").forEach(btn => {
     const viewContainerMap = {
       dashboard: "viewDashboard",
       characters: "viewCharacters",
+      locations: "viewLocations",
+      props: "viewProps",
       storyBuilder: "viewStoryBuilder",
       issues: "viewIssues",
       canon: "viewCanon",
       timeline: "viewTimeline",
       artQueue: "viewArtQueue",
+      layout: "viewLayout",
       qa: "viewQA",
       release: "viewRelease",
       settings: "viewSettings"

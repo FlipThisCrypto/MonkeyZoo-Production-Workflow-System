@@ -24,70 +24,85 @@ function escapeHtml(value) {
 async function api(path, options = {}) {
   console.log("Pages Demo Mode Intercept:", path, options);
   
-  // Clean path by stripping query params
   const cleanPath = path.split("?")[0];
   
-  // Mock data mapping
+  // Strict write operations block: return false result and throw error
+  const isWrite = cleanPath.endsWith("/trait") || 
+                  cleanPath.endsWith("/field") || 
+                  cleanPath.endsWith("/undo") || 
+                  cleanPath === "/api/story/save" || 
+                  cleanPath === "/api/story/generate-sample";
+                  
+  if (isWrite) {
+    alert("This action is unavailable in the GitHub Pages demo. Run MonkeyZoo Studio locally to modify production data.");
+    throw {
+      "ok": false,
+      "demo_mode": true,
+      "error": "Local backend required"
+    };
+  }
+  
+  // Mock read data mapping
   if (cleanPath === "/api/characters") {
     return [
       {
         "character_id": "MZ-CHAR-CLEVER",
-        "display_name": "Clever",
-        "series_name": "Clever Monkey",
+        "display_name": "Clever [Demo Placeholder]",
+        "series_name": "Clever Monkey [Demo Placeholder]",
         "development_level": 1,
         "canon_traits": 6,
         "experimental_traits": 1,
         "unresolved_fields": 0,
-        "last_comic_appearance": "MZ-2026-07-05",
-        "primary_image": "./media/MZ-CHAR-CLEVER/references/primary/primary-reference.png",
+        "last_comic_appearance": "Last appearance unavailable [Demo Placeholder]",
+        "primary_image": "../media/MZ-CHAR-CLEVER/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       {
         "character_id": "MZ-CHAR-SUPER",
-        "display_name": "Super",
-        "series_name": "Super Monkey",
+        "display_name": "Super [Demo Placeholder]",
+        "series_name": "Super Monkey [Demo Placeholder]",
         "development_level": 1,
         "canon_traits": 5,
         "experimental_traits": 0,
         "unresolved_fields": 1,
-        "last_comic_appearance": "MZ-2026-07-05",
-        "primary_image": "./media/MZ-CHAR-SUPER/references/primary/primary-reference.png",
+        "last_comic_appearance": "Last appearance unavailable [Demo Placeholder]",
+        "primary_image": "../media/MZ-CHAR-SUPER/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       {
         "character_id": "MZ-CHAR-LILDEVIL",
-        "display_name": "Lil Devil",
-        "series_name": "Lil Devil Monkey",
+        "display_name": "Lil Devil [Demo Placeholder]",
+        "series_name": "Lil Devil Monkey [Demo Placeholder]",
         "development_level": 1,
         "canon_traits": 4,
         "experimental_traits": 1,
         "unresolved_fields": 0,
-        "last_comic_appearance": "MZ-2026-06-12",
-        "primary_image": "./media/MZ-CHAR-LILDEVIL/references/primary/primary-reference.png",
+        "last_comic_appearance": "Last appearance unavailable [Demo Placeholder]",
+        "primary_image": "../media/MZ-CHAR-LILDEVIL/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       {
         "character_id": "MZ-CHAR-PATCH",
-        "display_name": "Patch",
-        "series_name": "Patch Monkey",
+        "display_name": "Patch [Demo Placeholder]",
+        "series_name": "Patch Monkey [Demo Placeholder]",
         "development_level": 1,
         "canon_traits": 2,
         "experimental_traits": 0,
         "unresolved_fields": 3,
-        "last_comic_appearance": "MZ-2026-07-05",
-        "primary_image": "./media/MZ-CHAR-PATCH/references/primary/primary-reference.png",
+        "last_comic_appearance": "Last appearance unavailable [Demo Placeholder]",
+        "primary_image": "../media/MZ-CHAR-PATCH/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       {
         "character_id": "MZ-CHAR-ZOMBIE",
-        "display_name": "Zombie",
-        "series_name": "Zombie Monkey",
+        "display_name": "Zombie [Demo Placeholder]",
+        "series_name": "Zombie Monkey [Demo Placeholder]",
         "development_level": 1,
         "canon_traits": 3,
         "experimental_traits": 1,
         "unresolved_fields": 0,
-        "last_comic_appearance": "MZ-2026-05-30",
-        "primary_image": "./media/MZ-CHAR-ZOMBIE/references/primary/primary-reference.png",
+        "last_comic_appearance": "Last appearance unavailable [Demo Placeholder]",
+        "primary_image": "../media/MZ-CHAR-ZOMBIE/references/primary/primary-reference.png",
         "continuity_warnings": []
       }
     ];
@@ -95,7 +110,6 @@ async function api(path, options = {}) {
   
   if (cleanPath.startsWith("/api/characters/")) {
     const cid = cleanPath.split("/")[3];
-    // Return detailed mock data for each character
     return getMockCharacterDetail(cid);
   }
   
@@ -110,40 +124,19 @@ async function api(path, options = {}) {
   }
   
   if (cleanPath === "/api/story/preview") {
-    // Return a mocked story builder preview
     return getMockStoryPreview(JSON.parse(options.body));
-  }
-  
-  if (cleanPath === "/api/story/save") {
-    alert("Demo Mode Preview: Saving packets requires a running local MonkeyZoo Studio backend.");
-    return { ok: false, error: "Local backend required", written_files: [] };
-  }
-  
-  if (cleanPath === "/api/story/generate-sample") {
-    alert("Demo Mode Preview: Generation workflow scripts require a running local MonkeyZoo Studio backend.");
-    return { ok: false, error: "Local backend required", written_files: [] };
-  }
-  
-  if (cleanPath.endsWith("/undo")) {
-    alert("Demo Mode Preview: Undo changes requires a running local MonkeyZoo Studio backend.");
-    return { ok: true, undone: false };
-  }
-  
-  if (cleanPath.endsWith("/trait") || cleanPath.endsWith("/field")) {
-    alert("Demo Mode Preview: Modifying traits or fields is disabled in this hosted preview. Connect your local studio backend to edit character YAML files.");
-    return { ok: true };
   }
   
   if (cleanPath === "/api/compare") {
     const ids = JSON.parse(options.body).character_ids || [];
     return {
       characters: ids.map(id => ({
-        summary: { display_name: id.replace("MZ-CHAR-", ""), series_name: id, canon_traits: 5, experimental_traits: 0 }
+        summary: { display_name: id.replace("MZ-CHAR-", "") + " [Demo Placeholder]", series_name: id, canon_traits: 5, experimental_traits: 0 }
       })),
       overlap: {
-        "personality": "Low overlap (traits are distinct)",
-        "speech": "Clever uses intellectual syntax; Super speaks in heroic tones.",
-        "visual_identity": "Glasses visual rule is locked to Clever."
+        "personality": "Low overlap (traits are distinct) [Demo Placeholder]",
+        "speech": "Intellectual tone vs. heroic tone [Demo Placeholder]",
+        "visual_identity": "Visual comparison placeholder [Demo Placeholder]"
       }
     };
   }
@@ -156,26 +149,26 @@ function getMockCharacterDetail(cid) {
     "MZ-CHAR-CLEVER": {
       "summary": {
         "character_id": "MZ-CHAR-CLEVER",
-        "display_name": "Clever",
-        "series_name": "Clever Monkey",
-        "personal_name": "unresolved",
-        "naming_status": "unresolved",
+        "display_name": "Clever [Demo Placeholder]",
+        "series_name": "Clever Monkey [Demo Placeholder]",
+        "personal_name": "unresolved [Demo Placeholder]",
+        "naming_status": "unresolved [Demo Placeholder]",
         "development_level": 1,
         "canon_traits": 6,
         "experimental_traits": 1,
         "unresolved_fields": 0,
-        "last_comic_appearance": "MZ-2026-07-05",
-        "primary_image": "./media/MZ-CHAR-CLEVER/references/primary/primary-reference.png",
+        "last_comic_appearance": "Last appearance unavailable [Demo Placeholder]",
+        "primary_image": "../media/MZ-CHAR-CLEVER/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       "detail": {
         "identification": {
-          "current_display_name": "Clever",
-          "series_name": "Clever Monkey",
+          "current_display_name": "Clever [Demo Placeholder]",
+          "series_name": "Clever Monkey [Demo Placeholder]",
           "personal_name": "",
           "codename": "",
           "nicknames": [],
-          "naming_status": "unresolved"
+          "naming_status": "unresolved [Demo Placeholder]"
         },
         "visual_canon": {
           "primary_reference_image": "references/primary/primary-reference.png",
@@ -185,37 +178,36 @@ function getMockCharacterDetail(cid) {
           "prohibited_visual_additions": []
         },
         "history": [
-          { "action": "promote_canon", "field_path": "visual_canon.primary_reference_image", "date": "2026-07-12", "note": "Verified initial base design" }
+          { "action": "History unavailable [Demo Placeholder]", "date": "History unavailable [Demo Placeholder]", "note": "History unavailable [Demo Placeholder]" }
         ]
       },
       "traits": [
-        { "path": "personality.intelligence", "name": "Logical Analytical", "value": "Solve problems using formulas and instruments.", "status": "canon", "strength": "defining", "usage_frequency": "almost always", "confidence": "high" },
-        { "path": "visual.glasses", "name": "Wears Glasses", "value": "The only monkey in the cast who wears glasses.", "status": "canon", "strength": "defining", "usage_frequency": "almost always", "confidence": "high" }
+        { "path": "personality.intelligence", "name": "Trait data unavailable in static preview [Demo Placeholder]", "value": "Trait data unavailable in static preview [Demo Placeholder]", "status": "unknown [Demo Placeholder]", "strength": "defining", "usage_frequency": "almost always", "confidence": "high" }
       ]
     },
     "MZ-CHAR-SUPER": {
       "summary": {
         "character_id": "MZ-CHAR-SUPER",
-        "display_name": "Super",
-        "series_name": "Super Monkey",
-        "personal_name": "unresolved",
-        "naming_status": "unresolved",
+        "display_name": "Super [Demo Placeholder]",
+        "series_name": "Super Monkey [Demo Placeholder]",
+        "personal_name": "unresolved [Demo Placeholder]",
+        "naming_status": "unresolved [Demo Placeholder]",
         "development_level": 1,
         "canon_traits": 5,
         "experimental_traits": 0,
         "unresolved_fields": 1,
-        "last_comic_appearance": "MZ-2026-07-05",
-        "primary_image": "./media/MZ-CHAR-SUPER/references/primary/primary-reference.png",
+        "last_comic_appearance": "Last appearance unavailable [Demo Placeholder]",
+        "primary_image": "../media/MZ-CHAR-SUPER/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       "detail": {
         "identification": {
-          "current_display_name": "Super",
-          "series_name": "Super Monkey",
+          "current_display_name": "Super [Demo Placeholder]",
+          "series_name": "Super Monkey [Demo Placeholder]",
           "personal_name": "",
           "codename": "",
           "nicknames": [],
-          "naming_status": "unresolved"
+          "naming_status": "unresolved [Demo Placeholder]"
         },
         "visual_canon": {
           "primary_reference_image": "references/primary/primary-reference.png",
@@ -227,32 +219,32 @@ function getMockCharacterDetail(cid) {
         "history": []
       },
       "traits": [
-        { "path": "personality.temperament", "name": "Heroic Bold", "value": "Acts with confidence and steps in first.", "status": "canon", "strength": "defining", "usage_frequency": "almost always", "confidence": "high" }
+        { "path": "personality.temperament", "name": "Trait data unavailable in static preview [Demo Placeholder]", "value": "Trait data unavailable in static preview [Demo Placeholder]", "status": "unknown [Demo Placeholder]", "strength": "defining", "usage_frequency": "almost always", "confidence": "high" }
       ]
     },
     "MZ-CHAR-LILDEVIL": {
       "summary": {
         "character_id": "MZ-CHAR-LILDEVIL",
-        "display_name": "Lil Devil",
-        "series_name": "Lil Devil Monkey",
-        "personal_name": "unresolved",
-        "naming_status": "unresolved",
+        "display_name": "Lil Devil [Demo Placeholder]",
+        "series_name": "Lil Devil Monkey [Demo Placeholder]",
+        "personal_name": "unresolved [Demo Placeholder]",
+        "naming_status": "unresolved [Demo Placeholder]",
         "development_level": 1,
         "canon_traits": 4,
         "experimental_traits": 1,
         "unresolved_fields": 0,
-        "last_comic_appearance": "MZ-2026-06-12",
-        "primary_image": "./media/MZ-CHAR-LILDEVIL/references/primary/primary-reference.png",
+        "last_comic_appearance": "Last appearance unavailable [Demo Placeholder]",
+        "primary_image": "../media/MZ-CHAR-LILDEVIL/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       "detail": {
         "identification": {
-          "current_display_name": "Lil Devil",
-          "series_name": "Lil Devil Monkey",
+          "current_display_name": "Lil Devil [Demo Placeholder]",
+          "series_name": "Lil Devil Monkey [Demo Placeholder]",
           "personal_name": "",
           "codename": "",
           "nicknames": [],
-          "naming_status": "unresolved"
+          "naming_status": "unresolved [Demo Placeholder]"
         },
         "visual_canon": {
           "primary_reference_image": "references/primary/primary-reference.png",
@@ -264,32 +256,32 @@ function getMockCharacterDetail(cid) {
         "history": []
       },
       "traits": [
-        { "path": "personality.temperament", "name": "Mischievous", "value": "Loves pranking Clever and distracting others.", "status": "canon", "strength": "defining", "usage_frequency": "often", "confidence": "high" }
+        { "path": "personality.temperament", "name": "Trait data unavailable in static preview [Demo Placeholder]", "value": "Trait data unavailable in static preview [Demo Placeholder]", "status": "unknown [Demo Placeholder]", "strength": "defining", "usage_frequency": "often", "confidence": "high" }
       ]
     },
     "MZ-CHAR-PATCH": {
       "summary": {
         "character_id": "MZ-CHAR-PATCH",
-        "display_name": "Patch",
-        "series_name": "Patch Monkey",
-        "personal_name": "unresolved",
-        "naming_status": "unresolved",
+        "display_name": "Patch [Demo Placeholder]",
+        "series_name": "Patch Monkey [Demo Placeholder]",
+        "personal_name": "unresolved [Demo Placeholder]",
+        "naming_status": "unresolved [Demo Placeholder]",
         "development_level": 1,
         "canon_traits": 2,
         "experimental_traits": 0,
         "unresolved_fields": 3,
-        "last_comic_appearance": "MZ-2026-07-05",
-        "primary_image": "./media/MZ-CHAR-PATCH/references/primary/primary-reference.png",
+        "last_comic_appearance": "Last appearance unavailable [Demo Placeholder]",
+        "primary_image": "../media/MZ-CHAR-PATCH/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       "detail": {
         "identification": {
-          "current_display_name": "Patch",
-          "series_name": "Patch Monkey",
+          "current_display_name": "Patch [Demo Placeholder]",
+          "series_name": "Patch Monkey [Demo Placeholder]",
           "personal_name": "",
           "codename": "",
           "nicknames": [],
-          "naming_status": "unresolved"
+          "naming_status": "unresolved [Demo Placeholder]"
         },
         "visual_canon": {
           "primary_reference_image": "references/primary/primary-reference.png",
@@ -301,32 +293,32 @@ function getMockCharacterDetail(cid) {
         "history": []
       },
       "traits": [
-        { "path": "personality.temperament", "name": "Quiet Observer", "value": "Intentionally sparse and calm.", "status": "established", "strength": "moderate", "usage_frequency": "sometimes", "confidence": "moderate" }
+        { "path": "personality.temperament", "name": "Trait data unavailable in static preview [Demo Placeholder]", "value": "Trait data unavailable in static preview [Demo Placeholder]", "status": "unknown [Demo Placeholder]", "strength": "moderate", "usage_frequency": "sometimes", "confidence": "moderate" }
       ]
     },
     "MZ-CHAR-ZOMBIE": {
       "summary": {
         "character_id": "MZ-CHAR-ZOMBIE",
-        "display_name": "Zombie",
-        "series_name": "Zombie Monkey",
-        "personal_name": "unresolved",
-        "naming_status": "unresolved",
+        "display_name": "Zombie [Demo Placeholder]",
+        "series_name": "Zombie Monkey [Demo Placeholder]",
+        "personal_name": "unresolved [Demo Placeholder]",
+        "naming_status": "unresolved [Demo Placeholder]",
         "development_level": 1,
         "canon_traits": 3,
         "experimental_traits": 1,
         "unresolved_fields": 0,
-        "last_comic_appearance": "MZ-2026-05-30",
-        "primary_image": "./media/MZ-CHAR-ZOMBIE/references/primary/primary-reference.png",
+        "last_comic_appearance": "Last appearance unavailable [Demo Placeholder]",
+        "primary_image": "../media/MZ-CHAR-ZOMBIE/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       "detail": {
         "identification": {
-          "current_display_name": "Zombie",
-          "series_name": "Zombie Monkey",
+          "current_display_name": "Zombie [Demo Placeholder]",
+          "series_name": "Zombie Monkey [Demo Placeholder]",
           "personal_name": "",
           "codename": "",
           "nicknames": [],
-          "naming_status": "unresolved"
+          "naming_status": "unresolved [Demo Placeholder]"
         },
         "visual_canon": {
           "primary_reference_image": "references/primary/primary-reference.png",
@@ -338,7 +330,7 @@ function getMockCharacterDetail(cid) {
         "history": []
       },
       "traits": [
-        { "path": "personality.temperament", "name": "Sleepy / Slow", "value": "Responds slowly to calls, often sleeps in.", "status": "experimental", "strength": "moderate", "usage_frequency": "often", "confidence": "moderate" }
+        { "path": "personality.temperament", "name": "Trait data unavailable in static preview [Demo Placeholder]", "value": "Trait data unavailable in static preview [Demo Placeholder]", "status": "unknown [Demo Placeholder]", "strength": "moderate", "usage_frequency": "often", "confidence": "moderate" }
       ]
     }
   };
@@ -370,57 +362,211 @@ function getMockStoryPreview(setup) {
       })
     },
     "panel_plan": {
-      "Page_1": { "panels": 1, "description": "Cover page: " + (setup.topic || "Observed signal") },
-      "Page_2": { "panels": 4, "description": "Story page: introduction of characters in " + (setup.location || "Observatory") },
-      "Page_3": { "panels": 4, "description": "Story page: development of conflict: " + (setup.conflict || "disagreement") },
-      "Page_12": { "panels": 1, "description": "Back cover: " + (setup.lesson || "learning lesson") }
+      "Page_1": { "panels": 1, "description": "Cover page: [Demo Placeholder] " + (setup.topic || "Observed signal") },
+      "Page_2": { "panels": 4, "description": "Story page: introduction of characters in [Demo Placeholder] " + (setup.location || "Observatory") },
+      "Page_12": { "panels": 1, "description": "Back cover: [Demo Placeholder] " + (setup.lesson || "learning lesson") }
     },
     "story_structure": {
-      "arc": "Emo Monkeys Season Arc 2026",
+      "arc": "Emo Monkeys Season Arc 2026 [Demo Placeholder]",
       "beat_progression": [
-        "Beat 1: Group gathers at " + (setup.location || "Observatory"),
-        "Beat 2: Discovery of topic: " + (setup.topic || "mystery"),
-        "Beat 3: Conflict resolving beat: " + (setup.lesson || "mutual support")
+        "Beat 1: Group gathers [Demo Placeholder]",
+        "Beat 2: Discovery of topic [Demo Placeholder]"
       ]
     },
     "warnings": [],
-    "prompt": `### MonkeyZoo Comic Script Generation Prompt
-Active Issue: ${setup.issue_id || "MZ-2026-07-05"}
-Location: ${setup.location || "Observatory"}
-Cast: ${selectedCastNames.join(", ")}
-Topic: ${setup.topic || "Mystery frequency"}
-Lesson: ${setup.lesson || "Listening to each other"}`,
-    "generated_script": `#### Page 1: Front Cover
-[Composition: Single wide panel. ${selectedCastNames[0] || "Clever"} looking through a telescope at the night sky.]
-Narrative Box: THE SIGNAL BETWEEN US
-
-#### Page 2
-Panel 1: Clever stands excited by the observatory console.
-Clever: "I found it! An active transmission frequency!"
-Panel 2: Super walks in wearing his cape.
-Super: "Outstanding! Let's build the decoder antenna."`,
+    "prompt": `### MonkeyZoo Comic Script Generation Prompt [Demo Placeholder]`,
+    "generated_script": `#### Page 1: Front Cover [Demo Placeholder]
+Narrative Box: THE SIGNAL BETWEEN US [Demo Placeholder]`,
     "script_validation_warnings": [],
     "continuity_proposal": {
       "new_established_traits": [],
-      "lessons_learned": [ setup.lesson || "listening yields clarity" ]
+      "lessons_learned": [ (setup.lesson || "listening yields clarity") + " [Demo Placeholder]" ]
     },
     "save_hint": "Issues/" + (setup.issue_id || "MZ-2026-07-05")
   };
 }
 
 async function loadCharacters() {
-  characters = await api("/api/characters");
-  if (!adventureStyles.length) {
-    adventureStyles = await api("/api/story/adventure-styles");
-    $("storyAdventureStyle").innerHTML = adventureStyles.map(style => `<option>${escapeHtml(style)}</option>`).join("");
-    $("storyAdventureStyle").value = "Low-stakes slice of life";
+  try {
+    characters = await api("/api/characters");
+    if ($("statusBackend")) {
+      $("statusBackend").textContent = "Connected (127.0.0.1:8765)";
+      $("statusBackend").className = "status-value connected";
+    }
+    if ($("sidebarStatusIndicator")) {
+      $("sidebarStatusIndicator").className = "status-indicator online";
+    }
+    if ($("sidebarStatusText")) {
+      $("sidebarStatusText").textContent = "Backend connected";
+    }
+    await loadIssuesMetadata();
+  } catch (err) {
+    console.error("Backend connection failed:", err);
+    if ($("statusBackend")) {
+      $("statusBackend").textContent = "Backend status unavailable";
+      $("statusBackend").className = "status-value disconnected";
+    }
+    if ($("sidebarStatusIndicator")) {
+      $("sidebarStatusIndicator").className = "status-indicator offline";
+    }
+    if ($("sidebarStatusText")) {
+      $("sidebarStatusText").textContent = "Backend status unavailable";
+    }
+    renderIssuesUnavailable();
   }
+  
+  if (!adventureStyles.length && characters.length) {
+    try {
+      adventureStyles = await api("/api/story/adventure-styles");
+      $("storyAdventureStyle").innerHTML = adventureStyles.map(style => `<option>${escapeHtml(style)}</option>`).join("");
+      $("storyAdventureStyle").value = "Low-stakes slice of life";
+    } catch (e) {
+      console.warn("Failed to load adventure styles:", e);
+    }
+  }
+  
   renderCharacterList();
   renderStoryCharacterList();
   
   // Update dashboard metrics and cast
   renderDashboardMetrics();
   renderDashboardCharacters();
+}
+
+async function loadIssuesMetadata() {
+  try {
+    const res = await fetch("./static/issues_metadata.json");
+    if (!res.ok) throw new Error("Metadata file missing");
+    const data = await res.json();
+    renderIssuesList(data);
+  } catch (err) {
+    console.warn("Issues metadata unavailable:", err);
+    renderIssuesUnavailable();
+  }
+}
+
+function renderIssuesList(issues) {
+  const grid = $("issuesWorkspaceGrid");
+  if (!grid) return;
+  
+  if (!issues || issues.length === 0) {
+    renderIssuesUnavailable();
+    return;
+  }
+  
+  grid.innerHTML = issues.map(issue => {
+    const isDemo = issue.is_demo;
+    const tagClass = isDemo ? "tag-demo" : "tag-repo";
+    const tagLabel = isDemo ? "[Demo Placeholder]" : "[Repository Metadata]";
+    const borderClass = isDemo ? "demo-border" : "";
+    const pillStyle = issue.stage.includes("Release") ? "background: rgba(74, 222, 128, 0.1); color: var(--ok);" : "background: rgba(56, 189, 248, 0.1); color: var(--accent);";
+    const pillLabel = issue.stage.includes("Release") ? "Released" : "In Production";
+    
+    let stageNum = 1;
+    if (issue.stage.includes("Continuity")) stageNum = 2;
+    else if (issue.stage.includes("Showrunner")) stageNum = 3;
+    else if (issue.stage.includes("Script")) stageNum = 4;
+    else if (issue.stage.includes("Direction")) stageNum = 5;
+    else if (issue.stage.includes("Generation") || issue.stage.includes("Gen")) stageNum = 6;
+    else if (issue.stage.includes("Art QA")) stageNum = 7;
+    else if (issue.stage.includes("Layout")) stageNum = 8;
+    else if (issue.stage.includes("Final QA")) stageNum = 9;
+    else if (issue.stage.includes("Release")) stageNum = 10;
+    
+    const barWidth = `${stageNum * 10}%`;
+    const barColor = stageNum === 10 ? "var(--ok)" : "var(--accent)";
+    
+    return `
+      <div class="issue-card ${borderClass}">
+        <div class="card-header">
+          <h4>${escapeHtml(issue.issue_id)} <span class="data-tag ${tagClass}">${tagLabel}</span></h4>
+          <span class="status-pill" style="${pillStyle}">${pillLabel}</span>
+        </div>
+        <p style="margin:0; font-size:14px; font-weight:600; color:#f8fafc;">${escapeHtml(issue.title)}</p>
+        <div class="progress-bar-container"><div class="progress-bar" style="width: ${barWidth}; background: ${barColor};"></div></div>
+        <div class="issue-meta-grid">
+          <div class="issue-meta-item"><span>Owner</span><span>${escapeHtml(issue.owner)}</span></div>
+          <div class="issue-meta-item"><span>Stage</span><span>${escapeHtml(issue.stage)}</span></div>
+          <div class="issue-meta-item"><span>QA Status</span><span>${escapeHtml(issue.qa_status)}</span></div>
+          <div class="issue-meta-item"><span>Release Log</span><span>${escapeHtml(issue.release_log)}</span></div>
+        </div>
+      </div>
+    `;
+  }).join("");
+  
+  // Pick active issue to render on dashboard
+  const activeIssue = issues.find(i => !i.stage.includes("Release")) || issues[0];
+  if (activeIssue) {
+    const isDemo = activeIssue.is_demo;
+    $("dashboardIssueSource").textContent = isDemo ? "[Demo Placeholder]" : "[Repository Metadata]";
+    $("dashboardIssueSource").className = `data-tag ${isDemo ? "tag-demo" : "tag-repo"}`;
+    $("dashboardIssueStage").textContent = activeIssue.stage;
+    $("dashboardIssueId").textContent = activeIssue.issue_id;
+    $("dashboardIssueTitle").textContent = activeIssue.title;
+    $("dashboardIssuePages").textContent = activeIssue.pages ? `${activeIssue.pages} Pages` : "8 Pages";
+    $("dashboardIssuePanels").textContent = activeIssue.panels ? `${activeIssue.panels} Panels` : "20 Panels";
+    $("pipelineProgressStageName").textContent = activeIssue.stage;
+    
+    let activeStageNum = 1;
+    if (activeIssue.stage.includes("Continuity")) activeStageNum = 2;
+    else if (activeIssue.stage.includes("Showrunner")) activeStageNum = 3;
+    else if (activeIssue.stage.includes("Script")) activeStageNum = 4;
+    else if (activeIssue.stage.includes("Direction")) activeStageNum = 5;
+    else if (activeIssue.stage.includes("Generation") || activeIssue.stage.includes("Gen")) activeStageNum = 6;
+    else if (activeIssue.stage.includes("Art QA")) activeStageNum = 7;
+    else if (activeIssue.stage.includes("Layout")) activeStageNum = 8;
+    else if (activeIssue.stage.includes("Final QA")) activeStageNum = 9;
+    else if (activeIssue.stage.includes("Release")) activeStageNum = 10;
+    
+    $("pipelineProgressBar").style.width = `${activeStageNum * 10}%`;
+    
+    const labels = document.querySelectorAll(".progress-labels span");
+    labels.forEach((el, index) => {
+      el.className = "";
+      el.style.fontWeight = "400";
+      if (index + 1 === activeStageNum) {
+        el.className = "text-accent";
+        el.style.fontWeight = "700";
+      }
+    });
+  }
+}
+
+function renderIssuesUnavailable() {
+  const grid = $("issuesWorkspaceGrid");
+  if (grid) {
+    grid.innerHTML = `
+      <div class="issue-card demo-border">
+        <div class="card-header">
+          <h4>No Issues Loaded <span class="data-tag tag-demo">[Demo Placeholder]</span></h4>
+          <span class="status-pill status-in-progress">Inactive</span>
+        </div>
+        <p style="margin:0; font-size:14px; font-weight:600; color:#f8fafc;">Current issue unavailable</p>
+        <div class="issue-meta-grid">
+          <div class="issue-meta-item"><span>Owner</span><span>Unavailable</span></div>
+          <div class="issue-meta-item"><span>Stage</span><span>Production stage unavailable</span></div>
+        </div>
+      </div>
+    `;
+  }
+  
+  if ($("dashboardIssueSource")) {
+    $("dashboardIssueSource").textContent = "[Demo Placeholder]";
+    $("dashboardIssueSource").className = "data-tag tag-demo";
+    $("dashboardIssueStage").textContent = "Production stage unavailable";
+    $("dashboardIssueId").textContent = "Current issue unavailable";
+    $("dashboardIssueTitle").textContent = "Current issue unavailable";
+    $("dashboardIssuePages").textContent = "Current issue unavailable";
+    $("dashboardIssuePanels").textContent = "Current issue unavailable";
+    $("pipelineProgressStageName").textContent = "Production stage unavailable";
+    $("pipelineProgressBar").style.width = "0%";
+    
+    const labels = document.querySelectorAll(".progress-labels span");
+    labels.forEach(el => {
+      el.className = "";
+      el.style.fontWeight = "400";
+    });
+  }
 }
 
 function renderCharacterList() {
@@ -473,6 +619,11 @@ async function loadCharacter(characterId) {
   $("emptyState").classList.add("hidden");
   $("detailView").classList.remove("hidden");
   $("undoBtn").disabled = false;
+  
+  if ($("statusCharacter")) {
+    $("statusCharacter").textContent = current.summary.display_name;
+  }
+  
   renderCharacterList();
   renderDetail();
 }
@@ -916,6 +1067,10 @@ document.querySelectorAll(".nav-item").forEach(btn => {
     const label = btn.innerText.replace(/Soon$/, "").trim();
     $("activeViewLabel").textContent = label;
     
+    if ($("statusWorkspace")) {
+      $("statusWorkspace").textContent = label;
+    }
+    
     // Hide all view containers
     document.querySelectorAll(".workspace-view").forEach(el => el.classList.add("hidden"));
     
@@ -923,11 +1078,14 @@ document.querySelectorAll(".nav-item").forEach(btn => {
     const viewContainerMap = {
       dashboard: "viewDashboard",
       characters: "viewCharacters",
+      locations: "viewLocations",
+      props: "viewProps",
       storyBuilder: "viewStoryBuilder",
       issues: "viewIssues",
       canon: "viewCanon",
       timeline: "viewTimeline",
       artQueue: "viewArtQueue",
+      layout: "viewLayout",
       qa: "viewQA",
       release: "viewRelease",
       settings: "viewSettings"

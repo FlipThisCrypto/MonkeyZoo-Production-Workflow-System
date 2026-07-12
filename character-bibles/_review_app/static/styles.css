@@ -1844,3 +1844,455 @@ html {
   padding: 24px;
 }
 
+/* ── Google Fonts Import (With System Stack Fallback) ── */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ── Data Source Classifications ── */
+.data-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 700;
+  font-family: monospace;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+  padding: 2px 5px;
+  letter-spacing: 0.05em;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.data-tag.tag-local {
+  color: var(--accent);
+  border-color: rgba(56, 189, 248, 0.2);
+  background: rgba(56, 189, 248, 0.05);
+}
+
+.data-tag.tag-calc {
+  color: var(--ok);
+  border-color: rgba(74, 222, 128, 0.2);
+  background: rgba(74, 222, 128, 0.05);
+}
+
+.data-tag.tag-repo {
+  color: var(--warn);
+  border-color: rgba(234, 179, 8, 0.2);
+  background: rgba(234, 179, 8, 0.05);
+}
+
+.data-tag.tag-demo {
+  color: var(--danger);
+  border-color: rgba(244, 63, 94, 0.2);
+  background: rgba(244, 63, 94, 0.05);
+}
+
+/* ── Ten-Stage Visual Pipeline ── */
+.pipeline-progress-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.progress-bar-container {
+  height: 6px;
+  background: var(--bg-app);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.progress-labels {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+  text-align: center;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.progress-labels span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progress-labels strong.text-accent {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ── Persistent Studio Status Bar ── */
+.studio-status-bar {
+  height: 32px;
+  background: var(--bg-sidebar);
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 11px;
+  color: var(--muted);
+  flex-shrink: 0;
+  z-index: 100;
+}
+
+.status-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-label {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.status-value {
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.status-value.connected {
+  color: var(--ok);
+}
+
+.status-value.disconnected {
+  color: var(--danger);
+}
+
+.status-value.warn {
+  color: var(--warn);
+}
+
+/* ── Grid Layouts for Workspaces ── */
+.workspace-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Issues Cards */
+.issue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.issue-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.issue-card.demo-border {
+  border-color: rgba(244, 63, 94, 0.2);
+}
+
+.issue-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  padding-top: 10px;
+}
+
+.issue-meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.issue-meta-item span:first-child {
+  color: var(--muted);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.issue-meta-item span:last-child {
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+/* Timeline Layout */
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--line);
+}
+
+.timeline-node {
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline-node::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--bg-app);
+  border: 2px solid var(--muted);
+}
+
+.timeline-node.active::before {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.timeline-node.shipped::before {
+  border-color: var(--ok);
+  background: rgba(74, 222, 128, 0.1);
+}
+
+.timeline-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+/* Canon Grid */
+.canon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.canon-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.canon-card:hover {
+  border-color: var(--accent);
+  background: var(--bg-surface-hover);
+}
+
+.canon-card h5 {
+  margin: 0 0 6px;
+  color: #f8fafc;
+}
+
+.canon-card p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* AI Pipeline Grid */
+.ai-pipeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.ai-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ai-icon {
+  font-size: 24px;
+}
+
+.ai-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.ai-status-label {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* QA Verification */
+.qa-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+}
+
+.qa-comp-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.qa-img-box {
+  background: var(--bg-app);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.qa-img-box img, .qa-img-box .missing-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: #151d30;
+  border-radius: 6px;
+}
+
+.qa-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.qa-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+/* Release Checklist */
+.release-package-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.release-package-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.release-package-card h5 {
+  margin: 0;
+  color: #f8fafc;
+}
+
+.release-package-card span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.release-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.release-checklist li {
+  padding-left: 24px;
+  position: relative;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+.release-checklist li::before {
+  content: "☐";
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.release-checklist li.checked::before {
+  content: "☑";
+  color: var(--ok);
+}
+
+/* ── Responsive Mobile Overrides ── */
+@media (max-width: 1024px) {
+  .studio-app-container {
+    grid-template-columns: 1fr;
+  }
+  .studio-sidebar {
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .sidebar-brand {
+    padding: 16px;
+  }
+  .nav-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 8px;
+    gap: 8px;
+  }
+  .nav-item {
+    width: auto;
+    padding: 8px 12px;
+  }
+  .studio-status-bar {
+    flex-direction: column;
+    height: auto;
+    padding: 8px;
+    gap: 8px;
+  }
+}
+
+
