@@ -493,7 +493,7 @@ function renderDetail() {
   $("primaryImage").src = s.primary_image || "";
   $("primaryImage").style.display = s.primary_image ? "block" : "none";
   const images = [d.visual_canon.primary_reference_image, ...(d.visual_canon.supporting_reference_images || [])].filter(Boolean);
-  $("altImages").innerHTML = images.slice(1, 9).map(path => `<img src="/media/${s.character_id}/${path}" alt="">`).join("");
+  $("altImages").innerHTML = images.slice(1, 9).map(path => `<img src="./media/${s.character_id}/${path}" alt="">`).join("");
   renderTraits();
   renderNaming();
   renderVisual();
@@ -662,7 +662,7 @@ function renderVisual() {
     <p>Clever remains the only confirmed glasses-wearing monkey unless owner review changes canon.</p>
     ${images.length ? images.map(path => `
       <div class="image-control">
-        <img src="/media/${id}/${path}" alt="">
+        <img src="./media/${id}/${path}" alt="">
         <div><strong>${escapeHtml(path)}</strong><br><small>${path === visual.primary_reference_image ? "Primary" : "Alternate"}</small></div>
         <button data-primary="${escapeHtml(path)}">Set Primary</button>
       </div>
