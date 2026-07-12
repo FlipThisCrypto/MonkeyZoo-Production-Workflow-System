@@ -14,6 +14,10 @@
         "current_display_name": { "type": "string", "minLength": 1 },
         "series_name": { "type": ["string", "null"] },
         "personal_name": { "type": ["string", "null"] },
+        "legacy_label": { "type": ["string", "null"] },
+        "nationality": { "type": ["string", "null"] },
+        "country_of_origin": { "type": ["string", "null"] },
+        "alias_of": { "type": ["string", "null"], "pattern": "^MZ-CHAR-[A-Z0-9-]+$" },
         "codename": { "type": ["string", "null"] },
         "nicknames": { "type": "array", "items": { "type": "string" } },
         "naming_status": {

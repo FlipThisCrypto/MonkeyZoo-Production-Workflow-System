@@ -522,73 +522,10 @@
           <div class="card-header">
             <h3>Issue Intake & Production Manager <span class="data-tag tag-repo">[Repository Metadata]</span></h3>
             <p class="card-desc-muted">Track draft, active, and shipped issues under the local 10-stage pipeline.</p>
+            <button id="createIssueButton" class="primary" type="button">Create New Issue</button>
           </div>
-
-          <div class="issue-grid">
-            <!-- Shipped Issue 5 -->
-            <div class="issue-card">
-              <div class="card-header">
-                <h4>MZ-2026-07_Issue_05</h4>
-                <span class="status-pill" style="background: rgba(74, 222, 128, 0.1); color: var(--ok);">Released</span>
-              </div>
-              <p style="margin:0; font-size:14px; font-weight:600; color:#f8fafc;">The Ones Who Stayed</p>
-              <div class="progress-bar-container"><div class="progress-bar" style="width: 100%; background: var(--ok);"></div></div>
-              <div class="issue-meta-grid">
-                <div class="issue-meta-item"><span>Owner</span><span>Lead Writer</span></div>
-                <div class="issue-meta-item"><span>Stage</span><span>10/10 Release</span></div>
-                <div class="issue-meta-item"><span>QA Status</span><span>Passed</span></div>
-                <div class="issue-meta-item"><span>Release Log</span><span>Compiled PDF & CBZ</span></div>
-              </div>
-            </div>
-
-            <!-- In Production Summer Test -->
-            <div class="issue-card">
-              <div class="card-header">
-                <h4>MZ-2026-07-MANGO</h4>
-                <span class="status-pill status-in-progress">In Production</span>
-              </div>
-              <p style="margin:0; font-size:14px; font-weight:600; color:#f8fafc;">The Meltdown at Mango Pier</p>
-              <div class="progress-bar-container"><div class="progress-bar" style="width: 40%;"></div></div>
-              <div class="issue-meta-grid">
-                <div class="issue-meta-item"><span>Owner</span><span>Art Director</span></div>
-                <div class="issue-meta-item"><span>Stage</span><span>4/10 Script</span></div>
-                <div class="issue-meta-item"><span>QA Status</span><span>Pending</span></div>
-                <div class="issue-meta-item"><span>Release Log</span><span>Draft Outline</span></div>
-              </div>
-            </div>
-
-            <!-- Shipped Issue 6 -->
-            <div class="issue-card">
-              <div class="card-header">
-                <h4>MZ-2026-08_Issue_06</h4>
-                <span class="status-pill" style="background: rgba(234, 179, 8, 0.1); color: var(--warn);">Intake</span>
-              </div>
-              <p style="margin:0; font-size:14px; font-weight:600; color:#f8fafc;">The Broken Signal</p>
-              <div class="progress-bar-container"><div class="progress-bar" style="width: 10%; background: var(--warn);"></div></div>
-              <div class="issue-meta-grid">
-                <div class="issue-meta-item"><span>Owner</span><span>Editor</span></div>
-                <div class="issue-meta-item"><span>Stage</span><span>1/10 Intake</span></div>
-                <div class="issue-meta-item"><span>QA Status</span><span>Pending</span></div>
-                <div class="issue-meta-item"><span>Release Log</span><span>Concept Brief</span></div>
-              </div>
-            </div>
-
-            <!-- Demo Issue Card -->
-            <div class="issue-card demo-border">
-              <div class="card-header">
-                <h4>MZ-DEMO-ISSUE-01 <span class="data-tag tag-demo">[Demo Placeholder]</span></h4>
-                <span class="status-pill status-in-progress">Demo State</span>
-              </div>
-              <p style="margin:0; font-size:14px; font-weight:600; color:#f8fafc;">Calibration Test</p>
-              <div class="progress-bar-container"><div class="progress-bar" style="width: 60%; background: var(--danger);"></div></div>
-              <div class="issue-meta-grid">
-                <div class="issue-meta-item"><span>Owner</span><span>AI Generator</span></div>
-                <div class="issue-meta-item"><span>Stage</span><span>6/10 Art Gen</span></div>
-                <div class="issue-meta-item"><span>QA Status</span><span>Pending</span></div>
-                <div class="issue-meta-item"><span>Release Log</span><span>Progress demonstration only</span></div>
-              </div>
-            </div>
-          </div>
+          <div id="issueCreateResult" role="status"></div>
+          <div id="issuesWorkspaceGrid" class="issue-grid"></div>
         </div>
 
         <!-- 5. LOCATIONS WORKSPACE MODULE (COMING SOON) -->
@@ -811,6 +748,24 @@
         <button value="cancel">Cancel</button>
         <button id="saveTraitBtn" value="default">Save Trait</button>
       </div>
+    </form>
+  </dialog>
+  <dialog id="createIssueDialog">
+    <form id="createIssueForm" class="guided-form">
+      <h3>Create New Issue</h3>
+      <p>Creates a real intake package using the MonkeyZoo factory conventions.</p>
+      <fieldset><legend>1. Issue identity</legend>
+        <label>Issue ID<input name="issue_id" required pattern="[A-Za-z0-9][A-Za-z0-9_-]{2,63}"></label><label>Title<input name="title" required></label>
+        <label>Month<input name="month" type="number" min="1" max="12" required></label><label>Year<input name="year" type="number" min="2000" max="2100" required></label><label>Edition number<input name="edition_number" type="number" min="1" required></label>
+        <label>Issue type<select name="issue_type"><option>Monthly</option><option>Special</option></select></label><label>Primary character<select name="primary_character" required></select></label><label>Guest character (optional)<select name="guest_character"><option value="">None</option></select></label>
+      </fieldset>
+      <fieldset><legend>2. Story direction</legend>
+        <label>Core premise<textarea name="core_premise" required></textarea></label><label>Main conflict<textarea name="main_conflict" required></textarea></label><label>Emotional goal<textarea name="emotional_goal" required></textarea></label><label>Opening situation<textarea name="opening_situation" required></textarea></label><label>Ending direction<textarea name="ending_direction" required></textarea></label><label>Required canon references<textarea name="required_canon_references"></textarea></label><label>Prohibited story elements<textarea name="prohibited_story_elements"></textarea></label>
+      </fieldset>
+      <fieldset><legend>3. Character and canon review</legend><div id="issueCanonReview">Select a primary character to inspect repository-backed canon warnings.</div></fieldset>
+      <fieldset><legend>4. Production configuration</legend><label>Pages<input name="page_count" type="number" value="8" min="1" max="64"></label><label>Panels<input name="panel_count" type="number" value="20" min="1" max="300"></label><p>Package includes cover prompts, metadata, social copy, and QA stubs.</p></fieldset>
+      <fieldset><legend>5. Review and create</legend><label><input name="reviewed" type="checkbox" required> I reviewed the issue identity, story direction, and canon warnings.</label><div id="issueCreateError" class="error-message" role="alert"></div></fieldset>
+      <div class="dialog-actions"><button type="button" id="cancelIssueCreate">Cancel</button><button class="primary" type="submit">Create Issue</button></div>
     </form>
   </dialog>
 

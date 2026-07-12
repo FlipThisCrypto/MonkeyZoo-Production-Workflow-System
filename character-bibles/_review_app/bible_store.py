@@ -36,12 +36,56 @@ VALID_FREQUENCIES = {
 class BibleStoreError(ValueError):
     pass
 
+_IDENTITY_INDEXES: dict[str, dict[str, str]] = {}
+
+
+def _identity_index(root: Path) -> dict[str, str]:
+    key = str(root.resolve())
+    if key in _IDENTITY_INDEXES:
+        return _IDENTITY_INDEXES[key]
+    index: dict[str, str] = {}
+    aliases: list[tuple[list[str], str]] = []
+    for path in sorted(root.glob("MZ-CHAR-*/bible.yaml")):
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        ident = data.get("identification") or {}
+        names = [path.parent.name, ident.get("character_id"), ident.get("current_display_name"), ident.get("personal_name"), ident.get("legacy_label"), ident.get("series_name"), *(ident.get("nicknames") or [])]
+        target = ident.get("alias_of") or path.parent.name
+        entry = ([str(name).strip().casefold() for name in names if name], target)
+        if ident.get("alias_of"):
+            aliases.append(entry)
+        for token in entry[0]:
+            index.setdefault(token, target)
+    for names, target in aliases:
+        for token in names:
+            index[token] = target
+    _IDENTITY_INDEXES[key] = index
+    return index
+
+
+def resolve_character_id(value: str, root: Path = BIBLES_ROOT) -> str:
+    """Resolve stable IDs and human-facing aliases to one canonical character ID."""
+    token = str(value or "").strip().casefold()
+    if not token:
+        raise BibleStoreError("Character identity is required")
+    target = _identity_index(root).get(token)
+    if not target:
+        raise BibleStoreError(f"Unknown character: {value}")
+    return target
+
 
 def bible_dirs(root: Path = BIBLES_ROOT) -> list[Path]:
-    return sorted(path for path in root.glob("MZ-CHAR-*") if (path / "bible.yaml").exists())
+    result = []
+    for path in sorted(root.glob("MZ-CHAR-*")):
+        if not (path / "bible.yaml").exists():
+            continue
+        data = yaml.safe_load((path / "bible.yaml").read_text(encoding="utf-8")) or {}
+        if not (data.get("identification") or {}).get("alias_of"):
+            result.append(path)
+    return result
 
 
 def load_bible(character_id: str, root: Path = BIBLES_ROOT) -> dict[str, Any]:
+    character_id = resolve_character_id(character_id, root)
     path = root / character_id / "bible.yaml"
     if not path.exists():
         raise BibleStoreError(f"Unknown character: {character_id}")
@@ -49,6 +93,7 @@ def load_bible(character_id: str, root: Path = BIBLES_ROOT) -> dict[str, Any]:
 
 
 def save_bible(character_id: str, data: dict[str, Any], root: Path = BIBLES_ROOT) -> None:
+    character_id = resolve_character_id(character_id, root)
     path = root / character_id / "bible.yaml"
     if not path.exists():
         raise BibleStoreError(f"Unknown character: {character_id}")
@@ -56,7 +101,7 @@ def save_bible(character_id: str, data: dict[str, Any], root: Path = BIBLES_ROOT
 
 
 def load_all(root: Path = BIBLES_ROOT) -> list[tuple[str, dict[str, Any]]]:
-    return [(path.name, load_bible(path.name, root)) for path in bible_dirs(root)]
+    return [(path.name, yaml.safe_load((path / "bible.yaml").read_text(encoding="utf-8"))) for path in bible_dirs(root)]
 
 
 def trait_count(data: Any, status: str | None = None) -> int:
@@ -117,6 +162,9 @@ def character_summary(character_id: str, data: dict[str, Any]) -> dict[str, Any]
         "display_name": ident.get("current_display_name"),
         "series_name": ident.get("series_name"),
         "personal_name": ident.get("personal_name"),
+        "legacy_label": ident.get("legacy_label") or ident.get("series_name"),
+        "nationality": ident.get("nationality"),
+        "country_of_origin": ident.get("country_of_origin"),
         "naming_status": ident.get("naming_status"),
         "development_level": ident.get("development_level"),
         "canon_traits": trait_count(data, "canon"),
@@ -125,6 +173,7 @@ def character_summary(character_id: str, data: dict[str, Any]) -> dict[str, Any]
         "last_comic_appearance": last_appearance(data),
         "continuity_warnings": continuity_warnings(data),
         "primary_image": image_url(character_id, visual.get("primary_reference_image")),
+        "image_status": "approved" if visual.get("primary_reference_image") else "unavailable",
     }
 
 

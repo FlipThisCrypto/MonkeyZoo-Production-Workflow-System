@@ -536,9 +536,19 @@ def run_improvement_loop(config: dict[str, Any], run_dir: Path) -> dict[str, Any
     json_write(run_dir / "improvement" / "improvement-report.json", report)
     md = render_improvement(report)
     md_write(run_dir / "improvement" / "improvement-report.md", md)
-    md_write(WORKSPACE_ROOT / "improvement_log.md", md)
+    # Keep runs directed to a temporary/test root isolated from tracked production files.
+    log_root = WORKSPACE_ROOT if output_root_is_workspace(run_dir) else run_dir.parent
+    md_write(log_root / "improvement_log.md", md)
     capture_reproducibility(config, run_dir)
     return report
+
+
+def output_root_is_workspace(run_dir: Path) -> bool:
+    try:
+        run_dir.resolve().relative_to(WORKSPACE_ROOT.resolve())
+        return True
+    except ValueError:
+        return False
 
 
 def score_quality(issues: list[dict[str, str]]) -> str:

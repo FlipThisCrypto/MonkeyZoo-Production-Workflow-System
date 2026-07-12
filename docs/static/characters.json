@@ -1,0 +1,222 @@
+[
+  {
+    "character_id": "MZ-CHAR-001",
+    "display_name": "Moodz",
+    "series_name": "Emo Monkey / Fusion Squad lead",
+    "personal_name": "Moodz",
+    "legacy_label": "Emo Monkey / Fusion Squad lead",
+    "nationality": null,
+    "country_of_origin": null,
+    "naming_status": "personal_name_canon",
+    "development_level": 5,
+    "canon_traits": 42,
+    "experimental_traits": 12,
+    "unresolved_fields": 47,
+    "last_comic_appearance": "july/2026-07-monkeyzoo-july-edition-test.md",
+    "continuity_warnings": [
+      "Experimental traits pending"
+    ],
+    "primary_image": "./media/MZ-CHAR-001/portrait.webp",
+    "image_status": "approved"
+  },
+  {
+    "character_id": "MZ-CHAR-002",
+    "display_name": "TwoTone",
+    "series_name": "Emo Monkey / Fusion Squad lead",
+    "personal_name": "TwoTone",
+    "legacy_label": "Emo Monkey / Fusion Squad lead",
+    "nationality": null,
+    "country_of_origin": null,
+    "naming_status": "personal_name_canon",
+    "development_level": 5,
+    "canon_traits": 29,
+    "experimental_traits": 19,
+    "unresolved_fields": 47,
+    "last_comic_appearance": "july/2026-07-monkeyzoo-july-edition-test.md",
+    "continuity_warnings": [
+      "Experimental traits pending"
+    ],
+    "primary_image": "./media/MZ-CHAR-002/portrait.webp",
+    "image_status": "approved"
+  },
+  {
+    "character_id": "MZ-CHAR-003",
+    "display_name": "Static",
+    "series_name": "Emo Monkey / Fusion Squad lead",
+    "personal_name": "Static",
+    "legacy_label": "Emo Monkey / Fusion Squad lead",
+    "nationality": null,
+    "country_of_origin": null,
+    "naming_status": "personal_name_canon",
+    "development_level": 5,
+    "canon_traits": 41,
+    "experimental_traits": 9,
+    "unresolved_fields": 46,
+    "last_comic_appearance": "july/2026-07-monkeyzoo-july-edition-test.md",
+    "continuity_warnings": [
+      "Experimental traits pending"
+    ],
+    "primary_image": "./media/MZ-CHAR-003/portrait.webp",
+    "image_status": "approved"
+  },
+  {
+    "character_id": "MZ-CHAR-004",
+    "display_name": "Ash",
+    "series_name": "Emo Monkey / Fusion Squad lead",
+    "personal_name": "Ash",
+    "legacy_label": "Emo Monkey / Fusion Squad lead",
+    "nationality": null,
+    "country_of_origin": null,
+    "naming_status": "personal_name_canon",
+    "development_level": 5,
+    "canon_traits": 43,
+    "experimental_traits": 13,
+    "unresolved_fields": 49,
+    "last_comic_appearance": "test/test 1/The Whispering Woods Mystery.json",
+    "continuity_warnings": [
+      "Experimental traits pending"
+    ],
+    "primary_image": "./media/MZ-CHAR-004/portrait.webp",
+    "image_status": "approved"
+  },
+  {
+    "character_id": "MZ-CHAR-005",
+    "display_name": "NeonBlue",
+    "series_name": "Emo Monkey / Fusion Squad lead",
+    "personal_name": "NeonBlue",
+    "legacy_label": "Emo Monkey / Fusion Squad lead",
+    "nationality": null,
+    "country_of_origin": null,
+    "naming_status": "personal_name_canon",
+    "development_level": 5,
+    "canon_traits": 47,
+    "experimental_traits": 9,
+    "unresolved_fields": 50,
+    "last_comic_appearance": "july/2026-07-monkeyzoo-july-edition-test.md",
+    "continuity_warnings": [
+      "Experimental traits pending"
+    ],
+    "primary_image": "./media/MZ-CHAR-005/portrait.webp",
+    "image_status": "approved"
+  },
+  {
+    "character_id": "MZ-CHAR-006",
+    "display_name": "Scarline",
+    "series_name": "Emo Monkey / Fusion Squad lead",
+    "personal_name": "Scarline",
+    "legacy_label": "Emo Monkey / Fusion Squad lead",
+    "nationality": null,
+    "country_of_origin": null,
+    "naming_status": "personal_name_canon",
+    "development_level": 5,
+    "canon_traits": 38,
+    "experimental_traits": 13,
+    "unresolved_fields": 48,
+    "last_comic_appearance": "july/2026-07-monkeyzoo-july-edition-test.md",
+    "continuity_warnings": [
+      "Experimental traits pending"
+    ],
+    "primary_image": "./media/MZ-CHAR-006/portrait.webp",
+    "image_status": "approved"
+  },
+  {
+    "character_id": "MZ-CHAR-CHEEKY",
+    "display_name": "Japes",
+    "series_name": "Cheeky Monkey",
+    "personal_name": "Japes",
+    "legacy_label": "Cheeky",
+    "nationality": "British",
+    "country_of_origin": "United Kingdom",
+    "naming_status": "personal_name_canon",
+    "development_level": 2,
+    "canon_traits": 20,
+    "experimental_traits": 18,
+    "unresolved_fields": 54,
+    "last_comic_appearance": "july/2026-07-monkeyzoo-july-edition-test.md",
+    "continuity_warnings": [
+      "Experimental traits pending"
+    ],
+    "primary_image": "./media/MZ-CHAR-CHEEKY/portrait.png",
+    "image_status": "approved"
+  },
+  {
+    "character_id": "MZ-CHAR-CLEVER",
+    "display_name": "Lily",
+    "series_name": "Clever Monkey",
+    "personal_name": "Lily",
+    "legacy_label": "Clever",
+    "nationality": "Scottish",
+    "country_of_origin": "Scotland",
+    "naming_status": "personal_name_canon",
+    "development_level": 2,
+    "canon_traits": 24,
+    "experimental_traits": 16,
+    "unresolved_fields": 54,
+    "last_comic_appearance": "july/2026-07-monkeyzoo-july-edition-test.md",
+    "continuity_warnings": [
+      "Experimental traits pending"
+    ],
+    "primary_image": "./media/MZ-CHAR-CLEVER/portrait.png",
+    "image_status": "approved"
+  },
+  {
+    "character_id": "MZ-CHAR-LILDEVIL",
+    "display_name": "Sasha",
+    "series_name": "Lil Devil",
+    "personal_name": "Sasha",
+    "legacy_label": "Lil Devil",
+    "nationality": "Russian",
+    "country_of_origin": "Russia",
+    "naming_status": "personal_name_canon",
+    "development_level": 2,
+    "canon_traits": 23,
+    "experimental_traits": 26,
+    "unresolved_fields": 53,
+    "last_comic_appearance": "july/2026-07-monkeyzoo-july-edition-test.md",
+    "continuity_warnings": [
+      "Experimental traits pending"
+    ],
+    "primary_image": "./media/MZ-CHAR-LILDEVIL/portrait.png",
+    "image_status": "approved"
+  },
+  {
+    "character_id": "MZ-CHAR-SUPER",
+    "display_name": "Maxx",
+    "series_name": "Super Monkey",
+    "personal_name": "Maxx",
+    "legacy_label": "Super",
+    "nationality": "Canadian",
+    "country_of_origin": "Canada",
+    "naming_status": "personal_name_canon",
+    "development_level": 2,
+    "canon_traits": 25,
+    "experimental_traits": 19,
+    "unresolved_fields": 54,
+    "last_comic_appearance": "july/2026-07-monkeyzoo-july-edition-test.md",
+    "continuity_warnings": [
+      "Experimental traits pending"
+    ],
+    "primary_image": "./media/MZ-CHAR-SUPER/portrait.png",
+    "image_status": "approved"
+  },
+  {
+    "character_id": "MZ-CHAR-ZOMBIE",
+    "display_name": "Patch",
+    "series_name": "Zombie Monkey",
+    "personal_name": "Patch",
+    "legacy_label": "Zombie",
+    "nationality": "American",
+    "country_of_origin": "United States of America",
+    "naming_status": "personal_name_canon",
+    "development_level": 2,
+    "canon_traits": 23,
+    "experimental_traits": 25,
+    "unresolved_fields": 51,
+    "last_comic_appearance": "july/2026-07-monkeyzoo-july-edition-test.md",
+    "continuity_warnings": [
+      "Experimental traits pending"
+    ],
+    "primary_image": "./media/MZ-CHAR-ZOMBIE/portrait.png",
+    "image_status": "approved"
+  }
+]

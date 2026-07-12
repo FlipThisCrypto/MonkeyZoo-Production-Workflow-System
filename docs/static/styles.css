@@ -2295,6 +2295,13 @@ body {
   }
 }
 
+.guided-form { max-width: 850px; display: grid; gap: 16px; }
+.guided-form fieldset { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; border: 1px solid var(--line); border-radius: 10px; }
+.guided-form legend { font-weight: 700; color: var(--accent); }
+.guided-form textarea { min-height: 72px; }
+.error-message { color: var(--danger); }
+.canon-review-portrait { width: 120px; height: 150px; object-fit: contain; display: block; margin-bottom: 12px; border-radius: 10px; background: #fff; }
+
 
 
 .demo-preview-banner {

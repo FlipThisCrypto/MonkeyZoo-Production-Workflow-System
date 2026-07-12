@@ -107,6 +107,10 @@ $IssuesJson = $Issues | ConvertTo-Json -Depth 5
 Set-Content -Path "$StaticDir/issues_metadata.json" -Value $IssuesJson -NoNewline
 Copy-Item -Path "$StaticDir/issues_metadata.json" -Destination "$DocsDir/static/issues_metadata.json" -Force
 
+# Export one repository-backed canonical record and individual primary portrait per character.
+python "$DocsDir/export_static_characters.py"
+if ($LASTEXITCODE -ne 0) { throw "Static character export failed" }
+
 # 4. Copy HTML and convert asset links + inject banner
 $HtmlContent = Get-Content -Path "$StaticDir/index.html" -Raw
 $HtmlContent = $HtmlContent -replace '/static/styles.css', './static/styles.css'
@@ -146,7 +150,8 @@ async function api(path, options = {}) {
                   cleanPath.endsWith("/field") || 
                   cleanPath.endsWith("/undo") || 
                   cleanPath === "/api/story/save" || 
-                  cleanPath === "/api/story/generate-sample";
+                  cleanPath === "/api/story/generate-sample" ||
+                  (cleanPath === "/api/issues" && (options.method || "GET").toUpperCase() !== "GET");
                   
   if (isWrite) {
     alert("This action is unavailable in the GitHub Pages demo. Run MonkeyZoo Studio locally to modify production data.");
@@ -159,6 +164,8 @@ async function api(path, options = {}) {
   
   // Mock read data mapping
   if (cleanPath === "/api/characters") {
+    const response = await fetch("./static/characters.json");
+    return response.json();
     return [
       {
         "character_id": "MZ-CHAR-CLEVER",
@@ -222,10 +229,26 @@ async function api(path, options = {}) {
       }
     ];
   }
+
+  if (cleanPath === "/api/issues") {
+    const response = await fetch("./static/issues_metadata.json");
+    return response.json();
+  }
   
   if (cleanPath.startsWith("/api/characters/")) {
     const cid = cleanPath.split("/")[3];
-    return getMockCharacterDetail(cid);
+    const response = await fetch("./static/characters.json");
+    const summary = (await response.json()).find(item => item.character_id === cid);
+    if (!summary) return { error: "Character unavailable" };
+    return {summary, detail: {identification: {
+      current_display_name: summary.display_name,
+      series_name: summary.series_name,
+      personal_name: summary.personal_name,
+      legacy_label: summary.legacy_label,
+      nationality: summary.nationality,
+      country_of_origin: summary.country_of_origin,
+      naming_status: summary.naming_status
+    }, visual_canon: {primary_reference_image: summary.primary_image}, history: []}, traits: []};
   }
   
   if (cleanPath === "/api/story/adventure-styles") {

@@ -1,12 +1,15 @@
 schema_version: '1.0'
 identification:
-  current_display_name: Cheeky
+  current_display_name: Japes
   series_name: Cheeky Monkey
-  personal_name: null
+  personal_name: Japes
+  legacy_label: Cheeky
+  nationality: British
+  country_of_origin: United Kingdom
   codename: null
   nicknames:
   - mz_faction_cheeky
-  naming_status: unresolved
+  naming_status: personal_name_canon
   character_id: MZ-CHAR-CHEEKY
   development_level: 2
   canon_status: approved_canon

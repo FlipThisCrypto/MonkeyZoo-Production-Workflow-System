@@ -79,14 +79,81 @@ async function loadCharacters() {
 
 async function loadIssuesMetadata() {
   try {
-    const res = await fetch("./static/issues_metadata.json");
-    if (!res.ok) throw new Error("Metadata file missing");
-    const data = await res.json();
+    const data = await api("/api/issues");
     renderIssuesList(data);
+    return true;
   } catch (err) {
     console.warn("Issues metadata unavailable:", err);
     renderIssuesUnavailable();
+    return false;
   }
+}
+
+function setupIssueCreation() {
+  const dialog = $("createIssueDialog"), form = $("createIssueForm");
+  if (!dialog || !form) return;
+  let submitting = false;
+  const submitButton = form.querySelector('button[type="submit"]');
+  const populate = () => {
+    const options = characters.map(c => `<option value="${escapeHtml(c.character_id)}">${escapeHtml(c.display_name || c.character_id)}</option>`).join("");
+    form.primary_character.innerHTML = options;
+    form.guest_character.innerHTML = `<option value="">None</option>${options}`;
+    updateCanonReview();
+  };
+  const updateCanonReview = () => {
+    const selected = characters.find(c => c.character_id === form.primary_character.value);
+    const review = $("issueCanonReview");
+    review.replaceChildren();
+    if (!selected) { review.textContent = "No character selected."; return; }
+    if (selected.primary_image) {
+      const portrait = document.createElement("img");
+      portrait.src = selected.primary_image;
+      portrait.alt = `${selected.display_name || selected.character_id} approved portrait`;
+      portrait.className = "canon-review-portrait";
+      review.append(portrait);
+    }
+    const heading = document.createElement("strong");
+    heading.textContent = selected.display_name || selected.character_id;
+    review.append(heading);
+    const details = [
+      `Legacy identity: ${selected.legacy_label || "Unavailable"}`,
+      `Nationality: ${selected.nationality || "Unavailable"}`,
+      `Country: ${selected.country_of_origin || "Unavailable"}`,
+      "Bible: Available",
+      `Image: ${selected.image_status === "approved" ? "Approved" : "Approved character image unavailable"}`,
+      (selected.continuity_warnings || []).join("; ") || "No repository warnings reported."
+    ];
+    details.forEach(text => { const p = document.createElement("p"); p.textContent = text; review.append(p); });
+  };
+  $("createIssueButton").addEventListener("click", () => { form.reset(); populate(); $("issueCreateError").textContent = ""; dialog.showModal(); });
+  $("cancelIssueCreate").addEventListener("click", () => dialog.close());
+  form.primary_character.addEventListener("change", updateCanonReview);
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+    if (submitting) return;
+    submitting = true;
+    submitButton.disabled = true;
+    submitButton.textContent = "Creating…";
+    $("issueCreateError").textContent = "";
+    const body = Object.fromEntries(new FormData(form));
+    body.output_requirements = ["cover", "metadata", "social copy", "QA"];
+    try {
+      const result = await api("/api/issues", {method: "POST", body: JSON.stringify(body)});
+      dialog.close();
+      $("issueCreateResult").textContent = `Issue created successfully: ${result.issue_id} at ${result.location}. Stage: ${result.stage}.`;
+      const refreshed = await loadIssuesMetadata();
+      if (!refreshed) {
+        $("issueCreateResult").textContent += " Issue list refresh failed; reload Studio to see the persisted issue.";
+      }
+      form.reset();
+    } catch (err) {
+      $("issueCreateError").textContent = err.message || err.error || "Issue creation failed. No success state was recorded.";
+    } finally {
+      submitting = false;
+      submitButton.disabled = false;
+      submitButton.textContent = "Create Issue";
+    }
+  });
 }
 
 function renderIssuesList(issues) {
@@ -219,7 +286,7 @@ function renderCharacterList() {
     .filter(c => `${c.display_name} ${c.series_name} ${c.character_id}`.toLowerCase().includes(query))
     .map(c => `
       <div class="character-row ${current?.summary.character_id === c.character_id ? "selected" : ""}" data-id="${c.character_id}">
-        ${c.primary_image ? `<img src="${c.primary_image}" alt="">` : `<div class="missing-img"></div>`}
+        ${c.primary_image ? `<img src="${c.primary_image}" alt="${escapeHtml(c.display_name)} approved portrait">` : `<div class="missing-img">Approved character image unavailable</div>`}
         <div>
           <h3>${escapeHtml(c.display_name)}</h3>
           <p>${escapeHtml(c.series_name || "")}</p>
@@ -242,7 +309,7 @@ function renderStoryCharacterList() {
     <div class="story-character-row">
       <label class="story-check">
         <input type="checkbox" value="${c.character_id}" ${index < 2 ? "checked" : ""}>
-        ${c.primary_image ? `<img src="${c.primary_image}" alt="">` : `<span class="missing-img"></span>`}
+        ${c.primary_image ? `<img src="${c.primary_image}" alt="${escapeHtml(c.display_name)} approved portrait">` : `<span class="missing-img">Approved character image unavailable</span>`}
         <span>
           <strong>${escapeHtml(c.display_name)}</strong>
           <small>${escapeHtml(c.series_name || "")}</small>
@@ -678,7 +745,7 @@ function renderDashboardCharacters() {
   if (!container) return;
   container.innerHTML = characters.map(c => `
     <div class="dashboard-character-card" data-id="${c.character_id}">
-      ${c.primary_image ? `<img src="${c.primary_image}" alt="${escapeHtml(c.display_name)}">` : `<div class="missing-img"></div>`}
+      ${c.primary_image ? `<img src="${c.primary_image}" alt="${escapeHtml(c.display_name)} approved portrait">` : `<div class="missing-img">Approved character image unavailable</div>`}
       <div class="dashboard-char-info">
         <strong>${escapeHtml(c.display_name)}</strong>
         <span>Level ${c.development_level}</span>
@@ -817,4 +884,5 @@ $("regenerateStoryBtn").addEventListener("click", previewStory);
 $("saveStoryBtn").addEventListener("click", saveStoryPacket);
 $("generateSampleBtn").addEventListener("click", generateSampleIssue);
 
+setupIssueCreation();
 loadCharacters();

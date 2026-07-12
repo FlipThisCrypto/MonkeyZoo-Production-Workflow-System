@@ -9,8 +9,10 @@ identification:
   character_id: MZ-CHAR-PATCH
   development_level: 1
   canon_status: established
+  legacy_label: Patch
+  alias_of: MZ-CHAR-ZOMBIE
 visual_canon:
-  primary_reference_image: references/primary/primary-reference.png
+  primary_reference_image: null
   supporting_reference_images: []
   species_or_form: []
   body_shape: []

@@ -64,7 +64,10 @@
     },
     {
       "id": "MZ-CHAR-LILDEVIL",
-      "name": "Lil Devil",
+      "name": "Sasha",
+      "legacy_label": "Lil Devil",
+      "nationality": "Russian",
+      "country_of_origin": "Russia",
       "slug": "lil devil",
       "role": "August guest; pressure toward immediate force",
       "status": "guest / faction archetype",
@@ -74,7 +77,10 @@
     },
     {
       "id": "MZ-CHAR-CLEVER",
-      "name": "Clever",
+      "name": "Lily",
+      "legacy_label": "Clever",
+      "nationality": "Scottish",
+      "country_of_origin": "Scotland",
       "slug": "clever",
       "role": "September guest; technical validator",
       "status": "guest / faction archetype; only confirmed glasses-wearing monkey",
@@ -84,7 +90,10 @@
     },
     {
       "id": "MZ-CHAR-ZOMBIE",
-      "name": "Zombie",
+      "name": "Patch",
+      "legacy_label": "Zombie",
+      "nationality": "American",
+      "country_of_origin": "United States of America",
       "slug": "zombie",
       "role": "October guest; old FusionZoo witness",
       "status": "guest / faction archetype",
@@ -94,7 +103,10 @@
     },
     {
       "id": "MZ-CHAR-CHEEKY",
-      "name": "Cheeky",
+      "name": "Japes",
+      "legacy_label": "Cheeky",
+      "nationality": "British",
+      "country_of_origin": "United Kingdom",
       "slug": "cheeky",
       "role": "November guest; humor and crowd redirection",
       "status": "guest / faction archetype",
@@ -104,7 +116,10 @@
     },
     {
       "id": "MZ-CHAR-SUPER",
-      "name": "Super Monkey",
+      "name": "Maxx",
+      "legacy_label": "Super",
+      "nationality": "Canadian",
+      "country_of_origin": "Canada",
       "slug": "super",
       "role": "December guest; visible physical rescue with limits",
       "status": "guest / faction archetype",
@@ -117,9 +132,10 @@
       "name": "Patch",
       "slug": "patch",
       "role": "NeonBlue/Pending/FusionZoo open thread",
-      "status": "issue-derived supporting character; visual reference requires owner review",
+      "status": "legacy alias record; canonical identity is MZ-CHAR-ZOMBIE",
+      "canonical_id": "MZ-CHAR-ZOMBIE",
       "folder": "character-bibles/MZ-CHAR-PATCH/references/",
-      "primary_reference": "character-bibles/MZ-CHAR-PATCH/references/primary/primary-reference.png",
+      "primary_reference": null,
       "source_image_count": 1
     },
     {
@@ -316,12 +332,12 @@
       "MonkeyZoo_Comic_Factory/02_MONTHLY_ISSUES/2026-07_Issue_05/issue_script.md",
       "MonkeyZoo_Comic_Factory/02_MONTHLY_ISSUES/2026-08_Issue_06/issue_script.md"
     ],
-    "notes": "Issue plans identify `zombie.png (#1997 = Patch)`. This is filed as Patch's issue-derived reference, not as permission to treat every zombie image as Patch."
+    "notes": "Patch is the approved personal and display name of the canonical Zombie character, MZ-CHAR-ZOMBIE. MZ-CHAR-PATCH is retained only as a backward-compatible alias."
   },
   "notes": [
     "Character Bibles remain the character canon source of truth.",
     "03_APPROVED_CANON/approved_characters is the production image reference source for IPAdapter/LoRA and prompt packs.",
     "source_images folders preserve loose local source cards; use numbered pose files for production identity unless source evidence says otherwise.",
-    "Patch uses an issue-derived reference and remains owner-review for final individual visual identity."
+    "Patch is the approved personal and display name of canonical MZ-CHAR-ZOMBIE; MZ-CHAR-PATCH is alias-only."
   ]
 }
