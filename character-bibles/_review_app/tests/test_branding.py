@@ -38,6 +38,14 @@ def test_banana_theme_is_single_readable_source_of_truth():
     assert max(len(line) for line in theme.splitlines()) < 400
 
 
+def test_navigation_capability_labels_are_honest():
+    html = (SOURCE / "index.html").read_text(encoding="utf-8")
+    assert "Story Builder\n" in html
+    assert 'Canon <span class="badge-coming">Foundation</span>' in html
+    for label in ("Locations", "Props", "Timeline", "Art Queue", "Layout", "QA", "Release", "Settings"):
+        assert f'{label} <span class="badge-coming">Soon</span>' in html
+
+
 def test_local_and_static_load_each_stylesheet_once():
     source = (SOURCE / "index.html").read_text(encoding="utf-8")
     static = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
