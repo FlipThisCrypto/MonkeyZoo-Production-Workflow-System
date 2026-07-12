@@ -443,15 +443,19 @@ async function loadIssuesMetadata() {
   try {
     const data = await api("/api/issues");
     renderIssuesList(data);
+    return true;
   } catch (err) {
     console.warn("Issues metadata unavailable:", err);
     renderIssuesUnavailable();
+    return false;
   }
 }
 
 function setupIssueCreation() {
   const dialog = $("createIssueDialog"), form = $("createIssueForm");
   if (!dialog || !form) return;
+  let submitting = false;
+  const submitButton = form.querySelector('button[type="submit"]');
   const populate = () => {
     const options = characters.map(c => `<option value="${escapeHtml(c.character_id)}">${escapeHtml(c.display_name || c.character_id)}</option>`).join("");
     form.primary_character.innerHTML = options;
@@ -462,22 +466,33 @@ function setupIssueCreation() {
     const selected = characters.find(c => c.character_id === form.primary_character.value);
     $("issueCanonReview").innerHTML = selected ? `<strong>${escapeHtml(selected.display_name || selected.character_id)}</strong><p>Bible: available</p><p>${(selected.continuity_warnings || []).map(escapeHtml).join("; ") || "No repository warnings reported."}</p>` : "No character selected.";
   };
-  $("createIssueButton").addEventListener("click", () => { populate(); dialog.showModal(); });
+  $("createIssueButton").addEventListener("click", () => { form.reset(); populate(); $("issueCreateError").textContent = ""; dialog.showModal(); });
   $("cancelIssueCreate").addEventListener("click", () => dialog.close());
   form.primary_character.addEventListener("change", updateCanonReview);
   form.addEventListener("submit", async event => {
     event.preventDefault();
+    if (submitting) return;
+    submitting = true;
+    submitButton.disabled = true;
+    submitButton.textContent = "Creating…";
     $("issueCreateError").textContent = "";
     const body = Object.fromEntries(new FormData(form));
     body.output_requirements = ["cover", "metadata", "social copy", "QA"];
     try {
       const result = await api("/api/issues", {method: "POST", body: JSON.stringify(body)});
       dialog.close();
-      $("issueCreateResult").textContent = `Created ${result.issue_id} at ${result.location}. Stage: ${result.stage}. Files: ${result.files_created.join(", ")}`;
-      await loadIssuesMetadata();
+      $("issueCreateResult").textContent = `Issue created successfully: ${result.issue_id} at ${result.location}. Stage: ${result.stage}.`;
+      const refreshed = await loadIssuesMetadata();
+      if (!refreshed) {
+        $("issueCreateResult").textContent += " Issue list refresh failed; reload Studio to see the persisted issue.";
+      }
       form.reset();
     } catch (err) {
       $("issueCreateError").textContent = err.message || err.error || "Issue creation failed. No success state was recorded.";
+    } finally {
+      submitting = false;
+      submitButton.disabled = false;
+      submitButton.textContent = "Create Issue";
     }
   });
 }

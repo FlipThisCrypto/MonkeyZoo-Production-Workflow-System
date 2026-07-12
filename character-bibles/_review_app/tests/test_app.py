@@ -121,3 +121,16 @@ def test_create_issue_api_returns_structured_validation_error(client):
     res = client.post("/api/issues", json={"issue_id": "../escape"})
     assert res.status_code == 400
     assert res.get_json()["ok"] is False
+
+
+@pytest.mark.parametrize("body,content_type", [
+    (None, None),
+    ("{broken", "application/json"),
+    ("[]", "application/json"),
+    ('"text"', "application/json"),
+])
+def test_create_issue_api_rejects_bad_json_as_400(client, body, content_type):
+    res = client.post("/api/issues", data=body, content_type=content_type)
+    assert res.status_code == 400
+    assert res.get_json()["ok"] is False
+    assert res.get_json()["error"]
