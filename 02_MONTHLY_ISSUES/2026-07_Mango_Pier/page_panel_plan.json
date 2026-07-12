@@ -1,0 +1,595 @@
+{
+  "issue_id": "MZ-2026-07-MANGO",
+  "issue_title": "The Meltdown at Mango Pier",
+  "page_count": 8,
+  "pages": [
+    {
+      "page_number": 1,
+      "page_purpose": "Page 1",
+      "layout_recipe": "half+half",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-07-MANGO_P01_PANEL01",
+          "panel_size": "half",
+          "characters": [
+            "Moodz",
+            "Cheeky",
+            "NeonBlue"
+          ],
+          "location": "Mango Pier boardwalk entrance bright noon sun ocean beyond",
+          "camera_angle": "wide establishing high angle",
+          "action": "squad arrives on sunny pier; Cheeky racing toward games; NeonBlue waving; Moodz herding group",
+          "emotion": "summer joy",
+          "dialogue": "CHEEKY: \"Games first. Chaos second.\"",
+          "caption": "Hottest week of July. One day off.",
+          "sfx": "",
+          "visual_notes": "yellow boardwalk bulbs, ocean blue, summer orange; reserve top fifth for balloon",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/moodz/",
+            "references/character_refs/cheeky/",
+            "references/character_refs/neonblue/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-07-MANGO_P01_PANEL02",
+          "panel_size": "half",
+          "characters": [
+            "Static",
+            "LilDevil",
+            "Emo"
+          ],
+          "location": "arcade row Mango Pier",
+          "camera_angle": "medium three-shot",
+          "action": "Static stares at glowing arcade cabinet; LilDevil holds hot pepper skewer; Emo covers ears from noise",
+          "emotion": "suspicion, reckless fun, overwhelm",
+          "dialogue": "STATIC: \"That score is not possible.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "neon arcade lights; blank glowing cabinet screens no readable text; bubble space top",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/static/",
+            "references/character_refs/lildevil/",
+            "references/character_refs/emo/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "page_purpose": "Page 2",
+      "layout_recipe": "third-x3",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-07-MANGO_P02_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "Clever",
+            "Ash"
+          ],
+          "location": "frozen banana stand mid-pier",
+          "camera_angle": "two-shot eye level",
+          "action": "Clever crouches pointing at old wiring under stand; Ash arms crossed unimpressed",
+          "emotion": "focused vs bored-hot",
+          "dialogue": "CLEVER: \"These cables are not boardwalk stock.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "banana stand, summer heat haze",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/clever/",
+            "references/character_refs/ash/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-07-MANGO_P02_PANEL02",
+          "panel_size": "third",
+          "characters": [],
+          "location": "banana stand counter",
+          "camera_angle": "medium funny",
+          "action": "faceless tourist chibi monkey fused with beach umbrella like parachute mid-air, cyan glow banana residue",
+          "emotion": "slapstick",
+          "dialogue": "",
+          "caption": "The frozen banana stand had opinions about summer.",
+          "sfx": "",
+          "visual_notes": "comic fusion gag; NO named leads",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/background_refs/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "depth",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-07-MANGO_P02_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "Clever",
+            "Moodz"
+          ],
+          "location": "banana stand area",
+          "camera_angle": "close two-shot",
+          "action": "Clever holds glowing blue banana stub with tongs; Moodz eyes widen",
+          "emotion": "joke turns worry",
+          "dialogue": "MOODZ: \"Everyone stay calm. Calm is the plan.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "glowing blue treat, bubble space",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/clever/",
+            "references/character_refs/moodz/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 3,
+      "page_purpose": "Page 3",
+      "layout_recipe": "third-x3",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-07-MANGO_P03_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "Cheeky",
+            "NeonBlue"
+          ],
+          "location": "boardwalk mid-stretch sunscreen chaos",
+          "camera_angle": "wide action",
+          "action": "sunscreen foam spray; Cheeky herds crowd with beach ball; NeonBlue ushers kids behind prize stall",
+          "emotion": "comedy protect",
+          "dialogue": "NEONBLUE: \"Kids first. Always.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "white foam, summer chaos, bubble space",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/cheeky/",
+            "references/character_refs/neonblue/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-07-MANGO_P03_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "Ash",
+            "TwoTone"
+          ],
+          "location": "stabilizer vent near pier rail",
+          "camera_angle": "low angle",
+          "action": "Ash reaches glowing overheating vent orange sparks; TwoTone grabs his arm stopping him",
+          "emotion": "anger vs firm balance",
+          "dialogue": "TWOTONE: \"Balance it. Don't blow it.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "orange heat vent, ocean rail",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/ash/",
+            "references/character_refs/twotone/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-07-MANGO_P03_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "Moodz",
+            "Ash"
+          ],
+          "location": "vent area",
+          "camera_angle": "close faces",
+          "action": "Moodz steady calm gaze; Ash jaw tight cooling off fists unclenching",
+          "emotion": "heat meets anchor",
+          "dialogue": "MOODZ: \"The machine eats spikes. Don't feed it.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "soft close-up bubble space",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/moodz/",
+            "references/character_refs/ash/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 4,
+      "page_purpose": "Page 4",
+      "layout_recipe": "half+half",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-07-MANGO_P04_PANEL01",
+          "panel_size": "half",
+          "characters": [
+            "Scarline",
+            "Zombie",
+            "Emo"
+          ],
+          "location": "under Mango Pier dark pilings dripping water cyan pipes",
+          "camera_angle": "wide low establishing",
+          "action": "trio in under-pier shadow; Scarline leads along claw-marked wood; cyan coolant pipes glow",
+          "emotion": "quiet dread",
+          "dialogue": "",
+          "caption": "Below the music, the pier remembered what it was built on.",
+          "sfx": "",
+          "visual_notes": "dark teal shadows, cyan coolant glow",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/scarline/",
+            "references/character_refs/zombie/",
+            "references/character_refs/emo/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-07-MANGO_P04_PANEL02",
+          "panel_size": "half",
+          "characters": [
+            "Scarline",
+            "Zombie"
+          ],
+          "location": "sealed maintenance door under pier",
+          "camera_angle": "medium on door claw marks",
+          "action": "Scarline mitt traces deep claw grooves; Zombie sniffs cyan drip eyes wide recognition",
+          "emotion": "discovery",
+          "dialogue": "ZOMBIE: \"Old FusionZoo coolant. This was never just a pier.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "door, claw marks, coolant drip",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/scarline/",
+            "references/character_refs/zombie/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 5,
+      "page_purpose": "Page 5",
+      "layout_recipe": "third-x3",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-07-MANGO_P05_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "Static",
+            "Clever"
+          ],
+          "location": "arcade interior neon",
+          "camera_angle": "medium two-shot",
+          "action": "cabinets all glow same blank glyph-ready pulse; Static hands on controls; Clever traces cable map",
+          "emotion": "focused tech panic",
+          "dialogue": "STATIC: \"It's broadcasting through every game.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "neon magenta cyan arcade",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/static/",
+            "references/character_refs/clever/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-07-MANGO_P05_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "Cheeky",
+            "LilDevil"
+          ],
+          "location": "boardwalk outside arcade",
+          "camera_angle": "action medium",
+          "action": "Cheeky rigs prize claw distraction; LilDevil raises fireworks crate ready to smash",
+          "emotion": "comedy disaster edge",
+          "dialogue": "CHEEKY: \"Wrong toy, big red.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "prize stall fireworks crate",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/cheeky/",
+            "references/character_refs/lildevil/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-07-MANGO_P05_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "TwoTone",
+            "LilDevil"
+          ],
+          "location": "outside arcade",
+          "camera_angle": "tight two-shot",
+          "action": "TwoTone blocks LilDevil swing; fused crowd silhouettes glow soft in background faceless",
+          "emotion": "restraint",
+          "dialogue": "TWOTONE: \"Smash it and they stay fused.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "block pose, bubble space",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/twotone/",
+            "references/character_refs/lildevil/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 6,
+      "page_purpose": "Page 6",
+      "layout_recipe": "half+half",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-07-MANGO_P06_PANEL01",
+          "panel_size": "half",
+          "characters": [
+            "Super"
+          ],
+          "location": "boardwalk sky above pier sunset",
+          "camera_angle": "heroic low angle",
+          "action": "Super Monkey streaks green suit red mask catching two mid-air fused float monkeys faceless",
+          "emotion": "flashy confidence",
+          "dialogue": "",
+          "caption": "Then the sky got a hero.",
+          "sfx": "",
+          "visual_notes": "sunset orange sky, green suit pop",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/super/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-07-MANGO_P06_PANEL02",
+          "panel_size": "half",
+          "characters": [
+            "Super",
+            "Scarline",
+            "Zombie"
+          ],
+          "location": "boardwalk after landing",
+          "camera_angle": "three-shot eye level",
+          "action": "Super poses confident; Scarline and Zombie exchange suspicious look",
+          "emotion": "impressed and suspicious",
+          "dialogue": "SCARLINE: \"You knew the hatch.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "sunset light, bubble space",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/super/",
+            "references/character_refs/scarline/",
+            "references/character_refs/zombie/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 7,
+      "page_purpose": "Page 7",
+      "layout_recipe": "third-x3",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-07-MANGO_P07_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "Moodz",
+            "Emo",
+            "NeonBlue"
+          ],
+          "location": "central boardwalk dusk",
+          "camera_angle": "wide group",
+          "action": "Moodz calming gesture; Emo steadies panicking faceless fused monkey; NeonBlue leads kids with glow sticks quiet",
+          "emotion": "collective cool-down",
+          "dialogue": "EMO: \"Quiet wins. Loud feeds it.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "softer palette cooling energy",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/moodz/",
+            "references/character_refs/emo/",
+            "references/character_refs/neonblue/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-07-MANGO_P07_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "Ash",
+            "Static",
+            "Clever"
+          ],
+          "location": "vent and cable junction",
+          "camera_angle": "medium trio working",
+          "action": "Ash carefully vents controlled orange heat; Static reroutes glowing cables; Clever flips balancer switch",
+          "emotion": "teamwork focus",
+          "dialogue": "",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "technical save, leave space for SFX WHRRRR",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/ash/",
+            "references/character_refs/static/",
+            "references/character_refs/clever/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-07-MANGO_P07_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "LilDevil",
+            "TwoTone",
+            "Cheeky"
+          ],
+          "location": "fireworks cart near rail",
+          "camera_angle": "medium",
+          "action": "LilDevil holds fireworks cart still straining; TwoTone adjusts stabilizer box dials; Cheeky waves crowd to beach exit",
+          "emotion": "growth comedy",
+          "dialogue": "LILDEVIL: \"Fine. Not smashing. Yet.\"",
+          "caption": "",
+          "sfx": "",
+          "visual_notes": "cart, ocean rail, dusk",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/lildevil/",
+            "references/character_refs/twotone/",
+            "references/character_refs/cheeky/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 8,
+      "page_purpose": "Page 8",
+      "layout_recipe": "half+half",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-07-MANGO_P08_PANEL01",
+          "panel_size": "half",
+          "characters": [
+            "Moodz",
+            "NeonBlue",
+            "Super"
+          ],
+          "location": "beach sand night ocean fireworks sky",
+          "camera_angle": "wide from behind looking at fireworks",
+          "action": "three leads on sand watching safe red-white-blue fireworks over ocean; quiet beat",
+          "emotion": "relief earned peace",
+          "dialogue": "",
+          "caption": "The pier cooled. The sky did not need a sacrifice.",
+          "sfx": "",
+          "visual_notes": "fireworks over water night beach",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/moodz/",
+            "references/character_refs/neonblue/",
+            "references/character_refs/super/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-07-MANGO_P08_PANEL02",
+          "panel_size": "half",
+          "characters": [
+            "Scarline",
+            "Zombie",
+            "Super"
+          ],
+          "location": "under-pier piling Super faction mark",
+          "camera_angle": "close on burn mark faces at edge",
+          "action": "Scarline mitt on fresh burned Super-faction mark; Zombie looks toward Super; Super half-turned away not answering",
+          "emotion": "mystery opens",
+          "dialogue": "ZOMBIE: \"You knew this place.\"",
+          "caption": "Summer was the cover. The signal was the test.",
+          "sfx": "",
+          "visual_notes": "burn mark blank symbol space, dark under pier",
+          "continuity_notes": "Mango Pier July test; temporary fusions only",
+          "art_prompt": "SEE art_prompt_pack",
+          "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+          "references_required": [
+            "references/character_refs/scarline/",
+            "references/character_refs/zombie/",
+            "references/character_refs/super/"
+          ],
+          "lora_required": [],
+          "controlnet_required": "openpose",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    }
+  ]
+}

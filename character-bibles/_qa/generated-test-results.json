@@ -1,0 +1,1581 @@
+[
+  {
+    "issue_id": "MZ-QA-TEST-1-SHORT-20260712",
+    "setup": {
+      "issue_id": "MZ-QA-TEST-1-SHORT-20260712",
+      "characters": [
+        {
+          "character_id": "MZ-CHAR-001",
+          "role": "primary"
+        },
+        {
+          "character_id": "MZ-CHAR-CHEEKY",
+          "role": "secondary"
+        }
+      ],
+      "page_count": 2,
+      "panel_count": 6,
+      "panel_density": "minimal",
+      "topic": "a banana label mix-up at the prop table",
+      "adventure_style": "Comedy of errors",
+      "tone": "warm funny adventure",
+      "audience": "all ages",
+      "conflict": "a simple mistake escalates visually",
+      "location": "MonkeyZoo prop room",
+      "lesson": "slow down before reacting",
+      "required_beat": "no permanent growth beat",
+      "forbidden_content": "no new names or canon facts",
+      "continuity_mode": "current canon only",
+      "canon_strictness": "balanced",
+      "character_growth_mode": "no growth beat",
+      "optional_story_instructions": "Minimal trait density. Keep supporting character from taking over."
+    },
+    "output_dir": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\issues\\MZ-QA-TEST-1-SHORT-20260712",
+    "prompt_length": 2924,
+    "script_length": 2973,
+    "panel_plan": {
+      "page_count": 2,
+      "total_panels": 6,
+      "pages": [
+        {
+          "page": 1,
+          "panel_count": 3
+        },
+        {
+          "page": 2,
+          "panel_count": 3
+        }
+      ],
+      "cast_density": "tight",
+      "note": "Keep max three named characters per generated panel."
+    },
+    "cast": [
+      {
+        "character_id": "MZ-CHAR-001",
+        "display_name": "Moodz",
+        "role": "primary",
+        "selected_traits": [
+          "guarded sensitivity",
+          "choice before change",
+          "emotional stabilizer"
+        ],
+        "selected_trait_statuses": [
+          "canon",
+          "canon",
+          "canon"
+        ],
+        "omitted_count": 4,
+        "catchphrases": [
+          "A compact refusal when pressure crosses the line."
+        ],
+        "running_elements": [],
+        "primary_reference_image": "references/primary/primary-reference.webp",
+        "experimental_review_required": []
+      },
+      {
+        "character_id": "MZ-CHAR-CHEEKY",
+        "display_name": "Cheeky",
+        "role": "secondary",
+        "selected_traits": [
+          "tongue-out showmanship",
+          "prank redirection",
+          "mistimes the joke"
+        ],
+        "selected_trait_statuses": [
+          "established",
+          "established",
+          "experimental"
+        ],
+        "omitted_count": 1,
+        "catchphrases": [],
+        "running_elements": [],
+        "primary_reference_image": "references/primary/primary-reference.png",
+        "experimental_review_required": [
+          "mistimes the joke"
+        ]
+      }
+    ],
+    "warnings": [
+      "Cheeky: experimental trait 'mistimes the joke' is reviewable, not canon."
+    ],
+    "script_validation_warnings": [],
+    "continuity_proposal": {
+      "issue_id": "MZ-QA-TEST-1-SHORT-20260712",
+      "status": "proposed_owner_review_required",
+      "created_at": "2026-07-12T00:49:24",
+      "traits_used": [
+        {
+          "character_id": "MZ-CHAR-001",
+          "display_name": "Moodz",
+          "traits": [
+            {
+              "name": "guarded sensitivity",
+              "value": "Feels more than he admits and protects that sensitivity with distance.",
+              "category": "emotional_tell",
+              "status": "canon",
+              "strength": "defining",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "identity-pressure scenes",
+                "group emotional stakes"
+              ],
+              "incompatible_contexts": [
+                "broad slapstick scenes where he has no emotional stake"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "0"
+            },
+            {
+              "name": "choice before change",
+              "value": "Rejects systems that push identity change before consent.",
+              "category": "personal_rule",
+              "status": "canon",
+              "strength": "defining",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "fusion/defusion stories",
+                "consent themes"
+              ],
+              "incompatible_contexts": [
+                "using him as automatic anti-technology scold"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "1"
+            },
+            {
+              "name": "emotional stabilizer",
+              "value": "Can name the emotional truth of a situation and stop escalation.",
+              "category": "personal_mission",
+              "status": "canon",
+              "strength": "defining",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "panic scenes",
+                "team reset moments"
+              ],
+              "incompatible_contexts": [
+                "solving purely technical problems alone"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "3"
+            }
+          ],
+          "catchphrases": [
+            {
+              "name": "Not today.",
+              "value": "A compact refusal when pressure crosses the line.",
+              "category": "catchphrase",
+              "status": "established",
+              "strength": "strong",
+              "usage_frequency": "rarely",
+              "compatible_contexts": [
+                "climax refusal",
+                "boundary-setting"
+              ],
+              "incompatible_contexts": [
+                "minor inconvenience"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": null
+            }
+          ],
+          "running_elements": []
+        },
+        {
+          "character_id": "MZ-CHAR-CHEEKY",
+          "display_name": "Cheeky",
+          "traits": [
+            {
+              "name": "tongue-out showmanship",
+              "value": "Uses exaggerated face/body language to sell the bit.",
+              "category": "physical_tick",
+              "status": "established",
+              "strength": "moderate",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "comedy panels"
+              ],
+              "incompatible_contexts": [
+                "serious grief scenes"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "4"
+            },
+            {
+              "name": "prank redirection",
+              "value": "Can turn chaos into crowd movement or distraction.",
+              "category": "specific_talent",
+              "status": "established",
+              "strength": "strong",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "evacuation",
+                "comic relief"
+              ],
+              "incompatible_contexts": [
+                "undercutting serious trauma beats"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "0"
+            },
+            {
+              "name": "mistimes the joke",
+              "value": "Can misread when play is helping versus escalating.",
+              "category": "signature_mistake",
+              "status": "experimental",
+              "strength": "moderate",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "crowd scenes"
+              ],
+              "incompatible_contexts": [
+                "every scene as prank failure"
+              ],
+              "last_used_issue": null,
+              "review_note": "Requires owner approval before becoming canon.",
+              "source_path": "3"
+            }
+          ],
+          "catchphrases": [],
+          "running_elements": []
+        }
+      ],
+      "new_facts": [],
+      "relationship_changes": [],
+      "lessons_learned": [],
+      "unresolved_questions": [],
+      "growth_notes": [],
+      "suggested_bible_updates": [],
+      "script_reviewed": true,
+      "canonization_note": "Nothing in this proposal becomes canon until approved in the Character Bible review interface."
+    },
+    "catchphrase_counts": {
+      "Moodz: A compact refusal when pressure crosses the line.": 1
+    },
+    "traits_selected_total": 6,
+    "experimental_traits_selected_total": 1,
+    "dialogue_word_counts": [
+      9,
+      7,
+      8,
+      7,
+      8,
+      7
+    ]
+  },
+  {
+    "issue_id": "MZ-QA-TEST-2-STANDARD-20260712",
+    "setup": {
+      "issue_id": "MZ-QA-TEST-2-STANDARD-20260712",
+      "characters": [
+        {
+          "character_id": "MZ-CHAR-SUPER",
+          "role": "primary"
+        },
+        {
+          "character_id": "MZ-CHAR-CLEVER",
+          "role": "secondary"
+        },
+        {
+          "character_id": "MZ-CHAR-003",
+          "role": "supporting"
+        },
+        {
+          "character_id": "MZ-CHAR-005",
+          "role": "supporting"
+        }
+      ],
+      "page_count": 8,
+      "panel_count": 20,
+      "panel_density": "balanced",
+      "topic": "a signal tower rescue that cannot be solved by strength alone",
+      "adventure_style": "Superhero adventure",
+      "tone": "bright teamwork adventure",
+      "audience": "all ages",
+      "conflict": "the obvious heroic solution creates a second problem",
+      "location": "MonkeyZoo signal tower",
+      "lesson": "a rescue needs thinking and listening",
+      "required_beat": "Super Monkey pauses to let the team solve one step",
+      "forbidden_content": "no new names or canon facts",
+      "continuity_mode": "current canon only",
+      "canon_strictness": "balanced",
+      "character_growth_mode": "small reversible beat",
+      "optional_story_instructions": "Balanced trait density. Do not let Super Monkey solve every panel."
+    },
+    "output_dir": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\issues\\MZ-QA-TEST-2-STANDARD-20260712",
+    "prompt_length": 4965,
+    "script_length": 9858,
+    "panel_plan": {
+      "page_count": 8,
+      "total_panels": 20,
+      "pages": [
+        {
+          "page": 1,
+          "panel_count": 3
+        },
+        {
+          "page": 2,
+          "panel_count": 3
+        },
+        {
+          "page": 3,
+          "panel_count": 3
+        },
+        {
+          "page": 4,
+          "panel_count": 3
+        },
+        {
+          "page": 5,
+          "panel_count": 2
+        },
+        {
+          "page": 6,
+          "panel_count": 2
+        },
+        {
+          "page": 7,
+          "panel_count": 2
+        },
+        {
+          "page": 8,
+          "panel_count": 2
+        }
+      ],
+      "cast_density": "roomy",
+      "note": "Keep max three named characters per generated panel."
+    },
+    "cast": [
+      {
+        "character_id": "MZ-CHAR-SUPER",
+        "display_name": "Super Monkey",
+        "role": "primary",
+        "selected_traits": [
+          "dramatic save",
+          "protective rescue",
+          "confidence with hidden knowledge",
+          "strength is not the solution",
+          "hero pose"
+        ],
+        "selected_trait_statuses": [
+          "established",
+          "established",
+          "established",
+          "experimental",
+          "experimental"
+        ],
+        "omitted_count": 0,
+        "catchphrases": [],
+        "running_elements": [],
+        "primary_reference_image": "references/primary/primary-reference.png",
+        "experimental_review_required": [
+          "strength is not the solution",
+          "hero pose"
+        ]
+      },
+      {
+        "character_id": "MZ-CHAR-CLEVER",
+        "display_name": "Clever",
+        "role": "secondary",
+        "selected_traits": [
+          "glasses as identifier",
+          "system logic",
+          "can focus on the system before the room",
+          "points out the clue"
+        ],
+        "selected_trait_statuses": [
+          "canon",
+          "established",
+          "established",
+          "experimental"
+        ],
+        "omitted_count": 1,
+        "catchphrases": [],
+        "running_elements": [],
+        "primary_reference_image": "references/primary/primary-reference.png",
+        "experimental_review_required": [
+          "points out the clue"
+        ]
+      },
+      {
+        "character_id": "MZ-CHAR-003",
+        "display_name": "Static",
+        "role": "supporting",
+        "selected_traits": [
+          "fast clipped bursts",
+          "overstimulated alertness",
+          "early warning"
+        ],
+        "selected_trait_statuses": [
+          "canon",
+          "canon",
+          "established"
+        ],
+        "omitted_count": 4,
+        "catchphrases": [],
+        "running_elements": [],
+        "primary_reference_image": "references/primary/primary-reference.webp",
+        "experimental_review_required": []
+      },
+      {
+        "character_id": "MZ-CHAR-005",
+        "display_name": "NeonBlue",
+        "role": "supporting",
+        "selected_traits": [
+          "help first",
+          "refuses to abandon people",
+          "optimistic surface, insecure underneath"
+        ],
+        "selected_trait_statuses": [
+          "canon",
+          "established",
+          "canon"
+        ],
+        "omitted_count": 4,
+        "catchphrases": [],
+        "running_elements": [],
+        "primary_reference_image": "references/primary/primary-reference.webp",
+        "experimental_review_required": []
+      }
+    ],
+    "warnings": [
+      "Super Monkey: experimental trait 'strength is not the solution' is reviewable, not canon.",
+      "Super Monkey: experimental trait 'hero pose' is reviewable, not canon.",
+      "Clever: experimental trait 'points out the clue' is reviewable, not canon.",
+      "Do not let Super Monkey physically solve every conflict."
+    ],
+    "script_validation_warnings": [],
+    "continuity_proposal": {
+      "issue_id": "MZ-QA-TEST-2-STANDARD-20260712",
+      "status": "proposed_owner_review_required",
+      "created_at": "2026-07-12T00:49:24",
+      "traits_used": [
+        {
+          "character_id": "MZ-CHAR-SUPER",
+          "display_name": "Super Monkey",
+          "traits": [
+            {
+              "name": "dramatic save",
+              "value": "Can arrive with high-impact rescue energy.",
+              "category": "entrance_style",
+              "status": "established",
+              "strength": "strong",
+              "usage_frequency": "rarely",
+              "compatible_contexts": [
+                "clutch rescue"
+              ],
+              "incompatible_contexts": [
+                "every entrance"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "0"
+            },
+            {
+              "name": "protective rescue",
+              "value": "Can protect others quickly in visible danger.",
+              "category": "specific_talent",
+              "status": "established",
+              "strength": "strong",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "physical hazard"
+              ],
+              "incompatible_contexts": [
+                "quiet interior conflict"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "2"
+            },
+            {
+              "name": "confidence with hidden knowledge",
+              "value": "May know more than he says, creating tension.",
+              "category": "internal_contradiction",
+              "status": "established",
+              "strength": "moderate",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "mystery arcs"
+              ],
+              "incompatible_contexts": [
+                "making him automatically perfect"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "1"
+            },
+            {
+              "name": "strength is not the solution",
+              "value": "Can reach first for heroic action when the problem needs patience, trust, or balance.",
+              "category": "specific_weakness",
+              "status": "experimental",
+              "strength": "moderate",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "emotional systems",
+                "hidden tech"
+              ],
+              "incompatible_contexts": [
+                "undermining competence"
+              ],
+              "last_used_issue": null,
+              "review_note": "Requires owner approval before becoming canon.",
+              "source_path": "3"
+            },
+            {
+              "name": "hero pose",
+              "value": "Uses strong heroic silhouettes when the moment earns it.",
+              "category": "signature_pose",
+              "status": "experimental",
+              "strength": "moderate",
+              "usage_frequency": "rarely",
+              "compatible_contexts": [
+                "cover/splash moments"
+              ],
+              "incompatible_contexts": [
+                "routine dialogue"
+              ],
+              "last_used_issue": null,
+              "review_note": "Requires owner approval before becoming canon.",
+              "source_path": "4"
+            }
+          ],
+          "catchphrases": [],
+          "running_elements": []
+        },
+        {
+          "character_id": "MZ-CHAR-CLEVER",
+          "display_name": "Clever",
+          "traits": [
+            {
+              "name": "glasses as identifier",
+              "value": "Round black-rimmed glasses are immutable visual identity.",
+              "category": "visual_feature",
+              "status": "canon",
+              "strength": "defining",
+              "usage_frequency": "almost always",
+              "compatible_contexts": [
+                "all visual appearances"
+              ],
+              "incompatible_contexts": [
+                "broken/missing/swapped glasses gag"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "1"
+            },
+            {
+              "name": "system logic",
+              "value": "Tracks wiring, patterns, and hidden FusionZoo infrastructure.",
+              "category": "specific_talent",
+              "status": "established",
+              "strength": "strong",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "technical puzzles"
+              ],
+              "incompatible_contexts": [
+                "replacing every other character's insight"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "0"
+            },
+            {
+              "name": "can focus on the system before the room",
+              "value": "May initially follow the mechanism while others track emotions.",
+              "category": "specific_weakness",
+              "status": "established",
+              "strength": "moderate",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "technical emergencies"
+              ],
+              "incompatible_contexts": [
+                "making Clever emotionless"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "3"
+            },
+            {
+              "name": "points out the clue",
+              "value": "Uses pointing/inspection poses when identifying mechanisms.",
+              "category": "signature_pose",
+              "status": "experimental",
+              "strength": "moderate",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "clue discovery"
+              ],
+              "incompatible_contexts": [
+                "every appearance"
+              ],
+              "last_used_issue": null,
+              "review_note": "Requires owner approval before becoming canon.",
+              "source_path": "4"
+            }
+          ],
+          "catchphrases": [],
+          "running_elements": []
+        },
+        {
+          "character_id": "MZ-CHAR-003",
+          "display_name": "Static",
+          "traits": [
+            {
+              "name": "fast clipped bursts",
+              "value": "Dialogue comes in quick bursts under pressure.",
+              "category": "speech_pattern",
+              "status": "canon",
+              "strength": "strong",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "panic/comedy",
+                "signal detection"
+              ],
+              "incompatible_contexts": [
+                "long calm exposition"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "1"
+            },
+            {
+              "name": "overstimulated alertness",
+              "value": "Feels danger early and visibly.",
+              "category": "emotional_tell",
+              "status": "canon",
+              "strength": "defining",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "danger buildup"
+              ],
+              "incompatible_contexts": [
+                "calm-by-default scenes"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "0"
+            },
+            {
+              "name": "early warning",
+              "value": "Converts anxiety into useful detection when supported.",
+              "category": "specific_talent",
+              "status": "established",
+              "strength": "strong",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "team hazards"
+              ],
+              "incompatible_contexts": [
+                "ignoring his warnings for comedy every time"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "3"
+            }
+          ],
+          "catchphrases": [],
+          "running_elements": []
+        },
+        {
+          "character_id": "MZ-CHAR-005",
+          "display_name": "NeonBlue",
+          "traits": [
+            {
+              "name": "help first",
+              "value": "Steps toward need before he has all the fine print.",
+              "category": "personal_rule",
+              "status": "canon",
+              "strength": "defining",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "rescue scenes",
+                "kids/crowd protection"
+              ],
+              "incompatible_contexts": [
+                "making him gullible without consequence"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "0"
+            },
+            {
+              "name": "refuses to abandon people",
+              "value": "Keeps rescue and inclusion in view.",
+              "category": "specific_talent",
+              "status": "established",
+              "strength": "strong",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "crowd danger",
+                "team fear"
+              ],
+              "incompatible_contexts": [
+                "solo martyrdom every issue"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "3"
+            },
+            {
+              "name": "optimistic surface, insecure underneath",
+              "value": "Uses hope partly to manage fear.",
+              "category": "internal_contradiction",
+              "status": "canon",
+              "strength": "strong",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "smile-drop moments"
+              ],
+              "incompatible_contexts": [
+                "constant cheerleading"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "1"
+            }
+          ],
+          "catchphrases": [],
+          "running_elements": []
+        }
+      ],
+      "new_facts": [],
+      "relationship_changes": [],
+      "lessons_learned": [],
+      "unresolved_questions": [],
+      "growth_notes": [
+        {
+          "character_id": "MZ-CHAR-SUPER",
+          "display_name": "Super Monkey",
+          "proposal": "Review whether Super Monkey showed a small reversible growth beat in MZ-QA-TEST-2-STANDARD-20260712.",
+          "status": "proposed_owner_review_required"
+        }
+      ],
+      "suggested_bible_updates": [],
+      "script_reviewed": true,
+      "canonization_note": "Nothing in this proposal becomes canon until approved in the Character Bible review interface."
+    },
+    "catchphrase_counts": {},
+    "traits_selected_total": 15,
+    "experimental_traits_selected_total": 3,
+    "dialogue_word_counts": [
+      9,
+      7,
+      9,
+      7,
+      9,
+      7,
+      9,
+      7,
+      9,
+      9,
+      9,
+      7,
+      9,
+      7,
+      7,
+      7,
+      9,
+      7,
+      9,
+      7
+    ]
+  },
+  {
+    "issue_id": "MZ-QA-TEST-3-ENSEMBLE-20260712",
+    "setup": {
+      "issue_id": "MZ-QA-TEST-3-ENSEMBLE-20260712",
+      "characters": [
+        {
+          "character_id": "MZ-CHAR-001",
+          "role": "primary"
+        },
+        {
+          "character_id": "MZ-CHAR-CLEVER",
+          "role": "secondary"
+        },
+        {
+          "character_id": "MZ-CHAR-005",
+          "role": "secondary"
+        },
+        {
+          "character_id": "MZ-CHAR-ZOMBIE",
+          "role": "supporting"
+        },
+        {
+          "character_id": "MZ-CHAR-PATCH",
+          "role": "supporting"
+        },
+        {
+          "character_id": "MZ-CHAR-006",
+          "role": "cameo"
+        }
+      ],
+      "page_count": 12,
+      "panel_count": 36,
+      "panel_density": "balanced",
+      "topic": "a rescue mystery around a missing home-frequency map",
+      "adventure_style": "Mystery",
+      "tone": "curious teamwork mystery",
+      "audience": "all ages",
+      "conflict": "clues point in two emotional directions at once",
+      "location": "old FusionZoo trail",
+      "lesson": "not every clue needs to be solved alone",
+      "required_beat": "Moodz accepts one teammate?s help without making it permanent canon",
+      "forbidden_content": "no new names or canon facts",
+      "continuity_mode": "current canon only",
+      "canon_strictness": "balanced",
+      "character_growth_mode": "small reversible beat",
+      "optional_story_instructions": "Balanced ensemble density. Include one proposed growth beat only."
+    },
+    "output_dir": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\issues\\MZ-QA-TEST-3-ENSEMBLE-20260712",
+    "prompt_length": 6680,
+    "script_length": 16969,
+    "panel_plan": {
+      "page_count": 12,
+      "total_panels": 36,
+      "pages": [
+        {
+          "page": 1,
+          "panel_count": 3
+        },
+        {
+          "page": 2,
+          "panel_count": 3
+        },
+        {
+          "page": 3,
+          "panel_count": 3
+        },
+        {
+          "page": 4,
+          "panel_count": 3
+        },
+        {
+          "page": 5,
+          "panel_count": 3
+        },
+        {
+          "page": 6,
+          "panel_count": 3
+        },
+        {
+          "page": 7,
+          "panel_count": 3
+        },
+        {
+          "page": 8,
+          "panel_count": 3
+        },
+        {
+          "page": 9,
+          "panel_count": 3
+        },
+        {
+          "page": 10,
+          "panel_count": 3
+        },
+        {
+          "page": 11,
+          "panel_count": 3
+        },
+        {
+          "page": 12,
+          "panel_count": 3
+        }
+      ],
+      "cast_density": "roomy",
+      "note": "Keep max three named characters per generated panel."
+    },
+    "cast": [
+      {
+        "character_id": "MZ-CHAR-001",
+        "display_name": "Moodz",
+        "role": "primary",
+        "selected_traits": [
+          "guarded sensitivity",
+          "choice before change",
+          "emotional stabilizer",
+          "short declaratives",
+          "slow to trust",
+          "Not today.",
+          "studies before acting"
+        ],
+        "selected_trait_statuses": [
+          "canon",
+          "canon",
+          "canon",
+          "established",
+          "established",
+          "established",
+          "established"
+        ],
+        "omitted_count": 0,
+        "catchphrases": [
+          "A compact refusal when pressure crosses the line."
+        ],
+        "running_elements": [],
+        "primary_reference_image": "references/primary/primary-reference.webp",
+        "experimental_review_required": []
+      },
+      {
+        "character_id": "MZ-CHAR-CLEVER",
+        "display_name": "Clever",
+        "role": "secondary",
+        "selected_traits": [
+          "glasses as identifier",
+          "system logic",
+          "can focus on the system before the room",
+          "points out the clue"
+        ],
+        "selected_trait_statuses": [
+          "canon",
+          "established",
+          "established",
+          "experimental"
+        ],
+        "omitted_count": 1,
+        "catchphrases": [],
+        "running_elements": [],
+        "primary_reference_image": "references/primary/primary-reference.png",
+        "experimental_review_required": [
+          "points out the clue"
+        ]
+      },
+      {
+        "character_id": "MZ-CHAR-005",
+        "display_name": "NeonBlue",
+        "role": "secondary",
+        "selected_traits": [
+          "help first",
+          "refuses to abandon people",
+          "optimistic surface, insecure underneath",
+          "trusts promises too quickly",
+          "smile drop"
+        ],
+        "selected_trait_statuses": [
+          "canon",
+          "established",
+          "canon",
+          "canon",
+          "canon"
+        ],
+        "omitted_count": 2,
+        "catchphrases": [
+          "A hopeful invitation that can be brave or risky."
+        ],
+        "running_elements": [],
+        "primary_reference_image": "references/primary/primary-reference.webp",
+        "experimental_review_required": []
+      },
+      {
+        "character_id": "MZ-CHAR-ZOMBIE",
+        "display_name": "Zombie",
+        "role": "supporting",
+        "selected_traits": [
+          "recognizes old FusionZoo traces",
+          "unexpected seriousness",
+          "past can narrow his read"
+        ],
+        "selected_trait_statuses": [
+          "established",
+          "experimental",
+          "experimental"
+        ],
+        "omitted_count": 2,
+        "catchphrases": [],
+        "running_elements": [],
+        "primary_reference_image": "references/primary/primary-reference.png",
+        "experimental_review_required": [
+          "unexpected seriousness",
+          "past can narrow his read"
+        ]
+      },
+      {
+        "character_id": "MZ-CHAR-PATCH",
+        "display_name": "Patch",
+        "role": "supporting",
+        "selected_traits": [
+          "NeonBlue old friend",
+          "...home frequency"
+        ],
+        "selected_trait_statuses": [
+          "canon",
+          "canon"
+        ],
+        "omitted_count": 0,
+        "catchphrases": [],
+        "running_elements": [],
+        "primary_reference_image": null,
+        "experimental_review_required": []
+      },
+      {
+        "character_id": "MZ-CHAR-006",
+        "display_name": "Scarline",
+        "role": "cameo",
+        "selected_traits": [
+          "settled confidence"
+        ],
+        "selected_trait_statuses": [
+          "canon"
+        ],
+        "omitted_count": 6,
+        "catchphrases": [],
+        "running_elements": [],
+        "primary_reference_image": "references/primary/primary-reference.webp",
+        "experimental_review_required": []
+      }
+    ],
+    "warnings": [
+      "Clever: experimental trait 'points out the clue' is reviewable, not canon.",
+      "Zombie: experimental trait 'unexpected seriousness' is reviewable, not canon.",
+      "Zombie: experimental trait 'past can narrow his read' is reviewable, not canon.",
+      "Do not use Zombie only as a joke; give the cameo or role a story purpose."
+    ],
+    "script_validation_warnings": [],
+    "continuity_proposal": {
+      "issue_id": "MZ-QA-TEST-3-ENSEMBLE-20260712",
+      "status": "proposed_owner_review_required",
+      "created_at": "2026-07-12T00:49:25",
+      "traits_used": [
+        {
+          "character_id": "MZ-CHAR-001",
+          "display_name": "Moodz",
+          "traits": [
+            {
+              "name": "guarded sensitivity",
+              "value": "Feels more than he admits and protects that sensitivity with distance.",
+              "category": "emotional_tell",
+              "status": "canon",
+              "strength": "defining",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "identity-pressure scenes",
+                "group emotional stakes"
+              ],
+              "incompatible_contexts": [
+                "broad slapstick scenes where he has no emotional stake"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "0"
+            },
+            {
+              "name": "choice before change",
+              "value": "Rejects systems that push identity change before consent.",
+              "category": "personal_rule",
+              "status": "canon",
+              "strength": "defining",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "fusion/defusion stories",
+                "consent themes"
+              ],
+              "incompatible_contexts": [
+                "using him as automatic anti-technology scold"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "1"
+            },
+            {
+              "name": "emotional stabilizer",
+              "value": "Can name the emotional truth of a situation and stop escalation.",
+              "category": "personal_mission",
+              "status": "canon",
+              "strength": "defining",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "panic scenes",
+                "team reset moments"
+              ],
+              "incompatible_contexts": [
+                "solving purely technical problems alone"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "3"
+            },
+            {
+              "name": "short declaratives",
+              "value": "Speaks in compact, low-flare statements.",
+              "category": "speech_pattern",
+              "status": "established",
+              "strength": "strong",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "tense panels",
+                "quiet punchlines"
+              ],
+              "incompatible_contexts": [
+                "long exposition unless no one else can deliver it"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "2"
+            },
+            {
+              "name": "slow to trust",
+              "value": "Needs evidence before accepting help or promises.",
+              "category": "specific_weakness",
+              "status": "established",
+              "strength": "strong",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "new locations",
+                "authority figures"
+              ],
+              "incompatible_contexts": [
+                "repeating distrust after trust has been earned"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "4"
+            },
+            {
+              "name": "Not today.",
+              "value": "A compact refusal when pressure crosses the line.",
+              "category": "catchphrase",
+              "status": "established",
+              "strength": "strong",
+              "usage_frequency": "rarely",
+              "compatible_contexts": [
+                "climax refusal",
+                "boundary-setting"
+              ],
+              "incompatible_contexts": [
+                "minor inconvenience"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "6"
+            },
+            {
+              "name": "studies before acting",
+              "value": "Looks, listens, and reads the room before committing.",
+              "category": "physical_tick",
+              "status": "established",
+              "strength": "moderate",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "quiet setups"
+              ],
+              "incompatible_contexts": [
+                "fast physical comedy beats"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "5"
+            }
+          ],
+          "catchphrases": [
+            {
+              "name": "Not today.",
+              "value": "A compact refusal when pressure crosses the line.",
+              "category": "catchphrase",
+              "status": "established",
+              "strength": "strong",
+              "usage_frequency": "rarely",
+              "compatible_contexts": [
+                "climax refusal",
+                "boundary-setting"
+              ],
+              "incompatible_contexts": [
+                "minor inconvenience"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": null
+            }
+          ],
+          "running_elements": []
+        },
+        {
+          "character_id": "MZ-CHAR-CLEVER",
+          "display_name": "Clever",
+          "traits": [
+            {
+              "name": "glasses as identifier",
+              "value": "Round black-rimmed glasses are immutable visual identity.",
+              "category": "visual_feature",
+              "status": "canon",
+              "strength": "defining",
+              "usage_frequency": "almost always",
+              "compatible_contexts": [
+                "all visual appearances"
+              ],
+              "incompatible_contexts": [
+                "broken/missing/swapped glasses gag"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "1"
+            },
+            {
+              "name": "system logic",
+              "value": "Tracks wiring, patterns, and hidden FusionZoo infrastructure.",
+              "category": "specific_talent",
+              "status": "established",
+              "strength": "strong",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "technical puzzles"
+              ],
+              "incompatible_contexts": [
+                "replacing every other character's insight"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "0"
+            },
+            {
+              "name": "can focus on the system before the room",
+              "value": "May initially follow the mechanism while others track emotions.",
+              "category": "specific_weakness",
+              "status": "established",
+              "strength": "moderate",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "technical emergencies"
+              ],
+              "incompatible_contexts": [
+                "making Clever emotionless"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "3"
+            },
+            {
+              "name": "points out the clue",
+              "value": "Uses pointing/inspection poses when identifying mechanisms.",
+              "category": "signature_pose",
+              "status": "experimental",
+              "strength": "moderate",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "clue discovery"
+              ],
+              "incompatible_contexts": [
+                "every appearance"
+              ],
+              "last_used_issue": null,
+              "review_note": "Requires owner approval before becoming canon.",
+              "source_path": "4"
+            }
+          ],
+          "catchphrases": [],
+          "running_elements": []
+        },
+        {
+          "character_id": "MZ-CHAR-005",
+          "display_name": "NeonBlue",
+          "traits": [
+            {
+              "name": "help first",
+              "value": "Steps toward need before he has all the fine print.",
+              "category": "personal_rule",
+              "status": "canon",
+              "strength": "defining",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "rescue scenes",
+                "kids/crowd protection"
+              ],
+              "incompatible_contexts": [
+                "making him gullible without consequence"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "0"
+            },
+            {
+              "name": "refuses to abandon people",
+              "value": "Keeps rescue and inclusion in view.",
+              "category": "specific_talent",
+              "status": "established",
+              "strength": "strong",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "crowd danger",
+                "team fear"
+              ],
+              "incompatible_contexts": [
+                "solo martyrdom every issue"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "3"
+            },
+            {
+              "name": "optimistic surface, insecure underneath",
+              "value": "Uses hope partly to manage fear.",
+              "category": "internal_contradiction",
+              "status": "canon",
+              "strength": "strong",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "smile-drop moments"
+              ],
+              "incompatible_contexts": [
+                "constant cheerleading"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "1"
+            },
+            {
+              "name": "trusts promises too quickly",
+              "value": "May accept a system's offer before reading the cost.",
+              "category": "specific_weakness",
+              "status": "canon",
+              "strength": "strong",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "new tech offers"
+              ],
+              "incompatible_contexts": [
+                "making him foolish"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "4"
+            },
+            {
+              "name": "smile drop",
+              "value": "When the smile lowers, the scene should take it seriously.",
+              "category": "emotional_tell",
+              "status": "canon",
+              "strength": "strong",
+              "usage_frequency": "rarely",
+              "compatible_contexts": [
+                "real disappointment"
+              ],
+              "incompatible_contexts": [
+                "minor jokes"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "5"
+            }
+          ],
+          "catchphrases": [
+            {
+              "name": "Why not try?",
+              "value": "A hopeful invitation that can be brave or risky.",
+              "category": "catchphrase",
+              "status": "canon",
+              "strength": "moderate",
+              "usage_frequency": "rarely",
+              "compatible_contexts": [
+                "offers of change"
+              ],
+              "incompatible_contexts": [
+                "known dangerous offers"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": null
+            }
+          ],
+          "running_elements": []
+        },
+        {
+          "character_id": "MZ-CHAR-ZOMBIE",
+          "display_name": "Zombie",
+          "traits": [
+            {
+              "name": "recognizes old FusionZoo traces",
+              "value": "Knows the smell/signature of old systems.",
+              "category": "specific_talent",
+              "status": "established",
+              "strength": "strong",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "old labs",
+                "hidden infrastructure"
+              ],
+              "incompatible_contexts": [
+                "generic monster jokes"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "0"
+            },
+            {
+              "name": "unexpected seriousness",
+              "value": "Carries a quiet awareness that something old is waking up.",
+              "category": "emotional_tell",
+              "status": "experimental",
+              "strength": "moderate",
+              "usage_frequency": "sometimes",
+              "compatible_contexts": [
+                "mystery/horror-light beats"
+              ],
+              "incompatible_contexts": [
+                "brain-only comedy"
+              ],
+              "last_used_issue": null,
+              "review_note": "Requires owner approval before becoming canon.",
+              "source_path": "1"
+            },
+            {
+              "name": "past can narrow his read",
+              "value": "May assume old causes are at work before proving the current trigger.",
+              "category": "specific_weakness",
+              "status": "experimental",
+              "strength": "moderate",
+              "usage_frequency": "rarely",
+              "compatible_contexts": [
+                "mystery investigation"
+              ],
+              "incompatible_contexts": [
+                "making him wrong for cheap laughs"
+              ],
+              "last_used_issue": null,
+              "review_note": "Requires owner approval before becoming canon.",
+              "source_path": "3"
+            }
+          ],
+          "catchphrases": [],
+          "running_elements": []
+        },
+        {
+          "character_id": "MZ-CHAR-PATCH",
+          "display_name": "Patch",
+          "traits": [
+            {
+              "name": "NeonBlue old friend",
+              "value": "Patch matters because NeonBlue recognizes him and carries guilt.",
+              "category": "relationship_dynamic",
+              "status": "canon",
+              "strength": "defining",
+              "usage_frequency": "special circumstances only",
+              "compatible_contexts": [
+                "NeonBlue guilt",
+                "Stayed/Pending stories"
+              ],
+              "incompatible_contexts": [
+                "background crowd use without identity"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "0"
+            },
+            {
+              "name": "...home frequency",
+              "value": "A cryptic continuity line, not a reusable catchphrase yet.",
+              "category": "catchphrase",
+              "status": "canon",
+              "strength": "subtle",
+              "usage_frequency": "special circumstances only",
+              "compatible_contexts": [
+                "Relay 1 continuity"
+              ],
+              "incompatible_contexts": [
+                "ordinary dialogue"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "4"
+            }
+          ],
+          "catchphrases": [],
+          "running_elements": []
+        },
+        {
+          "character_id": "MZ-CHAR-006",
+          "display_name": "Scarline",
+          "traits": [
+            {
+              "name": "settled confidence",
+              "value": "Reads as planted, experienced, and hard to rattle.",
+              "category": "emotional_tell",
+              "status": "canon",
+              "strength": "strong",
+              "usage_frequency": "often",
+              "compatible_contexts": [
+                "mystery scenes"
+              ],
+              "incompatible_contexts": [
+                "panic comedy"
+              ],
+              "last_used_issue": null,
+              "review_note": null,
+              "source_path": "1"
+            }
+          ],
+          "catchphrases": [],
+          "running_elements": []
+        }
+      ],
+      "new_facts": [],
+      "relationship_changes": [],
+      "lessons_learned": [],
+      "unresolved_questions": [],
+      "growth_notes": [
+        {
+          "character_id": "MZ-CHAR-001",
+          "display_name": "Moodz",
+          "proposal": "Review whether Moodz showed a small reversible growth beat in MZ-QA-TEST-3-ENSEMBLE-20260712.",
+          "status": "proposed_owner_review_required"
+        }
+      ],
+      "suggested_bible_updates": [],
+      "script_reviewed": true,
+      "canonization_note": "Nothing in this proposal becomes canon until approved in the Character Bible review interface."
+    },
+    "catchphrase_counts": {
+      "Moodz: A compact refusal when pressure crosses the line.": 1,
+      "NeonBlue: A hopeful invitation that can be brave or risky.": 1
+    },
+    "traits_selected_total": 22,
+    "experimental_traits_selected_total": 3,
+    "dialogue_word_counts": [
+      9,
+      10,
+      8,
+      7,
+      7,
+      7,
+      8,
+      7,
+      8,
+      8,
+      8,
+      7,
+      8,
+      7,
+      7,
+      7,
+      8,
+      7,
+      8,
+      7,
+      8,
+      7,
+      8,
+      7,
+      8,
+      7,
+      8,
+      7,
+      8,
+      7,
+      8,
+      7,
+      8,
+      7,
+      7,
+      7
+    ]
+  }
+]

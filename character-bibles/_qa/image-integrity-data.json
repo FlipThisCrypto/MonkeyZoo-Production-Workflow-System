@@ -1,0 +1,1367 @@
+{
+  "checked_at": "2026-07-12",
+  "characters": [
+    {
+      "character_id": "MZ-CHAR-001",
+      "display_name": "Moodz",
+      "series_name": "Emo Monkey / Fusion Squad lead",
+      "personal_name": "Moodz",
+      "naming_status": "personal_name_canon",
+      "canon_traits": 42,
+      "experimental_traits": 12,
+      "unresolved_fields": 47,
+      "glasses_status": "confirmed_no_glasses",
+      "primary_reference_image": "references/primary/primary-reference.webp"
+    },
+    {
+      "character_id": "MZ-CHAR-002",
+      "display_name": "TwoTone",
+      "series_name": "Emo Monkey / Fusion Squad lead",
+      "personal_name": "TwoTone",
+      "naming_status": "personal_name_canon",
+      "canon_traits": 29,
+      "experimental_traits": 19,
+      "unresolved_fields": 47,
+      "glasses_status": "confirmed_no_glasses",
+      "primary_reference_image": "references/primary/primary-reference.webp"
+    },
+    {
+      "character_id": "MZ-CHAR-003",
+      "display_name": "Static",
+      "series_name": "Emo Monkey / Fusion Squad lead",
+      "personal_name": "Static",
+      "naming_status": "personal_name_canon",
+      "canon_traits": 41,
+      "experimental_traits": 9,
+      "unresolved_fields": 46,
+      "glasses_status": "confirmed_no_glasses",
+      "primary_reference_image": "references/primary/primary-reference.webp"
+    },
+    {
+      "character_id": "MZ-CHAR-004",
+      "display_name": "Ash",
+      "series_name": "Emo Monkey / Fusion Squad lead",
+      "personal_name": "Ash",
+      "naming_status": "personal_name_canon",
+      "canon_traits": 43,
+      "experimental_traits": 13,
+      "unresolved_fields": 49,
+      "glasses_status": "confirmed_no_glasses",
+      "primary_reference_image": "references/primary/primary-reference.webp"
+    },
+    {
+      "character_id": "MZ-CHAR-005",
+      "display_name": "NeonBlue",
+      "series_name": "Emo Monkey / Fusion Squad lead",
+      "personal_name": "NeonBlue",
+      "naming_status": "personal_name_canon",
+      "canon_traits": 47,
+      "experimental_traits": 9,
+      "unresolved_fields": 50,
+      "glasses_status": "confirmed_no_glasses",
+      "primary_reference_image": "references/primary/primary-reference.webp"
+    },
+    {
+      "character_id": "MZ-CHAR-006",
+      "display_name": "Scarline",
+      "series_name": "Emo Monkey / Fusion Squad lead",
+      "personal_name": "Scarline",
+      "naming_status": "personal_name_canon",
+      "canon_traits": 38,
+      "experimental_traits": 13,
+      "unresolved_fields": 48,
+      "glasses_status": "confirmed_no_glasses",
+      "primary_reference_image": "references/primary/primary-reference.webp"
+    },
+    {
+      "character_id": "MZ-CHAR-CHEEKY",
+      "display_name": "Cheeky",
+      "series_name": "Cheeky Monkey",
+      "personal_name": null,
+      "naming_status": "unresolved",
+      "canon_traits": 20,
+      "experimental_traits": 18,
+      "unresolved_fields": 55,
+      "glasses_status": "confirmed_no_glasses",
+      "primary_reference_image": "references/primary/primary-reference.png"
+    },
+    {
+      "character_id": "MZ-CHAR-CLEVER",
+      "display_name": "Clever",
+      "series_name": "Clever Monkey",
+      "personal_name": null,
+      "naming_status": "unresolved",
+      "canon_traits": 24,
+      "experimental_traits": 16,
+      "unresolved_fields": 55,
+      "glasses_status": "confirmed_glasses",
+      "primary_reference_image": "references/primary/primary-reference.png"
+    },
+    {
+      "character_id": "MZ-CHAR-LILDEVIL",
+      "display_name": "Lil Devil",
+      "series_name": "Lil Devil",
+      "personal_name": null,
+      "naming_status": "unresolved",
+      "canon_traits": 23,
+      "experimental_traits": 26,
+      "unresolved_fields": 54,
+      "glasses_status": "confirmed_no_glasses",
+      "primary_reference_image": "references/primary/primary-reference.png"
+    },
+    {
+      "character_id": "MZ-CHAR-PATCH",
+      "display_name": "Patch",
+      "series_name": "Zombie/Stayed/Pending-related story character",
+      "personal_name": "Patch",
+      "naming_status": "personal_name_canon",
+      "canon_traits": 12,
+      "experimental_traits": 9,
+      "unresolved_fields": 79,
+      "glasses_status": "unknown",
+      "primary_reference_image": null
+    },
+    {
+      "character_id": "MZ-CHAR-SUPER",
+      "display_name": "Super Monkey",
+      "series_name": "Super Monkey",
+      "personal_name": null,
+      "naming_status": "unresolved",
+      "canon_traits": 25,
+      "experimental_traits": 19,
+      "unresolved_fields": 55,
+      "glasses_status": "confirmed_no_glasses",
+      "primary_reference_image": "references/primary/primary-reference.png"
+    },
+    {
+      "character_id": "MZ-CHAR-ZOMBIE",
+      "display_name": "Zombie",
+      "series_name": "Zombie Monkey",
+      "personal_name": null,
+      "naming_status": "unresolved",
+      "canon_traits": 23,
+      "experimental_traits": 25,
+      "unresolved_fields": 52,
+      "glasses_status": "confirmed_no_glasses",
+      "primary_reference_image": "references/primary/primary-reference.png"
+    }
+  ],
+  "confirmed_glasses_character_ids": [
+    "MZ-CHAR-CLEVER"
+  ],
+  "sparse_or_unresolved_character_ids": [
+    "MZ-CHAR-001",
+    "MZ-CHAR-002",
+    "MZ-CHAR-003",
+    "MZ-CHAR-004",
+    "MZ-CHAR-005",
+    "MZ-CHAR-006",
+    "MZ-CHAR-CHEEKY",
+    "MZ-CHAR-CLEVER",
+    "MZ-CHAR-LILDEVIL",
+    "MZ-CHAR-PATCH",
+    "MZ-CHAR-SUPER",
+    "MZ-CHAR-ZOMBIE"
+  ],
+  "reference_images": [
+    {
+      "character_id": "MZ-CHAR-001",
+      "path": "character-bibles\\MZ-CHAR-001\\references\\primary\\primary-reference.webp",
+      "exists": true,
+      "sha256": "408a54a28c6b74f59396c0d4609a4d045055e8b979b54402ea7c2fd473bfd600",
+      "width": 381,
+      "height": 512
+    },
+    {
+      "character_id": "MZ-CHAR-001",
+      "path": "character-bibles\\MZ-CHAR-001\\references\\alternate\\alternate-pose-01.png",
+      "exists": true,
+      "sha256": "638d6544962b75c6ffcd21c10228c38be61db00f0132c0208cc58900193790fb",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-001",
+      "path": "character-bibles\\MZ-CHAR-001\\references\\alternate\\alternate-pose-02.png",
+      "exists": true,
+      "sha256": "404185be77aa96051618cb2a8f0fa093553fd9171e8d262253e18a5ed8d1205f",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-001",
+      "path": "character-bibles\\MZ-CHAR-001\\references\\alternate\\alternate-pose-03.png",
+      "exists": true,
+      "sha256": "24c00f3deb08b1683c7d5ec845889553817b06e10cfa105d97e891400e61ad28",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-001",
+      "path": "character-bibles\\MZ-CHAR-001\\references\\alternate\\alternate-pose-04.png",
+      "exists": true,
+      "sha256": "3104c1d5faaf2f6f3912ce7117ce2d92fe0ecfe08c49f0fd55b8a26ef1c54d56",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-001",
+      "path": "character-bibles\\MZ-CHAR-001\\references\\alternate\\expression-portrait-05.png",
+      "exists": true,
+      "sha256": "3630b08b2d0aeec7817543708ab2be1ce8aafe811796d88169d3b894f26d75e1",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-001",
+      "path": "character-bibles\\MZ-CHAR-001\\references\\alternate\\alternate-pose-06.png",
+      "exists": true,
+      "sha256": "c060a84e2571fc7f349295cdf3d76f2241bc9ed72cefa98f9be6acb1e35b0049",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-001",
+      "path": "character-bibles\\MZ-CHAR-001\\references\\alternate\\alternate-pose-07.png",
+      "exists": true,
+      "sha256": "0cfb58bbbacffbaa1dcf25468c40109bda8a906d9cb2448a72b29bcbbecd1301",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-001",
+      "path": "character-bibles\\MZ-CHAR-001\\references\\alternate\\alternate-pose-08.png",
+      "exists": true,
+      "sha256": "5bd9d74921e78a1568fe20a1d08678644767e500d2ad020a3c10427379c0bf29",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-001",
+      "path": "character-bibles\\MZ-CHAR-001\\references\\group\\group-fusion-squad-01.png",
+      "exists": true,
+      "sha256": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "width": 1800,
+      "height": 612
+    },
+    {
+      "character_id": "MZ-CHAR-002",
+      "path": "character-bibles\\MZ-CHAR-002\\references\\primary\\primary-reference.webp",
+      "exists": true,
+      "sha256": "62edf45000d7226fb6b36078e2631d4a92f0aa6aebcd7a48eb8ac102f7de5fc8",
+      "width": 381,
+      "height": 512
+    },
+    {
+      "character_id": "MZ-CHAR-002",
+      "path": "character-bibles\\MZ-CHAR-002\\references\\alternate\\alternate-pose-01.png",
+      "exists": true,
+      "sha256": "7d9267f3cdc663e1a56ef2c697c3e4803ecf2f0526da051f15fbfa3e8a834fe0",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-002",
+      "path": "character-bibles\\MZ-CHAR-002\\references\\alternate\\alternate-pose-02.png",
+      "exists": true,
+      "sha256": "7e2a2e88a0ec918478cd763b48eea9c8bf34a3931507523e825422f6586d960f",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-002",
+      "path": "character-bibles\\MZ-CHAR-002\\references\\alternate\\alternate-pose-03.png",
+      "exists": true,
+      "sha256": "48844b713bdeb78a0cf02f141da1e9e4f01a0a1d25388493347624031b0db35a",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-002",
+      "path": "character-bibles\\MZ-CHAR-002\\references\\alternate\\alternate-pose-04.png",
+      "exists": true,
+      "sha256": "30c79d967eecb875eec891985c4245ce52463418632f68823fdbedc9bfa93e6a",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-002",
+      "path": "character-bibles\\MZ-CHAR-002\\references\\alternate\\expression-portrait-05.png",
+      "exists": true,
+      "sha256": "8073da9c0b3c8e9b153c32b6fd98214e5f638976b1e00e523e37399d40d97328",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-002",
+      "path": "character-bibles\\MZ-CHAR-002\\references\\alternate\\alternate-pose-06.png",
+      "exists": true,
+      "sha256": "1bcf6558351fb15520b6f44b07223a29d124422075c3e1d1ab05e940c2455372",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-002",
+      "path": "character-bibles\\MZ-CHAR-002\\references\\alternate\\alternate-pose-07.png",
+      "exists": true,
+      "sha256": "ce6177606d7d7aae3f90dd200d9954a6f43a0d2b9f5535130a24b09c7290f892",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-002",
+      "path": "character-bibles\\MZ-CHAR-002\\references\\alternate\\alternate-pose-08.png",
+      "exists": true,
+      "sha256": "19e4272967fd809c4c93ea79ead5a449bf904856318ee14e00df860c57f73c7a",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-002",
+      "path": "character-bibles\\MZ-CHAR-002\\references\\group\\group-fusion-squad-01.png",
+      "exists": true,
+      "sha256": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "width": 1800,
+      "height": 612
+    },
+    {
+      "character_id": "MZ-CHAR-003",
+      "path": "character-bibles\\MZ-CHAR-003\\references\\primary\\primary-reference.webp",
+      "exists": true,
+      "sha256": "8811cc2890d449d2c341b6705246616d6dbaaa9eafd227ca14ded44231f596fd",
+      "width": 381,
+      "height": 512
+    },
+    {
+      "character_id": "MZ-CHAR-003",
+      "path": "character-bibles\\MZ-CHAR-003\\references\\alternate\\alternate-pose-01.png",
+      "exists": true,
+      "sha256": "be693cbf7bd69844dfde86049291416951bf93ef5c966d1d4bc0e9d861f19373",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-003",
+      "path": "character-bibles\\MZ-CHAR-003\\references\\alternate\\alternate-pose-02.png",
+      "exists": true,
+      "sha256": "ade9744b36968a2eb56de7b6aaf98eaf9ac16cc3e9f170b8504ad56b99375118",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-003",
+      "path": "character-bibles\\MZ-CHAR-003\\references\\alternate\\alternate-pose-03.png",
+      "exists": true,
+      "sha256": "457f2fbdf8918e4d6d5920179d7ff04932cff61a9c91fa3020f2e7bf32108b8e",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-003",
+      "path": "character-bibles\\MZ-CHAR-003\\references\\alternate\\alternate-pose-04.png",
+      "exists": true,
+      "sha256": "6b80105295c355853a827aee4de0fb6d732e7fcb781139938e88d5250330ebdc",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-003",
+      "path": "character-bibles\\MZ-CHAR-003\\references\\alternate\\expression-portrait-05.png",
+      "exists": true,
+      "sha256": "46fb50574454350455dccbeb86947631a952757cb31976f33ca66b68cbf796dc",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-003",
+      "path": "character-bibles\\MZ-CHAR-003\\references\\alternate\\alternate-pose-06.png",
+      "exists": true,
+      "sha256": "71fa6703e1b28fa75837c75a17adafdb39e441472be491fb693c9d4800e08a27",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-003",
+      "path": "character-bibles\\MZ-CHAR-003\\references\\alternate\\alternate-pose-07.png",
+      "exists": true,
+      "sha256": "f67b155712da285da0eaaa25d19f7e4193abce57d5847068b18e2cbb87397bee",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-003",
+      "path": "character-bibles\\MZ-CHAR-003\\references\\alternate\\alternate-pose-08.png",
+      "exists": true,
+      "sha256": "70e84887640855c3cde912099d39874604d4f383638a0de46c9af97387c947b7",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-003",
+      "path": "character-bibles\\MZ-CHAR-003\\references\\group\\group-fusion-squad-01.png",
+      "exists": true,
+      "sha256": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "width": 1800,
+      "height": 612
+    },
+    {
+      "character_id": "MZ-CHAR-004",
+      "path": "character-bibles\\MZ-CHAR-004\\references\\primary\\primary-reference.webp",
+      "exists": true,
+      "sha256": "fdf35ed24e81c3342621cda3f563b13f839e370182cd656f9401a0d6f4e6f23f",
+      "width": 381,
+      "height": 512
+    },
+    {
+      "character_id": "MZ-CHAR-004",
+      "path": "character-bibles\\MZ-CHAR-004\\references\\alternate\\alternate-pose-01.png",
+      "exists": true,
+      "sha256": "995b134239ff714de9cd10c3f585ce0ee6fa1758dc36fe415566c41f55e432a8",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-004",
+      "path": "character-bibles\\MZ-CHAR-004\\references\\alternate\\alternate-pose-02.png",
+      "exists": true,
+      "sha256": "357ef1bd114242add8e0b249089cd64ad8c7f9a613e1e2ed9d27e62016a52513",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-004",
+      "path": "character-bibles\\MZ-CHAR-004\\references\\alternate\\alternate-pose-03.png",
+      "exists": true,
+      "sha256": "a2bc9044f3961cff43ee155fce3a641647e80a21f8a6f0725d1d645113febb1a",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-004",
+      "path": "character-bibles\\MZ-CHAR-004\\references\\alternate\\alternate-pose-04.png",
+      "exists": true,
+      "sha256": "504209824b46991b7f74a5aa0941226e65d01c4635af93df3255be1ac4d608c2",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-004",
+      "path": "character-bibles\\MZ-CHAR-004\\references\\alternate\\expression-portrait-05.png",
+      "exists": true,
+      "sha256": "c6b7bf50d536c0e59594f5a47139d4ab5346fc463722726e58b671c11bed4f59",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-004",
+      "path": "character-bibles\\MZ-CHAR-004\\references\\alternate\\alternate-pose-06.png",
+      "exists": true,
+      "sha256": "a501ced459b73f49cd1747b760eb4e86e4546f1ea9ef3a40e3a54e04af89655a",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-004",
+      "path": "character-bibles\\MZ-CHAR-004\\references\\alternate\\alternate-pose-07.png",
+      "exists": true,
+      "sha256": "2aacb1d0e5fbe13f39e704dc7207778b9cca284aa4be16367f952f8781d3294b",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-004",
+      "path": "character-bibles\\MZ-CHAR-004\\references\\alternate\\alternate-pose-08.png",
+      "exists": true,
+      "sha256": "47ff21ed471aa2ff3f907ae80cc4eb2d5d2d2b91620528c6284e2ded8b617c7f",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-004",
+      "path": "character-bibles\\MZ-CHAR-004\\references\\group\\group-fusion-squad-01.png",
+      "exists": true,
+      "sha256": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "width": 1800,
+      "height": 612
+    },
+    {
+      "character_id": "MZ-CHAR-005",
+      "path": "character-bibles\\MZ-CHAR-005\\references\\primary\\primary-reference.webp",
+      "exists": true,
+      "sha256": "bd99e83e9680a9c1b4a4a3663c5d09ee5a37e16cc70e6ed3452525f9ebe50937",
+      "width": 381,
+      "height": 512
+    },
+    {
+      "character_id": "MZ-CHAR-005",
+      "path": "character-bibles\\MZ-CHAR-005\\references\\alternate\\alternate-pose-01.png",
+      "exists": true,
+      "sha256": "1d5fd2bc4a458da3056edd9ae7bda3fcd430f04c1b8a5ffa10a1a3b8b7aa1f8e",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-005",
+      "path": "character-bibles\\MZ-CHAR-005\\references\\alternate\\alternate-pose-02.png",
+      "exists": true,
+      "sha256": "b85f2337ad5138c3f4c3c8ba31dbfb7f2aa9d7111a0cc3c3befd915a6aa0aca2",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-005",
+      "path": "character-bibles\\MZ-CHAR-005\\references\\alternate\\alternate-pose-03.png",
+      "exists": true,
+      "sha256": "30cf225386465dac2204d441d72dde7ea7d67fa628982a46f3eef4651f392670",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-005",
+      "path": "character-bibles\\MZ-CHAR-005\\references\\alternate\\alternate-pose-04.png",
+      "exists": true,
+      "sha256": "9cde20b2698b2821a0125e94486823f5c30d4cf1480779377eadf89c594ec862",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-005",
+      "path": "character-bibles\\MZ-CHAR-005\\references\\alternate\\expression-portrait-05.png",
+      "exists": true,
+      "sha256": "ba8830a85022a2e724ac20f585ed95fe9d7b6aa52d4f5624d90502dc67e1122e",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-005",
+      "path": "character-bibles\\MZ-CHAR-005\\references\\alternate\\alternate-pose-06.png",
+      "exists": true,
+      "sha256": "65f422127d13658ad92ef81f4241c886f8492a4e5ac8aa93b752d0cb78da3011",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-005",
+      "path": "character-bibles\\MZ-CHAR-005\\references\\alternate\\alternate-pose-07.png",
+      "exists": true,
+      "sha256": "6aad1cc2bba74f1dd685f95c0a22ce05031353d71bed8686d1e693945826c99d",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-005",
+      "path": "character-bibles\\MZ-CHAR-005\\references\\alternate\\alternate-pose-08.png",
+      "exists": true,
+      "sha256": "6e0669005882e3a5330833993255634d28c346c64ddfa2c6f0f6add0e6c6aa55",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-005",
+      "path": "character-bibles\\MZ-CHAR-005\\references\\group\\group-fusion-squad-01.png",
+      "exists": true,
+      "sha256": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "width": 1800,
+      "height": 612
+    },
+    {
+      "character_id": "MZ-CHAR-006",
+      "path": "character-bibles\\MZ-CHAR-006\\references\\primary\\primary-reference.webp",
+      "exists": true,
+      "sha256": "ac33a8c32d3796e802ad2c8f99d4b4456a263adfc9b1bbea4e87507331b95da4",
+      "width": 381,
+      "height": 512
+    },
+    {
+      "character_id": "MZ-CHAR-006",
+      "path": "character-bibles\\MZ-CHAR-006\\references\\alternate\\alternate-pose-01.png",
+      "exists": true,
+      "sha256": "fdf59ee35220b869a3e3072c132bfc368874a1f3d0dbb6497a164d67677cb97c",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-006",
+      "path": "character-bibles\\MZ-CHAR-006\\references\\alternate\\alternate-pose-02.png",
+      "exists": true,
+      "sha256": "0a5cd08b60ae00d24d061906ce04cddbcc3ced0a275d5f2e0e2c0c5349f04431",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-006",
+      "path": "character-bibles\\MZ-CHAR-006\\references\\alternate\\alternate-pose-03.png",
+      "exists": true,
+      "sha256": "b5f23e5d83d798b1da6ee05ff7fe8a64dab9eca73035c426fe9a86df07a66cae",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-006",
+      "path": "character-bibles\\MZ-CHAR-006\\references\\alternate\\alternate-pose-04.png",
+      "exists": true,
+      "sha256": "4db82a90b4d3b8f3722a8d71b1cb493eecdf1a1776b17c26cf9ef47d736ca415",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-006",
+      "path": "character-bibles\\MZ-CHAR-006\\references\\alternate\\expression-portrait-05.png",
+      "exists": true,
+      "sha256": "6d3ff5e7c7c42d1c8cdb3b5ee5e1ba13e31e31d4ae9d51d204b0afbba7dbab53",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-006",
+      "path": "character-bibles\\MZ-CHAR-006\\references\\alternate\\alternate-pose-06.png",
+      "exists": true,
+      "sha256": "161dc1ee32459131ccbb323b5dd2e35262479149fd5448459a19c722fb8333a7",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-006",
+      "path": "character-bibles\\MZ-CHAR-006\\references\\alternate\\alternate-pose-07.png",
+      "exists": true,
+      "sha256": "138acd48e45b828efd64a68e7a9df82d410692a8d76c33628401bf808561c503",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-006",
+      "path": "character-bibles\\MZ-CHAR-006\\references\\alternate\\alternate-pose-08.png",
+      "exists": true,
+      "sha256": "bfbe791257b0a4ee5177e27347160b01eb49f08dd9672b0811c42019a188ca87",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-006",
+      "path": "character-bibles\\MZ-CHAR-006\\references\\group\\group-fusion-squad-01.png",
+      "exists": true,
+      "sha256": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "width": 1800,
+      "height": 612
+    },
+    {
+      "character_id": "MZ-CHAR-CHEEKY",
+      "path": "character-bibles\\MZ-CHAR-CHEEKY\\references\\primary\\primary-reference.png",
+      "exists": true,
+      "sha256": "188cea8cfb138a791fa11738756bfbf93e3407a7837897a113e8808e878ddaea",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CHEEKY",
+      "path": "character-bibles\\MZ-CHAR-CHEEKY\\references\\alternate\\alternate-pose-01.png",
+      "exists": true,
+      "sha256": "188cea8cfb138a791fa11738756bfbf93e3407a7837897a113e8808e878ddaea",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CHEEKY",
+      "path": "character-bibles\\MZ-CHAR-CHEEKY\\references\\alternate\\alternate-pose-02.png",
+      "exists": true,
+      "sha256": "ed5ba4be7077c1b2f6b65583b8650556cd25bfa4a8dce47bbbecb00a89604c1d",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CHEEKY",
+      "path": "character-bibles\\MZ-CHAR-CHEEKY\\references\\alternate\\alternate-pose-03.png",
+      "exists": true,
+      "sha256": "4fdb227c2d9875b66d367304a6f10b5731963318e0492e5e12c8a8a1342a0a39",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CHEEKY",
+      "path": "character-bibles\\MZ-CHAR-CHEEKY\\references\\alternate\\alternate-pose-04.png",
+      "exists": true,
+      "sha256": "4986aadd58cda43082d12dfc5af2334b5d94a23416841c1fb628d7a596382b55",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CHEEKY",
+      "path": "character-bibles\\MZ-CHAR-CHEEKY\\references\\alternate\\expression-portrait-05.png",
+      "exists": true,
+      "sha256": "18a249a6c9682dbd95ea93365dcc80b207c57e41f1b14135c39d332ac8ca469c",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CHEEKY",
+      "path": "character-bibles\\MZ-CHAR-CHEEKY\\references\\alternate\\alternate-pose-06.png",
+      "exists": true,
+      "sha256": "0efd655641bf3869e72ca4f5e28f641f5a23031a9e6f616ef61af6991bfc4968",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CHEEKY",
+      "path": "character-bibles\\MZ-CHAR-CHEEKY\\references\\alternate\\alternate-pose-07.png",
+      "exists": true,
+      "sha256": "640e5d10b2f4b52380c889026401e3f00cb5a3b7d2d7c7cdc59798178b15b089",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CHEEKY",
+      "path": "character-bibles\\MZ-CHAR-CHEEKY\\references\\alternate\\alternate-pose-08.png",
+      "exists": true,
+      "sha256": "d9dd09c1c83f13a353c630b62c436fc6a792dcaa8630d6db32223b3c1008dfda",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CHEEKY",
+      "path": "character-bibles\\MZ-CHAR-CHEEKY\\references\\group\\group-fusion-squad-01.png",
+      "exists": true,
+      "sha256": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "width": 1800,
+      "height": 612
+    },
+    {
+      "character_id": "MZ-CHAR-CLEVER",
+      "path": "character-bibles\\MZ-CHAR-CLEVER\\references\\primary\\primary-reference.png",
+      "exists": true,
+      "sha256": "13c0bf6292d9453517d07925a7bc4f8e2c4bb3d8f231572e7a89771fd5f3c21c",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CLEVER",
+      "path": "character-bibles\\MZ-CHAR-CLEVER\\references\\alternate\\alternate-pose-01.png",
+      "exists": true,
+      "sha256": "13c0bf6292d9453517d07925a7bc4f8e2c4bb3d8f231572e7a89771fd5f3c21c",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CLEVER",
+      "path": "character-bibles\\MZ-CHAR-CLEVER\\references\\alternate\\alternate-pose-02.png",
+      "exists": true,
+      "sha256": "138fcf98ca458145d8646e2fe2936f919ca237f7d5ac80951aa5f09b36b527b9",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CLEVER",
+      "path": "character-bibles\\MZ-CHAR-CLEVER\\references\\alternate\\alternate-pose-03.png",
+      "exists": true,
+      "sha256": "e4c02f08572f0f9a1c39ff29a622081a372eb092419eb722e5e4014555028b22",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CLEVER",
+      "path": "character-bibles\\MZ-CHAR-CLEVER\\references\\alternate\\alternate-pose-04.png",
+      "exists": true,
+      "sha256": "8b159b8e8061d8602a015606ad67a760933b10d2af0af8387346c0cdf6974181",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CLEVER",
+      "path": "character-bibles\\MZ-CHAR-CLEVER\\references\\alternate\\expression-portrait-05.png",
+      "exists": true,
+      "sha256": "04353ebd25eb8f8103ac2fb485f66cfb2bcf045ace19f975ff3d7be9add33088",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CLEVER",
+      "path": "character-bibles\\MZ-CHAR-CLEVER\\references\\alternate\\alternate-pose-06.png",
+      "exists": true,
+      "sha256": "8e204d4ddb51a4b04812badd947fc9e0b5771ce17ab2441d2967c6a042a9fea0",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CLEVER",
+      "path": "character-bibles\\MZ-CHAR-CLEVER\\references\\alternate\\alternate-pose-07.png",
+      "exists": true,
+      "sha256": "811c6e188a4bd14c7c221f8cca6b3c0a841fc86a369ffe9ada07f30160d5474d",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CLEVER",
+      "path": "character-bibles\\MZ-CHAR-CLEVER\\references\\alternate\\alternate-pose-08.png",
+      "exists": true,
+      "sha256": "fff165adf89d84151a6c41f4b1b29fc4464df995007ad5eb8e9d0d0b23941ffe",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-CLEVER",
+      "path": "character-bibles\\MZ-CHAR-CLEVER\\references\\group\\group-fusion-squad-01.png",
+      "exists": true,
+      "sha256": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "width": 1800,
+      "height": 612
+    },
+    {
+      "character_id": "MZ-CHAR-LILDEVIL",
+      "path": "character-bibles\\MZ-CHAR-LILDEVIL\\references\\primary\\primary-reference.png",
+      "exists": true,
+      "sha256": "43a6a578da3a6bfadf8089af9b755a44f15404114e90dc1ba1adfb98dedf97b8",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-LILDEVIL",
+      "path": "character-bibles\\MZ-CHAR-LILDEVIL\\references\\alternate\\alternate-pose-01.png",
+      "exists": true,
+      "sha256": "43a6a578da3a6bfadf8089af9b755a44f15404114e90dc1ba1adfb98dedf97b8",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-LILDEVIL",
+      "path": "character-bibles\\MZ-CHAR-LILDEVIL\\references\\alternate\\alternate-pose-02.png",
+      "exists": true,
+      "sha256": "95069e59c716604cad3d01c43d2517611cc645f44ce6c0816d5410ccfcfa04ca",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-LILDEVIL",
+      "path": "character-bibles\\MZ-CHAR-LILDEVIL\\references\\alternate\\alternate-pose-03.png",
+      "exists": true,
+      "sha256": "5575dc594216cbdfee98e4d23f5286d3e69e99c4d8a461312e5631254b52eda1",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-LILDEVIL",
+      "path": "character-bibles\\MZ-CHAR-LILDEVIL\\references\\alternate\\alternate-pose-04.png",
+      "exists": true,
+      "sha256": "a00fd0793d2c184effabe34aea4c0265eb0ab2f76e1e1e38fea63c079720db30",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-LILDEVIL",
+      "path": "character-bibles\\MZ-CHAR-LILDEVIL\\references\\alternate\\expression-portrait-05.png",
+      "exists": true,
+      "sha256": "12711b73bc4eb484535a2ab08c28f9fea228d506f1665a7469e257d52f740a91",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-LILDEVIL",
+      "path": "character-bibles\\MZ-CHAR-LILDEVIL\\references\\alternate\\alternate-pose-06.png",
+      "exists": true,
+      "sha256": "c16a6774f88ff32e3190a6a11cedc86b57cc01c3624bfdc0ca11a0fbb59cd192",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-LILDEVIL",
+      "path": "character-bibles\\MZ-CHAR-LILDEVIL\\references\\alternate\\alternate-pose-07.png",
+      "exists": true,
+      "sha256": "2c40de1fa74f48002b36f37a38f4ef3f1c7c602daa6013eafd73f1d6aa5d04ac",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-LILDEVIL",
+      "path": "character-bibles\\MZ-CHAR-LILDEVIL\\references\\alternate\\alternate-pose-08.png",
+      "exists": true,
+      "sha256": "fc3fd1e4c333a689c3eb3cc577fd6207d38bab2870fe604fc53f2eebca0ca2db",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-LILDEVIL",
+      "path": "character-bibles\\MZ-CHAR-LILDEVIL\\references\\group\\group-fusion-squad-01.png",
+      "exists": true,
+      "sha256": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "width": 1800,
+      "height": 612
+    },
+    {
+      "character_id": "MZ-CHAR-SUPER",
+      "path": "character-bibles\\MZ-CHAR-SUPER\\references\\primary\\primary-reference.png",
+      "exists": true,
+      "sha256": "255dd9a9a43af34cd8cb361c8bcbd672fc7f5cdaab38028b5579e51e956cb62f",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-SUPER",
+      "path": "character-bibles\\MZ-CHAR-SUPER\\references\\alternate\\alternate-pose-01.png",
+      "exists": true,
+      "sha256": "255dd9a9a43af34cd8cb361c8bcbd672fc7f5cdaab38028b5579e51e956cb62f",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-SUPER",
+      "path": "character-bibles\\MZ-CHAR-SUPER\\references\\alternate\\alternate-pose-02.png",
+      "exists": true,
+      "sha256": "35a408857c42595f8c8c6557b6265b85412bff8571a6ee4f5d5d4a32794dac70",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-SUPER",
+      "path": "character-bibles\\MZ-CHAR-SUPER\\references\\alternate\\alternate-pose-03.png",
+      "exists": true,
+      "sha256": "59f356f2e3bade7361a4d5d08ff8eefbf66c07648b392b76b5c8bdfe4ce0796c",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-SUPER",
+      "path": "character-bibles\\MZ-CHAR-SUPER\\references\\alternate\\alternate-pose-04.png",
+      "exists": true,
+      "sha256": "5157665b4a9fdc6612ffd52b5aa9c4fc102623e6cb7b36fb7b3954731c36dde0",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-SUPER",
+      "path": "character-bibles\\MZ-CHAR-SUPER\\references\\alternate\\expression-portrait-05.png",
+      "exists": true,
+      "sha256": "1a249406e9f9ecb320b63b973f8f4e096bdeda6ffa7c2577dda42b957627e3f1",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-SUPER",
+      "path": "character-bibles\\MZ-CHAR-SUPER\\references\\alternate\\alternate-pose-06.png",
+      "exists": true,
+      "sha256": "78c45fe9a87385b2f8c592a1b33394d1e1e970adea6b1000739c017004920f34",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-SUPER",
+      "path": "character-bibles\\MZ-CHAR-SUPER\\references\\alternate\\alternate-pose-07.png",
+      "exists": true,
+      "sha256": "3c95701dc74598f6c232fe769372bcafe0ffe55e1ed0b097b4d89fd8890130b1",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-SUPER",
+      "path": "character-bibles\\MZ-CHAR-SUPER\\references\\alternate\\alternate-pose-08.png",
+      "exists": true,
+      "sha256": "5011365107a142ca950cb9046de88e00f3879fc3111fc5289899f254fd4ad665",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-SUPER",
+      "path": "character-bibles\\MZ-CHAR-SUPER\\references\\group\\group-fusion-squad-01.png",
+      "exists": true,
+      "sha256": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "width": 1800,
+      "height": 612
+    },
+    {
+      "character_id": "MZ-CHAR-ZOMBIE",
+      "path": "character-bibles\\MZ-CHAR-ZOMBIE\\references\\primary\\primary-reference.png",
+      "exists": true,
+      "sha256": "9d7863975074085a8458b621a60d116e9802850fecd70446f620db0b413aca0f",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-ZOMBIE",
+      "path": "character-bibles\\MZ-CHAR-ZOMBIE\\references\\alternate\\alternate-pose-01.png",
+      "exists": true,
+      "sha256": "9d7863975074085a8458b621a60d116e9802850fecd70446f620db0b413aca0f",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-ZOMBIE",
+      "path": "character-bibles\\MZ-CHAR-ZOMBIE\\references\\alternate\\alternate-pose-02.png",
+      "exists": true,
+      "sha256": "14a77aeaf88e5df1f1b5f260b9c305865b1e93635af94507ff4026a6421308d8",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-ZOMBIE",
+      "path": "character-bibles\\MZ-CHAR-ZOMBIE\\references\\alternate\\alternate-pose-03.png",
+      "exists": true,
+      "sha256": "68c202a4f42fd82138d16bc60339c926e61a55e935c48d9ff1ecbe107af618b7",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-ZOMBIE",
+      "path": "character-bibles\\MZ-CHAR-ZOMBIE\\references\\alternate\\alternate-pose-04.png",
+      "exists": true,
+      "sha256": "4fa7905baa573d8f1192c9a2ac8cce2554d1a7751141284eeb35732e5b6855e3",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-ZOMBIE",
+      "path": "character-bibles\\MZ-CHAR-ZOMBIE\\references\\alternate\\expression-portrait-05.png",
+      "exists": true,
+      "sha256": "3487d9aa4e396656ce0d4142d16326da85371abe97ff8e4e7d03788752ea5267",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-ZOMBIE",
+      "path": "character-bibles\\MZ-CHAR-ZOMBIE\\references\\alternate\\alternate-pose-06.png",
+      "exists": true,
+      "sha256": "10956bc193b01c7be8d05d475fd54f555431a0072bd615715d002ec95f884369",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-ZOMBIE",
+      "path": "character-bibles\\MZ-CHAR-ZOMBIE\\references\\alternate\\alternate-pose-07.png",
+      "exists": true,
+      "sha256": "3cd8670f170e75d8923882d240689f735bd446619bcd4b128eab54269dcee08d",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-ZOMBIE",
+      "path": "character-bibles\\MZ-CHAR-ZOMBIE\\references\\alternate\\alternate-pose-08.png",
+      "exists": true,
+      "sha256": "47c62db38d247d07425e5ad7682844a21a872e412637a057f5cc2ae3e082cd7a",
+      "width": 880,
+      "height": 1184
+    },
+    {
+      "character_id": "MZ-CHAR-ZOMBIE",
+      "path": "character-bibles\\MZ-CHAR-ZOMBIE\\references\\group\\group-fusion-squad-01.png",
+      "exists": true,
+      "sha256": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "width": 1800,
+      "height": 612
+    }
+  ],
+  "source_maps": [
+    {
+      "character_id": "MZ-CHAR-001",
+      "source_map_exists": true,
+      "source_count": 10,
+      "sample_entries": [
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/factions/moodz.webp",
+          "file_hash": "408a54a28c6b74f59396c0d4609a4d045055e8b979b54402ea7c2fd473bfd600"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/moodz/moodz_01_neutral.png",
+          "file_hash": "638d6544962b75c6ffcd21c10228c38be61db00f0132c0208cc58900193790fb"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/moodz/moodz_02_threeqtr.png",
+          "file_hash": "404185be77aa96051618cb2a8f0fa093553fd9171e8d262253e18a5ed8d1205f"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/moodz/moodz_03_profile.png",
+          "file_hash": "24c00f3deb08b1683c7d5ec845889553817b06e10cfa105d97e891400e61ad28"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/moodz/moodz_04_overshoulder.png",
+          "file_hash": "3104c1d5faaf2f6f3912ce7117ce2d92fe0ecfe08c49f0fd55b8a26ef1c54d56"
+        }
+      ],
+      "recorded_hashes_match_sample": true
+    },
+    {
+      "character_id": "MZ-CHAR-002",
+      "source_map_exists": true,
+      "source_count": 10,
+      "sample_entries": [
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/factions/twotone.webp",
+          "file_hash": "62edf45000d7226fb6b36078e2631d4a92f0aa6aebcd7a48eb8ac102f7de5fc8"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/twotone/twotone_01_neutral.png",
+          "file_hash": "7d9267f3cdc663e1a56ef2c697c3e4803ecf2f0526da051f15fbfa3e8a834fe0"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/twotone/twotone_02_threeqtr.png",
+          "file_hash": "7e2a2e88a0ec918478cd763b48eea9c8bf34a3931507523e825422f6586d960f"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/twotone/twotone_03_profile.png",
+          "file_hash": "48844b713bdeb78a0cf02f141da1e9e4f01a0a1d25388493347624031b0db35a"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/twotone/twotone_04_overshoulder.png",
+          "file_hash": "30c79d967eecb875eec891985c4245ce52463418632f68823fdbedc9bfa93e6a"
+        }
+      ],
+      "recorded_hashes_match_sample": true
+    },
+    {
+      "character_id": "MZ-CHAR-003",
+      "source_map_exists": true,
+      "source_count": 10,
+      "sample_entries": [
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/factions/static.webp",
+          "file_hash": "8811cc2890d449d2c341b6705246616d6dbaaa9eafd227ca14ded44231f596fd"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/static/static_01_neutral.png",
+          "file_hash": "be693cbf7bd69844dfde86049291416951bf93ef5c966d1d4bc0e9d861f19373"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/static/static_02_threeqtr.png",
+          "file_hash": "ade9744b36968a2eb56de7b6aaf98eaf9ac16cc3e9f170b8504ad56b99375118"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/static/static_03_profile.png",
+          "file_hash": "457f2fbdf8918e4d6d5920179d7ff04932cff61a9c91fa3020f2e7bf32108b8e"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/static/static_04_overshoulder.png",
+          "file_hash": "6b80105295c355853a827aee4de0fb6d732e7fcb781139938e88d5250330ebdc"
+        }
+      ],
+      "recorded_hashes_match_sample": true
+    },
+    {
+      "character_id": "MZ-CHAR-004",
+      "source_map_exists": true,
+      "source_count": 10,
+      "sample_entries": [
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/ash/ash.webp",
+          "file_hash": "fdf35ed24e81c3342621cda3f563b13f839e370182cd656f9401a0d6f4e6f23f"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/ash/ash_01_neutral.png",
+          "file_hash": "995b134239ff714de9cd10c3f585ce0ee6fa1758dc36fe415566c41f55e432a8"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/ash/ash_02_threeqtr.png",
+          "file_hash": "357ef1bd114242add8e0b249089cd64ad8c7f9a613e1e2ed9d27e62016a52513"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/ash/ash_03_profile.png",
+          "file_hash": "a2bc9044f3961cff43ee155fce3a641647e80a21f8a6f0725d1d645113febb1a"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/ash/ash_04_overshoulder.png",
+          "file_hash": "504209824b46991b7f74a5aa0941226e65d01c4635af93df3255be1ac4d608c2"
+        }
+      ],
+      "recorded_hashes_match_sample": true
+    },
+    {
+      "character_id": "MZ-CHAR-005",
+      "source_map_exists": true,
+      "source_count": 10,
+      "sample_entries": [
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/factions/neonblue.webp",
+          "file_hash": "bd99e83e9680a9c1b4a4a3663c5d09ee5a37e16cc70e6ed3452525f9ebe50937"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/neonblue/neonblue_01_neutral.png",
+          "file_hash": "1d5fd2bc4a458da3056edd9ae7bda3fcd430f04c1b8a5ffa10a1a3b8b7aa1f8e"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/neonblue/neonblue_02_threeqtr.png",
+          "file_hash": "b85f2337ad5138c3f4c3c8ba31dbfb7f2aa9d7111a0cc3c3befd915a6aa0aca2"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/neonblue/neonblue_03_profile.png",
+          "file_hash": "30cf225386465dac2204d441d72dde7ea7d67fa628982a46f3eef4651f392670"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/neonblue/neonblue_04_overshoulder.png",
+          "file_hash": "9cde20b2698b2821a0125e94486823f5c30d4cf1480779377eadf89c594ec862"
+        }
+      ],
+      "recorded_hashes_match_sample": true
+    },
+    {
+      "character_id": "MZ-CHAR-006",
+      "source_map_exists": true,
+      "source_count": 10,
+      "sample_entries": [
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/factions/scarline.webp",
+          "file_hash": "ac33a8c32d3796e802ad2c8f99d4b4456a263adfc9b1bbea4e87507331b95da4"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/scarline/scarline_01_neutral.png",
+          "file_hash": "fdf59ee35220b869a3e3072c132bfc368874a1f3d0dbb6497a164d67677cb97c"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/scarline/scarline_02_threeqtr.png",
+          "file_hash": "0a5cd08b60ae00d24d061906ce04cddbcc3ced0a275d5f2e0e2c0c5349f04431"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/scarline/scarline_03_profile.png",
+          "file_hash": "b5f23e5d83d798b1da6ee05ff7fe8a64dab9eca73035c426fe9a86df07a66cae"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/scarline/scarline_04_overshoulder.png",
+          "file_hash": "4db82a90b4d3b8f3722a8d71b1cb493eecdf1a1776b17c26cf9ef47d736ca415"
+        }
+      ],
+      "recorded_hashes_match_sample": true
+    },
+    {
+      "character_id": "MZ-CHAR-CHEEKY",
+      "source_map_exists": true,
+      "source_count": 10,
+      "sample_entries": [
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_00_clean_base.png",
+          "file_hash": "188cea8cfb138a791fa11738756bfbf93e3407a7837897a113e8808e878ddaea"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_01_neutral.png",
+          "file_hash": "188cea8cfb138a791fa11738756bfbf93e3407a7837897a113e8808e878ddaea"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_02_threeqtr.png",
+          "file_hash": "ed5ba4be7077c1b2f6b65583b8650556cd25bfa4a8dce47bbbecb00a89604c1d"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_03_profile.png",
+          "file_hash": "4fdb227c2d9875b66d367304a6f10b5731963318e0492e5e12c8a8a1342a0a39"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_04_overshoulder.png",
+          "file_hash": "4986aadd58cda43082d12dfc5af2334b5d94a23416841c1fb628d7a596382b55"
+        }
+      ],
+      "recorded_hashes_match_sample": true
+    },
+    {
+      "character_id": "MZ-CHAR-CLEVER",
+      "source_map_exists": true,
+      "source_count": 10,
+      "sample_entries": [
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/clever/clever_00_clean_base.png",
+          "file_hash": "13c0bf6292d9453517d07925a7bc4f8e2c4bb3d8f231572e7a89771fd5f3c21c"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/clever/clever_01_neutral.png",
+          "file_hash": "13c0bf6292d9453517d07925a7bc4f8e2c4bb3d8f231572e7a89771fd5f3c21c"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/clever/clever_02_threeqtr.png",
+          "file_hash": "138fcf98ca458145d8646e2fe2936f919ca237f7d5ac80951aa5f09b36b527b9"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/clever/clever_03_profile.png",
+          "file_hash": "e4c02f08572f0f9a1c39ff29a622081a372eb092419eb722e5e4014555028b22"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/clever/clever_04_overshoulder.png",
+          "file_hash": "8b159b8e8061d8602a015606ad67a760933b10d2af0af8387346c0cdf6974181"
+        }
+      ],
+      "recorded_hashes_match_sample": true
+    },
+    {
+      "character_id": "MZ-CHAR-LILDEVIL",
+      "source_map_exists": true,
+      "source_count": 10,
+      "sample_entries": [
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/lil devil/lildevil_00_clean_base.png",
+          "file_hash": "43a6a578da3a6bfadf8089af9b755a44f15404114e90dc1ba1adfb98dedf97b8"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/lil devil/lildevil_01_neutral.png",
+          "file_hash": "43a6a578da3a6bfadf8089af9b755a44f15404114e90dc1ba1adfb98dedf97b8"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/lil devil/lildevil_02_threeqtr.png",
+          "file_hash": "95069e59c716604cad3d01c43d2517611cc645f44ce6c0816d5410ccfcfa04ca"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/lil devil/lildevil_03_profile.png",
+          "file_hash": "5575dc594216cbdfee98e4d23f5286d3e69e99c4d8a461312e5631254b52eda1"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/lil devil/lildevil_04_overshoulder.png",
+          "file_hash": "a00fd0793d2c184effabe34aea4c0265eb0ab2f76e1e1e38fea63c079720db30"
+        }
+      ],
+      "recorded_hashes_match_sample": true
+    },
+    {
+      "character_id": "MZ-CHAR-PATCH",
+      "source_map_exists": true,
+      "source_count": 0,
+      "sample_entries": [],
+      "recorded_hashes_match_sample": true
+    },
+    {
+      "character_id": "MZ-CHAR-SUPER",
+      "source_map_exists": true,
+      "source_count": 10,
+      "sample_entries": [
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_00_clean_base.png",
+          "file_hash": "255dd9a9a43af34cd8cb361c8bcbd672fc7f5cdaab38028b5579e51e956cb62f"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_01_neutral.png",
+          "file_hash": "255dd9a9a43af34cd8cb361c8bcbd672fc7f5cdaab38028b5579e51e956cb62f"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_02_threeqtr.png",
+          "file_hash": "35a408857c42595f8c8c6557b6265b85412bff8571a6ee4f5d5d4a32794dac70"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_03_profile.png",
+          "file_hash": "59f356f2e3bade7361a4d5d08ff8eefbf66c07648b392b76b5c8bdfe4ce0796c"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_04_overshoulder.png",
+          "file_hash": "5157665b4a9fdc6612ffd52b5aa9c4fc102623e6cb7b36fb7b3954731c36dde0"
+        }
+      ],
+      "recorded_hashes_match_sample": true
+    },
+    {
+      "character_id": "MZ-CHAR-ZOMBIE",
+      "source_map_exists": true,
+      "source_count": 10,
+      "sample_entries": [
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/zombie/zombie_00_clean_base.png",
+          "file_hash": "9d7863975074085a8458b621a60d116e9802850fecd70446f620db0b413aca0f"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/zombie/zombie_01_neutral.png",
+          "file_hash": "9d7863975074085a8458b621a60d116e9802850fecd70446f620db0b413aca0f"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/zombie/zombie_02_threeqtr.png",
+          "file_hash": "14a77aeaf88e5df1f1b5f260b9c305865b1e93635af94507ff4026a6421308d8"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/zombie/zombie_03_profile.png",
+          "file_hash": "68c202a4f42fd82138d16bc60339c926e61a55e935c48d9ff1ecbe107af618b7"
+        },
+        {
+          "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/zombie/zombie_04_overshoulder.png",
+          "file_hash": "4fa7905baa573d8f1192c9a2ac8cce2554d1a7751141284eeb35732e5b6855e3"
+        }
+      ],
+      "recorded_hashes_match_sample": true
+    }
+  ],
+  "artwork_inventory_count": 1202,
+  "missing_inventory_paths": []
+}

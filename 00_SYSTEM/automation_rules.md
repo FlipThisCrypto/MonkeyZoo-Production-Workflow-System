@@ -39,6 +39,22 @@ Who does what, and what may run without a human.
 - Upscaled: `<panel_id>_print.png` · Edited: `<panel_id>_final.png`
 - Exports: `MonkeyZoo_Issue_##_Print.pdf`, `_Web.pdf`, `_CBZ.zip`, `cover.png`
 
+## 3A. Source-Of-Truth Filing
+
+- Franchise rules, visual rules, continuity ledger, prompt rules, schemas, and
+  stage agents live in `00_SYSTEM/`.
+- Season story bibles live in `story-bibles/seasons/<season-id>/`.
+- Character canon is reviewed through the Character Bible system and must not
+  be overwritten by story-development proposals without owner approval.
+- Production image references live in `03_APPROVED_CANON/approved_characters/`.
+- The current character/image routing page is
+  `03_APPROVED_CANON/approved_characters/CHARACTER_IMAGE_INDEX.md`.
+- Loose source cards copied into `source_images/` are provenance references.
+  Use numbered approved pose/expression files for generation unless the index
+  or issue plan explicitly says otherwise.
+- Patch is filed from Issue 05/06 evidence as `zombie.png (#1997 = Patch)`;
+  treat that as Patch-specific evidence, not a blanket Zombie/Stayed identity.
+
 ## 4. Pipeline Gates (a stage may not start until the previous gate passes)
 
 ```

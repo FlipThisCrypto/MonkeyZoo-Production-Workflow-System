@@ -1,0 +1,377 @@
+{
+  "issue_id": "MZ-2026-07-MANGO",
+  "style_lock_phrase": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look",
+  "base_negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+  "panels": [
+    {
+      "panel_id": "MZ-2026-07-MANGO_P01_PANEL01",
+      "page_number": 1,
+      "panel_number": 1,
+      "characters": [
+        "Moodz",
+        "Cheeky",
+        "NeonBlue"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, wide establishing high angle, Mango Pier boardwalk entrance bright noon sun ocean beyond, action: squad arrives on sunny pier; Cheeky racing toward games; NeonBlue waving; Moodz herding group, emotion: summer joy, Moodz: porcelain white face, glossy black emo fringe with blue left streak, grey under-eye rings, black studded vest and pants, platform boots; Cheeky: cream face, solid bright blue eyes, brown hair tuft, dark brown open vest, teal banana-print shorts, bare feet; NeonBlue: pale face, white spike hair with cyan tips and cyan root glow, left ear plug, black vest white studs, grey sneakers, yellow boardwalk bulbs, ocean blue, summer orange; reserve top fifth for balloon, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "CHEEKY: \"Games first. Chaos second.\"",
+      "caption": "Hottest week of July. One day off.",
+      "resolution": "1216x832",
+      "ref_keys": [
+        "moodz",
+        "cheeky",
+        "neonblue"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P01_PANEL02",
+      "page_number": 1,
+      "panel_number": 2,
+      "characters": [
+        "Static",
+        "LilDevil",
+        "Emo"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, medium three-shot, arcade row Mango Pier, action: Static stares at glowing arcade cabinet; LilDevil holds hot pepper skewer; Emo covers ears from noise, emotion: suspicion, reckless fun, overwhelm, Static: white face, jet-black slicked helmet hair, heavy grey under-eye rings, black studded vest pants, grey boots; LilDevil: cream face, red slicked hair, purple eyeshadow, long lashes, red ears, red devil bodysuit, fishnet stockings, red heels, arrow tail; Emo: white face, black hair with blue left streak, grey eye rings, black studded punk vest pants, grey sneakers, neon arcade lights; blank glowing cabinet screens no readable text; bubble space top, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "STATIC: \"That score is not possible.\"",
+      "caption": "",
+      "resolution": "1216x832",
+      "ref_keys": [
+        "static",
+        "lildevil",
+        "emo"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P02_PANEL01",
+      "page_number": 2,
+      "panel_number": 1,
+      "characters": [
+        "Clever",
+        "Ash"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, two-shot eye level, frozen banana stand mid-pier, action: Clever crouches pointing at old wiring under stand; Ash arms crossed unimpressed, emotion: focused vs bored-hot, Clever: beige face, brown ponytail with pink hairband, black round glasses, blue shirt with pi logo, red shorts; Ash: pale grey face, ash-grey spiked hair with bright orange tips, black hoodie, black pants, grey boots, brown ears, stitch seams, banana stand, summer heat haze, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "CLEVER: \"These cables are not boardwalk stock.\"",
+      "caption": "",
+      "resolution": "1024x1024",
+      "ref_keys": [
+        "clever",
+        "ash"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P02_PANEL02",
+      "page_number": 2,
+      "panel_number": 2,
+      "characters": [],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, medium funny, banana stand counter, action: faceless tourist chibi monkey fused with beach umbrella like parachute mid-air, cyan glow banana residue, emotion: slapstick, no named lead characters, only faceless tourist chibi monkey if needed, comic fusion gag; NO named leads, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "",
+      "caption": "The frozen banana stand had opinions about summer.",
+      "resolution": "1024x1024",
+      "ref_keys": []
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P02_PANEL03",
+      "page_number": 2,
+      "panel_number": 3,
+      "characters": [
+        "Clever",
+        "Moodz"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, close two-shot, banana stand area, action: Clever holds glowing blue banana stub with tongs; Moodz eyes widen, emotion: joke turns worry, Clever: beige face, brown ponytail with pink hairband, black round glasses, blue shirt with pi logo, red shorts; Moodz: porcelain white face, glossy black emo fringe with blue left streak, grey under-eye rings, black studded vest and pants, platform boots, glowing blue treat, bubble space, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "MOODZ: \"Everyone stay calm. Calm is the plan.\"",
+      "caption": "",
+      "resolution": "1024x1024",
+      "ref_keys": [
+        "clever",
+        "moodz"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P03_PANEL01",
+      "page_number": 3,
+      "panel_number": 1,
+      "characters": [
+        "Cheeky",
+        "NeonBlue"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, wide action, boardwalk mid-stretch sunscreen chaos, action: sunscreen foam spray; Cheeky herds crowd with beach ball; NeonBlue ushers kids behind prize stall, emotion: comedy protect, Cheeky: cream face, solid bright blue eyes, brown hair tuft, dark brown open vest, teal banana-print shorts, bare feet; NeonBlue: pale face, white spike hair with cyan tips and cyan root glow, left ear plug, black vest white studs, grey sneakers, white foam, summer chaos, bubble space, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "NEONBLUE: \"Kids first. Always.\"",
+      "caption": "",
+      "resolution": "1024x1024",
+      "ref_keys": [
+        "cheeky",
+        "neonblue"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P03_PANEL02",
+      "page_number": 3,
+      "panel_number": 2,
+      "characters": [
+        "Ash",
+        "TwoTone"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, low angle, stabilizer vent near pier rail, action: Ash reaches glowing overheating vent orange sparks; TwoTone grabs his arm stopping him, emotion: anger vs firm balance, Ash: pale grey face, ash-grey spiked hair with bright orange tips, black hoodie, black pants, grey boots, brown ears, stitch seams; TwoTone: white face, two-tone black-and-white glossy hair, grey eye rings, black studded vest pants, grey boots, orange heat vent, ocean rail, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "TWOTONE: \"Balance it. Don't blow it.\"",
+      "caption": "",
+      "resolution": "1024x1024",
+      "ref_keys": [
+        "ash",
+        "twotone"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P03_PANEL03",
+      "page_number": 3,
+      "panel_number": 3,
+      "characters": [
+        "Moodz",
+        "Ash"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, close faces, vent area, action: Moodz steady calm gaze; Ash jaw tight cooling off fists unclenching, emotion: heat meets anchor, Moodz: porcelain white face, glossy black emo fringe with blue left streak, grey under-eye rings, black studded vest and pants, platform boots; Ash: pale grey face, ash-grey spiked hair with bright orange tips, black hoodie, black pants, grey boots, brown ears, stitch seams, soft close-up bubble space, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "MOODZ: \"The machine eats spikes. Don't feed it.\"",
+      "caption": "",
+      "resolution": "1024x1024",
+      "ref_keys": [
+        "moodz",
+        "ash"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P04_PANEL01",
+      "page_number": 4,
+      "panel_number": 1,
+      "characters": [
+        "Scarline",
+        "Zombie",
+        "Emo"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, wide low establishing, under Mango Pier dark pilings dripping water cyan pipes, action: trio in under-pier shadow; Scarline leads along claw-marked wood; cyan coolant pipes glow, emotion: quiet dread, Scarline: white face, silver-white helmet hair with bold scarlet red streak on left, black studded biker jacket pants, grey boots; Zombie: mint green skin, exposed purple brain on head, huge white eyes, yellow broken teeth, olive tattered jacket pants, white bone stump arm; Emo: white face, black hair with blue left streak, grey eye rings, black studded punk vest pants, grey sneakers, dark teal shadows, cyan coolant glow, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "",
+      "caption": "Below the music, the pier remembered what it was built on.",
+      "resolution": "1216x832",
+      "ref_keys": [
+        "scarline",
+        "zombie",
+        "emo"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P04_PANEL02",
+      "page_number": 4,
+      "panel_number": 2,
+      "characters": [
+        "Scarline",
+        "Zombie"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, medium on door claw marks, sealed maintenance door under pier, action: Scarline mitt traces deep claw grooves; Zombie sniffs cyan drip eyes wide recognition, emotion: discovery, Scarline: white face, silver-white helmet hair with bold scarlet red streak on left, black studded biker jacket pants, grey boots; Zombie: mint green skin, exposed purple brain on head, huge white eyes, yellow broken teeth, olive tattered jacket pants, white bone stump arm, door, claw marks, coolant drip, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "ZOMBIE: \"Old FusionZoo coolant. This was never just a pier.\"",
+      "caption": "",
+      "resolution": "1216x832",
+      "ref_keys": [
+        "scarline",
+        "zombie"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P05_PANEL01",
+      "page_number": 5,
+      "panel_number": 1,
+      "characters": [
+        "Static",
+        "Clever"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, medium two-shot, arcade interior neon, action: cabinets all glow same blank glyph-ready pulse; Static hands on controls; Clever traces cable map, emotion: focused tech panic, Static: white face, jet-black slicked helmet hair, heavy grey under-eye rings, black studded vest pants, grey boots; Clever: beige face, brown ponytail with pink hairband, black round glasses, blue shirt with pi logo, red shorts, neon magenta cyan arcade, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "STATIC: \"It's broadcasting through every game.\"",
+      "caption": "",
+      "resolution": "1024x1024",
+      "ref_keys": [
+        "static",
+        "clever"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P05_PANEL02",
+      "page_number": 5,
+      "panel_number": 2,
+      "characters": [
+        "Cheeky",
+        "LilDevil"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, action medium, boardwalk outside arcade, action: Cheeky rigs prize claw distraction; LilDevil raises fireworks crate ready to smash, emotion: comedy disaster edge, Cheeky: cream face, solid bright blue eyes, brown hair tuft, dark brown open vest, teal banana-print shorts, bare feet; LilDevil: cream face, red slicked hair, purple eyeshadow, long lashes, red ears, red devil bodysuit, fishnet stockings, red heels, arrow tail, prize stall fireworks crate, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "CHEEKY: \"Wrong toy, big red.\"",
+      "caption": "",
+      "resolution": "1024x1024",
+      "ref_keys": [
+        "cheeky",
+        "lildevil"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P05_PANEL03",
+      "page_number": 5,
+      "panel_number": 3,
+      "characters": [
+        "TwoTone",
+        "LilDevil"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, tight two-shot, outside arcade, action: TwoTone blocks LilDevil swing; fused crowd silhouettes glow soft in background faceless, emotion: restraint, TwoTone: white face, two-tone black-and-white glossy hair, grey eye rings, black studded vest pants, grey boots; LilDevil: cream face, red slicked hair, purple eyeshadow, long lashes, red ears, red devil bodysuit, fishnet stockings, red heels, arrow tail, block pose, bubble space, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "TWOTONE: \"Smash it and they stay fused.\"",
+      "caption": "",
+      "resolution": "1024x1024",
+      "ref_keys": [
+        "twotone",
+        "lildevil"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P06_PANEL01",
+      "page_number": 6,
+      "panel_number": 1,
+      "characters": [
+        "Super"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, heroic low angle, boardwalk sky above pier sunset, action: Super Monkey streaks green suit red mask catching two mid-air fused float monkeys faceless, emotion: flashy confidence, Super: beige face, brown hair tuft, red eye mask, full green superhero suit, white chest oval with black M, green tail, sunset orange sky, green suit pop, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "",
+      "caption": "Then the sky got a hero.",
+      "resolution": "1216x832",
+      "ref_keys": [
+        "super"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P06_PANEL02",
+      "page_number": 6,
+      "panel_number": 2,
+      "characters": [
+        "Super",
+        "Scarline",
+        "Zombie"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, three-shot eye level, boardwalk after landing, action: Super poses confident; Scarline and Zombie exchange suspicious look, emotion: impressed and suspicious, Super: beige face, brown hair tuft, red eye mask, full green superhero suit, white chest oval with black M, green tail; Scarline: white face, silver-white helmet hair with bold scarlet red streak on left, black studded biker jacket pants, grey boots; Zombie: mint green skin, exposed purple brain on head, huge white eyes, yellow broken teeth, olive tattered jacket pants, white bone stump arm, sunset light, bubble space, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "SCARLINE: \"You knew the hatch.\"",
+      "caption": "",
+      "resolution": "1216x832",
+      "ref_keys": [
+        "super",
+        "scarline",
+        "zombie"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P07_PANEL01",
+      "page_number": 7,
+      "panel_number": 1,
+      "characters": [
+        "Moodz",
+        "Emo",
+        "NeonBlue"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, wide group, central boardwalk dusk, action: Moodz calming gesture; Emo steadies panicking faceless fused monkey; NeonBlue leads kids with glow sticks quiet, emotion: collective cool-down, Moodz: porcelain white face, glossy black emo fringe with blue left streak, grey under-eye rings, black studded vest and pants, platform boots; Emo: white face, black hair with blue left streak, grey eye rings, black studded punk vest pants, grey sneakers; NeonBlue: pale face, white spike hair with cyan tips and cyan root glow, left ear plug, black vest white studs, grey sneakers, softer palette cooling energy, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "EMO: \"Quiet wins. Loud feeds it.\"",
+      "caption": "",
+      "resolution": "1024x1024",
+      "ref_keys": [
+        "moodz",
+        "emo",
+        "neonblue"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P07_PANEL02",
+      "page_number": 7,
+      "panel_number": 2,
+      "characters": [
+        "Ash",
+        "Static",
+        "Clever"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, medium trio working, vent and cable junction, action: Ash carefully vents controlled orange heat; Static reroutes glowing cables; Clever flips balancer switch, emotion: teamwork focus, Ash: pale grey face, ash-grey spiked hair with bright orange tips, black hoodie, black pants, grey boots, brown ears, stitch seams; Static: white face, jet-black slicked helmet hair, heavy grey under-eye rings, black studded vest pants, grey boots; Clever: beige face, brown ponytail with pink hairband, black round glasses, blue shirt with pi logo, red shorts, technical save, leave space for SFX WHRRRR, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "",
+      "caption": "",
+      "resolution": "1024x1024",
+      "ref_keys": [
+        "ash",
+        "static",
+        "clever"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P07_PANEL03",
+      "page_number": 7,
+      "panel_number": 3,
+      "characters": [
+        "LilDevil",
+        "TwoTone",
+        "Cheeky"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, medium, fireworks cart near rail, action: LilDevil holds fireworks cart still straining; TwoTone adjusts stabilizer box dials; Cheeky waves crowd to beach exit, emotion: growth comedy, LilDevil: cream face, red slicked hair, purple eyeshadow, long lashes, red ears, red devil bodysuit, fishnet stockings, red heels, arrow tail; TwoTone: white face, two-tone black-and-white glossy hair, grey eye rings, black studded vest pants, grey boots; Cheeky: cream face, solid bright blue eyes, brown hair tuft, dark brown open vest, teal banana-print shorts, bare feet, cart, ocean rail, dusk, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "LILDEVIL: \"Fine. Not smashing. Yet.\"",
+      "caption": "",
+      "resolution": "1024x1024",
+      "ref_keys": [
+        "lildevil",
+        "twotone",
+        "cheeky"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P08_PANEL01",
+      "page_number": 8,
+      "panel_number": 1,
+      "characters": [
+        "Moodz",
+        "NeonBlue",
+        "Super"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, wide from behind looking at fireworks, beach sand night ocean fireworks sky, action: three leads on sand watching safe red-white-blue fireworks over ocean; quiet beat, emotion: relief earned peace, Moodz: porcelain white face, glossy black emo fringe with blue left streak, grey under-eye rings, black studded vest and pants, platform boots; NeonBlue: pale face, white spike hair with cyan tips and cyan root glow, left ear plug, black vest white studs, grey sneakers; Super: beige face, brown hair tuft, red eye mask, full green superhero suit, white chest oval with black M, green tail, fireworks over water night beach, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "",
+      "caption": "The pier cooled. The sky did not need a sacrifice.",
+      "resolution": "1216x832",
+      "ref_keys": [
+        "moodz",
+        "neonblue",
+        "super"
+      ]
+    },
+    {
+      "panel_id": "MZ-2026-07-MANGO_P08_PANEL02",
+      "page_number": 8,
+      "panel_number": 2,
+      "characters": [
+        "Scarline",
+        "Zombie",
+        "Super"
+      ],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, comic panel, close on burn mark faces at edge, under-pier piling Super faction mark, action: Scarline mitt on fresh burned Super-faction mark; Zombie looks toward Super; Super half-turned away not answering, emotion: mystery opens, Scarline: white face, silver-white helmet hair with bold scarlet red streak on left, black studded biker jacket pants, grey boots; Zombie: mint green skin, exposed purple brain on head, huge white eyes, yellow broken teeth, olive tattered jacket pants, white bone stump arm; Super: beige face, brown hair tuft, red eye mask, full green superhero suit, white chest oval with black M, green tail, burn mark blank symbol space, dark under pier, mitten hands only, NO dialogue balloons, NO text, NO letters, NO numbers, NO watermarks, clean lettering space reserved at top",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, readable text, letters, numbers, logos, redesigned costume, extra characters, duplicate character, deformed pupils",
+      "dialogue": "ZOMBIE: \"You knew this place.\"",
+      "caption": "Summer was the cover. The signal was the test.",
+      "resolution": "1216x832",
+      "ref_keys": [
+        "scarline",
+        "zombie",
+        "super"
+      ]
+    }
+  ]
+}

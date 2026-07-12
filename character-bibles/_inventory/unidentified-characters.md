@@ -1,0 +1,92 @@
+# Unidentified Characters and Unassigned Artwork
+
+## Named or Role-like Records Without Full Visual Identity
+- Patch: confirmed in continuity ledger as NeonBlue old friend and squad-adjacent after Issue 06; no individual reference image found.
+- The Keeper: unseen Relay 1 maintainer; no visual reference found.
+- Emo: approved refs exist, but current canon treats Emo as generic faction while July draft lists Emo as separate from Moodz. Needs decision before a personal Bible is written.
+
+## Unassigned Artwork
+- Artwork rows with no character association from path/filename: 586. See `artwork-inventory.csv` with `detected_or_associated_character=unidentified`.
+- Many unassigned images are likely covers, backgrounds, page exports, stickers, test assets, or group/published panels; do not promote them as character refs without visual review.
+
+## Representative Unassigned Paths
+- `10.png` — unidentified_or_noncharacter_art
+- `11.png` — unidentified_or_noncharacter_art
+- `12a.png` — unidentified_or_noncharacter_art
+- `12b.png` — unidentified_or_noncharacter_art
+- `12c.png` — unidentified_or_noncharacter_art
+- `12d.png` — unidentified_or_noncharacter_art
+- `12e.png` — unidentified_or_noncharacter_art
+- `12f.png` — unidentified_or_noncharacter_art
+- `13.png` — unidentified_or_noncharacter_art
+- `13a.png` — unidentified_or_noncharacter_art
+- `13b.png` — unidentified_or_noncharacter_art
+- `13c.png` — unidentified_or_noncharacter_art
+- `14.png` — unidentified_or_noncharacter_art
+- `14a.png` — unidentified_or_noncharacter_art
+- `14b.png` — unidentified_or_noncharacter_art
+- `14c.png` — unidentified_or_noncharacter_art
+- `14d.png` — unidentified_or_noncharacter_art
+- `15.png` — unidentified_or_noncharacter_art
+- `16.png` — unidentified_or_noncharacter_art
+- `16a.png` — unidentified_or_noncharacter_art
+- `17.png` — unidentified_or_noncharacter_art
+- `17a.png` — unidentified_or_noncharacter_art
+- `18.png` — unidentified_or_noncharacter_art
+- `18a.png` — unidentified_or_noncharacter_art
+- `19.png` — unidentified_or_noncharacter_art
+- `19a.png` — unidentified_or_noncharacter_art
+- `2.png` — unidentified_or_noncharacter_art
+- `20.png` — unidentified_or_noncharacter_art
+- `20a.png` — unidentified_or_noncharacter_art
+- `21.png` — unidentified_or_noncharacter_art
+- `21a.png` — unidentified_or_noncharacter_art
+- `22.png` — unidentified_or_noncharacter_art
+- `22a.png` — unidentified_or_noncharacter_art
+- `22b.png` — unidentified_or_noncharacter_art
+- `22c.png` — unidentified_or_noncharacter_art
+- `23.png` — unidentified_or_noncharacter_art
+- `24.png` — unidentified_or_noncharacter_art
+- `24a.png` — unidentified_or_noncharacter_art
+- `24b.png` — unidentified_or_noncharacter_art
+- `25.png` — unidentified_or_noncharacter_art
+- `25a.png` — unidentified_or_noncharacter_art
+- `25b.png` — unidentified_or_noncharacter_art
+- `26.png` — unidentified_or_noncharacter_art
+- `26a.png` — unidentified_or_noncharacter_art
+- `27.png` — unidentified_or_noncharacter_art
+- `28.png` — unidentified_or_noncharacter_art
+- `28a.png` — unidentified_or_noncharacter_art
+- `28b.png` — unidentified_or_noncharacter_art
+- `28c.png` — unidentified_or_noncharacter_art
+- `29.png` — unidentified_or_noncharacter_art
+- `3.png` — unidentified_or_noncharacter_art
+- `30.png` — unidentified_or_noncharacter_art
+- `31.png` — unidentified_or_noncharacter_art
+- `32.png` — unidentified_or_noncharacter_art
+- `4.png` — unidentified_or_noncharacter_art
+- `5.png` — unidentified_or_noncharacter_art
+- `6.png` — unidentified_or_noncharacter_art
+- `6a.png` — unidentified_or_noncharacter_art
+- `6b.png` — unidentified_or_noncharacter_art
+- `6c.png` — unidentified_or_noncharacter_art
+- `7.png` — unidentified_or_noncharacter_art
+- `7a.png` — unidentified_or_noncharacter_art
+- `7b.png` — unidentified_or_noncharacter_art
+- `7c.png` — unidentified_or_noncharacter_art
+- `7d.png` — unidentified_or_noncharacter_art
+- `8.png` — unidentified_or_noncharacter_art
+- `8a.png` — unidentified_or_noncharacter_art
+- `cape.png` — unidentified_or_noncharacter_art
+- `Cartoon Monkey #51 in Teal Shorts.png` — unidentified_or_noncharacter_art
+- `Cartoon Monkey with Pi Shirt.png` — unidentified_or_noncharacter_art
+- `Cool Cartoon Monkey Character.png` — unidentified_or_noncharacter_art
+- `cover.png` — cover_or_social_asset
+- `Gemini_Generated_Image_huv2vphuv2vphuv2.png` — unidentified_or_noncharacter_art
+- `monkey nft wearing banana gear with cape.png` — unidentified_or_noncharacter_art
+- `monkey nft wearing banana gear.png` — unidentified_or_noncharacter_art
+- `Untitled.png` — unidentified_or_noncharacter_art
+- `1/31.png` — unidentified_or_noncharacter_art
+- `1/ChatGPT Image Nov 2, 2025, 04_37_57 PM.png` — unidentified_or_noncharacter_art
+- `1/Gemini_Generated_Image_clw4qiclw4qiclw4.png` — unidentified_or_noncharacter_art
+- `1/icon.jpg` — unidentified_or_noncharacter_art

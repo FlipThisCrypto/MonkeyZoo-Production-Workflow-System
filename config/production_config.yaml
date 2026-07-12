@@ -1,0 +1,66 @@
+# MonkeyZoo Comic Factory standardized production input.
+# Edit this file for a manual run, or generate the same fields from a form/UI.
+
+schema_version: "1.0"
+issue_id: "MZ-WORKFLOW-SMOKE"
+topic: "a misplaced banana beacon causes a rescue mix-up"
+adventure_style: "Comedy of errors"
+page_count: 12
+panel_count: 42
+audience: "all ages"
+tone: "warm funny adventure"
+conflict: "the team must solve the mix-up without adding new canon facts"
+location: "MonkeyZoo workshop"
+lesson: "teamwork works best when everyone gets one clear job"
+required_beat: "one small reversible teamwork beat"
+forbidden_content: "no new personal names, no unapproved glasses, no canonized experimental traits"
+continuity_mode: "current canon only"
+canon_strictness: "balanced"
+character_growth_mode: "small reversible beat"
+optional_story_instructions: "Keep trait density light and flag all continuity changes as proposals."
+
+characters:
+  - character_id: "MZ-CHAR-CLEVER"
+    role: "primary"
+  - character_id: "MZ-CHAR-001"
+    role: "secondary"
+
+source_of_truth:
+  root: "source_of_truth"
+  character_bibles: "character-bibles"
+  artwork_inventory: "character-bibles/_inventory/artwork-inventory.csv"
+  trait_library: "character-bibles/_library/trait-library.yaml"
+  review_app: "character-bibles/_review_app"
+
+production:
+  stages:
+    - concept
+    - outline
+    - page_plan
+    - script
+    - image_generation
+    - lettering
+    - assembly
+    - qc
+  output_root: "runs"
+  panel_image_size:
+    width: 2480
+    height: 3508
+  max_dialogue_words_per_balloon: 15
+  max_named_characters_per_panel: 3
+
+validation:
+  require_character_bibles: true
+  require_reference_images: true
+  enforce_clever_only_glasses: true
+  allow_sparse_bibles: true
+  experimental_traits_remain_reviewable: true
+  continuity_updates_require_approval: true
+
+quality_targets:
+  - "Superior Quality"
+  - "Peak Performance"
+  - "Optimized Execution"
+  - "High-Yield Production"
+  - "Elevated Efficiency"
+  - "Maximum Impact"

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MonkeyZoo Character Bible Review</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Character Bible Review</h1>
+      <p>Inspect, approve, edit, defer, or retire proposed traits without editing YAML.</p>
+    </div>
+    <div class="top-actions">
+      <button id="storyBuilderBtn">Story Builder</button>
+      <button id="refreshBtn">Refresh</button>
+      <button id="undoBtn" disabled>Undo Last Change</button>
+    </div>
+  </header>
+
+  <section id="storyBuilder" class="story-builder hidden">
+    <div class="story-header">
+      <div>
+        <h2>Story Context Builder</h2>
+        <p>Choose a compact, reviewable character packet before script generation.</p>
+      </div>
+      <button id="closeStoryBuilder">Close</button>
+    </div>
+
+    <div class="story-grid">
+      <section class="story-panel">
+        <h3>Character Selection</h3>
+        <div id="storyCharacterList" class="story-character-list"></div>
+      </section>
+
+      <section class="story-panel">
+        <h3>Comic Size</h3>
+        <div class="form-grid">
+          <label>Issue ID<input id="storyIssueId" type="text" placeholder="2026-08_Issue_06"></label>
+          <label>Page count<input id="storyPageCount" type="number" min="1" value="4"></label>
+          <label>Panel count<input id="storyPanelCount" type="number" min="1" value="12"></label>
+          <label>Panel density
+            <select id="storyPanelDensity">
+              <option>automatic</option>
+              <option>quiet</option>
+              <option>balanced</option>
+              <option>dense</option>
+            </select>
+          </label>
+        </div>
+
+        <h3 class="section-heading">Story Setup</h3>
+        <div class="form-grid">
+          <label>Topic<input id="storyTopic" type="text"></label>
+          <label>Adventure style<select id="storyAdventureStyle"></select></label>
+          <label>Tone<input id="storyTone" type="text" value="warm funny adventure"></label>
+          <label>Audience<input id="storyAudience" type="text" value="all ages"></label>
+          <label>Conflict<input id="storyConflict" type="text"></label>
+          <label>Location<input id="storyLocation" type="text"></label>
+          <label>Lesson<input id="storyLesson" type="text"></label>
+          <label>Required beat<input id="storyRequiredBeat" type="text"></label>
+          <label>Forbidden content<input id="storyForbidden" type="text"></label>
+          <label>Continuity mode
+            <select id="storyContinuityMode">
+              <option>current canon only</option>
+              <option>allow proposed continuity</option>
+              <option>experimental sandbox</option>
+            </select>
+          </label>
+          <label>Canon strictness
+            <select id="storyCanonStrictness">
+              <option>balanced</option>
+              <option>strict</option>
+            </select>
+          </label>
+          <label>Growth mode
+            <select id="storyGrowthMode">
+              <option>small reversible beat</option>
+              <option>no growth beat</option>
+              <option>propose future growth</option>
+            </select>
+          </label>
+        </div>
+        <label class="wide-label">Optional story instructions<textarea id="storyInstructions" rows="4"></textarea></label>
+        <div class="story-actions">
+          <button id="previewStoryBtn" class="primary">Preview Context</button>
+          <button id="regenerateStoryBtn">Regenerate Trait Selection</button>
+          <button id="saveStoryBtn">Save Packet</button>
+          <button id="generateSampleBtn">Generate Sample Issue</button>
+        </div>
+      </section>
+    </div>
+
+    <section id="storyPreview" class="story-preview hidden"></section>
+  </section>
+
+  <main class="layout">
+    <aside class="browser">
+      <div class="toolbar">
+        <input id="searchBox" type="search" placeholder="Search characters">
+        <button id="compareBtn">Compare</button>
+      </div>
+      <div id="characterList" class="character-list"></div>
+    </aside>
+
+    <section class="detail">
+      <div id="emptyState" class="empty-state">
+        Select a character to review.
+      </div>
+      <div id="detailView" class="hidden">
+        <section class="hero">
+          <div class="reference-strip">
+            <img id="primaryImage" alt="Primary reference">
+            <div id="altImages" class="alt-images"></div>
+          </div>
+          <div class="hero-meta">
+            <h2 id="characterName"></h2>
+            <div id="badges" class="badges"></div>
+            <p id="seriesLine"></p>
+            <p id="appearanceLine"></p>
+            <div id="warnings" class="warnings"></div>
+          </div>
+        </section>
+
+        <nav class="tabs" aria-label="Character detail tabs">
+          <button data-tab="traits" class="active">Traits</button>
+          <button data-tab="naming">Naming</button>
+          <button data-tab="visual">Visual</button>
+          <button data-tab="history">History</button>
+          <button data-tab="compare">Compare</button>
+        </nav>
+
+        <section id="tab-traits" class="tab-panel"></section>
+        <section id="tab-naming" class="tab-panel hidden"></section>
+        <section id="tab-visual" class="tab-panel hidden"></section>
+        <section id="tab-history" class="tab-panel hidden"></section>
+        <section id="tab-compare" class="tab-panel hidden"></section>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="editDialog">
+    <form method="dialog" id="editForm">
+      <h3>Edit Trait</h3>
+      <input type="hidden" id="editTraitPath">
+      <label>Name<input id="editName" type="text"></label>
+      <label>Value<textarea id="editValue" rows="4"></textarea></label>
+      <label>Status<select id="editStatus"></select></label>
+      <label>Strength<select id="editStrength"></select></label>
+      <label>Frequency<select id="editFrequency"></select></label>
+      <label>Cooldown / note<textarea id="editNote" rows="3"></textarea></label>
+      <label>Eligible story types<input id="editContexts" type="text" placeholder="comma-separated"></label>
+      <label>Incompatible traits<input id="editIncompatible" type="text" placeholder="comma-separated"></label>
+      <div class="dialog-actions">
+        <button value="cancel">Cancel</button>
+        <button id="saveTraitBtn" value="default">Save Trait</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

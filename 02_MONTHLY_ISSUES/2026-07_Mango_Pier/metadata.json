@@ -1,0 +1,18 @@
+{
+  "issue_id": "MZ-2026-07-MANGO",
+  "issue_number": "05-TEST",
+  "issue_month": "2026-07",
+  "title": "The Meltdown at Mango Pier",
+  "edition": "July Summer Test Edition",
+  "source_script": "I:/MonkeyZoo Comic Strip/Fusion Squad/july/2026-07-monkeyzoo-july-edition-test.md",
+  "page_count": 8,
+  "panel_count": 20,
+  "covers": 2,
+  "characters": [
+    "Ash", "Cheeky", "Clever", "Emo", "LilDevil", "Moodz",
+    "NeonBlue", "Scarline", "Static", "Super", "TwoTone", "Zombie"
+  ],
+  "status": "in_production",
+  "theme": "You do not fix panic by adding more noise. You fix it by helping everyone cool down enough to choose their next move.",
+  "palette": ["hot orange sunset", "ocean blue", "neon arcade", "yellow boardwalk", "july fireworks", "fusionzoo cyan-green", "under-pier shadow"]
+}

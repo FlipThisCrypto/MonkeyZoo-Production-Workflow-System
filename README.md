@@ -76,9 +76,29 @@ into the continuity ledger.
   /01_IDEAS_INBOX         ← you drop YYYY-MM-idea.md here. That's your whole job.
   /02_MONTHLY_ISSUES      ← one folder per issue, full working package
   /03_APPROVED_CANON      ← QA-approved reference images (characters/locations/…)
+  /story-bibles           ← filed season plans and story-development bibles
   /04_REJECTED_OUTPUTS    ← rejected art/scripts/dialogue (kept for diagnosis)
   /05_RELEASE_ARCHIVE     ← immutable released issues, by year
 ```
+
+## Current season and character references
+
+The filed season plan for the active Emo Monkeys arc is:
+
+`story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md`
+
+The production character/image index is:
+
+`03_APPROVED_CANON/approved_characters/CHARACTER_IMAGE_INDEX.md`
+
+Use that index when assembling prompt packs, LoRA/IPAdapter reference stacks,
+or owner review pages. It marks the six Emo Monkey leads, guest characters,
+generic faction references, and Patch's special issue-derived reference.
+
+Patch note: Issue 05/06 production files identify `zombie.png (#1997 = Patch)`.
+That reference is filed in the local Character Bible reference folder with
+source-map notes. It is an issue-derived Patch reference, not permission to
+turn every Zombie/Stayed image into Patch.
 
 ## Monthly workflow
 
@@ -101,6 +121,12 @@ inputs, save its outputs into the issue folder. Stages 1–5 and 7/9/10 are
 Claude work; Stage 6 is ComfyUI; Stage 8 is layout tool + Claude for checks.
 Gates between stages are defined in `automation_rules.md` §4 — a stage may not
 start until the previous gate passes.
+
+The local Character Bible review interface is used before script generation
+when owner review is needed for names, trait approvals, visual references,
+or continuity proposals. Generated story context must stay compact: selected
+traits, visual requirements, role caps, cooldowns, and proposed updates only.
+Do not paste full Character Bibles into script prompts.
 
 ## Scripts
 

@@ -1,0 +1,327 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Character identity and image reference map for the actual MonkeyZoo production workflow.",
+  "characters": [
+    {
+      "id": "MZ-CHAR-001",
+      "name": "Moodz",
+      "slug": "moodz",
+      "role": "Emo Monkey lead; guarded emotional center",
+      "status": "approved lead",
+      "folder": "03_APPROVED_CANON/approved_characters/moodz/",
+      "primary_reference": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/moodz/moodz_00_clean_base.png",
+      "source_image_count": 0
+    },
+    {
+      "id": "MZ-CHAR-002",
+      "name": "TwoTone",
+      "slug": "twotone",
+      "role": "Emo Monkey lead; balance analyst",
+      "status": "approved lead",
+      "folder": "03_APPROVED_CANON/approved_characters/twotone/",
+      "primary_reference": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/twotone/twotone_00_clean_base.png",
+      "source_image_count": 0
+    },
+    {
+      "id": "MZ-CHAR-003",
+      "name": "Static",
+      "slug": "static",
+      "role": "Emo Monkey lead; signal and code alarm",
+      "status": "approved lead",
+      "folder": "03_APPROVED_CANON/approved_characters/static/",
+      "primary_reference": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/static/static_00_clean_base.png",
+      "source_image_count": 0
+    },
+    {
+      "id": "MZ-CHAR-004",
+      "name": "Ash",
+      "slug": "ash",
+      "role": "Emo Monkey lead; quiet conscience",
+      "status": "approved lead",
+      "folder": "03_APPROVED_CANON/approved_characters/ash/",
+      "primary_reference": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/ash/ash_00_clean_base.png",
+      "source_image_count": 0
+    },
+    {
+      "id": "MZ-CHAR-005",
+      "name": "NeonBlue",
+      "slug": "neonblue",
+      "role": "Emo Monkey lead; rescuer and believer",
+      "status": "approved lead",
+      "folder": "03_APPROVED_CANON/approved_characters/neonblue/",
+      "primary_reference": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/neonblue/neonblue_00_clean_base.png",
+      "source_image_count": 0
+    },
+    {
+      "id": "MZ-CHAR-006",
+      "name": "Scarline",
+      "slug": "scarline",
+      "role": "Emo Monkey lead; experienced observer-mentor",
+      "status": "approved lead",
+      "folder": "03_APPROVED_CANON/approved_characters/scarline/",
+      "primary_reference": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/scarline/scarline_00_clean_base.png",
+      "source_image_count": 0
+    },
+    {
+      "id": "MZ-CHAR-LILDEVIL",
+      "name": "Lil Devil",
+      "slug": "lil devil",
+      "role": "August guest; pressure toward immediate force",
+      "status": "guest / faction archetype",
+      "folder": "03_APPROVED_CANON/approved_characters/lil devil/",
+      "primary_reference": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/lil devil/lildevil_00_clean_base.png",
+      "source_image_count": 3
+    },
+    {
+      "id": "MZ-CHAR-CLEVER",
+      "name": "Clever",
+      "slug": "clever",
+      "role": "September guest; technical validator",
+      "status": "guest / faction archetype; only confirmed glasses-wearing monkey",
+      "folder": "03_APPROVED_CANON/approved_characters/clever/",
+      "primary_reference": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/clever/clever_00_clean_base.png",
+      "source_image_count": 5
+    },
+    {
+      "id": "MZ-CHAR-ZOMBIE",
+      "name": "Zombie",
+      "slug": "zombie",
+      "role": "October guest; old FusionZoo witness",
+      "status": "guest / faction archetype",
+      "folder": "03_APPROVED_CANON/approved_characters/zombie/",
+      "primary_reference": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/zombie/zombie_00_clean_base.png",
+      "source_image_count": 3
+    },
+    {
+      "id": "MZ-CHAR-CHEEKY",
+      "name": "Cheeky",
+      "slug": "cheeky",
+      "role": "November guest; humor and crowd redirection",
+      "status": "guest / faction archetype",
+      "folder": "03_APPROVED_CANON/approved_characters/cheeky/",
+      "primary_reference": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_00_clean_base.png",
+      "source_image_count": 3
+    },
+    {
+      "id": "MZ-CHAR-SUPER",
+      "name": "Super Monkey",
+      "slug": "super",
+      "role": "December guest; visible physical rescue with limits",
+      "status": "guest / faction archetype",
+      "folder": "03_APPROVED_CANON/approved_characters/super/",
+      "primary_reference": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_00_clean_base.png",
+      "source_image_count": 5
+    },
+    {
+      "id": "MZ-CHAR-PATCH",
+      "name": "Patch",
+      "slug": "patch",
+      "role": "NeonBlue/Pending/FusionZoo open thread",
+      "status": "issue-derived supporting character; visual reference requires owner review",
+      "folder": "character-bibles/MZ-CHAR-PATCH/references/",
+      "primary_reference": "character-bibles/MZ-CHAR-PATCH/references/primary/primary-reference.png",
+      "source_image_count": 1
+    },
+    {
+      "id": "MZ-CHAR-EMO-GENERIC",
+      "name": "Generic Emo Monkey",
+      "slug": "emo",
+      "role": "Faction/background reference, not one of the six named leads",
+      "status": "faction archetype",
+      "folder": "03_APPROVED_CANON/approved_characters/emo/",
+      "primary_reference": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/emo/emo_00_clean_base.png",
+      "source_image_count": 1
+    }
+  ],
+  "filed_loose_source_images": [
+    {
+      "source_path": "cheeky.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/source_images/cheeky.png",
+      "sha256": "cc56074631c04562a4a2e5b542d8da9f20f76adac834a07fe08d4d751a056417",
+      "bytes": 488389,
+      "character_or_group": "cheeky",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "Cartoon Monkey #51 in Teal Shorts.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/source_images/Cartoon_Monkey_No51_in_Teal_Shorts.png",
+      "sha256": "475d28ea375778343e837dfa3fe0d0eaef672e69fe25776a1aca9e159296bdd7",
+      "bytes": 1595759,
+      "character_or_group": "cheeky",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "Cartoon_Monkey__51_in_Teal_Shorts-removebg-preview.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/source_images/Cartoon_Monkey_51_in_Teal_Shorts-removebg-preview.png",
+      "sha256": "e870b5b72ab71eb2423287bdabe1585a4dc3ad0b16883ef244da5b26aafc5e66",
+      "bytes": 150072,
+      "character_or_group": "cheeky",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "clever.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/clever/source_images/clever.png",
+      "sha256": "d4f5fe475862ecd9bca1494bf02bdcbf486b1f0813b6dcf760efc3e600beec46",
+      "bytes": 3068240,
+      "character_or_group": "clever",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "Cool Cartoon Monkey Character.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/clever/source_images/Cool_Cartoon_Monkey_Character.png",
+      "sha256": "1ff32a6ce8aab749c8b900cda67bf06fd64dccc538709fc02da7fc74068ef759",
+      "bytes": 1671931,
+      "character_or_group": "clever",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "Cool_Cartoon_Monkey_Character-removebg-preview.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/clever/source_images/Cool_Cartoon_Monkey_Character-removebg-preview.png",
+      "sha256": "7955bc0e062d062c61635ea6fb4fe3cd85607ddb92f14ce4b423eb0e55a30bc8",
+      "bytes": 111183,
+      "character_or_group": "clever",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "Cartoon Monkey with Pi Shirt.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/clever/source_images/Cartoon_Monkey_with_Pi_Shirt.png",
+      "sha256": "9640e0051e0496c856e2ffc4ca13ae071a84e84ff5ef21b96c8a7bb4a1e0841f",
+      "bytes": 1820164,
+      "character_or_group": "clever",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "Cartoon_Monkey_with_Pi_Shirt-removebg-preview.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/clever/source_images/Cartoon_Monkey_with_Pi_Shirt-removebg-preview.png",
+      "sha256": "b691eb7cdf0b97a07d30c2c41067e22ef2fe7569bdc2d5341f6c84c15e9ea246",
+      "bytes": 178914,
+      "character_or_group": "clever",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "emo.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/emo/source_images/emo.png",
+      "sha256": "b3555d80ced3a7529c91d58783fa263e280ad8c47b9c8fa086edc7c17b482918",
+      "bytes": 3712978,
+      "character_or_group": "emo",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "lil devil.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/lil devil/source_images/lil_devil.png",
+      "sha256": "3bb9a6faffacb7b5496bf8567413f7dca3b03e66094f3b8d015d9f3f3060891b",
+      "bytes": 735822,
+      "character_or_group": "lil devil",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "Devilish Monkey #424.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/lil devil/source_images/Devilish_Monkey_No424.png",
+      "sha256": "929ea82e9e64a79706982202a28ea603177da60ccd26c5630fa6c53fea644c70",
+      "bytes": 1796518,
+      "character_or_group": "lil devil",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "Devilish_Monkey__424-removebg-preview.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/lil devil/source_images/Devilish_Monkey_424-removebg-preview.png",
+      "sha256": "a65ae0dd17cac03a65169963fdc7e5053f6a552b3450d1683d6e2d48621c0901",
+      "bytes": 168050,
+      "character_or_group": "lil devil",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "super.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/source_images/super.png",
+      "sha256": "a99f4cb69046644a86926be4d53adac97bef23b982343655d7bb0c58a8b8556d",
+      "bytes": 476934,
+      "character_or_group": "super",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "Superhero Monkey with Red Mask.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/source_images/Superhero_Monkey_with_Red_Mask.png",
+      "sha256": "e3f69f7c5c592239ad4112096ef69516516604a24348994625c3e1bade1b3f64",
+      "bytes": 1777015,
+      "character_or_group": "super",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "Superhero_Monkey_with_Red_Mask-removebg-preview.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/source_images/Superhero_Monkey_with_Red_Mask-removebg-preview.png",
+      "sha256": "7c666ed0a4cfd7373eac915821b2d3d88c3504226fa1f8ff09c22b08537fd7e9",
+      "bytes": 222499,
+      "character_or_group": "super",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "cape.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/source_images/cape.png",
+      "sha256": "99fe1c1dea481eaf3897884a4f16e539244805b0edead0ed9bf9227d96cf98d6",
+      "bytes": 736860,
+      "character_or_group": "super",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "cape-removebg-preview.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/source_images/cape-removebg-preview.png",
+      "sha256": "26f381cb2d2616c8702ddce0c717dfd423d8a4cc07dab606627edd07a6918ed9",
+      "bytes": 105013,
+      "character_or_group": "super",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "zombie.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/zombie/source_images/zombie.png",
+      "sha256": "0edfb23df08a69a59ac39305301d0fab576ea5cedd0654d4ff4e530a252c1fd2",
+      "bytes": 555538,
+      "character_or_group": "zombie",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "Zombie Monkey in Tattered Clothing.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/zombie/source_images/Zombie_Monkey_in_Tattered_Clothing.png",
+      "sha256": "05e7a162bc08deb1f40b2475639c1d3deaec2b4ec4f0319bf9628d641325d630",
+      "bytes": 1831939,
+      "character_or_group": "zombie",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "Zombie_Monkey_in_Tattered_Clothing-removebg-preview.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/zombie/source_images/Zombie_Monkey_in_Tattered_Clothing-removebg-preview.png",
+      "sha256": "f064d9e4d12f0b6bc50d73f077a13857f4d3d46aab2cbf7575b858c51c374721",
+      "bytes": 150912,
+      "character_or_group": "zombie",
+      "source_type": "loose local source image copied for provenance"
+    },
+    {
+      "source_path": "Fusion Squad.png",
+      "filed_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/_groups/source_images/Fusion_Squad.png",
+      "sha256": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "bytes": 601487,
+      "character_or_group": "_groups",
+      "source_type": "loose local source image copied for provenance"
+    }
+  ],
+  "patch_reference": {
+    "source_path": "zombie.png",
+    "filed_path": "character-bibles/MZ-CHAR-PATCH/references/primary/primary-reference.png",
+    "sha256": "0edfb23df08a69a59ac39305301d0fab576ea5cedd0654d4ff4e530a252c1fd2",
+    "bytes": 555538,
+    "character_id": "MZ-CHAR-PATCH",
+    "character": "Patch",
+    "confidence": "medium-high",
+    "source_evidence": [
+      "MonkeyZoo_Comic_Factory/02_MONTHLY_ISSUES/2026-07_Issue_05/page_panel_plan.json",
+      "MonkeyZoo_Comic_Factory/02_MONTHLY_ISSUES/2026-07_Issue_05/issue_script.md",
+      "MonkeyZoo_Comic_Factory/02_MONTHLY_ISSUES/2026-08_Issue_06/issue_script.md"
+    ],
+    "notes": "Issue plans identify `zombie.png (#1997 = Patch)`. This is filed as Patch's issue-derived reference, not as permission to treat every zombie image as Patch."
+  },
+  "notes": [
+    "Character Bibles remain the character canon source of truth.",
+    "03_APPROVED_CANON/approved_characters is the production image reference source for IPAdapter/LoRA and prompt packs.",
+    "source_images folders preserve loose local source cards; use numbered pose files for production identity unless source evidence says otherwise.",
+    "Patch uses an issue-derived reference and remains owner-review for final individual visual identity."
+  ]
+}
