@@ -79,14 +79,45 @@ async function loadCharacters() {
 
 async function loadIssuesMetadata() {
   try {
-    const res = await fetch("./static/issues_metadata.json");
-    if (!res.ok) throw new Error("Metadata file missing");
-    const data = await res.json();
+    const data = await api("/api/issues");
     renderIssuesList(data);
   } catch (err) {
     console.warn("Issues metadata unavailable:", err);
     renderIssuesUnavailable();
   }
+}
+
+function setupIssueCreation() {
+  const dialog = $("createIssueDialog"), form = $("createIssueForm");
+  if (!dialog || !form) return;
+  const populate = () => {
+    const options = characters.map(c => `<option value="${escapeHtml(c.character_id)}">${escapeHtml(c.display_name || c.character_id)}</option>`).join("");
+    form.primary_character.innerHTML = options;
+    form.guest_character.innerHTML = `<option value="">None</option>${options}`;
+    updateCanonReview();
+  };
+  const updateCanonReview = () => {
+    const selected = characters.find(c => c.character_id === form.primary_character.value);
+    $("issueCanonReview").innerHTML = selected ? `<strong>${escapeHtml(selected.display_name || selected.character_id)}</strong><p>Bible: available</p><p>${(selected.continuity_warnings || []).map(escapeHtml).join("; ") || "No repository warnings reported."}</p>` : "No character selected.";
+  };
+  $("createIssueButton").addEventListener("click", () => { populate(); dialog.showModal(); });
+  $("cancelIssueCreate").addEventListener("click", () => dialog.close());
+  form.primary_character.addEventListener("change", updateCanonReview);
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+    $("issueCreateError").textContent = "";
+    const body = Object.fromEntries(new FormData(form));
+    body.output_requirements = ["cover", "metadata", "social copy", "QA"];
+    try {
+      const result = await api("/api/issues", {method: "POST", body: JSON.stringify(body)});
+      dialog.close();
+      $("issueCreateResult").textContent = `Created ${result.issue_id} at ${result.location}. Stage: ${result.stage}. Files: ${result.files_created.join(", ")}`;
+      await loadIssuesMetadata();
+      form.reset();
+    } catch (err) {
+      $("issueCreateError").textContent = err.message || err.error || "Issue creation failed. No success state was recorded.";
+    }
+  });
 }
 
 function renderIssuesList(issues) {
@@ -817,4 +848,5 @@ $("regenerateStoryBtn").addEventListener("click", previewStory);
 $("saveStoryBtn").addEventListener("click", saveStoryPacket);
 $("generateSampleBtn").addEventListener("click", generateSampleIssue);
 
+setupIssueCreation();
 loadCharacters();

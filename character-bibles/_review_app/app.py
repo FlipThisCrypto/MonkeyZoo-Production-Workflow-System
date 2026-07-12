@@ -1,11 +1,14 @@
 from __future__ import annotations
 
 from pathlib import Path
+import sys
 
 from flask import Flask, jsonify, request, send_from_directory
 
 import bible_store as store
 import story_context
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "00_SYSTEM" / "scripts"))
+import new_issue
 
 APP_DIR = Path(__file__).resolve().parent
 WORKSPACE_ROOT = APP_DIR.parents[1]
@@ -90,6 +93,25 @@ def story_validate_script():
         packet = story_context.build_preview(body.get("setup", {}), BIBLES_ROOT, WORKSPACE_ROOT)["packet"]
     return jsonify({"warnings": story_context.validate_script_text(body.get("script_text", ""), packet)})
 
+@app.get("/api/issues")
+def issues():
+    results = []
+    for folder in sorted((WORKSPACE_ROOT / "02_MONTHLY_ISSUES").glob("*_Issue_*")):
+        metadata = folder / "metadata.json"
+        data = {}
+        if metadata.exists():
+            try:
+                import json
+                data = json.loads(metadata.read_text(encoding="utf-8"))
+            except (ValueError, OSError):
+                pass
+        results.append({"issue_id": data.get("issue_id", folder.name), "title": data.get("title") or data.get("name") or "Untitled", "stage": "1. Intake" if data.get("status") == "intake" else "Existing issue", "location": str(folder.relative_to(WORKSPACE_ROOT))})
+    return jsonify(results)
+
+@app.post("/api/issues")
+def create_issue():
+    return jsonify(new_issue.create_issue(request.get_json(force=True), WORKSPACE_ROOT)), 201
+
 
 @app.get("/media/<character_id>/<path:rel_path>")
 def media(character_id, rel_path):
@@ -99,7 +121,7 @@ def media(character_id, rel_path):
 
 @app.errorhandler(Exception)
 def handle_error(exc):
-    status = 400 if isinstance(exc, (store.BibleStoreError, story_context.StoryContextError)) else 500
+    status = 400 if isinstance(exc, (store.BibleStoreError, story_context.StoryContextError, new_issue.IssueCreationError)) else 500
     return jsonify({"ok": False, "error": str(exc)}), status
 
 

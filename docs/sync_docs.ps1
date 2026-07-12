@@ -146,7 +146,8 @@ async function api(path, options = {}) {
                   cleanPath.endsWith("/field") || 
                   cleanPath.endsWith("/undo") || 
                   cleanPath === "/api/story/save" || 
-                  cleanPath === "/api/story/generate-sample";
+                  cleanPath === "/api/story/generate-sample" ||
+                  (cleanPath === "/api/issues" && (options.method || "GET").toUpperCase() !== "GET");
                   
   if (isWrite) {
     alert("This action is unavailable in the GitHub Pages demo. Run MonkeyZoo Studio locally to modify production data.");
@@ -221,6 +222,11 @@ async function api(path, options = {}) {
         "continuity_warnings": []
       }
     ];
+  }
+
+  if (cleanPath === "/api/issues") {
+    const response = await fetch("./static/issues_metadata.json");
+    return response.json();
   }
   
   if (cleanPath.startsWith("/api/characters/")) {

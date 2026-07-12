@@ -115,3 +115,9 @@ def test_story_generate_sample_api_returns_script(client):
     data = res.get_json()
     assert "Generated Sample Issue" in data["generated_script"]
     assert data["continuity_proposal"]["status"] == "proposed_owner_review_required"
+
+
+def test_create_issue_api_returns_structured_validation_error(client):
+    res = client.post("/api/issues", json={"issue_id": "../escape"})
+    assert res.status_code == 400
+    assert res.get_json()["ok"] is False
