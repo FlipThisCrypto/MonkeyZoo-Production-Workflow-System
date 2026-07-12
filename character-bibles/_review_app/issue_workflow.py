@@ -109,7 +109,7 @@ def _qa_verdict(folder: Path) -> str:
     text = path.read_text(encoding="utf-8", errors="replace").upper()
     verdicts = re.findall(r"VERDICT:\s*([^\r\n]+)", text)
     verdict = verdicts[-1].strip() if verdicts else "MISSING"
-    if verdict.startswith("RELEASE") or verdict.startswith("PASS"):
+    if verdict == "PASS":
         return "passed"
     if verdict.startswith("HOLD") or verdict.startswith("FAIL"):
         return "failed"
@@ -140,7 +140,7 @@ def _stage_validation(stage_id: str, folder: Path, root: Path) -> dict[str, Any]
         if missing_art: messages.append(f"Missing selected art for {len(missing_art)} planned panel(s)")
     elif stage_id == "qa":
         verdict = _qa_verdict(folder)
-        if verdict != "passed": messages.append(f"QA verdict is {verdict}; RELEASE or PASS is required")
+        if verdict != "passed": messages.append(f"QA verdict is {verdict}; exact PASS is required")
     elif stage_id == "release":
         exports = folder / "exports"
         if not exports.exists() or not any(exports.glob("*.pdf")) or not any(exports.glob("*.zip")):

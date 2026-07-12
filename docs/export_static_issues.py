@@ -10,6 +10,7 @@ import story_workspace
 import page_panel_workspace
 import art_queue_workspace
 import visual_qa_workspace
+import release_workspace
 
 if __name__ == "__main__":
     issues = issue_workflow.list_issues(ROOT)
@@ -33,4 +34,8 @@ if __name__ == "__main__":
             issue["qa"] = visual_qa_workspace.summary(issue_workflow.find_issue(issue["issue_id"], ROOT), ROOT)
         except Exception as exc:
             issue["qa"] = {"degraded": True, "error": str(exc), "evidence": {"panels": [], "blockers": [str(exc)]}, "reviews": []}
+        try:
+            issue["release"] = release_workspace.readiness(issue_workflow.find_issue(issue["issue_id"], ROOT), ROOT)
+        except Exception as exc:
+            issue["release"] = {"degraded": True, "error": str(exc), "evidence": {"files": [], "blockers": [str(exc)]}}
     (ROOT / "docs" / "static" / "issue-workflows.json").write_text(json.dumps(issues, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

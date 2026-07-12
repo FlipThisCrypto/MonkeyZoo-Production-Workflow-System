@@ -259,6 +259,7 @@ async function api(path, options = {}) {
     if (parts[4] === "layout") return issue?.layout || {error:"Layout snapshot unavailable", variants:[]};
     if (parts[4] === "art-queue") return issue?.art_queue || {error:"Art Queue snapshot unavailable", queue:{items:[]}};
     if (parts[4] === "qa") return issue?.qa || {error:"QA snapshot unavailable", evidence:{panels:[],blockers:[]}, reviews:[]};
+    if (parts[4] === "release") return issue?.release || {error:"Release snapshot unavailable", evidence:{files:[],blockers:[]}};
     return issue || {error:"Issue unavailable"};
   }
   
