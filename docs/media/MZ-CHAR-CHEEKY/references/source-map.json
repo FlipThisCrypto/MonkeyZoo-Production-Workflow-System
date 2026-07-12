@@ -1,0 +1,96 @@
+{
+  "character_id": "MZ-CHAR-CHEEKY",
+  "character": "Cheeky",
+  "sources": [
+    {
+      "copied_filename": "primary-reference.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_00_clean_base.png",
+      "file_hash": "188cea8cfb138a791fa11738756bfbf93e3407a7837897a113e8808e878ddaea",
+      "image_category": "primary",
+      "character_visibility": "full character or strongest available reference",
+      "confidence": "high",
+      "notes": "Primary reference selected from inventory."
+    },
+    {
+      "copied_filename": "alternate-pose-01.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_01_neutral.png",
+      "file_hash": "188cea8cfb138a791fa11738756bfbf93e3407a7837897a113e8808e878ddaea",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-02.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_02_threeqtr.png",
+      "file_hash": "ed5ba4be7077c1b2f6b65583b8650556cd25bfa4a8dce47bbbecb00a89604c1d",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-03.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_03_profile.png",
+      "file_hash": "4fdb227c2d9875b66d367304a6f10b5731963318e0492e5e12c8a8a1342a0a39",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-04.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_04_overshoulder.png",
+      "file_hash": "4986aadd58cda43082d12dfc5af2334b5d94a23416841c1fb628d7a596382b55",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "expression-portrait-05.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_05_portrait.png",
+      "file_hash": "18a249a6c9682dbd95ea93365dcc80b207c57e41f1b14135c39d332ac8ca469c",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-06.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_06_angry.png",
+      "file_hash": "0efd655641bf3869e72ca4f5e28f641f5a23031a9e6f616ef61af6991bfc4968",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-07.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_07_sad.png",
+      "file_hash": "640e5d10b2f4b52380c889026401e3f00cb5a3b7d2d7c7cdc59798178b15b089",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-08.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/cheeky/cheeky_08_shocked.png",
+      "file_hash": "d9dd09c1c83f13a353c630b62c436fc6a792dcaa8630d6db32223b3c1008dfda",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "group-fusion-squad-01.png",
+      "original_path": "Fusion Squad.png",
+      "file_hash": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "image_category": "group",
+      "character_visibility": "group or team image",
+      "confidence": "medium",
+      "notes": "Group image; do not use as sole identity reference."
+    }
+  ]
+}

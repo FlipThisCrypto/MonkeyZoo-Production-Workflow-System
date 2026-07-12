@@ -1,0 +1,96 @@
+{
+  "character_id": "MZ-CHAR-005",
+  "character": "NeonBlue",
+  "sources": [
+    {
+      "copied_filename": "primary-reference.webp",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/factions/neonblue.webp",
+      "file_hash": "bd99e83e9680a9c1b4a4a3663c5d09ee5a37e16cc70e6ed3452525f9ebe50937",
+      "image_category": "primary",
+      "character_visibility": "full character or strongest available reference",
+      "confidence": "high",
+      "notes": "Primary reference selected from inventory."
+    },
+    {
+      "copied_filename": "alternate-pose-01.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/neonblue/neonblue_01_neutral.png",
+      "file_hash": "1d5fd2bc4a458da3056edd9ae7bda3fcd430f04c1b8a5ffa10a1a3b8b7aa1f8e",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-02.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/neonblue/neonblue_02_threeqtr.png",
+      "file_hash": "b85f2337ad5138c3f4c3c8ba31dbfb7f2aa9d7111a0cc3c3befd915a6aa0aca2",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-03.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/neonblue/neonblue_03_profile.png",
+      "file_hash": "30cf225386465dac2204d441d72dde7ea7d67fa628982a46f3eef4651f392670",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-04.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/neonblue/neonblue_04_overshoulder.png",
+      "file_hash": "9cde20b2698b2821a0125e94486823f5c30d4cf1480779377eadf89c594ec862",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "expression-portrait-05.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/neonblue/neonblue_05_portrait.png",
+      "file_hash": "ba8830a85022a2e724ac20f585ed95fe9d7b6aa52d4f5624d90502dc67e1122e",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-06.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/neonblue/neonblue_06_angry.png",
+      "file_hash": "65f422127d13658ad92ef81f4241c886f8492a4e5ac8aa93b752d0cb78da3011",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-07.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/neonblue/neonblue_07_sad.png",
+      "file_hash": "6aad1cc2bba74f1dd685f95c0a22ce05031353d71bed8686d1e693945826c99d",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-08.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/neonblue/neonblue_08_shocked.png",
+      "file_hash": "6e0669005882e3a5330833993255634d28c346c64ddfa2c6f0f6add0e6c6aa55",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "group-fusion-squad-01.png",
+      "original_path": "Fusion Squad.png",
+      "file_hash": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "image_category": "group",
+      "character_visibility": "group or team image",
+      "confidence": "medium",
+      "notes": "Group image; do not use as sole identity reference."
+    }
+  ]
+}

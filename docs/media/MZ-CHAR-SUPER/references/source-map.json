@@ -1,0 +1,96 @@
+{
+  "character_id": "MZ-CHAR-SUPER",
+  "character": "Super Monkey",
+  "sources": [
+    {
+      "copied_filename": "primary-reference.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_00_clean_base.png",
+      "file_hash": "255dd9a9a43af34cd8cb361c8bcbd672fc7f5cdaab38028b5579e51e956cb62f",
+      "image_category": "primary",
+      "character_visibility": "full character or strongest available reference",
+      "confidence": "high",
+      "notes": "Primary reference selected from inventory."
+    },
+    {
+      "copied_filename": "alternate-pose-01.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_01_neutral.png",
+      "file_hash": "255dd9a9a43af34cd8cb361c8bcbd672fc7f5cdaab38028b5579e51e956cb62f",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-02.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_02_threeqtr.png",
+      "file_hash": "35a408857c42595f8c8c6557b6265b85412bff8571a6ee4f5d5d4a32794dac70",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-03.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_03_profile.png",
+      "file_hash": "59f356f2e3bade7361a4d5d08ff8eefbf66c07648b392b76b5c8bdfe4ce0796c",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-04.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_04_overshoulder.png",
+      "file_hash": "5157665b4a9fdc6612ffd52b5aa9c4fc102623e6cb7b36fb7b3954731c36dde0",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "expression-portrait-05.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_05_portrait.png",
+      "file_hash": "1a249406e9f9ecb320b63b973f8f4e096bdeda6ffa7c2577dda42b957627e3f1",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-06.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_06_angry.png",
+      "file_hash": "78c45fe9a87385b2f8c592a1b33394d1e1e970adea6b1000739c017004920f34",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-07.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_07_sad.png",
+      "file_hash": "3c95701dc74598f6c232fe769372bcafe0ffe55e1ed0b097b4d89fd8890130b1",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "alternate-pose-08.png",
+      "original_path": "MonkeyZoo_Comic_Factory/03_APPROVED_CANON/approved_characters/super/super_08_shocked.png",
+      "file_hash": "5011365107a142ca950cb9046de88e00f3879fc3111fc5289899f254fd4ad665",
+      "image_category": "alternate",
+      "character_visibility": "individual character",
+      "confidence": "high",
+      "notes": "Approved alternate pose/expression."
+    },
+    {
+      "copied_filename": "group-fusion-squad-01.png",
+      "original_path": "Fusion Squad.png",
+      "file_hash": "52e6d8f044481a0a6e80a8e88fb596c8a38f6277e16d8d71a9cb7f1d1e526b69",
+      "image_category": "group",
+      "character_visibility": "group or team image",
+      "confidence": "medium",
+      "notes": "Group image; do not use as sole identity reference."
+    }
+  ]
+}
