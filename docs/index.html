@@ -535,6 +535,12 @@
           </div>
           <div id="issueCreateResult" role="status"></div>
           <div id="issuesWorkspaceGrid" class="issue-grid"></div>
+          <section id="productionDashboard" class="production-dashboard hidden" aria-labelledby="productionDashboardTitle">
+            <header class="production-header"><div><span class="eyebrow">MONKEYZOO COMIC FACTORY</span><h3 id="productionDashboardTitle">Issue Production Dashboard</h3><p id="productionIdentity"></p></div><button id="closeProductionDashboard" type="button">Close dashboard</button></header>
+            <div id="productionSummary" class="production-summary"></div>
+            <nav id="productionStageRail" class="stage-rail" aria-label="Production stages"></nav>
+            <div class="production-grid"><section class="current-stage-panel"><h4>Current stage</h4><div id="currentStageDetail"></div><div class="production-actions"><button id="validateStageButton" class="primary" type="button">Validate current stage</button><button id="advanceStageButton" type="button">Advance safely</button></div></section><section><h4>Artifacts</h4><div id="artifactInventory"></div></section></div>
+          </section>
         </div>
 
         <!-- 5. LOCATIONS WORKSPACE MODULE (COMING SOON) -->
@@ -777,6 +783,7 @@
       <div class="dialog-actions"><button type="button" id="cancelIssueCreate">Cancel</button><button class="primary" type="submit">Create Issue</button></div>
     </form>
   </dialog>
+  <dialog id="artifactDialog"><div class="artifact-viewer"><header><h3 id="artifactTitle">Artifact</h3><button id="closeArtifactDialog" type="button">Close</button></header><pre id="artifactContent"></pre></div></dialog>
 
   <script src="./static/app.js"></script>
 </body>

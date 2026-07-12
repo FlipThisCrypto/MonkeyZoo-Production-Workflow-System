@@ -8,6 +8,7 @@ from werkzeug.exceptions import BadRequest, UnsupportedMediaType
 
 import bible_store as store
 import story_context
+import issue_workflow
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "00_SYSTEM" / "scripts"))
 import new_issue
 
@@ -97,28 +98,7 @@ def story_validate_script():
 
 @app.get("/api/issues")
 def issues():
-    results = []
-    for folder in sorted((WORKSPACE_ROOT / "02_MONTHLY_ISSUES").iterdir()):
-        if not folder.is_dir() or folder.name.startswith(".") or "_Issue_" not in folder.name:
-            continue
-        metadata = folder / "metadata.json"
-        data = {}
-        if metadata.exists():
-            try:
-                import json
-                data = json.loads(metadata.read_text(encoding="utf-8"))
-            except (ValueError, OSError):
-                pass
-        brief = folder / "issue_brief.md"
-        degraded = not metadata.exists() or not data
-        if degraded and not brief.exists():
-            continue
-        stage = data.get("workflow_stage")
-        if not stage:
-            evidence = [("final_export_checklist.md", "9. Final QA"), ("qa_report.md", "7. Art QA"), ("issue_script.md", "4. Script"), ("issue_outline.md", "3. Showrunner"), ("issue_brief.md", "1. Intake")]
-            stage = next((label for filename, label in evidence if (folder / filename).exists() and (folder / filename).stat().st_size > 0), "Stage unavailable")
-        results.append({"issue_id": data.get("issue_id", folder.name), "title": data.get("title") or data.get("name") or "Title unavailable", "stage": stage, "location": str(folder.relative_to(WORKSPACE_ROOT)), "degraded": degraded})
-    return jsonify(results)
+    return jsonify(issue_workflow.list_issues(WORKSPACE_ROOT))
 
 @app.post("/api/issues")
 def create_issue():
@@ -132,6 +112,37 @@ def create_issue():
         raise new_issue.IssueCreationError("Request body must be a JSON object")
     return jsonify(new_issue.create_issue(body, WORKSPACE_ROOT)), 201
 
+@app.get("/api/issues/<issue_id>")
+def issue_production_detail(issue_id):
+    folder = issue_workflow.find_issue(issue_id, WORKSPACE_ROOT)
+    return jsonify(issue_workflow.issue_detail(folder, WORKSPACE_ROOT))
+
+@app.get("/api/issues/<issue_id>/workflow")
+def issue_production_workflow(issue_id):
+    folder = issue_workflow.find_issue(issue_id, WORKSPACE_ROOT)
+    return jsonify(issue_workflow.workflow_status(folder, WORKSPACE_ROOT))
+
+@app.get("/api/issues/<issue_id>/artifacts")
+def issue_artifacts(issue_id):
+    folder = issue_workflow.find_issue(issue_id, WORKSPACE_ROOT)
+    return jsonify(issue_workflow.issue_detail(folder, WORKSPACE_ROOT)["artifacts"])
+
+@app.get("/api/issues/<issue_id>/artifact")
+def issue_artifact(issue_id):
+    folder = issue_workflow.find_issue(issue_id, WORKSPACE_ROOT)
+    return jsonify(issue_workflow.view_artifact(folder, request.args.get("path", "")))
+
+@app.post("/api/issues/<issue_id>/validate")
+def validate_issue_stage(issue_id):
+    folder = issue_workflow.find_issue(issue_id, WORKSPACE_ROOT)
+    return jsonify(issue_workflow.workflow_status(folder, WORKSPACE_ROOT))
+
+@app.post("/api/issues/<issue_id>/advance")
+def advance_issue_stage(issue_id):
+    folder = issue_workflow.find_issue(issue_id, WORKSPACE_ROOT)
+    body = request.get_json(silent=True) or {}
+    return jsonify(issue_workflow.record_advance(folder, WORKSPACE_ROOT, body.get("stage")))
+
 
 @app.get("/media/<character_id>/<path:rel_path>")
 def media(character_id, rel_path):
@@ -142,7 +153,7 @@ def media(character_id, rel_path):
 
 @app.errorhandler(Exception)
 def handle_error(exc):
-    status = 400 if isinstance(exc, (store.BibleStoreError, story_context.StoryContextError, new_issue.IssueCreationError)) else 500
+    status = 400 if isinstance(exc, (store.BibleStoreError, story_context.StoryContextError, new_issue.IssueCreationError, issue_workflow.IssueWorkflowError)) else 500
     message = str(exc) if status == 400 else "Unexpected server error"
     return jsonify({"ok": False, "error": message}), status
 

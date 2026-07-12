@@ -1,0 +1,1148 @@
+[
+  {
+    "issue_id": "MZ-2026-07-05",
+    "title": "MonkeyZoo: The Ones Who Stayed",
+    "edition_number": "05",
+    "period": "2026-07",
+    "primary_character": "Moodz",
+    "guest_character": "NeonBlue (co-lead), TwoTone, Static, Ash, Scarline, Patch (NEW — zombie, NeonBlue's old friend)",
+    "location": "02_MONTHLY_ISSUES\\2026-07_Issue_05",
+    "last_updated": "2026-07-02T20:52:51",
+    "validation_state": "blocked",
+    "blocker_count": 3,
+    "workflow": {
+      "issue_id": "MZ-2026-07-05",
+      "current_stage": {
+        "id": "canon_review",
+        "number": 2,
+        "label": "Canon Review",
+        "state": "blocked"
+      },
+      "stages": [
+        {
+          "id": "intake",
+          "number": 1,
+          "label": "Intake",
+          "state": "complete",
+          "required_files": [
+            "issue_brief.md",
+            "metadata.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "canon_review",
+          "number": 2,
+          "label": "Canon Review",
+          "state": "blocked",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "failed",
+            "messages": [
+              "Character bible unavailable: NeonBlue (co-lead)",
+              "Character bible unavailable: Patch (NEW — zombie",
+              "Character bible unavailable: NeonBlue's old friend)"
+            ],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "outline",
+          "number": 3,
+          "label": "Outline",
+          "state": "not_started",
+          "required_files": [
+            "issue_outline.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "script",
+          "number": 4,
+          "label": "Script",
+          "state": "not_started",
+          "required_files": [
+            "issue_script.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "page_plan",
+          "number": 5,
+          "label": "Page & Panel Plan",
+          "state": "not_started",
+          "required_files": [
+            "page_panel_plan.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "art_prompts",
+          "number": 6,
+          "label": "Art Prompt Pack",
+          "state": "not_started",
+          "required_files": [
+            "art_prompt_pack.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "art_production",
+          "number": 7,
+          "label": "Art Production",
+          "state": "not_started",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "failed",
+            "messages": [
+              "Missing selected art for 19 planned panel(s)"
+            ],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "qa",
+          "number": 8,
+          "label": "Quality Assurance",
+          "state": "not_started",
+          "required_files": [
+            "qa_report.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "failed",
+            "messages": [
+              "QA verdict is pending; RELEASE or PASS is required"
+            ],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "release",
+          "number": 9,
+          "label": "Release Package",
+          "state": "not_started",
+          "required_files": [
+            "cover_prompt.md",
+            "metadata.json",
+            "social_posts.md",
+            "final_export_checklist.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "failed",
+            "messages": [
+              "Release requires real PDF and CBZ/ZIP exports"
+            ],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "published",
+          "number": 10,
+          "label": "Published",
+          "state": "not_started",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "failed",
+            "messages": [
+              "Published status requires release archive evidence"
+            ],
+            "missing_files": []
+          }
+        }
+      ],
+      "blockers": [
+        "Character bible unavailable: NeonBlue (co-lead)",
+        "Character bible unavailable: Patch (NEW — zombie",
+        "Character bible unavailable: NeonBlue's old friend)"
+      ],
+      "next_action": {
+        "id": "validate",
+        "label": "Validate Canon Review"
+      },
+      "owner_approval_required": true
+    },
+    "artifacts": [
+      {
+        "group": "Intake",
+        "name": "issue_brief.md",
+        "exists": true,
+        "modified": "2026-07-02T15:39:38",
+        "viewable": true
+      },
+      {
+        "group": "Intake",
+        "name": "metadata.json",
+        "exists": true,
+        "modified": "2026-07-02T20:52:14",
+        "viewable": true
+      },
+      {
+        "group": "Outline",
+        "name": "issue_outline.md",
+        "exists": true,
+        "modified": "2026-07-02T15:39:51",
+        "viewable": true
+      },
+      {
+        "group": "Script",
+        "name": "issue_script.md",
+        "exists": true,
+        "modified": "2026-07-02T15:41:08",
+        "viewable": true
+      },
+      {
+        "group": "Plans",
+        "name": "page_panel_plan.json",
+        "exists": true,
+        "modified": "2026-07-02T20:46:59",
+        "viewable": true
+      },
+      {
+        "group": "Prompts",
+        "name": "art_prompt_pack.json",
+        "exists": true,
+        "modified": "2026-07-02T20:51:02",
+        "viewable": true
+      },
+      {
+        "group": "QA",
+        "name": "qa_report.md",
+        "exists": true,
+        "modified": "2026-07-02T20:52:30",
+        "viewable": true
+      },
+      {
+        "group": "Covers",
+        "name": "cover_prompt.md",
+        "exists": true,
+        "modified": "2026-07-02T20:51:33",
+        "viewable": true
+      },
+      {
+        "group": "Social",
+        "name": "social_posts.md",
+        "exists": true,
+        "modified": "2026-07-02T20:51:52",
+        "viewable": true
+      },
+      {
+        "group": "Release",
+        "name": "final_export_checklist.md",
+        "exists": true,
+        "modified": "2026-07-02T20:52:41",
+        "viewable": true
+      }
+    ],
+    "degraded": false
+  },
+  {
+    "issue_id": "MZ-2026-07-MANGO",
+    "title": "The Meltdown at Mango Pier",
+    "edition_number": null,
+    "period": "2026-07",
+    "primary_character": null,
+    "guest_character": null,
+    "location": "02_MONTHLY_ISSUES\\2026-07_Mango_Pier",
+    "last_updated": "2026-07-11T17:13:50",
+    "validation_state": "blocked",
+    "blocker_count": 1,
+    "workflow": {
+      "issue_id": "MZ-2026-07-MANGO",
+      "current_stage": {
+        "id": "outline",
+        "number": 3,
+        "label": "Outline",
+        "state": "blocked"
+      },
+      "stages": [
+        {
+          "id": "intake",
+          "number": 1,
+          "label": "Intake",
+          "state": "complete",
+          "required_files": [
+            "issue_brief.md",
+            "metadata.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "canon_review",
+          "number": 2,
+          "label": "Canon Review",
+          "state": "complete",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "outline",
+          "number": 3,
+          "label": "Outline",
+          "state": "blocked",
+          "required_files": [
+            "issue_outline.md"
+          ],
+          "missing_files": [
+            "issue_outline.md"
+          ],
+          "validation": {
+            "status": "failed",
+            "messages": [
+              "Missing required file: issue_outline.md"
+            ],
+            "missing_files": [
+              "issue_outline.md"
+            ]
+          }
+        },
+        {
+          "id": "script",
+          "number": 4,
+          "label": "Script",
+          "state": "not_started",
+          "required_files": [
+            "issue_script.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "page_plan",
+          "number": 5,
+          "label": "Page & Panel Plan",
+          "state": "not_started",
+          "required_files": [
+            "page_panel_plan.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "failed",
+            "messages": [
+              "'MZ-2026-07-MANGO' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P01_PANEL01' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P01_PANEL02' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P02_PANEL01' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P02_PANEL02' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P02_PANEL03' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P03_PANEL01' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P03_PANEL02' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P03_PANEL03' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P04_PANEL01' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P04_PANEL02' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P05_PANEL01' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P05_PANEL02' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P05_PANEL03' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P06_PANEL01' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P06_PANEL02' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P07_PANEL01' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P07_PANEL02' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P07_PANEL03' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P08_PANEL01' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'",
+              "'MZ-2026-07-MANGO_P08_PANEL02' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}_P\\\\d{2}_PANEL\\\\d{2}$'"
+            ],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "art_prompts",
+          "number": 6,
+          "label": "Art Prompt Pack",
+          "state": "not_started",
+          "required_files": [
+            "art_prompt_pack.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "failed",
+            "messages": [
+              "'MZ-2026-07-MANGO' does not match '^MZ-\\\\d{4}-\\\\d{2}-\\\\d{2}$'",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)",
+              "'issue_id' is a required property",
+              "'character_tokens' is a required property",
+              "'character_design_reminders' is a required property",
+              "'pose' is a required property",
+              "'expression' is a required property",
+              "'environment' is a required property",
+              "'camera_angle' is a required property",
+              "'lighting' is a required property",
+              "'color_palette' is a required property",
+              "'style_lock_phrase_included' is a required property",
+              "'references_required' is a required property",
+              "'seed_strategy' is a required property",
+              "'seed' is a required property",
+              "'controlnet' is a required property",
+              "'identity_stack' is a required property",
+              "Additional properties are not allowed ('caption', 'characters', 'dialogue', 'ref_keys' were unexpected)"
+            ],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "art_production",
+          "number": 7,
+          "label": "Art Production",
+          "state": "not_started",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "qa",
+          "number": 8,
+          "label": "Quality Assurance",
+          "state": "not_started",
+          "required_files": [
+            "qa_report.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "failed",
+            "messages": [
+              "QA verdict is pending; RELEASE or PASS is required"
+            ],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "release",
+          "number": 9,
+          "label": "Release Package",
+          "state": "not_started",
+          "required_files": [
+            "cover_prompt.md",
+            "metadata.json",
+            "social_posts.md",
+            "final_export_checklist.md"
+          ],
+          "missing_files": [
+            "cover_prompt.md",
+            "final_export_checklist.md"
+          ],
+          "validation": {
+            "status": "failed",
+            "messages": [
+              "Missing required file: cover_prompt.md",
+              "Missing required file: final_export_checklist.md",
+              "Release requires real PDF and CBZ/ZIP exports"
+            ],
+            "missing_files": [
+              "cover_prompt.md",
+              "final_export_checklist.md"
+            ]
+          }
+        },
+        {
+          "id": "published",
+          "number": 10,
+          "label": "Published",
+          "state": "not_started",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "failed",
+            "messages": [
+              "Published status requires release archive evidence"
+            ],
+            "missing_files": []
+          }
+        }
+      ],
+      "blockers": [
+        "Missing required file: issue_outline.md"
+      ],
+      "next_action": {
+        "id": "validate",
+        "label": "Validate Outline"
+      },
+      "owner_approval_required": false
+    },
+    "artifacts": [
+      {
+        "group": "Intake",
+        "name": "issue_brief.md",
+        "exists": true,
+        "modified": "2026-07-11T13:23:08",
+        "viewable": true
+      },
+      {
+        "group": "Intake",
+        "name": "metadata.json",
+        "exists": true,
+        "modified": "2026-07-11T13:23:08",
+        "viewable": true
+      },
+      {
+        "group": "Outline",
+        "name": "issue_outline.md",
+        "exists": false,
+        "modified": null,
+        "viewable": true
+      },
+      {
+        "group": "Script",
+        "name": "issue_script.md",
+        "exists": true,
+        "modified": "2026-07-11T13:23:08",
+        "viewable": true
+      },
+      {
+        "group": "Plans",
+        "name": "page_panel_plan.json",
+        "exists": true,
+        "modified": "2026-07-11T13:24:12",
+        "viewable": true
+      },
+      {
+        "group": "Prompts",
+        "name": "art_prompt_pack.json",
+        "exists": true,
+        "modified": "2026-07-11T13:24:12",
+        "viewable": true
+      },
+      {
+        "group": "QA",
+        "name": "qa_report.md",
+        "exists": true,
+        "modified": "2026-07-11T13:27:58",
+        "viewable": true
+      },
+      {
+        "group": "Covers",
+        "name": "cover_prompt.md",
+        "exists": false,
+        "modified": null,
+        "viewable": true
+      },
+      {
+        "group": "Social",
+        "name": "social_posts.md",
+        "exists": true,
+        "modified": "2026-07-11T13:27:58",
+        "viewable": true
+      },
+      {
+        "group": "Release",
+        "name": "final_export_checklist.md",
+        "exists": false,
+        "modified": null,
+        "viewable": true
+      }
+    ],
+    "degraded": false
+  },
+  {
+    "issue_id": "MZ-2026-08-06",
+    "title": "MonkeyZoo: The Broken Signal",
+    "edition_number": "6",
+    "period": "2026-08",
+    "primary_character": "Moodz",
+    "guest_character": "Patch (co-lead), NeonBlue, Static, TwoTone, Ash, Scarline, The Pending (NEW — group), The Keeper (NEW — unseen, evidence only)",
+    "location": "02_MONTHLY_ISSUES\\2026-08_Issue_06",
+    "last_updated": "2026-07-06T15:31:09",
+    "validation_state": "blocked",
+    "blocker_count": 4,
+    "workflow": {
+      "issue_id": "MZ-2026-08-06",
+      "current_stage": {
+        "id": "canon_review",
+        "number": 2,
+        "label": "Canon Review",
+        "state": "blocked"
+      },
+      "stages": [
+        {
+          "id": "intake",
+          "number": 1,
+          "label": "Intake",
+          "state": "complete",
+          "required_files": [
+            "issue_brief.md",
+            "metadata.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "canon_review",
+          "number": 2,
+          "label": "Canon Review",
+          "state": "blocked",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "failed",
+            "messages": [
+              "Character bible unavailable: Patch (co-lead)",
+              "Character bible unavailable: The Pending (NEW — group)",
+              "Character bible unavailable: The Keeper (NEW — unseen",
+              "Character bible unavailable: evidence only)"
+            ],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "outline",
+          "number": 3,
+          "label": "Outline",
+          "state": "not_started",
+          "required_files": [
+            "issue_outline.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "script",
+          "number": 4,
+          "label": "Script",
+          "state": "not_started",
+          "required_files": [
+            "issue_script.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "page_plan",
+          "number": 5,
+          "label": "Page & Panel Plan",
+          "state": "not_started",
+          "required_files": [
+            "page_panel_plan.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "art_prompts",
+          "number": 6,
+          "label": "Art Prompt Pack",
+          "state": "not_started",
+          "required_files": [
+            "art_prompt_pack.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "art_production",
+          "number": 7,
+          "label": "Art Production",
+          "state": "not_started",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "qa",
+          "number": 8,
+          "label": "Quality Assurance",
+          "state": "not_started",
+          "required_files": [
+            "qa_report.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "failed",
+            "messages": [
+              "QA verdict is pending; RELEASE or PASS is required"
+            ],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "release",
+          "number": 9,
+          "label": "Release Package",
+          "state": "not_started",
+          "required_files": [
+            "cover_prompt.md",
+            "metadata.json",
+            "social_posts.md",
+            "final_export_checklist.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          }
+        },
+        {
+          "id": "published",
+          "number": 10,
+          "label": "Published",
+          "state": "not_started",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "failed",
+            "messages": [
+              "Published status requires release archive evidence"
+            ],
+            "missing_files": []
+          }
+        }
+      ],
+      "blockers": [
+        "Character bible unavailable: Patch (co-lead)",
+        "Character bible unavailable: The Pending (NEW — group)",
+        "Character bible unavailable: The Keeper (NEW — unseen",
+        "Character bible unavailable: evidence only)"
+      ],
+      "next_action": {
+        "id": "validate",
+        "label": "Validate Canon Review"
+      },
+      "owner_approval_required": true
+    },
+    "artifacts": [
+      {
+        "group": "Intake",
+        "name": "issue_brief.md",
+        "exists": true,
+        "modified": "2026-07-03T00:43:47",
+        "viewable": true
+      },
+      {
+        "group": "Intake",
+        "name": "metadata.json",
+        "exists": true,
+        "modified": "2026-07-03T00:52:23",
+        "viewable": true
+      },
+      {
+        "group": "Outline",
+        "name": "issue_outline.md",
+        "exists": true,
+        "modified": "2026-07-03T00:44:03",
+        "viewable": true
+      },
+      {
+        "group": "Script",
+        "name": "issue_script.md",
+        "exists": true,
+        "modified": "2026-07-06T14:35:23",
+        "viewable": true
+      },
+      {
+        "group": "Plans",
+        "name": "page_panel_plan.json",
+        "exists": true,
+        "modified": "2026-07-06T14:35:23",
+        "viewable": true
+      },
+      {
+        "group": "Prompts",
+        "name": "art_prompt_pack.json",
+        "exists": true,
+        "modified": "2026-07-06T14:35:48",
+        "viewable": true
+      },
+      {
+        "group": "QA",
+        "name": "qa_report.md",
+        "exists": true,
+        "modified": "2026-07-06T15:31:09",
+        "viewable": true
+      },
+      {
+        "group": "Covers",
+        "name": "cover_prompt.md",
+        "exists": true,
+        "modified": "2026-07-03T00:51:41",
+        "viewable": true
+      },
+      {
+        "group": "Social",
+        "name": "social_posts.md",
+        "exists": true,
+        "modified": "2026-07-03T00:52:00",
+        "viewable": true
+      },
+      {
+        "group": "Release",
+        "name": "final_export_checklist.md",
+        "exists": true,
+        "modified": "2026-07-03T12:03:50",
+        "viewable": true
+      }
+    ],
+    "degraded": false
+  }
+]
