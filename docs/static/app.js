@@ -8,6 +8,8 @@ let current = null;
 let selectedForCompare = new Set();
 let storyPreview = null;
 let adventureStyles = [];
+let productionStory = null;
+let storyImportKind = "outline";
 
 const $ = (id) => document.getElementById(id);
 
@@ -129,6 +131,7 @@ async function api(path, options = {}) {
     if (parts[4] === "workflow") return issue?.workflow || {error:"Issue unavailable"};
     if (parts[4] === "artifacts") return issue?.artifacts || [];
     if (parts[4] === "artifact") throw {ok:false, demo_mode:true, error:"Artifact content requires the local backend"};
+    if (parts[4] === "story") return issue?.story || {error:"Story snapshot unavailable", outlines:[], scripts:[]};
     return issue || {error:"Issue unavailable"};
   }
   
@@ -1277,11 +1280,14 @@ $("generateSampleBtn").addEventListener("click", generateSampleIssue);
 
 setupIssueCreation();
 setupProductionDashboard();
+setupProductionStoryWorkspace();
 loadCharacters();
 
 let activeProductionIssue = null;
 
 function renderIssuesList(issues) {
+  const selector = $("storyProductionIssue");
+  if (selector) selector.innerHTML = '<option value="">Choose an issue</option>' + issues.filter(issue => !issue.degraded).map(issue => `<option value="${escapeHtml(issue.issue_id)}">${escapeHtml(issue.issue_id)} — ${escapeHtml(issue.title)}</option>`).join("");
   const grid = $("issuesWorkspaceGrid");
   if (!grid) return;
   grid.innerHTML = (issues || []).map(issue => `
@@ -1299,6 +1305,46 @@ function renderIssuesList(issues) {
     </article>`).join("");
   grid.querySelectorAll(".open-production-dashboard").forEach(button => button.addEventListener("click", () => openProductionDashboard(button.dataset.issueId)));
 }
+
+function setupProductionStoryWorkspace() {
+  $("storyProductionIssue")?.addEventListener("change", event => loadProductionStory(event.target.value));
+  $("outlinePromptBtn")?.addEventListener("click", () => exportStoryPrompt("outline"));
+  $("scriptPromptBtn")?.addEventListener("click", () => exportStoryPrompt("script"));
+  $("outlineImportBtn")?.addEventListener("click", () => openStoryImport("outline"));
+  $("scriptImportBtn")?.addEventListener("click", () => openStoryImport("script"));
+  $("storyImportSubmit")?.addEventListener("click", importStoryVariant);
+  $("closeVariantDialog")?.addEventListener("click", () => $("variantDialog").close());
+}
+
+async function loadProductionStory(issueId) {
+  if (!issueId) return;
+  try { productionStory = await api(`/api/issues/${encodeURIComponent(issueId)}/story`); renderProductionStory(); }
+  catch (error) { $("storyProductionStatus").textContent = error.message; }
+}
+
+function renderProductionStory() {
+  const staticMode = window.BANANA_LAB_STATIC_MODE === true;
+  const {issue, workflow, canon} = productionStory;
+  $("storyProductionStatus").textContent = `Active stage: ${workflow.current_stage.label}. ${workflow.blockers.join(" ") || "Stage evidence is ready."}`;
+  $("storyIssueContext").innerHTML = [["Issue",issue.issue_id],["Title",issue.title],["Period",issue.month],["Primary",issue.primary_character],["Guest",issue.guest_character || "None"],["Workflow",workflow.current_stage.label],["Outline",productionStory.outline_approval ? "Approved" : "Not approved"],["Script",productionStory.script_approval ? "Approved" : "Not approved"],["Drafts",`${productionStory.draft_counts.outlines} outline · ${productionStory.draft_counts.scripts} script`]].map(([k,v])=>`<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
+  $("storyCanonContext").innerHTML = `<p><strong>Snapshot:</strong> ${escapeHtml(canon.snapshot_hash)} · ${canon.warnings.length ? "Warnings present" : "Current"}</p><div class="canon-character-strip">${canon.characters.map(c=>`<article><strong>${escapeHtml(c.display_name || c.character_id)}</strong><small>${escapeHtml(c.character_id)} · ${escapeHtml(c.role)} · ${escapeHtml(c.canon_status || "status unavailable")}</small></article>`).join("")}</div><h5>Warnings</h5><ul>${canon.warnings.map(w=>`<li>${escapeHtml(w)}</li>`).join("") || "<li>None detected</li>"}</ul><h5>Excluded material</h5><ul>${canon.excluded.map(x=>`<li>${escapeHtml(x.source)} — ${escapeHtml(x.reason)}</li>`).join("") || "<li>None</li>"}</ul>`;
+  renderStoryVariants("outline", productionStory.outlines, staticMode);
+  renderStoryVariants("script", productionStory.scripts, staticMode);
+  ["outlinePromptBtn","outlineImportBtn","scriptPromptBtn","scriptImportBtn"].forEach(id => { $(id).disabled = staticMode; $(id).title = staticMode ? "Local backend required" : ""; });
+}
+
+function renderStoryVariants(kind, items, staticMode) {
+  $(`${kind}Variants`).innerHTML = items.length ? items.map(v=>`<article class="variant-card ${v.approval_current ? "approved" : ""}"><header><strong>${escapeHtml(v.variant_id)}</strong><span>${escapeHtml(v.validation.status)}</span></header><p>${escapeHtml(v.provider)} · ${escapeHtml(v.model)} · ${escapeHtml(v.created_at)}</p><p>${v.canon_stale ? "Canon changed since generation" : "Canon snapshot current"}${v.approval_current ? " · Approved" : ""}</p><div><button type="button" data-view-variant="${escapeHtml(v.variant_id)}">Open full view</button><button type="button" data-approve-variant="${escapeHtml(v.variant_id)}" ${staticMode || v.approval ? "disabled" : ""}>Approve</button><button type="button" data-promote-variant="${escapeHtml(v.variant_id)}" ${staticMode || !v.approval_current ? "disabled" : ""}>Promote</button></div></article>`).join("") : "<p>No variants yet.</p>";
+  $(`${kind}Variants`).querySelectorAll("[data-view-variant]").forEach(b=>b.addEventListener("click",()=>viewStoryVariant(kind,b.dataset.viewVariant)));
+  $(`${kind}Variants`).querySelectorAll("[data-approve-variant]").forEach(b=>b.addEventListener("click",()=>storyVariantAction(kind,b.dataset.approveVariant,"approve")));
+  $(`${kind}Variants`).querySelectorAll("[data-promote-variant]").forEach(b=>b.addEventListener("click",()=>storyVariantAction(kind,b.dataset.promoteVariant,"promote")));
+}
+
+function openStoryImport(kind) { storyImportKind=kind; $("storyImportTitle").textContent=`Import ${kind} Markdown`; $("storyImportContent").value=""; $("storyImportDialog").showModal(); }
+async function importStoryVariant() { try { await api(`/api/issues/${encodeURIComponent(productionStory.issue.issue_id)}/story/${storyImportKind}s/import`,{method:"POST",body:JSON.stringify({content:$("storyImportContent").value,provider:$("storyImportProvider").value})}); $("storyImportDialog").close(); await loadProductionStory(productionStory.issue.issue_id); } catch(e){ $("storyProductionStatus").textContent=e.message; } }
+async function exportStoryPrompt(kind) { try { const data=await api(`/api/issues/${encodeURIComponent(productionStory.issue.issue_id)}/story/${kind}s/prompt`,{method:"POST",body:"{}"}); $("variantDialogTitle").textContent=`${kind} manual prompt package`; $("variantDialogContent").textContent=data.prompt; $("variantDialog").showModal(); } catch(e){ $("storyProductionStatus").textContent=e.message; } }
+function viewStoryVariant(kind,id) { const variant=productionStory[`${kind}s`].find(v=>v.variant_id===id); $("variantDialogTitle").textContent=id; $("variantDialogContent").textContent=variant.content; $("variantDialog").showModal(); }
+async function storyVariantAction(kind,id,action) { try { await api(`/api/issues/${encodeURIComponent(productionStory.issue.issue_id)}/story/${kind}s/${encodeURIComponent(id)}/${action}`,{method:"POST",body:JSON.stringify(action==="promote"?{replace:false}:{note:"Approved in The Banana Lab"})}); await loadProductionStory(productionStory.issue.issue_id); } catch(e){ $("storyProductionStatus").textContent=e.message; } }
 
 function setupProductionDashboard() {
   $("closeProductionDashboard")?.addEventListener("click", () => $("productionDashboard").classList.add("hidden"));
