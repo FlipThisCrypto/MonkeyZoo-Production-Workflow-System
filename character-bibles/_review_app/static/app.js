@@ -891,12 +891,14 @@ setupProductionDashboard();
 setupProductionStoryWorkspace();
 setupLayoutWorkspace();
 setupArtQueue();
+setupQAWorkspace();
 loadCharacters();
 
 let activeProductionIssue = null;
 let activeLayout = null;
 let activeArtQueue = null;
 let artUploadPanel = null;
+let activeQA = null;
 
 function renderIssuesList(issues) {
   const selector = $("storyProductionIssue");
@@ -904,6 +906,7 @@ function renderIssuesList(issues) {
   const layoutSelect = $("layoutIssueSelect");
   if (layoutSelect) layoutSelect.innerHTML = '<option value="">Choose an issue</option>' + issues.filter(i=>!i.degraded).map(i=>`<option value="${escapeHtml(i.issue_id)}">${escapeHtml(i.issue_id)} — ${escapeHtml(i.title)}</option>`).join("");
   const artSelect=$("artQueueIssue"); if(artSelect)artSelect.innerHTML='<option value="">Choose an issue</option>'+issues.filter(i=>!i.degraded).map(i=>`<option value="${escapeHtml(i.issue_id)}">${escapeHtml(i.issue_id)} — ${escapeHtml(i.title)}</option>`).join("");
+  const qaSelect=$("qaIssueSelect");if(qaSelect)qaSelect.innerHTML='<option value="">Choose an issue</option>'+issues.filter(i=>!i.degraded).map(i=>`<option value="${escapeHtml(i.issue_id)}">${escapeHtml(i.issue_id)} — ${escapeHtml(i.title)}</option>`).join("");
   const grid = $("issuesWorkspaceGrid");
   if (!grid) return;
   grid.innerHTML = (issues || []).map(issue => `
@@ -998,6 +1001,19 @@ function renderArtQueue(){
 async function artQueuePost(path,show=false){try{const data=await api(`/api/issues/${encodeURIComponent(activeArtQueue.issue_id)}/art-queue/${path}`,{method:"POST",body:"{}"});if(show){$("artifactTitle").textContent=`Prompt ${data.panel_id}`;$("artifactContent").textContent=JSON.stringify(data,null,2);$("artifactDialog").showModal()}await loadArtQueue(activeArtQueue.issue_id)}catch(e){$("artQueueStatus").textContent=e.message}}
 async function uploadArtAttempt(){const file=$("artAttemptFile").files[0];if(!file||!artUploadPanel)return;const form=new FormData();form.append("image",file);form.append("provider","manual import");try{const response=await fetch(`/api/issues/${encodeURIComponent(activeArtQueue.issue_id)}/art-queue/${encodeURIComponent(artUploadPanel)}/attempts`,{method:"POST",body:form});const data=await response.json();if(!response.ok)throw new Error(data.error);await loadArtQueue(activeArtQueue.issue_id)}catch(e){$("artQueueStatus").textContent=e.message}finally{$("artAttemptFile").value=""}}
 async function artAttemptAction(value,action){const [panel,attempt]=value.split("|");try{await api(`/api/issues/${encodeURIComponent(activeArtQueue.issue_id)}/art-queue/${encodeURIComponent(panel)}/attempts/${encodeURIComponent(attempt)}/${action}`,{method:"POST",body:action==="status"?JSON.stringify({status:"rejected"}):"{}"});await loadArtQueue(activeArtQueue.issue_id)}catch(e){$("artQueueStatus").textContent=e.message}}
+
+function setupQAWorkspace(){$("qaIssueSelect")?.addEventListener("change",e=>loadQA(e.target.value));$("createQAReview")?.addEventListener("click",()=>qaPost("reviews",{}))}
+async function loadQA(id){if(!id)return;try{activeQA=await api(`/api/issues/${encodeURIComponent(id)}/qa`);renderQA()}catch(e){$("qaStatus").textContent=e.message}}
+function renderQA(){
+ const staticMode=window.BANANA_LAB_STATIC_MODE===true,e=activeQA.evidence,w=activeQA.workflow;
+ $("qaStatus").textContent=e.blockers?.join(" ")||`Active stage: ${w.current_stage.label}. No automated evidence blockers.`;
+ $("qaSummary").innerHTML=[["Issue",activeQA.issue_id],["Stage",w.current_stage.label],["Planned",e.planned_panel_count||0],["Selected",e.selected_panel_count||0],["Blockers",e.blockers?.length||0],["Reviews",activeQA.reviews.length]].map(([k,v])=>`<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
+ $("createQAReview").disabled=staticMode||w.active_stage!=="qa";$("createQAReview").title=staticMode?"Local backend required":"";
+ $("qaPanels").innerHTML=(e.panels||[]).map(p=>`<article class="qa-panel-row"><strong>${escapeHtml(p.panel_id)}</strong><span>${p.exists?`${escapeHtml(p.format)} · ${p.width}×${p.height}`:"Missing art"}</span><small>Characters: ${escapeHtml(p.characters.join(", ")||"Missing")} · Dialogue/caption: ${p.dialogue||p.caption?"Present":"None"} · Continuity: ${escapeHtml(p.continuity_notes||"Missing")}</small></article>`).join("");
+ $("qaReviews").innerHTML=activeQA.reviews.map(r=>`<article class="qa-review"><header><strong>${escapeHtml(r.review_id)}</strong><span>${escapeHtml(r.verdict||"Draft")}${r.evidence_stale?" · Evidence changed":""}</span></header><p>${escapeHtml(r.owner_notes||"No owner notes")}</p><div><button data-qa-finalize="${escapeHtml(r.review_id)}|pass" ${staticMode||r.approval||r.evidence.blockers.length?"disabled":""}>Pass</button><button data-qa-finalize="${escapeHtml(r.review_id)}|hold" ${staticMode||r.approval?"disabled":""}>Hold</button><button data-qa-finalize="${escapeHtml(r.review_id)}|fail" ${staticMode||r.approval?"disabled":""}>Fail</button><button data-qa-promote="${escapeHtml(r.review_id)}" ${staticMode||!r.approval_current?"disabled":""}>Promote report</button></div></article>`).join("")||"<p>No QA reviews.</p>";
+ $("qaReviews").querySelectorAll("[data-qa-finalize]").forEach(b=>b.addEventListener("click",()=>{const [id,verdict]=b.dataset.qaFinalize.split("|");qaPost(`reviews/${id}/finalize`,{verdict,notes:$("qaOwnerNotes").value,continuity_checks:$("qaContinuityNote").value?[$("qaContinuityNote").value]:[]})}));$("qaReviews").querySelectorAll("[data-qa-promote]").forEach(b=>b.addEventListener("click",()=>qaPost(`reviews/${b.dataset.qaPromote}/promote`,{})));
+}
+async function qaPost(path,body){try{await api(`/api/issues/${encodeURIComponent(activeQA.issue_id)}/qa/${path}`,{method:"POST",body:JSON.stringify(body)});await loadQA(activeQA.issue_id)}catch(e){$("qaStatus").textContent=e.message}}
 
 function setupProductionDashboard() {
   $("closeProductionDashboard")?.addEventListener("click", () => $("productionDashboard").classList.add("hidden"));
