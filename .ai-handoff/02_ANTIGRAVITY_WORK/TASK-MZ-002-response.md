@@ -3,9 +3,11 @@
 ## 1. Implementation Summary
 [Provide details on what was implemented]
 
-## 2. Pushed Branch & Commit Hash
-- **Branch**: [Branch name]
-- **Commit Hash**: [Commit hash]
+## 2. Local Branch & Commit State
+- **Local Branch**: [Local branch name]
+- **Local Commit Hash**: [Commit hash, if committed]
+- **Remote Push Status**: NOT PUSHED
+- **Pull Request Status**: NOT OPENED
 
 ## 3. Known Limitations
 - [List any limitations or integration caveats]

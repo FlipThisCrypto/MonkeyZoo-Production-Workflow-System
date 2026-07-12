@@ -19,7 +19,8 @@ The workflow utilizes the following subdirectories:
 3. **`03_CHATGPT_REVIEW/`**: Review notes, feedback, or verification remarks compiled by ChatGPT.
 4. **`04_APPROVED_FOR_PUSH/`**: Formal record of authorized push approvals.
 5. **`05_REJECTED_OR_REVISION/`**: Details of rejected work packages or revision instructions.
-6. **`99_ARCHIVE/`**: Completed task folders moved by the Project Owner.
+6. **`06_APPROVED_TO_MERGE/`**: Formal, commit-specific authorization to merge a reviewed pull request.
+7. **`99_ARCHIVE/`**: Completed task folders moved by the Project Owner.
 
 ---
 
@@ -29,10 +30,20 @@ The workflow utilizes the following subdirectories:
 Antigravity must **never** originate, infer, or self-create a ChatGPT approval. An approval file is valid only when:
 * ChatGPT explicitly provides the completed approval text.
 * The Project Owner places that exact text into the approval folder, or explicitly instructs Antigravity to copy it there.
-* The approval contains the matching task ID.
+* The approval contains the matching Task ID.
 * The approval contains the exact phrase: `APPROVED FOR PUSH`.
 
-### 2. Forbidden Inferences
+### 2. Valid Push Approval Record
+A valid `APPROVED FOR PUSH` file in `04_APPROVED_FOR_PUSH/` must explicitly identify:
+* Task ID
+* Reviewed local commit SHA or exact diff/package version
+* Approved branch
+* Approval date
+* Exact phrase: `APPROVED FOR PUSH`
+
+If the approved work changes in any way afterward, the approval becomes invalid and a new review is required.
+
+### 3. Forbidden Inferences
 Antigravity may **not** create an approval file based on:
 * A positive or complimentary review comment.
 * A statement that a plan is "safe" or "good to go".
@@ -50,11 +61,25 @@ Antigravity operates under two distinct, explicit gates:
 This gate is unlocked only when a matching approval file containing the phrase `APPROVED FOR PUSH` and the task ID is present in `04_APPROVED_FOR_PUSH/`.
 * **Permitted Actions**: Committing approved work locally, pushing the approved branch to remote, and opening or updating a draft pull request.
 * **Prohibited Actions**: Merging the pull request.
+* **Safety note**: `APPROVED FOR PUSH` does not authorize merging under any circumstances.
 
 ### Gate B: APPROVED TO MERGE
-This gate is unlocked only when the Project Owner or ChatGPT explicitly states `APPROVED TO MERGE` in the conversation.
+This gate is unlocked only when a matching approval file containing the phrase `APPROVED TO MERGE` and the task ID is present in `06_APPROVED_TO_MERGE/`.
 * **Permitted Actions**: Merging the reviewed pull request.
-* **Prohibited Actions**: Merging based on a push approval or implicit assumptions.
+* **Prohibited Actions**: Merging based on a push approval, a positive review, a pull request marked "ready for review", or implicit assumptions.
+
+A valid merge approval file in `06_APPROVED_TO_MERGE/` must:
+1. Contain the exact Task ID.
+2. Contain the Pull Request number.
+3. Contain the reviewed head commit SHA.
+4. Contain the exact phrase: `APPROVED TO MERGE`
+5. Originate from explicit ChatGPT approval text.
+6. Be placed there by the Project Owner or copied there only after the Project Owner explicitly instructs Antigravity to do so.
+
+#### Merge Integrity Rules:
+* Antigravity must never originate, infer, or self-create a merge approval.
+* A merge approval becomes invalid if the pull request head commit changes after the approval file is created.
+* A merge approval for one commit does not cover later commits.
 
 ---
 
