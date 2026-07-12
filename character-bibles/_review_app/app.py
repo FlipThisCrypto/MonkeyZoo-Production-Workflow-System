@@ -143,6 +143,12 @@ def advance_issue_stage(issue_id):
     body = request.get_json(silent=True) or {}
     return jsonify(issue_workflow.record_advance(folder, WORKSPACE_ROOT, body.get("stage")))
 
+@app.post("/api/issues/<issue_id>/workflow/approve")
+def approve_issue_stage(issue_id):
+    folder = issue_workflow.find_issue(issue_id, WORKSPACE_ROOT)
+    body = request.get_json(silent=True) or {}
+    return jsonify(issue_workflow.record_approval(folder, WORKSPACE_ROOT, body.get("stage"), body.get("approved"), body.get("note")))
+
 
 @app.get("/media/<character_id>/<path:rel_path>")
 def media(character_id, rel_path):

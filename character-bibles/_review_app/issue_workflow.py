@@ -5,6 +5,8 @@ import datetime as dt
 import hashlib
 import json
 import re
+import os
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -32,6 +34,8 @@ ARTIFACT_GROUPS = {
     "Covers": ["cover_prompt.md"], "Social": ["social_posts.md"],
     "Release": ["final_export_checklist.md"],
 }
+STATE_FILE = ".workflow-status.json"
+APPROVAL_GATES = {"canon_review", "script", "art_production", "qa", "release"}
 
 
 class IssueWorkflowError(ValueError):
@@ -148,20 +152,64 @@ def _stage_validation(stage_id: str, folder: Path, root: Path) -> dict[str, Any]
     return {"status": "passed" if not messages else "failed", "messages": messages, "missing_files": missing}
 
 
+def _load_state(folder: Path) -> tuple[dict[str, Any], bool]:
+    path = folder / STATE_FILE
+    if not path.exists():
+        return {"schema_version": "1.0", "active_stage": "intake", "transitions": [], "approvals": {}}, True
+    try:
+        state = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        raise IssueWorkflowError("Malformed workflow state; history was not modified") from exc
+    if not isinstance(state, dict) or state.get("schema_version") != "1.0" or state.get("active_stage") not in {s[0] for s in STAGES} or not isinstance(state.get("transitions"), list) or not isinstance(state.get("approvals"), dict):
+        raise IssueWorkflowError("Malformed workflow state; history was not modified")
+    return state, False
+
+
+def _atomic_write(path: Path, payload: dict[str, Any]) -> None:
+    fd, temporary = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=path.parent)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as stream:
+            json.dump(payload, stream, indent=2)
+            stream.write("\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+    except Exception:
+        try: os.unlink(temporary)
+        except OSError: pass
+        raise
+
+
+def _approval(stage_id: str, state: dict[str, Any], artifact_hash: str) -> dict[str, Any]:
+    required = stage_id in APPROVAL_GATES
+    record = state["approvals"].get(stage_id)
+    stale = bool(record and record.get("artifact_hash") != artifact_hash)
+    approved = bool(record and record.get("approved") is True and not stale)
+    return {"required": required, "approved": approved, "stale": stale, "record": record}
+
+
 def workflow_status(folder: Path, root: Path) -> dict[str, Any]:
     issue_id = _read_issue_id(folder)
     if not issue_id:
         raise IssueWorkflowError("Issue has no valid issue ID")
-    validations = [_stage_validation(sid, folder, root) for sid, _, _ in STAGES]
-    first_failed = next((i for i, val in enumerate(validations) if val["status"] != "passed"), len(STAGES) - 1)
+    state, inferred = _load_state(folder)
+    active_index = next(i for i, stage in enumerate(STAGES) if stage[0] == state["active_stage"])
+    artifact_hash = _issue_hash(folder)
     stages = []
-    for index, ((sid, label, required), validation) in enumerate(zip(STAGES, validations)):
-        if index < first_failed: state = "complete"
-        elif index == first_failed: state = "blocked" if validation["messages"] else "current"
-        else: state = "not_started"
-        stages.append({"id": sid, "number": index + 1, "label": label, "state": state, "required_files": required, "missing_files": validation["missing_files"], "validation": validation})
-    current = stages[first_failed]
-    return {"issue_id": issue_id, "current_stage": {k: current[k] for k in ("id", "number", "label", "state")}, "stages": stages, "blockers": current["validation"]["messages"], "next_action": {"id": "validate", "label": f"Validate {current['label']}"}, "owner_approval_required": current["id"] in {"canon_review", "qa", "release"}}
+    for index, (sid, label, required) in enumerate(STAGES):
+        validation = _stage_validation(sid, folder, root) if index == active_index else {"status": "not_run", "messages": [], "missing_files": []}
+        approval = _approval(sid, state, artifact_hash)
+        if index < active_index: stage_state = "complete"
+        elif index > active_index: stage_state = "not_started"
+        elif validation["status"] != "passed": stage_state = "current_blocked"
+        elif approval["required"] and not approval["approved"]: stage_state = "awaiting_approval"
+        else: stage_state = "current_ready"
+        stages.append({"id": sid, "number": index + 1, "label": label, "state": stage_state, "required_files": required, "missing_files": validation["missing_files"], "validation": validation, "approval": approval})
+    current = stages[active_index]
+    blockers = list(current["validation"]["messages"])
+    if current["approval"]["required"] and not current["approval"]["approved"]:
+        blockers.append("Owner approval is stale" if current["approval"]["stale"] else "Owner approval is required")
+    return {"issue_id": issue_id, "active_stage": current["id"], "current_stage": {k: current[k] for k in ("id", "number", "label", "state")}, "stages": stages, "blockers": blockers, "next_action": {"id": "advance", "label": f"Advance {current['label']}"}, "owner_approval_required": current["approval"]["required"], "approval": current["approval"], "state_source": "inferred", "state_notice": "Inferred from repository evidence; active stage defaults to Intake and no approval is inferred."} if inferred else {"issue_id": issue_id, "active_stage": current["id"], "current_stage": {k: current[k] for k in ("id", "number", "label", "state")}, "stages": stages, "blockers": blockers, "next_action": {"id": "advance", "label": f"Advance {current['label']}"}, "owner_approval_required": current["approval"]["required"], "approval": current["approval"], "state_source": "recorded", "state_notice": None}
 
 
 def issue_detail(folder: Path, root: Path) -> dict[str, Any]:
@@ -197,21 +245,41 @@ def view_artifact(folder: Path, relative: str) -> dict[str, Any]:
 
 
 def record_advance(folder: Path, root: Path, requested_stage: str | None) -> dict[str, Any]:
-    status = workflow_status(folder, root)
-    current = status["current_stage"]
-    if requested_stage and requested_stage != current["id"]: raise IssueWorkflowError("Stage skipping is not allowed")
-    validation = _stage_validation(current["id"], folder, root)
+    state, _ = _load_state(folder)
+    current_id = state["active_stage"]
+    if requested_stage not in {s[0] for s in STAGES}: raise IssueWorkflowError("Unknown stage")
+    if requested_stage != current_id: raise IssueWorkflowError("Stage mismatch; stage skipping is not allowed")
+    index = next(i for i, stage in enumerate(STAGES) if stage[0] == current_id)
+    if index == len(STAGES) - 1: raise IssueWorkflowError("Published is terminal and cannot be advanced")
+    validation = _stage_validation(current_id, folder, root)
     if validation["status"] != "passed": raise IssueWorkflowError("Advancement blocked: " + "; ".join(validation["messages"]))
-    record = {"stage": current["id"], "validated_at": dt.datetime.now().isoformat(timespec="seconds"), "artifact_hash": _issue_hash(folder), "approved": False}
-    path = folder / ".workflow-status.json"
-    history = _json(path) or {"transitions": []}
-    history["transitions"].append(record)
-    path.write_text(json.dumps(history, indent=2) + "\n", encoding="utf-8")
+    artifact_hash = _issue_hash(folder)
+    approval = _approval(current_id, state, artifact_hash)
+    if approval["required"] and not approval["approved"]: raise IssueWorkflowError("Owner approval is stale" if approval["stale"] else "Owner approval is required")
+    next_id = STAGES[index + 1][0]
+    record = {"completed_stage": current_id, "from_stage": current_id, "to_stage": next_id, "validated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "artifact_hash": artifact_hash, "approval": {"required": approval["required"], "record_stage": current_id if approval["required"] else None}}
+    state["transitions"].append(record)
+    state["active_stage"] = next_id
+    _atomic_write(folder / STATE_FILE, state)
+    return workflow_status(folder, root)
+
+
+def record_approval(folder: Path, root: Path, requested_stage: str | None, approved: Any, note: Any = None) -> dict[str, Any]:
+    state, _ = _load_state(folder)
+    stage = state["active_stage"]
+    if requested_stage not in {s[0] for s in STAGES}: raise IssueWorkflowError("Unknown stage")
+    if requested_stage != stage: raise IssueWorkflowError("Stage mismatch; approval applies only to the active stage")
+    if stage not in APPROVAL_GATES: raise IssueWorkflowError("Active stage does not require owner approval")
+    if approved is not True: raise IssueWorkflowError("Approval request must explicitly set approved to true")
+    validation = _stage_validation(stage, folder, root)
+    if validation["status"] != "passed": raise IssueWorkflowError("Approval blocked: " + "; ".join(validation["messages"]))
+    state["approvals"][stage] = {"stage": stage, "approved": True, "timestamp": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "artifact_hash": _issue_hash(folder), "note": str(note)[:500] if note else None, "actor": "project_owner"}
+    _atomic_write(folder / STATE_FILE, state)
     return workflow_status(folder, root)
 
 
 def _issue_hash(folder: Path) -> str:
     digest = hashlib.sha256()
-    for path in sorted(p for p in folder.rglob("*") if p.is_file() and p.name != ".workflow-status.json"):
+    for path in sorted(p for p in folder.rglob("*") if p.is_file() and p.name != STATE_FILE and not p.name.endswith(".tmp")):
         digest.update(str(path.relative_to(folder)).encode()); digest.update(path.read_bytes())
     return digest.hexdigest()

@@ -35,8 +35,10 @@ def make_issue(root, folder="2027-01_Issue_01", issue_id="MZ-2027-01-01"):
 def test_status_uses_real_evidence_and_missing_files_block(workspace):
     issue = make_issue(workspace)
     status = issue_workflow.workflow_status(issue, workspace)
-    assert status["current_stage"]["id"] == "outline"
-    assert any("issue_outline.md" in item for item in status["blockers"])
+    assert status["current_stage"]["id"] == "intake"
+    assert status["current_stage"]["state"] == "current_ready"
+    assert status["state_source"] == "inferred"
+    assert "Inferred" in status["state_notice"]
     assert status["owner_approval_required"] is False
 
 
@@ -69,10 +71,8 @@ def test_artifact_viewer_cannot_escape(workspace):
 
 def test_failed_validation_and_stage_skipping_block_advancement(workspace):
     issue = make_issue(workspace)
-    with pytest.raises(issue_workflow.IssueWorkflowError, match="Stage skipping"):
+    with pytest.raises(issue_workflow.IssueWorkflowError, match="skipping"):
         issue_workflow.record_advance(issue, workspace, "script")
-    with pytest.raises(issue_workflow.IssueWorkflowError, match="Advancement blocked"):
-        issue_workflow.record_advance(issue, workspace, "outline")
     assert not (issue / ".workflow-status.json").exists()
 
 
@@ -103,3 +103,67 @@ def test_owner_approval_is_never_fabricated(workspace):
     status = issue_workflow.workflow_status(issue, workspace)
     assert "approved" not in status
     assert status["owner_approval_required"] is False
+
+
+def test_stateful_intake_canon_outline_transitions(workspace):
+    issue = make_issue(workspace)
+    before = issue_workflow.workflow_status(issue, workspace)
+    assert before["active_stage"] == "intake"
+    assert not (issue / issue_workflow.STATE_FILE).exists()
+    canon = issue_workflow.record_advance(issue, workspace, "intake")
+    assert canon["active_stage"] == "canon_review"
+    assert canon["current_stage"]["state"] == "awaiting_approval"
+    with pytest.raises(issue_workflow.IssueWorkflowError, match="approval is required"):
+        issue_workflow.record_advance(issue, workspace, "canon_review")
+    approved = issue_workflow.record_approval(issue, workspace, "canon_review", True, "Canon confirmed")
+    assert approved["approval"]["approved"] is True
+    outline = issue_workflow.record_advance(issue, workspace, "canon_review")
+    assert outline["active_stage"] == "outline"
+    (issue / "issue_outline.md").write_text("Valid outline\n", encoding="utf-8")
+    assert issue_workflow.workflow_status(issue, workspace)["active_stage"] == "outline"
+    script = issue_workflow.record_advance(issue, workspace, "outline")
+    assert script["active_stage"] == "script"
+    reloaded = issue_workflow.workflow_status(issue, workspace)
+    assert reloaded["active_stage"] == "script"
+    saved = json.loads((issue / issue_workflow.STATE_FILE).read_text(encoding="utf-8"))
+    assert [item["completed_stage"] for item in saved["transitions"]] == ["intake", "canon_review", "outline"]
+
+
+def test_approval_becomes_stale_when_artifacts_change(workspace):
+    issue = make_issue(workspace)
+    issue_workflow.record_advance(issue, workspace, "intake")
+    issue_workflow.record_approval(issue, workspace, "canon_review", True)
+    (issue / "metadata.json").write_text(json.dumps({"issue_id":"MZ-2027-01-01","title":"Changed"}), encoding="utf-8")
+    status = issue_workflow.workflow_status(issue, workspace)
+    assert status["approval"]["stale"] is True
+    assert status["current_stage"]["state"] == "awaiting_approval"
+    with pytest.raises(issue_workflow.IssueWorkflowError, match="stale"):
+        issue_workflow.record_advance(issue, workspace, "canon_review")
+
+
+def test_get_is_read_only_and_malformed_state_degrades(workspace):
+    issue = make_issue(workspace)
+    issue_workflow.workflow_status(issue, workspace)
+    assert not (issue / issue_workflow.STATE_FILE).exists()
+    (issue / issue_workflow.STATE_FILE).write_text("{broken", encoding="utf-8")
+    with pytest.raises(issue_workflow.IssueWorkflowError, match="Malformed workflow state"):
+        issue_workflow.workflow_status(issue, workspace)
+
+
+def test_atomic_writer_leaves_no_temporary_file(workspace):
+    issue = make_issue(workspace)
+    issue_workflow.record_advance(issue, workspace, "intake")
+    assert json.loads((issue / issue_workflow.STATE_FILE).read_text(encoding="utf-8"))["active_stage"] == "canon_review"
+    assert not list(issue.glob("*.tmp"))
+
+
+def test_unknown_mismatch_and_terminal_advancement(workspace):
+    issue = make_issue(workspace)
+    with pytest.raises(issue_workflow.IssueWorkflowError, match="Unknown stage"):
+        issue_workflow.record_advance(issue, workspace, "bogus")
+    with pytest.raises(issue_workflow.IssueWorkflowError, match="mismatch"):
+        issue_workflow.record_approval(issue, workspace, "canon_review", True)
+    state = {"schema_version":"1.0","active_stage":"published","transitions":[],"approvals":{}}
+    issue_workflow._atomic_write(issue / issue_workflow.STATE_FILE, state)
+    with pytest.raises(issue_workflow.IssueWorkflowError, match="terminal"):
+        issue_workflow.record_advance(issue, workspace, "published")

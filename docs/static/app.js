@@ -1304,6 +1304,7 @@ function setupProductionDashboard() {
   $("closeProductionDashboard")?.addEventListener("click", () => $("productionDashboard").classList.add("hidden"));
   $("closeArtifactDialog")?.addEventListener("click", () => $("artifactDialog").close());
   $("validateStageButton")?.addEventListener("click", () => runProductionAction("validate"));
+  $("approveStageButton")?.addEventListener("click", () => runProductionAction("workflow/approve"));
   $("advanceStageButton")?.addEventListener("click", () => runProductionAction("advance"));
 }
 
@@ -1323,10 +1324,13 @@ function renderProductionDashboard(issue) {
   $("productionSummary").innerHTML = [["Edition",issue.edition_number],["Period",issue.period],["Primary",issue.primary_character],["Guest",issue.guest_character || "None"],["Stage",workflow.current_stage.label],["Status",issue.validation_state],["Location",issue.location],["Updated",issue.last_updated]].map(([label,value]) => `<div><span>${escapeHtml(label)}</span><strong>${escapeHtml(value ?? "Unavailable")}</strong></div>`).join("");
   $("productionStageRail").innerHTML = workflow.stages.map(stage => `<button type="button" class="stage-node stage-${escapeHtml(stage.state)}" aria-label="Stage ${stage.number}: ${escapeHtml(stage.label)}, ${escapeHtml(stage.state)}"><span>${stage.number}</span><strong>${escapeHtml(stage.label)}</strong><small>${escapeHtml(stage.state.replace("_"," "))}</small></button>`).join("");
   const current = workflow.stages.find(stage => stage.id === workflow.current_stage.id);
-  $("currentStageDetail").innerHTML = `<h5>${escapeHtml(current.label)}</h5><p>Status: <strong>${escapeHtml(current.state)}</strong></p><h6>Required inputs</h6><ul>${current.required_files.map(name => `<li>${escapeHtml(name)}</li>`).join("") || "<li>No file prerequisites</li>"}</ul><h6>Validation</h6><ul>${current.validation.messages.map(message => `<li>${escapeHtml(message)}</li>`).join("") || "<li>Passed</li>"}</ul>${workflow.owner_approval_required ? '<p class="approval-notice">Owner approval may be required; none is inferred.</p>' : ""}`;
+  $("currentStageDetail").innerHTML = `<h5>${escapeHtml(current.label)}</h5><p>Status: <strong>${escapeHtml(current.state.replaceAll("_", " "))}</strong></p>${workflow.state_notice ? `<p class="approval-notice">${escapeHtml(workflow.state_notice)}</p>` : ""}<h6>Required inputs</h6><ul>${current.required_files.map(name => `<li>${escapeHtml(name)}</li>`).join("") || "<li>No file prerequisites</li>"}</ul><h6>Validation</h6><ul>${current.validation.messages.map(message => `<li>${escapeHtml(message)}</li>`).join("") || "<li>Passed</li>"}</ul>${current.approval.required ? `<p class="approval-notice">Owner approval: ${current.approval.stale ? "stale" : current.approval.approved ? "recorded" : "required"}</p>` : ""}`;
   $("validateStageButton").disabled = staticMode;
   $("validateStageButton").textContent = staticMode ? "Validate — local backend required" : "Validate current stage";
-  $("advanceStageButton").disabled = staticMode || current.validation.status !== "passed";
+  $("approveStageButton").classList.toggle("hidden", !current.approval.required);
+  $("approveStageButton").disabled = staticMode || current.validation.status !== "passed" || current.approval.approved;
+  $("approveStageButton").textContent = staticMode ? "Approve — local backend required" : current.approval.approved ? "Owner approval recorded" : "Record owner approval";
+  $("advanceStageButton").disabled = staticMode || current.state !== "current_ready" || current.id === "published";
   $("advanceStageButton").textContent = staticMode ? "Advance — local backend required" : "Advance stage";
   $("artifactInventory").innerHTML = issue.artifacts.map(file => `<div class="artifact-row"><div><strong>${escapeHtml(file.name)}</strong><small>${escapeHtml(file.group)} · ${file.exists ? "Exists" : "Missing"}${file.modified ? ` · ${escapeHtml(file.modified)}` : ""}</small></div>${file.exists && file.viewable ? `<button type="button" data-artifact="${escapeHtml(file.name)}">View</button>` : ""}</div>`).join("");
   $("artifactInventory").querySelectorAll("[data-artifact]").forEach(button => button.addEventListener("click", () => viewArtifact(button.dataset.artifact)));
@@ -1335,7 +1339,8 @@ function renderProductionDashboard(issue) {
 async function runProductionAction(action) {
   if (!activeProductionIssue) return;
   try {
-    const options = {method: "POST", body: action === "advance" ? JSON.stringify({stage: activeProductionIssue.workflow.current_stage.id}) : "{}"};
+    const stage = activeProductionIssue.workflow.current_stage.id;
+    const options = {method: "POST", body: action === "advance" ? JSON.stringify({stage}) : action === "workflow/approve" ? JSON.stringify({stage, approved: true}) : "{}"};
     await api(`/api/issues/${encodeURIComponent(activeProductionIssue.issue_id)}/${action}`, options);
     await openProductionDashboard(activeProductionIssue.issue_id);
   } catch (err) { $("issueCreateResult").textContent = err.message || `${action} failed`; }
