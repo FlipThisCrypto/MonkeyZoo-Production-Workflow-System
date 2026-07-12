@@ -1,0 +1,10 @@
+character-bibles/_review_app/static/index.html
+character-bibles/_review_app/static/app.js
+character-bibles/_review_app/static/issues_metadata.json
+docs/index.html
+docs/static/app.js
+docs/static/styles.css
+docs/static/issues_metadata.json
+docs/sync_docs.ps1
+improvement_log.md
+.gitignore
