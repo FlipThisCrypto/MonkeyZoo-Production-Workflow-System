@@ -114,6 +114,8 @@ Copy-Item -Path "$StaticDir/issues_metadata.json" -Destination "$DocsDir/static/
 # Export one repository-backed canonical record and individual primary portrait per character.
 python "$DocsDir/export_static_characters.py"
 if ($LASTEXITCODE -ne 0) { throw "Static character export failed" }
+python "$DocsDir/export_static_issues.py"
+if ($LASTEXITCODE -ne 0) { throw "Static issue workflow export failed" }
 
 # 4. Copy HTML and convert asset links + inject banner
 $HtmlContent = Get-Content -Path "$StaticDir/index.html" -Raw
@@ -237,8 +239,23 @@ async function api(path, options = {}) {
   }
 
   if (cleanPath === "/api/issues") {
-    const response = await fetch("./static/issues_metadata.json");
+    const response = await fetch("./static/issue-workflows.json");
     return response.json();
+  }
+
+  if (cleanPath.startsWith("/api/issues/")) {
+    const parts = cleanPath.split("/");
+    const issueId = decodeURIComponent(parts[3] || "");
+    const response = await fetch("./static/issue-workflows.json");
+    const issue = (await response.json()).find(item => item.issue_id === issueId);
+    if ((options.method || "GET").toUpperCase() !== "GET") {
+      alert("This production action requires the local Banana Lab backend.");
+      throw {ok:false, demo_mode:true, error:"Local backend required"};
+    }
+    if (parts[4] === "workflow") return issue?.workflow || {error:"Issue unavailable"};
+    if (parts[4] === "artifacts") return issue?.artifacts || [];
+    if (parts[4] === "artifact") throw {ok:false, demo_mode:true, error:"Artifact content requires the local backend"};
+    return issue || {error:"Issue unavailable"};
   }
   
   if (cleanPath.startsWith("/api/characters/")) {
@@ -532,6 +549,7 @@ Narrative Box: THE SIGNAL BETWEEN US [Demo Placeholder]`,
 '@
 
 $JsContent = [regex]::Replace($JsContent, $ApiTarget, $ApiMock)
+$JsContent = "window.BANANA_LAB_STATIC_MODE = true;`n" + $JsContent
 
 # Replace absolute media path references with relative ones
 $JsContent = $JsContent -replace '/media/', './media/'

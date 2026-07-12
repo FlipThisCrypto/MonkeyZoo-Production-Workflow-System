@@ -1,3 +1,4 @@
+window.BANANA_LAB_STATIC_MODE = true;
 const statuses = ["canon","established","experimental","optional","dormant","retired","contradicted","unknown","reserved"];
 const strengths = ["defining","strong","moderate","subtle","background"];
 const frequencies = ["almost always","often","sometimes","rarely","special circumstances only","never"];
@@ -112,8 +113,23 @@ async function api(path, options = {}) {
   }
 
   if (cleanPath === "/api/issues") {
-    const response = await fetch("./static/issues_metadata.json");
+    const response = await fetch("./static/issue-workflows.json");
     return response.json();
+  }
+
+  if (cleanPath.startsWith("/api/issues/")) {
+    const parts = cleanPath.split("/");
+    const issueId = decodeURIComponent(parts[3] || "");
+    const response = await fetch("./static/issue-workflows.json");
+    const issue = (await response.json()).find(item => item.issue_id === issueId);
+    if ((options.method || "GET").toUpperCase() !== "GET") {
+      alert("This production action requires the local Banana Lab backend.");
+      throw {ok:false, demo_mode:true, error:"Local backend required"};
+    }
+    if (parts[4] === "workflow") return issue?.workflow || {error:"Issue unavailable"};
+    if (parts[4] === "artifacts") return issue?.artifacts || [];
+    if (parts[4] === "artifact") throw {ok:false, demo_mode:true, error:"Artifact content requires the local backend"};
+    return issue || {error:"Issue unavailable"};
   }
   
   if (cleanPath.startsWith("/api/characters/")) {
@@ -1260,4 +1276,81 @@ $("saveStoryBtn").addEventListener("click", saveStoryPacket);
 $("generateSampleBtn").addEventListener("click", generateSampleIssue);
 
 setupIssueCreation();
+setupProductionDashboard();
 loadCharacters();
+
+let activeProductionIssue = null;
+
+function renderIssuesList(issues) {
+  const grid = $("issuesWorkspaceGrid");
+  if (!grid) return;
+  grid.innerHTML = (issues || []).map(issue => `
+    <article class="issue-card ${issue.degraded ? "demo-border" : ""}">
+      <div class="card-header"><h4>${escapeHtml(issue.issue_id)}</h4><span class="status-pill">${escapeHtml(issue.validation_state || "degraded")}</span></div>
+      <p><strong>${escapeHtml(issue.title || "Title unavailable")}</strong></p>
+      <div class="issue-meta-grid">
+        <div class="issue-meta-item"><span>Current stage</span><span>${escapeHtml(issue.workflow?.current_stage?.label || "Unavailable")}</span></div>
+        <div class="issue-meta-item"><span>Primary character</span><span>${escapeHtml(issue.primary_character || "Unavailable")}</span></div>
+        <div class="issue-meta-item"><span>Blockers</span><span>${Number(issue.blocker_count || 0)}</span></div>
+        <div class="issue-meta-item"><span>Last updated</span><span>${escapeHtml(issue.last_updated || "Unavailable")}</span></div>
+      </div>
+      <button type="button" class="open-production-dashboard" data-issue-id="${escapeHtml(issue.issue_id)}" ${issue.degraded ? "disabled" : ""}>Open Production Dashboard</button>
+      ${issue.degraded ? `<p class="error-message">Degraded legacy issue: ${escapeHtml(issue.error || "metadata unavailable")}</p>` : ""}
+    </article>`).join("");
+  grid.querySelectorAll(".open-production-dashboard").forEach(button => button.addEventListener("click", () => openProductionDashboard(button.dataset.issueId)));
+}
+
+function setupProductionDashboard() {
+  $("closeProductionDashboard")?.addEventListener("click", () => $("productionDashboard").classList.add("hidden"));
+  $("closeArtifactDialog")?.addEventListener("click", () => $("artifactDialog").close());
+  $("validateStageButton")?.addEventListener("click", () => runProductionAction("validate"));
+  $("approveStageButton")?.addEventListener("click", () => runProductionAction("workflow/approve"));
+  $("advanceStageButton")?.addEventListener("click", () => runProductionAction("advance"));
+}
+
+async function openProductionDashboard(issueId) {
+  try {
+    activeProductionIssue = await api(`/api/issues/${encodeURIComponent(issueId)}`);
+    renderProductionDashboard(activeProductionIssue);
+    $("productionDashboard").classList.remove("hidden");
+    $("productionDashboard").scrollIntoView({behavior: "smooth", block: "start"});
+  } catch (err) { $("issueCreateResult").textContent = err.message || "Unable to load issue dashboard"; }
+}
+
+function renderProductionDashboard(issue) {
+  const workflow = issue.workflow;
+  const staticMode = window.BANANA_LAB_STATIC_MODE === true;
+  $("productionIdentity").textContent = `${issue.title} · ${issue.issue_id}`;
+  $("productionSummary").innerHTML = [["Edition",issue.edition_number],["Period",issue.period],["Primary",issue.primary_character],["Guest",issue.guest_character || "None"],["Stage",workflow.current_stage.label],["Status",issue.validation_state],["Location",issue.location],["Updated",issue.last_updated]].map(([label,value]) => `<div><span>${escapeHtml(label)}</span><strong>${escapeHtml(value ?? "Unavailable")}</strong></div>`).join("");
+  $("productionStageRail").innerHTML = workflow.stages.map(stage => `<button type="button" class="stage-node stage-${escapeHtml(stage.state)}" aria-label="Stage ${stage.number}: ${escapeHtml(stage.label)}, ${escapeHtml(stage.state)}"><span>${stage.number}</span><strong>${escapeHtml(stage.label)}</strong><small>${escapeHtml(stage.state.replace("_"," "))}</small></button>`).join("");
+  const current = workflow.stages.find(stage => stage.id === workflow.current_stage.id);
+  $("currentStageDetail").innerHTML = `<h5>${escapeHtml(current.label)}</h5><p>Status: <strong>${escapeHtml(current.state.replaceAll("_", " "))}</strong></p>${workflow.state_notice ? `<p class="approval-notice">${escapeHtml(workflow.state_notice)}</p>` : ""}<h6>Required inputs</h6><ul>${current.required_files.map(name => `<li>${escapeHtml(name)}</li>`).join("") || "<li>No file prerequisites</li>"}</ul><h6>Validation</h6><ul>${current.validation.messages.map(message => `<li>${escapeHtml(message)}</li>`).join("") || "<li>Passed</li>"}</ul>${current.approval.required ? `<p class="approval-notice">Owner approval: ${current.approval.stale ? "stale" : current.approval.approved ? "recorded" : "required"}</p>` : ""}`;
+  $("validateStageButton").disabled = staticMode;
+  $("validateStageButton").textContent = staticMode ? "Validate — local backend required" : "Validate current stage";
+  $("approveStageButton").classList.toggle("hidden", !current.approval.required);
+  $("approveStageButton").disabled = staticMode || current.validation.status !== "passed" || current.approval.approved;
+  $("approveStageButton").textContent = staticMode ? "Approve — local backend required" : current.approval.approved ? "Owner approval recorded" : "Record owner approval";
+  $("advanceStageButton").disabled = staticMode || current.state !== "current_ready" || current.id === "published";
+  $("advanceStageButton").textContent = staticMode ? "Advance — local backend required" : "Advance stage";
+  $("artifactInventory").innerHTML = issue.artifacts.map(file => `<div class="artifact-row"><div><strong>${escapeHtml(file.name)}</strong><small>${escapeHtml(file.group)} · ${file.exists ? "Exists" : "Missing"}${file.modified ? ` · ${escapeHtml(file.modified)}` : ""}</small></div>${file.exists && file.viewable ? `<button type="button" data-artifact="${escapeHtml(file.name)}">View</button>` : ""}</div>`).join("");
+  $("artifactInventory").querySelectorAll("[data-artifact]").forEach(button => button.addEventListener("click", () => viewArtifact(button.dataset.artifact)));
+}
+
+async function runProductionAction(action) {
+  if (!activeProductionIssue) return;
+  try {
+    const stage = activeProductionIssue.workflow.current_stage.id;
+    const options = {method: "POST", body: action === "advance" ? JSON.stringify({stage}) : action === "workflow/approve" ? JSON.stringify({stage, approved: true}) : "{}"};
+    await api(`/api/issues/${encodeURIComponent(activeProductionIssue.issue_id)}/${action}`, options);
+    await openProductionDashboard(activeProductionIssue.issue_id);
+  } catch (err) { $("issueCreateResult").textContent = err.message || `${action} failed`; }
+}
+
+async function viewArtifact(path) {
+  try {
+    const data = await api(`/api/issues/${encodeURIComponent(activeProductionIssue.issue_id)}/artifact?path=${encodeURIComponent(path)}`);
+    $("artifactTitle").textContent = data.name;
+    $("artifactContent").textContent = data.type === ".json" ? JSON.stringify(JSON.parse(data.content), null, 2) : data.content;
+    $("artifactDialog").showModal();
+  } catch (err) { $("issueCreateResult").textContent = err.message || "Artifact unavailable"; }
+}
