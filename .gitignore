@@ -30,3 +30,4 @@ desktop.ini
 *.local.*
 .env
 .env.*
+issues/

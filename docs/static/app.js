@@ -39,7 +39,7 @@ async function api(path, options = {}) {
         "experimental_traits": 1,
         "unresolved_fields": 0,
         "last_comic_appearance": "MZ-2026-07-05",
-        "primary_image": "./media/MZ-CHAR-CLEVER/references/primary/primary-reference.png",
+        "primary_image": "../media/MZ-CHAR-CLEVER/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       {
@@ -51,7 +51,7 @@ async function api(path, options = {}) {
         "experimental_traits": 0,
         "unresolved_fields": 1,
         "last_comic_appearance": "MZ-2026-07-05",
-        "primary_image": "./media/MZ-CHAR-SUPER/references/primary/primary-reference.png",
+        "primary_image": "../media/MZ-CHAR-SUPER/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       {
@@ -63,7 +63,7 @@ async function api(path, options = {}) {
         "experimental_traits": 1,
         "unresolved_fields": 0,
         "last_comic_appearance": "MZ-2026-06-12",
-        "primary_image": "./media/MZ-CHAR-LILDEVIL/references/primary/primary-reference.png",
+        "primary_image": "../media/MZ-CHAR-LILDEVIL/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       {
@@ -75,7 +75,7 @@ async function api(path, options = {}) {
         "experimental_traits": 0,
         "unresolved_fields": 3,
         "last_comic_appearance": "MZ-2026-07-05",
-        "primary_image": "./media/MZ-CHAR-PATCH/references/primary/primary-reference.png",
+        "primary_image": "../media/MZ-CHAR-PATCH/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       {
@@ -87,7 +87,7 @@ async function api(path, options = {}) {
         "experimental_traits": 1,
         "unresolved_fields": 0,
         "last_comic_appearance": "MZ-2026-05-30",
-        "primary_image": "./media/MZ-CHAR-ZOMBIE/references/primary/primary-reference.png",
+        "primary_image": "../media/MZ-CHAR-ZOMBIE/references/primary/primary-reference.png",
         "continuity_warnings": []
       }
     ];
@@ -95,7 +95,6 @@ async function api(path, options = {}) {
   
   if (cleanPath.startsWith("/api/characters/")) {
     const cid = cleanPath.split("/")[3];
-    // Return detailed mock data for each character
     return getMockCharacterDetail(cid);
   }
   
@@ -110,7 +109,6 @@ async function api(path, options = {}) {
   }
   
   if (cleanPath === "/api/story/preview") {
-    // Return a mocked story builder preview
     return getMockStoryPreview(JSON.parse(options.body));
   }
   
@@ -165,7 +163,7 @@ function getMockCharacterDetail(cid) {
         "experimental_traits": 1,
         "unresolved_fields": 0,
         "last_comic_appearance": "MZ-2026-07-05",
-        "primary_image": "./media/MZ-CHAR-CLEVER/references/primary/primary-reference.png",
+        "primary_image": "../media/MZ-CHAR-CLEVER/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       "detail": {
@@ -205,7 +203,7 @@ function getMockCharacterDetail(cid) {
         "experimental_traits": 0,
         "unresolved_fields": 1,
         "last_comic_appearance": "MZ-2026-07-05",
-        "primary_image": "./media/MZ-CHAR-SUPER/references/primary/primary-reference.png",
+        "primary_image": "../media/MZ-CHAR-SUPER/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       "detail": {
@@ -242,7 +240,7 @@ function getMockCharacterDetail(cid) {
         "experimental_traits": 1,
         "unresolved_fields": 0,
         "last_comic_appearance": "MZ-2026-06-12",
-        "primary_image": "./media/MZ-CHAR-LILDEVIL/references/primary/primary-reference.png",
+        "primary_image": "../media/MZ-CHAR-LILDEVIL/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       "detail": {
@@ -279,7 +277,7 @@ function getMockCharacterDetail(cid) {
         "experimental_traits": 0,
         "unresolved_fields": 3,
         "last_comic_appearance": "MZ-2026-07-05",
-        "primary_image": "./media/MZ-CHAR-PATCH/references/primary/primary-reference.png",
+        "primary_image": "../media/MZ-CHAR-PATCH/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       "detail": {
@@ -316,7 +314,7 @@ function getMockCharacterDetail(cid) {
         "experimental_traits": 1,
         "unresolved_fields": 0,
         "last_comic_appearance": "MZ-2026-05-30",
-        "primary_image": "./media/MZ-CHAR-ZOMBIE/references/primary/primary-reference.png",
+        "primary_image": "../media/MZ-CHAR-ZOMBIE/references/primary/primary-reference.png",
         "continuity_warnings": []
       },
       "detail": {
@@ -409,12 +407,30 @@ Super: "Outstanding! Let's build the decoder antenna."`,
 }
 
 async function loadCharacters() {
-  characters = await api("/api/characters");
-  if (!adventureStyles.length) {
-    adventureStyles = await api("/api/story/adventure-styles");
-    $("storyAdventureStyle").innerHTML = adventureStyles.map(style => `<option>${escapeHtml(style)}</option>`).join("");
-    $("storyAdventureStyle").value = "Low-stakes slice of life";
+  try {
+    characters = await api("/api/characters");
+    if ($("statusBackend")) {
+      $("statusBackend").textContent = "Connected (127.0.0.1:8765)";
+      $("statusBackend").className = "status-value connected";
+    }
+  } catch (err) {
+    console.error("Backend connection failed:", err);
+    if ($("statusBackend")) {
+      $("statusBackend").textContent = "Backend not connected";
+      $("statusBackend").className = "status-value disconnected";
+    }
   }
+  
+  if (!adventureStyles.length && characters.length) {
+    try {
+      adventureStyles = await api("/api/story/adventure-styles");
+      $("storyAdventureStyle").innerHTML = adventureStyles.map(style => `<option>${escapeHtml(style)}</option>`).join("");
+      $("storyAdventureStyle").value = "Low-stakes slice of life";
+    } catch (e) {
+      console.warn("Failed to load adventure styles:", e);
+    }
+  }
+  
   renderCharacterList();
   renderStoryCharacterList();
   
@@ -473,6 +489,11 @@ async function loadCharacter(characterId) {
   $("emptyState").classList.add("hidden");
   $("detailView").classList.remove("hidden");
   $("undoBtn").disabled = false;
+  
+  if ($("statusCharacter")) {
+    $("statusCharacter").textContent = current.summary.display_name;
+  }
+  
   renderCharacterList();
   renderDetail();
 }
@@ -916,6 +937,10 @@ document.querySelectorAll(".nav-item").forEach(btn => {
     const label = btn.innerText.replace(/Soon$/, "").trim();
     $("activeViewLabel").textContent = label;
     
+    if ($("statusWorkspace")) {
+      $("statusWorkspace").textContent = label;
+    }
+    
     // Hide all view containers
     document.querySelectorAll(".workspace-view").forEach(el => el.classList.add("hidden"));
     
@@ -923,11 +948,14 @@ document.querySelectorAll(".nav-item").forEach(btn => {
     const viewContainerMap = {
       dashboard: "viewDashboard",
       characters: "viewCharacters",
+      locations: "viewLocations",
+      props: "viewProps",
       storyBuilder: "viewStoryBuilder",
       issues: "viewIssues",
       canon: "viewCanon",
       timeline: "viewTimeline",
       artQueue: "viewArtQueue",
+      layout: "viewLayout",
       qa: "viewQA",
       release: "viewRelease",
       settings: "viewSettings"
