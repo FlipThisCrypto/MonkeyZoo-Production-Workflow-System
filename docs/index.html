@@ -101,8 +101,8 @@
       
       <div class="sidebar-footer">
         <div class="system-status">
-          <span class="status-indicator online"></span>
-          <span class="status-text">Production Engine Active</span>
+          <span class="status-indicator offline" id="sidebarStatusIndicator"></span>
+          <span class="status-text" id="sidebarStatusText">Local backend required</span>
         </div>
       </div>
     </nav>
@@ -184,40 +184,40 @@
             <!-- Left Dashboard Panels -->
             <div class="dashboard-left-panel">
               <!-- Current Issue Progress -->
-              <div class="dashboard-card">
+              <div class="dashboard-card" id="dashboardCurrentIssueCard">
                 <div class="card-header">
-                  <h4>Current Monthly Issue</h4>
-                  <span class="status-pill status-in-progress">Stage 4 / 10</span>
+                  <h4>Current Monthly Issue <span class="data-tag tag-demo" id="dashboardIssueSource">[Demo Placeholder]</span></h4>
+                  <span class="status-pill status-in-progress" id="dashboardIssueStage">Production stage unavailable</span>
                 </div>
                 <div class="issue-details-strip">
                   <div class="detail-cell">
                     <strong>Issue ID</strong>
-                    <span>MZ-2026-07-05</span>
+                    <span id="dashboardIssueId">Current issue unavailable</span>
                   </div>
                   <div class="detail-cell">
                     <strong>Title</strong>
-                    <span>The Ones Who Stayed</span>
+                    <span id="dashboardIssueTitle">Current issue unavailable</span>
                   </div>
                   <div class="detail-cell">
                     <strong>Story Page Count</strong>
-                    <span>12 Pages (1 Panel Cover / Back Cover)</span>
+                    <span id="dashboardIssuePages">Current issue unavailable</span>
                   </div>
                   <div class="detail-cell">
                     <strong>Panel Count</strong>
-                    <span>42 Panels (Balanced composition)</span>
+                    <span id="dashboardIssuePanels">Current issue unavailable</span>
                   </div>
                 </div>
                 
                 <div class="pipeline-progress-section">
-                  <span class="progress-title">Pipeline Progress: Script Stage</span>
+                  <span class="progress-title">Pipeline Progress: <span id="pipelineProgressStageName">Production stage unavailable</span></span>
                   <div class="progress-bar-container">
-                    <div class="progress-bar" style="width: 40%;"></div>
+                    <div class="progress-bar" id="pipelineProgressBar" style="width: 0%;"></div>
                   </div>
                   <div class="progress-labels">
                     <span>1. Intake</span>
                     <span>2. Continuity</span>
                     <span>3. Showrunner</span>
-                    <strong class="text-accent">4. Script</strong>
+                    <span>4. Script</span>
                     <span>5. Art Direction</span>
                     <span>6. Art Gen</span>
                     <span>7. Art QA</span>
@@ -239,23 +239,10 @@
 
               <!-- Canon Changes Ledger -->
               <div class="dashboard-card">
-                <h4>Canon Changes Ledger</h4>
+                <h4>Canon Changes Ledger <span class="data-tag tag-demo">[Integration Planned]</span></h4>
                 <div class="ledger-list">
                   <div class="ledger-item">
-                    <span class="ledger-date">2026-07-12</span>
-                    <span class="ledger-text">Character <strong>Clever</strong> promoted <code>glasses_status</code> to <strong>Canon</strong>.</span>
-                  </div>
-                  <div class="ledger-item">
-                    <span class="ledger-date">2026-07-11</span>
-                    <span class="ledger-text">Character <strong>Patch</strong> added <code>established</code> sparse personality trait: <em>calm observer</em>.</span>
-                  </div>
-                  <div class="ledger-item">
-                    <span class="ledger-date">2026-07-11</span>
-                    <span class="ledger-text">Story Builder saved context packet for issue <strong>MZ-2026-07-05</strong>.</span>
-                  </div>
-                  <div class="ledger-item">
-                    <span class="ledger-date">2026-07-09</span>
-                    <span class="ledger-text">Franchise ledger approved <code>world_rule.signal_transmission_frequency</code>.</span>
+                    <span class="ledger-text" style="color: var(--muted);">Canon ledger integration planned. Connect your local database runtime to view live character history.</span>
                   </div>
                 </div>
               </div>
@@ -321,22 +308,11 @@
 
               <!-- Recent Pipeline Runs -->
               <div class="dashboard-card">
-                <h4>Recent Pipeline Runs</h4>
+                <h4>Recent Pipeline Runs <span class="data-tag tag-demo">[Integration Planned]</span></h4>
                 <div class="activity-feed">
-                  <div class="feed-item success">
-                    <strong>workflow_engine.py run</strong>
-                    <span>Completed 8 stages successfully. Release package validated.</span>
-                    <small>10 minutes ago</small>
-                  </div>
-                  <div class="feed-item success">
-                    <strong>pytest</strong>
-                    <span>All 28 unit tests passed.</span>
-                    <small>25 minutes ago</small>
-                  </div>
                   <div class="feed-item info">
-                    <strong>validate-character-bibles.py</strong>
-                    <span>Character schemas checked. Zero structure errors.</span>
-                    <small>1 hour ago</small>
+                    <strong>Recent activity unavailable</strong>
+                    <span>Connect the local runtime to view execution history.</span>
                   </div>
                 </div>
               </div>
