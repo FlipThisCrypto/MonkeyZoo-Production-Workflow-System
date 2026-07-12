@@ -63,6 +63,14 @@ def test_manual_prompt_and_multiple_variants_are_preserved(factory):
     assert all(v["source_type"] == "manual_import" for v in story.variants(issue, root, "outline"))
 
 
+def test_identical_variants_imported_same_second_remain_unique(factory):
+    root, issue = factory
+    first = story.import_variant(issue, root, "outline", {"content": outline()})
+    second = story.import_variant(issue, root, "outline", {"content": outline()})
+    assert first["variant_id"] != second["variant_id"]
+    assert len(story.variants(issue, root, "outline")) == 2
+
+
 def test_validation_approval_staleness_and_immutability(factory):
     root, issue = factory
     bad = story.import_variant(issue, root, "outline", {"content":"MZ-2027-01-01"})
@@ -102,6 +110,18 @@ def test_script_requires_approved_outline_and_script_stage(factory):
     first=story.import_variant(issue, root, "script", {"content":script()}); second=story.import_variant(issue, root, "script", {"content":script()+"\n### Page 2 — End\n"})
     assert len(story.variants(issue, root, "script")) == 2
     approved=story.approve(issue, root, "script", first["variant_id"]); assert approved["approval_current"]
+
+
+def test_changed_outline_approval_stales_script(factory):
+    root, issue = factory
+    outline_variant=story.import_variant(issue, root, "outline", {"content":outline()}); story.approve(issue, root, "outline", outline_variant["variant_id"])
+    state=json.loads((issue/".workflow-status.json").read_text()); state["active_stage"]="script"; story._write_json(issue/".workflow-status.json",state)
+    script_variant=story.import_variant(issue, root, "script", {"content":script()}); story.approve(issue, root, "script", script_variant["variant_id"])
+    current=story.approval(issue,"outline"); current["variant_id"]="outline-20270101T000000Z-abcdef"; story._write_json(issue/".story-workspace/outlines/approvals/current.json",current)
+    decorated=story.variants(issue, root, "script")[0]
+    assert decorated["outline_approval_current"] is False
+    assert decorated["approval_current"] is False
+    with pytest.raises(story.StoryWorkspaceError, match="current approved"): story.promote(issue, root, "script", script_variant["variant_id"])
 
 
 def test_duplicate_panels_fail_script_validation(factory):

@@ -7,6 +7,7 @@ import json
 import os
 import re
 import tempfile
+import time
 from pathlib import Path
 from typing import Any
 
@@ -72,7 +73,7 @@ def _now() -> str:
 
 def _variant_id(kind: str, content: str) -> str:
     stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    return f"{kind}-{stamp}-{_hash_text(content + _now())[:6]}"
+    return f"{kind}-{stamp}-{_hash_text(content + str(time.time_ns()))[:6]}"
 
 
 def _brief(folder: Path) -> dict[str, Any]:
@@ -150,7 +151,7 @@ def prompt_package(folder: Path, root: Path, kind: str) -> dict[str, Any]:
     if kind not in {"outline","script"}: raise StoryWorkspaceError("Unknown generation type")
     _workflow_stage(folder, root, kind)
     brief, snapshot = _brief(folder), canon_snapshot(folder, root, kind, persist=True)
-    approved_outline = approval(folder, "outline") if kind == "script" else None
+    approved_outline = current_approval(folder, root, "outline") if kind == "script" else None
     if kind == "script" and not approved_outline: raise StoryWorkspaceError("Script generation requires an approved outline", 409)
     generation_id = _variant_id(kind, brief["issue_id"])
     contract = "Use the repository issue outline template." if kind == "outline" else "Use the repository per-page, per-panel script template."
@@ -164,10 +165,11 @@ def import_variant(folder: Path, root: Path, kind: str, body: dict[str, Any]) ->
     _workflow_stage(folder, root, kind)
     content = body.get("content")
     if not isinstance(content, str) or not content.strip() or len(content) > 500_000: raise StoryWorkspaceError("content must be non-empty Markdown")
-    if kind == "script" and not approval(folder, "outline"): raise StoryWorkspaceError("Script import requires an approved outline", 409)
+    approved_outline = current_approval(folder, root, "outline") if kind == "script" else None
+    if kind == "script" and not approved_outline: raise StoryWorkspaceError("Script import requires a current approved outline", 409)
     snapshot = canon_snapshot(folder, root, kind, persist=True)
     variant_id = _variant_id(kind, content)
-    record = {"schema_version":"1.0", "variant_id":variant_id, "issue_id":_brief(folder)["issue_id"], "kind":kind, "created_at":_now(), "source_type":"manual_import", "provider":str(body.get("provider") or "manual"), "model":str(body.get("model") or "user supplied"), "execution_mode":"manual", "content":content, "content_hash":_hash_text(content), "canon_snapshot_hash":snapshot["snapshot_hash"], "issue_brief_hash":snapshot["issue_brief_hash"], "prompt_hash":body.get("prompt_hash"), "validation":_validation(kind, content, _brief(folder)), "approval":None, "superseded":False, "owner_note":None}
+    record = {"schema_version":"1.0", "variant_id":variant_id, "issue_id":_brief(folder)["issue_id"], "kind":kind, "created_at":_now(), "source_type":"manual_import", "provider":str(body.get("provider") or "manual"), "model":str(body.get("model") or "user supplied"), "execution_mode":"manual", "content":content, "content_hash":_hash_text(content), "canon_snapshot_hash":snapshot["snapshot_hash"], "issue_brief_hash":snapshot["issue_brief_hash"], "approved_outline":approved_outline, "prompt_hash":body.get("prompt_hash"), "validation":_validation(kind, content, _brief(folder)), "approval":None, "superseded":False, "owner_note":None}
     _write_json(_variant_path(folder, kind, variant_id), record)
     _log(folder, {"event_id":_variant_id(kind, variant_id), "issue_id":record["issue_id"], "type":f"{kind}_import", "variant_id":variant_id, "provider":record["provider"], "model":record["model"], "execution_mode":"manual", "start_time":record["created_at"], "end_time":record["created_at"], "success":True, "prompt_hash":record["prompt_hash"], "canon_snapshot_hash":record["canon_snapshot_hash"], "output_hash":record["content_hash"], "validation_status":record["validation"]["status"], "error_summary":None})
     return decorate_variant(record, folder, root)
@@ -184,7 +186,12 @@ def decorate_variant(record: dict[str, Any], folder: Path, root: Path) -> dict[s
     result = dict(record)
     result["canon_stale"] = record["canon_snapshot_hash"] != _current_snapshot_hash(folder, root, record["kind"])
     approval_record = record.get("approval")
-    result["approval_current"] = bool(approval_record and approval_record.get("content_hash") == record["content_hash"] and approval_record.get("canon_snapshot_hash") == record["canon_snapshot_hash"] and not result["canon_stale"])
+    outline_current = True
+    if record["kind"] == "script":
+        current_outline = current_approval(folder, root, "outline")
+        outline_current = bool(current_outline and record.get("approved_outline", {}).get("variant_id") == current_outline.get("variant_id") and record.get("approved_outline", {}).get("content_hash") == current_outline.get("content_hash"))
+    result["outline_approval_current"] = outline_current
+    result["approval_current"] = bool(approval_record and approval_record.get("content_hash") == record["content_hash"] and approval_record.get("canon_snapshot_hash") == record["canon_snapshot_hash"] and not result["canon_stale"] and outline_current)
     return result
 
 
@@ -213,12 +220,22 @@ def approval(folder: Path, kind: str) -> dict[str, Any] | None:
     return data if isinstance(data, dict) else None
 
 
+def current_approval(folder: Path, root: Path, kind: str) -> dict[str, Any] | None:
+    record = approval(folder, kind)
+    if not record: return None
+    try: variant = _load_variant(folder, kind, record["variant_id"])
+    except (KeyError, StoryWorkspaceError): return None
+    if variant.get("content_hash") != record.get("content_hash"): return None
+    if variant.get("canon_snapshot_hash") != _current_snapshot_hash(folder, root, kind): return None
+    return record
+
+
 def promote(folder: Path, root: Path, kind: str, variant_id: str, replace: bool = False) -> dict[str, Any]:
     _workflow_stage(folder, root, kind)
     record = decorate_variant(_load_variant(folder, kind, variant_id), folder, root)
     if not record["approval_current"]: raise StoryWorkspaceError("A current approved variant is required", 409)
     if kind == "script":
-        outline_approval = approval(folder, "outline")
+        outline_approval = current_approval(folder, root, "outline")
         if not outline_approval: raise StoryWorkspaceError("Approved outline is no longer current", 409)
     destination = folder / f"issue_{kind}.md"
     history_dir = _workspace(folder) / f"{kind}s" / "promotions"
