@@ -133,6 +133,7 @@ async function api(path, options = {}) {
     if (parts[4] === "artifact") throw {ok:false, demo_mode:true, error:"Artifact content requires the local backend"};
     if (parts[4] === "story") return issue?.story || {error:"Story snapshot unavailable", outlines:[], scripts:[]};
     if (parts[4] === "layout") return issue?.layout || {error:"Layout snapshot unavailable", variants:[]};
+    if (parts[4] === "art-queue") return issue?.art_queue || {error:"Art Queue snapshot unavailable", queue:{items:[]}};
     return issue || {error:"Issue unavailable"};
   }
   
@@ -1283,16 +1284,20 @@ setupIssueCreation();
 setupProductionDashboard();
 setupProductionStoryWorkspace();
 setupLayoutWorkspace();
+setupArtQueue();
 loadCharacters();
 
 let activeProductionIssue = null;
 let activeLayout = null;
+let activeArtQueue = null;
+let artUploadPanel = null;
 
 function renderIssuesList(issues) {
   const selector = $("storyProductionIssue");
   if (selector) selector.innerHTML = '<option value="">Choose an issue</option>' + issues.filter(issue => !issue.degraded).map(issue => `<option value="${escapeHtml(issue.issue_id)}">${escapeHtml(issue.issue_id)} — ${escapeHtml(issue.title)}</option>`).join("");
   const layoutSelect = $("layoutIssueSelect");
   if (layoutSelect) layoutSelect.innerHTML = '<option value="">Choose an issue</option>' + issues.filter(i=>!i.degraded).map(i=>`<option value="${escapeHtml(i.issue_id)}">${escapeHtml(i.issue_id)} — ${escapeHtml(i.title)}</option>`).join("");
+  const artSelect=$("artQueueIssue"); if(artSelect)artSelect.innerHTML='<option value="">Choose an issue</option>'+issues.filter(i=>!i.degraded).map(i=>`<option value="${escapeHtml(i.issue_id)}">${escapeHtml(i.issue_id)} — ${escapeHtml(i.title)}</option>`).join("");
   const grid = $("issuesWorkspaceGrid");
   if (!grid) return;
   grid.innerHTML = (issues || []).map(issue => `
@@ -1366,6 +1371,27 @@ function renderLayout(){
   $("layoutVariants").querySelectorAll("[data-layout-promote]").forEach(b=>b.addEventListener("click",()=>layoutAction(`variants/${b.dataset.layoutPromote}/promote`)));
 }
 async function layoutAction(path){try{await api(`/api/issues/${encodeURIComponent(activeLayout.issue_id)}/layout/${path}`,{method:"POST",body:"{}"});await loadLayout(activeLayout.issue_id)}catch(e){$("layoutStatus").textContent=e.message}}
+
+function setupArtQueue(){
+  $("artQueueIssue")?.addEventListener("change",e=>loadArtQueue(e.target.value));
+  $("buildArtQueue")?.addEventListener("click",()=>artQueuePost("build"));
+  $("artAttemptFile")?.addEventListener("change",uploadArtAttempt);
+}
+async function loadArtQueue(issueId){if(!issueId)return;try{activeArtQueue=await api(`/api/issues/${encodeURIComponent(issueId)}/art-queue`);renderArtQueue()}catch(e){$("artQueueStatus").textContent=e.message}}
+function renderArtQueue(){
+  const staticMode=window.BANANA_LAB_STATIC_MODE===true,q=activeArtQueue.queue,w=activeArtQueue.workflow,items=q.items||[];
+  $("artQueueStatus").textContent=q.error||`Active stage: ${w.current_stage.label}. ${w.blockers.join(" ")||"Queue evidence ready."}`;
+  $("artQueueSummary").innerHTML=[["Issue",activeArtQueue.issue_id],["Stage",w.current_stage.label],["Panels",items.length],["Approved",items.filter(i=>i.status==="approved").length],["Missing",items.filter(i=>i.status!=="approved").length],["Provider","Manual prompt/import"]].map(([k,v])=>`<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
+  $("buildArtQueue").disabled=staticMode||!["art_prompts","art_production"].includes(w.active_stage);$("buildArtQueue").title=staticMode?"Local backend required":"";
+  $("artQueueItems").innerHTML=items.map(i=>`<article class="art-queue-item"><header><strong>${escapeHtml(i.panel_id)}</strong><span>${escapeHtml(i.status)}</span></header><p>${escapeHtml(i.location||"Location missing")} · ${escapeHtml(i.characters.join(", ")||"No characters")}</p><p>${escapeHtml(i.action||"Action missing")}</p><small>Props: ${escapeHtml((i.props||[]).join(", ")||"None")} · Attempts: ${i.attempt_count}</small><div class="reference-strip">${i.references.map(r=>`<span>${escapeHtml(r.display_name||r.character_id)} · ${r.error?escapeHtml(r.error):"individual reference"}</span>`).join("")}</div><div class="attempt-list">${(i.attempts||[]).map(a=>`<span>${escapeHtml(a.attempt_id)} · ${escapeHtml(a.format)} ${a.width}×${a.height} · ${escapeHtml(a.status)} <button data-art-select="${escapeHtml(i.panel_id)}|${escapeHtml(a.attempt_id)}" ${staticMode||a.status==="rejected"||a.status==="archived"?"disabled":""}>Select</button><button data-art-reject="${escapeHtml(i.panel_id)}|${escapeHtml(a.attempt_id)}" ${staticMode||a.status==="preferred"?"disabled":""}>Reject</button></span>`).join("")}</div><div><button data-art-prompt="${escapeHtml(i.panel_id)}" ${staticMode?"disabled":""}>Export prompt</button><button data-art-import="${escapeHtml(i.panel_id)}" ${staticMode||w.active_stage!=="art_production"?"disabled":""}>Import image</button></div></article>`).join("")||"<p>No queue items.</p>";
+  $("artQueueItems").querySelectorAll("[data-art-prompt]").forEach(b=>b.addEventListener("click",()=>artQueuePost(`${b.dataset.artPrompt}/prompt`,true)));
+  $("artQueueItems").querySelectorAll("[data-art-import]").forEach(b=>b.addEventListener("click",()=>{artUploadPanel=b.dataset.artImport;$("artAttemptFile").click()}));
+  $("artQueueItems").querySelectorAll("[data-art-select]").forEach(b=>b.addEventListener("click",()=>artAttemptAction(b.dataset.artSelect,"select")));
+  $("artQueueItems").querySelectorAll("[data-art-reject]").forEach(b=>b.addEventListener("click",()=>artAttemptAction(b.dataset.artReject,"status")));
+}
+async function artQueuePost(path,show=false){try{const data=await api(`/api/issues/${encodeURIComponent(activeArtQueue.issue_id)}/art-queue/${path}`,{method:"POST",body:"{}"});if(show){$("artifactTitle").textContent=`Prompt ${data.panel_id}`;$("artifactContent").textContent=JSON.stringify(data,null,2);$("artifactDialog").showModal()}await loadArtQueue(activeArtQueue.issue_id)}catch(e){$("artQueueStatus").textContent=e.message}}
+async function uploadArtAttempt(){const file=$("artAttemptFile").files[0];if(!file||!artUploadPanel)return;const form=new FormData();form.append("image",file);form.append("provider","manual import");try{const response=await fetch(`/api/issues/${encodeURIComponent(activeArtQueue.issue_id)}/art-queue/${encodeURIComponent(artUploadPanel)}/attempts`,{method:"POST",body:form});const data=await response.json();if(!response.ok)throw new Error(data.error);await loadArtQueue(activeArtQueue.issue_id)}catch(e){$("artQueueStatus").textContent=e.message}finally{$("artAttemptFile").value=""}}
+async function artAttemptAction(value,action){const [panel,attempt]=value.split("|");try{await api(`/api/issues/${encodeURIComponent(activeArtQueue.issue_id)}/art-queue/${encodeURIComponent(panel)}/attempts/${encodeURIComponent(attempt)}/${action}`,{method:"POST",body:action==="status"?JSON.stringify({status:"rejected"}):"{}"});await loadArtQueue(activeArtQueue.issue_id)}catch(e){$("artQueueStatus").textContent=e.message}}
 
 function setupProductionDashboard() {
   $("closeProductionDashboard")?.addEventListener("click", () => $("productionDashboard").classList.add("hidden"));
