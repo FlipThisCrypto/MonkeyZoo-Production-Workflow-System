@@ -99,3 +99,11 @@ def test_idea_failure_rolls_back_issue(factory, monkeypatch):
 def test_non_object_request_rejected(factory):
     with pytest.raises(new_issue.IssueCreationError, match="JSON object"):
         new_issue.create_issue([], factory)
+
+
+def test_legacy_patch_id_normalizes_to_zombie(factory):
+    alias = factory / "character-bibles" / "MZ-CHAR-PATCH"
+    alias.mkdir()
+    (alias / "bible.yaml").write_text(yaml.safe_dump({"identification": {"character_id": "MZ-CHAR-PATCH", "current_display_name": "Patch", "alias_of": "MZ-CHAR-TEST"}}), encoding="utf-8")
+    normalized = new_issue.normalize_request(payload(primary_character="MZ-CHAR-PATCH", guest_character=""), factory)
+    assert normalized["primary_character"] == "MZ-CHAR-TEST"

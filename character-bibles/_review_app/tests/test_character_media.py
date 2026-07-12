@@ -31,6 +31,22 @@ def test_owner_approved_identity_and_portrait_mapping():
         assert "group-fusion-squad" not in record["primary_image"].lower()
 
 
+def test_patch_alias_is_canonical_and_manifest_is_resolved():
+    bibles = ROOT / "character-bibles"
+    assert bible_store.resolve_character_id("MZ-CHAR-PATCH", bibles) == "MZ-CHAR-ZOMBIE"
+    assert bible_store.resolve_character_id("Patch", bibles) == "MZ-CHAR-ZOMBIE"
+    assert bible_store.resolve_character_id("Zombie", bibles) == "MZ-CHAR-ZOMBIE"
+    alias = __import__("yaml").safe_load((bibles / "MZ-CHAR-PATCH" / "bible.yaml").read_text(encoding="utf-8"))
+    assert alias["visual_canon"]["primary_reference_image"] is None
+    assert bible_store.load_bible("MZ-CHAR-PATCH", bibles)["identification"]["character_id"] == "MZ-CHAR-ZOMBIE"
+    manifest = json.loads((ROOT / "03_APPROVED_CANON" / "approved_characters" / "character-image-manifest.json").read_text(encoding="utf-8"))
+    independent = [item for item in manifest["characters"] if not item.get("canonical_id") and item["id"] != "MZ-CHAR-EMO-GENERIC"]
+    assert len(independent) == 11
+    text = json.dumps(manifest).casefold()
+    assert "patch uses an issue-derived reference" not in text
+    assert "patch" not in " ".join(part for part in ("requires owner review", "unresolved visual identity") if part in text)
+
+
 def test_local_portraits_return_correct_mime_and_bytes():
     client = review_app.app.test_client()
     records = client.get("/api/characters").get_json()
@@ -42,6 +58,9 @@ def test_local_portraits_return_correct_mime_and_bytes():
             assert response.status_code == 200
             assert response.mimetype in {"image/png", "image/webp"}
             assert response.data
+    alias_response = client.get("/api/characters/MZ-CHAR-PATCH")
+    assert alias_response.status_code == 200
+    assert alias_response.get_json()["summary"]["character_id"] == "MZ-CHAR-ZOMBIE"
 
 
 def test_static_export_matches_local_inventory(tmp_path):

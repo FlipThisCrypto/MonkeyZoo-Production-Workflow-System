@@ -30,6 +30,7 @@ def characters():
 
 @app.get("/api/characters/<character_id>")
 def character_detail(character_id):
+    character_id = store.resolve_character_id(character_id, BIBLES_ROOT)
     data = store.load_bible(character_id, BIBLES_ROOT)
     return jsonify({
         "summary": store.character_summary(character_id, data),
@@ -134,6 +135,7 @@ def create_issue():
 
 @app.get("/media/<character_id>/<path:rel_path>")
 def media(character_id, rel_path):
+    character_id = store.resolve_character_id(character_id, BIBLES_ROOT)
     base = BIBLES_ROOT / character_id
     return send_from_directory(base, rel_path)
 

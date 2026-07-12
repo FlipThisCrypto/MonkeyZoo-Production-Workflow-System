@@ -181,7 +181,7 @@ def build_context_packet(setup: dict[str, Any], bibles_root: Path) -> dict[str, 
     selected_characters = []
     warnings: list[str] = []
     for selected in setup["characters"]:
-        character_id = selected["character_id"]
+        character_id = store.resolve_character_id(selected["character_id"], bibles_root)
         data = store.load_bible(character_id, bibles_root)
         selected_characters.append(select_character_context(character_id, data, selected["role"], setup, warnings))
     packet = {

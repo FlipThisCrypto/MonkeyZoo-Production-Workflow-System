@@ -90,10 +90,14 @@ def normalize_request(data: Any, factory: Path = FACTORY) -> dict[str, Any]:
         cid = normalized[field]
         if not cid:
             continue
-        if not CHARACTER_ID_RE.fullmatch(cid):
-            raise IssueCreationError(f"{field} is malformed")
-        if not (factory / "character-bibles" / cid / "bible.yaml").is_file():
-            raise IssueCreationError(f"Unknown character or missing bible: {cid}")
+        try:
+            review_app = factory / "character-bibles" / "_review_app"
+            if str(review_app) not in sys.path:
+                sys.path.insert(0, str(review_app))
+            import bible_store
+            normalized[field] = bible_store.resolve_character_id(cid, factory / "character-bibles")
+        except (ImportError, ValueError) as exc:
+            raise IssueCreationError(f"Unknown character or missing bible: {cid}") from exc
     if normalized["guest_character"] and normalized["guest_character"] == normalized["primary_character"]:
         raise IssueCreationError("guest_character must differ from primary_character")
     requirements = data.get("output_requirements", sorted(OUTPUT_REQUIREMENTS))
