@@ -105,8 +105,316 @@
     </aside>
 
     <section class="detail">
-      <div id="emptyState" class="empty-state">
-        Select a character to review.
+      <div id="emptyState" class="dashboard-container">
+        <!-- Hero Section -->
+        <header class="dashboard-hero">
+          <span class="dashboard-tag">Production System v1.1</span>
+          <h2 class="dashboard-title">Idea in. Finished comic issue out.</h2>
+          <p class="dashboard-subtitle">A structured, canon-safe production system that turns a rough monthly story idea into a scripted, illustrated, quality-checked, release-ready comic package.</p>
+          <div class="dashboard-actions">
+            <a href="#workflow" class="dashboard-btn primary">Explore the Workflow</a>
+            <a href="#sample-issue" class="dashboard-btn">View Sample Issue</a>
+            <a href="#getting-started" class="dashboard-btn">Read the Docs</a>
+            <a href="https://github.com/FlipThisCrypto/MonkeyZoo-Production-Workflow-System" target="_blank" class="dashboard-btn github-btn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-2.11-.24-4.32-1.05-4.32-4.69 0-1.03.37-1.87 1-2.53-.1-.24-.43-1.2.1-2.5 0 0 .8-.25 2.62.97.76-.21 1.57-.31 2.38-.31.81 0 1.62.1 2.38.31 1.81-1.23 2.62-.97 2.62-.97.53 1.3.2 2.26.1 2.5.63.66 1 1.5 1 2.53 0 3.65-2.22 4.44-4.33 4.68.36.31.68.91.68 1.84 0 1.33-.01 2.41-.01 2.74 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              View on GitHub
+            </a>
+          </div>
+        </header>
+
+        <!-- Pipeline Workflow Section -->
+        <section id="workflow" class="dashboard-section">
+          <h3 class="dashboard-section-title">The 10-Stage Pipeline</h3>
+          <p class="dashboard-section-desc">The production cycle is divided into four distinct phases separated by strict validation gates.</p>
+          
+          <div class="pipeline-flow">
+            <!-- Phase: Develop -->
+            <div class="pipeline-phase">
+              <h4 class="phase-title develop">Develop</h4>
+              <div class="phase-stages">
+                <div class="stage-card">
+                  <div class="stage-number">01</div>
+                  <h5 class="stage-name">Intake</h5>
+                  <p class="stage-desc">Reviews rough monthly story idea and parses metadata.</p>
+                  <div class="stage-io">
+                    <div><span>In</span> YYYY-MM-idea.md</div>
+                    <div><span>Out</span> Issue Brief JSON</div>
+                  </div>
+                </div>
+                <div class="stage-card">
+                  <div class="stage-number">02</div>
+                  <h5 class="stage-name">Continuity</h5>
+                  <p class="stage-desc">Checks proposals against the append-only canon ledger.</p>
+                  <div class="stage-io">
+                    <div><span>In</span> Issue Brief</div>
+                    <div><span>Out</span> Continuity Verdict</div>
+                  </div>
+                </div>
+                <div class="stage-card">
+                  <div class="stage-number">03</div>
+                  <h5 class="stage-name">Showrunner</h5>
+                  <p class="stage-desc">Aligns outline beats with active season arc goals.</p>
+                  <div class="stage-io">
+                    <div><span>In</span> Continuity Verdict</div>
+                    <div><span>Out</span> Story Outline</div>
+                  </div>
+                </div>
+                <div class="stage-card">
+                  <div class="stage-number">04</div>
+                  <h5 class="stage-name">Script</h5>
+                  <p class="stage-desc">Generates dialogue and scene descriptions under strict rules.</p>
+                  <div class="stage-io">
+                    <div><span>In</span> Story Outline</div>
+                    <div><span>Out</span> Script Markdown</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase: Prepare -->
+            <div class="pipeline-phase">
+              <h4 class="phase-title prepare">Prepare</h4>
+              <div class="phase-stages">
+                <div class="stage-card">
+                  <div class="stage-number">05</div>
+                  <h5 class="stage-name">Art Direction</h5>
+                  <p class="stage-desc">Generates panel-by-panel breakdown and composition rules.</p>
+                  <div class="stage-io">
+                    <div><span>In</span> Script Markdown</div>
+                    <div><span>Out</span> Page/Panel Plan JSON</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase: Produce -->
+            <div class="pipeline-phase">
+              <h4 class="phase-title produce">Produce</h4>
+              <div class="phase-stages">
+                <div class="stage-card">
+                  <div class="stage-number">06</div>
+                  <h5 class="stage-name">Art Gen</h5>
+                  <p class="stage-desc">Runs batch ComfyUI prompt pack rendering using LoRA keys.</p>
+                  <div class="stage-io">
+                    <div><span>In</span> Panel Plan / Prompts</div>
+                    <div><span>Out</span> Raw Render Panels</div>
+                  </div>
+                </div>
+                <div class="stage-card">
+                  <div class="stage-number">07</div>
+                  <h5 class="stage-name">Art QA</h5>
+                  <p class="stage-desc">Adversarial check of likeness, proportions, and details.</p>
+                  <div class="stage-io">
+                    <div><span>In</span> Raw Renders</div>
+                    <div><span>Out</span> QA-Approved Panels</div>
+                  </div>
+                </div>
+                <div class="stage-card">
+                  <div class="stage-number">08</div>
+                  <h5 class="stage-name">Layout/Letter</h5>
+                  <p class="stage-desc">Composes panels into pages and overlays speech balloons.</p>
+                  <div class="stage-io">
+                    <div><span>In</span> Script / Approved Panels</div>
+                    <div><span>Out</span> Lettered Page Layouts</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase: Ship -->
+            <div class="pipeline-phase">
+              <h4 class="phase-title ship">Ship</h4>
+              <div class="phase-stages">
+                <div class="stage-card">
+                  <div class="stage-number">09</div>
+                  <h5 class="stage-name">Final QA</h5>
+                  <p class="stage-desc">Comprehensive checklist check of metadata, fonts, and files.</p>
+                  <div class="stage-io">
+                    <div><span>In</span> Page Layouts / Config</div>
+                    <div><span>Out</span> Passed QA Report</div>
+                  </div>
+                </div>
+                <div class="stage-card">
+                  <div class="stage-number">10</div>
+                  <h5 class="stage-name">Release</h5>
+                  <p class="stage-desc">Archives assets and packages for print and digital release.</p>
+                  <div class="stage-io">
+                    <div><span>In</span> QA Report / Assets</div>
+                    <div><span>Out</span> CBZ / PDF / Metadata</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Inputs and Outputs -->
+        <section class="dashboard-section dashboard-split-grid">
+          <div class="dashboard-card">
+            <h4>System Inputs</h4>
+            <p class="card-subtitle">What the workflow ingests to maintain consistency:</p>
+            <ul class="io-list">
+              <li><strong>Rough Monthly Idea</strong> (YAML/Markdown draft)</li>
+              <li><strong>Franchise Canon</strong> (Master bibles & ledger)</li>
+              <li><strong>Character Specifications</strong> (Granular bibles & traits)</li>
+              <li><strong>World Rules</strong> (Location, technology, factions)</li>
+              <li><strong>Visual-Style Rules</strong> (Staging, fonts, style lock phrase)</li>
+              <li><strong>Approved Character References</strong> (Pose-by-pose reference images)</li>
+              <li><strong>Season-Level Story Plans</strong> (Macro-arc blueprints)</li>
+            </ul>
+          </div>
+          <div class="dashboard-card">
+            <h4>System Outputs</h4>
+            <p class="card-subtitle">What the pipeline produces at each stage:</p>
+            <ul class="io-list">
+              <li><strong>Issue Brief & Outline</strong> (Validated structure)</li>
+              <li><strong>Continuity Verdict</strong> (Canon safety log)</li>
+              <li><strong>Full script</strong> (Markdown script file)</li>
+              <li><strong>Machine-Readable Page/Panel Plan</strong> (JSON)</li>
+              <li><strong>Art Prompt Pack & Cover Prompt</strong> (Seeds, settings)</li>
+              <li><strong>Generated and Selected Panels</strong> (Filtered assets)</li>
+              <li><strong>Lettered Pages & CBZ Package</strong> (Digital release)</li>
+              <li><strong>Print/Web PDF Layouts</strong> (Release exports)</li>
+              <li><strong>CHIP-0015 Metadata & QA Reports</strong> (Audited release logs)</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Consistency & Safety -->
+        <section class="dashboard-section">
+          <h3 class="dashboard-section-title">Consistency & Safety Guardrails</h3>
+          <div class="guardrails-grid">
+            <div class="guardrail-card">
+              <h5>Strict Human-in-the-Loop Approval</h5>
+              <p>Nothing becomes canon automatically. Proposed continuity changes remain in the ledger as suggestions until approved by the editor.</p>
+            </div>
+            <div class="guardrail-card">
+              <h5>Append-Only Continuity Ledger</h5>
+              <p>Every story event, character addition, and relation edit is logged to prevent continuity drift and retro-active changes.</p>
+            </div>
+            <div class="guardrail-card">
+              <h5>Locked Visual Identities</h5>
+              <p>Character bibles contain locked visual rules (e.g. <em>Clever Monkey is the only character with glasses</em>) which are validated programmatically.</p>
+            </div>
+            <div class="guardrail-card">
+              <h5>Deterministic Reproducibility</h5>
+              <p>Art prompt packs lock seed values, engine recipes, and ComfyUI workflows so every panel render can be fully reproduced.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sample Issue -->
+        <section id="sample-issue" class="dashboard-section sample-issue-section">
+          <h3 class="dashboard-section-title">Featured: Sample Issue</h3>
+          <div class="sample-issue-card">
+            <div class="sample-badge">MZ-2026-07-05</div>
+            <h4>The Ones Who Stayed</h4>
+            <p class="sample-desc">A complete worked issue demonstrating the output of the intake, outline, scripting, and page-planning stages.</p>
+            
+            <div class="artifact-status-grid">
+              <div class="artifact-status-col">
+                <h5>Completed Artifacts</h5>
+                <ul>
+                  <li class="status-done">Issue Brief & Outline</li>
+                  <li class="status-done">Character Context JSON</li>
+                  <li class="status-done">Full Script Markdown</li>
+                  <li class="status-done">Continuity Verdict</li>
+                </ul>
+              </div>
+              <div class="artifact-status-col">
+                <h5>Prepared Packages</h5>
+                <ul>
+                  <li class="status-prepared">Art Prompt Pack (Stage 5)</li>
+                  <li class="status-prepared">ComfyUI Generation Workflows</li>
+                  <li class="status-prepared">Lettering & Assembly Configuration</li>
+                </ul>
+              </div>
+              <div class="artifact-status-col">
+                <h5>Pending Final Render</h5>
+                <ul>
+                  <li class="status-pending">Final High-Resolution Art</li>
+                  <li class="status-pending">Manual Lettering Polish</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Getting Started -->
+        <section id="getting-started" class="dashboard-section">
+          <h3 class="dashboard-section-title">Getting Started Guide</h3>
+          <div class="docs-grid">
+            <div class="docs-card">
+              <h5>1. System Requirements</h5>
+              <p>Python 3.8+, Node.js (for Claude Code, optional), and Flask dependencies installed.</p>
+              <pre><code>pip install flask pyyaml pillow pytest</code></pre>
+            </div>
+            <div class="docs-card">
+              <h5>2. Create New Issue Brief</h5>
+              <p>Drop a rough markdown/YAML idea file into the inbox folder to begin a new issue.</p>
+              <pre><code>python 00_SYSTEM/scripts/new_issue.py --idea 01_IDEAS_INBOX/2026-07-idea.md</code></pre>
+            </div>
+            <div class="docs-card">
+              <h5>3. Run Validation Gate</h5>
+              <p>Validate the issue folder structure, page plan, and character bibles before generating art.</p>
+              <pre><code>python 00_SYSTEM/scripts/validate_issue.py --issue 2026-07_Issue_05</code></pre>
+            </div>
+            <div class="docs-card">
+              <h5>4. Build Release Package</h5>
+              <p>Generate final PDFs, digital CBZ packs, and metadata once art generation and lettering are complete.</p>
+              <pre><code>python 00_SYSTEM/scripts/build_release.py --issue 2026-07_Issue_05</code></pre>
+            </div>
+          </div>
+          
+          <div class="tools-map">
+            <h4>Tooling Integration Matrix</h4>
+            <div class="tools-grid">
+              <div class="tool-cell">
+                <strong>Claude AI</strong>
+                <span>Used for script generation, text QA checks, and continuity analysis (Stages 1–4, 7, 9).</span>
+              </div>
+              <div class="tool-cell">
+                <strong>ComfyUI</strong>
+                <span>Generates panel-level illustrations with LoRA/IPAdapter configurations (Stage 6).</span>
+              </div>
+              <div class="tool-cell">
+                <strong>Human Editor</strong>
+                <span>Approves character names, resolves continuity proposals, and verifies layout quality.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Reusability -->
+        <section class="dashboard-section reusability-section">
+          <h3 class="dashboard-section-title">Adapting to Other Properties</h3>
+          <p class="dashboard-section-desc">While MonkeyZoo serves as the reference implementation, the core architecture is entirely reusable.</p>
+          <div class="reusability-card">
+            <p>You can adapt this pipeline to another comic or manga series by swapping out the configuration modules:</p>
+            <div class="reusability-steps">
+              <div>
+                <strong>1. Canon Rules</strong>
+                <span>Replace world bibles, factions, and continuity ledgers in <code>00_SYSTEM/</code>.</span>
+              </div>
+              <div>
+                <strong>2. Character Bibles</strong>
+                <span>Define new characters, naming statuses, and locked traits in <code>character-bibles/</code>.</span>
+              </div>
+              <div>
+                <strong>3. Image Models</strong>
+                <span>Train ComfyUI LoRAs with your own character reference images.</span>
+              </div>
+              <div>
+                <strong>4. Templates</strong>
+                <span>Provide custom page dimensions, comic life templates, and balloon fonts.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="dashboard-footer">
+          <p>MonkeyZoo Comic Production Workflow System • Released under Flip This Comics Open Source License</p>
+        </footer>
       </div>
       <div id="detailView" class="hidden">
         <section class="hero">
