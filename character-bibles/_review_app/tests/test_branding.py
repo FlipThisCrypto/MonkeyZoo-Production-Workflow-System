@@ -42,8 +42,12 @@ def test_navigation_capability_labels_are_honest():
     html = (SOURCE / "index.html").read_text(encoding="utf-8")
     assert "Story Builder\n" in html
     assert 'Canon <span class="badge-coming">Foundation</span>' in html
-    for label in ("Locations", "Props", "Timeline", "Art Queue", "Layout", "QA", "Release", "Settings"):
+    for label in ("Locations", "Props", "Timeline", "Settings"):
         assert f'{label} <span class="badge-coming">Soon</span>' in html
+    for label in ("Art Queue", "Layout"):
+        assert f'{label} <span class="badge-coming">Beta</span>' in html
+    assert "QA\n" in html
+    assert "Release\n" in html
 
 
 def test_local_and_static_load_each_stylesheet_once():
