@@ -8,6 +8,8 @@ $DocsDir = "docs"
 if (-not (Test-Path "$StaticDir/index.html")) { throw "Source index.html is missing at $StaticDir/index.html" }
 if (-not (Test-Path "$StaticDir/styles.css")) { throw "Source styles.css is missing at $StaticDir/styles.css" }
 if (-not (Test-Path "$StaticDir/app.js")) { throw "Source app.js is missing at $StaticDir/app.js" }
+if (-not (Test-Path "$StaticDir/banana-lab-mark.svg")) { throw "Brand mark is missing" }
+if (-not (Test-Path "$StaticDir/banana-theme.css")) { throw "Brand theme is missing" }
 
 # 1. Clean and recreate directories (preserve docs/media which is tracked in git)
 if (-not (Test-Path "$DocsDir/static")) {
@@ -16,6 +18,8 @@ if (-not (Test-Path "$DocsDir/static")) {
 
 # 2. Copy Stylesheet and inject pages overrides
 Copy-Item -Path "$StaticDir/styles.css" -Destination "$DocsDir/static/styles.css" -Force
+Copy-Item -Path "$StaticDir/banana-lab-mark.svg" -Destination "$DocsDir/static/banana-lab-mark.svg" -Force
+Copy-Item -Path "$StaticDir/banana-theme.css" -Destination "$DocsDir/static/banana-theme.css" -Force
 $BannerStyle = @"
 
 .demo-preview-banner {
@@ -115,6 +119,8 @@ if ($LASTEXITCODE -ne 0) { throw "Static character export failed" }
 $HtmlContent = Get-Content -Path "$StaticDir/index.html" -Raw
 $HtmlContent = $HtmlContent -replace '/static/styles.css', './static/styles.css'
 $HtmlContent = $HtmlContent -replace '/static/app.js', './static/app.js'
+$HtmlContent = $HtmlContent -replace '/static/banana-lab-mark.svg', './static/banana-lab-mark.svg'
+$HtmlContent = $HtmlContent -replace '/static/banana-theme.css', './static/banana-theme.css'
 
 # Pages static indicator overrides (online -> offline class, change text)
 $HtmlContent = $HtmlContent -replace '<span class="status-indicator" id="sidebarStatusIndicator"></span>', '<span class="status-indicator offline" id="sidebarStatusIndicator"></span>'
