@@ -10,10 +10,32 @@ This directory is the controlled handoff workspace between the project owner, Ch
 
 ---
 
-## Directory Workflow
+## Streamlined Normal Task Workflow
 
-The workflow utilizes the following subdirectories:
+For ordinary frontend, documentation, styling, bug fixes, and small feature work, the draft pull request is the complete review package. **No separate push-approval files are required.**
+1. Create a dedicated feature branch.
+2. Make only the requested changes.
+3. Run the required tests and verify changes.
+4. Commit the work locally.
+5. Push the branch to remote origin.
+6. Open a draft pull request.
+7. Report the PR URL, list of changed files, test results, and known limitations.
+8. Wait for review. **Do not merge automatically.** The Project Owner or ChatGPT will authorize merging with the exact phrase: `APPROVED TO MERGE`.
 
+---
+
+## High-Risk Handoff Workspace Workflow
+
+The `.ai-handoff/` directories and formal push/merge approvals are required **only** for high-risk work, including:
+* Backend architecture changes
+* Canon or continuity modifications
+* Production pipeline rewrites
+* Release automation
+* Destructive migrations
+* Security-sensitive changes
+* Large multi-module changes
+
+### Directory Layout
 1. **`01_CHATGPT_TO_ANTIGRAVITY/`**: Intake folders containing tasks assigned by ChatGPT or the Project Owner.
 2. **`02_ANTIGRAVITY_WORK/`**: Work packages, test logs, code diff patches, and rollback plans prepared by Antigravity.
 3. **`03_CHATGPT_REVIEW/`**: Review notes, feedback, or verification remarks compiled by ChatGPT.
@@ -24,7 +46,7 @@ The workflow utilizes the following subdirectories:
 
 ---
 
-## Strict Approval Authority Rules
+## Strict Approval Authority Rules (For High-Risk Work)
 
 ### 1. Verification Authority
 Antigravity must **never** originate, infer, or self-create a ChatGPT approval. An approval file is valid only when:
@@ -53,7 +75,7 @@ Antigravity may **not** create an approval file based on:
 
 ---
 
-## Push & Merge Authority Separation
+## Push & Merge Authority Separation (For High-Risk Work)
 
 Antigravity operates under two distinct, explicit gates:
 
