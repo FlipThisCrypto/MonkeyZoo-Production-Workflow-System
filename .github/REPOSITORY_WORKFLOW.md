@@ -12,7 +12,7 @@ This document outlines the branching, review, and merging workflow for the Monke
    ```
 4. **Push**: push the feature branch to origin.
 5. **Open Draft PR**: open a Draft Pull Request on GitHub targeting the `main` branch.
-6. **ChatGPT Review**: wait for review from ChatGPT. The Project Owner will coordinates the review loop.
+6. **ChatGPT Review**: wait for review from ChatGPT. The Project Owner will coordinate the review loop.
 7. **Revise if Needed**: implement any requested feedback and push updates.
 8. **APPROVED TO MERGE**: once ChatGPT provides final approval, the Project Owner will authorize the merge. Only the exact phrase `APPROVED TO MERGE` permits merging.
 9. **Merge**: merge the pull request using **Squash Merge** only.
