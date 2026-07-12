@@ -1,0 +1,21 @@
+{
+  "character_id": "MZ-CHAR-PATCH",
+  "character": "Patch",
+  "sources": [
+    {
+      "source_path": "zombie.png",
+      "filed_path": "character-bibles/MZ-CHAR-PATCH/references/primary/primary-reference.png",
+      "sha256": "0edfb23df08a69a59ac39305301d0fab576ea5cedd0654d4ff4e530a252c1fd2",
+      "bytes": 555538,
+      "character_id": "MZ-CHAR-PATCH",
+      "character": "Patch",
+      "confidence": "medium-high",
+      "source_evidence": [
+        "MonkeyZoo_Comic_Factory/02_MONTHLY_ISSUES/2026-07_Issue_05/page_panel_plan.json",
+        "MonkeyZoo_Comic_Factory/02_MONTHLY_ISSUES/2026-07_Issue_05/issue_script.md",
+        "MonkeyZoo_Comic_Factory/02_MONTHLY_ISSUES/2026-08_Issue_06/issue_script.md"
+      ],
+      "notes": "Issue plans identify `zombie.png (#1997 = Patch)`. This is filed as Patch's issue-derived reference, not as permission to treat every zombie image as Patch."
+    }
+  ]
+}
