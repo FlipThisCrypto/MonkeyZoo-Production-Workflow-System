@@ -1,14 +1,17 @@
 schema_version: '1.0'
 identification:
-  current_display_name: Zombie
+  current_display_name: Patch
   series_name: Zombie Monkey
-  personal_name: null
+  personal_name: Patch
+  legacy_label: Zombie
+  nationality: American
+  country_of_origin: United States of America
   codename: null
   nicknames:
   - Zombie Monkey
   - mz_faction_zombie
   - the Professor (quasi-name in Edition One)
-  naming_status: unresolved
+  naming_status: personal_name_canon
   character_id: MZ-CHAR-ZOMBIE
   development_level: 2
   canon_status: approved_canon

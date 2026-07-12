@@ -1,13 +1,16 @@
 schema_version: '1.0'
 identification:
-  current_display_name: Clever
+  current_display_name: Lily
   series_name: Clever Monkey
-  personal_name: null
+  personal_name: Lily
+  legacy_label: Clever
+  nationality: Scottish
+  country_of_origin: Scotland
   codename: null
   nicknames:
   - Clever Monkey
   - mz_faction_clever
-  naming_status: unresolved
+  naming_status: personal_name_canon
   character_id: MZ-CHAR-CLEVER
   development_level: 2
   canon_status: approved_canon

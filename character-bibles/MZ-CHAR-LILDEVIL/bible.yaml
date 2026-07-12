@@ -1,15 +1,18 @@
 schema_version: '1.0'
 identification:
-  current_display_name: Lil Devil
+  current_display_name: Sasha
   series_name: Lil Devil
-  personal_name: null
+  personal_name: Sasha
+  legacy_label: Lil Devil
+  nationality: Russian
+  country_of_origin: Russia
   codename: null
   nicknames:
   - LilDevil
   - lil devil
   - mz_faction_lildevil
   - 'Devilish Monkey #424'
-  naming_status: unresolved
+  naming_status: personal_name_canon
   character_id: MZ-CHAR-LILDEVIL
   development_level: 2
   canon_status: approved_canon

@@ -45,6 +45,8 @@ async function api(path, options = {}) {
   
   // Mock read data mapping
   if (cleanPath === "/api/characters") {
+    const response = await fetch("./static/characters.json");
+    return response.json();
     return [
       {
         "character_id": "MZ-CHAR-CLEVER",
@@ -116,7 +118,18 @@ async function api(path, options = {}) {
   
   if (cleanPath.startsWith("/api/characters/")) {
     const cid = cleanPath.split("/")[3];
-    return getMockCharacterDetail(cid);
+    const response = await fetch("./static/characters.json");
+    const summary = (await response.json()).find(item => item.character_id === cid);
+    if (!summary) return { error: "Character unavailable" };
+    return {summary, detail: {identification: {
+      current_display_name: summary.display_name,
+      series_name: summary.series_name,
+      personal_name: summary.personal_name,
+      legacy_label: summary.legacy_label,
+      nationality: summary.nationality,
+      country_of_origin: summary.country_of_origin,
+      naming_status: summary.naming_status
+    }, visual_canon: {primary_reference_image: summary.primary_image}, history: []}, traits: []};
   }
   
   if (cleanPath === "/api/story/adventure-styles") {
@@ -464,7 +477,28 @@ function setupIssueCreation() {
   };
   const updateCanonReview = () => {
     const selected = characters.find(c => c.character_id === form.primary_character.value);
-    $("issueCanonReview").innerHTML = selected ? `<strong>${escapeHtml(selected.display_name || selected.character_id)}</strong><p>Bible: available</p><p>${(selected.continuity_warnings || []).map(escapeHtml).join("; ") || "No repository warnings reported."}</p>` : "No character selected.";
+    const review = $("issueCanonReview");
+    review.replaceChildren();
+    if (!selected) { review.textContent = "No character selected."; return; }
+    if (selected.primary_image) {
+      const portrait = document.createElement("img");
+      portrait.src = selected.primary_image;
+      portrait.alt = `${selected.display_name || selected.character_id} approved portrait`;
+      portrait.className = "canon-review-portrait";
+      review.append(portrait);
+    }
+    const heading = document.createElement("strong");
+    heading.textContent = selected.display_name || selected.character_id;
+    review.append(heading);
+    const details = [
+      `Legacy identity: ${selected.legacy_label || "Unavailable"}`,
+      `Nationality: ${selected.nationality || "Unavailable"}`,
+      `Country: ${selected.country_of_origin || "Unavailable"}`,
+      "Bible: Available",
+      `Image: ${selected.image_status === "approved" ? "Approved" : "Approved character image unavailable"}`,
+      (selected.continuity_warnings || []).join("; ") || "No repository warnings reported."
+    ];
+    details.forEach(text => { const p = document.createElement("p"); p.textContent = text; review.append(p); });
   };
   $("createIssueButton").addEventListener("click", () => { form.reset(); populate(); $("issueCreateError").textContent = ""; dialog.showModal(); });
   $("cancelIssueCreate").addEventListener("click", () => dialog.close());
@@ -627,7 +661,7 @@ function renderCharacterList() {
     .filter(c => `${c.display_name} ${c.series_name} ${c.character_id}`.toLowerCase().includes(query))
     .map(c => `
       <div class="character-row ${current?.summary.character_id === c.character_id ? "selected" : ""}" data-id="${c.character_id}">
-        ${c.primary_image ? `<img src="${c.primary_image}" alt="">` : `<div class="missing-img"></div>`}
+        ${c.primary_image ? `<img src="${c.primary_image}" alt="${escapeHtml(c.display_name)} approved portrait">` : `<div class="missing-img">Approved character image unavailable</div>`}
         <div>
           <h3>${escapeHtml(c.display_name)}</h3>
           <p>${escapeHtml(c.series_name || "")}</p>
@@ -650,7 +684,7 @@ function renderStoryCharacterList() {
     <div class="story-character-row">
       <label class="story-check">
         <input type="checkbox" value="${c.character_id}" ${index < 2 ? "checked" : ""}>
-        ${c.primary_image ? `<img src="${c.primary_image}" alt="">` : `<span class="missing-img"></span>`}
+        ${c.primary_image ? `<img src="${c.primary_image}" alt="${escapeHtml(c.display_name)} approved portrait">` : `<span class="missing-img">Approved character image unavailable</span>`}
         <span>
           <strong>${escapeHtml(c.display_name)}</strong>
           <small>${escapeHtml(c.series_name || "")}</small>
@@ -1086,7 +1120,7 @@ function renderDashboardCharacters() {
   if (!container) return;
   container.innerHTML = characters.map(c => `
     <div class="dashboard-character-card" data-id="${c.character_id}">
-      ${c.primary_image ? `<img src="${c.primary_image}" alt="${escapeHtml(c.display_name)}">` : `<div class="missing-img"></div>`}
+      ${c.primary_image ? `<img src="${c.primary_image}" alt="${escapeHtml(c.display_name)} approved portrait">` : `<div class="missing-img">Approved character image unavailable</div>`}
       <div class="dashboard-char-info">
         <strong>${escapeHtml(c.display_name)}</strong>
         <span>Level ${c.development_level}</span>

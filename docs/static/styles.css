@@ -2300,6 +2300,7 @@ body {
 .guided-form legend { font-weight: 700; color: var(--accent); }
 .guided-form textarea { min-height: 72px; }
 .error-message { color: var(--danger); }
+.canon-review-portrait { width: 120px; height: 150px; object-fit: contain; display: block; margin-bottom: 12px; border-radius: 10px; background: #fff; }
 
 
 

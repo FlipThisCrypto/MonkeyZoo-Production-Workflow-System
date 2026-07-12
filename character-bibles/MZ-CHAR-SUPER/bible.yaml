@@ -1,14 +1,17 @@
 schema_version: '1.0'
 identification:
-  current_display_name: Super Monkey
+  current_display_name: Maxx
   series_name: Super Monkey
-  personal_name: null
+  personal_name: Maxx
+  legacy_label: Super
+  nationality: Canadian
+  country_of_origin: Canada
   codename: null
   nicknames:
   - Super
   - mz_faction_super
   - Superhero Monkey with Red Mask
-  naming_status: unresolved
+  naming_status: personal_name_canon
   character_id: MZ-CHAR-SUPER
   development_level: 2
   canon_status: approved_canon

@@ -38,7 +38,14 @@ class BibleStoreError(ValueError):
 
 
 def bible_dirs(root: Path = BIBLES_ROOT) -> list[Path]:
-    return sorted(path for path in root.glob("MZ-CHAR-*") if (path / "bible.yaml").exists())
+    result = []
+    for path in sorted(root.glob("MZ-CHAR-*")):
+        if not (path / "bible.yaml").exists():
+            continue
+        data = load_bible(path.name, root)
+        if not (data.get("identification") or {}).get("alias_of"):
+            result.append(path)
+    return result
 
 
 def load_bible(character_id: str, root: Path = BIBLES_ROOT) -> dict[str, Any]:
@@ -117,6 +124,9 @@ def character_summary(character_id: str, data: dict[str, Any]) -> dict[str, Any]
         "display_name": ident.get("current_display_name"),
         "series_name": ident.get("series_name"),
         "personal_name": ident.get("personal_name"),
+        "legacy_label": ident.get("legacy_label") or ident.get("series_name"),
+        "nationality": ident.get("nationality"),
+        "country_of_origin": ident.get("country_of_origin"),
         "naming_status": ident.get("naming_status"),
         "development_level": ident.get("development_level"),
         "canon_traits": trait_count(data, "canon"),
@@ -125,6 +135,7 @@ def character_summary(character_id: str, data: dict[str, Any]) -> dict[str, Any]
         "last_comic_appearance": last_appearance(data),
         "continuity_warnings": continuity_warnings(data),
         "primary_image": image_url(character_id, visual.get("primary_reference_image")),
+        "image_status": "approved" if visual.get("primary_reference_image") else "unavailable",
     }
 
 
