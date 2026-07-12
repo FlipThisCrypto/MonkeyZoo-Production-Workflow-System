@@ -25,6 +25,28 @@ def test_brand_assets_and_html_ids_are_safe():
     assert "I:\\" not in html
 
 
+def test_banana_theme_is_single_readable_source_of_truth():
+    base = (SOURCE / "styles.css").read_text(encoding="utf-8")
+    theme = (SOURCE / "banana-theme.css").read_text(encoding="utf-8")
+    assert "--banana-yellow" not in base
+    assert theme.count("--banana-yellow:") == 1
+    for selector in (".project-lockup", ".eyebrow", "#createIssueButton"):
+        assert selector not in base
+        assert selector in theme
+    assert "prefers-reduced-motion" in theme
+    assert ":focus-visible" in theme
+    assert max(len(line) for line in theme.splitlines()) < 400
+
+
+def test_local_and_static_load_each_stylesheet_once():
+    source = (SOURCE / "index.html").read_text(encoding="utf-8")
+    static = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
+    assert source.count('href="/static/styles.css"') == 1
+    assert source.count('href="/static/banana-theme.css"') == 1
+    assert static.count('href="./static/styles.css"') == 1
+    assert static.count('href="./static/banana-theme.css"') == 1
+
+
 def test_static_preview_brand_matches_and_remains_read_only():
     source = (SOURCE / "index.html").read_text(encoding="utf-8")
     static = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
