@@ -3220,7 +3220,7 @@
           "QA verdict is pending; exact PASS is required",
           "No final cover image found",
           "Final PDF is missing or empty",
-          "Final CBZ or ZIP package is missing or empty",
+          "A readable, non-empty CBZ or ZIP package is required",
           "metadata contains unresolved TODO placeholders"
         ],
         "qa_verdict": "pending",
@@ -3229,6 +3229,7 @@
         "covers": [],
         "pdfs": [],
         "packages": [],
+        "invalid_packages": [],
         "metadata": {
           "format": "CHIP-0015",
           "missing_fields": [],
@@ -3241,7 +3242,8 @@
         "archive": {
           "path": "05_RELEASE_ARCHIVE/2026/Issue_05",
           "exists": false,
-          "publication_files": []
+          "publication_files": [],
+          "publication_artifacts": []
         }
       },
       "manifest": null,
@@ -7111,6 +7113,7 @@
         "packages": [
           "MonkeyZoo_Issue_06_CBZ.zip"
         ],
+        "invalid_packages": [],
         "metadata": {
           "format": "CHIP-0015",
           "missing_fields": [],
@@ -7123,7 +7126,8 @@
         "archive": {
           "path": "05_RELEASE_ARCHIVE/2026/Issue_06",
           "exists": false,
-          "publication_files": []
+          "publication_files": [],
+          "publication_artifacts": []
         }
       },
       "manifest": null,
