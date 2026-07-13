@@ -88,6 +88,7 @@ def test_sync_hashes_bundle_only_after_static_injection_and_write():
     hash_bundle = sync.index('--update-html "$DocsDir/index.html" "$DocsDir/static/app.js"')
     assert sync.index("$ApiMock") < write_bundle < hash_bundle
     assert sync.index("$CanonicalResolver") < write_bundle < hash_bundle
+    assert sync.index('$JsContent = $JsContent -replace "`r`n", "`n"') < write_bundle
 
 
 def test_checked_in_static_html_token_matches_deployed_bundle():

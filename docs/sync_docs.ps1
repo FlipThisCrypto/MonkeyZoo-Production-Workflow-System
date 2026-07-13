@@ -599,6 +599,8 @@ $JsContent = "window.BANANA_LAB_STATIC_MODE = true;`n" + $JsContent
 # Replace absolute media path references with relative ones
 $JsContent = $JsContent -replace '/media/', './media/'
 
+# Match the LF-normalized bytes stored by Git and deployed by GitHub Pages on every host.
+$JsContent = $JsContent -replace "`r`n", "`n"
 Set-Content -Path "$DocsDir/static/app.js" -Value $JsContent -NoNewline
 
 # Finalize HTML only after every static JavaScript transform has been written.
