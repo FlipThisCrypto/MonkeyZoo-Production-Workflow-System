@@ -13,6 +13,7 @@ import story_workspace
 import page_panel_workspace
 import art_queue_workspace
 import visual_qa_workspace
+import release_workspace
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "00_SYSTEM" / "scripts"))
 import new_issue
 
@@ -250,6 +251,15 @@ def finalize_qa_review(issue_id,review_id):
 def promote_qa_review(issue_id,review_id):
  body=request.get_json(silent=True) or {};return jsonify(visual_qa_workspace.promote(issue_workflow.find_issue(issue_id,WORKSPACE_ROOT),WORKSPACE_ROOT,review_id,body.get("replace") is True))
 
+@app.get("/api/issues/<issue_id>/release")
+def issue_release(issue_id): return jsonify(release_workspace.readiness(issue_workflow.find_issue(issue_id,WORKSPACE_ROOT),WORKSPACE_ROOT))
+@app.post("/api/issues/<issue_id>/release/manifest")
+def create_release_manifest(issue_id): return jsonify(release_workspace.manifest(issue_workflow.find_issue(issue_id,WORKSPACE_ROOT),WORKSPACE_ROOT,True)),201
+@app.post("/api/issues/<issue_id>/release/approve")
+def approve_release(issue_id): return jsonify(release_workspace.approve(issue_workflow.find_issue(issue_id,WORKSPACE_ROOT),WORKSPACE_ROOT,(request.get_json(silent=True) or {}).get("note")))
+@app.post("/api/issues/<issue_id>/release/promote-manifest")
+def promote_release_manifest(issue_id): return jsonify(release_workspace.promote_manifest(issue_workflow.find_issue(issue_id,WORKSPACE_ROOT),WORKSPACE_ROOT,(request.get_json(silent=True) or {}).get("replace") is True))
+
 
 @app.get("/media/<character_id>/<path:rel_path>")
 def media(character_id, rel_path):
@@ -267,6 +277,8 @@ def handle_error(exc):
     elif isinstance(exc, art_queue_workspace.ArtQueueError):
         status, message = exc.status, str(exc)
     elif isinstance(exc, visual_qa_workspace.VisualQAError):
+        status, message = exc.status, str(exc)
+    elif isinstance(exc, release_workspace.ReleaseError):
         status, message = exc.status, str(exc)
     elif isinstance(exc, (store.BibleStoreError, story_context.StoryContextError, new_issue.IssueCreationError, issue_workflow.IssueWorkflowError)):
         status, message = 400, str(exc)

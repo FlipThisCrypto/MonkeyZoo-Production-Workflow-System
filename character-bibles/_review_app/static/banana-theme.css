@@ -190,3 +190,9 @@ dialog { max-height: 90vh; overflow: auto; border: 1px solid rgba(213, 223, 237,
 .qa-owner-inputs { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; margin: 14px 0; }
 @media (max-width: 768px) { .qa-workspace > header { flex-direction: column; } .qa-workspace select { min-width: 0; width: 100%; } }
 @media (max-width: 768px) { .qa-owner-inputs { grid-template-columns: 1fr; } }
+.release-workspace { padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+.release-workspace > header, .release-actions { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.release-workspace select { min-width: 280px; }
+.release-actions { justify-content: flex-start; margin: 14px 0; }
+.release-files { display: grid; gap: 6px; overflow-wrap: anywhere; }
+@media (max-width: 768px) { .release-workspace > header { flex-direction: column; } .release-workspace select { min-width: 0; width: 100%; } }
