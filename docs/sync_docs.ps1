@@ -134,7 +134,7 @@ $HtmlContent = $HtmlContent -replace '<span id="statusBackend" class="status-val
 $BannerDiv = @"
     <div class="studio-main-panel">
       <!-- Demo Preview Banner -->
-      <div class="demo-preview-banner" role="alert">
+      <div class="demo-preview-banner" role="alert" style="pointer-events: none;">
         ⚡ GitHub Pages Demo Preview — Connect the local MonkeyZoo Studio backend for full production functionality.
       </div>
 "@
