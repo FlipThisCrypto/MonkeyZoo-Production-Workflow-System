@@ -11,6 +11,7 @@ import story_context
 import issue_workflow
 import story_workspace
 import page_panel_workspace
+import art_queue_workspace
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "00_SYSTEM" / "scripts"))
 import new_issue
 
@@ -211,6 +212,32 @@ def promote_layout_variant(issue_id, variant_id):
     folder = issue_workflow.find_issue(issue_id, WORKSPACE_ROOT); body = request.get_json(silent=True) or {}
     return jsonify(page_panel_workspace.promote(folder, WORKSPACE_ROOT, variant_id, body.get("replace") is True))
 
+@app.get("/api/issues/<issue_id>/art-queue")
+def issue_art_queue(issue_id):
+    return jsonify(art_queue_workspace.summary(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT))
+
+@app.post("/api/issues/<issue_id>/art-queue/build")
+def build_art_queue(issue_id):
+    return jsonify(art_queue_workspace.build_queue(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, True))
+
+@app.post("/api/issues/<issue_id>/art-queue/<panel_id>/prompt")
+def export_panel_prompt(issue_id,panel_id):
+    return jsonify(art_queue_workspace.prompt_package(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, panel_id))
+
+@app.post("/api/issues/<issue_id>/art-queue/<panel_id>/attempts")
+def import_panel_attempt(issue_id,panel_id):
+    upload=request.files.get("image")
+    if not upload: raise art_queue_workspace.ArtQueueError("Multipart image upload is required")
+    return jsonify(art_queue_workspace.import_attempt(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, panel_id, upload.read(), upload.filename, request.form.get("provider"))),201
+
+@app.post("/api/issues/<issue_id>/art-queue/<panel_id>/attempts/<attempt_id>/select")
+def select_panel_attempt(issue_id,panel_id,attempt_id):
+    return jsonify(art_queue_workspace.select_preferred(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, panel_id,attempt_id))
+
+@app.post("/api/issues/<issue_id>/art-queue/<panel_id>/attempts/<attempt_id>/status")
+def review_panel_attempt(issue_id,panel_id,attempt_id):
+    return jsonify(art_queue_workspace.set_attempt_status(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT,panel_id,attempt_id,(request.get_json(silent=True) or {}).get("status")))
+
 
 @app.get("/media/<character_id>/<path:rel_path>")
 def media(character_id, rel_path):
@@ -224,6 +251,8 @@ def handle_error(exc):
     if isinstance(exc, story_workspace.StoryWorkspaceError):
         status, message = exc.status, str(exc)
     elif isinstance(exc, page_panel_workspace.PagePanelError):
+        status, message = exc.status, str(exc)
+    elif isinstance(exc, art_queue_workspace.ArtQueueError):
         status, message = exc.status, str(exc)
     elif isinstance(exc, (store.BibleStoreError, story_context.StoryContextError, new_issue.IssueCreationError, issue_workflow.IssueWorkflowError)):
         status, message = 400, str(exc)
