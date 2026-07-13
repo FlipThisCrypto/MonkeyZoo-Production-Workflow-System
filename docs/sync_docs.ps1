@@ -255,6 +255,7 @@ async function api(path, options = {}) {
     if (parts[4] === "workflow") return issue?.workflow || {error:"Issue unavailable"};
     if (parts[4] === "artifacts") return issue?.artifacts || [];
     if (parts[4] === "artifact") throw {ok:false, demo_mode:true, error:"Artifact content requires the local backend"};
+    if (parts[4] === "story") return issue?.story || {error:"Story snapshot unavailable", outlines:[], scripts:[]};
     return issue || {error:"Issue unavailable"};
   }
   

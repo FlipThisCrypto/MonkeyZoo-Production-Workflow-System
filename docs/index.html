@@ -523,6 +523,13 @@
                 <section id="storyPreview" class="story-preview hidden"></section>
               </div>
             </div>
+            <section id="productionStoryWorkspace" class="production-story-workspace" aria-labelledby="productionStoryTitle">
+              <header><div><span class="eyebrow">ISSUE PRODUCTION</span><h3 id="productionStoryTitle">Story & Script Workspace</h3><p>Issue Brief → Canon Context → Outline Variants → Approved Outline → Script Variants → Approved Script → Promotion</p></div><label>Real issue<select id="storyProductionIssue" aria-label="Select a real issue"><option value="">Choose an issue</option></select></label></header>
+              <div id="storyProductionStatus" role="status"></div>
+              <section id="storyIssueContext" class="story-context-grid"></section>
+              <details open><summary>Canon context review</summary><div id="storyCanonContext"></div></details>
+              <div class="story-production-columns"><section><h4>Outline variants</h4><div class="story-production-actions"><button id="outlinePromptBtn" type="button">Export manual prompt</button><button id="outlineImportBtn" type="button" class="primary">Import outline</button></div><div id="outlineVariants" class="variant-grid"></div></section><section><h4>Script variants</h4><div class="story-production-actions"><button id="scriptPromptBtn" type="button">Export manual prompt</button><button id="scriptImportBtn" type="button" class="primary">Import script</button></div><div id="scriptVariants" class="variant-grid"></div></section></div>
+            </section>
           </section>
         </div>
 
@@ -784,6 +791,8 @@
     </form>
   </dialog>
   <dialog id="artifactDialog"><div class="artifact-viewer"><header><h3 id="artifactTitle">Artifact</h3><button id="closeArtifactDialog" type="button">Close</button></header><pre id="artifactContent"></pre></div></dialog>
+  <dialog id="storyImportDialog"><form method="dialog"><header><h3 id="storyImportTitle">Import variant</h3><button value="cancel" type="submit">Close</button></header><label>Provider/model label (optional)<input id="storyImportProvider"></label><label>Markdown<textarea id="storyImportContent" rows="20" required></textarea></label><button id="storyImportSubmit" type="button" class="primary">Import safely</button></form></dialog>
+  <dialog id="variantDialog"><header><h3 id="variantDialogTitle">Variant</h3><button id="closeVariantDialog" type="button">Close</button></header><pre id="variantDialogContent"></pre></dialog>
 
   <script src="./static/app.js"></script>
 </body>

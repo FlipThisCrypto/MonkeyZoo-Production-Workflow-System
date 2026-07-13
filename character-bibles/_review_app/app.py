@@ -9,6 +9,7 @@ from werkzeug.exceptions import BadRequest, UnsupportedMediaType
 import bible_store as store
 import story_context
 import issue_workflow
+import story_workspace
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "00_SYSTEM" / "scripts"))
 import new_issue
 
@@ -17,6 +18,12 @@ WORKSPACE_ROOT = APP_DIR.parents[1]
 BIBLES_ROOT = WORKSPACE_ROOT / "character-bibles"
 
 app = Flask(__name__, static_folder="static", static_url_path="/static")
+
+def story_kind(value: str) -> str:
+    kinds = {"outline": "outline", "outlines": "outline", "script": "script", "scripts": "script"}
+    if value not in kinds:
+        raise story_workspace.StoryWorkspaceError("Story kind must be outline, outlines, script, or scripts")
+    return kinds[value]
 
 
 @app.get("/")
@@ -149,6 +156,40 @@ def approve_issue_stage(issue_id):
     body = request.get_json(silent=True) or {}
     return jsonify(issue_workflow.record_approval(folder, WORKSPACE_ROOT, body.get("stage"), body.get("approved"), body.get("note")))
 
+@app.get("/api/issues/<issue_id>/story")
+def issue_story_workspace(issue_id):
+    return jsonify(story_workspace.summary(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT))
+
+@app.get("/api/issues/<issue_id>/story/canon")
+def issue_story_canon(issue_id):
+    return jsonify(story_workspace.canon_snapshot(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, request.args.get("type", "outline")))
+
+@app.post("/api/issues/<issue_id>/story/canon/refresh")
+def issue_story_canon_refresh(issue_id):
+    return jsonify(story_workspace.canon_snapshot(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, (request.get_json(silent=True) or {}).get("type", "outline"), True))
+
+@app.post("/api/issues/<issue_id>/story/<kind>/prompt")
+def issue_story_prompt(issue_id, kind):
+    return jsonify(story_workspace.prompt_package(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, story_kind(kind)))
+
+@app.get("/api/issues/<issue_id>/story/<kind>")
+def issue_story_variants(issue_id, kind):
+    return jsonify(story_workspace.variants(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, story_kind(kind)))
+
+@app.post("/api/issues/<issue_id>/story/<kind>/import")
+def issue_story_import(issue_id, kind):
+    return jsonify(story_workspace.import_variant(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, story_kind(kind), request.get_json(silent=True) or {})), 201
+
+@app.post("/api/issues/<issue_id>/story/<kind>/<variant_id>/approve")
+def issue_story_approve(issue_id, kind, variant_id):
+    body = request.get_json(silent=True) or {}
+    return jsonify(story_workspace.approve(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, story_kind(kind), variant_id, body.get("note")))
+
+@app.post("/api/issues/<issue_id>/story/<kind>/<variant_id>/promote")
+def issue_story_promote(issue_id, kind, variant_id):
+    body = request.get_json(silent=True) or {}
+    return jsonify(story_workspace.promote(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, story_kind(kind), variant_id, body.get("replace") is True))
+
 
 @app.get("/media/<character_id>/<path:rel_path>")
 def media(character_id, rel_path):
@@ -159,8 +200,12 @@ def media(character_id, rel_path):
 
 @app.errorhandler(Exception)
 def handle_error(exc):
-    status = 400 if isinstance(exc, (store.BibleStoreError, story_context.StoryContextError, new_issue.IssueCreationError, issue_workflow.IssueWorkflowError)) else 500
-    message = str(exc) if status == 400 else "Unexpected server error"
+    if isinstance(exc, story_workspace.StoryWorkspaceError):
+        status, message = exc.status, str(exc)
+    elif isinstance(exc, (store.BibleStoreError, story_context.StoryContextError, new_issue.IssueCreationError, issue_workflow.IssueWorkflowError)):
+        status, message = 400, str(exc)
+    else:
+        status, message = 500, "Unexpected server error"
     return jsonify({"ok": False, "error": message}), status
 
 
