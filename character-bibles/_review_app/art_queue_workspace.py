@@ -1,6 +1,6 @@
 """Panel prompt and manual art-attempt queue."""
 from __future__ import annotations
-import datetime as dt, hashlib, io, json, os, re, tempfile, time
+import contextlib, datetime as dt, hashlib, io, json, os, re, tempfile, time
 from pathlib import Path
 from typing import Any
 from PIL import Image
@@ -30,6 +30,17 @@ def _read_json(path,default=None):
     if not path.exists(): return default
     try:return json.loads(path.read_text(encoding="utf-8"))
     except (OSError,ValueError) as exc: raise ArtQueueError(f"Malformed art workspace record: {path.name}") from exc
+@contextlib.contextmanager
+def _selection_lock(folder):
+    path=_workspace(folder)/".selection.lock";path.parent.mkdir(parents=True,exist_ok=True)
+    try:fd=os.open(path,os.O_CREAT|os.O_EXCL|os.O_WRONLY)
+    except FileExistsError as exc:raise ArtQueueError("Preferred-art selection is already in progress",409) from exc
+    try:
+        with os.fdopen(fd,"w") as stream:stream.write(str(os.getpid()))
+        yield
+    finally:
+        try:path.unlink()
+        except FileNotFoundError:pass
 def _stage(folder,root,allowed):
     active=issue_workflow.workflow_status(folder,root)["active_stage"]
     if active not in allowed: raise ArtQueueError(f"Art Queue requires workflow stage {' or '.join(sorted(allowed))}; current stage is {active}",409)
@@ -102,22 +113,52 @@ def set_attempt_status(folder,root,panel_id,attempt_id,status):
     if record.get("status")=="preferred":raise ArtQueueError("Preferred art cannot be rejected without selecting a replacement",409)
     record["status"]=status; record["reviewed_at"]=_now();record["actor"]="project_owner"; path=folder/record["asset_path"];_write_json(path.with_suffix(".json"),record);return record
 def select_preferred(folder,root,panel_id,attempt_id):
-    _stage(folder,root,{"art_production"}); plan=_plan(folder);_panel(plan,panel_id);record=_attempt(folder,panel_id,attempt_id)
-    if record.get("plan_hash")!=_plan_hash(folder):raise ArtQueueError("Art attempt is stale because the canonical panel plan changed",409)
-    if record.get("status") in {"rejected","archived"}:raise ArtQueueError("Rejected or archived art cannot be selected",409)
-    source=folder/record["asset_path"]
-    with Image.open(source) as image:
-        output=io.BytesIO(); image.convert("RGBA").save(output,format="PNG")
-    destination=folder/"generated_art"/"selected_panels"/f"{panel_id}.png";_atomic_bytes(destination,output.getvalue())
-    for prior in attempts(folder,panel_id):
-        if prior.get("status")=="preferred":
-            prior["status"]="candidate"; p=folder/prior["asset_path"];_write_json(p.with_suffix(".json"),prior)
-    record["status"]="preferred";record["selected_at"]=_now();record["actor"]="project_owner";_write_json(source.with_suffix(".json"),record)
-    queue=build_queue(folder,root,True)
-    for item in queue["items"]:
-        if item["panel_id"]==panel_id:item["preferred_attempt"]=attempt_id;item["status"]="approved"
-    _write_json(_workspace(folder)/"queue.json",queue)
-    return {"ok":True,"attempt":record,"selected_path":str(destination.relative_to(folder)).replace("\\","/"),"workflow":issue_workflow.workflow_status(folder,root)}
+    with _selection_lock(folder):
+        _stage(folder,root,{"art_production"});plan=_plan(folder);_panel(plan,panel_id);record=_attempt(folder,panel_id,attempt_id)
+        if record.get("plan_hash")!=_plan_hash(folder):raise ArtQueueError("Art attempt is stale because the canonical panel plan changed",409)
+        if record.get("status") in {"rejected","archived"}:raise ArtQueueError("Rejected or archived art cannot be selected",409)
+        source=folder/record["asset_path"]
+        with Image.open(source) as image:
+            output=io.BytesIO();image.convert("RGBA").save(output,format="PNG")
+        normalized=output.getvalue();fmt,_,_=_image(normalized)
+        if fmt!="PNG":raise ArtQueueError("Preferred art normalization did not produce PNG",409)
+        destination=folder/"generated_art"/"selected_panels"/f"{panel_id}.png";queue_path=_workspace(folder)/"queue.json"
+        attempt_records=attempts(folder,panel_id);attempt_paths={a["attempt_id"]:(folder/a["asset_path"]).with_suffix(".json") for a in attempt_records}
+        attempt_snapshots={aid:path.read_bytes() for aid,path in attempt_paths.items()}
+        destination_snapshot=destination.read_bytes() if destination.exists() else None
+        queue_snapshot=queue_path.read_bytes() if queue_path.exists() else None
+        selected_at=_now()
+        updated=[]
+        for attempt in attempt_records:
+            changed=dict(attempt)
+            if changed["attempt_id"]==attempt_id:
+                changed.update({"status":"preferred","selected_at":selected_at,"actor":"project_owner"})
+            elif changed.get("status")=="preferred":
+                changed["status"]="candidate";changed.pop("selected_at",None)
+            updated.append(changed)
+        try:
+            _atomic_bytes(destination,normalized)
+            for changed in updated:_write_json(attempt_paths[changed["attempt_id"]],changed)
+            queue=build_queue(folder,root,False)
+            _write_json(queue_path,queue)
+            persisted=attempts(folder,panel_id);preferred=[a for a in persisted if a.get("status")=="preferred"]
+            queue_item=next((item for item in _read_json(queue_path,{"items":[]})["items"] if item.get("panel_id")==panel_id),None)
+            if len(preferred)!=1 or preferred[0].get("attempt_id")!=attempt_id or not queue_item or queue_item.get("preferred_attempt")!=attempt_id or queue_item.get("status")!="approved" or _hash(destination.read_bytes())!=_hash(normalized):
+                raise ArtQueueError("Preferred-art selection records are inconsistent",409)
+            workflow=issue_workflow.workflow_status(folder,root)
+        except Exception:
+            if destination_snapshot is None:
+                try:destination.unlink()
+                except FileNotFoundError:pass
+            else:_atomic_bytes(destination,destination_snapshot)
+            for aid,path in attempt_paths.items():_atomic_bytes(path,attempt_snapshots[aid])
+            if queue_snapshot is None:
+                try:queue_path.unlink()
+                except FileNotFoundError:pass
+            else:_atomic_bytes(queue_path,queue_snapshot)
+            raise
+        selected=next(a for a in persisted if a["attempt_id"]==attempt_id)
+        return {"ok":True,"attempt":selected,"selected_path":str(destination.relative_to(folder)).replace("\\","/"),"workflow":workflow}
 def summary(folder,root):
     workflow=issue_workflow.workflow_status(folder,root)
     try:queue=build_queue(folder,root,False)
