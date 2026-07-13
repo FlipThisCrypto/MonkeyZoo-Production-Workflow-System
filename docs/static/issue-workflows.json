@@ -2943,6 +2943,9 @@
           "missing panels: ['MZ-2026-07-05_P01_PANEL01', 'MZ-2026-07-05_P01_PANEL02', 'MZ-2026-07-05_P02_PANEL01', 'MZ-2026-07-05_P02_PANEL02', 'MZ-2026-07-05_P02_PANEL03', 'MZ-2026-07-05_P03_PANEL01', 'MZ-2026-07-05_P03_PANEL02', 'MZ-2026-07-05_P03_PANEL03', 'MZ-2026-07-05_P04_PANEL01', 'MZ-2026-07-05_P05_PANEL01', 'MZ-2026-07-05_P05_PANEL02', 'MZ-2026-07-05_P05_PANEL03', 'MZ-2026-07-05_P06_PANEL01', 'MZ-2026-07-05_P06_PANEL02', 'MZ-2026-07-05_P07_PANEL01', 'MZ-2026-07-05_P07_PANEL02', 'MZ-2026-07-05_P07_PANEL03', 'MZ-2026-07-05_P08_PANEL01', 'MZ-2026-07-05_P08_PANEL02']",
           "metadata missing: ['issue_id', 'title']"
         ],
+        "advisories": [
+          "cover image is absent; Release owns the blocking cover-deliverable requirement"
+        ],
         "planned_panel_count": 19,
         "selected_panel_count": 0
       },
@@ -6494,6 +6497,9 @@
           "identity missing: ['MZ-2026-08-06_P01_PANEL02', 'MZ-2026-08-06_P08_PANEL02']",
           "unmapped images: ['MZ-2026-08-06_P00_PLATE01', 'MZ-2026-08-06_P00_PLATE02', 'MZ-2026-08-06_P00_PLATE03']",
           "metadata missing: ['issue_id', 'title']"
+        ],
+        "advisories": [
+          "cover image is absent; Release owns the blocking cover-deliverable requirement"
         ],
         "planned_panel_count": 19,
         "selected_panel_count": 19
