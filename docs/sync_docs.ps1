@@ -144,7 +144,6 @@ $BannerDiv = @"
       </div>
 "@
 $HtmlContent = $HtmlContent -replace '    <div class="studio-main-panel">', $BannerDiv
-Set-Content -Path "$DocsDir/index.html" -Value $HtmlContent -NoNewline
 
 # 5. Copy JS and replace API fetch + media path hooks
 $JsContent = Get-Content -Path "$StaticDir/app.js" -Raw
@@ -601,5 +600,11 @@ $JsContent = "window.BANANA_LAB_STATIC_MODE = true;`n" + $JsContent
 $JsContent = $JsContent -replace '/media/', './media/'
 
 Set-Content -Path "$DocsDir/static/app.js" -Value $JsContent -NoNewline
+
+# Finalize HTML only after every static JavaScript transform has been written.
+# The deployed bundle never contains its own token, avoiding circular hashing.
+Set-Content -Path "$DocsDir/index.html" -Value $HtmlContent -NoNewline
+$DeployedAppHash = (python "$DocsDir/static_asset_version.py" --update-html "$DocsDir/index.html" "$DocsDir/static/app.js").Trim()
+if ($LASTEXITCODE -ne 0 -or $DeployedAppHash -notmatch '^[0-9a-f]{64}$') { throw "Deployed static app.js version generation failed" }
 
 Write-Output "MonkeyZoo Studio Pages Sync Complete!"
