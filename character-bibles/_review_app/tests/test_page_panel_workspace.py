@@ -82,6 +82,38 @@ def test_existing_canonical_plan_not_silently_overwritten(factory):
     with pytest.raises(layout.PagePanelError,match="replacement confirmation"): layout.promote(issue,root,variant["variant_id"])
     assert json.loads((issue/"page_panel_plan.json").read_text())=={"owner":True}
 
+def _fail_post_write_validation(monkeypatch):
+    original = layout.validate_canonical_payload
+    calls = 0
+    def validate(plan, root):
+        nonlocal calls
+        calls += 1
+        if calls == 2:
+            return {"status":"failed","findings":[{"severity":"error","message":"injected final validation failure"}],"errors":1}
+        return original(plan, root)
+    monkeypatch.setattr(layout, "validate_canonical_payload", validate)
+
+def test_failed_final_validation_restores_existing_plan_and_writes_no_provenance(factory, monkeypatch):
+    root,issue=factory; destination=issue/"page_panel_plan.json"; original=b'{"owner":true}\n'; destination.write_bytes(original)
+    variant=layout.create_variant(issue,root); layout.approve(issue,root,variant["variant_id"]); _fail_post_write_validation(monkeypatch)
+    with pytest.raises(layout.PagePanelError,match="Post-promotion validation failed"): layout.promote(issue,root,variant["variant_id"],True)
+    assert destination.read_bytes()==original
+    assert not (issue/".layout-workspace/promotions"/f'{variant["variant_id"]}.json').exists()
+
+def test_failed_final_validation_does_not_create_plan_or_provenance(factory, monkeypatch):
+    root,issue=factory; variant=layout.create_variant(issue,root); layout.approve(issue,root,variant["variant_id"]); _fail_post_write_validation(monkeypatch)
+    with pytest.raises(layout.PagePanelError,match="Post-promotion validation failed"): layout.promote(issue,root,variant["variant_id"])
+    assert not (issue/"page_panel_plan.json").exists()
+    assert not (issue/".layout-workspace/promotions"/f'{variant["variant_id"]}.json').exists()
+
+def test_successful_replacement_preserves_backup_and_writes_canonical_plan(factory):
+    root,issue=factory; destination=issue/"page_panel_plan.json"; original=b'{"owner":true}\n'; destination.write_bytes(original)
+    variant=layout.create_variant(issue,root); layout.approve(issue,root,variant["variant_id"]); result=layout.promote(issue,root,variant["variant_id"],True)
+    backup=issue/result["promotion"]["backup"]
+    assert backup.read_bytes()==original
+    assert json.loads(destination.read_text(encoding="utf-8"))["issue_id"]=="MZ-2027-03-01"
+    assert (issue/".layout-workspace/promotions"/f'{variant["variant_id"]}.json').exists()
+
 def test_concurrent_promotion_lock_returns_conflict(factory):
     root,issue=factory; variant=layout.create_variant(issue,root); layout.approve(issue,root,variant["variant_id"]); lock=issue/".layout-workspace/.promotion.lock"; lock.write_text("busy")
     with pytest.raises(layout.PagePanelError,match="already in progress"): layout.promote(issue,root,variant["variant_id"])

@@ -46,6 +46,19 @@ def _atomic(path: Path, text: str) -> None:
         raise
 
 
+def _atomic_bytes(path: Path, content: bytes) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, temporary = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=path.parent)
+    try:
+        with os.fdopen(fd, "wb") as stream:
+            stream.write(content); stream.flush(); os.fsync(stream.fileno())
+        os.replace(temporary, path)
+    except Exception:
+        try: os.unlink(temporary)
+        except OSError: pass
+        raise
+
+
 def _write_json(path: Path, data: Any) -> None: _atomic(path, json.dumps(data, indent=2, ensure_ascii=False) + "\n")
 def _read_json(path: Path, default: Any = None) -> Any:
     if not path.exists(): return default
@@ -156,6 +169,31 @@ def validate_plan(plan: dict[str, Any], root: Path) -> dict[str, Any]:
     return {"status":"failed" if any(f["level"]=="error" for f in findings) else "passed", "findings":findings, "errors":sum(f["level"]=="error" for f in findings)}
 
 
+def validate_canonical_payload(plan: dict[str, Any], root: Path) -> dict[str, Any]:
+    """Validate the exact stripped JSON payload written to page_panel_plan.json."""
+    findings = []
+    pages = plan.get("pages", []) if isinstance(plan, dict) else []
+    numbers = [page.get("page_number") for page in pages]
+    if numbers != list(range(1, len(pages) + 1)):
+        findings.append({"level":"error", "message":"Page numbers must be sequential starting at 1"})
+    panel_ids = []
+    issue_id = plan.get("issue_id")
+    for page in pages:
+        for index, panel in enumerate(page.get("panels", []), 1):
+            panel_id = panel.get("panel_id"); panel_ids.append(panel_id)
+            expected = f"{issue_id}_P{page.get('page_number'):02d}_PANEL{index:02d}"
+            if panel_id != expected:
+                findings.append({"level":"error", "message":f"Expected panel ID {expected}, found {panel_id}"})
+            for field in ("location", "action"):
+                if not panel.get(field): findings.append({"level":"error", "message":f"{panel_id} is missing {field}"})
+    if len(panel_ids) != len(set(panel_ids)):
+        findings.append({"level":"error", "message":"Duplicate panel IDs detected"})
+    schema = json.loads((root / "00_SYSTEM" / "page_panel_plan_schema.json").read_text(encoding="utf-8"))
+    for error in Draft202012Validator(schema).iter_errors(plan):
+        findings.append({"level":"error", "message":error.message})
+    return {"status":"failed" if findings else "passed", "findings":findings, "errors":len(findings)}
+
+
 def create_variant(folder: Path, root: Path) -> dict[str, Any]:
     _require_stage(folder, root)
     plan = parse_script(folder, root); variant_id = _variant_id(plan)
@@ -206,17 +244,40 @@ def promote(folder: Path, root: Path, variant_id: str, replace: bool = False) ->
         destination = folder / "page_panel_plan.json"; promotion = _workspace(folder)/"promotions"/f"{variant_id}.json"
         if promotion.exists(): raise PagePanelError("Plan variant was already promoted", 409)
         if destination.exists() and not replace: raise PagePanelError("page_panel_plan.json already exists; explicit replacement confirmation is required", 409)
+        variant_validation = validate_plan(record["plan"], root)
+        canonical = _canonical_plan(record["plan"])
+        canonical_validation = validate_canonical_payload(canonical, root)
+        if variant_validation["status"] != "passed" or canonical_validation["status"] != "passed":
+            raise PagePanelError("Final plan validation failed before promotion", 409)
+        if _hash_json(canonical) != record.get("plan_hash"):
+            raise PagePanelError("Approved plan content changed after approval", 409)
         backup = None
-        if destination.exists():
+        destination_existed = destination.exists()
+        original = destination.read_bytes() if destination_existed else None
+        if destination_existed:
             backup = _workspace(folder)/"promotions"/f"backup-{variant_id}.json"
             if backup.exists(): raise PagePanelError("Replacement backup already exists for this plan variant", 409)
-            _atomic(backup, destination.read_text(encoding="utf-8"))
-        canonical = _canonical_plan(record["plan"]); _write_json(destination, canonical)
-        validation = validate_plan(record["plan"], root)
-        if validation["status"] != "passed": raise PagePanelError("Post-promotion validation failed", 409)
-        provenance = {"variant_id":variant_id,"promoted_at":_now(),"plan_hash":record["plan_hash"],"script_hash":record["script_hash"],"destination":"page_panel_plan.json","backup":str(backup.relative_to(folder)).replace("\\","/") if backup else None,"actor":"project_owner"}
-        _write_json(promotion, provenance)
-        return {"ok":True,"promotion":provenance,"workflow":issue_workflow.workflow_status(folder, root)}
+            _atomic_bytes(backup, original)
+        replacement_started = False
+        try:
+            replacement_started = True
+            _write_json(destination, canonical)
+            written = _read_json(destination)
+            written_validation = validate_canonical_payload(written, root)
+            if written_validation["status"] != "passed" or _hash_json(written) != record["plan_hash"]:
+                raise PagePanelError("Post-promotion validation failed", 409)
+            provenance = {"variant_id":variant_id,"promoted_at":_now(),"plan_hash":record["plan_hash"],"script_hash":record["script_hash"],"destination":"page_panel_plan.json","backup":str(backup.relative_to(folder)).replace("\\","/") if backup else None,"actor":"project_owner"}
+            _write_json(promotion, provenance)
+            refreshed = issue_workflow.workflow_status(folder, root)
+            return {"ok":True,"promotion":provenance,"workflow":refreshed}
+        except Exception:
+            if promotion.exists(): promotion.unlink()
+            if replacement_started:
+                if destination_existed:
+                    _atomic_bytes(destination, backup.read_bytes() if backup and backup.exists() else original)
+                elif destination.exists():
+                    destination.unlink()
+            raise
 
 
 def summary(folder: Path, root: Path) -> dict[str, Any]:
