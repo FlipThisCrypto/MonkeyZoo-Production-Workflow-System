@@ -10,6 +10,7 @@ import bible_store as store
 import story_context
 import issue_workflow
 import story_workspace
+import page_panel_workspace
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "00_SYSTEM" / "scripts"))
 import new_issue
 
@@ -190,6 +191,26 @@ def issue_story_promote(issue_id, kind, variant_id):
     body = request.get_json(silent=True) or {}
     return jsonify(story_workspace.promote(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, story_kind(kind), variant_id, body.get("replace") is True))
 
+@app.get("/api/issues/<issue_id>/layout")
+def issue_layout(issue_id):
+    folder = issue_workflow.find_issue(issue_id, WORKSPACE_ROOT)
+    return jsonify(page_panel_workspace.summary(folder, WORKSPACE_ROOT))
+
+@app.post("/api/issues/<issue_id>/layout/variants")
+def create_layout_variant(issue_id):
+    folder = issue_workflow.find_issue(issue_id, WORKSPACE_ROOT)
+    return jsonify(page_panel_workspace.create_variant(folder, WORKSPACE_ROOT)), 201
+
+@app.post("/api/issues/<issue_id>/layout/variants/<variant_id>/approve")
+def approve_layout_variant(issue_id, variant_id):
+    folder = issue_workflow.find_issue(issue_id, WORKSPACE_ROOT); body = request.get_json(silent=True) or {}
+    return jsonify(page_panel_workspace.approve(folder, WORKSPACE_ROOT, variant_id, body.get("note")))
+
+@app.post("/api/issues/<issue_id>/layout/variants/<variant_id>/promote")
+def promote_layout_variant(issue_id, variant_id):
+    folder = issue_workflow.find_issue(issue_id, WORKSPACE_ROOT); body = request.get_json(silent=True) or {}
+    return jsonify(page_panel_workspace.promote(folder, WORKSPACE_ROOT, variant_id, body.get("replace") is True))
+
 
 @app.get("/media/<character_id>/<path:rel_path>")
 def media(character_id, rel_path):
@@ -201,6 +222,8 @@ def media(character_id, rel_path):
 @app.errorhandler(Exception)
 def handle_error(exc):
     if isinstance(exc, story_workspace.StoryWorkspaceError):
+        status, message = exc.status, str(exc)
+    elif isinstance(exc, page_panel_workspace.PagePanelError):
         status, message = exc.status, str(exc)
     elif isinstance(exc, (store.BibleStoreError, story_context.StoryContextError, new_issue.IssueCreationError, issue_workflow.IssueWorkflowError)):
         status, message = 400, str(exc)

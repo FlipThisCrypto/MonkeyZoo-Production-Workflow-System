@@ -889,13 +889,17 @@ $("generateSampleBtn").addEventListener("click", generateSampleIssue);
 setupIssueCreation();
 setupProductionDashboard();
 setupProductionStoryWorkspace();
+setupLayoutWorkspace();
 loadCharacters();
 
 let activeProductionIssue = null;
+let activeLayout = null;
 
 function renderIssuesList(issues) {
   const selector = $("storyProductionIssue");
   if (selector) selector.innerHTML = '<option value="">Choose an issue</option>' + issues.filter(issue => !issue.degraded).map(issue => `<option value="${escapeHtml(issue.issue_id)}">${escapeHtml(issue.issue_id)} — ${escapeHtml(issue.title)}</option>`).join("");
+  const layoutSelect = $("layoutIssueSelect");
+  if (layoutSelect) layoutSelect.innerHTML = '<option value="">Choose an issue</option>' + issues.filter(i=>!i.degraded).map(i=>`<option value="${escapeHtml(i.issue_id)}">${escapeHtml(i.issue_id)} — ${escapeHtml(i.title)}</option>`).join("");
   const grid = $("issuesWorkspaceGrid");
   if (!grid) return;
   grid.innerHTML = (issues || []).map(issue => `
@@ -953,6 +957,22 @@ async function importStoryVariant() { try { await api(`/api/issues/${encodeURICo
 async function exportStoryPrompt(kind) { try { const data=await api(`/api/issues/${encodeURIComponent(productionStory.issue.issue_id)}/story/${kind}s/prompt`,{method:"POST",body:"{}"}); $("variantDialogTitle").textContent=`${kind} manual prompt package`; $("variantDialogContent").textContent=data.prompt; $("variantDialog").showModal(); } catch(e){ $("storyProductionStatus").textContent=e.message; } }
 function viewStoryVariant(kind,id) { const variant=productionStory[`${kind}s`].find(v=>v.variant_id===id); $("variantDialogTitle").textContent=id; $("variantDialogContent").textContent=variant.content; $("variantDialog").showModal(); }
 async function storyVariantAction(kind,id,action) { try { await api(`/api/issues/${encodeURIComponent(productionStory.issue.issue_id)}/story/${kind}s/${encodeURIComponent(id)}/${action}`,{method:"POST",body:JSON.stringify(action==="promote"?{replace:false}:{note:"Approved in The Banana Lab"})}); await loadProductionStory(productionStory.issue.issue_id); } catch(e){ $("storyProductionStatus").textContent=e.message; } }
+
+function setupLayoutWorkspace(){
+  $("layoutIssueSelect")?.addEventListener("change",e=>loadLayout(e.target.value));
+  $("createPlanVariant")?.addEventListener("click",()=>layoutAction("variants"));
+}
+async function loadLayout(issueId){if(!issueId)return;try{activeLayout=await api(`/api/issues/${encodeURIComponent(issueId)}/layout`);renderLayout()}catch(e){$("layoutStatus").textContent=e.message}}
+function renderLayout(){
+  const staticMode=window.BANANA_LAB_STATIC_MODE===true,w=activeLayout.workflow;
+  $("layoutStatus").textContent=`Active stage: ${w.current_stage.label}. ${w.blockers.join(" ")||"Stage evidence is ready."}`;
+  $("layoutSummary").innerHTML=[["Issue",activeLayout.issue_id],["Stage",w.current_stage.label],["Script",activeLayout.script.exists?"Loaded":"Missing"],["Canonical plan",activeLayout.canonical_plan_exists?"Exists":"Not promoted"],["Variants",activeLayout.variants.length]].map(([k,v])=>`<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
+  $("createPlanVariant").disabled=staticMode||w.active_stage!=="page_plan"; $("createPlanVariant").title=staticMode?"Local backend required":"";
+  $("layoutVariants").innerHTML=activeLayout.variants.length?activeLayout.variants.map(v=>`<article class="layout-variant"><header><strong>${escapeHtml(v.variant_id)}</strong><span>${escapeHtml(v.validation.status)}</span></header><p>${v.script_stale?"Canonical script changed":"Script current"} · ${v.plan.page_count} pages</p><div class="page-strip">${v.plan.pages.map(p=>`<button type="button" aria-label="Page ${p.page_number}, ${p.panels.length} panels">Page ${p.page_number}<small>${p.panels.length} panels</small></button>`).join("")}</div>${v.plan.pages.map(p=>`<details><summary>Page ${p.page_number}: ${escapeHtml(p.page_purpose)}</summary>${p.panels.map(panel=>`<article class="panel-detail"><strong>${escapeHtml(panel.panel_id)}</strong><span>${escapeHtml(panel.location)} · ${escapeHtml(panel.characters.join(", ")||"No characters")}</span><p>${escapeHtml(panel.action)}</p><small>Dialogue: ${escapeHtml(panel.dialogue||"None")} · Caption: ${escapeHtml(panel.caption||"None")} · Props: ${escapeHtml((panel._props||[]).join(", ")||"None")}</small><p>Continuity: ${escapeHtml(panel.continuity_notes||"None")}</p></article>`).join("")}</details>`).join("")}<ul>${v.validation.findings.map(f=>`<li>${escapeHtml(f.level)}: ${escapeHtml(f.message)}</li>`).join("")||"<li>Schema and numbering valid</li>"}</ul><div><button data-layout-approve="${escapeHtml(v.variant_id)}" ${staticMode||v.approval?"disabled":""}>Approve</button><button data-layout-promote="${escapeHtml(v.variant_id)}" ${staticMode||!v.approval_current?"disabled":""}>Promote</button></div></article>`).join(""):"<p>No plan variants yet.</p>";
+  $("layoutVariants").querySelectorAll("[data-layout-approve]").forEach(b=>b.addEventListener("click",()=>layoutAction(`variants/${b.dataset.layoutApprove}/approve`)));
+  $("layoutVariants").querySelectorAll("[data-layout-promote]").forEach(b=>b.addEventListener("click",()=>layoutAction(`variants/${b.dataset.layoutPromote}/promote`)));
+}
+async function layoutAction(path){try{await api(`/api/issues/${encodeURIComponent(activeLayout.issue_id)}/layout/${path}`,{method:"POST",body:"{}"});await loadLayout(activeLayout.issue_id)}catch(e){$("layoutStatus").textContent=e.message}}
 
 function setupProductionDashboard() {
   $("closeProductionDashboard")?.addEventListener("click", () => $("productionDashboard").classList.add("hidden"));

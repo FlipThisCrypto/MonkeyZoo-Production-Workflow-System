@@ -134,7 +134,7 @@ $HtmlContent = $HtmlContent -replace '<span id="statusBackend" class="status-val
 $BannerDiv = @"
     <div class="studio-main-panel">
       <!-- Demo Preview Banner -->
-      <div class="demo-preview-banner" role="alert">
+      <div class="demo-preview-banner" role="alert" style="pointer-events: none;">
         ⚡ GitHub Pages Demo Preview — Connect the local MonkeyZoo Studio backend for full production functionality.
       </div>
 "@
@@ -256,6 +256,7 @@ async function api(path, options = {}) {
     if (parts[4] === "artifacts") return issue?.artifacts || [];
     if (parts[4] === "artifact") throw {ok:false, demo_mode:true, error:"Artifact content requires the local backend"};
     if (parts[4] === "story") return issue?.story || {error:"Story snapshot unavailable", outlines:[], scripts:[]};
+    if (parts[4] === "layout") return issue?.layout || {error:"Layout snapshot unavailable", variants:[]};
     return issue || {error:"Issue unavailable"};
   }
   

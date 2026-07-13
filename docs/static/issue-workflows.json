@@ -1818,6 +1818,249 @@
         "outlines": 0,
         "scripts": 0
       }
+    },
+    "layout": {
+      "issue_id": "MZ-2026-07-05",
+      "workflow": {
+        "issue_id": "MZ-2026-07-05",
+        "active_stage": "intake",
+        "current_stage": {
+          "id": "intake",
+          "number": 1,
+          "label": "Intake",
+          "state": "current_ready"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "current_ready",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "not_started",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "not_started",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "not_started",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "not_started",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "not_started",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "not_started",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Intake"
+        },
+        "owner_approval_required": false,
+        "approval": {
+          "required": false,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "inferred",
+        "state_notice": "Inferred from repository evidence; active stage defaults to Intake and no approval is inferred."
+      },
+      "script": {
+        "exists": true,
+        "sha256": "affb549b9c2d108ff88344978f77d23a10ac2558131d09014c8c546b4cf16d82"
+      },
+      "variants": [],
+      "canonical_plan_exists": true
     }
   },
   {
@@ -2143,6 +2386,11 @@
       "error": "Issue ID must match MZ-YYYY-MM-NN",
       "outlines": [],
       "scripts": []
+    },
+    "layout": {
+      "degraded": true,
+      "error": "Issue ID must match MZ-YYYY-MM-NN",
+      "variants": []
     }
   },
   {
@@ -4210,6 +4458,249 @@
         "outlines": 0,
         "scripts": 0
       }
+    },
+    "layout": {
+      "issue_id": "MZ-2026-08-06",
+      "workflow": {
+        "issue_id": "MZ-2026-08-06",
+        "active_stage": "intake",
+        "current_stage": {
+          "id": "intake",
+          "number": 1,
+          "label": "Intake",
+          "state": "current_ready"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "current_ready",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "not_started",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "not_started",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "not_started",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "not_started",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "not_started",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "not_started",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Intake"
+        },
+        "owner_approval_required": false,
+        "approval": {
+          "required": false,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "inferred",
+        "state_notice": "Inferred from repository evidence; active stage defaults to Intake and no approval is inferred."
+      },
+      "script": {
+        "exists": true,
+        "sha256": "f36cde49cca93bc309cea271a583ca16ef675715607eede35598d3bd19effbbc"
+      },
+      "variants": [],
+      "canonical_plan_exists": true
     }
   }
 ]
