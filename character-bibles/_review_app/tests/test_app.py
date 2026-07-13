@@ -76,6 +76,12 @@ def test_character_api_lists_bibles(client):
     assert data[0]["character_id"] == "MZ-CHAR-API"
 
 
+def test_runtime_capability_requires_exact_trusted_contract(client):
+    res = client.get("/api/runtime-capabilities")
+    assert res.status_code == 200
+    assert res.get_json() == {"schema_version":"1.0", "runtime":"monkeyzoo-local", "capability":"monkeyzoo-production-write-v1", "writable":True}
+
+
 def test_trait_api_updates_bible(client):
     res = client.post("/api/characters/MZ-CHAR-API/trait", json={
         "path": "character_core.dominant_traits.0",

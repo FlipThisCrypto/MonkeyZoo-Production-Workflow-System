@@ -82,12 +82,75 @@ def _brief(folder: Path) -> dict[str, Any]:
     return {"issue_id": issue_workflow._read_issue_id(folder), "title": meta.get("title") or brief.get("Working Title"), "page_count": int(meta.get("page_count") or brief.get("Page Count") or 8), "panel_count": int(meta.get("panel_count") or brief.get("Panel Count") or 24), "primary_character": meta.get("primary_character") or brief.get("Main Character"), "guest_character": meta.get("guest_character") or brief.get("Supporting Characters"), "month": meta.get("issue_month") or brief.get("Issue Month"), "required_canon": meta.get("required_canon_references") or brief.get("Required Canon References"), "prohibited": meta.get("prohibited_story_elements") or brief.get("Prohibited Changes")}
 
 
+def _split_balanced(value: str) -> list[str]:
+    parts, current, depth = [], [], 0
+    for char in value.replace("\r", " ").replace("\n", " "):
+        if char == "(": depth += 1
+        elif char == ")" and depth: depth -= 1
+        if char == "," and depth == 0:
+            token = "".join(current).strip()
+            if token: parts.append(token)
+            current = []
+        else: current.append(char)
+    token = "".join(current).strip()
+    if token: parts.append(token)
+    return parts
+
+
+def _clean_cast_reference(value: str, role: str) -> dict[str, str]:
+    raw = re.sub(r"\s+", " ", str(value or "")).strip()
+    name = raw.split("(", 1)[0].strip()
+    name = re.split(r"\s+(?:—|â€”|-)\s+", name, maxsplit=1)[0].strip()
+    annotation = raw[len(name):].strip(" \t—-")
+    return {"reference": name, "role": role, "annotation": annotation, "source": raw}
+
+
+def _multiline_brief_field(text: str, label: str) -> str | None:
+    match = re.search(rf"(?m)^{re.escape(label)}:\s*(.*)$", text)
+    if not match: return None
+    lines = [match.group(1)]
+    for line in text[match.end():].splitlines():
+        if re.match(r"^[A-Z][A-Za-z0-9 /]+:\s*", line): break
+        if line.strip(): lines.append(line.strip())
+    return "\n".join(lines).strip()
+
+
+def cast_references(folder: Path) -> list[dict[str, str]]:
+    """Prefer structured stable IDs, with balanced prose parsing as compatibility fallback."""
+    meta = _read_json(folder / "metadata.json", {}) or {}
+    structured = meta.get("character_ids") or meta.get("cast")
+    if isinstance(structured, list) and structured:
+        result = []
+        for index, item in enumerate(structured):
+            if isinstance(item, dict):
+                value = item.get("character_id") or item.get("id") or item.get("name")
+                role = item.get("role") or ("primary" if index == 0 else "guest")
+            else: value, role = item, "primary" if index == 0 else "guest"
+            if value: result.append(_clean_cast_reference(str(value), str(role)))
+        return result
+    if meta.get("primary_character") or meta.get("guest_character"):
+        result = []
+        if meta.get("primary_character"): result.append(_clean_cast_reference(meta["primary_character"], "primary"))
+        for token in _split_balanced(str(meta.get("guest_character") or "")):
+            result.append(_clean_cast_reference(token, "guest"))
+        return result
+    text = (folder / "issue_brief.md").read_text(encoding="utf-8", errors="replace") if (folder / "issue_brief.md").exists() else ""
+    result = []
+    main = _multiline_brief_field(text, "Main Character")
+    if main: result.append(_clean_cast_reference(main, "primary"))
+    supporting = _multiline_brief_field(text, "Supporting Characters")
+    for token in _split_balanced(supporting or ""):
+        result.append(_clean_cast_reference(token, "guest"))
+    return result
+
+
 def canon_snapshot(folder: Path, root: Path, generation_type: str, persist: bool = False) -> dict[str, Any]:
     brief = _brief(folder)
     sources, characters, aliases, warnings, excluded = [], [], {}, [], []
-    raw_ids = [brief.get("primary_character"), brief.get("guest_character")]
-    for raw in filter(None, raw_ids):
-        for token in [v.strip() for v in str(raw).split(",") if v.strip()]:
+    references = cast_references(folder)
+    for reference in references:
+        token = reference["reference"]
+        if token:
             try:
                 canonical = bible_store.resolve_character_id(token, root / "character-bibles")
                 if canonical in [c["character_id"] for c in characters]: continue
@@ -96,17 +159,17 @@ def canon_snapshot(folder: Path, root: Path, generation_type: str, persist: bool
                 path = root / "character-bibles" / canonical / "bible.yaml"
                 aliases[token] = canonical
                 sources.append({"path": str(path.relative_to(root)).replace("\\", "/"), "sha256": _hash_bytes(path.read_bytes())})
-                characters.append({"character_id": canonical, "display_name": ident.get("current_display_name"), "personal_name": ident.get("personal_name"), "legacy_labels": ident.get("legacy_labels") or [], "nationality": ident.get("nationality"), "origin": ident.get("origin"), "canon_status": ident.get("canon_status"), "role": "primary" if not characters else "guest", "voice": data.get("voice_and_dialogue", {}), "relationships": data.get("relationships", []), "constraints": data.get("personality_and_behavior", {}), "visual_constraints": data.get("visual_canon", {}).get("features_that_must_never_change", [])})
+                characters.append({"character_id": canonical, "display_name": ident.get("current_display_name"), "personal_name": ident.get("personal_name"), "legacy_labels": ident.get("legacy_labels") or [], "nationality": ident.get("nationality"), "origin": ident.get("origin"), "canon_status": ident.get("canon_status"), "role": reference["role"], "source_annotation": reference["annotation"], "voice": data.get("voice_and_dialogue", {}), "relationships": data.get("relationships", []), "constraints": data.get("personality_and_behavior", {}), "visual_constraints": data.get("visual_canon", {}).get("features_that_must_never_change", [])})
             except ValueError:
                 warnings.append(f"Unsupported character reference: {token}")
-                excluded.append({"source": token, "reason": "missing reliable approved identity"})
+                excluded.append({"source": reference["source"], "reference": token, "reason": "missing reliable approved identity"})
     for rel in ["00_SYSTEM/monkeyzoo_master_bible.md", "00_SYSTEM/world_bible.md", "00_SYSTEM/continuity_ledger.md"]:
         path = root / rel
         if path.exists(): sources.append({"path": rel, "sha256": _hash_bytes(path.read_bytes())})
     season = next(iter(sorted((root / "story-bibles" / "seasons").glob("*/SEASON-BIBLE.md"))), None) if (root / "story-bibles" / "seasons").exists() else None
     if season: sources.append({"path": str(season.relative_to(root)).replace("\\", "/"), "sha256": _hash_bytes(season.read_bytes())})
     brief_path = folder / "issue_brief.md"
-    snapshot = {"schema_version":"1.0", "issue_id":brief["issue_id"], "generation_type":generation_type, "created_at":_now() if persist else None, "canon_sources":sources, "character_ids":[c["character_id"] for c in characters], "characters":characters, "alias_resolutions":aliases, "issue_brief_hash":_hash_bytes(brief_path.read_bytes()) if brief_path.exists() else None, "season_plan_hash": next((s["sha256"] for s in sources if "SEASON-BIBLE" in s["path"]), None), "previous_issue_references":[], "warnings":warnings, "excluded":excluded}
+    snapshot = {"schema_version":"1.0", "issue_id":brief["issue_id"], "generation_type":generation_type, "created_at":_now() if persist else None, "canon_sources":sources, "character_ids":[c["character_id"] for c in characters], "characters":characters, "cast_references":references, "alias_resolutions":aliases, "issue_brief_hash":_hash_bytes(brief_path.read_bytes()) if brief_path.exists() else None, "season_plan_hash": next((s["sha256"] for s in sources if "SEASON-BIBLE" in s["path"]), None), "previous_issue_references":[], "warnings":warnings, "excluded":excluded}
     snapshot["snapshot_hash"] = _hash_text(json.dumps({k:v for k,v in snapshot.items() if k not in {"created_at","snapshot_hash"}}, sort_keys=True))
     if persist: _write_json(_workspace(folder) / "canon-snapshots" / f"{snapshot['snapshot_hash']}.json", snapshot)
     return snapshot

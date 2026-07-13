@@ -118,6 +118,11 @@ python "$DocsDir/export_static_issues.py"
 if ($LASTEXITCODE -ne 0) { throw "Static issue workflow export failed" }
 
 # 4. Copy HTML and convert asset links + inject banner
+$AppHash = (python "$DocsDir/static_asset_version.py" "$StaticDir/app.js").Trim()
+if ($LASTEXITCODE -ne 0 -or $AppHash -notmatch '^[0-9a-f]{64}$') { throw "Static app.js version generation failed" }
+$SourceHtml = Get-Content -Path "$StaticDir/index.html" -Raw
+$SourceHtml = $SourceHtml -replace '/static/app\.js(?:\?v=[0-9a-f]+)?', "/static/app.js?v=$AppHash"
+Set-Content -Path "$StaticDir/index.html" -Value $SourceHtml -NoNewline
 $HtmlContent = Get-Content -Path "$StaticDir/index.html" -Raw
 $HtmlContent = $HtmlContent -replace '/static/styles.css', './static/styles.css'
 $HtmlContent = $HtmlContent -replace '/static/app.js', './static/app.js'
@@ -149,17 +154,10 @@ $ApiTarget = 'async function api\(path, options = \{\}\) \{[\s\S]*?return data;\
 $ApiMock = @'
 // Intercept API calls for static GitHub Pages preview
 async function api(path, options = {}) {
-  console.log("Pages Demo Mode Intercept:", path, options);
-  
   const cleanPath = path.split("?")[0];
-  
-  // Strict write operations block: return false result and throw error
-  const isWrite = cleanPath.endsWith("/trait") || 
-                  cleanPath.endsWith("/field") || 
-                  cleanPath.endsWith("/undo") || 
-                  cleanPath === "/api/story/save" || 
-                  cleanPath === "/api/story/generate-sample" ||
-                  (cleanPath === "/api/issues" && (options.method || "GET").toUpperCase() !== "GET");
+  const method = String(options.method || "GET").toUpperCase();
+  const readOnlyPost = new Set(["/api/compare", "/api/story/preview", "/api/story/validate-script"]);
+  const isWrite = method !== "GET" && !readOnlyPost.has(cleanPath);
                   
   if (isWrite) {
     alert("This action is unavailable in the GitHub Pages demo. Run MonkeyZoo Studio locally to modify production data.");
@@ -168,6 +166,10 @@ async function api(path, options = {}) {
       "demo_mode": true,
       "error": "Local backend required"
     };
+  }
+
+  if (cleanPath === "/api/runtime-capabilities") {
+    return {schema_version:"1.0", runtime:"static-preview", capability:null, writable:false};
   }
   
   // Mock read data mapping
@@ -311,6 +313,17 @@ async function api(path, options = {}) {
 }
 
 function getMockCharacterDetail(cid) {
+  const canonical = characters.find(item => item.character_id === cid);
+  if (canonical) return {
+    summary: canonical,
+    detail: {identification: {
+      current_display_name: canonical.display_name,
+      series_name: canonical.series_name,
+      personal_name: canonical.personal_name,
+      naming_status: canonical.naming_status
+    }, visual_canon: {primary_reference_image: canonical.primary_image}, history: []},
+    traits: []
+  };
   const charactersMap = {
     "MZ-CHAR-CLEVER": {
       "summary": {
@@ -501,18 +514,23 @@ function getMockCharacterDetail(cid) {
     }
   };
   
-  return charactersMap[cid] || charactersMap["MZ-CHAR-CLEVER"];
+  return charactersMap[cid] || {
+    summary: {character_id:cid, display_name:`Unresolved character (${cid})`, series_name:"Unresolved character", personal_name:null, naming_status:"unresolved", primary_image:null},
+    detail: {identification:{current_display_name:`Unresolved character (${cid})`, naming_status:"unresolved"}, visual_canon:{primary_reference_image:null}, history:[]},
+    traits: [], unresolved:true
+  };
 }
 
 function getMockStoryPreview(setup) {
   const castIds = (setup.characters || []).map(c => c.character_id);
-  const selectedCastNames = castIds.map(id => id.replace("MZ-CHAR-", ""));
+  const unresolved = castIds.filter(id => getMockCharacterDetail(id).unresolved);
   
   return {
     "packet": {
       "selected_cast": castIds.map(id => {
         const detail = getMockCharacterDetail(id);
         return {
+          "character_id": id,
           "display_name": detail.summary.display_name,
           "series_name": detail.summary.series_name,
           "personal_name": detail.summary.personal_name,
@@ -539,7 +557,7 @@ function getMockStoryPreview(setup) {
         "Beat 2: Discovery of topic [Demo Placeholder]"
       ]
     },
-    "warnings": [],
+    "warnings": unresolved.map(id => `Unresolved character ID: ${id}`),
     "prompt": `### MonkeyZoo Comic Script Generation Prompt [Demo Placeholder]`,
     "generated_script": `#### Page 1: Front Cover [Demo Placeholder]
 Narrative Box: THE SIGNAL BETWEEN US [Demo Placeholder]`,
@@ -554,6 +572,29 @@ Narrative Box: THE SIGNAL BETWEEN US [Demo Placeholder]`,
 '@
 
 $JsContent = [regex]::Replace($JsContent, $ApiTarget, $ApiMock)
+$CanonicalResolver = @'
+function getMockCharacterDetail(cid) {
+  const canonical = characters.find(item => item.character_id === cid);
+  if (canonical) return {
+    summary: canonical,
+    detail: {identification: {
+      current_display_name: canonical.display_name,
+      series_name: canonical.series_name,
+      personal_name: canonical.personal_name,
+      naming_status: canonical.naming_status
+    }, visual_canon: {primary_reference_image: canonical.primary_image}, history: []},
+    traits: []
+  };
+  return {
+    summary: {character_id:cid, display_name:`Unresolved character (${cid})`, series_name:"Unresolved character", personal_name:null, naming_status:"unresolved", primary_image:null},
+    detail: {identification:{current_display_name:`Unresolved character (${cid})`, naming_status:"unresolved"}, visual_canon:{primary_reference_image:null}, history:[]},
+    traits: [], unresolved:true
+  };
+}
+
+function getMockStoryPreview
+'@
+$JsContent = [regex]::Replace($JsContent, 'function getMockCharacterDetail\(cid\) \{[\s\S]*?function getMockStoryPreview', $CanonicalResolver)
 $JsContent = "window.BANANA_LAB_STATIC_MODE = true;`n" + $JsContent
 
 # Replace absolute media path references with relative ones
