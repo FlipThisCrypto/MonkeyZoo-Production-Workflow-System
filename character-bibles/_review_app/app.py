@@ -12,6 +12,7 @@ import issue_workflow
 import story_workspace
 import page_panel_workspace
 import art_queue_workspace
+import visual_qa_workspace
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "00_SYSTEM" / "scripts"))
 import new_issue
 
@@ -238,6 +239,17 @@ def select_panel_attempt(issue_id,panel_id,attempt_id):
 def review_panel_attempt(issue_id,panel_id,attempt_id):
     return jsonify(art_queue_workspace.set_attempt_status(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT,panel_id,attempt_id,(request.get_json(silent=True) or {}).get("status")))
 
+@app.get("/api/issues/<issue_id>/qa")
+def issue_qa(issue_id): return jsonify(visual_qa_workspace.summary(issue_workflow.find_issue(issue_id,WORKSPACE_ROOT),WORKSPACE_ROOT))
+@app.post("/api/issues/<issue_id>/qa/reviews")
+def create_qa_review(issue_id): return jsonify(visual_qa_workspace.create_review(issue_workflow.find_issue(issue_id,WORKSPACE_ROOT),WORKSPACE_ROOT)),201
+@app.post("/api/issues/<issue_id>/qa/reviews/<review_id>/finalize")
+def finalize_qa_review(issue_id,review_id):
+ body=request.get_json(silent=True) or {};return jsonify(visual_qa_workspace.finalize(issue_workflow.find_issue(issue_id,WORKSPACE_ROOT),WORKSPACE_ROOT,review_id,body.get("verdict"),body.get("notes"),body.get("continuity_checks")))
+@app.post("/api/issues/<issue_id>/qa/reviews/<review_id>/promote")
+def promote_qa_review(issue_id,review_id):
+ body=request.get_json(silent=True) or {};return jsonify(visual_qa_workspace.promote(issue_workflow.find_issue(issue_id,WORKSPACE_ROOT),WORKSPACE_ROOT,review_id,body.get("replace") is True))
+
 
 @app.get("/media/<character_id>/<path:rel_path>")
 def media(character_id, rel_path):
@@ -253,6 +265,8 @@ def handle_error(exc):
     elif isinstance(exc, page_panel_workspace.PagePanelError):
         status, message = exc.status, str(exc)
     elif isinstance(exc, art_queue_workspace.ArtQueueError):
+        status, message = exc.status, str(exc)
+    elif isinstance(exc, visual_qa_workspace.VisualQAError):
         status, message = exc.status, str(exc)
     elif isinstance(exc, (store.BibleStoreError, story_context.StoryContextError, new_issue.IssueCreationError, issue_workflow.IssueWorkflowError)):
         status, message = 400, str(exc)

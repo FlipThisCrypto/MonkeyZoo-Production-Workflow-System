@@ -2307,6 +2307,649 @@
         "execution_mode": "manual",
         "available": true
       }
+    },
+    "qa": {
+      "issue_id": "MZ-2026-07-05",
+      "workflow": {
+        "issue_id": "MZ-2026-07-05",
+        "active_stage": "intake",
+        "current_stage": {
+          "id": "intake",
+          "number": 1,
+          "label": "Intake",
+          "state": "current_ready"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "current_ready",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "not_started",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "not_started",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "not_started",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "not_started",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "not_started",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "not_started",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Intake"
+        },
+        "owner_approval_required": false,
+        "approval": {
+          "required": false,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "inferred",
+        "state_notice": "Inferred from repository evidence; active stage defaults to Intake and no approval is inferred."
+      },
+      "evidence": {
+        "evidence_hash": "ff45d782cb80b6f75ce1e1802a0b49e313945b86a3ef87d27fd2f672857a28f9",
+        "panels": [
+          {
+            "panel_id": "MZ-2026-07-05_P01_PANEL01",
+            "characters": [
+              "Moodz",
+              "TwoTone",
+              "Static",
+              "Ash",
+              "NeonBlue",
+              "Scarline"
+            ],
+            "dialogue": "",
+            "caption": "FusionZoo never calls to say hi.",
+            "continuity_notes": "Street matches Emo ref #973 backdrop; billboard = Ed.4 signage",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P01_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P01_PANEL02",
+            "characters": [
+              "Static",
+              "TwoTone",
+              "Moodz"
+            ],
+            "dialogue": "STATIC: \"Danger level: four.\" / TWOTONE: \"Of five?\" / STATIC: \"Of four.\"",
+            "caption": "",
+            "continuity_notes": "STARTS running joke: Static's danger meter",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P01_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P02_PANEL01",
+            "characters": [
+              "Moodz"
+            ],
+            "dialogue": "",
+            "caption": "The Annex is where the truth lives. The marketing lives out front.",
+            "continuity_notes": "Annex established Ed.2; deliberate Ed.4 corridor-reflection echo",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P02_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P02_PANEL02",
+            "characters": [
+              "NeonBlue",
+              "Ash"
+            ],
+            "dialogue": "NEONBLUE: \"A free update! That's basically a gift.\" / ASH: \"Gifts knock.\"",
+            "caption": "",
+            "continuity_notes": "Ad-copy joke continues; Ash <=4 words rule",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P02_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P02_PANEL03",
+            "characters": [
+              "Moodz"
+            ],
+            "dialogue": "MOODZ: \"Stay behind me.\"",
+            "caption": "",
+            "continuity_notes": "Arc positioning: Ed.4 he hesitated at a door, now he leads",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P02_PANEL03.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P03_PANEL01",
+            "characters": [
+              "Moodz",
+              "Static"
+            ],
+            "dialogue": "STATIC: \"Danger level: four point five.\"",
+            "caption": "",
+            "continuity_notes": "Corridor = Ed.4 facility design, aged/disused variant",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P03_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P03_PANEL02",
+            "characters": [
+              "The Stayed (3-4 faction zombies)"
+            ],
+            "dialogue": "THE STAYED: \"MORE.\" \"MORE.\"",
+            "caption": "",
+            "continuity_notes": "ZOMBIE FACTION ON-PAGE DEBUT — resolves Ed.4 teaser",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P03_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P03_PANEL03",
+            "characters": [
+              "One of the Stayed"
+            ],
+            "dialogue": "",
+            "caption": "Not everyone walks away. Some monkeys just… stayed.",
+            "continuity_notes": "Caption pays off Ed.4 rear-cover line verbatim",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P03_PANEL03.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P04_PANEL01",
+            "characters": [
+              "The Stayed (horde 8-10)",
+              "Moodz",
+              "TwoTone",
+              "Static",
+              "Ash",
+              "NeonBlue",
+              "Scarline"
+            ],
+            "dialogue": "",
+            "caption": "They never stopped fusing. There was always one more upgrade.",
+            "continuity_notes": "Cracked chamber = Ed.4 teaser image, now located: Chamber 0",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P04_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P05_PANEL01",
+            "characters": [
+              "NeonBlue",
+              "Patch"
+            ],
+            "dialogue": "PATCH: \"MORE… utility…\"",
+            "caption": "",
+            "continuity_notes": "NEW CHARACTER Patch; smile-drop wind-up, not the drop",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P05_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P05_PANEL02",
+            "characters": [
+              "NeonBlue"
+            ],
+            "dialogue": "NEONBLUE: \"…Patch?\"",
+            "caption": "Patch went in with NeonBlue, years ago. Only one of them came back out.",
+            "continuity_notes": "Backstory consistent with Ed.4 insecurity; logged as new lore",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P05_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P05_PANEL03",
+            "characters": [
+              "Patch",
+              "NeonBlue"
+            ],
+            "dialogue": "PATCH: \"You… stopped?\" / NEONBLUE: \"I— I took a break. Breaks are self-care.\"",
+            "caption": "",
+            "continuity_notes": "Running joke bent into pathos",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P05_PANEL03.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P06_PANEL01",
+            "characters": [
+              "Moodz",
+              "TwoTone",
+              "Static",
+              "Ash",
+              "NeonBlue",
+              "Scarline",
+              "The Stayed (turning)"
+            ],
+            "dialogue": "STATIC: \"DANGER LEVEL: FIVE!\"",
+            "caption": "",
+            "continuity_notes": "Auto-protocol is PRESSURE not physics — nobody on platform, cannot commit (world bible rule 1)",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P06_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P06_PANEL02",
+            "characters": [
+              "Moodz"
+            ],
+            "dialogue": "MOODZ: \"Not today.\"",
+            "caption": "Last time, he screamed. This time he just knew where the button was.",
+            "continuity_notes": "Direct arc payoff of Ed.4; abort-during-sync canon since Ed.4",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P06_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P07_PANEL01",
+            "characters": [
+              "Scarline",
+              "The Stayed (dimming, background)"
+            ],
+            "dialogue": "THE STAYED: \"more…\" / SCARLINE: \"You can't unplug appetite.\"",
+            "caption": "",
+            "continuity_notes": "Scarline speech law: one clear sentence, once",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P07_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P07_PANEL02",
+            "characters": [
+              "Moodz",
+              "TwoTone"
+            ],
+            "dialogue": "TWOTONE: \"Locked?\" / MOODZ: \"Open. Their terms.\"",
+            "caption": "",
+            "continuity_notes": "Ed.4 closing exchange inverted; door-open = new open thread",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P07_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P07_PANEL03",
+            "characters": [
+              "Patch"
+            ],
+            "dialogue": "",
+            "caption": "Choice is the upgrade.",
+            "continuity_notes": "Caption = Ed.4 closing thesis paid forward; PATCH AT THRESHOLD = open thread",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P07_PANEL03.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P08_PANEL01",
+            "characters": [
+              "Moodz",
+              "TwoTone",
+              "Static",
+              "Ash",
+              "NeonBlue",
+              "Scarline"
+            ],
+            "dialogue": "ASH: \"Loud in there.\" / STATIC: \"Danger level: zero. …One.\"",
+            "caption": "",
+            "continuity_notes": "Squad exits unchanged and by choice — franchise voice",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P08_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-07-05_P08_PANEL02",
+            "characters": [
+              "Red-masked silhouette (Super faction, UNNAMED)"
+            ],
+            "dialogue": "",
+            "caption": "Someone else got the recall notice too.",
+            "continuity_notes": "NEW OPEN THREAD -> next issue: Super faction",
+            "path": "generated_art/selected_panels/MZ-2026-07-05_P08_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          }
+        ],
+        "checks": {
+          "missing_panels": [
+            "MZ-2026-07-05_P01_PANEL01",
+            "MZ-2026-07-05_P01_PANEL02",
+            "MZ-2026-07-05_P02_PANEL01",
+            "MZ-2026-07-05_P02_PANEL02",
+            "MZ-2026-07-05_P02_PANEL03",
+            "MZ-2026-07-05_P03_PANEL01",
+            "MZ-2026-07-05_P03_PANEL02",
+            "MZ-2026-07-05_P03_PANEL03",
+            "MZ-2026-07-05_P04_PANEL01",
+            "MZ-2026-07-05_P05_PANEL01",
+            "MZ-2026-07-05_P05_PANEL02",
+            "MZ-2026-07-05_P05_PANEL03",
+            "MZ-2026-07-05_P06_PANEL01",
+            "MZ-2026-07-05_P06_PANEL02",
+            "MZ-2026-07-05_P07_PANEL01",
+            "MZ-2026-07-05_P07_PANEL02",
+            "MZ-2026-07-05_P07_PANEL03",
+            "MZ-2026-07-05_P08_PANEL01",
+            "MZ-2026-07-05_P08_PANEL02"
+          ],
+          "duplicate_art": [],
+          "invalid_images": [],
+          "dimension_mismatches": [],
+          "identity_missing": [],
+          "unmapped_images": [],
+          "dialogue_or_caption_panels": [
+            "MZ-2026-07-05_P01_PANEL01",
+            "MZ-2026-07-05_P01_PANEL02",
+            "MZ-2026-07-05_P02_PANEL01",
+            "MZ-2026-07-05_P02_PANEL02",
+            "MZ-2026-07-05_P02_PANEL03",
+            "MZ-2026-07-05_P03_PANEL01",
+            "MZ-2026-07-05_P03_PANEL02",
+            "MZ-2026-07-05_P03_PANEL03",
+            "MZ-2026-07-05_P04_PANEL01",
+            "MZ-2026-07-05_P05_PANEL01",
+            "MZ-2026-07-05_P05_PANEL02",
+            "MZ-2026-07-05_P05_PANEL03",
+            "MZ-2026-07-05_P06_PANEL01",
+            "MZ-2026-07-05_P06_PANEL02",
+            "MZ-2026-07-05_P07_PANEL01",
+            "MZ-2026-07-05_P07_PANEL02",
+            "MZ-2026-07-05_P07_PANEL03",
+            "MZ-2026-07-05_P08_PANEL01",
+            "MZ-2026-07-05_P08_PANEL02"
+          ],
+          "continuity_missing": [],
+          "cover_prompt_exists": true,
+          "cover_images": 0,
+          "metadata_missing": [
+            "issue_id",
+            "title"
+          ],
+          "checklist_exists": true
+        },
+        "blockers": [
+          "missing panels: ['MZ-2026-07-05_P01_PANEL01', 'MZ-2026-07-05_P01_PANEL02', 'MZ-2026-07-05_P02_PANEL01', 'MZ-2026-07-05_P02_PANEL02', 'MZ-2026-07-05_P02_PANEL03', 'MZ-2026-07-05_P03_PANEL01', 'MZ-2026-07-05_P03_PANEL02', 'MZ-2026-07-05_P03_PANEL03', 'MZ-2026-07-05_P04_PANEL01', 'MZ-2026-07-05_P05_PANEL01', 'MZ-2026-07-05_P05_PANEL02', 'MZ-2026-07-05_P05_PANEL03', 'MZ-2026-07-05_P06_PANEL01', 'MZ-2026-07-05_P06_PANEL02', 'MZ-2026-07-05_P07_PANEL01', 'MZ-2026-07-05_P07_PANEL02', 'MZ-2026-07-05_P07_PANEL03', 'MZ-2026-07-05_P08_PANEL01', 'MZ-2026-07-05_P08_PANEL02']",
+          "metadata missing: ['issue_id', 'title']"
+        ],
+        "advisories": [
+          "cover image is absent; Release owns the blocking cover-deliverable requirement"
+        ],
+        "planned_panel_count": 19,
+        "selected_panel_count": 0
+      },
+      "reviews": []
     }
   },
   {
@@ -2644,6 +3287,17 @@
       "queue": {
         "items": []
       }
+    },
+    "qa": {
+      "degraded": true,
+      "error": "Issue ID must match MZ-YYYY-MM-NN",
+      "evidence": {
+        "panels": [],
+        "blockers": [
+          "Issue ID must match MZ-YYYY-MM-NN"
+        ]
+      },
+      "reviews": []
     }
   },
   {
@@ -5200,6 +5854,657 @@
         "execution_mode": "manual",
         "available": true
       }
+    },
+    "qa": {
+      "issue_id": "MZ-2026-08-06",
+      "workflow": {
+        "issue_id": "MZ-2026-08-06",
+        "active_stage": "intake",
+        "current_stage": {
+          "id": "intake",
+          "number": 1,
+          "label": "Intake",
+          "state": "current_ready"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "current_ready",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "not_started",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "not_started",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "not_started",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "not_started",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "not_started",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "not_started",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Intake"
+        },
+        "owner_approval_required": false,
+        "approval": {
+          "required": false,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "inferred",
+        "state_notice": "Inferred from repository evidence; active stage defaults to Intake and no approval is inferred."
+      },
+      "evidence": {
+        "evidence_hash": "db9cdb6e7b8842f04dce46c7e9e58813799f249ae9475a29cf4c660b45a28f3f",
+        "panels": [
+          {
+            "panel_id": "MZ-2026-08-06_P01_PANEL01",
+            "characters": [
+              "Static",
+              "Moodz",
+              "TwoTone",
+              "Ash",
+              "NeonBlue",
+              "Scarline",
+              "Patch"
+            ],
+            "dialogue": "STATIC: \"Something's… broadcasting.\"",
+            "caption": "",
+            "continuity_notes": "Ear-cup listening beat (headphones removed from canon, ERR-2026-07-06); Patch squad-adjacent resolves Issue 05 threshold; cameo keeps Super teaser warm",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P01_PANEL01.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "642f47825891415dbbdef51e022c1088f473dc96168128f7da932964241a18a1",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P01_PANEL02",
+            "characters": [],
+            "dialogue": "",
+            "caption": "FusionZoo shut the old network down years ago. Someone forgot to tell the network.",
+            "continuity_notes": "NEW LORE — the Signal, first appearance",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P01_PANEL02.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "6d259484271d7d9494e4134d486ca9e08f4978626db60ae11c0a16d19d0c4f00",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P02_PANEL01",
+            "characters": [
+              "NeonBlue",
+              "TwoTone"
+            ],
+            "dialogue": "NEONBLUE: \"It's a distress call. Someone needs us!\" / TWOTONE: \"It repeats. It's a loop.\"",
+            "caption": "",
+            "continuity_notes": "Idea beats: NeonBlue believes rescue; TwoTone hears structure",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P02_PANEL01.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "680b1e44441e9db0cc4c7dfaface8c78584eba0ec70a68fc09afc0b86ea1c45d",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P02_PANEL02",
+            "characters": [
+              "Moodz"
+            ],
+            "dialogue": "MOODZ: \"Traps hum. That's a hum.\"",
+            "caption": "",
+            "continuity_notes": "Idea beat: Emo(→Moodz) thinks trap",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P02_PANEL02.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1024,
+            "height": 1024,
+            "sha256": "f023d87141c8188e191213ff72a67d3d78b40bdaa0a4cb0860a7968646528448",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P02_PANEL03",
+            "characters": [
+              "Patch",
+              "NeonBlue"
+            ],
+            "dialogue": "PATCH: \"…home frequency.\" / NEONBLUE: \"The what? Patch — the WHAT?\"",
+            "caption": "Patch doesn't explain things. Mostly, he doesn't know how anymore.",
+            "continuity_notes": "Idea beat: Patch recognizes, won't explain; HOW stays unrevealed",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P02_PANEL03.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "24fb56dfe9cd1f77f2e3671433ec4b37c3e50d9813514229d0717b768ce898c7",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P03_PANEL01",
+            "characters": [
+              "Moodz",
+              "TwoTone",
+              "Static",
+              "Ash",
+              "NeonBlue",
+              "Scarline",
+              "Patch"
+            ],
+            "dialogue": "",
+            "caption": "The Old Quarter. Zoo City's first draft. The city never tore it down. It just stopped looking.",
+            "continuity_notes": "NEW LORE — Old Quarter first appearance",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P03_PANEL01.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "8c55a514b0bb64d78bce054e32c8c5515a3704188f05e544c35891ceee32f4dc",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P03_PANEL02",
+            "characters": [
+              "Static",
+              "Ash"
+            ],
+            "dialogue": "STATIC: \"Danger level: three.\" / ASH: \"Generous.\"",
+            "caption": "",
+            "continuity_notes": "Danger meter continues; Ash ≤4 words",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P03_PANEL02.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "7afa6e83dad29e4f8eb50437c09c220693b9c7b111302dd8f1ab5b243baa538d",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P03_PANEL03",
+            "characters": [
+              "Moodz"
+            ],
+            "dialogue": "MOODZ: \"Still warm.\"",
+            "caption": "",
+            "continuity_notes": "NEW LORE — Relay 1 interior; console = Ed.4 tech one generation older",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P03_PANEL03.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1024,
+            "height": 1024,
+            "sha256": "3f0beea2ddcfd68eb4da19eed7d42bd425834c0e56520ae53915a7ddd7e26cc3",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P04_PANEL01",
+            "characters": [
+              "The Pending (6-8)",
+              "Moodz",
+              "TwoTone",
+              "Static",
+              "Ash",
+              "NeonBlue",
+              "Scarline",
+              "Patch"
+            ],
+            "dialogue": "",
+            "caption": "Modern fusion is all-or-nothing. The machines guarantee it now. / These are from before the guarantee.",
+            "continuity_notes": "NEW LORE — the Pending. Tech grounding: nft_fusion_reference.md §5 (atomicity is modern; prototypes predate it)",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P04_PANEL01.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 832,
+            "height": 1216,
+            "sha256": "06313ad1c3b866f38b4fbd7743fc0e7be9eae49cb1ec7ef58ab44629d11e01fe",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P05_PANEL01",
+            "characters": [
+              "One Pending monkey",
+              "Moodz",
+              "NeonBlue"
+            ],
+            "dialogue": "PENDING: \"Is it done yet?\"",
+            "caption": "They've been asking since the experiments ended. Thirteen years. Same question.",
+            "continuity_notes": "The Pending speak normally (unlike the Stayed's chant) — unresolved, not degraded",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P05_PANEL01.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "630f4514320491d24fd8acdc06c8b341653e0a310d6eb2afb9b949a145d06407",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P05_PANEL02",
+            "characters": [
+              "NeonBlue",
+              "One Pending monkey"
+            ],
+            "dialogue": "NEONBLUE: \"We can get help — there are new machines, they could finish—\" / PENDING: \"Don't. Touch. The state.\"",
+            "caption": "",
+            "continuity_notes": "Consent theme; 'the state' is literal singleton-state language (nft_fusion_reference.md §4)",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P05_PANEL02.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "fbc2d70839a776120eddf04eeb79d8eacd5422ecd2e7eb82ca467faed72a0ff5",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P05_PANEL03",
+            "characters": [
+              "Patch",
+              "Moodz",
+              "TwoTone"
+            ],
+            "dialogue": "MOODZ: \"They're mid-something.\" / TWOTONE: \"Mid-everything.\"",
+            "caption": "",
+            "continuity_notes": "HOW Patch knows Relay 1 = deliberately unanswered; do not foreshadow in art",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P05_PANEL03.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "4be1a58f0122fe3ddf77cf8735ecdbea18ae6253200c25f84113eb78105a3716",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P06_PANEL01",
+            "characters": [
+              "Static",
+              "TwoTone"
+            ],
+            "dialogue": "STATIC: \"Danger level: someone's been HERE.\"",
+            "caption": "",
+            "continuity_notes": "NEW LORE — the Keeper (unseen); DAY 4,749 ≈ 13 years; open thread: who keeps the vigil",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P06_PANEL01.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "e12471cd4a5eadaf6ce0bf2ca4c6945168d2a99f374c0cee7804b685e4cbce1f",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P06_PANEL02",
+            "characters": [
+              "Moodz",
+              "The Pending (gathered)",
+              "TwoTone",
+              "Static",
+              "Ash",
+              "NeonBlue",
+              "Scarline",
+              "Patch"
+            ],
+            "dialogue": "MOODZ: \"Then what do you want?\" / THE PENDING (together, small): \"Company.\"",
+            "caption": "",
+            "continuity_notes": "Moodz growth panel — asks calmly what he once screamed; consent thesis continuity Ed.4→05→06",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P06_PANEL02.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "7702be9acabf387a79bca582ecd153fd53262b3aae213f952cd7744eaff10079",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P07_PANEL01",
+            "characters": [
+              "Moodz",
+              "TwoTone",
+              "Static",
+              "Ash",
+              "NeonBlue",
+              "Scarline",
+              "Patch",
+              "The Pending"
+            ],
+            "dialogue": "",
+            "caption": "Some rescues are just visits.",
+            "continuity_notes": "Static grounding pose canon since Ed.4; visual rule: attention stabilizes the Pending",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P07_PANEL01.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "d2866e8fb949b7645a72bc6aff04862ff772433dbd8a6fbb95efa16cebcc4b4e",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P07_PANEL02",
+            "characters": [
+              "Scarline",
+              "Moodz"
+            ],
+            "dialogue": "SCARLINE: \"Leaving isn't abandoning if you come back.\"",
+            "caption": "",
+            "continuity_notes": "Scarline's ONE line; thesis line; squad's standing return-promise → ledger",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P07_PANEL02.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "88fe49edd08bb99a6fc562c05c3805ec87363c6ee237838601eec962f1f23bff",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P07_PANEL03",
+            "characters": [
+              "Patch"
+            ],
+            "dialogue": "",
+            "caption": "",
+            "continuity_notes": "PROP CONTINUITY: recall notice carried since Issue 05 P08_PANEL02; Patch gives the waiting what worked on him",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P07_PANEL03.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1024,
+            "height": 1024,
+            "sha256": "77e841305f85a4219c0a6353f15f1a869cf064375ef1b4c4070e5bd29dd7028e",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P08_PANEL01",
+            "characters": [
+              "Moodz",
+              "TwoTone",
+              "Static",
+              "Ash",
+              "NeonBlue",
+              "Scarline",
+              "Patch"
+            ],
+            "dialogue": "ASH: \"They waved.\" / STATIC: \"Danger level: one. The good kind.\"",
+            "caption": "",
+            "continuity_notes": "Danger meter third beat; return-promise now canon",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P08_PANEL01.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "9355f8f677aed60037662bb3b6bdf1167297e5a67f40d94c42216b84d2fb9ac4",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-08-06_P08_PANEL02",
+            "characters": [],
+            "dialogue": "",
+            "caption": "It was never calling for help. It was calling something back.",
+            "continuity_notes": "NEW OPEN THREAD — Return Protocol; WHAT answers stays unrevealed; rear cover echoes with second light",
+            "path": "generated_art/selected_panels/MZ-2026-08-06_P08_PANEL02.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "a3f7c8054fae8b8933449fe98403ab943d9ac9709dffc356ccd1fa199828175a",
+            "error": null
+          }
+        ],
+        "checks": {
+          "missing_panels": [],
+          "duplicate_art": [],
+          "invalid_images": [],
+          "dimension_mismatches": [
+            "MZ-2026-08-06_P02_PANEL02",
+            "MZ-2026-08-06_P03_PANEL03",
+            "MZ-2026-08-06_P04_PANEL01",
+            "MZ-2026-08-06_P07_PANEL03"
+          ],
+          "identity_missing": [
+            "MZ-2026-08-06_P01_PANEL02",
+            "MZ-2026-08-06_P08_PANEL02"
+          ],
+          "unmapped_images": [
+            "MZ-2026-08-06_P00_PLATE01",
+            "MZ-2026-08-06_P00_PLATE02",
+            "MZ-2026-08-06_P00_PLATE03"
+          ],
+          "dialogue_or_caption_panels": [
+            "MZ-2026-08-06_P01_PANEL01",
+            "MZ-2026-08-06_P01_PANEL02",
+            "MZ-2026-08-06_P02_PANEL01",
+            "MZ-2026-08-06_P02_PANEL02",
+            "MZ-2026-08-06_P02_PANEL03",
+            "MZ-2026-08-06_P03_PANEL01",
+            "MZ-2026-08-06_P03_PANEL02",
+            "MZ-2026-08-06_P03_PANEL03",
+            "MZ-2026-08-06_P04_PANEL01",
+            "MZ-2026-08-06_P05_PANEL01",
+            "MZ-2026-08-06_P05_PANEL02",
+            "MZ-2026-08-06_P05_PANEL03",
+            "MZ-2026-08-06_P06_PANEL01",
+            "MZ-2026-08-06_P06_PANEL02",
+            "MZ-2026-08-06_P07_PANEL01",
+            "MZ-2026-08-06_P07_PANEL02",
+            "MZ-2026-08-06_P08_PANEL01",
+            "MZ-2026-08-06_P08_PANEL02"
+          ],
+          "continuity_missing": [],
+          "cover_prompt_exists": true,
+          "cover_images": 0,
+          "metadata_missing": [
+            "issue_id",
+            "title"
+          ],
+          "checklist_exists": true
+        },
+        "blockers": [
+          "dimension mismatches: ['MZ-2026-08-06_P02_PANEL02', 'MZ-2026-08-06_P03_PANEL03', 'MZ-2026-08-06_P04_PANEL01', 'MZ-2026-08-06_P07_PANEL03']",
+          "identity missing: ['MZ-2026-08-06_P01_PANEL02', 'MZ-2026-08-06_P08_PANEL02']",
+          "unmapped images: ['MZ-2026-08-06_P00_PLATE01', 'MZ-2026-08-06_P00_PLATE02', 'MZ-2026-08-06_P00_PLATE03']",
+          "metadata missing: ['issue_id', 'title']"
+        ],
+        "advisories": [
+          "cover image is absent; Release owns the blocking cover-deliverable requirement"
+        ],
+        "planned_panel_count": 19,
+        "selected_panel_count": 19
+      },
+      "reviews": []
     }
   }
 ]
