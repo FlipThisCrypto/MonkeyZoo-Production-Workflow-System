@@ -8,6 +8,32 @@ Open source at
 [FlipThisCrypto/MonkeyZoo-Production-Workflow-System](https://github.com/FlipThisCrypto/MonkeyZoo-Production-Workflow-System)
 — see `LICENSE.pdf` (Flip This Comics Open Source License).
 
+## Banana Lab Studio (local production UI)
+
+The local writable production app lives at `character-bibles/_review_app/`.
+
+```powershell
+.\Start-BananaLab.ps1
+```
+
+Opens `http://127.0.0.1:8765`. GitHub Pages remains a public **read-only** preview.
+
+| Doc | Contents |
+|---|---|
+| `docs/OPERATOR_RUNBOOK.md` | Stages, approvals, recovery, RC proof issue |
+| `docs/ART_PROMPT_PACK_WORKSPACE.md` | Plan → schema-valid `art_prompt_pack.json` |
+| `docs/ART_QUEUE_WORKSPACE.md` | Prompt export, import, preferred select |
+| `docs/STORY_SCRIPT_WORKSPACE.md` | Outline/script variants |
+| `docs/PAGE_PANEL_WORKSPACE.md` | Script → page plan |
+| `docs/VISUAL_QA_WORKSPACE.md` | Evidence QA PASS/HOLD/FAIL |
+| `docs/RELEASE_WORKSPACE.md` | Release approval, manifest, archive publish |
+| `docs/BACKUPS.md` | Offline backup/restore |
+
+```powershell
+.\Backup-BananaLab.ps1
+python scripts/rc_real_issue_run.py   # formal intake→published RC probe
+```
+
 ## Requirements
 
 - **Writing/QA stages (1–5, 7, 9, 10):** a Claude agent (Claude Code) + the

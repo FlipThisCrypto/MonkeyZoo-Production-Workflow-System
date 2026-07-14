@@ -11,7 +11,6 @@ from __future__ import annotations
 import hashlib
 import io
 import json
-import shutil
 import sys
 import traceback
 import zipfile
@@ -24,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "character-bibles" / "_review_app"))
 sys.path.insert(0, str(ROOT / "00_SYSTEM" / "scripts"))
 
+import art_prompt_workspace as art_prompts  # noqa: E402
 import art_queue_workspace as art  # noqa: E402
 import issue_workflow as iw  # noqa: E402
 import new_issue  # noqa: E402
@@ -155,56 +155,6 @@ def script_markdown() -> str:
 - Continuity notes: Keep identity markers; no new characters
 - Props: paper note
 """
-
-
-def build_art_prompt_pack(plan: dict) -> dict:
-    style = (
-        "MonkeyZoo house style: chibi cartoon monkey with oversized round head, "
-        "huge white oval eyes, thick black outlines, flat cel shading"
-    )
-    negative = (
-        "photorealistic, horror gore, extra limbs, watermark, logo text, "
-        "speech balloons, low contrast mush"
-    )
-    panels = []
-    for page in plan["pages"]:
-        for panel in page["panels"]:
-            panels.append(
-                {
-                    "issue_id": ISSUE_ID,
-                    "page_number": page["page_number"],
-                    "panel_number": int(str(panel["panel_id"]).split("PANEL")[-1]),
-                    "panel_id": panel["panel_id"],
-                    "character_tokens": list(panel.get("characters") or []),
-                    "character_design_reminders": [
-                        "preserve approved identity markers"
-                    ],
-                    "pose": panel.get("action") or "standing",
-                    "expression": panel.get("emotion") or "neutral",
-                    "environment": panel.get("location") or "relay courtyard",
-                    "camera_angle": panel.get("camera_angle") or "medium",
-                    "lighting": "soft dusk ambient",
-                    "color_palette": "dusk blues and warm amber accents",
-                    "style_lock_phrase_included": True,
-                    "prompt": (
-                        f"{style}. {panel.get('art_prompt') or panel.get('action')}. "
-                        f"Location: {panel.get('location')}. "
-                        f"Camera: {panel.get('camera_angle') or 'medium'}."
-                    ),
-                    "negative_prompt": negative,
-                    "references_required": list(panel.get("references_required") or []),
-                    "seed_strategy": "per_panel",
-                    "seed": 900001 + len(panels),
-                    "controlnet": {"required": False, "type": "none", "reference": ""},
-                    "identity_stack": {"tier": "text-only", "lora": [], "ipadapter_refs": []},
-                }
-            )
-    return {
-        "issue_id": ISSUE_ID,
-        "style_lock_phrase": style,
-        "base_negative_prompt": negative,
-        "panels": panels,
-    }
 
 
 def advance(folder: Path, stage: str) -> None:
@@ -358,16 +308,18 @@ def main() -> int:
         log("LAYOUT promoted to page_panel_plan.json")
         advance(folder, "page_plan")
 
-    # 11) Art prompt pack (operator-constructed from plan; no dedicated workspace yet)
+    # 11) Art prompt pack workspace (build/approve/promote)
     if iw.workflow_status(folder, ROOT)["active_stage"] == "art_prompts":
-        plan = json.loads((folder / "page_panel_plan.json").read_text(encoding="utf-8"))
-        pack = build_art_prompt_pack(plan)
-        pack_path = folder / "art_prompt_pack.json"
-        pack_path.write_text(json.dumps(pack, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-        note("Constructed art_prompt_pack.json from promoted page plan (no Art Prompt Pack workspace API yet)")
-        validation = iw._stage_validation("art_prompts", folder, ROOT)
-        if validation["status"] != "passed":
-            raise RuntimeError(validation)
+        variant = art_prompts.create_variant(folder, ROOT)
+        log(
+            f"ART PROMPT PACK variant {variant['variant_id']} "
+            f"validation={variant['validation']['status']}"
+        )
+        if variant["validation"]["status"] != "passed":
+            raise RuntimeError(variant["validation"])
+        art_prompts.approve(folder, ROOT, variant["variant_id"], "RC art prompt pack approval")
+        art_prompts.promote(folder, ROOT, variant["variant_id"], replace=True)
+        log("ART PROMPT PACK promoted to art_prompt_pack.json")
         advance(folder, "art_prompts")
 
     # 12-13) Art import + preferred selection
@@ -458,50 +410,32 @@ def main() -> int:
         approve_stage(folder, "qa", "RC: QA PASS promoted")
         advance(folder, "qa")
 
-    # 17-23) Release approval + manifest (exports already prepared pre-QA)
+    # 17-24) Release approval, manifest, formal archive publication, advance
     if iw.workflow_status(folder, ROOT)["active_stage"] == "release":
         readiness = release.readiness(folder, ROOT)
         log(f"RELEASE readiness blockers={readiness['evidence']['blockers']}")
         if readiness["evidence"]["blockers"]:
             raise RuntimeError(readiness["evidence"]["blockers"])
-        approved = release.approve(folder, ROOT, "RC release approval")
-        log(f"RELEASE APPROVED evidence={approved['evidence_hash'][:16]}...")
-        manifest = release.promote_manifest(folder, ROOT, replace=True)
-        log(f"RELEASE MANIFEST promoted hash={manifest['manifest_hash'][:16]}...")
+        if not readiness.get("approval_current"):
+            approved = release.approve(folder, ROOT, "RC release approval")
+            log(f"RELEASE APPROVED evidence={approved['evidence_hash'][:16]}...")
+        if not (folder / "release_hash_manifest.json").exists():
+            manifest = release.promote_manifest(folder, ROOT, replace=True)
+            log(f"RELEASE MANIFEST promoted hash={manifest['manifest_hash'][:16]}...")
+        publication = release.publish_archive(folder, ROOT, replace=True)
+        log(f"ARCHIVE published -> {publication['publication']['archive_path']}")
+        note("Used release_workspace.publish_archive for formal publication copy")
         approve_stage(folder, "release", "RC: release package approved")
         advance(folder, "release")
 
-    # 24-25) Archive publication + published verification
+    # 25) Published verification
     if iw.workflow_status(folder, ROOT)["active_stage"] == "published":
-        archive = ROOT / "05_RELEASE_ARCHIVE" / f"{YEAR:04d}" / f"Issue_{EDITION:02d}"
-        archive.mkdir(parents=True, exist_ok=True)
-        for name in (
-            f"MonkeyZoo_{ISSUE_ID}_Web.pdf",
-            f"MonkeyZoo_{ISSUE_ID}_CBZ.zip",
-            "release_hash_manifest.json",
-            "metadata.json",
-            "qa_report.md",
-        ):
-            src = folder / name if not name.startswith("MonkeyZoo_") else folder / "exports" / name
-            if name in {"release_hash_manifest.json", "metadata.json", "qa_report.md"}:
-                src = folder / name
-            if src.exists():
-                shutil.copy2(src, archive / src.name)
-                log(f"ARCHIVED {src.name} -> {archive.relative_to(ROOT)}")
-        cover = folder / "generated_art" / "covers" / "main_cover.png"
-        if cover.exists():
-            shutil.copy2(cover, archive / "main_cover.png")
-        note(f"Copied publication artifacts into {archive.relative_to(ROOT)}")
-
         final = iw.workflow_status(folder, ROOT)
         readiness = release.readiness(folder, ROOT)
         log(
             f"PUBLISHED stage={final['active_stage']} state={final['current_stage']['state']} "
             f"publication_ready={readiness['publication_ready']}"
         )
-        if final["current_stage"]["state"] not in {"current_ready", "complete"} and final["blockers"]:
-            # published is terminal; validation should pass with archive present
-            pass
         published_validation = iw._stage_validation("published", folder, ROOT)
         log(f"PUBLISHED validation={published_validation}")
         if published_validation["status"] != "passed":

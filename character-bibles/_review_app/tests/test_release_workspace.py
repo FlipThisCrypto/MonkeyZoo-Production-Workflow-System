@@ -78,3 +78,27 @@ def test_release_operation_lock_blocks_concurrent_approval(factory):
  with pytest.raises(release.ReleaseError,match="already in progress"):release.approve(issue,root)
 def test_zero_byte_release_artifacts_block(factory):
  root,issue=factory;(issue/"exports/issue.pdf").write_bytes(b"");(issue/"social_posts.md").write_text("");ev=release.evidence(issue,root);assert any("PDF" in x for x in ev["blockers"]);assert any("social_posts" in x for x in ev["blockers"])
+
+def test_publish_archive_requires_approval_manifest_and_writes_artifacts(factory):
+ root,issue=factory
+ with pytest.raises(release.ReleaseError, match="approval"):
+  release.publish_archive(issue, root)
+ release.approve(issue, root)
+ with pytest.raises(release.ReleaseError, match="release_hash_manifest"):
+  release.publish_archive(issue, root)
+ release.promote_manifest(issue, root)
+ result = release.publish_archive(issue, root)
+ assert result["ok"]
+ archive = root / "05_RELEASE_ARCHIVE/2027/Issue_01"
+ assert archive.exists()
+ assert any(archive.glob("*.pdf"))
+ assert any(list(archive.glob("*.zip")) + list(archive.glob("*.cbz")))
+ assert release.readiness(issue, root)["publication_ready"] is False
+ state = json.loads((issue / ".workflow-status.json").read_text())
+ state["active_stage"] = "published"
+ release._write_json(issue / ".workflow-status.json", state)
+ assert release.readiness(issue, root)["publication_ready"]
+ with pytest.raises(release.ReleaseError, match="replacement confirmation"):
+  release.publish_archive(issue, root)
+ release.publish_archive(issue, root, True)
+

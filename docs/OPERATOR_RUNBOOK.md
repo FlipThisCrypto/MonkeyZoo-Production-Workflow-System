@@ -61,6 +61,15 @@ Promotion refuses silent overwrite of existing finals unless `replace=true`.
 3. Approve (hash-bound to script).
 4. Promote to `page_panel_plan.json`.
 
+## Art Prompt Pack
+
+1. Advance to `art_prompts`.
+2. Create pack variant from the canonical page plan (`POST /art-prompts/variants`).
+3. Approve the variant (bound to plan hash + pack hash).
+4. Promote to `art_prompt_pack.json` (schema-validated, atomic, backup/rollback).
+
+See `docs/ART_PROMPT_PACK_WORKSPACE.md`.
+
 ## Art queue
 
 1. Advance to `art_production`.
@@ -111,15 +120,41 @@ Approve release (evidence-bound), promote `release_hash_manifest.json`, owner-ap
 
 ## Publication archive
 
-There is no hosted publish API. Operator copies verified artifacts to:
+Formal API (preferred):
+
+```http
+POST /api/issues/<issue_id>/release/publish-archive
+{"replace": false}
+```
+
+Requires:
+
+- active stage `release` or `published`
+- current release approval
+- promoted `release_hash_manifest.json`
+- non-empty PDF and valid CBZ/ZIP in `exports/`
+
+Copies verified artifacts into:
 
 ```text
 05_RELEASE_ARCHIVE/YYYY/Issue_NN/
 ```
 
-Include at least a non-empty PDF and a valid CBZ/ZIP (or PDF alone with package already validated in exports). Git ignores `05_RELEASE_ARCHIVE/` by design; treat it as local publication evidence and back it up.
+Git ignores `05_RELEASE_ARCHIVE/` by design. After archive publication, advance to **published** and confirm `publication_ready=true`.
+
+Legacy CLI still available:
+
+```powershell
+python 00_SYSTEM/scripts/build_release.py 2026-09_Issue_01 --archive
+```
 
 ## Backups
+
+```powershell
+.\Backup-BananaLab.ps1
+```
+
+See `docs/BACKUPS.md` for targets, cadence, restore, and security notes.
 
 Protect outside Git:
 
@@ -127,7 +162,7 @@ Protect outside Git:
 - `02_MONTHLY_ISSUES/**/exports` (gitignored PDFs/ZIP/CBZ)
 - `05_RELEASE_ARCHIVE`
 - `03_APPROVED_CANON` (especially untracked owner assets)
-- workspace state folders: `.story-workspace`, `.layout-workspace`, `.art-workspace`, `.qa-workspace`, `.release-workspace`
+- workspace state folders: `.story-workspace`, `.layout-workspace`, `.art-prompt-workspace`, `.art-workspace`, `.qa-workspace`, `.release-workspace`
 - `.workflow-status.json` and approvals
 
 Git is not sufficient for untracked art and package binaries.
@@ -170,5 +205,9 @@ See `02_MONTHLY_ISSUES/2026-09_Issue_01/RC_RUN_REPORT.md` for chronology and ope
 Replay (destructive if folder exists):
 
 ```powershell
+# Remove prior RC folder only if you intend to rebuild it.
+# Remove-Item -Recurse -Force 02_MONTHLY_ISSUES\2026-09_Issue_01
 python scripts/rc_real_issue_run.py
 ```
+
+The RC driver now uses the Art Prompt Pack workspace and `publish_archive` instead of free-form pack writes or ad-hoc archive copies.

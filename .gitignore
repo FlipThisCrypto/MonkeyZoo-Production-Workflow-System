@@ -15,9 +15,10 @@
 02_MONTHLY_ISSUES/*/exports/*.zip
 02_MONTHLY_ISSUES/*/exports/*.cbz
 
-# Rejected outputs and release archive (local working history only)
+# Rejected outputs, release archive, and local offline backups
 04_REJECTED_OUTPUTS/
 05_RELEASE_ARCHIVE/
+06_BACKUPS/
 
 # ── OS / tooling noise ──────────────────────────────────────────────
 __pycache__/
