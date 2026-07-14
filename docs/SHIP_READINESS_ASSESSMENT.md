@@ -94,6 +94,11 @@ Evidence labels follow the Master Prompt (7-14-26) convention.
 - pytest after fixes  
 - Re-run live test expecting archive path containing full issue folder name  
 
+## Local ship decision
+
+Phase 0 is accepted for production use on the owner machine (`docs/LOCAL_SHIP.md`).  
+No public writable URL is deployed. Remote work uses RDP/Tailscale to the home PC.
+
 ## Rollback
 
 - Revert commit; legacy archives remain readable via `_resolve_archive` / dual published check until next unique publish.
