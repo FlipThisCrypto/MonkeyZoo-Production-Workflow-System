@@ -1,7 +1,40 @@
 # Release Workspace
 
-Release readiness is derived from a passing canonical QA verdict, final cover evidence, CHIP-0015 metadata without TODO placeholders, social copy, the export checklist, a non-empty PDF, and a valid CBZ or ZIP package. ZIP-family packages must be readable, contain at least one file, and pass an integrity check; corrupt, truncated, encrypted-inaccessible, and empty packages are blockers. Every included file receives a SHA-256 entry.
+Evidence-backed release readiness, owner approval, hash manifests, and archive publication.
 
-The owner explicitly approves one evidence hash. Any release-file change stales approval and removes the ready state. Manifest creation and approval are concurrency-locked and atomic. Promotion of `release_hash_manifest.json` uses the same exclusive lock, requires current approval and explicit replacement confirmation, verifies the approved manifest and current evidence before replacement, and restores the prior canonical bytes if write verification fails.
+## Readiness blockers
 
-Published readiness additionally requires a recognizable, non-empty PDF, CBZ, or ZIP release artifact in the release archive; unrelated files alone do not satisfy publication readiness. The workspace does not fabricate publication, create external infrastructure, or advance workflow stages. GitHub Pages exports a read-only readiness snapshot.
+- exact current QA `VERDICT: PASS` with matching evidence hash
+- final cover under `generated_art/**/*cover*.png`
+- CHIP-0015 metadata with required fields and no `TODO` placeholders
+- social copy, final checklist, cover prompt
+- non-empty PDF under `exports/`
+- valid non-empty CBZ or ZIP package under `exports/`
+
+## API
+
+| Method | Path | Purpose |
+|---|---|---|
+| GET | `/api/issues/<id>/release` | Readiness + evidence + approval state |
+| POST | `/api/issues/<id>/release/manifest` | Persist a hash manifest snapshot |
+| POST | `/api/issues/<id>/release/approve` | Owner approve current evidence |
+| POST | `/api/issues/<id>/release/promote-manifest` | Write `release_hash_manifest.json` |
+| POST | `/api/issues/<id>/release/publish-archive` | Copy verified artifacts to `05_RELEASE_ARCHIVE` |
+
+## Publication flow
+
+1. Reach stage `release` with all release blockers cleared.
+2. Approve release (evidence-bound).
+3. Promote `release_hash_manifest.json`.
+4. Publish archive (`publish-archive`).
+5. Owner-approve the release workflow gate.
+6. Advance to `published`.
+7. Confirm `publication_ready` is true.
+
+Archive path:
+
+```text
+05_RELEASE_ARCHIVE/YYYY/Issue_NN/
+```
+
+Git ignores the archive tree. Run `.\Backup-BananaLab.ps1` after publication.

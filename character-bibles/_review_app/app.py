@@ -12,6 +12,7 @@ import issue_workflow
 import story_workspace
 import page_panel_workspace
 import art_queue_workspace
+import art_prompt_workspace
 import visual_qa_workspace
 import release_workspace
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "00_SYSTEM" / "scripts"))
@@ -225,6 +226,24 @@ def promote_layout_variant(issue_id, variant_id):
     folder = issue_workflow.find_issue(issue_id, WORKSPACE_ROOT); body = request.get_json(silent=True) or {}
     return jsonify(page_panel_workspace.promote(folder, WORKSPACE_ROOT, variant_id, body.get("replace") is True))
 
+@app.get("/api/issues/<issue_id>/art-prompts")
+def issue_art_prompts(issue_id):
+    return jsonify(art_prompt_workspace.summary(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT))
+
+@app.post("/api/issues/<issue_id>/art-prompts/variants")
+def create_art_prompt_variant(issue_id):
+    return jsonify(art_prompt_workspace.create_variant(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT)), 201
+
+@app.post("/api/issues/<issue_id>/art-prompts/variants/<variant_id>/approve")
+def approve_art_prompt_variant(issue_id, variant_id):
+    body = request.get_json(silent=True) or {}
+    return jsonify(art_prompt_workspace.approve(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, variant_id, body.get("note")))
+
+@app.post("/api/issues/<issue_id>/art-prompts/variants/<variant_id>/promote")
+def promote_art_prompt_variant(issue_id, variant_id):
+    body = request.get_json(silent=True) or {}
+    return jsonify(art_prompt_workspace.promote(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, variant_id, body.get("replace") is True))
+
 @app.get("/api/issues/<issue_id>/art-queue")
 def issue_art_queue(issue_id):
     return jsonify(art_queue_workspace.summary(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT))
@@ -270,6 +289,10 @@ def create_release_manifest(issue_id): return jsonify(release_workspace.manifest
 def approve_release(issue_id): return jsonify(release_workspace.approve(issue_workflow.find_issue(issue_id,WORKSPACE_ROOT),WORKSPACE_ROOT,(request.get_json(silent=True) or {}).get("note")))
 @app.post("/api/issues/<issue_id>/release/promote-manifest")
 def promote_release_manifest(issue_id): return jsonify(release_workspace.promote_manifest(issue_workflow.find_issue(issue_id,WORKSPACE_ROOT),WORKSPACE_ROOT,(request.get_json(silent=True) or {}).get("replace") is True))
+@app.post("/api/issues/<issue_id>/release/publish-archive")
+def publish_release_archive(issue_id):
+    body = request.get_json(silent=True) or {}
+    return jsonify(release_workspace.publish_archive(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, body.get("replace") is True)), 201
 
 
 @app.get("/media/<character_id>/<path:rel_path>")
@@ -286,6 +309,8 @@ def handle_error(exc):
     elif isinstance(exc, page_panel_workspace.PagePanelError):
         status, message = exc.status, str(exc)
     elif isinstance(exc, art_queue_workspace.ArtQueueError):
+        status, message = exc.status, str(exc)
+    elif isinstance(exc, art_prompt_workspace.ArtPromptError):
         status, message = exc.status, str(exc)
     elif isinstance(exc, visual_qa_workspace.VisualQAError):
         status, message = exc.status, str(exc)

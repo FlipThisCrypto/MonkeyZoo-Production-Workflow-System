@@ -132,3 +132,69 @@ def promote_manifest(folder,root,replace=False):
    else:_atomic_bytes(destination,before)
    raise
   return {"ok":True,"destination":"release_hash_manifest.json","manifest_hash":written["manifest_hash"],"evidence_hash":written["evidence_hash"],"workflow":workflow}
+
+def publish_archive(folder, root, replace=False):
+ """Copy verified release artifacts into 05_RELEASE_ARCHIVE with lock protection.
+
+ Requires active stage release or published, current release approval, and a
+ promoted release_hash_manifest.json that matches current evidence.
+ """
+ import shutil
+ _stage(folder, root)
+ with _lock(folder):
+  status = readiness(folder, root)
+  if not status["approval_current"]:
+   raise ReleaseError("Current release approval is required before archive publication", 409)
+  if not (folder / "release_hash_manifest.json").is_file():
+   raise ReleaseError("release_hash_manifest.json must be promoted before archive publication", 409)
+  manifest_data = _read_json(folder / "release_hash_manifest.json")
+  if not manifest_data or manifest_data.get("evidence_hash") != status["evidence"]["evidence_hash"]:
+   raise ReleaseError("Canonical release manifest evidence is stale or mismatched", 409)
+  archive = _archive(folder, root)
+  if archive.exists() and not replace:
+   raise ReleaseError(f"Release archive already exists at {archive.as_posix()}; explicit replacement confirmation is required", 409)
+  # Collect publication evidence files.
+  exports = folder / "exports"
+  candidates = []
+  if exports.exists():
+   for path in sorted(exports.iterdir()):
+    if path.is_file() and path.suffix.lower() in {".pdf", ".zip", ".cbz"} and path.stat().st_size > 0:
+     candidates.append(path)
+  for name in ("release_hash_manifest.json", "metadata.json", "qa_report.md", "social_posts.md"):
+   path = folder / name
+   if path.is_file() and path.stat().st_size > 0:
+    candidates.append(path)
+  covers = sorted((folder / "generated_art").rglob("*cover*.png")) if (folder / "generated_art").exists() else []
+  candidates.extend(covers)
+  pdfs = [p for p in candidates if p.suffix.lower() == ".pdf"]
+  packages = [p for p in candidates if p.suffix.lower() in {".zip", ".cbz"} and _valid_package(p)]
+  if not pdfs or not packages:
+   raise ReleaseError("Archive publication requires a non-empty PDF and a valid CBZ/ZIP package", 409)
+  if archive.exists() and replace:
+   shutil.rmtree(archive)
+  archive.mkdir(parents=True, exist_ok=True)
+  copied = []
+  for path in candidates:
+   destination = archive / path.name
+   # Avoid collisions when multiple covers share basename by using relative stem path hash prefix.
+   if destination.exists() and path.parent != folder and path.parent != exports:
+    destination = archive / f"{path.parent.name}_{path.name}"
+   shutil.copy2(path, destination)
+   copied.append(destination.name)
+  # Provenance record inside issue workspace.
+  record = {
+   "published_at": _now(),
+   "issue_id": issue_workflow._read_issue_id(folder),
+   "archive_path": str(archive.relative_to(root)).replace("\\", "/"),
+   "evidence_hash": status["evidence"]["evidence_hash"],
+   "manifest_hash": manifest_data.get("manifest_hash"),
+   "files": copied,
+   "actor": "project_owner",
+  }
+  _write_json(_workspace(folder) / "publication.json", record)
+  refreshed = readiness(folder, root)
+  if not refreshed["evidence"]["archive"]["exists"]:
+   raise ReleaseError("Archive publication verification failed", 409)
+  if not refreshed["evidence"]["archive"]["publication_artifacts"]:
+   raise ReleaseError("Archive publication verification found no publication artifacts", 409)
+  return {"ok": True, "publication": record, "readiness": refreshed, "workflow": issue_workflow.workflow_status(folder, root)}

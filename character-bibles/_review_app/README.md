@@ -7,7 +7,13 @@ The Story Builder integrates approved Bibles into issue planning by creating com
 
 ## Start The App
 
-From the workspace root:
+Preferred (workspace root):
+
+```powershell
+.\Start-BananaLab.ps1
+```
+
+Manual:
 
 ```powershell
 python character-bibles/_review_app/app.py
@@ -18,6 +24,8 @@ Open:
 ```text
 http://127.0.0.1:8765
 ```
+
+Operator docs: `docs/OPERATOR_RUNBOOK.md`. Workspace docs live under `docs/*_WORKSPACE.md`.
 
 ## Review A Character
 
