@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "variant_id": "script-20260714T130714Z-cebc68",
+  "issue_id": "MZ-2026-09-01",
+  "kind": "script",
+  "created_at": "2026-07-14T13:07:14+00:00",
+  "source_type": "manual_import",
+  "provider": "rc_manual",
+  "model": "user supplied",
+  "execution_mode": "manual",
+  "content": "# MZ-2026-09-01 — Script\n### Page 1 — Approach\n**Panel 1.1 (Half)**\n- Location: Quiet Relay Courtyard\n- Characters: MZ-CHAR-001, MZ-CHAR-002\n- Camera: Wide\n- Action: Moodz and TwoTone approach the silent relay mast.\n- Emotion: Cautious\n- Dialogue: MOODZ: Still dark.\n- Caption: The quiet relay\n- SFX: —\n- Visual notes: Soft dusk, mast silhouette\n- Continuity notes: Keep Moodz blue streak and TwoTone split readable\n- Props: relay mast\n### Page 2 — Resolve\n**Panel 2.1 (Full)**\n- Location: Quiet Relay Courtyard\n- Characters: MZ-CHAR-001, MZ-CHAR-002\n- Camera: Medium\n- Action: They pin a handwritten note to the console and leave side by side.\n- Emotion: Steady\n- Dialogue: TWOTONE: We'll be back.\n- Caption: End\n- SFX: —\n- Visual notes: Clear faces, note legible as a prop\n- Continuity notes: Keep identity markers; no new characters\n- Props: paper note\n",
+  "content_hash": "88199a8f38f7005c003e268b575808182ec829b3e6a59de0947789ac83931afa",
+  "canon_snapshot_hash": "a89397ab262737bc0998b84781bc4defc92145f40108db10b35bd78643b12bde",
+  "issue_brief_hash": "28cc7b575700be945fcdbb549da7af6c9f381bf724bcb2a0ce7595edc39b4237",
+  "approved_outline": {
+    "variant_id": "outline-20260714T130713Z-617387",
+    "issue_id": "MZ-2026-09-01",
+    "timestamp": "2026-07-14T13:07:13+00:00",
+    "content_hash": "8e7ae1120e4ed331ac1783a1734123f78e1932a66fe8e0d87addae7c629d4ffa",
+    "canon_snapshot_hash": "7ef0ff7630fda1e0764f92c2a9714b34b49cebbcb2c52e6b8034bfd07c6ed683",
+    "owner_note": "RC outline approval",
+    "actor": "project_owner"
+  },
+  "prompt_hash": null,
+  "validation": {
+    "status": "passed",
+    "errors": 0,
+    "findings": [],
+    "heuristic": true
+  },
+  "approval": {
+    "variant_id": "script-20260714T130714Z-cebc68",
+    "issue_id": "MZ-2026-09-01",
+    "timestamp": "2026-07-14T13:07:15+00:00",
+    "content_hash": "88199a8f38f7005c003e268b575808182ec829b3e6a59de0947789ac83931afa",
+    "canon_snapshot_hash": "a89397ab262737bc0998b84781bc4defc92145f40108db10b35bd78643b12bde",
+    "owner_note": "RC script approval",
+    "actor": "project_owner"
+  },
+  "superseded": false,
+  "owner_note": null
+}

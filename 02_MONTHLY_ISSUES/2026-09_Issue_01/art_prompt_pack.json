@@ -1,0 +1,83 @@
+{
+  "issue_id": "MZ-2026-09-01",
+  "style_lock_phrase": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes, thick black outlines, flat cel shading",
+  "base_negative_prompt": "photorealistic, horror gore, extra limbs, watermark, logo text, speech balloons, low contrast mush",
+  "panels": [
+    {
+      "issue_id": "MZ-2026-09-01",
+      "page_number": 1,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-01_P01_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers"
+      ],
+      "pose": "Moodz and TwoTone approach the silent relay mast.",
+      "expression": "Cautious",
+      "environment": "Quiet Relay Courtyard",
+      "camera_angle": "Wide",
+      "lighting": "soft dusk ambient",
+      "color_palette": "dusk blues and warm amber accents",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes, thick black outlines, flat cel shading. Moodz and TwoTone approach the silent relay mast.. Location: Quiet Relay Courtyard. Camera: Wide.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, watermark, logo text, speech balloons, low contrast mush",
+      "references_required": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 900001,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-01",
+      "page_number": 2,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-01_P02_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers"
+      ],
+      "pose": "They pin a handwritten note to the console and leave side by side.",
+      "expression": "Steady",
+      "environment": "Quiet Relay Courtyard",
+      "camera_angle": "Medium",
+      "lighting": "soft dusk ambient",
+      "color_palette": "dusk blues and warm amber accents",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes, thick black outlines, flat cel shading. They pin a handwritten note to the console and leave side by side.. Location: Quiet Relay Courtyard. Camera: Medium.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, watermark, logo text, speech balloons, low contrast mush",
+      "references_required": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 900002,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    }
+  ]
+}

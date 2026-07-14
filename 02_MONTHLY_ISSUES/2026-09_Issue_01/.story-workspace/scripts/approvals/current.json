@@ -1,0 +1,9 @@
+{
+  "variant_id": "script-20260714T130714Z-cebc68",
+  "issue_id": "MZ-2026-09-01",
+  "timestamp": "2026-07-14T13:07:15+00:00",
+  "content_hash": "88199a8f38f7005c003e268b575808182ec829b3e6a59de0947789ac83931afa",
+  "canon_snapshot_hash": "a89397ab262737bc0998b84781bc4defc92145f40108db10b35bd78643b12bde",
+  "owner_note": "RC script approval",
+  "actor": "project_owner"
+}

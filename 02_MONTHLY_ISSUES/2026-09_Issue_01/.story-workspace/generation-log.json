@@ -1,0 +1,36 @@
+[
+  {
+    "event_id": "outline-20260714T130713Z-5c7a89",
+    "issue_id": "MZ-2026-09-01",
+    "type": "outline_import",
+    "variant_id": "outline-20260714T130713Z-617387",
+    "provider": "rc_manual",
+    "model": "user supplied",
+    "execution_mode": "manual",
+    "start_time": "2026-07-14T13:07:13+00:00",
+    "end_time": "2026-07-14T13:07:13+00:00",
+    "success": true,
+    "prompt_hash": null,
+    "canon_snapshot_hash": "7ef0ff7630fda1e0764f92c2a9714b34b49cebbcb2c52e6b8034bfd07c6ed683",
+    "output_hash": "8e7ae1120e4ed331ac1783a1734123f78e1932a66fe8e0d87addae7c629d4ffa",
+    "validation_status": "passed",
+    "error_summary": null
+  },
+  {
+    "event_id": "script-20260714T130714Z-05e3e2",
+    "issue_id": "MZ-2026-09-01",
+    "type": "script_import",
+    "variant_id": "script-20260714T130714Z-cebc68",
+    "provider": "rc_manual",
+    "model": "user supplied",
+    "execution_mode": "manual",
+    "start_time": "2026-07-14T13:07:14+00:00",
+    "end_time": "2026-07-14T13:07:14+00:00",
+    "success": true,
+    "prompt_hash": null,
+    "canon_snapshot_hash": "a89397ab262737bc0998b84781bc4defc92145f40108db10b35bd78643b12bde",
+    "output_hash": "88199a8f38f7005c003e268b575808182ec829b3e6a59de0947789ac83931afa",
+    "validation_status": "passed",
+    "error_summary": null
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "issue_id": "MZ-2026-09-01",
+  "title": "RC Probe - The Quiet Relay",
+  "issue_type": "Monthly",
+  "year": 2026,
+  "month": 9,
+  "edition_number": 1,
+  "page_count": 2,
+  "panel_count": 2,
+  "primary_character": "MZ-CHAR-001",
+  "guest_character": "MZ-CHAR-002",
+  "opening_situation": "Dusk at a neglected relay courtyard",
+  "required_canon_references": "Current approved Moodz and TwoTone identity",
+  "prohibited_story_elements": "No unapproved character redesigns",
+  "output_requirements": [
+    "QA",
+    "cover",
+    "metadata",
+    "social copy"
+  ],
+  "status": "intake",
+  "workflow_stage": "1. Intake",
+  "format": "CHIP-0015",
+  "name": "RC Probe - The Quiet Relay",
+  "description": "Release-candidate MonkeyZoo issue proving the formal production workflow from intake through published archive.",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Comic"
+    },
+    {
+      "trait_type": "Series",
+      "value": "MonkeyZoo"
+    },
+    {
+      "trait_type": "Topic",
+      "value": "RC Probe"
+    },
+    {
+      "trait_type": "Format",
+      "value": "PDF"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "Fiend Studios"
+    }
+  ],
+  "data": {
+    "@context": "https://schema.org/",
+    "@type": "DigitalDocument",
+    "encodingFormat": "application/pdf",
+    "name": "RC Probe - The Quiet Relay",
+    "url": "local://exports/MonkeyZoo_MZ-2026-09-01_Web.pdf",
+    "sha256": "692c13676b220904cd1746a86d368aeb119f1268257d9f5084beb649b5f859d5",
+    "creator": {
+      "@type": "Organization",
+      "name": "Fiend Studios"
+    }
+  }
+}

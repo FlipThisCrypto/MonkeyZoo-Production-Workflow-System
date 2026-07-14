@@ -1,0 +1,76 @@
+# Real Issue RC Run Report
+
+- Issue: `MZ-2026-09-01`
+- Title: RC Probe - The Quiet Relay
+- Folder: `02_MONTHLY_ISSUES/2026-09_Issue_01`
+- Completed UTC: 2026-07-14T13:07:18+00:00
+- Final stage: `published`
+- Publication ready: `True`
+
+## Operator notes / friction
+- Constructed art_prompt_pack.json from promoted page plan (no Art Prompt Pack workspace API yet)
+- Wrote generated_art/covers/main_cover.png as final cover deliverable
+- Generated PDF export MonkeyZoo_MZ-2026-09-01_Web.pdf (2019 bytes)
+- Generated CBZ/ZIP export MonkeyZoo_MZ-2026-09-01_CBZ.zip (874 bytes)
+- Wrote CHIP-0015 metadata without TODO placeholders using local export hash
+- Copied publication artifacts into 05_RELEASE_ARCHIVE\2026\Issue_01
+
+## Chronology
+- [13:07:12] RC real-issue run starting for MZ-2026-09-01
+- [13:07:12] ROOT=I:\MonkeyZoo Comic Strip\Fusion Squad\MonkeyZoo_Comic_Factory
+- [13:07:12] CREATED issue at 02_MONTHLY_ISSUES\2026-09_Issue_01
+- [13:07:12] STATUS active=intake state=current_ready blockers=[]
+- [13:07:12] ADVANCE request stage=intake active=intake state=current_ready
+- [13:07:12] ADVANCED intake -> canon_review
+- [13:07:12] STATUS active=canon_review state=awaiting_approval blockers=['Owner approval is required']
+- [13:07:12] STAGE APPROVED canon_review; state=current_ready
+- [13:07:12] ADVANCE request stage=canon_review active=canon_review state=current_ready
+- [13:07:13] ADVANCED canon_review -> outline
+- [13:07:13] OUTLINE imported outline-20260714T130713Z-617387 validation=passed
+- [13:07:13] OUTLINE promoted to issue_outline.md
+- [13:07:14] ADVANCE request stage=outline active=outline state=current_ready
+- [13:07:14] ADVANCED outline -> script
+- [13:07:14] SCRIPT imported script-20260714T130714Z-cebc68 validation=passed
+- [13:07:15] SCRIPT promoted to issue_script.md
+- [13:07:15] STAGE APPROVED script; state=current_ready
+- [13:07:15] ADVANCE request stage=script active=script state=current_ready
+- [13:07:16] ADVANCED script -> page_plan
+- [13:07:16] LAYOUT variant plan-20260714T130716Z-f70343 validation=passed
+- [13:07:16] LAYOUT promoted to page_panel_plan.json
+- [13:07:16] ADVANCE request stage=page_plan active=page_plan state=current_ready
+- [13:07:16] ADVANCED page_plan -> art_prompts
+- [13:07:16] NOTE: Constructed art_prompt_pack.json from promoted page plan (no Art Prompt Pack workspace API yet)
+- [13:07:16] ADVANCE request stage=art_prompts active=art_prompts state=current_ready
+- [13:07:16] ADVANCED art_prompts -> art_production
+- [13:07:16] ART QUEUE items=2
+- [13:07:16] ART PROMPT exported panel=MZ-2026-09-01_P01_PANEL01 mode=manual
+- [13:07:16] ART SELECTED MZ-2026-09-01_P01_PANEL01 -> generated_art/selected_panels/MZ-2026-09-01_P01_PANEL01.png
+- [13:07:17] ART PROMPT exported panel=MZ-2026-09-01_P02_PANEL01 mode=manual
+- [13:07:17] ART SELECTED MZ-2026-09-01_P02_PANEL01 -> generated_art/selected_panels/MZ-2026-09-01_P02_PANEL01.png
+- [13:07:17] NOTE: Wrote generated_art/covers/main_cover.png as final cover deliverable
+- [13:07:17] NOTE: Generated PDF export MonkeyZoo_MZ-2026-09-01_Web.pdf (2019 bytes)
+- [13:07:17] NOTE: Generated CBZ/ZIP export MonkeyZoo_MZ-2026-09-01_CBZ.zip (874 bytes)
+- [13:07:17] NOTE: Wrote CHIP-0015 metadata without TODO placeholders using local export hash
+- [13:07:17] STAGE APPROVED art_production; state=current_ready
+- [13:07:17] ADVANCE request stage=art_production active=art_production state=current_ready
+- [13:07:17] ADVANCED art_production -> qa
+- [13:07:17] QA REVIEW qa-20260714T130717Z-3c652e blockers=[]
+- [13:07:17] QA FINALIZED verdict=PASS
+- [13:07:17] QA PROMOTED report -> qa_report.md
+- [13:07:17] STAGE APPROVED qa; state=current_ready
+- [13:07:17] ADVANCE request stage=qa active=qa state=current_ready
+- [13:07:17] ADVANCED qa -> release
+- [13:07:17] RELEASE readiness blockers=[]
+- [13:07:17] RELEASE APPROVED evidence=b911a8880261f2be...
+- [13:07:18] RELEASE MANIFEST promoted hash=bdc31d70b541630e...
+- [13:07:18] STAGE APPROVED release; state=current_ready
+- [13:07:18] ADVANCE request stage=release active=release state=current_ready
+- [13:07:18] ADVANCED release -> published
+- [13:07:18] ARCHIVED MonkeyZoo_MZ-2026-09-01_Web.pdf -> 05_RELEASE_ARCHIVE\2026\Issue_01
+- [13:07:18] ARCHIVED MonkeyZoo_MZ-2026-09-01_CBZ.zip -> 05_RELEASE_ARCHIVE\2026\Issue_01
+- [13:07:18] ARCHIVED release_hash_manifest.json -> 05_RELEASE_ARCHIVE\2026\Issue_01
+- [13:07:18] ARCHIVED metadata.json -> 05_RELEASE_ARCHIVE\2026\Issue_01
+- [13:07:18] ARCHIVED qa_report.md -> 05_RELEASE_ARCHIVE\2026\Issue_01
+- [13:07:18] NOTE: Copied publication artifacts into 05_RELEASE_ARCHIVE\2026\Issue_01
+- [13:07:18] PUBLISHED stage=published state=current_ready publication_ready=True
+- [13:07:18] PUBLISHED validation={'status': 'passed', 'messages': [], 'missing_files': []}

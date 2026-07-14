@@ -143,7 +143,12 @@ def _stage_validation(stage_id: str, folder: Path, root: Path) -> dict[str, Any]
         if verdict != "passed": messages.append(f"QA verdict is {verdict}; exact PASS is required")
     elif stage_id == "release":
         exports = folder / "exports"
-        if not exports.exists() or not any(exports.glob("*.pdf")) or not any(exports.glob("*.zip")):
+        has_pdf = exports.exists() and any(path.is_file() and path.stat().st_size > 0 for path in exports.glob("*.pdf"))
+        has_package = exports.exists() and any(
+            path.is_file() and path.stat().st_size > 0
+            for path in list(exports.glob("*.zip")) + list(exports.glob("*.cbz"))
+        )
+        if not has_pdf or not has_package:
             messages.append("Release requires real PDF and CBZ/ZIP exports")
     elif stage_id == "published":
         number = folder.name.split("_Issue_")[-1] if "_Issue_" in folder.name else ""

@@ -1,0 +1,33 @@
+{
+  "issue_id": "MZ-2026-09-01",
+  "issue_month": "2026-09",
+  "issue_number": 1,
+  "working_title": "RC Probe - The Quiet Relay",
+  "core_idea": "A quiet relay needs care more than a fight",
+  "theme": "Steadfast care",
+  "satire_target": "To be established during concept stage",
+  "emotional_core": "Steadfast care",
+  "main_character": "Moodz",
+  "supporting_characters": [
+    "TwoTone"
+  ],
+  "conflict": "The signal is silent and unclaimed",
+  "antagonist_or_problem": "The signal is silent and unclaimed",
+  "setting": "Dusk at a neglected relay courtyard",
+  "running_joke": "To be established during concept stage",
+  "ending": "They leave a note and promise return",
+  "next_issue_teaser": "To be established during concept stage",
+  "required_visuals": [],
+  "forbidden_changes": [
+    "No unapproved character redesigns"
+  ],
+  "continuity_risks": [
+    "Current approved Moodz and TwoTone identity"
+  ],
+  "release_assets_needed": [
+    "QA",
+    "cover",
+    "metadata",
+    "social copy"
+  ]
+}

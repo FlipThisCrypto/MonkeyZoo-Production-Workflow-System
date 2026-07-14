@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0",
+  "active_stage": "published",
+  "transitions": [
+    {
+      "completed_stage": "intake",
+      "from_stage": "intake",
+      "to_stage": "canon_review",
+      "validated_at": "2026-07-14T13:07:12+00:00",
+      "artifact_hash": "c703db83ccc33026278e7b656594a38a6980e30fa2daca482c7ea8cf0e4628fd",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "canon_review",
+      "from_stage": "canon_review",
+      "to_stage": "outline",
+      "validated_at": "2026-07-14T13:07:12+00:00",
+      "artifact_hash": "c703db83ccc33026278e7b656594a38a6980e30fa2daca482c7ea8cf0e4628fd",
+      "approval": {
+        "required": true,
+        "record_stage": "canon_review"
+      }
+    },
+    {
+      "completed_stage": "outline",
+      "from_stage": "outline",
+      "to_stage": "script",
+      "validated_at": "2026-07-14T13:07:14+00:00",
+      "artifact_hash": "1288cb2295409538b3848565b37c60a207e5604da4ee1a15023383a31d74043d",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "script",
+      "from_stage": "script",
+      "to_stage": "page_plan",
+      "validated_at": "2026-07-14T13:07:15+00:00",
+      "artifact_hash": "fc859114099b1ee74b706cdffffa6f4a6565d86ff0ba510c310c1a91bfc6786b",
+      "approval": {
+        "required": true,
+        "record_stage": "script"
+      }
+    },
+    {
+      "completed_stage": "page_plan",
+      "from_stage": "page_plan",
+      "to_stage": "art_prompts",
+      "validated_at": "2026-07-14T13:07:16+00:00",
+      "artifact_hash": "58a4b78827d4a5c22518066fd906056c832d9b82d3a57fc0abf2d45791f65bf0",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "art_prompts",
+      "from_stage": "art_prompts",
+      "to_stage": "art_production",
+      "validated_at": "2026-07-14T13:07:16+00:00",
+      "artifact_hash": "cdf3553770f04e5ac9fb652ee4363c5cf4133daf998d8593d1234f556a948ffb",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "art_production",
+      "from_stage": "art_production",
+      "to_stage": "qa",
+      "validated_at": "2026-07-14T13:07:17+00:00",
+      "artifact_hash": "46b3bf5f31eb6ee51a2052c531fc46cf4e30dbedd9aea7e7d436da96caf07b8c",
+      "approval": {
+        "required": true,
+        "record_stage": "art_production"
+      }
+    },
+    {
+      "completed_stage": "qa",
+      "from_stage": "qa",
+      "to_stage": "release",
+      "validated_at": "2026-07-14T13:07:17+00:00",
+      "artifact_hash": "738da89005835d72a809250eb77072990f5f58d99d8cb6d34b12f5f303f9893d",
+      "approval": {
+        "required": true,
+        "record_stage": "qa"
+      }
+    },
+    {
+      "completed_stage": "release",
+      "from_stage": "release",
+      "to_stage": "published",
+      "validated_at": "2026-07-14T13:07:18+00:00",
+      "artifact_hash": "d615df68d29d532527156c4521d3c3dd280bba2d59d974c3b78a2c5098360920",
+      "approval": {
+        "required": true,
+        "record_stage": "release"
+      }
+    }
+  ],
+  "approvals": {
+    "canon_review": {
+      "stage": "canon_review",
+      "approved": true,
+      "timestamp": "2026-07-14T13:07:12+00:00",
+      "artifact_hash": "c703db83ccc33026278e7b656594a38a6980e30fa2daca482c7ea8cf0e4628fd",
+      "note": "RC: characters resolve to approved bibles",
+      "actor": "project_owner"
+    },
+    "script": {
+      "stage": "script",
+      "approved": true,
+      "timestamp": "2026-07-14T13:07:15+00:00",
+      "artifact_hash": "fc859114099b1ee74b706cdffffa6f4a6565d86ff0ba510c310c1a91bfc6786b",
+      "note": "RC: script gate",
+      "actor": "project_owner"
+    },
+    "art_production": {
+      "stage": "art_production",
+      "approved": true,
+      "timestamp": "2026-07-14T13:07:17+00:00",
+      "artifact_hash": "46b3bf5f31eb6ee51a2052c531fc46cf4e30dbedd9aea7e7d436da96caf07b8c",
+      "note": "RC: preferred art selected for all panels",
+      "actor": "project_owner"
+    },
+    "qa": {
+      "stage": "qa",
+      "approved": true,
+      "timestamp": "2026-07-14T13:07:17+00:00",
+      "artifact_hash": "738da89005835d72a809250eb77072990f5f58d99d8cb6d34b12f5f303f9893d",
+      "note": "RC: QA PASS promoted",
+      "actor": "project_owner"
+    },
+    "release": {
+      "stage": "release",
+      "approved": true,
+      "timestamp": "2026-07-14T13:07:18+00:00",
+      "artifact_hash": "d615df68d29d532527156c4521d3c3dd280bba2d59d974c3b78a2c5098360920",
+      "note": "RC: release package approved",
+      "actor": "project_owner"
+    }
+  }
+}
