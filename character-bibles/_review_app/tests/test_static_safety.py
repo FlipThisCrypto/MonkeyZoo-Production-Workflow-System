@@ -16,8 +16,10 @@ def _version_module():
 def test_mutation_controls_are_disabled_in_source_html_before_javascript():
     html = (SOURCE / "index.html").read_text(encoding="utf-8")
     ids = ["createIssueButton", "saveStoryBtn", "generateSampleBtn", "outlinePromptBtn", "outlineImportBtn",
-           "scriptPromptBtn", "scriptImportBtn", "createPlanVariant", "buildArtQueue", "artAttemptFile",
-           "createQAReview", "releaseManifest", "releaseApprove", "releasePromote", "validateStageButton",
+           "scriptPromptBtn", "scriptImportBtn", "createPlanVariant", "buildArtQueue", "createArtPromptPack",
+           "artAttemptFile",
+           "createQAReview", "releaseManifest", "releaseApprove", "releasePromote", "releasePublishArchive",
+           "validateStageButton",
            "approveStageButton", "advanceStageButton", "saveTraitBtn", "undoBtn", "storyImportSubmit"]
     for control_id in ids:
         tag = re.search(rf"<(?:button|input)\b[^>]*\bid=\"{control_id}\"[^>]*>", html)

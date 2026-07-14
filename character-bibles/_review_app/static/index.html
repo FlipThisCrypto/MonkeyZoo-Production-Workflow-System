@@ -549,9 +549,56 @@
         <div id="viewLayout" class="workspace-view hidden">
           <section class="layout-workspace" aria-labelledby="layoutTitle"><header><div><span class="eyebrow">VISUAL PRODUCTION PLAN</span><h3 id="layoutTitle">Page & Panel Planning</h3><p>Parse the canonical script, review every page and panel, approve a variant, then promote it without advancing the workflow.</p></div><label>Issue<select id="layoutIssueSelect" aria-label="Select issue for layout planning"><option value="">Choose an issue</option></select></label></header><div id="layoutStatus" role="status"></div><div id="layoutSummary" class="production-summary"></div><div class="layout-actions"><button id="createPlanVariant" class="primary" type="button" disabled>Parse script into variant</button></div><div id="layoutVariants"></div></section>
         </div>
-        <div id="viewArtQueue" class="workspace-view hidden"><section class="art-queue-workspace" aria-labelledby="artQueueTitle"><header><div><span class="eyebrow">PANEL ART PRODUCTION</span><h3 id="artQueueTitle">Art Prompt & Queue</h3><p>Export real panel prompts, import manual results, and explicitly select preferred art.</p></div><label>Issue<select id="artQueueIssue" aria-label="Select issue for art queue"><option value="">Choose an issue</option></select></label></header><div id="artQueueStatus" role="status"></div><div id="artQueueSummary" class="production-summary"></div><button id="buildArtQueue" class="primary" type="button" disabled>Build or refresh queue</button><div id="artQueueItems"></div><input id="artAttemptFile" type="file" accept="image/png,image/jpeg,image/webp" class="hidden" disabled></section></div>
+        <div id="viewArtQueue" class="workspace-view hidden">
+          <section class="art-queue-workspace" aria-labelledby="artQueueTitle">
+            <header>
+              <div>
+                <span class="eyebrow">PANEL ART PRODUCTION</span>
+                <h3 id="artQueueTitle">Art Prompt Pack &amp; Queue</h3>
+                <p>Build a schema-valid art prompt pack from the page plan, then export panel prompts, import manual results, and select preferred art.</p>
+              </div>
+              <label>Issue<select id="artQueueIssue" aria-label="Select issue for art queue"><option value="">Choose an issue</option></select></label>
+            </header>
+            <div id="artQueueStatus" role="status"></div>
+            <div id="artQueueSummary" class="production-summary"></div>
+            <section class="art-prompt-pack-panel" aria-labelledby="artPromptPackTitle">
+              <h4 id="artPromptPackTitle">Art Prompt Pack</h4>
+              <p class="workspace-help">Stage <strong>art_prompts</strong>: create, approve, and promote a pack to <code>art_prompt_pack.json</code>.</p>
+              <div id="artPromptPackSummary" class="production-summary"></div>
+              <div class="layout-actions">
+                <button id="createArtPromptPack" class="primary" type="button" disabled>Build pack from page plan</button>
+              </div>
+              <div id="artPromptPackVariants"></div>
+            </section>
+            <h4>Panel queue</h4>
+            <button id="buildArtQueue" class="primary" type="button" disabled>Build or refresh queue</button>
+            <div id="artQueueItems"></div>
+            <input id="artAttemptFile" type="file" accept="image/png,image/jpeg,image/webp" class="hidden" disabled>
+          </section>
+        </div>
         <div id="viewQA" class="workspace-view hidden"><section class="qa-workspace" aria-labelledby="qaTitle"><header><div><span class="eyebrow">EVIDENCE REVIEW</span><h3 id="qaTitle">Visual Production QA</h3><p>Inventory selected panels, review blocking evidence, finalize Pass/Hold/Fail, and promote an auditable report.</p></div><label>Issue<select id="qaIssueSelect" aria-label="Select issue for QA"><option value="">Choose an issue</option></select></label></header><div id="qaStatus" role="status"></div><div id="qaSummary" class="production-summary"></div><button id="createQAReview" class="primary" type="button" disabled>Create evidence review</button><div class="qa-owner-inputs"><label>Owner review notes<textarea id="qaOwnerNotes" rows="3"></textarea></label><label>Continuity check note<input id="qaContinuityNote" type="text"></label></div><div id="qaPanels"></div><div id="qaReviews"></div></section></div>
-        <div id="viewRelease" class="workspace-view hidden"><section class="release-workspace" aria-labelledby="releaseTitle"><header><div><span class="eyebrow">PUBLICATION READINESS</span><h3 id="releaseTitle">Release Preparation</h3><p>Verify covers, CHIP-0015 metadata, social copy, exports, hashes, approval, and archive evidence.</p></div><label>Issue<select id="releaseIssueSelect" aria-label="Select issue for release"><option value="">Choose an issue</option></select></label></header><div id="releaseStatus" role="status"></div><div id="releaseSummary" class="production-summary"></div><label>Owner release note<input id="releaseOwnerNote" type="text"></label><div class="release-actions"><button id="releaseManifest" type="button" disabled>Build hash manifest</button><button id="releaseApprove" class="primary" type="button" disabled>Approve release</button><button id="releasePromote" type="button" disabled>Promote manifest</button></div><div id="releaseEvidence"></div></section></div>
+        <div id="viewRelease" class="workspace-view hidden">
+          <section class="release-workspace" aria-labelledby="releaseTitle">
+            <header>
+              <div>
+                <span class="eyebrow">PUBLICATION READINESS</span>
+                <h3 id="releaseTitle">Release Preparation</h3>
+                <p>Verify covers, CHIP-0015 metadata, social copy, exports, hashes, approval, promote the manifest, then publish the local archive.</p>
+              </div>
+              <label>Issue<select id="releaseIssueSelect" aria-label="Select issue for release"><option value="">Choose an issue</option></select></label>
+            </header>
+            <div id="releaseStatus" role="status"></div>
+            <div id="releaseSummary" class="production-summary"></div>
+            <label>Owner release note<input id="releaseOwnerNote" type="text"></label>
+            <div class="release-actions">
+              <button id="releaseManifest" type="button" disabled>Build hash manifest</button>
+              <button id="releaseApprove" class="primary" type="button" disabled>Approve release</button>
+              <button id="releasePromote" type="button" disabled>Promote manifest</button>
+              <button id="releasePublishArchive" type="button" disabled>Publish archive</button>
+            </div>
+            <div id="releaseEvidence"></div>
+          </section>
+        </div>
 
         <!-- 5. LOCATIONS WORKSPACE MODULE (COMING SOON) -->
         <div id="viewLocations" class="workspace-view hidden">
@@ -797,6 +844,6 @@
   <dialog id="storyImportDialog"><form method="dialog"><header><h3 id="storyImportTitle">Import variant</h3><button value="cancel" type="submit">Close</button></header><label>Provider/model label (optional)<input id="storyImportProvider"></label><label>Markdown<textarea id="storyImportContent" rows="20" required></textarea></label><button id="storyImportSubmit" type="button" class="primary" disabled>Import safely</button></form></dialog>
   <dialog id="variantDialog"><header><h3 id="variantDialogTitle">Variant</h3><button id="closeVariantDialog" type="button">Close</button></header><pre id="variantDialogContent"></pre></dialog>
 
-  <script src="/static/app.js?v=69378073c4367ae7c72010a5ccc882417ee7f8d42b30faf2dc66f99984cda5c0"></script>
+  <script src="/static/app.js?v=d1c44f77ed982a5278c91ce75a182ac3869f572ce4adee8cfab97d56e0b92dac"></script>
 </body>
 </html>

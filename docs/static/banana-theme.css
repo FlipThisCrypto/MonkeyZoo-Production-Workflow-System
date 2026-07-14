@@ -179,6 +179,10 @@ dialog { max-height: 90vh; overflow: auto; border: 1px solid rgba(213, 223, 237,
 .art-queue-workspace { padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
 .art-queue-workspace > header, .art-queue-item header, .art-queue-item > div { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .art-queue-workspace select { min-width: 280px; }
+.art-prompt-pack-panel { margin: 18px 0 22px; padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: rgba(3, 5, 10, 0.35); }
+.art-prompt-pack-panel h4, .art-queue-workspace > h4 { margin: 0 0 8px; }
+.workspace-help { color: var(--muted); font-size: 13px; margin: 0 0 12px; line-height: 1.45; }
+.workspace-help code { font-size: 12px; }
 .art-queue-item { padding: 16px; margin-top: 12px; border: 1px solid var(--line); border-radius: 14px; background: #070b12; }
 .reference-strip { margin: 10px 0; color: var(--muted); }
 .attempt-list { display: grid !important; gap: 6px; margin: 10px 0; }

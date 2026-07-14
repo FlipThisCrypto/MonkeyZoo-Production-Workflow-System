@@ -9,6 +9,7 @@ import issue_workflow
 import story_workspace
 import page_panel_workspace
 import art_queue_workspace
+import art_prompt_workspace
 import visual_qa_workspace
 import release_workspace
 
@@ -26,6 +27,10 @@ if __name__ == "__main__":
             issue["layout"] = page_panel_workspace.summary(folder, ROOT)
         except Exception as exc:
             issue["layout"] = {"degraded": True, "error": str(exc), "variants": []}
+        try:
+            issue["art_prompts"] = art_prompt_workspace.summary(issue_workflow.find_issue(issue["issue_id"], ROOT), ROOT)
+        except Exception as exc:
+            issue["art_prompts"] = {"degraded": True, "error": str(exc), "variants": [], "canonical_pack_exists": False}
         try:
             issue["art_queue"] = art_queue_workspace.summary(issue_workflow.find_issue(issue["issue_id"], ROOT), ROOT)
         except Exception as exc:
