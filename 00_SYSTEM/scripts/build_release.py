@@ -17,20 +17,38 @@ from pathlib import Path
 FACTORY = Path(__file__).resolve().parents[2]
 
 
+def _find_cover(issue_dir: Path) -> Path | None:
+    candidates = [
+        issue_dir / "exports" / "cover.png",
+        issue_dir / "generated_art" / "covers" / "main_cover.png",
+    ]
+    for path in candidates:
+        if path.is_file() and path.stat().st_size > 0:
+            return path
+    generated = issue_dir / "generated_art"
+    if generated.exists():
+        matches = sorted(p for p in generated.rglob("*cover*.png") if p.is_file() and p.stat().st_size > 0)
+        if matches:
+            return matches[0]
+    return None
+
+
 def build_cbz(issue_dir: Path, number: str) -> None:
     web = issue_dir / "layout" / "web_layout"
     pages = sorted(web.glob("page_*.png"))
-    cover = issue_dir / "exports" / "cover.png"
+    cover = _find_cover(issue_dir)
     if not pages:
         print(f"  SKIP CBZ: no pages in {web}")
         return
-    out = issue_dir / "exports" / f"MonkeyZoo_Issue_{number}_CBZ.zip"
+    exports = issue_dir / "exports"
+    exports.mkdir(parents=True, exist_ok=True)
+    out = exports / f"MonkeyZoo_Issue_{number}_CBZ.zip"
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
-        if cover.exists():
+        if cover is not None:
             z.write(cover, "000_cover.png")
         for i, p in enumerate(pages, 1):
             z.write(p, f"{i:03d}_{p.name}")
-    print(f"  Built {out.name} ({len(pages)} pages{' + cover' if cover.exists() else ''})")
+    print(f"  Built {out.name} ({len(pages)} pages{' + cover' if cover is not None else ''})")
 
 
 def check_exports(issue_dir: Path, number: str) -> None:

@@ -63,17 +63,21 @@ Promotion refuses silent overwrite of existing finals unless `replace=true`.
 
 ## Art Prompt Pack
 
+Studio: open **Art Queue**, select the issue, use the **Art Prompt Pack** panel.
+
 1. Advance to `art_prompts`.
-2. Create pack variant from the canonical page plan (`POST /art-prompts/variants`).
-3. Approve the variant (bound to plan hash + pack hash).
-4. Promote to `art_prompt_pack.json` (schema-validated, atomic, backup/rollback).
+2. **Build pack from page plan** (or `POST /art-prompts/variants`).
+3. **Approve pack** (bound to plan hash + pack hash).
+4. **Promote pack** to `art_prompt_pack.json` (schema-validated, atomic, backup/rollback).
 
 See `docs/ART_PROMPT_PACK_WORKSPACE.md`.
 
 ## Art queue
 
+Studio: same **Art Queue** view, panel queue section.
+
 1. Advance to `art_production`.
-2. Build queue (one item per panel).
+2. **Build or refresh queue** (one item per panel).
 3. Export panel prompt packages (manual provider).
 4. Import PNG/JPEG/WebP attempts.
 5. Select preferred attempt (transactional; rolls back on failure).
@@ -190,11 +194,22 @@ Git is not sufficient for untracked art and package binaries.
 
 ## PDF / CBZ procedure
 
+Helper (after selected art exists):
+
+```powershell
+python scripts/package_issue.py 2026-08_Issue_06
+python scripts/package_issue.py 2026-08_Issue_06 --assemble
+```
+
+- `assemble_pages.py` builds lettered web/print layouts and PDF drafts when fonts/Pillow are available
+- `build_release.py` builds CBZ from `layout/web_layout` and reports missing exports
+- Cover discovery order: `exports/cover.png`, then `generated_art/covers/main_cover.png`, then any `*cover*.png`
 - Place final PDF under `exports/*.pdf` (non-empty)
 - Place CBZ or ZIP under `exports/*.zip` or `exports/*.cbz` that opens as ZIP with at least one member and passes `testzip()`
-- Workflow release stage currently requires `*.pdf` and `*.zip` in exports (CBZ-only is not enough for the stage validator)
+- Release stage accepts both `.zip` and `.cbz`
 - Reading order: zip member names sorted/readable by target reader
 - Visual check: cover first, then page order
+- Formal archive publish uses Studio **Publish archive** (not the legacy full-tree `--archive` copy)
 
 ## RC proof issue
 

@@ -21,12 +21,21 @@ Evidence-backed release readiness, owner approval, hash manifests, and archive p
 | POST | `/api/issues/<id>/release/promote-manifest` | Write `release_hash_manifest.json` |
 | POST | `/api/issues/<id>/release/publish-archive` | Copy verified artifacts to `05_RELEASE_ARCHIVE` |
 
+## Studio controls
+
+In **Release**:
+
+1. **Build hash manifest**
+2. **Approve release**
+3. **Promote manifest**
+4. **Publish archive** (enabled when approval is current and blockers are empty)
+
 ## Publication flow
 
 1. Reach stage `release` with all release blockers cleared.
 2. Approve release (evidence-bound).
 3. Promote `release_hash_manifest.json`.
-4. Publish archive (`publish-archive`).
+4. Publish archive (`publish-archive` / Studio button).
 5. Owner-approve the release workflow gate.
 6. Advance to `published`.
 7. Confirm `publication_ready` is true.

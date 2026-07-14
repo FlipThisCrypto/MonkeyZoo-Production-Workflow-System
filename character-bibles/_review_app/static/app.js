@@ -14,13 +14,16 @@ let runtimeCapability = {resolved: false, writable: false, reason: "unresolved"}
 const MUTATION_SELECTOR = [
   "[data-mutation]", "#createIssueButton", "#saveStoryBtn", "#generateSampleBtn",
   "#outlinePromptBtn", "#outlineImportBtn", "#scriptPromptBtn", "#scriptImportBtn",
-  "#storyImportSubmit", "#createPlanVariant", "#buildArtQueue", "#artAttemptFile",
+  "#storyImportSubmit", "#createPlanVariant", "#buildArtQueue", "#createArtPromptPack",
+  "#artAttemptFile",
   "#createQAReview", "#releaseManifest", "#releaseApprove", "#releasePromote",
+  "#releasePublishArchive",
   "#validateStageButton", "#approveStageButton", "#advanceStageButton", "#saveTraitBtn", "#undoBtn",
   "#createIssueForm button[type='submit']", "#settingsForm button[type='submit']",
   "[data-approve-variant]", "[data-promote-variant]", "[data-layout-approve]",
   "[data-layout-promote]", "[data-art-select]", "[data-art-reject]", "[data-art-prompt]",
-  "[data-art-import]", "[data-qa-finalize]", "[data-qa-promote]"
+  "[data-art-import]", "[data-art-pack-approve]", "[data-art-pack-promote]",
+  "[data-qa-finalize]", "[data-qa-promote]"
 ].join(",");
 
 function canMutate() { return runtimeCapability.resolved && runtimeCapability.writable === true; }
@@ -960,6 +963,7 @@ initializeApplication();
 let activeProductionIssue = null;
 let activeLayout = null;
 let activeArtQueue = null;
+let activeArtPrompts = null;
 let artUploadPanel = null;
 let activeQA = null;
 let activeRelease = null;
@@ -1047,17 +1051,60 @@ function renderLayout(){
 async function layoutAction(path){try{await api(`/api/issues/${encodeURIComponent(activeLayout.issue_id)}/layout/${path}`,{method:"POST",body:"{}"});await loadLayout(activeLayout.issue_id)}catch(e){$("layoutStatus").textContent=e.message}}
 
 function setupArtQueue(){
-  $("artQueueIssue")?.addEventListener("change",e=>loadArtQueue(e.target.value));
+  $("artQueueIssue")?.addEventListener("change",e=>{loadArtQueue(e.target.value);loadArtPrompts(e.target.value)});
   $("buildArtQueue")?.addEventListener("click",()=>artQueuePost("build"));
+  $("createArtPromptPack")?.addEventListener("click",()=>artPromptPackAction("variants"));
   $("artAttemptFile")?.addEventListener("change",uploadArtAttempt);
 }
 async function loadArtQueue(issueId){if(!issueId)return;try{activeArtQueue=await api(`/api/issues/${encodeURIComponent(issueId)}/art-queue`);renderArtQueue()}catch(e){$("artQueueStatus").textContent=e.message}}
+async function loadArtPrompts(issueId){
+  if(!issueId)return;
+  try{
+    activeArtPrompts=await api(`/api/issues/${encodeURIComponent(issueId)}/art-prompts`);
+    renderArtPrompts();
+  }catch(e){
+    if($("artPromptPackSummary")) $("artPromptPackSummary").innerHTML=`<div><span>Pack</span><strong>${escapeHtml(e.message)}</strong></div>`;
+  }
+}
+function renderArtPrompts(){
+  if(!activeArtPrompts||!$("artPromptPackSummary")) return;
+  const staticMode=!canMutate();
+  const w=activeArtPrompts.workflow||{active_stage:"",current_stage:{label:"Unknown"}};
+  const variants=activeArtPrompts.variants||[];
+  $("artPromptPackSummary").innerHTML=[
+    ["Issue",activeArtPrompts.issue_id],
+    ["Stage",w.current_stage?.label||w.active_stage||"Unknown"],
+    ["Plan",activeArtPrompts.plan?.exists?"Present":"Missing"],
+    ["Canonical pack",activeArtPrompts.canonical_pack_exists?"Promoted":"Not promoted"],
+    ["Variants",variants.length]
+  ].map(([k,v])=>`<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
+  if($("createArtPromptPack")){
+    $("createArtPromptPack").disabled=staticMode||w.active_stage!=="art_prompts";
+    $("createArtPromptPack").title=staticMode?"Local backend required":(w.active_stage!=="art_prompts"?"Requires art_prompts stage":"");
+  }
+  if(!$("artPromptPackVariants")) return;
+  $("artPromptPackVariants").innerHTML=variants.length?variants.map(v=>`<article class="layout-variant"><header><strong>${escapeHtml(v.variant_id)}</strong><span>${escapeHtml(v.validation?.status||"unknown")}</span></header><p>${v.plan_stale?"Page plan changed":"Plan current"} · ${v.pack?.panels?.length||0} panels · ${v.approval_current?"Approved":"Not approved"}</p><ul>${(v.validation?.findings||[]).slice(0,5).map(f=>`<li>${escapeHtml(f.level||"error")}: ${escapeHtml(f.message)}</li>`).join("")||"<li>Schema valid</li>"}</ul><div><button type="button" data-art-pack-approve="${escapeHtml(v.variant_id)}" ${staticMode||v.approval?"disabled":""}>Approve pack</button><button type="button" data-art-pack-promote="${escapeHtml(v.variant_id)}" ${staticMode||!v.approval_current?"disabled":""}>Promote pack</button></div></article>`).join(""):"<p>No art prompt pack variants yet. Build one when the workflow is on Art Prompt Pack.</p>";
+  $("artPromptPackVariants").querySelectorAll("[data-art-pack-approve]").forEach(b=>b.addEventListener("click",()=>artPromptPackAction(`variants/${b.dataset.artPackApprove}/approve`)));
+  $("artPromptPackVariants").querySelectorAll("[data-art-pack-promote]").forEach(b=>b.addEventListener("click",()=>artPromptPackAction(`variants/${b.dataset.artPackPromote}/promote`)));
+}
+async function artPromptPackAction(path){
+  const issueId=activeArtPrompts?.issue_id||$("artQueueIssue")?.value;
+  if(!issueId)return;
+  try{
+    const body=path.endsWith("/promote")?JSON.stringify({replace:false}):JSON.stringify({note:"Approved in The Banana Lab"});
+    await api(`/api/issues/${encodeURIComponent(issueId)}/art-prompts/${path}`,{method:"POST",body});
+    await loadArtPrompts(issueId);
+    if(activeArtQueue?.issue_id===issueId) await loadArtQueue(issueId);
+  }catch(e){
+    if($("artQueueStatus")) $("artQueueStatus").textContent=e.message;
+  }
+}
 function renderArtQueue(){
   const staticMode=!canMutate(),q=activeArtQueue.queue,w=activeArtQueue.workflow,items=q.items||[];
   $("artQueueStatus").textContent=q.error||`Active stage: ${w.current_stage.label}. ${w.blockers.join(" ")||"Queue evidence ready."}`;
   $("artQueueSummary").innerHTML=[["Issue",activeArtQueue.issue_id],["Stage",w.current_stage.label],["Panels",items.length],["Approved",items.filter(i=>i.status==="approved").length],["Missing",items.filter(i=>i.status!=="approved").length],["Provider","Manual prompt/import"]].map(([k,v])=>`<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
   $("buildArtQueue").disabled=staticMode||!["art_prompts","art_production"].includes(w.active_stage);$("buildArtQueue").title=staticMode?"Local backend required":"";
-  $("artQueueItems").innerHTML=items.map(i=>`<article class="art-queue-item"><header><strong>${escapeHtml(i.panel_id)}</strong><span>${escapeHtml(i.status)}</span></header><p>${escapeHtml(i.location||"Location missing")} · ${escapeHtml(i.characters.join(", ")||"No characters")}</p><p>${escapeHtml(i.action||"Action missing")}</p><small>Props: ${escapeHtml((i.props||[]).join(", ")||"None")} · Attempts: ${i.attempt_count}</small><div class="reference-strip">${i.references.map(r=>`<span>${escapeHtml(r.display_name||r.character_id)} · ${r.error?escapeHtml(r.error):"individual reference"}</span>`).join("")}</div><div class="attempt-list">${(i.attempts||[]).map(a=>`<span>${escapeHtml(a.attempt_id)} · ${escapeHtml(a.format)} ${a.width}×${a.height} · ${escapeHtml(a.status)} <button data-art-select="${escapeHtml(i.panel_id)}|${escapeHtml(a.attempt_id)}" ${staticMode||a.status==="rejected"||a.status==="archived"?"disabled":""}>Select</button><button data-art-reject="${escapeHtml(i.panel_id)}|${escapeHtml(a.attempt_id)}" ${staticMode||a.status==="preferred"?"disabled":""}>Reject</button></span>`).join("")}</div><div><button data-art-prompt="${escapeHtml(i.panel_id)}" ${staticMode?"disabled":""}>Export prompt</button><button data-art-import="${escapeHtml(i.panel_id)}" ${staticMode||w.active_stage!=="art_production"?"disabled":""}>Import image</button></div></article>`).join("")||"<p>No queue items.</p>";
+  $("artQueueItems").innerHTML=items.map(i=>`<article class="art-queue-item"><header><strong>${escapeHtml(i.panel_id)}</strong><span>${escapeHtml(i.status)}</span></header><p>${escapeHtml(i.location||"Location missing")} · ${escapeHtml(i.characters.join(", ")||"No characters")}</p><p>${escapeHtml(i.action||"Action missing")}</p><small>Props: ${escapeHtml((i.props||[]).join(", ")||"None")} · Attempts: ${i.attempt_count}</small><div class="reference-strip">${i.references.map(r=>`<span>${escapeHtml(r.display_name||r.character_id)} · ${r.error?escapeHtml(r.error):"individual reference"}</span>`).join("")}</div><div class="attempt-list">${(i.attempts||[]).map(a=>`<span>${escapeHtml(a.attempt_id)} · ${escapeHtml(a.format)} ${a.width}×${a.height} · ${escapeHtml(a.status)} <button data-art-select="${escapeHtml(i.panel_id)}|${escapeHtml(a.attempt_id)}" ${staticMode||a.status==="rejected"||a.status==="archived"?"disabled":""}>Select</button><button data-art-reject="${escapeHtml(i.panel_id)}|${escapeHtml(a.attempt_id)}" ${staticMode||a.status==="preferred"?"disabled":""}>Reject</button></span>`).join("")}</div><div><button data-art-prompt="${escapeHtml(i.panel_id)}" ${staticMode?"disabled":""}>Export prompt</button><button data-art-import="${escapeHtml(i.panel_id)}" ${staticMode||w.active_stage!=="art_production"?"disabled":""}>Import image</button></div></article>`).join("")||"<p>No queue items. Build the queue after the art prompt pack is promoted, or when art production is active.</p>";
   $("artQueueItems").querySelectorAll("[data-art-prompt]").forEach(b=>b.addEventListener("click",()=>artQueuePost(`${b.dataset.artPrompt}/prompt`,true)));
   $("artQueueItems").querySelectorAll("[data-art-import]").forEach(b=>b.addEventListener("click",()=>{artUploadPanel=b.dataset.artImport;$("artAttemptFile").click()}));
   $("artQueueItems").querySelectorAll("[data-art-select]").forEach(b=>b.addEventListener("click",()=>artAttemptAction(b.dataset.artSelect,"select")));
@@ -1080,14 +1127,29 @@ function renderQA(){
 }
 async function qaPost(path,body){try{await api(`/api/issues/${encodeURIComponent(activeQA.issue_id)}/qa/${path}`,{method:"POST",body:JSON.stringify(body)});await loadQA(activeQA.issue_id)}catch(e){$("qaStatus").textContent=e.message}}
 
-function setupReleaseWorkspace(){$("releaseIssueSelect")?.addEventListener("change",e=>loadRelease(e.target.value));$("releaseManifest")?.addEventListener("click",()=>releasePost("manifest",{}));$("releaseApprove")?.addEventListener("click",()=>releasePost("approve",{note:$("releaseOwnerNote").value}));$("releasePromote")?.addEventListener("click",()=>releasePost("promote-manifest",{}))}
+function setupReleaseWorkspace(){
+  $("releaseIssueSelect")?.addEventListener("change",e=>loadRelease(e.target.value));
+  $("releaseManifest")?.addEventListener("click",()=>releasePost("manifest",{}));
+  $("releaseApprove")?.addEventListener("click",()=>releasePost("approve",{note:$("releaseOwnerNote").value}));
+  $("releasePromote")?.addEventListener("click",()=>releasePost("promote-manifest",{}));
+  $("releasePublishArchive")?.addEventListener("click",()=>releasePost("publish-archive",{replace:false}));
+}
 async function loadRelease(id){if(!id)return;try{activeRelease=await api(`/api/issues/${encodeURIComponent(id)}/release`);renderRelease()}catch(e){$("releaseStatus").textContent=e.message}}
 function renderRelease(){
  const staticMode=!canMutate(),e=activeRelease.evidence,w=activeRelease.workflow;
  $("releaseStatus").textContent=e.blockers.join(" ")||`Evidence complete. ${activeRelease.approval_current?"Owner approval current.":"Owner approval required."}`;
  $("releaseSummary").innerHTML=[["Issue",activeRelease.issue_id],["Stage",w.current_stage.label],["QA",e.qa_verdict],["Covers",e.covers.length],["PDFs",e.pdfs.length],["Packages",e.packages.length],["Release ready",activeRelease.release_ready?"Yes":"No"],["Published evidence",activeRelease.publication_ready?"Complete":"Incomplete"]].map(([k,v])=>`<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
- const stageOK=["release","published"].includes(w.active_stage);$("releaseManifest").disabled=staticMode||!stageOK;$("releaseApprove").disabled=staticMode||!stageOK||e.blockers.length>0||activeRelease.approval_current;$("releasePromote").disabled=staticMode||!activeRelease.approval_current;["releaseManifest","releaseApprove","releasePromote"].forEach(id=>$(id).title=staticMode?"Local backend required":"");
- $("releaseEvidence").innerHTML=`<h4>Exact blockers</h4><ul>${e.blockers.map(x=>`<li>${escapeHtml(x)}</li>`).join("")||"<li>None</li>"}</ul><h4>CHIP-0015 metadata</h4><p>Format: ${escapeHtml(e.metadata.format||"Missing")} · Missing: ${escapeHtml(e.metadata.missing_fields.join(", ")||"None")} · Placeholders: ${escapeHtml(e.metadata.placeholders.join(", ")||"None")}</p><h4>File hash manifest</h4><div class="release-files">${e.files.map(f=>`<span>${escapeHtml(f.path)} · ${f.size} bytes · ${escapeHtml(f.sha256)}</span>`).join("")}</div><h4>Archive</h4><p>${escapeHtml(e.archive.path)} · ${e.archive.exists?"Exists":"Missing"} · ${escapeHtml(e.archive.publication_files.join(", ")||"No publication evidence")}</p>`;
+ const stageOK=["release","published"].includes(w.active_stage);
+ const canPublish=stageOK&&activeRelease.approval_current&&!e.blockers.length;
+ $("releaseManifest").disabled=staticMode||!stageOK;
+ $("releaseApprove").disabled=staticMode||!stageOK||e.blockers.length>0||activeRelease.approval_current;
+ $("releasePromote").disabled=staticMode||!activeRelease.approval_current;
+ if($("releasePublishArchive")){
+   $("releasePublishArchive").disabled=staticMode||!canPublish;
+   $("releasePublishArchive").title=staticMode?"Local backend required":(canPublish?"":"Requires current approval and no blockers");
+ }
+ ["releaseManifest","releaseApprove","releasePromote"].forEach(id=>$(id).title=staticMode?"Local backend required":"");
+ $("releaseEvidence").innerHTML=`<h4>Exact blockers</h4><ul>${e.blockers.map(x=>`<li>${escapeHtml(x)}</li>`).join("")||"<li>None</li>"}</ul><h4>CHIP-0015 metadata</h4><p>Format: ${escapeHtml(e.metadata.format||"Missing")} · Missing: ${escapeHtml(e.metadata.missing_fields.join(", ")||"None")} · Placeholders: ${escapeHtml(e.metadata.placeholders.join(", ")||"None")}</p><h4>File hash manifest</h4><div class="release-files">${e.files.map(f=>`<span>${escapeHtml(f.path)} · ${f.size} bytes · ${escapeHtml(f.sha256)}</span>`).join("")}</div><h4>Archive</h4><p>${escapeHtml(e.archive.path)} · ${e.archive.exists?"Exists":"Missing"} · ${escapeHtml(e.archive.publication_files.join(", ")||"No publication evidence")}</p><p class="workspace-help">Publish archive copies verified PDF/CBZ/ZIP and evidence into <code>05_RELEASE_ARCHIVE</code>. Then advance the workflow stage to Published.</p>`;
 }
 async function releasePost(path,body){try{await api(`/api/issues/${encodeURIComponent(activeRelease.issue_id)}/release/${path}`,{method:"POST",body:JSON.stringify(body)});await loadRelease(activeRelease.issue_id)}catch(e){$("releaseStatus").textContent=e.message}}
 

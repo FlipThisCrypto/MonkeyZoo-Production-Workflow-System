@@ -31,8 +31,11 @@ Opens `http://127.0.0.1:8765`. GitHub Pages remains a public **read-only** previ
 
 ```powershell
 .\Backup-BananaLab.ps1
-python scripts/rc_real_issue_run.py   # formal intake→published RC probe
+python scripts/rc_real_issue_run.py              # formal intake→published RC probe
+python scripts/package_issue.py 2026-08_Issue_06 # CBZ/export helper (+ optional --assemble)
 ```
+
+Studio workspaces now include Art Prompt Pack build/approve/promote inside **Art Queue**, and **Publish archive** on **Release**.
 
 ## Requirements
 
