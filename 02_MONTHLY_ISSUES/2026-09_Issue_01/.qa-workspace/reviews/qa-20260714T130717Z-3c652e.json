@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "review_id": "qa-20260714T130717Z-3c652e",
+  "issue_id": "MZ-2026-09-01",
+  "created_at": "2026-07-14T13:07:17+00:00",
+  "evidence_hash": "4208fa2cba90059a2a0aad32e9387c891c8a0e8087fac021ec39a83445452e29",
+  "evidence": {
+    "evidence_hash": "4208fa2cba90059a2a0aad32e9387c891c8a0e8087fac021ec39a83445452e29",
+    "panels": [
+      {
+        "panel_id": "MZ-2026-09-01_P01_PANEL01",
+        "characters": [
+          "MZ-CHAR-001",
+          "MZ-CHAR-002"
+        ],
+        "dialogue": "MOODZ: Still dark.",
+        "caption": "The quiet relay",
+        "continuity_notes": "Keep Moodz blue streak and TwoTone split readable",
+        "path": "generated_art/selected_panels/MZ-2026-09-01_P01_PANEL01.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1024,
+        "height": 768,
+        "sha256": "370280f082d63264d13aafbf27c52b2cc6795b8742185ea26857a2e2b1327799",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-01_P02_PANEL01",
+        "characters": [
+          "MZ-CHAR-001",
+          "MZ-CHAR-002"
+        ],
+        "dialogue": "TWOTONE: We'll be back.",
+        "caption": "End",
+        "continuity_notes": "Keep identity markers; no new characters",
+        "path": "generated_art/selected_panels/MZ-2026-09-01_P02_PANEL01.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1024,
+        "height": 768,
+        "sha256": "524a959517ef13ab2fc26a7ca505a422f38830351d61da5d0d5bbcc9acf9a5dd",
+        "error": null
+      }
+    ],
+    "checks": {
+      "missing_panels": [],
+      "duplicate_art": [],
+      "invalid_images": [],
+      "dimension_mismatches": [],
+      "identity_missing": [],
+      "unmapped_images": [],
+      "dialogue_or_caption_panels": [
+        "MZ-2026-09-01_P01_PANEL01",
+        "MZ-2026-09-01_P02_PANEL01"
+      ],
+      "continuity_missing": [],
+      "cover_prompt_exists": true,
+      "cover_images": 1,
+      "metadata_missing": [],
+      "checklist_exists": true
+    },
+    "blockers": [],
+    "advisories": [],
+    "planned_panel_count": 2,
+    "selected_panel_count": 2
+  },
+  "owner_notes": "RC formal PASS after evidence-gated review",
+  "continuity_checks": [
+    "identity markers preserved",
+    "continuity notes present"
+  ],
+  "verdict": "PASS",
+  "approval": {
+    "approved_at": "2026-07-14T13:07:17+00:00",
+    "verdict": "PASS",
+    "evidence_hash": "4208fa2cba90059a2a0aad32e9387c891c8a0e8087fac021ec39a83445452e29",
+    "actor": "project_owner"
+  }
+}

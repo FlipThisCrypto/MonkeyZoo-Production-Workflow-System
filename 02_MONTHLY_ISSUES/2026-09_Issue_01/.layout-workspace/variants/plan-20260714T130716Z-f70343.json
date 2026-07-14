@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "variant_id": "plan-20260714T130716Z-f70343",
+  "issue_id": "MZ-2026-09-01",
+  "created_at": "2026-07-14T13:07:16+00:00",
+  "source": "canonical_script_parser",
+  "script_hash": "88199a8f38f7005c003e268b575808182ec829b3e6a59de0947789ac83931afa",
+  "plan": {
+    "issue_id": "MZ-2026-09-01",
+    "issue_title": "RC Probe - The Quiet Relay",
+    "page_count": 2,
+    "pages": [
+      {
+        "page_number": 1,
+        "page_purpose": "Approach",
+        "layout_recipe": "custom",
+        "panels": [
+          {
+            "panel_id": "MZ-2026-09-01_P01_PANEL01",
+            "panel_size": "half",
+            "characters": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-002"
+            ],
+            "location": "Quiet Relay Courtyard",
+            "camera_angle": "Wide",
+            "action": "Moodz and TwoTone approach the silent relay mast.",
+            "emotion": "Cautious",
+            "dialogue": "MOODZ: Still dark.",
+            "caption": "The quiet relay",
+            "sfx": "—",
+            "visual_notes": "Soft dusk, mast silhouette",
+            "continuity_notes": "Keep Moodz blue streak and TwoTone split readable",
+            "art_prompt": "",
+            "negative_prompt": "",
+            "references_required": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-002"
+            ],
+            "lora_required": [],
+            "controlnet_required": "",
+            "seed_strategy": "deterministic per panel",
+            "_source_number": "1.1",
+            "_unknown_characters": [],
+            "_props": [
+              "relay mast"
+            ]
+          }
+        ]
+      },
+      {
+        "page_number": 2,
+        "page_purpose": "Resolve",
+        "layout_recipe": "custom",
+        "panels": [
+          {
+            "panel_id": "MZ-2026-09-01_P02_PANEL01",
+            "panel_size": "full",
+            "characters": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-002"
+            ],
+            "location": "Quiet Relay Courtyard",
+            "camera_angle": "Medium",
+            "action": "They pin a handwritten note to the console and leave side by side.",
+            "emotion": "Steady",
+            "dialogue": "TWOTONE: We'll be back.",
+            "caption": "End",
+            "sfx": "—",
+            "visual_notes": "Clear faces, note legible as a prop",
+            "continuity_notes": "Keep identity markers; no new characters",
+            "art_prompt": "",
+            "negative_prompt": "",
+            "references_required": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-002"
+            ],
+            "lora_required": [],
+            "controlnet_required": "",
+            "seed_strategy": "deterministic per panel",
+            "_source_number": "2.1",
+            "_unknown_characters": [],
+            "_props": [
+              "paper note"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "plan_hash": "f2bc8f67c232732eb4ac550931036d39714b00652d7735e2999e88daaf7520d3",
+  "validation": {
+    "status": "passed",
+    "findings": [],
+    "errors": 0
+  },
+  "approval": {
+    "variant_id": "plan-20260714T130716Z-f70343",
+    "approved_at": "2026-07-14T13:07:16+00:00",
+    "plan_hash": "f2bc8f67c232732eb4ac550931036d39714b00652d7735e2999e88daaf7520d3",
+    "script_hash": "88199a8f38f7005c003e268b575808182ec829b3e6a59de0947789ac83931afa",
+    "actor": "project_owner",
+    "note": "RC layout approval"
+  },
+  "superseded": false
+}

@@ -1,0 +1,216 @@
+{
+  "generation_id": "prompt-1784034437144402800",
+  "issue_id": "MZ-2026-09-01",
+  "panel_id": "MZ-2026-09-01_P02_PANEL01",
+  "execution_mode": "manual",
+  "provider": "manual_prompt",
+  "plan_hash": "5f40c6525700c22fea3e3f67cacebe57c5e75ed0b0868ed52b4edb1d93b34302",
+  "task": "Create one panel image; do not fabricate text, identities, or approval.",
+  "prompt": "They pin a handwritten note to the console and leave side by side.",
+  "negative_prompt": "No text, duplicate characters, identity drift, or unapproved costume changes.",
+  "characters": [
+    {
+      "character_id": "MZ-CHAR-001",
+      "display_name": "Moodz",
+      "primary_reference": "references/primary/primary-reference.webp",
+      "visual_constraints": [
+        {
+          "category": "visual_feature",
+          "name": "black emo fringe over one eye",
+          "value": "black emo fringe over one eye",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        },
+        {
+          "category": "visual_feature",
+          "name": "blue hair accent/headband/beanie variation",
+          "value": "blue hair accent/headband/beanie variation",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        },
+        {
+          "category": "visual_feature",
+          "name": "grey eye rings",
+          "value": "grey eye rings",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        },
+        {
+          "category": "visual_feature",
+          "name": "stitched pale chest",
+          "value": "stitched pale chest",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        }
+      ],
+      "reference_kind": "individual_character"
+    },
+    {
+      "character_id": "MZ-CHAR-002",
+      "display_name": "TwoTone",
+      "primary_reference": "references/primary/primary-reference.webp",
+      "visual_constraints": [
+        {
+          "category": "visual_feature",
+          "name": "hard centered half-black/half-white shaggy hair",
+          "value": "hard centered half-black/half-white shaggy hair",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        },
+        {
+          "category": "visual_feature",
+          "name": "grey eye rings",
+          "value": "grey eye rings",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        },
+        {
+          "category": "visual_feature",
+          "name": "standard pale chest and brown extremities",
+          "value": "standard pale chest and brown extremities",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        }
+      ],
+      "reference_kind": "individual_character"
+    }
+  ],
+  "location": "Quiet Relay Courtyard",
+  "props": [],
+  "continuity_notes": "Keep identity markers; no new characters",
+  "output_contract": {
+    "formats": [
+      "PNG",
+      "JPEG",
+      "WEBP"
+    ],
+    "one_panel_only": true
+  },
+  "prompt_hash": "6cba42421f0dfea6e8b4ff547de1b4a1ae6ba3c417db88d29b0c4c12c9f6a95d"
+}
