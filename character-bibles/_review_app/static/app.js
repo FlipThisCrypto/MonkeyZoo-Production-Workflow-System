@@ -870,6 +870,130 @@ document.querySelectorAll(".nav-item").forEach(btn => {
   });
 });
 
+function setupCanonCatalogs() {
+  $("locationFilter")?.addEventListener("change", () => renderLocationsList());
+  $("propFilter")?.addEventListener("change", () => renderPropsList());
+  // Lazy-load detail when opening views
+  document.querySelectorAll(".nav-item").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const view = btn.getAttribute("data-view");
+      if (view === "locations" && !catalogLocations.length) loadCanonCatalogs();
+      if (view === "props" && !catalogProps.length) loadCanonCatalogs();
+    });
+  });
+}
+
+async function loadCanonCatalogs() {
+  try {
+    const [locations, props, summary] = await Promise.all([
+      api("/api/locations"),
+      api("/api/props"),
+      api("/api/canon-catalog/summary")
+    ]);
+    catalogLocations = Array.isArray(locations) ? locations : [];
+    catalogProps = Array.isArray(props) ? props : [];
+    if ($("locationsSummary")) {
+      $("locationsSummary").innerHTML = [
+        ["Locations", summary.locations_count || catalogLocations.length],
+        ["Proposed", summary.locations_proposed || 0],
+        ["Season", summary.season || "—"]
+      ].map(([k, v]) => `<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
+    }
+    if ($("propsSummary")) {
+      $("propsSummary").innerHTML = [
+        ["Props", summary.props_count || catalogProps.length],
+        ["Proposed", summary.props_proposed || 0],
+        ["Season", summary.season || "—"]
+      ].map(([k, v]) => `<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
+    }
+    if ($("locationsStatus")) $("locationsStatus").textContent = `${catalogLocations.length} locations loaded from approved canon.`;
+    if ($("propsStatus")) $("propsStatus").textContent = `${catalogProps.length} props loaded from approved canon.`;
+    renderLocationsList();
+    renderPropsList();
+  } catch (err) {
+    if ($("locationsStatus")) $("locationsStatus").textContent = err.message || "Locations unavailable";
+    if ($("propsStatus")) $("propsStatus").textContent = err.message || "Props unavailable";
+  }
+}
+
+function renderLocationsList() {
+  if (!$("locationsList")) return;
+  const filter = $("locationFilter")?.value || "all";
+  const rows = catalogLocations.filter(item => filter === "all" || item.status === filter);
+  $("locationsList").innerHTML = rows.length
+    ? rows.map(item => {
+        const active = item.location_id === selectedLocationId ? "active" : "";
+        return `<button type="button" class="catalog-row ${active}" data-location-id="${escapeHtml(item.location_id)}">
+          <strong>${escapeHtml(item.display_name || item.location_id)}</strong>
+          <small>${escapeHtml(item.location_id)} · ${escapeHtml(item.status || "unknown")}</small>
+          <span>${escapeHtml(item.month || item.first_issue || "world")}</span>
+        </button>`;
+      }).join("")
+    : "<p class=\"workspace-help\">No locations match this filter.</p>";
+  $("locationsList").querySelectorAll("[data-location-id]").forEach(btn => {
+    btn.addEventListener("click", () => openLocationDetail(btn.dataset.locationId));
+  });
+}
+
+function renderPropsList() {
+  if (!$("propsList")) return;
+  const filter = $("propFilter")?.value || "all";
+  const rows = catalogProps.filter(item => filter === "all" || item.status === filter);
+  $("propsList").innerHTML = rows.length
+    ? rows.map(item => {
+        const active = item.prop_id === selectedPropId ? "active" : "";
+        return `<button type="button" class="catalog-row ${active}" data-prop-id="${escapeHtml(item.prop_id)}">
+          <strong>${escapeHtml(item.display_name || item.prop_id)}</strong>
+          <small>${escapeHtml(item.prop_id)} · ${escapeHtml(item.category || "prop")} · ${escapeHtml(item.status || "unknown")}</small>
+          <span>${escapeHtml(item.first_issue || "world")}</span>
+        </button>`;
+      }).join("")
+    : "<p class=\"workspace-help\">No props match this filter.</p>";
+  $("propsList").querySelectorAll("[data-prop-id]").forEach(btn => {
+    btn.addEventListener("click", () => openPropDetail(btn.dataset.propId));
+  });
+}
+
+async function openLocationDetail(locationId) {
+  selectedLocationId = locationId;
+  renderLocationsList();
+  if (!$("locationDetail")) return;
+  $("locationDetail").innerHTML = "<p class=\"workspace-help\">Loading…</p>";
+  try {
+    const data = await api(`/api/locations/${encodeURIComponent(locationId)}`);
+    const s = data.summary || {};
+    $("locationDetail").innerHTML = `
+      <header><h4>${escapeHtml(s.display_name || locationId)}</h4>
+      <p><code>${escapeHtml(s.location_id || locationId)}</code> · ${escapeHtml(s.status || "")}</p></header>
+      <p><strong>Season role:</strong> ${escapeHtml(s.season_role || "—")}</p>
+      <p><strong>Folder:</strong> <code>${escapeHtml(s.folder || "")}</code></p>
+      <p><strong>Primary image:</strong> ${data.has_primary_image ? "Present" : "Not yet filed"}</p>
+      <pre class="catalog-bible">${escapeHtml(data.bible_markdown || "No bible.md found.")}</pre>`;
+  } catch (err) {
+    $("locationDetail").innerHTML = `<p class="workspace-help">${escapeHtml(err.message || "Unavailable")}</p>`;
+  }
+}
+
+async function openPropDetail(propId) {
+  selectedPropId = propId;
+  renderPropsList();
+  if (!$("propDetail")) return;
+  $("propDetail").innerHTML = "<p class=\"workspace-help\">Loading…</p>";
+  try {
+    const data = await api(`/api/props/${encodeURIComponent(propId)}`);
+    const s = data.summary || {};
+    $("propDetail").innerHTML = `
+      <header><h4>${escapeHtml(s.display_name || propId)}</h4>
+      <p><code>${escapeHtml(s.prop_id || propId)}</code> · ${escapeHtml(s.category || "prop")} · ${escapeHtml(s.status || "")}</p></header>
+      <p><strong>Notes:</strong> ${escapeHtml(s.notes || "—")}</p>
+      <p><strong>Folder:</strong> <code>${escapeHtml(s.folder || "")}</code></p>
+      <p><strong>Primary image:</strong> ${data.has_primary_image ? "Present" : "Not yet filed"}</p>
+      <pre class="catalog-bible">${escapeHtml(data.bible_markdown || "No bible.md found.")}</pre>`;
+  } catch (err) {
+    $("propDetail").innerHTML = `<p class="workspace-help">${escapeHtml(err.message || "Unavailable")}</p>`;
+  }
+}
+
 // Story Builder Wizard Stepper Logic
 let activeWizardStep = 1;
 
@@ -955,7 +1079,9 @@ async function initializeApplication() {
   setupArtQueue();
   setupQAWorkspace();
   setupReleaseWorkspace();
+  setupCanonCatalogs();
   await loadCharacters();
+  await loadCanonCatalogs();
   enforceMutationCapability();
 }
 initializeApplication();
@@ -967,6 +1093,10 @@ let activeArtPrompts = null;
 let artUploadPanel = null;
 let activeQA = null;
 let activeRelease = null;
+let catalogLocations = [];
+let catalogProps = [];
+let selectedLocationId = null;
+let selectedPropId = null;
 
 function renderIssuesList(issues) {
   const selector = $("storyProductionIssue");

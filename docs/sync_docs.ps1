@@ -116,6 +116,8 @@ python "$DocsDir/export_static_characters.py"
 if ($LASTEXITCODE -ne 0) { throw "Static character export failed" }
 python "$DocsDir/export_static_issues.py"
 if ($LASTEXITCODE -ne 0) { throw "Static issue workflow export failed" }
+python "$DocsDir/export_static_catalog.py"
+if ($LASTEXITCODE -ne 0) { throw "Static locations/props catalog export failed" }
 
 # 4. Copy HTML and convert asset links + inject banner
 $AppHash = (python "$DocsDir/static_asset_version.py" "$StaticDir/app.js").Trim()
@@ -242,6 +244,32 @@ async function api(path, options = {}) {
   if (cleanPath === "/api/issues") {
     const response = await fetch("./static/issue-workflows.json");
     return response.json();
+  }
+
+  if (cleanPath === "/api/locations" || cleanPath === "/api/props" || cleanPath === "/api/canon-catalog/summary") {
+    const response = await fetch("./static/canon-catalog.json");
+    const catalog = await response.json();
+    if (cleanPath === "/api/locations") return catalog.locations || [];
+    if (cleanPath === "/api/props") return catalog.props || [];
+    return catalog.summary || {};
+  }
+
+  if (cleanPath.startsWith("/api/locations/")) {
+    const id = decodeURIComponent(cleanPath.split("/")[3] || "");
+    const response = await fetch("./static/canon-catalog.json");
+    const catalog = await response.json();
+    const summary = (catalog.locations || []).find(item => item.location_id === id);
+    if (!summary) return {error:"Location unavailable"};
+    return {summary, bible_markdown:`# ${summary.display_name || id}\n\n${summary.season_role || ""}\n`, has_primary_image:!!summary.has_primary_image};
+  }
+
+  if (cleanPath.startsWith("/api/props/")) {
+    const id = decodeURIComponent(cleanPath.split("/")[3] || "");
+    const response = await fetch("./static/canon-catalog.json");
+    const catalog = await response.json();
+    const summary = (catalog.props || []).find(item => item.prop_id === id);
+    if (!summary) return {error:"Prop unavailable"};
+    return {summary, bible_markdown:`# ${summary.display_name || id}\n\n${summary.notes || ""}\n`, has_primary_image:!!summary.has_primary_image};
   }
 
   if (cleanPath.startsWith("/api/issues/")) {

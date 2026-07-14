@@ -1,0 +1,745 @@
+{
+  "summary": {
+    "locations_count": 20,
+    "props_count": 31,
+    "locations_proposed": 17,
+    "props_proposed": 28,
+    "season": "2026-emo-monkeys-the-signal-between-us"
+  },
+  "locations": [
+    {
+      "location_id": "MZ-LOC-ZOO-CITY-STREETS",
+      "display_name": "Zoo City Streets",
+      "slug": "zoo-city-streets",
+      "status": "established_world",
+      "world_bible_section": "2. Canon Locations / Zoo City streets",
+      "first_issue": null,
+      "issues": [
+        "all"
+      ],
+      "season_role": "Default exterior; storm sheen in September; winter emergency exteriors in December.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/zoo-city-streets"
+    },
+    {
+      "location_id": "MZ-LOC-FUSIONZOO-PUBLIC",
+      "display_name": "FusionZoo Public Facility",
+      "slug": "fusionzoo-public",
+      "status": "established_world",
+      "world_bible_section": "2. Canon Locations / FusionZoo Public Facility",
+      "first_issue": null,
+      "issues": [
+        "background"
+      ],
+      "season_role": "Corporate contrast; marketing surface of FusionZoo infrastructure.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/fusionzoo-public"
+    },
+    {
+      "location_id": "MZ-LOC-FUSION-ANNEX",
+      "display_name": "The Fusion Lab / The Annex",
+      "slug": "fusion-annex",
+      "status": "established_world",
+      "world_bible_section": "2. Canon Locations / The Fusion Lab / The Annex",
+      "first_issue": null,
+      "issues": [
+        "background"
+      ],
+      "season_role": "Truth archive contrast; not required as a season setpiece unless an issue stages it.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/fusion-annex"
+    },
+    {
+      "location_id": "MZ-LOC-FESTIVAL-GROUNDS",
+      "display_name": "End-of-Summer Night Festival Grounds",
+      "slug": "festival-grounds",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "month": "2026-08",
+      "issues": [
+        "issue-01"
+      ],
+      "season_role": "Primary Issue 01 environment: neon, food stands, games, temporary rides, projection screens.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/festival-grounds"
+    },
+    {
+      "location_id": "MZ-LOC-FESTIVAL-MAIN-STAGE",
+      "display_name": "Festival Main Stage",
+      "slug": "festival-main-stage",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "month": "2026-08",
+      "issues": [
+        "issue-01"
+      ],
+      "season_role": "Public spotlight and countdown; competing priority against overlooked rescues.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/festival-main-stage"
+    },
+    {
+      "location_id": "MZ-LOC-FESTIVAL-SERVICE-CORRIDOR",
+      "display_name": "Festival Service Corridor",
+      "slug": "festival-service-corridor",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "month": "2026-08",
+      "issues": [
+        "issue-01"
+      ],
+      "season_role": "Dark corridor where overlooked people are trapped during the climax.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/festival-service-corridor"
+    },
+    {
+      "location_id": "MZ-LOC-FESTIVAL-CONTROL-NODE",
+      "display_name": "Festival Power Control Node",
+      "slug": "festival-control-node",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "month": "2026-08",
+      "issues": [
+        "issue-01"
+      ],
+      "season_role": "Service gate and malfunctioning control box; reacts differently when NeonBlue approaches.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/festival-control-node"
+    },
+    {
+      "location_id": "MZ-LOC-STORM-ROUTINES",
+      "display_name": "Early-Fall Storm Streets and Routine Nodes",
+      "slug": "storm-routines",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "month": "2026-09",
+      "issues": [
+        "issue-02"
+      ],
+      "season_role": "Back-to-routine storm season exteriors and public systems reactivating after summer.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/storm-routines"
+    },
+    {
+      "location_id": "MZ-LOC-TRANSIT-ANNOUNCEMENT-HUB",
+      "display_name": "Transit Announcement Hub",
+      "slug": "transit-announcement-hub",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "month": "2026-09",
+      "issues": [
+        "issue-02"
+      ],
+      "season_role": "Transit boards and speakers carrying the six-tone interference.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/transit-announcement-hub"
+    },
+    {
+      "location_id": "MZ-LOC-SCHOOL-PA-ZONE",
+      "display_name": "School / Public Address Zone",
+      "slug": "school-pa-zone",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "month": "2026-09",
+      "issues": [
+        "issue-02"
+      ],
+      "season_role": "School speakers and routine-public systems that overload with the same burst.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/school-pa-zone"
+    },
+    {
+      "location_id": "MZ-LOC-OLD-RELAY-JUNCTION",
+      "display_name": "Old Relay Junction",
+      "slug": "old-relay-junction",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "month": "2026-09",
+      "issues": [
+        "issue-02",
+        "issue-03",
+        "issue-05",
+        "issue-06"
+      ],
+      "season_role": "Climax of Issue 02; first mapped physical node of the dormant Echo network.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/old-relay-junction"
+    },
+    {
+      "location_id": "MZ-LOC-HAUNTED-ATTRACTION",
+      "display_name": "The House That Remembers (Haunted Attraction)",
+      "slug": "haunted-attraction",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-03-scarline",
+      "month": "2026-10",
+      "issues": [
+        "issue-03"
+      ],
+      "season_role": "Halloween attraction reopened over older FusionZoo infrastructure.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/haunted-attraction"
+    },
+    {
+      "location_id": "MZ-LOC-FALSE-CHOICE-GALLERY",
+      "display_name": "False-Choice Gallery",
+      "slug": "false-choice-gallery",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-03-scarline",
+      "month": "2026-10",
+      "issues": [
+        "issue-03"
+      ],
+      "season_role": "Interior rooms with misdirecting exit signs and compliance tests.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/false-choice-gallery"
+    },
+    {
+      "location_id": "MZ-LOC-OLD-ACCESS-PATH",
+      "display_name": "Old Access Path (Under Attraction)",
+      "slug": "old-access-path",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-03-scarline",
+      "month": "2026-10",
+      "issues": [
+        "issue-03"
+      ],
+      "season_role": "Zombie-recognized legacy path; Scarline identifies current safe route above it.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/old-access-path"
+    },
+    {
+      "location_id": "MZ-LOC-COMMUNITY-MEAL-HALL",
+      "display_name": "Community Meal Hall",
+      "slug": "community-meal-hall",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-04-moodz",
+      "month": "2026-11",
+      "issues": [
+        "issue-04"
+      ],
+      "season_role": "November gathering for gratitude, service, and chosen family.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/community-meal-hall"
+    },
+    {
+      "location_id": "MZ-LOC-AUTO-HARMONY-SEATING",
+      "display_name": "Auto-Harmony Seating Grid",
+      "slug": "auto-harmony-seating",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-04-moodz",
+      "month": "2026-11",
+      "issues": [
+        "issue-04"
+      ],
+      "season_role": "System that reorganizes seats for forced ideal harmony; Moodz rejects it.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/auto-harmony-seating"
+    },
+    {
+      "location_id": "MZ-LOC-WINTER-EMERGENCY-SHELTER",
+      "display_name": "Winter Emergency Shelter",
+      "slug": "winter-emergency-shelter",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-05-ash",
+      "month": "2026-12",
+      "issues": [
+        "issue-05"
+      ],
+      "season_role": "Storm shelter with holiday lights, temporary heat, and stranded residents.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/winter-emergency-shelter"
+    },
+    {
+      "location_id": "MZ-LOC-HEATING-INFRASTRUCTURE",
+      "display_name": "Damaged Heating Infrastructure Node",
+      "slug": "heating-infrastructure",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-05-ash",
+      "month": "2026-12",
+      "issues": [
+        "issue-05"
+      ],
+      "season_role": "Where heat is diverted to awaken the fifth Echo relay; strength alone cannot fix it.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/heating-infrastructure"
+    },
+    {
+      "location_id": "MZ-LOC-NEW-YEAR-CIVIC-PREP",
+      "display_name": "New Year Civic Prep District",
+      "slug": "new-year-civic-prep",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-06-twotone",
+      "month": "2027-01",
+      "issues": [
+        "issue-06"
+      ],
+      "season_role": "City preparing what to preserve, rebuild, retire, and become.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/new-year-civic-prep"
+    },
+    {
+      "location_id": "MZ-LOC-CENTRAL-ECHO-RELAY",
+      "display_name": "Central Echo Relay",
+      "slug": "central-echo-relay",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-06-twotone",
+      "month": "2027-01",
+      "issues": [
+        "issue-06"
+      ],
+      "season_role": "Dormant central relay; finale setpiece for two incompatible futures and third path.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_locations/central-echo-relay"
+    }
+  ],
+  "props": [
+    {
+      "prop_id": "MZ-PROP-FUSIONZOO-UPGRADE-SIGN",
+      "display_name": "FUSIONZOO – UPGRADE YOURSELF Sign",
+      "status": "established_world",
+      "issues": [
+        "background"
+      ],
+      "category": "signage",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/fusionzoo-upgrade-sign"
+    },
+    {
+      "prop_id": "MZ-PROP-FUSION-READY-SCREEN",
+      "display_name": "FUSION READY Screen",
+      "status": "established_world",
+      "issues": [
+        "background"
+      ],
+      "category": "tech-ui",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/fusion-ready-screen"
+    },
+    {
+      "prop_id": "MZ-PROP-FLOATING-EXPLAINER",
+      "display_name": "Floating Explainer Screen",
+      "status": "established_world",
+      "issues": [
+        "background"
+      ],
+      "category": "tech-ui",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/floating-explainer"
+    },
+    {
+      "prop_id": "MZ-PROP-ECHO-SYMBOL",
+      "display_name": "Echo Symbol (Six Segments)",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "issues": [
+        "issue-01",
+        "issue-02",
+        "issue-03",
+        "issue-04",
+        "issue-05",
+        "issue-06"
+      ],
+      "category": "mystery-motif",
+      "notes": "Readable B/W; hideable in scenery; complete only in January.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/echo-symbol"
+    },
+    {
+      "prop_id": "MZ-PROP-CYAN-RELAY-MARKER",
+      "display_name": "Cyan Relay Marker / Frequency Tag",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "issues": [
+        "issue-01",
+        "issue-02"
+      ],
+      "category": "echo-tech",
+      "notes": "Associated with Patch / NeonBlue memory; matches August frequency in September.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/cyan-relay-marker"
+    },
+    {
+      "prop_id": "MZ-PROP-FESTIVAL-BACKUP-PANEL",
+      "display_name": "Festival Backup Power Panel",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "issues": [
+        "issue-01"
+      ],
+      "category": "infrastructure",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/festival-backup-panel"
+    },
+    {
+      "prop_id": "MZ-PROP-SERVICE-GATE",
+      "display_name": "Locked Service Gate",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "issues": [
+        "issue-01"
+      ],
+      "category": "infrastructure",
+      "notes": "Lil Devil wants to force it; only useful after NeonBlue identifies safe force.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/service-gate"
+    },
+    {
+      "prop_id": "MZ-PROP-CONTROL-BOX",
+      "display_name": "Malfunctioning Control Box",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "issues": [
+        "issue-01"
+      ],
+      "category": "infrastructure",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/control-box"
+    },
+    {
+      "prop_id": "MZ-PROP-PUBLIC-PROJECTION-SCREEN",
+      "display_name": "Public Projection Screen (Fractured Cyan)",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "issues": [
+        "issue-01"
+      ],
+      "category": "signage",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/public-projection-screen"
+    },
+    {
+      "prop_id": "MZ-PROP-POWERED-OFF-RADIO",
+      "display_name": "Powered-Off Radio (Final Soft Tone)",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "issues": [
+        "issue-02"
+      ],
+      "category": "personal-device",
+      "notes": "Issue 02 final image prop.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/powered-off-radio"
+    },
+    {
+      "prop_id": "MZ-PROP-TRANSIT-BOARD",
+      "display_name": "Transit Board",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "issues": [
+        "issue-02"
+      ],
+      "category": "public-device",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/transit-board"
+    },
+    {
+      "prop_id": "MZ-PROP-SCHOOL-SPEAKER",
+      "display_name": "School / Public Speaker",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "issues": [
+        "issue-02"
+      ],
+      "category": "public-device",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/school-speaker"
+    },
+    {
+      "prop_id": "MZ-PROP-PERSONAL-DEVICE-BURST",
+      "display_name": "Personal Device (Interference Burst)",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "issues": [
+        "issue-02"
+      ],
+      "category": "personal-device",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/personal-device-burst"
+    },
+    {
+      "prop_id": "MZ-PROP-SIGNAL-ANALYZER",
+      "display_name": "Clever Signal Analyzer / Scope",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "issues": [
+        "issue-02"
+      ],
+      "category": "tool",
+      "notes": "Maps mechanism; cannot read emotional meaning of six tones.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/signal-analyzer"
+    },
+    {
+      "prop_id": "MZ-PROP-SIX-TONE-MOTIF",
+      "display_name": "Six-Tone Interference Motif",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "issues": [
+        "issue-02",
+        "issue-03",
+        "issue-04",
+        "issue-05",
+        "issue-06"
+      ],
+      "category": "audio-motif",
+      "notes": "Recurring audio/visual static pattern; not a physical handheld after first reveal unless staged.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/six-tone-motif"
+    },
+    {
+      "prop_id": "MZ-PROP-MISDIRECT-EXIT-SIGN",
+      "display_name": "Misdirecting Exit Sign",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-03-scarline",
+      "issues": [
+        "issue-03"
+      ],
+      "category": "signage",
+      "notes": "Directs different characters to different doors.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/misdirect-exit-sign"
+    },
+    {
+      "prop_id": "MZ-PROP-OLD-WALL-MARKING",
+      "display_name": "Old Wall Marking (Fusion Residue Glyph)",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-03-scarline",
+      "issues": [
+        "issue-03",
+        "issue-06"
+      ],
+      "category": "echo-tech",
+      "notes": "Zombie touches it; third segment lights.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/old-wall-marking"
+    },
+    {
+      "prop_id": "MZ-PROP-FUSIONZOO-RESIDUE",
+      "display_name": "Old FusionZoo Residue Trace",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-03-scarline",
+      "issues": [
+        "issue-03"
+      ],
+      "category": "environment-effect",
+      "notes": "Smell/residue Zombie recognizes; not horror gore.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/fusionzoo-residue"
+    },
+    {
+      "prop_id": "MZ-PROP-HAUNTED-THEATRICAL-PROP",
+      "display_name": "Haunted-House Theatrical Prop (Fake Scare)",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-03-scarline",
+      "issues": [
+        "issue-03"
+      ],
+      "category": "set-dressing",
+      "notes": "Playful scares contrast with real system under the attraction.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/haunted-theatrical-prop"
+    },
+    {
+      "prop_id": "MZ-PROP-COMMUNITY-TABLE",
+      "display_name": "Community Meal Table",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-04-moodz",
+      "issues": [
+        "issue-04"
+      ],
+      "category": "furniture",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/community-table"
+    },
+    {
+      "prop_id": "MZ-PROP-EMPTY-PLACESETTING",
+      "display_name": "Empty Placesetting / Empty Chair",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-04-moodz",
+      "issues": [
+        "issue-04"
+      ],
+      "category": "furniture",
+      "notes": "Final image: empty place marked by fifth unlit Echo segment.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/empty-placesetting"
+    },
+    {
+      "prop_id": "MZ-PROP-SEATING-SYSTEM-UI",
+      "display_name": "Auto-Harmony Seating UI",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-04-moodz",
+      "issues": [
+        "issue-04"
+      ],
+      "category": "tech-ui",
+      "notes": "Tracks emotional response; Static detects tracking.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/seating-system-ui"
+    },
+    {
+      "prop_id": "MZ-PROP-INVITATION-CARD",
+      "display_name": "Meal Invitation / Seating Card",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-04-moodz",
+      "issues": [
+        "issue-04"
+      ],
+      "category": "paper",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/invitation-card"
+    },
+    {
+      "prop_id": "MZ-PROP-HOLIDAY-LIGHTS",
+      "display_name": "Holiday Lights (Winter)",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-05-ash",
+      "issues": [
+        "issue-05"
+      ],
+      "category": "set-dressing",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/holiday-lights"
+    },
+    {
+      "prop_id": "MZ-PROP-TEMPORARY-HEAT-SOURCE",
+      "display_name": "Temporary Heat Source",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-05-ash",
+      "issues": [
+        "issue-05"
+      ],
+      "category": "infrastructure",
+      "notes": "Feeds the same failure pattern if misused.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/temporary-heat-source"
+    },
+    {
+      "prop_id": "MZ-PROP-HEATING-SEQUENCE-PLATE",
+      "display_name": "Heating Sequence Plate / Dormant Phrase Panel",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-05-ash",
+      "issues": [
+        "issue-05"
+      ],
+      "category": "echo-tech",
+      "notes": "Ash recognizes old phrase/diagram; completes activation sequence with precise words.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/heating-sequence-plate"
+    },
+    {
+      "prop_id": "MZ-PROP-EMERGENCY-SUPPLY-BOARD",
+      "display_name": "Emergency Supply Balance Board",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-05-ash",
+      "issues": [
+        "issue-05"
+      ],
+      "category": "tool",
+      "notes": "TwoTone keeps resources balanced until missing information appears.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/emergency-supply-board"
+    },
+    {
+      "prop_id": "MZ-PROP-DEBRIS-BRACE",
+      "display_name": "Structural Debris / Brace Point",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-05-ash",
+      "issues": [
+        "issue-05"
+      ],
+      "category": "environment",
+      "notes": "Super Monkey holds structure; not the real fix.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/debris-brace"
+    },
+    {
+      "prop_id": "MZ-PROP-CENTRAL-RELAY-CONSOLE",
+      "display_name": "Central Relay Console",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-06-twotone",
+      "issues": [
+        "issue-06"
+      ],
+      "category": "echo-tech",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/central-relay-console"
+    },
+    {
+      "prop_id": "MZ-PROP-TWO-PATH-DISPLAY",
+      "display_name": "Two-Path Future Display",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-06-twotone",
+      "issues": [
+        "issue-06"
+      ],
+      "category": "tech-ui",
+      "notes": "Shows two incompatible futures with real benefits and costs.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/two-path-display"
+    },
+    {
+      "prop_id": "MZ-PROP-COMPLETE-ECHO-EMBLEM",
+      "display_name": "Complete Echo Emblem",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-06-twotone",
+      "issues": [
+        "issue-06"
+      ],
+      "category": "mystery-motif",
+      "notes": "Full six-segment symbol only clear in January finale.",
+      "has_bible": true,
+      "has_primary_image": false,
+      "folder": "03_APPROVED_CANON/approved_props/complete-echo-emblem"
+    }
+  ]
+}

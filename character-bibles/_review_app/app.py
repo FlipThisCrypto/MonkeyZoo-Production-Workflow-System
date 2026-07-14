@@ -15,6 +15,7 @@ import art_queue_workspace
 import art_prompt_workspace
 import visual_qa_workspace
 import release_workspace
+import canon_catalog
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "00_SYSTEM" / "scripts"))
 import new_issue
 
@@ -50,6 +51,31 @@ def runtime_capabilities():
 @app.get("/api/characters")
 def characters():
     return jsonify([store.character_summary(cid, data) for cid, data in store.load_all(BIBLES_ROOT)])
+
+
+@app.get("/api/locations")
+def locations():
+    return jsonify(canon_catalog.list_locations(WORKSPACE_ROOT))
+
+
+@app.get("/api/locations/<location_id>")
+def location_detail(location_id):
+    return jsonify(canon_catalog.get_location(WORKSPACE_ROOT, location_id))
+
+
+@app.get("/api/props")
+def props():
+    return jsonify(canon_catalog.list_props(WORKSPACE_ROOT))
+
+
+@app.get("/api/props/<prop_id>")
+def prop_detail(prop_id):
+    return jsonify(canon_catalog.get_prop(WORKSPACE_ROOT, prop_id))
+
+
+@app.get("/api/canon-catalog/summary")
+def canon_catalog_summary():
+    return jsonify(canon_catalog.catalog_summary(WORKSPACE_ROOT))
 
 
 @app.get("/api/characters/<character_id>")
@@ -315,6 +341,8 @@ def handle_error(exc):
     elif isinstance(exc, visual_qa_workspace.VisualQAError):
         status, message = exc.status, str(exc)
     elif isinstance(exc, release_workspace.ReleaseError):
+        status, message = exc.status, str(exc)
+    elif isinstance(exc, canon_catalog.CanonCatalogError):
         status, message = exc.status, str(exc)
     elif isinstance(exc, (store.BibleStoreError, story_context.StoryContextError, new_issue.IssueCreationError, issue_workflow.IssueWorkflowError)):
         status, message = 400, str(exc)

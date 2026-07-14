@@ -609,7 +609,7 @@
           },
           {
             "path": "00_SYSTEM/world_bible.md",
-            "sha256": "201399913f4075f64663cb8d5c5be5e5f7a644767919ee3bf40ab2dcc97d7bf8"
+            "sha256": "8395aa9de8c58cdcd3f6d6e891c8b73a738ed0fd34a24d481d2d3c90427388f8"
           },
           {
             "path": "00_SYSTEM/continuity_ledger.md",
@@ -2268,7 +2268,7 @@
         "previous_issue_references": [],
         "warnings": [],
         "excluded": [],
-        "snapshot_hash": "18a6004d173ddec1aa01b29d11e827150441111e329dfebea67f0caab2449744"
+        "snapshot_hash": "182c81023f8a9f6e0c0c3deb6f78fef357464ae1a02c17b276a7c1ae63af01eb"
       },
       "outlines": [],
       "scripts": [],
@@ -4934,7 +4934,7 @@
           },
           {
             "path": "00_SYSTEM/world_bible.md",
-            "sha256": "201399913f4075f64663cb8d5c5be5e5f7a644767919ee3bf40ab2dcc97d7bf8"
+            "sha256": "8395aa9de8c58cdcd3f6d6e891c8b73a738ed0fd34a24d481d2d3c90427388f8"
           },
           {
             "path": "00_SYSTEM/continuity_ledger.md",
@@ -6619,7 +6619,7 @@
             "reason": "missing reliable approved identity"
           }
         ],
-        "snapshot_hash": "ffd3a973c8b07f9386e6c7d75339afa52d799372447c6a32e0d74000373b6f8d"
+        "snapshot_hash": "48e7026025a14bfe7f509b7b75ef07a1ebd546dc5fad2bd96536e40d76fafdab"
       },
       "outlines": [],
       "scripts": [],
@@ -8997,7 +8997,7 @@
           },
           {
             "path": "00_SYSTEM/world_bible.md",
-            "sha256": "201399913f4075f64663cb8d5c5be5e5f7a644767919ee3bf40ab2dcc97d7bf8"
+            "sha256": "8395aa9de8c58cdcd3f6d6e891c8b73a738ed0fd34a24d481d2d3c90427388f8"
           },
           {
             "path": "00_SYSTEM/continuity_ledger.md",
@@ -9486,7 +9486,7 @@
         "previous_issue_references": [],
         "warnings": [],
         "excluded": [],
-        "snapshot_hash": "e73c37a8d7ca421a02fbbadf4bc5033aafc901bfa5135ad5b83d6c7bead7c059"
+        "snapshot_hash": "c2d62c2375efb6ff345f7408cb2c224dfd6a741494abcf0c8c3421afbafd1328"
       },
       "outlines": [
         {
@@ -11388,7 +11388,7 @@
     "primary_character": "MZ-CHAR-001",
     "guest_character": "MZ-CHAR-002",
     "location": "02_MONTHLY_ISSUES\\2026-10_Issue_01",
-    "last_updated": "2026-07-14T13:35:28",
+    "last_updated": "2026-07-14T13:39:49",
     "validation_state": "passed",
     "blocker_count": 0,
     "workflow": {
@@ -11613,8 +11613,8 @@
           },
           "approval": {
             "required": true,
-            "approved": true,
-            "stale": false,
+            "approved": false,
+            "stale": true,
             "record": {
               "stage": "release",
               "approved": true,
@@ -11665,70 +11665,70 @@
         "group": "Intake",
         "name": "issue_brief.md",
         "exists": true,
-        "modified": "2026-07-14T13:35:21",
+        "modified": "2026-07-14T13:39:49",
         "viewable": true
       },
       {
         "group": "Intake",
         "name": "metadata.json",
         "exists": true,
-        "modified": "2026-07-14T13:35:27",
+        "modified": "2026-07-14T13:39:49",
         "viewable": true
       },
       {
         "group": "Outline",
         "name": "issue_outline.md",
         "exists": true,
-        "modified": "2026-07-14T13:35:22",
+        "modified": "2026-07-14T13:39:49",
         "viewable": true
       },
       {
         "group": "Script",
         "name": "issue_script.md",
         "exists": true,
-        "modified": "2026-07-14T13:35:25",
+        "modified": "2026-07-14T13:39:49",
         "viewable": true
       },
       {
         "group": "Plans",
         "name": "page_panel_plan.json",
         "exists": true,
-        "modified": "2026-07-14T13:35:25",
+        "modified": "2026-07-14T13:39:49",
         "viewable": true
       },
       {
         "group": "Prompts",
         "name": "art_prompt_pack.json",
         "exists": true,
-        "modified": "2026-07-14T13:35:25",
+        "modified": "2026-07-14T13:39:49",
         "viewable": true
       },
       {
         "group": "QA",
         "name": "qa_report.md",
         "exists": true,
-        "modified": "2026-07-14T13:35:27",
+        "modified": "2026-07-14T13:39:49",
         "viewable": true
       },
       {
         "group": "Covers",
         "name": "cover_prompt.md",
         "exists": true,
-        "modified": "2026-07-14T13:35:27",
+        "modified": "2026-07-14T13:39:49",
         "viewable": true
       },
       {
         "group": "Social",
         "name": "social_posts.md",
         "exists": true,
-        "modified": "2026-07-14T13:35:27",
+        "modified": "2026-07-14T13:39:49",
         "viewable": true
       },
       {
         "group": "Release",
         "name": "final_export_checklist.md",
         "exists": true,
-        "modified": "2026-07-14T13:35:27",
+        "modified": "2026-07-14T13:39:49",
         "viewable": true
       }
     ],
@@ -11967,8 +11967,8 @@
             },
             "approval": {
               "required": true,
-              "approved": true,
-              "stale": false,
+              "approved": false,
+              "stale": true,
               "record": {
                 "stage": "release",
                 "approved": true,
@@ -12040,7 +12040,7 @@
           },
           {
             "path": "00_SYSTEM/world_bible.md",
-            "sha256": "201399913f4075f64663cb8d5c5be5e5f7a644767919ee3bf40ab2dcc97d7bf8"
+            "sha256": "8395aa9de8c58cdcd3f6d6e891c8b73a738ed0fd34a24d481d2d3c90427388f8"
           },
           {
             "path": "00_SYSTEM/continuity_ledger.md",
@@ -12524,12 +12524,12 @@
           "MZ-CHAR-001": "MZ-CHAR-001",
           "MZ-CHAR-002": "MZ-CHAR-002"
         },
-        "issue_brief_hash": "019e7e6ef3b4df57a46fb9cc50caed8e0f63c7468ea2fd3ba088a3cd19c305d1",
+        "issue_brief_hash": "bda68a8184bb38b28b4cd5f9ec7b71efcd50ef835d8f85364c683d2d31ab72b0",
         "season_plan_hash": "02bb73f2673d4734bbff047f47d15a50b9abaf8c394bf213b280fe66f7976a8a",
         "previous_issue_references": [],
         "warnings": [],
         "excluded": [],
-        "snapshot_hash": "6feddab9b02114de0d98f6d3d56e9bff039985a992faf604a3869e8c35dd25ad"
+        "snapshot_hash": "ca616c9b06cccea59dc53a7321f96b4f4fc40eb781d62bff80325f7b23a64074"
       },
       "outlines": [
         {
@@ -12565,9 +12565,9 @@
           },
           "superseded": false,
           "owner_note": null,
-          "canon_stale": false,
+          "canon_stale": true,
           "outline_approval_current": true,
-          "approval_current": true
+          "approval_current": false
         }
       ],
       "scripts": [
@@ -12612,9 +12612,9 @@
           },
           "superseded": false,
           "owner_note": null,
-          "canon_stale": false,
-          "outline_approval_current": true,
-          "approval_current": true
+          "canon_stale": true,
+          "outline_approval_current": false,
+          "approval_current": false
         }
       ],
       "outline_approval": {
@@ -12868,8 +12868,8 @@
             },
             "approval": {
               "required": true,
-              "approved": true,
-              "stale": false,
+              "approved": false,
+              "stale": true,
               "record": {
                 "stage": "release",
                 "approved": true,
@@ -13254,8 +13254,8 @@
             },
             "approval": {
               "required": true,
-              "approved": true,
-              "stale": false,
+              "approved": false,
+              "stale": true,
               "record": {
                 "stage": "release",
                 "approved": true,
@@ -13641,8 +13641,8 @@
             },
             "approval": {
               "required": true,
-              "approved": true,
-              "stale": false,
+              "approved": false,
+              "stale": true,
               "record": {
                 "stage": "release",
                 "approved": true,
@@ -13922,8 +13922,8 @@
             },
             "approval": {
               "required": true,
-              "approved": true,
-              "stale": false,
+              "approved": false,
+              "stale": true,
               "record": {
                 "stage": "release",
                 "approved": true,
@@ -13970,7 +13970,7 @@
         "state_notice": null
       },
       "evidence": {
-        "evidence_hash": "e61bbb4e44e5cd809c31f1226f8fb8e576508d2e8b2f50cd9f1813ba3f6b476f",
+        "evidence_hash": "a57ad1aa4802cece341ac50bf6083141665a238eb1e83c525a9f5ad6c7e74853",
         "panels": [
           {
             "panel_id": "MZ-2026-10-01_P01_PANEL01",
@@ -14105,8 +14105,8 @@
             "evidence_hash": "e61bbb4e44e5cd809c31f1226f8fb8e576508d2e8b2f50cd9f1813ba3f6b476f",
             "actor": "project_owner"
           },
-          "evidence_stale": false,
-          "approval_current": true
+          "evidence_stale": true,
+          "approval_current": false
         }
       ]
     },
@@ -14334,8 +14334,8 @@
             },
             "approval": {
               "required": true,
-              "approved": true,
-              "stale": false,
+              "approved": false,
+              "stale": true,
               "record": {
                 "stage": "release",
                 "approved": true,
@@ -14382,27 +14382,27 @@
         "state_notice": null
       },
       "evidence": {
-        "evidence_hash": "ea9956985751a57f443482e564ecd4e951b51e47c6f4f394e1fec354d2451657",
+        "evidence_hash": "47478fd1ee76f288673a66c023528a5d5f182f55d4f35eed1a1c8e00f3e48713",
         "files": [
           {
             "path": "metadata.json",
-            "size": 1094,
-            "sha256": "8be9fcf737787820270a56e20be322b11965430d673559dcb22c625a5bb3bc48"
+            "size": 1056,
+            "sha256": "ab0fa3fadcb1302d4880e7c9d465b1c744de9181f52523b71163c934f584f957"
           },
           {
             "path": "social_posts.md",
-            "size": 39,
-            "sha256": "4b882667e5442e0c469fa07a5db4368bec0120eb10f23cec742f00a5c23a9077"
+            "size": 37,
+            "sha256": "7565e78234311956d6e3961d5942a569f7e73115e1905e69bfeab3288fca6177"
           },
           {
             "path": "final_export_checklist.md",
-            "size": 40,
-            "sha256": "ac6e3974a2293a0feb2af54dd47328742656c0538a63f63bc6340eb39dad4aea"
+            "size": 38,
+            "sha256": "c52afba723eaf37bb93beb1537ea484f3b4daa2edd0c340a60444c71c13df61f"
           },
           {
             "path": "cover_prompt.md",
-            "size": 44,
-            "sha256": "9a7770e1af0ef79e7d1c0494757c763d46af74b4cc2e69101bc92ceb794d2a2a"
+            "size": 42,
+            "sha256": "87a204d9196aa4fbf19b5fc03c0c62df7cf7f9e1b7b4fbc0878d42386581f57b"
           },
           {
             "path": "qa_report.md",
@@ -14425,10 +14425,12 @@
             "sha256": "78108dcf79f890d59c9d2a424cc9a443083089f9b978338421ab0e50864b594c"
           }
         ],
-        "blockers": [],
+        "blockers": [
+          "Canonical QA evidence is missing or stale"
+        ],
         "qa_verdict": "passed",
         "qa_evidence_hash": "e61bbb4e44e5cd809c31f1226f8fb8e576508d2e8b2f50cd9f1813ba3f6b476f",
-        "qa_evidence_current": true,
+        "qa_evidence_current": false,
         "covers": [
           "generated_art/covers/main_cover.png"
         ],
@@ -14447,7 +14449,7 @@
         "social_copy_exists": true,
         "checklist_exists": true,
         "archive": {
-          "path": "05_RELEASE_ARCHIVE/2026/Issue_01",
+          "path": "05_RELEASE_ARCHIVE/2026/2026-10_Issue_01",
           "exists": true,
           "publication_files": [
             "main_cover.png",
@@ -14468,27 +14470,27 @@
         "schema_version": "1.0",
         "issue_id": "MZ-2026-10-01",
         "created_at": null,
-        "evidence_hash": "ea9956985751a57f443482e564ecd4e951b51e47c6f4f394e1fec354d2451657",
+        "evidence_hash": "47478fd1ee76f288673a66c023528a5d5f182f55d4f35eed1a1c8e00f3e48713",
         "files": [
           {
             "path": "metadata.json",
-            "size": 1094,
-            "sha256": "8be9fcf737787820270a56e20be322b11965430d673559dcb22c625a5bb3bc48"
+            "size": 1056,
+            "sha256": "ab0fa3fadcb1302d4880e7c9d465b1c744de9181f52523b71163c934f584f957"
           },
           {
             "path": "social_posts.md",
-            "size": 39,
-            "sha256": "4b882667e5442e0c469fa07a5db4368bec0120eb10f23cec742f00a5c23a9077"
+            "size": 37,
+            "sha256": "7565e78234311956d6e3961d5942a569f7e73115e1905e69bfeab3288fca6177"
           },
           {
             "path": "final_export_checklist.md",
-            "size": 40,
-            "sha256": "ac6e3974a2293a0feb2af54dd47328742656c0538a63f63bc6340eb39dad4aea"
+            "size": 38,
+            "sha256": "c52afba723eaf37bb93beb1537ea484f3b4daa2edd0c340a60444c71c13df61f"
           },
           {
             "path": "cover_prompt.md",
-            "size": 44,
-            "sha256": "9a7770e1af0ef79e7d1c0494757c763d46af74b4cc2e69101bc92ceb794d2a2a"
+            "size": 42,
+            "sha256": "87a204d9196aa4fbf19b5fc03c0c62df7cf7f9e1b7b4fbc0878d42386581f57b"
           },
           {
             "path": "qa_report.md",
@@ -14511,7 +14513,7 @@
             "sha256": "78108dcf79f890d59c9d2a424cc9a443083089f9b978338421ab0e50864b594c"
           }
         ],
-        "manifest_hash": "4e2b73699d55e147df40f464e279cbab309db96de64f91a6932fa80f53c67b37"
+        "manifest_hash": "a8d2f2741350c3147195aec3c1785bec80f4205af30c6cb357e938c918b3fc90"
       },
       "approval": {
         "approved_at": "2026-07-14T17:35:27+00:00",
@@ -14521,9 +14523,9 @@
         "note": "live release",
         "actor": "project_owner"
       },
-      "approval_current": true,
-      "release_ready": true,
-      "publication_ready": true
+      "approval_current": false,
+      "release_ready": false,
+      "publication_ready": false
     }
   }
 ]

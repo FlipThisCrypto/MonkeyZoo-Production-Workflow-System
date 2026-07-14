@@ -29,6 +29,8 @@ Opens `http://127.0.0.1:8765` (loopback only). GitHub Pages remains a public **r
 | `docs/PAGE_PANEL_WORKSPACE.md` | Script → page plan |
 | `docs/VISUAL_QA_WORKSPACE.md` | Evidence QA PASS/HOLD/FAIL |
 | `docs/RELEASE_WORKSPACE.md` | Release approval, manifest, archive publish |
+| `docs/LOCATIONS_PROPS_WORKSPACE.md` | Locations/Props foundation browsers |
+| `docs/ART_REFERENCE_PRIORITIES.md` | Priority stills for location/prop folders |
 | `docs/BACKUPS.md` | Offline backup/restore |
 
 ```powershell
@@ -37,7 +39,7 @@ python scripts/rc_real_issue_run.py              # formal intake→published RC 
 python scripts/package_issue.py 2026-08_Issue_06 # CBZ/export helper (+ optional --assemble)
 ```
 
-Studio workspaces now include Art Prompt Pack build/approve/promote inside **Art Queue**, and **Publish archive** on **Release**.
+Studio workspaces include Art Prompt Pack + Art Queue, Publish archive on Release, and **Locations/Props** foundation browsers for season canon.
 
 Ship evidence and plans:
 
