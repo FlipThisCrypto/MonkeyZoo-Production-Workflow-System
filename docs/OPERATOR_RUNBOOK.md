@@ -141,8 +141,10 @@ Requires:
 Copies verified artifacts into:
 
 ```text
-05_RELEASE_ARCHIVE/YYYY/Issue_NN/
+05_RELEASE_ARCHIVE/YYYY/<period>_Issue_NN/
 ```
+
+(Unique per issue folder. Legacy `YYYY/Issue_NN` still validates if present.)
 
 Git ignores `05_RELEASE_ARCHIVE/` by design. After archive publication, advance to **published** and confirm `publication_ready=true`.
 

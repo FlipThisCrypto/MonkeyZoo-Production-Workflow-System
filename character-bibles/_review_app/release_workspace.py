@@ -49,7 +49,17 @@ def _lock(folder):
   try:path.unlink()
   except OSError:pass
 def _archive(folder,root):
- number=folder.name.split("_Issue_")[-1] if "_Issue_" in folder.name else "";return root/"05_RELEASE_ARCHIVE"/folder.name[:4]/f"Issue_{number}"
+ """Unique archive destination: year/full-issue-folder (avoids month collisions)."""
+ return root/"05_RELEASE_ARCHIVE"/folder.name[:4]/folder.name
+def _legacy_archive(folder,root):
+ number=folder.name.split("_Issue_")[-1] if "_Issue_" in folder.name else ""
+ return root/"05_RELEASE_ARCHIVE"/folder.name[:4]/f"Issue_{number}"
+def _resolve_archive(folder,root):
+ """Prefer unique path; fall back to legacy year/Issue_NN if already published there."""
+ primary=_archive(folder,root)
+ if primary.exists(): return primary
+ legacy=_legacy_archive(folder,root)
+ return legacy if legacy.exists() else primary
 def _valid_package(path):
  try:
   with zipfile.ZipFile(path) as archive:
@@ -80,7 +90,7 @@ def evidence(folder,root):
   if not (folder/name).is_file() or not (folder/name).stat().st_size:blockers.append(f"{name} is missing or empty")
  if missing_meta:blockers.append(f"Metadata missing fields: {', '.join(missing_meta)}")
  blockers+=placeholders
- archive=_archive(folder,root)
+ archive=_resolve_archive(folder,root)
  publication_files=[p for p in archive.rglob("*") if p.is_file()] if archive.exists() else []
  publication_artifacts=[p for p in publication_files if p.stat().st_size>0 and (p.suffix.lower()==".pdf" or (p.suffix.lower() in {".cbz",".zip"} and _valid_package(p)))]
  digest=hashlib.sha256()

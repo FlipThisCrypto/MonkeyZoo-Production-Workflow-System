@@ -69,7 +69,7 @@ def test_missing_and_mismatched_approved_manifest_block_promotion(factory):
 def test_successful_promotion_agrees_with_approval_and_current_evidence(factory):
  root,issue=factory;approved=release.approve(issue,root);result=release.promote_manifest(issue,root);written=json.loads((issue/"release_hash_manifest.json").read_text());assert result["manifest_hash"]==approved["manifest_hash"]==written["manifest_hash"];assert result["evidence_hash"]==approved["evidence_hash"]==release.evidence(issue,root)["evidence_hash"]==written["evidence_hash"]
 def test_published_readiness_requires_recognizable_release_artifact(factory):
- root,issue=factory;release.approve(issue,root);state=json.loads((issue/".workflow-status.json").read_text());state["active_stage"]="published";release._write_json(issue/".workflow-status.json",state);archive=root/"05_RELEASE_ARCHIVE/2027/Issue_01";archive.mkdir(parents=True);(archive/"unrelated.txt").write_text("not a release artifact");assert not release.readiness(issue,root)["publication_ready"];(archive/"issue.pdf").write_bytes(b"pdf");assert release.readiness(issue,root)["publication_ready"]
+ root,issue=factory;release.approve(issue,root);state=json.loads((issue/".workflow-status.json").read_text());state["active_stage"]="published";release._write_json(issue/".workflow-status.json",state);archive=root/"05_RELEASE_ARCHIVE/2027"/issue.name;archive.mkdir(parents=True);(archive/"unrelated.txt").write_text("not a release artifact");assert not release.readiness(issue,root)["publication_ready"];(archive/"issue.pdf").write_bytes(b"pdf");assert release.readiness(issue,root)["publication_ready"]
 def test_wrong_stage_rejected(factory):
  root,issue=factory;state=json.loads((issue/".workflow-status.json").read_text());state["active_stage"]="qa";release._write_json(issue/".workflow-status.json",state)
  with pytest.raises(release.ReleaseError,match="current stage"):release.manifest(issue,root)
@@ -89,10 +89,11 @@ def test_publish_archive_requires_approval_manifest_and_writes_artifacts(factory
  release.promote_manifest(issue, root)
  result = release.publish_archive(issue, root)
  assert result["ok"]
- archive = root / "05_RELEASE_ARCHIVE/2027/Issue_01"
+ archive = root / "05_RELEASE_ARCHIVE/2027" / issue.name
  assert archive.exists()
  assert any(archive.glob("*.pdf"))
  assert any(list(archive.glob("*.zip")) + list(archive.glob("*.cbz")))
+ assert result["publication"]["archive_path"].endswith(issue.name.replace("\\", "/").split("/")[-1]) or issue.name in result["publication"]["archive_path"]
  assert release.readiness(issue, root)["publication_ready"] is False
  state = json.loads((issue / ".workflow-status.json").read_text())
  state["active_stage"] = "published"
@@ -101,4 +102,17 @@ def test_publish_archive_requires_approval_manifest_and_writes_artifacts(factory
  with pytest.raises(release.ReleaseError, match="replacement confirmation"):
   release.publish_archive(issue, root)
  release.publish_archive(issue, root, True)
+
+
+def test_archive_path_is_unique_per_issue_folder_not_edition_only(factory):
+ root, issue = factory
+ primary = release._archive(issue, root)
+ legacy = release._legacy_archive(issue, root)
+ assert primary.name == issue.name
+ assert legacy.name == "Issue_01"
+ assert primary != legacy
+ # Legacy still resolves when only legacy exists
+ legacy.mkdir(parents=True)
+ (legacy / "issue.pdf").write_bytes(b"pdf")
+ assert release._resolve_archive(issue, root) == legacy
 

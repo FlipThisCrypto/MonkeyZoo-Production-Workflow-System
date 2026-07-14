@@ -1,0 +1,9 @@
+{
+  "variant_id": "pack-20260714T173525Z-a30eaa",
+  "promoted_at": "2026-07-14T17:35:25+00:00",
+  "pack_hash": "97bdc638a98b3abf966dff654cb370eac59c87fbe9ea33e326c4473d4c562579",
+  "plan_hash": "c4a141c1458fca1463976aa6d03818d648990a8969e3ee990b0a1e52470aca6f",
+  "destination": "art_prompt_pack.json",
+  "backup": null,
+  "actor": "project_owner"
+}

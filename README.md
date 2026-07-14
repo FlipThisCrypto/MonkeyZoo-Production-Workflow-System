@@ -37,6 +37,12 @@ python scripts/package_issue.py 2026-08_Issue_06 # CBZ/export helper (+ optional
 
 Studio workspaces now include Art Prompt Pack build/approve/promote inside **Art Queue**, and **Publish archive** on **Release**.
 
+Ship evidence and plans:
+
+- `docs/LIVE_APP_TEST_REPORT.md` — live HTTP+UI issue run
+- `docs/SHIP_READINESS_ASSESSMENT.md` — findings and fixes
+- `docs/HOSTING_PLAN.md` — how to host for work access (auth required)
+
 ## Requirements
 
 - **Writing/QA stages (1–5, 7, 9, 10):** a Claude agent (Claude Code) + the
