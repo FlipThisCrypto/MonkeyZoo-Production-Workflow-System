@@ -36,6 +36,13 @@ function enforceMutationCapability(root = document) {
   });
 }
 async function resolveRuntimeCapability() {
+  // Static Pages sets this flag before the bundle runs. Stay fail-closed without probing a missing API.
+  if (window.BANANA_LAB_STATIC_MODE === true) {
+    runtimeCapability = {resolved: true, writable: false, reason: "static-preview"};
+    console.info(`MonkeyZoo read-only mode: ${runtimeCapability.reason}`);
+    enforceMutationCapability();
+    return runtimeCapability;
+  }
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 2000);
   try {

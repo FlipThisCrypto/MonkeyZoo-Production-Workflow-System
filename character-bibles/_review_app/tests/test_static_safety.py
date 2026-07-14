@@ -32,7 +32,10 @@ def test_runtime_capability_is_fail_closed_and_exact():
     assert "isTrustedRuntimeCapability(data)" in js
     assert "response.ok ? await response.json() : null" in js
     assert "Trusted writable local runtime required" in js
-    assert "window.BANANA_LAB_STATIC_MODE === true" not in js
+    # Source may read the static flag to short-circuit, but must never assign it.
+    assert "window.BANANA_LAB_STATIC_MODE = true" not in js
+    assert "window.BANANA_LAB_STATIC_MODE === true" in js
+    assert 'reason: "static-preview"' in js
 
 
 def test_static_asset_version_changes_with_content_and_is_deterministic(tmp_path):
