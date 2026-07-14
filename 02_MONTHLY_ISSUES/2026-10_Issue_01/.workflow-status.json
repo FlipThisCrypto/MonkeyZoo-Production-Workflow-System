@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0",
+  "active_stage": "published",
+  "transitions": [
+    {
+      "completed_stage": "intake",
+      "from_stage": "intake",
+      "to_stage": "canon_review",
+      "validated_at": "2026-07-14T17:35:21+00:00",
+      "artifact_hash": "52e6eea8ebc9e545c04b2abe88d90c350b97d97f612f09a340eccbac6346ba2b",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "canon_review",
+      "from_stage": "canon_review",
+      "to_stage": "outline",
+      "validated_at": "2026-07-14T17:35:21+00:00",
+      "artifact_hash": "52e6eea8ebc9e545c04b2abe88d90c350b97d97f612f09a340eccbac6346ba2b",
+      "approval": {
+        "required": true,
+        "record_stage": "canon_review"
+      }
+    },
+    {
+      "completed_stage": "outline",
+      "from_stage": "outline",
+      "to_stage": "script",
+      "validated_at": "2026-07-14T17:35:22+00:00",
+      "artifact_hash": "8be279903faac7f39b801f964516f1bbd2b32d8a369be127f2eee50704cb1485",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "script",
+      "from_stage": "script",
+      "to_stage": "page_plan",
+      "validated_at": "2026-07-14T17:35:25+00:00",
+      "artifact_hash": "a671cab78fe09d671c540e3d6943be4e7f388f0e7c237858f07d5f5e4536eeaa",
+      "approval": {
+        "required": true,
+        "record_stage": "script"
+      }
+    },
+    {
+      "completed_stage": "page_plan",
+      "from_stage": "page_plan",
+      "to_stage": "art_prompts",
+      "validated_at": "2026-07-14T17:35:25+00:00",
+      "artifact_hash": "3b24b0845f293bbbbf1b394af29d32c9457c4bfc0d2852a26587653f6f7a9811",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "art_prompts",
+      "from_stage": "art_prompts",
+      "to_stage": "art_production",
+      "validated_at": "2026-07-14T17:35:25+00:00",
+      "artifact_hash": "21eb347af11638150c71f775a579b41d90e2e54fe0892e8ede39f34b40f1eed4",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "art_production",
+      "from_stage": "art_production",
+      "to_stage": "qa",
+      "validated_at": "2026-07-14T17:35:27+00:00",
+      "artifact_hash": "ae0c29417deaa4f36d7739a85c97df1b4f4be48b21adfd296a22b6c1ad4b9403",
+      "approval": {
+        "required": true,
+        "record_stage": "art_production"
+      }
+    },
+    {
+      "completed_stage": "qa",
+      "from_stage": "qa",
+      "to_stage": "release",
+      "validated_at": "2026-07-14T17:35:27+00:00",
+      "artifact_hash": "45f478e81c5add34a36ef559f619f7fddc44a3d638644cc6c0d8ef3b7a03ee9e",
+      "approval": {
+        "required": true,
+        "record_stage": "qa"
+      }
+    },
+    {
+      "completed_stage": "release",
+      "from_stage": "release",
+      "to_stage": "published",
+      "validated_at": "2026-07-14T17:35:28+00:00",
+      "artifact_hash": "c75e91a94232ccb860885d135dba4731f7d299614e2e8d8cc634257ff528edc1",
+      "approval": {
+        "required": true,
+        "record_stage": "release"
+      }
+    }
+  ],
+  "approvals": {
+    "canon_review": {
+      "stage": "canon_review",
+      "approved": true,
+      "timestamp": "2026-07-14T17:35:21+00:00",
+      "artifact_hash": "52e6eea8ebc9e545c04b2abe88d90c350b97d97f612f09a340eccbac6346ba2b",
+      "note": "live app test",
+      "actor": "project_owner"
+    },
+    "script": {
+      "stage": "script",
+      "approved": true,
+      "timestamp": "2026-07-14T17:35:25+00:00",
+      "artifact_hash": "a671cab78fe09d671c540e3d6943be4e7f388f0e7c237858f07d5f5e4536eeaa",
+      "note": "live app test",
+      "actor": "project_owner"
+    },
+    "art_production": {
+      "stage": "art_production",
+      "approved": true,
+      "timestamp": "2026-07-14T17:35:27+00:00",
+      "artifact_hash": "ae0c29417deaa4f36d7739a85c97df1b4f4be48b21adfd296a22b6c1ad4b9403",
+      "note": "live app test",
+      "actor": "project_owner"
+    },
+    "qa": {
+      "stage": "qa",
+      "approved": true,
+      "timestamp": "2026-07-14T17:35:27+00:00",
+      "artifact_hash": "45f478e81c5add34a36ef559f619f7fddc44a3d638644cc6c0d8ef3b7a03ee9e",
+      "note": "live app test",
+      "actor": "project_owner"
+    },
+    "release": {
+      "stage": "release",
+      "approved": true,
+      "timestamp": "2026-07-14T17:35:28+00:00",
+      "artifact_hash": "c75e91a94232ccb860885d135dba4731f7d299614e2e8d8cc634257ff528edc1",
+      "note": "live app test",
+      "actor": "project_owner"
+    }
+  }
+}

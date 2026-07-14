@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "variant_id": "plan-20260714T173525Z-940039",
+  "issue_id": "MZ-2026-10-01",
+  "created_at": "2026-07-14T17:35:25+00:00",
+  "source": "canonical_script_parser",
+  "script_hash": "6c4b5a53af264a7a8048248940f53f75545b42856999e3f875477984b1ab95c1",
+  "plan": {
+    "issue_id": "MZ-2026-10-01",
+    "issue_title": "Live App Probe - Signal Desk",
+    "page_count": 2,
+    "pages": [
+      {
+        "page_number": 1,
+        "page_purpose": "Open",
+        "layout_recipe": "custom",
+        "panels": [
+          {
+            "panel_id": "MZ-2026-10-01_P01_PANEL01",
+            "panel_size": "half",
+            "characters": [
+              "MZ-CHAR-001"
+            ],
+            "location": "Signal Desk",
+            "camera_angle": "Medium",
+            "action": "Moodz powers on the quiet desk monitors.",
+            "emotion": "Focused",
+            "dialogue": "MOODZ: Night shift.",
+            "caption": "Signal desk",
+            "sfx": "—",
+            "visual_notes": "Soft monitor glow",
+            "continuity_notes": "Keep blue streak readable",
+            "art_prompt": "",
+            "negative_prompt": "",
+            "references_required": [
+              "MZ-CHAR-001"
+            ],
+            "lora_required": [],
+            "controlnet_required": "",
+            "seed_strategy": "deterministic per panel",
+            "_source_number": "1.1",
+            "_unknown_characters": [],
+            "_props": [
+              "monitors"
+            ]
+          }
+        ]
+      },
+      {
+        "page_number": 2,
+        "page_purpose": "Close",
+        "layout_recipe": "custom",
+        "panels": [
+          {
+            "panel_id": "MZ-2026-10-01_P02_PANEL01",
+            "panel_size": "full",
+            "characters": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-002"
+            ],
+            "location": "Signal Desk",
+            "camera_angle": "Wide",
+            "action": "TwoTone arrives with tea; they leave a shift note.",
+            "emotion": "Steady",
+            "dialogue": "TWOTONE: For the morning crew.",
+            "caption": "End",
+            "sfx": "—",
+            "visual_notes": "Note on desk",
+            "continuity_notes": "Keep identity markers",
+            "art_prompt": "",
+            "negative_prompt": "",
+            "references_required": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-002"
+            ],
+            "lora_required": [],
+            "controlnet_required": "",
+            "seed_strategy": "deterministic per panel",
+            "_source_number": "2.1",
+            "_unknown_characters": [],
+            "_props": [
+              "tea cup",
+              "paper note"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "plan_hash": "88711c25e40e865a5328d71752fc8b3101e3f36d61fd33d9b38f9c89d3efcf74",
+  "validation": {
+    "status": "passed",
+    "findings": [],
+    "errors": 0
+  },
+  "approval": {
+    "variant_id": "plan-20260714T173525Z-940039",
+    "approved_at": "2026-07-14T17:35:25+00:00",
+    "plan_hash": "88711c25e40e865a5328d71752fc8b3101e3f36d61fd33d9b38f9c89d3efcf74",
+    "script_hash": "6c4b5a53af264a7a8048248940f53f75545b42856999e3f875477984b1ab95c1",
+    "actor": "project_owner",
+    "note": "live"
+  },
+  "superseded": false
+}

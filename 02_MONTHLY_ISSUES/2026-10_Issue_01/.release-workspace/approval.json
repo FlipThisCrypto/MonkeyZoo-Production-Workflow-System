@@ -1,0 +1,8 @@
+{
+  "approved_at": "2026-07-14T17:35:27+00:00",
+  "issue_id": "MZ-2026-10-01",
+  "evidence_hash": "ea9956985751a57f443482e564ecd4e951b51e47c6f4f394e1fec354d2451657",
+  "manifest_hash": "4e2b73699d55e147df40f464e279cbab309db96de64f91a6932fa80f53c67b37",
+  "note": "live release",
+  "actor": "project_owner"
+}

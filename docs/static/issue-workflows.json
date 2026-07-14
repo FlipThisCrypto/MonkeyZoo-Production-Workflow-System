@@ -3947,7 +3947,7 @@
         "social_copy_exists": true,
         "checklist_exists": true,
         "archive": {
-          "path": "05_RELEASE_ARCHIVE/2026/Issue_05",
+          "path": "05_RELEASE_ARCHIVE/2026/2026-07_Issue_05",
           "exists": false,
           "publication_files": [],
           "publication_artifacts": []
@@ -8324,7 +8324,7 @@
         "social_copy_exists": true,
         "checklist_exists": true,
         "archive": {
-          "path": "05_RELEASE_ARCHIVE/2026/Issue_06",
+          "path": "05_RELEASE_ARCHIVE/2026/2026-08_Issue_06",
           "exists": false,
           "publication_files": [],
           "publication_artifacts": []
@@ -11306,14 +11306,15 @@
           "publication_files": [
             "main_cover.png",
             "metadata.json",
-            "MonkeyZoo_MZ-2026-09-01_CBZ.zip",
-            "MonkeyZoo_MZ-2026-09-01_Web.pdf",
+            "MonkeyZoo_MZ-2026-10-01_CBZ.zip",
+            "MonkeyZoo_MZ-2026-10-01_Web.pdf",
             "qa_report.md",
-            "release_hash_manifest.json"
+            "release_hash_manifest.json",
+            "social_posts.md"
           ],
           "publication_artifacts": [
-            "MonkeyZoo_MZ-2026-09-01_CBZ.zip",
-            "MonkeyZoo_MZ-2026-09-01_Web.pdf"
+            "MonkeyZoo_MZ-2026-10-01_CBZ.zip",
+            "MonkeyZoo_MZ-2026-10-01_Web.pdf"
           ]
         }
       },
@@ -11377,6 +11378,3152 @@
       "approval_current": false,
       "release_ready": false,
       "publication_ready": false
+    }
+  },
+  {
+    "issue_id": "MZ-2026-10-01",
+    "title": "Live App Probe - Signal Desk",
+    "edition_number": 1,
+    "period": "2026-10",
+    "primary_character": "MZ-CHAR-001",
+    "guest_character": "MZ-CHAR-002",
+    "location": "02_MONTHLY_ISSUES\\2026-10_Issue_01",
+    "last_updated": "2026-07-14T13:35:28",
+    "validation_state": "passed",
+    "blocker_count": 0,
+    "workflow": {
+      "issue_id": "MZ-2026-10-01",
+      "active_stage": "published",
+      "current_stage": {
+        "id": "published",
+        "number": 10,
+        "label": "Published",
+        "state": "current_ready"
+      },
+      "stages": [
+        {
+          "id": "intake",
+          "number": 1,
+          "label": "Intake",
+          "state": "complete",
+          "required_files": [
+            "issue_brief.md",
+            "metadata.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": false,
+            "approved": false,
+            "stale": false,
+            "record": null
+          }
+        },
+        {
+          "id": "canon_review",
+          "number": 2,
+          "label": "Canon Review",
+          "state": "complete",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": true,
+            "approved": false,
+            "stale": true,
+            "record": {
+              "stage": "canon_review",
+              "approved": true,
+              "timestamp": "2026-07-14T17:35:21+00:00",
+              "artifact_hash": "52e6eea8ebc9e545c04b2abe88d90c350b97d97f612f09a340eccbac6346ba2b",
+              "note": "live app test",
+              "actor": "project_owner"
+            }
+          }
+        },
+        {
+          "id": "outline",
+          "number": 3,
+          "label": "Outline",
+          "state": "complete",
+          "required_files": [
+            "issue_outline.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": false,
+            "approved": false,
+            "stale": false,
+            "record": null
+          }
+        },
+        {
+          "id": "script",
+          "number": 4,
+          "label": "Script",
+          "state": "complete",
+          "required_files": [
+            "issue_script.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": true,
+            "approved": false,
+            "stale": true,
+            "record": {
+              "stage": "script",
+              "approved": true,
+              "timestamp": "2026-07-14T17:35:25+00:00",
+              "artifact_hash": "a671cab78fe09d671c540e3d6943be4e7f388f0e7c237858f07d5f5e4536eeaa",
+              "note": "live app test",
+              "actor": "project_owner"
+            }
+          }
+        },
+        {
+          "id": "page_plan",
+          "number": 5,
+          "label": "Page & Panel Plan",
+          "state": "complete",
+          "required_files": [
+            "page_panel_plan.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": false,
+            "approved": false,
+            "stale": false,
+            "record": null
+          }
+        },
+        {
+          "id": "art_prompts",
+          "number": 6,
+          "label": "Art Prompt Pack",
+          "state": "complete",
+          "required_files": [
+            "art_prompt_pack.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": false,
+            "approved": false,
+            "stale": false,
+            "record": null
+          }
+        },
+        {
+          "id": "art_production",
+          "number": 7,
+          "label": "Art Production",
+          "state": "complete",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": true,
+            "approved": false,
+            "stale": true,
+            "record": {
+              "stage": "art_production",
+              "approved": true,
+              "timestamp": "2026-07-14T17:35:27+00:00",
+              "artifact_hash": "ae0c29417deaa4f36d7739a85c97df1b4f4be48b21adfd296a22b6c1ad4b9403",
+              "note": "live app test",
+              "actor": "project_owner"
+            }
+          }
+        },
+        {
+          "id": "qa",
+          "number": 8,
+          "label": "Quality Assurance",
+          "state": "complete",
+          "required_files": [
+            "qa_report.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": true,
+            "approved": false,
+            "stale": true,
+            "record": {
+              "stage": "qa",
+              "approved": true,
+              "timestamp": "2026-07-14T17:35:27+00:00",
+              "artifact_hash": "45f478e81c5add34a36ef559f619f7fddc44a3d638644cc6c0d8ef3b7a03ee9e",
+              "note": "live app test",
+              "actor": "project_owner"
+            }
+          }
+        },
+        {
+          "id": "release",
+          "number": 9,
+          "label": "Release Package",
+          "state": "complete",
+          "required_files": [
+            "cover_prompt.md",
+            "metadata.json",
+            "social_posts.md",
+            "final_export_checklist.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": true,
+            "approved": true,
+            "stale": false,
+            "record": {
+              "stage": "release",
+              "approved": true,
+              "timestamp": "2026-07-14T17:35:28+00:00",
+              "artifact_hash": "c75e91a94232ccb860885d135dba4731f7d299614e2e8d8cc634257ff528edc1",
+              "note": "live app test",
+              "actor": "project_owner"
+            }
+          }
+        },
+        {
+          "id": "published",
+          "number": 10,
+          "label": "Published",
+          "state": "current_ready",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": false,
+            "approved": false,
+            "stale": false,
+            "record": null
+          }
+        }
+      ],
+      "blockers": [],
+      "next_action": {
+        "id": "advance",
+        "label": "Advance Published"
+      },
+      "owner_approval_required": false,
+      "approval": {
+        "required": false,
+        "approved": false,
+        "stale": false,
+        "record": null
+      },
+      "state_source": "recorded",
+      "state_notice": null
+    },
+    "artifacts": [
+      {
+        "group": "Intake",
+        "name": "issue_brief.md",
+        "exists": true,
+        "modified": "2026-07-14T13:35:21",
+        "viewable": true
+      },
+      {
+        "group": "Intake",
+        "name": "metadata.json",
+        "exists": true,
+        "modified": "2026-07-14T13:35:27",
+        "viewable": true
+      },
+      {
+        "group": "Outline",
+        "name": "issue_outline.md",
+        "exists": true,
+        "modified": "2026-07-14T13:35:22",
+        "viewable": true
+      },
+      {
+        "group": "Script",
+        "name": "issue_script.md",
+        "exists": true,
+        "modified": "2026-07-14T13:35:25",
+        "viewable": true
+      },
+      {
+        "group": "Plans",
+        "name": "page_panel_plan.json",
+        "exists": true,
+        "modified": "2026-07-14T13:35:25",
+        "viewable": true
+      },
+      {
+        "group": "Prompts",
+        "name": "art_prompt_pack.json",
+        "exists": true,
+        "modified": "2026-07-14T13:35:25",
+        "viewable": true
+      },
+      {
+        "group": "QA",
+        "name": "qa_report.md",
+        "exists": true,
+        "modified": "2026-07-14T13:35:27",
+        "viewable": true
+      },
+      {
+        "group": "Covers",
+        "name": "cover_prompt.md",
+        "exists": true,
+        "modified": "2026-07-14T13:35:27",
+        "viewable": true
+      },
+      {
+        "group": "Social",
+        "name": "social_posts.md",
+        "exists": true,
+        "modified": "2026-07-14T13:35:27",
+        "viewable": true
+      },
+      {
+        "group": "Release",
+        "name": "final_export_checklist.md",
+        "exists": true,
+        "modified": "2026-07-14T13:35:27",
+        "viewable": true
+      }
+    ],
+    "degraded": false,
+    "story": {
+      "issue": {
+        "issue_id": "MZ-2026-10-01",
+        "title": "Live App Probe - Signal Desk",
+        "page_count": 2,
+        "panel_count": 2,
+        "primary_character": "MZ-CHAR-001",
+        "guest_character": "MZ-CHAR-002",
+        "month": "2026-10",
+        "required_canon": "Moodz and TwoTone approved identity",
+        "prohibited": "No unapproved redesigns"
+      },
+      "workflow": {
+        "issue_id": "MZ-2026-10-01",
+        "active_stage": "published",
+        "current_stage": {
+          "id": "published",
+          "number": 10,
+          "label": "Published",
+          "state": "current_ready"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "complete",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "canon_review",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:21+00:00",
+                "artifact_hash": "52e6eea8ebc9e545c04b2abe88d90c350b97d97f612f09a340eccbac6346ba2b",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "complete",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "complete",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "script",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:25+00:00",
+                "artifact_hash": "a671cab78fe09d671c540e3d6943be4e7f388f0e7c237858f07d5f5e4536eeaa",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "complete",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "complete",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "art_production",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:27+00:00",
+                "artifact_hash": "ae0c29417deaa4f36d7739a85c97df1b4f4be48b21adfd296a22b6c1ad4b9403",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "complete",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "qa",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:27+00:00",
+                "artifact_hash": "45f478e81c5add34a36ef559f619f7fddc44a3d638644cc6c0d8ef3b7a03ee9e",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "complete",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": true,
+              "stale": false,
+              "record": {
+                "stage": "release",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:28+00:00",
+                "artifact_hash": "c75e91a94232ccb860885d135dba4731f7d299614e2e8d8cc634257ff528edc1",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "current_ready",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Published"
+        },
+        "owner_approval_required": false,
+        "approval": {
+          "required": false,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "recorded",
+        "state_notice": null
+      },
+      "provider": {
+        "available": true,
+        "type": "manual_prompt",
+        "model_label": "External/manual",
+        "execution_mode": "manual"
+      },
+      "canon": {
+        "schema_version": "1.0",
+        "issue_id": "MZ-2026-10-01",
+        "generation_type": "outline",
+        "created_at": null,
+        "canon_sources": [
+          {
+            "path": "character-bibles/MZ-CHAR-001/bible.yaml",
+            "sha256": "687aafa96df73864192c8a98aa9f2badc28d3975e316116e20fe8ed6912db5ae"
+          },
+          {
+            "path": "character-bibles/MZ-CHAR-002/bible.yaml",
+            "sha256": "758b8b5fb5b412c6452b9397823e40a46de6517d72c1133d25f58ce1a6c5de32"
+          },
+          {
+            "path": "00_SYSTEM/monkeyzoo_master_bible.md",
+            "sha256": "71363363c85b7e5e4981d354dd108c871d92bb0a9ab584cd531f3a300fe76410"
+          },
+          {
+            "path": "00_SYSTEM/world_bible.md",
+            "sha256": "201399913f4075f64663cb8d5c5be5e5f7a644767919ee3bf40ab2dcc97d7bf8"
+          },
+          {
+            "path": "00_SYSTEM/continuity_ledger.md",
+            "sha256": "365c8532b7b1565bb02d7877ac9d36927c0320ac23a583747c8c6e94f2d62870"
+          },
+          {
+            "path": "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md",
+            "sha256": "02bb73f2673d4734bbff047f47d15a50b9abaf8c394bf213b280fe66f7976a8a"
+          }
+        ],
+        "character_ids": [
+          "MZ-CHAR-001",
+          "MZ-CHAR-002"
+        ],
+        "characters": [
+          {
+            "character_id": "MZ-CHAR-001",
+            "display_name": "Moodz",
+            "personal_name": "Moodz",
+            "legacy_labels": [],
+            "nationality": null,
+            "origin": null,
+            "canon_status": "core_canon",
+            "role": "primary",
+            "source_annotation": "",
+            "voice": {
+              "speech_rhythm": [
+                {
+                  "category": "speech_pattern",
+                  "name": "short declaratives",
+                  "value": "Speaks in compact, low-flare statements.",
+                  "status": "established",
+                  "strength": "strong",
+                  "usage_frequency": "often",
+                  "confidence": "confirmed canon",
+                  "rationale": "Existing bible states short declaratives and rare multi-sentence speech.",
+                  "evidence": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md"
+                  ],
+                  "compatible_contexts": [
+                    "tense panels",
+                    "quiet punchlines"
+                  ],
+                  "incompatible_contexts": [
+                    "long exposition unless no one else can deliver it"
+                  ],
+                  "first_eligible_issue": "next owner-approved issue",
+                  "last_used_issue": null,
+                  "source_refs": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md"
+                  ],
+                  "notes": null
+                }
+              ],
+              "vocabulary_level": [],
+              "sentence_length": [],
+              "humor_style": [
+                {
+                  "category": "speech_pattern",
+                  "name": "humor style",
+                  "value": "deadpan restraint",
+                  "status": "experimental",
+                  "strength": "subtle",
+                  "usage_frequency": "sometimes",
+                  "confidence": "strong inference",
+                  "rationale": "Set by documented voice where available and conservative team differentiation elsewhere.",
+                  "evidence": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md",
+                    "july/2026-07-monkeyzoo-july-edition-test.md"
+                  ],
+                  "compatible_contexts": [
+                    "dialogue drafting"
+                  ],
+                  "incompatible_contexts": [
+                    "flattening character into gag"
+                  ],
+                  "first_eligible_issue": "next owner-approved issue",
+                  "last_used_issue": null,
+                  "source_refs": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md",
+                    "july/2026-07-monkeyzoo-july-edition-test.md"
+                  ],
+                  "notes": null
+                }
+              ],
+              "catchphrase": [
+                {
+                  "category": "catchphrase",
+                  "name": "Not today.",
+                  "value": "A compact refusal when pressure crosses the line.",
+                  "status": "established",
+                  "strength": "strong",
+                  "usage_frequency": "rarely",
+                  "confidence": "confirmed canon",
+                  "rationale": "The ledger documents this as part of his Issue 05 abort arc.",
+                  "evidence": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/continuity_ledger.md"
+                  ],
+                  "compatible_contexts": [
+                    "climax refusal",
+                    "boundary-setting"
+                  ],
+                  "incompatible_contexts": [
+                    "minor inconvenience"
+                  ],
+                  "first_eligible_issue": "MZ-2026-07-05",
+                  "last_used_issue": null,
+                  "source_refs": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/continuity_ledger.md"
+                  ],
+                  "notes": null
+                }
+              ],
+              "favorite_words": [],
+              "words_the_character_avoids": [],
+              "stress_speech": [],
+              "excited_speech": [],
+              "sad_speech": [],
+              "angry_speech": [],
+              "example_dialogue": [],
+              "dialogue_rules": [
+                {
+                  "category": "writing_rule",
+                  "name": "do not caricature voice",
+                  "value": "Use the speech trait only when it supports the scene.",
+                  "status": "established",
+                  "strength": "strong",
+                  "usage_frequency": "often",
+                  "confidence": "strong inference",
+                  "rationale": "Request requires rules preventing caricature.",
+                  "evidence": [
+                    "character-bibles/_inventory/character-inventory.json"
+                  ],
+                  "compatible_contexts": [
+                    "dialogue polish"
+                  ],
+                  "incompatible_contexts": [
+                    "filler quirks"
+                  ],
+                  "first_eligible_issue": "next owner-approved issue",
+                  "last_used_issue": null,
+                  "source_refs": [
+                    "character-bibles/_inventory/character-inventory.json"
+                  ],
+                  "notes": null
+                }
+              ]
+            },
+            "relationships": [],
+            "constraints": {},
+            "visual_constraints": [
+              {
+                "category": "visual_feature",
+                "name": "black emo fringe over one eye",
+                "value": "black emo fringe over one eye",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              },
+              {
+                "category": "visual_feature",
+                "name": "blue hair accent/headband/beanie variation",
+                "value": "blue hair accent/headband/beanie variation",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              },
+              {
+                "category": "visual_feature",
+                "name": "grey eye rings",
+                "value": "grey eye rings",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              },
+              {
+                "category": "visual_feature",
+                "name": "stitched pale chest",
+                "value": "stitched pale chest",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              }
+            ]
+          },
+          {
+            "character_id": "MZ-CHAR-002",
+            "display_name": "TwoTone",
+            "personal_name": "TwoTone",
+            "legacy_labels": [],
+            "nationality": null,
+            "origin": null,
+            "canon_status": "core_canon",
+            "role": "guest",
+            "source_annotation": "",
+            "voice": {
+              "speech_rhythm": [
+                {
+                  "category": "speech_pattern",
+                  "name": "two-beat measured lines",
+                  "value": "Uses short, level phrases that steady the scene.",
+                  "status": "canon",
+                  "strength": "strong",
+                  "usage_frequency": "often",
+                  "confidence": "confirmed canon",
+                  "rationale": "Existing bible gives examples like Stay focused and Your terms.",
+                  "evidence": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md"
+                  ],
+                  "compatible_contexts": [
+                    "tense scenes"
+                  ],
+                  "incompatible_contexts": [
+                    "overexplaining"
+                  ],
+                  "first_eligible_issue": "next owner-approved issue",
+                  "last_used_issue": null,
+                  "source_refs": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md"
+                  ],
+                  "notes": null
+                }
+              ],
+              "vocabulary_level": [],
+              "sentence_length": [],
+              "humor_style": [
+                {
+                  "category": "speech_pattern",
+                  "name": "humor style",
+                  "value": "dry corrections",
+                  "status": "experimental",
+                  "strength": "subtle",
+                  "usage_frequency": "sometimes",
+                  "confidence": "strong inference",
+                  "rationale": "Set by documented voice where available and conservative team differentiation elsewhere.",
+                  "evidence": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md",
+                    "july/2026-07-monkeyzoo-july-edition-test.md"
+                  ],
+                  "compatible_contexts": [
+                    "dialogue drafting"
+                  ],
+                  "incompatible_contexts": [
+                    "flattening character into gag"
+                  ],
+                  "first_eligible_issue": "next owner-approved issue",
+                  "last_used_issue": null,
+                  "source_refs": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md",
+                    "july/2026-07-monkeyzoo-july-edition-test.md"
+                  ],
+                  "notes": null
+                }
+              ],
+              "catchphrase": [
+                {
+                  "category": "catchphrase",
+                  "name": "Stay focused.",
+                  "value": "A grounding line, not a lecture.",
+                  "status": "canon",
+                  "strength": "moderate",
+                  "usage_frequency": "rarely",
+                  "confidence": "confirmed canon",
+                  "rationale": "Edition 4 script gives this dialogue.",
+                  "evidence": [
+                    "Bible and other files/MonkeyZoo_Emo_Edition4_STILL_ME.md"
+                  ],
+                  "compatible_contexts": [
+                    "team overload"
+                  ],
+                  "incompatible_contexts": [
+                    "every minor distraction"
+                  ],
+                  "first_eligible_issue": "MZ-ED-04",
+                  "last_used_issue": null,
+                  "source_refs": [
+                    "Bible and other files/MonkeyZoo_Emo_Edition4_STILL_ME.md"
+                  ],
+                  "notes": null
+                }
+              ],
+              "favorite_words": [],
+              "words_the_character_avoids": [],
+              "stress_speech": [],
+              "excited_speech": [],
+              "sad_speech": [],
+              "angry_speech": [],
+              "example_dialogue": [],
+              "dialogue_rules": [
+                {
+                  "category": "writing_rule",
+                  "name": "do not caricature voice",
+                  "value": "Use the speech trait only when it supports the scene.",
+                  "status": "established",
+                  "strength": "strong",
+                  "usage_frequency": "often",
+                  "confidence": "strong inference",
+                  "rationale": "Request requires rules preventing caricature.",
+                  "evidence": [
+                    "character-bibles/_inventory/character-inventory.json"
+                  ],
+                  "compatible_contexts": [
+                    "dialogue polish"
+                  ],
+                  "incompatible_contexts": [
+                    "filler quirks"
+                  ],
+                  "first_eligible_issue": "next owner-approved issue",
+                  "last_used_issue": null,
+                  "source_refs": [
+                    "character-bibles/_inventory/character-inventory.json"
+                  ],
+                  "notes": null
+                }
+              ]
+            },
+            "relationships": [],
+            "constraints": {},
+            "visual_constraints": [
+              {
+                "category": "visual_feature",
+                "name": "hard centered half-black/half-white shaggy hair",
+                "value": "hard centered half-black/half-white shaggy hair",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              },
+              {
+                "category": "visual_feature",
+                "name": "grey eye rings",
+                "value": "grey eye rings",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              },
+              {
+                "category": "visual_feature",
+                "name": "standard pale chest and brown extremities",
+                "value": "standard pale chest and brown extremities",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              }
+            ]
+          }
+        ],
+        "cast_references": [
+          {
+            "reference": "MZ-CHAR-001",
+            "role": "primary",
+            "annotation": "",
+            "source": "MZ-CHAR-001"
+          },
+          {
+            "reference": "MZ-CHAR-002",
+            "role": "guest",
+            "annotation": "",
+            "source": "MZ-CHAR-002"
+          }
+        ],
+        "alias_resolutions": {
+          "MZ-CHAR-001": "MZ-CHAR-001",
+          "MZ-CHAR-002": "MZ-CHAR-002"
+        },
+        "issue_brief_hash": "019e7e6ef3b4df57a46fb9cc50caed8e0f63c7468ea2fd3ba088a3cd19c305d1",
+        "season_plan_hash": "02bb73f2673d4734bbff047f47d15a50b9abaf8c394bf213b280fe66f7976a8a",
+        "previous_issue_references": [],
+        "warnings": [],
+        "excluded": [],
+        "snapshot_hash": "6feddab9b02114de0d98f6d3d56e9bff039985a992faf604a3869e8c35dd25ad"
+      },
+      "outlines": [
+        {
+          "schema_version": "1.0",
+          "variant_id": "outline-20260714T173521Z-1ccf78",
+          "issue_id": "MZ-2026-10-01",
+          "kind": "outline",
+          "created_at": "2026-07-14T17:35:21+00:00",
+          "source_type": "manual_import",
+          "provider": "live_test",
+          "model": "user supplied",
+          "execution_mode": "manual",
+          "content": "# MZ-2026-10-01 — Live App Probe - Signal Desk\nLogline: Moodz opens the signal desk and documents a quiet night.\nTheme: Careful observation\nPage count: 2\nEmotional arc: alertness to calm certainty\nConflict: An unread queue of silent tickets\nEnding: Desk closed, note left for the next shift\n\n## Page map\nPage 1 — Open the desk\nPage 2 — Leave the note\n",
+          "content_hash": "e7989ce2c563945382e8383b64474d557c563464b6d085269937060f400fcafa",
+          "canon_snapshot_hash": "6feddab9b02114de0d98f6d3d56e9bff039985a992faf604a3869e8c35dd25ad",
+          "issue_brief_hash": "019e7e6ef3b4df57a46fb9cc50caed8e0f63c7468ea2fd3ba088a3cd19c305d1",
+          "approved_outline": null,
+          "prompt_hash": null,
+          "validation": {
+            "status": "passed",
+            "errors": 0,
+            "findings": [],
+            "heuristic": true
+          },
+          "approval": {
+            "variant_id": "outline-20260714T173521Z-1ccf78",
+            "issue_id": "MZ-2026-10-01",
+            "timestamp": "2026-07-14T17:35:22+00:00",
+            "content_hash": "e7989ce2c563945382e8383b64474d557c563464b6d085269937060f400fcafa",
+            "canon_snapshot_hash": "6feddab9b02114de0d98f6d3d56e9bff039985a992faf604a3869e8c35dd25ad",
+            "owner_note": "live",
+            "actor": "project_owner"
+          },
+          "superseded": false,
+          "owner_note": null,
+          "canon_stale": false,
+          "outline_approval_current": true,
+          "approval_current": true
+        }
+      ],
+      "scripts": [
+        {
+          "schema_version": "1.0",
+          "variant_id": "script-20260714T173523Z-aeb38d",
+          "issue_id": "MZ-2026-10-01",
+          "kind": "script",
+          "created_at": "2026-07-14T17:35:23+00:00",
+          "source_type": "manual_import",
+          "provider": "live_test",
+          "model": "user supplied",
+          "execution_mode": "manual",
+          "content": "# MZ-2026-10-01 — Script\n### Page 1 — Open\n**Panel 1.1 (Half)**\n- Location: Signal Desk\n- Characters: MZ-CHAR-001\n- Camera: Medium\n- Action: Moodz powers on the quiet desk monitors.\n- Emotion: Focused\n- Dialogue: MOODZ: Night shift.\n- Caption: Signal desk\n- SFX: —\n- Visual notes: Soft monitor glow\n- Continuity notes: Keep blue streak readable\n- Props: monitors\n### Page 2 — Close\n**Panel 2.1 (Full)**\n- Location: Signal Desk\n- Characters: MZ-CHAR-001, MZ-CHAR-002\n- Camera: Wide\n- Action: TwoTone arrives with tea; they leave a shift note.\n- Emotion: Steady\n- Dialogue: TWOTONE: For the morning crew.\n- Caption: End\n- SFX: —\n- Visual notes: Note on desk\n- Continuity notes: Keep identity markers\n- Props: tea cup, paper note\n",
+          "content_hash": "6c4b5a53af264a7a8048248940f53f75545b42856999e3f875477984b1ab95c1",
+          "canon_snapshot_hash": "e402e8621651ae693ffdbffa4911838b17fd671376719cb44d60d6baa0f75403",
+          "issue_brief_hash": "019e7e6ef3b4df57a46fb9cc50caed8e0f63c7468ea2fd3ba088a3cd19c305d1",
+          "approved_outline": {
+            "variant_id": "outline-20260714T173521Z-1ccf78",
+            "issue_id": "MZ-2026-10-01",
+            "timestamp": "2026-07-14T17:35:22+00:00",
+            "content_hash": "e7989ce2c563945382e8383b64474d557c563464b6d085269937060f400fcafa",
+            "canon_snapshot_hash": "6feddab9b02114de0d98f6d3d56e9bff039985a992faf604a3869e8c35dd25ad",
+            "owner_note": "live",
+            "actor": "project_owner"
+          },
+          "prompt_hash": null,
+          "validation": {
+            "status": "passed",
+            "errors": 0,
+            "findings": [],
+            "heuristic": true
+          },
+          "approval": {
+            "variant_id": "script-20260714T173523Z-aeb38d",
+            "issue_id": "MZ-2026-10-01",
+            "timestamp": "2026-07-14T17:35:23+00:00",
+            "content_hash": "6c4b5a53af264a7a8048248940f53f75545b42856999e3f875477984b1ab95c1",
+            "canon_snapshot_hash": "e402e8621651ae693ffdbffa4911838b17fd671376719cb44d60d6baa0f75403",
+            "owner_note": "live",
+            "actor": "project_owner"
+          },
+          "superseded": false,
+          "owner_note": null,
+          "canon_stale": false,
+          "outline_approval_current": true,
+          "approval_current": true
+        }
+      ],
+      "outline_approval": {
+        "variant_id": "outline-20260714T173521Z-1ccf78",
+        "issue_id": "MZ-2026-10-01",
+        "timestamp": "2026-07-14T17:35:22+00:00",
+        "content_hash": "e7989ce2c563945382e8383b64474d557c563464b6d085269937060f400fcafa",
+        "canon_snapshot_hash": "6feddab9b02114de0d98f6d3d56e9bff039985a992faf604a3869e8c35dd25ad",
+        "owner_note": "live",
+        "actor": "project_owner"
+      },
+      "script_approval": {
+        "variant_id": "script-20260714T173523Z-aeb38d",
+        "issue_id": "MZ-2026-10-01",
+        "timestamp": "2026-07-14T17:35:23+00:00",
+        "content_hash": "6c4b5a53af264a7a8048248940f53f75545b42856999e3f875477984b1ab95c1",
+        "canon_snapshot_hash": "e402e8621651ae693ffdbffa4911838b17fd671376719cb44d60d6baa0f75403",
+        "owner_note": "live",
+        "actor": "project_owner"
+      },
+      "existing_files": {
+        "issue_outline.md": true,
+        "issue_script.md": true
+      },
+      "draft_counts": {
+        "outlines": 1,
+        "scripts": 1
+      }
+    },
+    "layout": {
+      "issue_id": "MZ-2026-10-01",
+      "workflow": {
+        "issue_id": "MZ-2026-10-01",
+        "active_stage": "published",
+        "current_stage": {
+          "id": "published",
+          "number": 10,
+          "label": "Published",
+          "state": "current_ready"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "complete",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "canon_review",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:21+00:00",
+                "artifact_hash": "52e6eea8ebc9e545c04b2abe88d90c350b97d97f612f09a340eccbac6346ba2b",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "complete",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "complete",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "script",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:25+00:00",
+                "artifact_hash": "a671cab78fe09d671c540e3d6943be4e7f388f0e7c237858f07d5f5e4536eeaa",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "complete",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "complete",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "art_production",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:27+00:00",
+                "artifact_hash": "ae0c29417deaa4f36d7739a85c97df1b4f4be48b21adfd296a22b6c1ad4b9403",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "complete",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "qa",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:27+00:00",
+                "artifact_hash": "45f478e81c5add34a36ef559f619f7fddc44a3d638644cc6c0d8ef3b7a03ee9e",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "complete",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": true,
+              "stale": false,
+              "record": {
+                "stage": "release",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:28+00:00",
+                "artifact_hash": "c75e91a94232ccb860885d135dba4731f7d299614e2e8d8cc634257ff528edc1",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "current_ready",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Published"
+        },
+        "owner_approval_required": false,
+        "approval": {
+          "required": false,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "recorded",
+        "state_notice": null
+      },
+      "script": {
+        "exists": true,
+        "sha256": "6c4b5a53af264a7a8048248940f53f75545b42856999e3f875477984b1ab95c1"
+      },
+      "variants": [
+        {
+          "schema_version": "1.0",
+          "variant_id": "plan-20260714T173525Z-940039",
+          "issue_id": "MZ-2026-10-01",
+          "created_at": "2026-07-14T17:35:25+00:00",
+          "source": "canonical_script_parser",
+          "script_hash": "6c4b5a53af264a7a8048248940f53f75545b42856999e3f875477984b1ab95c1",
+          "plan": {
+            "issue_id": "MZ-2026-10-01",
+            "issue_title": "Live App Probe - Signal Desk",
+            "page_count": 2,
+            "pages": [
+              {
+                "page_number": 1,
+                "page_purpose": "Open",
+                "layout_recipe": "custom",
+                "panels": [
+                  {
+                    "panel_id": "MZ-2026-10-01_P01_PANEL01",
+                    "panel_size": "half",
+                    "characters": [
+                      "MZ-CHAR-001"
+                    ],
+                    "location": "Signal Desk",
+                    "camera_angle": "Medium",
+                    "action": "Moodz powers on the quiet desk monitors.",
+                    "emotion": "Focused",
+                    "dialogue": "MOODZ: Night shift.",
+                    "caption": "Signal desk",
+                    "sfx": "—",
+                    "visual_notes": "Soft monitor glow",
+                    "continuity_notes": "Keep blue streak readable",
+                    "art_prompt": "",
+                    "negative_prompt": "",
+                    "references_required": [
+                      "MZ-CHAR-001"
+                    ],
+                    "lora_required": [],
+                    "controlnet_required": "",
+                    "seed_strategy": "deterministic per panel",
+                    "_source_number": "1.1",
+                    "_unknown_characters": [],
+                    "_props": [
+                      "monitors"
+                    ]
+                  }
+                ]
+              },
+              {
+                "page_number": 2,
+                "page_purpose": "Close",
+                "layout_recipe": "custom",
+                "panels": [
+                  {
+                    "panel_id": "MZ-2026-10-01_P02_PANEL01",
+                    "panel_size": "full",
+                    "characters": [
+                      "MZ-CHAR-001",
+                      "MZ-CHAR-002"
+                    ],
+                    "location": "Signal Desk",
+                    "camera_angle": "Wide",
+                    "action": "TwoTone arrives with tea; they leave a shift note.",
+                    "emotion": "Steady",
+                    "dialogue": "TWOTONE: For the morning crew.",
+                    "caption": "End",
+                    "sfx": "—",
+                    "visual_notes": "Note on desk",
+                    "continuity_notes": "Keep identity markers",
+                    "art_prompt": "",
+                    "negative_prompt": "",
+                    "references_required": [
+                      "MZ-CHAR-001",
+                      "MZ-CHAR-002"
+                    ],
+                    "lora_required": [],
+                    "controlnet_required": "",
+                    "seed_strategy": "deterministic per panel",
+                    "_source_number": "2.1",
+                    "_unknown_characters": [],
+                    "_props": [
+                      "tea cup",
+                      "paper note"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "plan_hash": "88711c25e40e865a5328d71752fc8b3101e3f36d61fd33d9b38f9c89d3efcf74",
+          "validation": {
+            "status": "passed",
+            "findings": [],
+            "errors": 0
+          },
+          "approval": {
+            "variant_id": "plan-20260714T173525Z-940039",
+            "approved_at": "2026-07-14T17:35:25+00:00",
+            "plan_hash": "88711c25e40e865a5328d71752fc8b3101e3f36d61fd33d9b38f9c89d3efcf74",
+            "script_hash": "6c4b5a53af264a7a8048248940f53f75545b42856999e3f875477984b1ab95c1",
+            "actor": "project_owner",
+            "note": "live"
+          },
+          "superseded": false,
+          "script_stale": false,
+          "approval_current": true
+        }
+      ],
+      "canonical_plan_exists": true
+    },
+    "art_prompts": {
+      "issue_id": "MZ-2026-10-01",
+      "workflow": {
+        "issue_id": "MZ-2026-10-01",
+        "active_stage": "published",
+        "current_stage": {
+          "id": "published",
+          "number": 10,
+          "label": "Published",
+          "state": "current_ready"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "complete",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "canon_review",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:21+00:00",
+                "artifact_hash": "52e6eea8ebc9e545c04b2abe88d90c350b97d97f612f09a340eccbac6346ba2b",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "complete",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "complete",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "script",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:25+00:00",
+                "artifact_hash": "a671cab78fe09d671c540e3d6943be4e7f388f0e7c237858f07d5f5e4536eeaa",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "complete",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "complete",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "art_production",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:27+00:00",
+                "artifact_hash": "ae0c29417deaa4f36d7739a85c97df1b4f4be48b21adfd296a22b6c1ad4b9403",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "complete",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "qa",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:27+00:00",
+                "artifact_hash": "45f478e81c5add34a36ef559f619f7fddc44a3d638644cc6c0d8ef3b7a03ee9e",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "complete",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": true,
+              "stale": false,
+              "record": {
+                "stage": "release",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:28+00:00",
+                "artifact_hash": "c75e91a94232ccb860885d135dba4731f7d299614e2e8d8cc634257ff528edc1",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "current_ready",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Published"
+        },
+        "owner_approval_required": false,
+        "approval": {
+          "required": false,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "recorded",
+        "state_notice": null
+      },
+      "plan": {
+        "exists": true,
+        "sha256": "c4a141c1458fca1463976aa6d03818d648990a8969e3ee990b0a1e52470aca6f"
+      },
+      "variants": [
+        {
+          "schema_version": "1.0",
+          "variant_id": "pack-20260714T173525Z-a30eaa",
+          "issue_id": "MZ-2026-10-01",
+          "created_at": "2026-07-14T17:35:25+00:00",
+          "source": "canonical_page_plan",
+          "plan_hash": "c4a141c1458fca1463976aa6d03818d648990a8969e3ee990b0a1e52470aca6f",
+          "pack": {
+            "issue_id": "MZ-2026-10-01",
+            "style_lock_phrase": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop",
+            "base_negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+            "panels": [
+              {
+                "issue_id": "MZ-2026-10-01",
+                "page_number": 1,
+                "panel_number": 1,
+                "panel_id": "MZ-2026-10-01_P01_PANEL01",
+                "character_tokens": [
+                  "MZ-CHAR-001"
+                ],
+                "character_design_reminders": [
+                  "preserve approved identity markers",
+                  "mitten hands only"
+                ],
+                "pose": "Moodz powers on the quiet desk monitors.",
+                "expression": "Focused",
+                "environment": "Signal Desk",
+                "camera_angle": "Medium",
+                "lighting": "soft key light with readable silhouette",
+                "color_palette": "flat cel colors with one soft shade pass",
+                "style_lock_phrase_included": true,
+                "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Moodz powers on the quiet desk monitors.. Location: Signal Desk. Camera: Medium. Emotion: Focused. Notes: Soft monitor glow.",
+                "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+                "references_required": [
+                  "MZ-CHAR-001"
+                ],
+                "seed_strategy": "per_panel",
+                "seed": 100101,
+                "controlnet": {
+                  "required": false,
+                  "type": "none",
+                  "reference": ""
+                },
+                "identity_stack": {
+                  "tier": "text-only",
+                  "lora": [],
+                  "ipadapter_refs": []
+                }
+              },
+              {
+                "issue_id": "MZ-2026-10-01",
+                "page_number": 2,
+                "panel_number": 1,
+                "panel_id": "MZ-2026-10-01_P02_PANEL01",
+                "character_tokens": [
+                  "MZ-CHAR-001",
+                  "MZ-CHAR-002"
+                ],
+                "character_design_reminders": [
+                  "preserve approved identity markers",
+                  "mitten hands only"
+                ],
+                "pose": "TwoTone arrives with tea; they leave a shift note.",
+                "expression": "Steady",
+                "environment": "Signal Desk",
+                "camera_angle": "Wide",
+                "lighting": "soft key light with readable silhouette",
+                "color_palette": "flat cel colors with one soft shade pass",
+                "style_lock_phrase_included": true,
+                "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. TwoTone arrives with tea; they leave a shift note.. Location: Signal Desk. Camera: Wide. Emotion: Steady. Notes: Note on desk.",
+                "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+                "references_required": [
+                  "MZ-CHAR-001",
+                  "MZ-CHAR-002"
+                ],
+                "seed_strategy": "per_panel",
+                "seed": 100201,
+                "controlnet": {
+                  "required": false,
+                  "type": "none",
+                  "reference": ""
+                },
+                "identity_stack": {
+                  "tier": "text-only",
+                  "lora": [],
+                  "ipadapter_refs": []
+                }
+              }
+            ]
+          },
+          "pack_hash": "97bdc638a98b3abf966dff654cb370eac59c87fbe9ea33e326c4473d4c562579",
+          "validation": {
+            "status": "passed",
+            "findings": [],
+            "errors": 0
+          },
+          "approval": {
+            "variant_id": "pack-20260714T173525Z-a30eaa",
+            "approved_at": "2026-07-14T17:35:25+00:00",
+            "pack_hash": "97bdc638a98b3abf966dff654cb370eac59c87fbe9ea33e326c4473d4c562579",
+            "plan_hash": "c4a141c1458fca1463976aa6d03818d648990a8969e3ee990b0a1e52470aca6f",
+            "actor": "project_owner",
+            "note": "live"
+          },
+          "superseded": false,
+          "plan_stale": false,
+          "approval_current": true
+        }
+      ],
+      "canonical_pack_exists": true
+    },
+    "art_queue": {
+      "issue_id": "MZ-2026-10-01",
+      "workflow": {
+        "issue_id": "MZ-2026-10-01",
+        "active_stage": "published",
+        "current_stage": {
+          "id": "published",
+          "number": 10,
+          "label": "Published",
+          "state": "current_ready"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "complete",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "canon_review",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:21+00:00",
+                "artifact_hash": "52e6eea8ebc9e545c04b2abe88d90c350b97d97f612f09a340eccbac6346ba2b",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "complete",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "complete",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "script",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:25+00:00",
+                "artifact_hash": "a671cab78fe09d671c540e3d6943be4e7f388f0e7c237858f07d5f5e4536eeaa",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "complete",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "complete",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "art_production",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:27+00:00",
+                "artifact_hash": "ae0c29417deaa4f36d7739a85c97df1b4f4be48b21adfd296a22b6c1ad4b9403",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "complete",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "qa",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:27+00:00",
+                "artifact_hash": "45f478e81c5add34a36ef559f619f7fddc44a3d638644cc6c0d8ef3b7a03ee9e",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "complete",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": true,
+              "stale": false,
+              "record": {
+                "stage": "release",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:28+00:00",
+                "artifact_hash": "c75e91a94232ccb860885d135dba4731f7d299614e2e8d8cc634257ff528edc1",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "current_ready",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Published"
+        },
+        "owner_approval_required": false,
+        "approval": {
+          "required": false,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "recorded",
+        "state_notice": null
+      },
+      "queue": {
+        "items": [],
+        "error": "Art Queue requires workflow stage art_production or art_prompts; current stage is published"
+      },
+      "provider": {
+        "type": "manual_prompt",
+        "execution_mode": "manual",
+        "available": true
+      }
+    },
+    "qa": {
+      "issue_id": "MZ-2026-10-01",
+      "workflow": {
+        "issue_id": "MZ-2026-10-01",
+        "active_stage": "published",
+        "current_stage": {
+          "id": "published",
+          "number": 10,
+          "label": "Published",
+          "state": "current_ready"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "complete",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "canon_review",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:21+00:00",
+                "artifact_hash": "52e6eea8ebc9e545c04b2abe88d90c350b97d97f612f09a340eccbac6346ba2b",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "complete",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "complete",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "script",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:25+00:00",
+                "artifact_hash": "a671cab78fe09d671c540e3d6943be4e7f388f0e7c237858f07d5f5e4536eeaa",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "complete",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "complete",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "art_production",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:27+00:00",
+                "artifact_hash": "ae0c29417deaa4f36d7739a85c97df1b4f4be48b21adfd296a22b6c1ad4b9403",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "complete",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "qa",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:27+00:00",
+                "artifact_hash": "45f478e81c5add34a36ef559f619f7fddc44a3d638644cc6c0d8ef3b7a03ee9e",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "complete",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": true,
+              "stale": false,
+              "record": {
+                "stage": "release",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:28+00:00",
+                "artifact_hash": "c75e91a94232ccb860885d135dba4731f7d299614e2e8d8cc634257ff528edc1",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "current_ready",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Published"
+        },
+        "owner_approval_required": false,
+        "approval": {
+          "required": false,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "recorded",
+        "state_notice": null
+      },
+      "evidence": {
+        "evidence_hash": "e61bbb4e44e5cd809c31f1226f8fb8e576508d2e8b2f50cd9f1813ba3f6b476f",
+        "panels": [
+          {
+            "panel_id": "MZ-2026-10-01_P01_PANEL01",
+            "characters": [
+              "MZ-CHAR-001"
+            ],
+            "dialogue": "MOODZ: Night shift.",
+            "caption": "Signal desk",
+            "continuity_notes": "Keep blue streak readable",
+            "path": "generated_art/selected_panels/MZ-2026-10-01_P01_PANEL01.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1024,
+            "height": 768,
+            "sha256": "370280f082d63264d13aafbf27c52b2cc6795b8742185ea26857a2e2b1327799",
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-10-01_P02_PANEL01",
+            "characters": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-002"
+            ],
+            "dialogue": "TWOTONE: For the morning crew.",
+            "caption": "End",
+            "continuity_notes": "Keep identity markers",
+            "path": "generated_art/selected_panels/MZ-2026-10-01_P02_PANEL01.png",
+            "exists": true,
+            "format": "PNG",
+            "width": 1024,
+            "height": 768,
+            "sha256": "524a959517ef13ab2fc26a7ca505a422f38830351d61da5d0d5bbcc9acf9a5dd",
+            "error": null
+          }
+        ],
+        "checks": {
+          "missing_panels": [],
+          "duplicate_art": [],
+          "invalid_images": [],
+          "dimension_mismatches": [],
+          "identity_missing": [],
+          "unmapped_images": [],
+          "dialogue_or_caption_panels": [
+            "MZ-2026-10-01_P01_PANEL01",
+            "MZ-2026-10-01_P02_PANEL01"
+          ],
+          "continuity_missing": [],
+          "cover_prompt_exists": true,
+          "cover_images": 1,
+          "metadata_missing": [],
+          "checklist_exists": true
+        },
+        "blockers": [],
+        "advisories": [],
+        "planned_panel_count": 2,
+        "selected_panel_count": 2
+      },
+      "reviews": [
+        {
+          "schema_version": "1.0",
+          "review_id": "qa-20260714T173527Z-637bde",
+          "issue_id": "MZ-2026-10-01",
+          "created_at": "2026-07-14T17:35:27+00:00",
+          "evidence_hash": "e61bbb4e44e5cd809c31f1226f8fb8e576508d2e8b2f50cd9f1813ba3f6b476f",
+          "evidence": {
+            "evidence_hash": "e61bbb4e44e5cd809c31f1226f8fb8e576508d2e8b2f50cd9f1813ba3f6b476f",
+            "panels": [
+              {
+                "panel_id": "MZ-2026-10-01_P01_PANEL01",
+                "characters": [
+                  "MZ-CHAR-001"
+                ],
+                "dialogue": "MOODZ: Night shift.",
+                "caption": "Signal desk",
+                "continuity_notes": "Keep blue streak readable",
+                "path": "generated_art/selected_panels/MZ-2026-10-01_P01_PANEL01.png",
+                "exists": true,
+                "format": "PNG",
+                "width": 1024,
+                "height": 768,
+                "sha256": "370280f082d63264d13aafbf27c52b2cc6795b8742185ea26857a2e2b1327799",
+                "error": null
+              },
+              {
+                "panel_id": "MZ-2026-10-01_P02_PANEL01",
+                "characters": [
+                  "MZ-CHAR-001",
+                  "MZ-CHAR-002"
+                ],
+                "dialogue": "TWOTONE: For the morning crew.",
+                "caption": "End",
+                "continuity_notes": "Keep identity markers",
+                "path": "generated_art/selected_panels/MZ-2026-10-01_P02_PANEL01.png",
+                "exists": true,
+                "format": "PNG",
+                "width": 1024,
+                "height": 768,
+                "sha256": "524a959517ef13ab2fc26a7ca505a422f38830351d61da5d0d5bbcc9acf9a5dd",
+                "error": null
+              }
+            ],
+            "checks": {
+              "missing_panels": [],
+              "duplicate_art": [],
+              "invalid_images": [],
+              "dimension_mismatches": [],
+              "identity_missing": [],
+              "unmapped_images": [],
+              "dialogue_or_caption_panels": [
+                "MZ-2026-10-01_P01_PANEL01",
+                "MZ-2026-10-01_P02_PANEL01"
+              ],
+              "continuity_missing": [],
+              "cover_prompt_exists": true,
+              "cover_images": 1,
+              "metadata_missing": [],
+              "checklist_exists": true
+            },
+            "blockers": [],
+            "advisories": [],
+            "planned_panel_count": 2,
+            "selected_panel_count": 2
+          },
+          "owner_notes": "live pass",
+          "continuity_checks": [
+            "identity ok"
+          ],
+          "verdict": "PASS",
+          "approval": {
+            "approved_at": "2026-07-14T17:35:27+00:00",
+            "verdict": "PASS",
+            "evidence_hash": "e61bbb4e44e5cd809c31f1226f8fb8e576508d2e8b2f50cd9f1813ba3f6b476f",
+            "actor": "project_owner"
+          },
+          "evidence_stale": false,
+          "approval_current": true
+        }
+      ]
+    },
+    "release": {
+      "issue_id": "MZ-2026-10-01",
+      "workflow": {
+        "issue_id": "MZ-2026-10-01",
+        "active_stage": "published",
+        "current_stage": {
+          "id": "published",
+          "number": 10,
+          "label": "Published",
+          "state": "current_ready"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "complete",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "canon_review",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:21+00:00",
+                "artifact_hash": "52e6eea8ebc9e545c04b2abe88d90c350b97d97f612f09a340eccbac6346ba2b",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "complete",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "complete",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "script",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:25+00:00",
+                "artifact_hash": "a671cab78fe09d671c540e3d6943be4e7f388f0e7c237858f07d5f5e4536eeaa",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "complete",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "complete",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "art_production",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:27+00:00",
+                "artifact_hash": "ae0c29417deaa4f36d7739a85c97df1b4f4be48b21adfd296a22b6c1ad4b9403",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "complete",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "qa",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:27+00:00",
+                "artifact_hash": "45f478e81c5add34a36ef559f619f7fddc44a3d638644cc6c0d8ef3b7a03ee9e",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "complete",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": true,
+              "stale": false,
+              "record": {
+                "stage": "release",
+                "approved": true,
+                "timestamp": "2026-07-14T17:35:28+00:00",
+                "artifact_hash": "c75e91a94232ccb860885d135dba4731f7d299614e2e8d8cc634257ff528edc1",
+                "note": "live app test",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "current_ready",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Published"
+        },
+        "owner_approval_required": false,
+        "approval": {
+          "required": false,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "recorded",
+        "state_notice": null
+      },
+      "evidence": {
+        "evidence_hash": "ea9956985751a57f443482e564ecd4e951b51e47c6f4f394e1fec354d2451657",
+        "files": [
+          {
+            "path": "metadata.json",
+            "size": 1094,
+            "sha256": "8be9fcf737787820270a56e20be322b11965430d673559dcb22c625a5bb3bc48"
+          },
+          {
+            "path": "social_posts.md",
+            "size": 39,
+            "sha256": "4b882667e5442e0c469fa07a5db4368bec0120eb10f23cec742f00a5c23a9077"
+          },
+          {
+            "path": "final_export_checklist.md",
+            "size": 40,
+            "sha256": "ac6e3974a2293a0feb2af54dd47328742656c0538a63f63bc6340eb39dad4aea"
+          },
+          {
+            "path": "cover_prompt.md",
+            "size": 44,
+            "sha256": "9a7770e1af0ef79e7d1c0494757c763d46af74b4cc2e69101bc92ceb794d2a2a"
+          },
+          {
+            "path": "qa_report.md",
+            "size": 437,
+            "sha256": "dd6d812a9a78405eaff15d76f5515e57e39a29989e26a49db47558221135a4b7"
+          },
+          {
+            "path": "generated_art/covers/main_cover.png",
+            "size": 4026,
+            "sha256": "8ce6f0f843fd2872ed5dd046d911a666f7b32ca604c7bde3ccb65437eaef8c6c"
+          },
+          {
+            "path": "exports/MonkeyZoo_MZ-2026-10-01_Web.pdf",
+            "size": 45,
+            "sha256": "5a838678058f6de375e8635b5f2fea47a4e5f07cb1a882a44b10f39abc6f34ff"
+          },
+          {
+            "path": "exports/MonkeyZoo_MZ-2026-10-01_CBZ.zip",
+            "size": 8262,
+            "sha256": "78108dcf79f890d59c9d2a424cc9a443083089f9b978338421ab0e50864b594c"
+          }
+        ],
+        "blockers": [],
+        "qa_verdict": "passed",
+        "qa_evidence_hash": "e61bbb4e44e5cd809c31f1226f8fb8e576508d2e8b2f50cd9f1813ba3f6b476f",
+        "qa_evidence_current": true,
+        "covers": [
+          "generated_art/covers/main_cover.png"
+        ],
+        "pdfs": [
+          "MonkeyZoo_MZ-2026-10-01_Web.pdf"
+        ],
+        "packages": [
+          "MonkeyZoo_MZ-2026-10-01_CBZ.zip"
+        ],
+        "invalid_packages": [],
+        "metadata": {
+          "format": "CHIP-0015",
+          "missing_fields": [],
+          "placeholders": []
+        },
+        "social_copy_exists": true,
+        "checklist_exists": true,
+        "archive": {
+          "path": "05_RELEASE_ARCHIVE/2026/Issue_01",
+          "exists": true,
+          "publication_files": [
+            "main_cover.png",
+            "metadata.json",
+            "MonkeyZoo_MZ-2026-10-01_CBZ.zip",
+            "MonkeyZoo_MZ-2026-10-01_Web.pdf",
+            "qa_report.md",
+            "release_hash_manifest.json",
+            "social_posts.md"
+          ],
+          "publication_artifacts": [
+            "MonkeyZoo_MZ-2026-10-01_CBZ.zip",
+            "MonkeyZoo_MZ-2026-10-01_Web.pdf"
+          ]
+        }
+      },
+      "manifest": {
+        "schema_version": "1.0",
+        "issue_id": "MZ-2026-10-01",
+        "created_at": null,
+        "evidence_hash": "ea9956985751a57f443482e564ecd4e951b51e47c6f4f394e1fec354d2451657",
+        "files": [
+          {
+            "path": "metadata.json",
+            "size": 1094,
+            "sha256": "8be9fcf737787820270a56e20be322b11965430d673559dcb22c625a5bb3bc48"
+          },
+          {
+            "path": "social_posts.md",
+            "size": 39,
+            "sha256": "4b882667e5442e0c469fa07a5db4368bec0120eb10f23cec742f00a5c23a9077"
+          },
+          {
+            "path": "final_export_checklist.md",
+            "size": 40,
+            "sha256": "ac6e3974a2293a0feb2af54dd47328742656c0538a63f63bc6340eb39dad4aea"
+          },
+          {
+            "path": "cover_prompt.md",
+            "size": 44,
+            "sha256": "9a7770e1af0ef79e7d1c0494757c763d46af74b4cc2e69101bc92ceb794d2a2a"
+          },
+          {
+            "path": "qa_report.md",
+            "size": 437,
+            "sha256": "dd6d812a9a78405eaff15d76f5515e57e39a29989e26a49db47558221135a4b7"
+          },
+          {
+            "path": "generated_art/covers/main_cover.png",
+            "size": 4026,
+            "sha256": "8ce6f0f843fd2872ed5dd046d911a666f7b32ca604c7bde3ccb65437eaef8c6c"
+          },
+          {
+            "path": "exports/MonkeyZoo_MZ-2026-10-01_Web.pdf",
+            "size": 45,
+            "sha256": "5a838678058f6de375e8635b5f2fea47a4e5f07cb1a882a44b10f39abc6f34ff"
+          },
+          {
+            "path": "exports/MonkeyZoo_MZ-2026-10-01_CBZ.zip",
+            "size": 8262,
+            "sha256": "78108dcf79f890d59c9d2a424cc9a443083089f9b978338421ab0e50864b594c"
+          }
+        ],
+        "manifest_hash": "4e2b73699d55e147df40f464e279cbab309db96de64f91a6932fa80f53c67b37"
+      },
+      "approval": {
+        "approved_at": "2026-07-14T17:35:27+00:00",
+        "issue_id": "MZ-2026-10-01",
+        "evidence_hash": "ea9956985751a57f443482e564ecd4e951b51e47c6f4f394e1fec354d2451657",
+        "manifest_hash": "4e2b73699d55e147df40f464e279cbab309db96de64f91a6932fa80f53c67b37",
+        "note": "live release",
+        "actor": "project_owner"
+      },
+      "approval_current": true,
+      "release_ready": true,
+      "publication_ready": true
     }
   }
 ]

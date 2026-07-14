@@ -1,0 +1,83 @@
+{
+  "issue_id": "MZ-2026-10-01",
+  "style_lock_phrase": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop",
+  "base_negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+  "panels": [
+    {
+      "issue_id": "MZ-2026-10-01",
+      "page_number": 1,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-10-01_P01_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-001"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Moodz powers on the quiet desk monitors.",
+      "expression": "Focused",
+      "environment": "Signal Desk",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Moodz powers on the quiet desk monitors.. Location: Signal Desk. Camera: Medium. Emotion: Focused. Notes: Soft monitor glow.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-001"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100101,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-10-01",
+      "page_number": 2,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-10-01_P02_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "TwoTone arrives with tea; they leave a shift note.",
+      "expression": "Steady",
+      "environment": "Signal Desk",
+      "camera_angle": "Wide",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. TwoTone arrives with tea; they leave a shift note.. Location: Signal Desk. Camera: Wide. Emotion: Steady. Notes: Note on desk.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100201,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    }
+  ]
+}

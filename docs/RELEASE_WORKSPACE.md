@@ -40,10 +40,14 @@ In **Release**:
 6. Advance to `published`.
 7. Confirm `publication_ready` is true.
 
-Archive path:
+Archive path (unique per issue folder):
 
 ```text
-05_RELEASE_ARCHIVE/YYYY/Issue_NN/
+05_RELEASE_ARCHIVE/YYYY/<period>_Issue_NN/
 ```
+
+Example: `05_RELEASE_ARCHIVE/2026/2026-10_Issue_01/`
+
+Legacy path `05_RELEASE_ARCHIVE/YYYY/Issue_NN` is still recognized for validation if already published, but new publishes use the unique folder name so two months with the same edition number do not overwrite each other.
 
 Git ignores the archive tree. Run `.\Backup-BananaLab.ps1` after publication.

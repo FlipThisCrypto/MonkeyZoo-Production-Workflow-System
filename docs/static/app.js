@@ -1247,7 +1247,17 @@ function openStoryImport(kind) { storyImportKind=kind; $("storyImportTitle").tex
 async function importStoryVariant() { try { await api(`/api/issues/${encodeURIComponent(productionStory.issue.issue_id)}/story/${storyImportKind}s/import`,{method:"POST",body:JSON.stringify({content:$("storyImportContent").value,provider:$("storyImportProvider").value})}); $("storyImportDialog").close(); await loadProductionStory(productionStory.issue.issue_id); } catch(e){ $("storyProductionStatus").textContent=e.message; } }
 async function exportStoryPrompt(kind) { try { const data=await api(`/api/issues/${encodeURIComponent(productionStory.issue.issue_id)}/story/${kind}s/prompt`,{method:"POST",body:"{}"}); $("variantDialogTitle").textContent=`${kind} manual prompt package`; $("variantDialogContent").textContent=data.prompt; $("variantDialog").showModal(); } catch(e){ $("storyProductionStatus").textContent=e.message; } }
 function viewStoryVariant(kind,id) { const variant=productionStory[`${kind}s`].find(v=>v.variant_id===id); $("variantDialogTitle").textContent=id; $("variantDialogContent").textContent=variant.content; $("variantDialog").showModal(); }
-async function storyVariantAction(kind,id,action) { try { await api(`/api/issues/${encodeURIComponent(productionStory.issue.issue_id)}/story/${kind}s/${encodeURIComponent(id)}/${action}`,{method:"POST",body:JSON.stringify(action==="promote"?{replace:false}:{note:"Approved in The Banana Lab"})}); await loadProductionStory(productionStory.issue.issue_id); } catch(e){ $("storyProductionStatus").textContent=e.message; } }
+async function storyVariantAction(kind,id,action) {
+  try {
+    // create_issue writes stub outline/script files; promote must replace them intentionally.
+    const replace = action === "promote" && Boolean(productionStory?.existing_files?.[`issue_${kind}.md`]);
+    await api(`/api/issues/${encodeURIComponent(productionStory.issue.issue_id)}/story/${kind}s/${encodeURIComponent(id)}/${action}`,{
+      method:"POST",
+      body:JSON.stringify(action==="promote"?{replace}:{note:"Approved in The Banana Lab"})
+    });
+    await loadProductionStory(productionStory.issue.issue_id);
+  } catch(e){ $("storyProductionStatus").textContent=e.message; }
+}
 
 function setupLayoutWorkspace(){
   $("layoutIssueSelect")?.addEventListener("change",e=>loadLayout(e.target.value));
@@ -1263,7 +1273,14 @@ function renderLayout(){
   $("layoutVariants").querySelectorAll("[data-layout-approve]").forEach(b=>b.addEventListener("click",()=>layoutAction(`variants/${b.dataset.layoutApprove}/approve`)));
   $("layoutVariants").querySelectorAll("[data-layout-promote]").forEach(b=>b.addEventListener("click",()=>layoutAction(`variants/${b.dataset.layoutPromote}/promote`)));
 }
-async function layoutAction(path){try{await api(`/api/issues/${encodeURIComponent(activeLayout.issue_id)}/layout/${path}`,{method:"POST",body:"{}"});await loadLayout(activeLayout.issue_id)}catch(e){$("layoutStatus").textContent=e.message}}
+async function layoutAction(path){
+  try{
+    const isPromote = path.includes("/promote");
+    const body = isPromote && activeLayout?.canonical_plan_exists ? {replace:true} : {};
+    await api(`/api/issues/${encodeURIComponent(activeLayout.issue_id)}/layout/${path}`,{method:"POST",body:JSON.stringify(body)});
+    await loadLayout(activeLayout.issue_id);
+  }catch(e){$("layoutStatus").textContent=e.message}
+}
 
 function setupArtQueue(){
   $("artQueueIssue")?.addEventListener("change",e=>{loadArtQueue(e.target.value);loadArtPrompts(e.target.value)});
@@ -1306,7 +1323,10 @@ async function artPromptPackAction(path){
   const issueId=activeArtPrompts?.issue_id||$("artQueueIssue")?.value;
   if(!issueId)return;
   try{
-    const body=path.endsWith("/promote")?JSON.stringify({replace:false}):JSON.stringify({note:"Approved in The Banana Lab"});
+    const replace = path.endsWith("/promote") && Boolean(activeArtPrompts?.canonical_pack_exists);
+    const body = path.endsWith("/promote")
+      ? JSON.stringify({replace})
+      : JSON.stringify({note:"Approved in The Banana Lab"});
     await api(`/api/issues/${encodeURIComponent(issueId)}/art-prompts/${path}`,{method:"POST",body});
     await loadArtPrompts(issueId);
     if(activeArtQueue?.issue_id===issueId) await loadArtQueue(issueId);
@@ -1340,7 +1360,17 @@ function renderQA(){
  $("qaReviews").innerHTML=activeQA.reviews.map(r=>`<article class="qa-review"><header><strong>${escapeHtml(r.review_id)}</strong><span>${escapeHtml(r.verdict||"Draft")}${r.evidence_stale?" · Evidence changed":""}</span></header><p>${escapeHtml(r.owner_notes||"No owner notes")}</p><div><button data-qa-finalize="${escapeHtml(r.review_id)}|pass" ${staticMode||r.approval||r.evidence.blockers.length?"disabled":""}>Pass</button><button data-qa-finalize="${escapeHtml(r.review_id)}|hold" ${staticMode||r.approval?"disabled":""}>Hold</button><button data-qa-finalize="${escapeHtml(r.review_id)}|fail" ${staticMode||r.approval?"disabled":""}>Fail</button><button data-qa-promote="${escapeHtml(r.review_id)}" ${staticMode||!r.approval_current?"disabled":""}>Promote report</button></div></article>`).join("")||"<p>No QA reviews.</p>";
  $("qaReviews").querySelectorAll("[data-qa-finalize]").forEach(b=>b.addEventListener("click",()=>{const [id,verdict]=b.dataset.qaFinalize.split("|");qaPost(`reviews/${id}/finalize`,{verdict,notes:$("qaOwnerNotes").value,continuity_checks:$("qaContinuityNote").value?[$("qaContinuityNote").value]:[]})}));$("qaReviews").querySelectorAll("[data-qa-promote]").forEach(b=>b.addEventListener("click",()=>qaPost(`reviews/${b.dataset.qaPromote}/promote`,{})));
 }
-async function qaPost(path,body){try{await api(`/api/issues/${encodeURIComponent(activeQA.issue_id)}/qa/${path}`,{method:"POST",body:JSON.stringify(body)});await loadQA(activeQA.issue_id)}catch(e){$("qaStatus").textContent=e.message}}
+async function qaPost(path,body){
+  try{
+    const payload = {...(body||{})};
+    if(path.includes("/promote") && payload.replace === undefined){
+      // Existing owner qa_report.md stubs from issue creation require explicit replace.
+      payload.replace = true;
+    }
+    await api(`/api/issues/${encodeURIComponent(activeQA.issue_id)}/qa/${path}`,{method:"POST",body:JSON.stringify(payload)});
+    await loadQA(activeQA.issue_id);
+  }catch(e){$("qaStatus").textContent=e.message}
+}
 
 function setupReleaseWorkspace(){
   $("releaseIssueSelect")?.addEventListener("change",e=>loadRelease(e.target.value));
@@ -1366,7 +1396,15 @@ function renderRelease(){
  ["releaseManifest","releaseApprove","releasePromote"].forEach(id=>$(id).title=staticMode?"Local backend required":"");
  $("releaseEvidence").innerHTML=`<h4>Exact blockers</h4><ul>${e.blockers.map(x=>`<li>${escapeHtml(x)}</li>`).join("")||"<li>None</li>"}</ul><h4>CHIP-0015 metadata</h4><p>Format: ${escapeHtml(e.metadata.format||"Missing")} · Missing: ${escapeHtml(e.metadata.missing_fields.join(", ")||"None")} · Placeholders: ${escapeHtml(e.metadata.placeholders.join(", ")||"None")}</p><h4>File hash manifest</h4><div class="release-files">${e.files.map(f=>`<span>${escapeHtml(f.path)} · ${f.size} bytes · ${escapeHtml(f.sha256)}</span>`).join("")}</div><h4>Archive</h4><p>${escapeHtml(e.archive.path)} · ${e.archive.exists?"Exists":"Missing"} · ${escapeHtml(e.archive.publication_files.join(", ")||"No publication evidence")}</p><p class="workspace-help">Publish archive copies verified PDF/CBZ/ZIP and evidence into <code>05_RELEASE_ARCHIVE</code>. Then advance the workflow stage to Published.</p>`;
 }
-async function releasePost(path,body){try{await api(`/api/issues/${encodeURIComponent(activeRelease.issue_id)}/release/${path}`,{method:"POST",body:JSON.stringify(body)});await loadRelease(activeRelease.issue_id)}catch(e){$("releaseStatus").textContent=e.message}}
+async function releasePost(path,body){
+  try{
+    const payload = {...(body||{})};
+    if(path === "promote-manifest" && payload.replace === undefined) payload.replace = true;
+    if(path === "publish-archive" && payload.replace === undefined) payload.replace = false;
+    await api(`/api/issues/${encodeURIComponent(activeRelease.issue_id)}/release/${path}`,{method:"POST",body:JSON.stringify(payload)});
+    await loadRelease(activeRelease.issue_id);
+  }catch(e){$("releaseStatus").textContent=e.message}
+}
 
 function setupProductionDashboard() {
   $("closeProductionDashboard")?.addEventListener("click", () => $("productionDashboard").classList.add("hidden"));

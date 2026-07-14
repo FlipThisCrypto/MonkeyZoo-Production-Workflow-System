@@ -1,0 +1,33 @@
+{
+  "issue_id": "MZ-2026-10-01",
+  "issue_month": "2026-10",
+  "issue_number": 1,
+  "working_title": "Live App Probe - Signal Desk",
+  "core_idea": "A quiet signal desk still needs a careful night shift",
+  "theme": "Steady care",
+  "satire_target": "To be established during concept stage",
+  "emotional_core": "Steady care",
+  "main_character": "Moodz",
+  "supporting_characters": [
+    "TwoTone"
+  ],
+  "conflict": "Unread silent tickets pile up without ownership",
+  "antagonist_or_problem": "Unread silent tickets pile up without ownership",
+  "setting": "Midnight at the signal desk",
+  "running_joke": "To be established during concept stage",
+  "ending": "Note left for morning crew",
+  "next_issue_teaser": "To be established during concept stage",
+  "required_visuals": [],
+  "forbidden_changes": [
+    "No unapproved redesigns"
+  ],
+  "continuity_risks": [
+    "Moodz and TwoTone approved identity"
+  ],
+  "release_assets_needed": [
+    "QA",
+    "cover",
+    "metadata",
+    "social copy"
+  ]
+}

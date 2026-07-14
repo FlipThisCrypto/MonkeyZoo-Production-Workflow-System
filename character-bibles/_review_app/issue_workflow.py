@@ -151,9 +151,12 @@ def _stage_validation(stage_id: str, folder: Path, root: Path) -> dict[str, Any]
         if not has_pdf or not has_package:
             messages.append("Release requires real PDF and CBZ/ZIP exports")
     elif stage_id == "published":
+        year = folder.name[:4]
+        primary = root / "05_RELEASE_ARCHIVE" / year / folder.name
         number = folder.name.split("_Issue_")[-1] if "_Issue_" in folder.name else ""
-        archive = root / "05_RELEASE_ARCHIVE" / folder.name[:4] / f"Issue_{number}"
-        if not archive.exists(): messages.append("Published status requires release archive evidence")
+        legacy = root / "05_RELEASE_ARCHIVE" / year / f"Issue_{number}"
+        if not primary.exists() and not legacy.exists():
+            messages.append("Published status requires release archive evidence")
     return {"status": "passed" if not messages else "failed", "messages": messages, "missing_files": missing}
 
 

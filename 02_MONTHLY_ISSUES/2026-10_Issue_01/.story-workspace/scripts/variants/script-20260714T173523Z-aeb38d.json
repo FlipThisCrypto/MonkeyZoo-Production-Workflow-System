@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "variant_id": "script-20260714T173523Z-aeb38d",
+  "issue_id": "MZ-2026-10-01",
+  "kind": "script",
+  "created_at": "2026-07-14T17:35:23+00:00",
+  "source_type": "manual_import",
+  "provider": "live_test",
+  "model": "user supplied",
+  "execution_mode": "manual",
+  "content": "# MZ-2026-10-01 — Script\n### Page 1 — Open\n**Panel 1.1 (Half)**\n- Location: Signal Desk\n- Characters: MZ-CHAR-001\n- Camera: Medium\n- Action: Moodz powers on the quiet desk monitors.\n- Emotion: Focused\n- Dialogue: MOODZ: Night shift.\n- Caption: Signal desk\n- SFX: —\n- Visual notes: Soft monitor glow\n- Continuity notes: Keep blue streak readable\n- Props: monitors\n### Page 2 — Close\n**Panel 2.1 (Full)**\n- Location: Signal Desk\n- Characters: MZ-CHAR-001, MZ-CHAR-002\n- Camera: Wide\n- Action: TwoTone arrives with tea; they leave a shift note.\n- Emotion: Steady\n- Dialogue: TWOTONE: For the morning crew.\n- Caption: End\n- SFX: —\n- Visual notes: Note on desk\n- Continuity notes: Keep identity markers\n- Props: tea cup, paper note\n",
+  "content_hash": "6c4b5a53af264a7a8048248940f53f75545b42856999e3f875477984b1ab95c1",
+  "canon_snapshot_hash": "e402e8621651ae693ffdbffa4911838b17fd671376719cb44d60d6baa0f75403",
+  "issue_brief_hash": "019e7e6ef3b4df57a46fb9cc50caed8e0f63c7468ea2fd3ba088a3cd19c305d1",
+  "approved_outline": {
+    "variant_id": "outline-20260714T173521Z-1ccf78",
+    "issue_id": "MZ-2026-10-01",
+    "timestamp": "2026-07-14T17:35:22+00:00",
+    "content_hash": "e7989ce2c563945382e8383b64474d557c563464b6d085269937060f400fcafa",
+    "canon_snapshot_hash": "6feddab9b02114de0d98f6d3d56e9bff039985a992faf604a3869e8c35dd25ad",
+    "owner_note": "live",
+    "actor": "project_owner"
+  },
+  "prompt_hash": null,
+  "validation": {
+    "status": "passed",
+    "errors": 0,
+    "findings": [],
+    "heuristic": true
+  },
+  "approval": {
+    "variant_id": "script-20260714T173523Z-aeb38d",
+    "issue_id": "MZ-2026-10-01",
+    "timestamp": "2026-07-14T17:35:23+00:00",
+    "content_hash": "6c4b5a53af264a7a8048248940f53f75545b42856999e3f875477984b1ab95c1",
+    "canon_snapshot_hash": "e402e8621651ae693ffdbffa4911838b17fd671376719cb44d60d6baa0f75403",
+    "owner_note": "live",
+    "actor": "project_owner"
+  },
+  "superseded": false,
+  "owner_note": null
+}

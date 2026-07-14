@@ -65,7 +65,8 @@ def check_exports(issue_dir: Path, number: str) -> None:
 
 def archive(issue_dir: Path, number: str) -> None:
     year = issue_dir.name[:4]
-    dest = FACTORY / "05_RELEASE_ARCHIVE" / year / f"Issue_{number}"
+    # Unique destination: year/full-folder (legacy year/Issue_NN collides across months).
+    dest = FACTORY / "05_RELEASE_ARCHIVE" / year / issue_dir.name
     if dest.exists():
         sys.exit(f"ABORT: archive already exists at {dest}")
     shutil.copytree(

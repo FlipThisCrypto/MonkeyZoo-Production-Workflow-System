@@ -1,0 +1,38 @@
+{
+  "issue_id": "MZ-2026-10-01",
+  "title": "Live App Probe - Signal Desk",
+  "issue_type": "Monthly",
+  "year": 2026,
+  "month": 10,
+  "edition_number": 1,
+  "page_count": 2,
+  "panel_count": 2,
+  "primary_character": "MZ-CHAR-001",
+  "guest_character": "MZ-CHAR-002",
+  "opening_situation": "Midnight at the signal desk",
+  "required_canon_references": "Moodz and TwoTone approved identity",
+  "prohibited_story_elements": "No unapproved redesigns",
+  "output_requirements": [
+    "QA",
+    "cover",
+    "metadata",
+    "social copy"
+  ],
+  "status": "intake",
+  "workflow_stage": "1. Intake",
+  "format": "CHIP-0015",
+  "name": "Live App Probe - Signal Desk",
+  "description": "Live app probe issue for Banana Lab ship readiness.",
+  "attributes": [
+    {
+      "trait_type": "Series",
+      "value": "MonkeyZoo"
+    }
+  ],
+  "data": {
+    "@type": "DigitalDocument",
+    "name": "Live App Probe - Signal Desk",
+    "url": "local://MonkeyZoo_MZ-2026-10-01_Web.pdf",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  }
+}
