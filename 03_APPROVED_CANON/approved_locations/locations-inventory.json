@@ -1,0 +1,208 @@
+{
+  "schema_version": "1.0",
+  "source_season": "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us",
+  "season_span": "2026-08 through 2027-01",
+  "canon_note": "New season locations are proposed_story_canon until owner-approved and merged into 00_SYSTEM/world_bible.md.",
+  "locations": [
+    {
+      "location_id": "MZ-LOC-ZOO-CITY-STREETS",
+      "display_name": "Zoo City Streets",
+      "slug": "zoo-city-streets",
+      "status": "established_world",
+      "world_bible_section": "2. Canon Locations / Zoo City streets",
+      "first_issue": null,
+      "issues": ["all"],
+      "season_role": "Default exterior; storm sheen in September; winter emergency exteriors in December."
+    },
+    {
+      "location_id": "MZ-LOC-FUSIONZOO-PUBLIC",
+      "display_name": "FusionZoo Public Facility",
+      "slug": "fusionzoo-public",
+      "status": "established_world",
+      "world_bible_section": "2. Canon Locations / FusionZoo Public Facility",
+      "first_issue": null,
+      "issues": ["background"],
+      "season_role": "Corporate contrast; marketing surface of FusionZoo infrastructure."
+    },
+    {
+      "location_id": "MZ-LOC-FUSION-ANNEX",
+      "display_name": "The Fusion Lab / The Annex",
+      "slug": "fusion-annex",
+      "status": "established_world",
+      "world_bible_section": "2. Canon Locations / The Fusion Lab / The Annex",
+      "first_issue": null,
+      "issues": ["background"],
+      "season_role": "Truth archive contrast; not required as a season setpiece unless an issue stages it."
+    },
+    {
+      "location_id": "MZ-LOC-FESTIVAL-GROUNDS",
+      "display_name": "End-of-Summer Night Festival Grounds",
+      "slug": "festival-grounds",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "month": "2026-08",
+      "issues": ["issue-01"],
+      "season_role": "Primary Issue 01 environment: neon, food stands, games, temporary rides, projection screens."
+    },
+    {
+      "location_id": "MZ-LOC-FESTIVAL-MAIN-STAGE",
+      "display_name": "Festival Main Stage",
+      "slug": "festival-main-stage",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "month": "2026-08",
+      "issues": ["issue-01"],
+      "season_role": "Public spotlight and countdown; competing priority against overlooked rescues."
+    },
+    {
+      "location_id": "MZ-LOC-FESTIVAL-SERVICE-CORRIDOR",
+      "display_name": "Festival Service Corridor",
+      "slug": "festival-service-corridor",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "month": "2026-08",
+      "issues": ["issue-01"],
+      "season_role": "Dark corridor where overlooked people are trapped during the climax."
+    },
+    {
+      "location_id": "MZ-LOC-FESTIVAL-CONTROL-NODE",
+      "display_name": "Festival Power Control Node",
+      "slug": "festival-control-node",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "month": "2026-08",
+      "issues": ["issue-01"],
+      "season_role": "Service gate and malfunctioning control box; reacts differently when NeonBlue approaches."
+    },
+    {
+      "location_id": "MZ-LOC-STORM-ROUTINES",
+      "display_name": "Early-Fall Storm Streets and Routine Nodes",
+      "slug": "storm-routines",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "month": "2026-09",
+      "issues": ["issue-02"],
+      "season_role": "Back-to-routine storm season exteriors and public systems reactivating after summer."
+    },
+    {
+      "location_id": "MZ-LOC-TRANSIT-ANNOUNCEMENT-HUB",
+      "display_name": "Transit Announcement Hub",
+      "slug": "transit-announcement-hub",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "month": "2026-09",
+      "issues": ["issue-02"],
+      "season_role": "Transit boards and speakers carrying the six-tone interference."
+    },
+    {
+      "location_id": "MZ-LOC-SCHOOL-PA-ZONE",
+      "display_name": "School / Public Address Zone",
+      "slug": "school-pa-zone",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "month": "2026-09",
+      "issues": ["issue-02"],
+      "season_role": "School speakers and routine-public systems that overload with the same burst."
+    },
+    {
+      "location_id": "MZ-LOC-OLD-RELAY-JUNCTION",
+      "display_name": "Old Relay Junction",
+      "slug": "old-relay-junction",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "month": "2026-09",
+      "issues": ["issue-02", "issue-03", "issue-05", "issue-06"],
+      "season_role": "Climax of Issue 02; first mapped physical node of the dormant Echo network."
+    },
+    {
+      "location_id": "MZ-LOC-HAUNTED-ATTRACTION",
+      "display_name": "The House That Remembers (Haunted Attraction)",
+      "slug": "haunted-attraction",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-03-scarline",
+      "month": "2026-10",
+      "issues": ["issue-03"],
+      "season_role": "Halloween attraction reopened over older FusionZoo infrastructure."
+    },
+    {
+      "location_id": "MZ-LOC-FALSE-CHOICE-GALLERY",
+      "display_name": "False-Choice Gallery",
+      "slug": "false-choice-gallery",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-03-scarline",
+      "month": "2026-10",
+      "issues": ["issue-03"],
+      "season_role": "Interior rooms with misdirecting exit signs and compliance tests."
+    },
+    {
+      "location_id": "MZ-LOC-OLD-ACCESS-PATH",
+      "display_name": "Old Access Path (Under Attraction)",
+      "slug": "old-access-path",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-03-scarline",
+      "month": "2026-10",
+      "issues": ["issue-03"],
+      "season_role": "Zombie-recognized legacy path; Scarline identifies current safe route above it."
+    },
+    {
+      "location_id": "MZ-LOC-COMMUNITY-MEAL-HALL",
+      "display_name": "Community Meal Hall",
+      "slug": "community-meal-hall",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-04-moodz",
+      "month": "2026-11",
+      "issues": ["issue-04"],
+      "season_role": "November gathering for gratitude, service, and chosen family."
+    },
+    {
+      "location_id": "MZ-LOC-AUTO-HARMONY-SEATING",
+      "display_name": "Auto-Harmony Seating Grid",
+      "slug": "auto-harmony-seating",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-04-moodz",
+      "month": "2026-11",
+      "issues": ["issue-04"],
+      "season_role": "System that reorganizes seats for forced ideal harmony; Moodz rejects it."
+    },
+    {
+      "location_id": "MZ-LOC-WINTER-EMERGENCY-SHELTER",
+      "display_name": "Winter Emergency Shelter",
+      "slug": "winter-emergency-shelter",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-05-ash",
+      "month": "2026-12",
+      "issues": ["issue-05"],
+      "season_role": "Storm shelter with holiday lights, temporary heat, and stranded residents."
+    },
+    {
+      "location_id": "MZ-LOC-HEATING-INFRASTRUCTURE",
+      "display_name": "Damaged Heating Infrastructure Node",
+      "slug": "heating-infrastructure",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-05-ash",
+      "month": "2026-12",
+      "issues": ["issue-05"],
+      "season_role": "Where heat is diverted to awaken the fifth Echo relay; strength alone cannot fix it."
+    },
+    {
+      "location_id": "MZ-LOC-NEW-YEAR-CIVIC-PREP",
+      "display_name": "New Year Civic Prep District",
+      "slug": "new-year-civic-prep",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-06-twotone",
+      "month": "2027-01",
+      "issues": ["issue-06"],
+      "season_role": "City preparing what to preserve, rebuild, retire, and become."
+    },
+    {
+      "location_id": "MZ-LOC-CENTRAL-ECHO-RELAY",
+      "display_name": "Central Echo Relay",
+      "slug": "central-echo-relay",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-06-twotone",
+      "month": "2027-01",
+      "issues": ["issue-06"],
+      "season_role": "Dormant central relay; finale setpiece for two incompatible futures and third path."
+    }
+  ]
+}

@@ -44,6 +44,22 @@ reverse what you are. The comedy is loud; the loneliness underneath is real.
 - Associated with the Zombie Monkey faction: "Not everyone walks away."
 - Status: OPEN THREAD — first issue to use it defines it (then update here).
 
+### Season locations (proposed — Signal Between Us, Aug 2026–Jan 2027)
+
+Full IDs, bibles, and art folders live in `03_APPROVED_CANON/approved_locations/`.  
+Tracker: `story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/location-and-prop-tracker.md`.
+
+| Month | Headline setpiece locations (IDs) |
+|---|---|
+| August | Festival grounds, main stage, service corridor, control node |
+| September | Storm/routine nodes, transit hub, school PA zone, **old relay junction** |
+| October | Haunted attraction, false-choice gallery, old access path |
+| November | Community meal hall, auto-harmony seating grid |
+| December | Winter emergency shelter, heating infrastructure node |
+| January | New Year civic prep district, **central Echo relay** |
+
+These remain **proposed story canon** until owner approval and a continuity-ledger entry.
+
 ## 3. FusionZoo Technology (world logic — LOCKED)
 
 Fusion is the in-world mirror of Chia NFT mechanics. Keep the mapping intact
@@ -96,3 +112,16 @@ costs): `nft_fusion_reference.md` — scripts citing tech MUST pull from it.
   floating explainer screens · numbered chamber doors · energy floor lines ·
   MonkeyZoo script watermark · Fiend Studios cover stamp.
 - New recurring props must be added to `03_APPROVED_CANON/approved_props/`.
+
+### Season props (proposed — Signal Between Us)
+
+See `03_APPROVED_CANON/approved_props/PROP_INDEX.md` and the season
+`location-and-prop-tracker.md`. Headline recurring mystery props:
+
+- **Echo Symbol (six segments)** — incomplete until January; hideable in scenery  
+- **Cyan relay marker** — August/September frequency thread  
+- **Six-tone interference motif** — audio/visual from September onward  
+- **Old wall marking / residue** — October witness evidence  
+- **Auto-harmony seating UI** — November forced-unity system  
+- **Heating sequence plate** — December activation phrase  
+- **Two-path display + central relay console** — January finale

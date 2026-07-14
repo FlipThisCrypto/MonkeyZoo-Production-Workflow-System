@@ -1,0 +1,271 @@
+{
+  "schema_version": "1.0",
+  "source_season": "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us",
+  "season_span": "2026-08 through 2027-01",
+  "canon_note": "New season props are proposed_story_canon until owner-approved. Recurring world props remain established_world.",
+  "props": [
+    {
+      "prop_id": "MZ-PROP-FUSIONZOO-UPGRADE-SIGN",
+      "display_name": "FUSIONZOO – UPGRADE YOURSELF Sign",
+      "status": "established_world",
+      "issues": ["background"],
+      "category": "signage"
+    },
+    {
+      "prop_id": "MZ-PROP-FUSION-READY-SCREEN",
+      "display_name": "FUSION READY Screen",
+      "status": "established_world",
+      "issues": ["background"],
+      "category": "tech-ui"
+    },
+    {
+      "prop_id": "MZ-PROP-FLOATING-EXPLAINER",
+      "display_name": "Floating Explainer Screen",
+      "status": "established_world",
+      "issues": ["background"],
+      "category": "tech-ui"
+    },
+    {
+      "prop_id": "MZ-PROP-ECHO-SYMBOL",
+      "display_name": "Echo Symbol (Six Segments)",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "issues": ["issue-01", "issue-02", "issue-03", "issue-04", "issue-05", "issue-06"],
+      "category": "mystery-motif",
+      "notes": "Readable B/W; hideable in scenery; complete only in January."
+    },
+    {
+      "prop_id": "MZ-PROP-CYAN-RELAY-MARKER",
+      "display_name": "Cyan Relay Marker / Frequency Tag",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "issues": ["issue-01", "issue-02"],
+      "category": "echo-tech",
+      "notes": "Associated with Patch / NeonBlue memory; matches August frequency in September."
+    },
+    {
+      "prop_id": "MZ-PROP-FESTIVAL-BACKUP-PANEL",
+      "display_name": "Festival Backup Power Panel",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "issues": ["issue-01"],
+      "category": "infrastructure"
+    },
+    {
+      "prop_id": "MZ-PROP-SERVICE-GATE",
+      "display_name": "Locked Service Gate",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "issues": ["issue-01"],
+      "category": "infrastructure",
+      "notes": "Lil Devil wants to force it; only useful after NeonBlue identifies safe force."
+    },
+    {
+      "prop_id": "MZ-PROP-CONTROL-BOX",
+      "display_name": "Malfunctioning Control Box",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "issues": ["issue-01"],
+      "category": "infrastructure"
+    },
+    {
+      "prop_id": "MZ-PROP-PUBLIC-PROJECTION-SCREEN",
+      "display_name": "Public Projection Screen (Fractured Cyan)",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-01-neonblue",
+      "issues": ["issue-01"],
+      "category": "signage"
+    },
+    {
+      "prop_id": "MZ-PROP-POWERED-OFF-RADIO",
+      "display_name": "Powered-Off Radio (Final Soft Tone)",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "issues": ["issue-02"],
+      "category": "personal-device",
+      "notes": "Issue 02 final image prop."
+    },
+    {
+      "prop_id": "MZ-PROP-TRANSIT-BOARD",
+      "display_name": "Transit Board",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "issues": ["issue-02"],
+      "category": "public-device"
+    },
+    {
+      "prop_id": "MZ-PROP-SCHOOL-SPEAKER",
+      "display_name": "School / Public Speaker",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "issues": ["issue-02"],
+      "category": "public-device"
+    },
+    {
+      "prop_id": "MZ-PROP-PERSONAL-DEVICE-BURST",
+      "display_name": "Personal Device (Interference Burst)",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "issues": ["issue-02"],
+      "category": "personal-device"
+    },
+    {
+      "prop_id": "MZ-PROP-SIGNAL-ANALYZER",
+      "display_name": "Clever Signal Analyzer / Scope",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "issues": ["issue-02"],
+      "category": "tool",
+      "notes": "Maps mechanism; cannot read emotional meaning of six tones."
+    },
+    {
+      "prop_id": "MZ-PROP-SIX-TONE-MOTIF",
+      "display_name": "Six-Tone Interference Motif",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-02-static",
+      "issues": ["issue-02", "issue-03", "issue-04", "issue-05", "issue-06"],
+      "category": "audio-motif",
+      "notes": "Recurring audio/visual static pattern; not a physical handheld after first reveal unless staged."
+    },
+    {
+      "prop_id": "MZ-PROP-MISDIRECT-EXIT-SIGN",
+      "display_name": "Misdirecting Exit Sign",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-03-scarline",
+      "issues": ["issue-03"],
+      "category": "signage",
+      "notes": "Directs different characters to different doors."
+    },
+    {
+      "prop_id": "MZ-PROP-OLD-WALL-MARKING",
+      "display_name": "Old Wall Marking (Fusion Residue Glyph)",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-03-scarline",
+      "issues": ["issue-03", "issue-06"],
+      "category": "echo-tech",
+      "notes": "Zombie touches it; third segment lights."
+    },
+    {
+      "prop_id": "MZ-PROP-FUSIONZOO-RESIDUE",
+      "display_name": "Old FusionZoo Residue Trace",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-03-scarline",
+      "issues": ["issue-03"],
+      "category": "environment-effect",
+      "notes": "Smell/residue Zombie recognizes; not horror gore."
+    },
+    {
+      "prop_id": "MZ-PROP-HAUNTED-THEATRICAL-PROP",
+      "display_name": "Haunted-House Theatrical Prop (Fake Scare)",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-03-scarline",
+      "issues": ["issue-03"],
+      "category": "set-dressing",
+      "notes": "Playful scares contrast with real system under the attraction."
+    },
+    {
+      "prop_id": "MZ-PROP-COMMUNITY-TABLE",
+      "display_name": "Community Meal Table",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-04-moodz",
+      "issues": ["issue-04"],
+      "category": "furniture"
+    },
+    {
+      "prop_id": "MZ-PROP-EMPTY-PLACESETTING",
+      "display_name": "Empty Placesetting / Empty Chair",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-04-moodz",
+      "issues": ["issue-04"],
+      "category": "furniture",
+      "notes": "Final image: empty place marked by fifth unlit Echo segment."
+    },
+    {
+      "prop_id": "MZ-PROP-SEATING-SYSTEM-UI",
+      "display_name": "Auto-Harmony Seating UI",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-04-moodz",
+      "issues": ["issue-04"],
+      "category": "tech-ui",
+      "notes": "Tracks emotional response; Static detects tracking."
+    },
+    {
+      "prop_id": "MZ-PROP-INVITATION-CARD",
+      "display_name": "Meal Invitation / Seating Card",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-04-moodz",
+      "issues": ["issue-04"],
+      "category": "paper"
+    },
+    {
+      "prop_id": "MZ-PROP-HOLIDAY-LIGHTS",
+      "display_name": "Holiday Lights (Winter)",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-05-ash",
+      "issues": ["issue-05"],
+      "category": "set-dressing"
+    },
+    {
+      "prop_id": "MZ-PROP-TEMPORARY-HEAT-SOURCE",
+      "display_name": "Temporary Heat Source",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-05-ash",
+      "issues": ["issue-05"],
+      "category": "infrastructure",
+      "notes": "Feeds the same failure pattern if misused."
+    },
+    {
+      "prop_id": "MZ-PROP-HEATING-SEQUENCE-PLATE",
+      "display_name": "Heating Sequence Plate / Dormant Phrase Panel",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-05-ash",
+      "issues": ["issue-05"],
+      "category": "echo-tech",
+      "notes": "Ash recognizes old phrase/diagram; completes activation sequence with precise words."
+    },
+    {
+      "prop_id": "MZ-PROP-EMERGENCY-SUPPLY-BOARD",
+      "display_name": "Emergency Supply Balance Board",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-05-ash",
+      "issues": ["issue-05"],
+      "category": "tool",
+      "notes": "TwoTone keeps resources balanced until missing information appears."
+    },
+    {
+      "prop_id": "MZ-PROP-DEBRIS-BRACE",
+      "display_name": "Structural Debris / Brace Point",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-05-ash",
+      "issues": ["issue-05"],
+      "category": "environment",
+      "notes": "Super Monkey holds structure; not the real fix."
+    },
+    {
+      "prop_id": "MZ-PROP-CENTRAL-RELAY-CONSOLE",
+      "display_name": "Central Relay Console",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-06-twotone",
+      "issues": ["issue-06"],
+      "category": "echo-tech"
+    },
+    {
+      "prop_id": "MZ-PROP-TWO-PATH-DISPLAY",
+      "display_name": "Two-Path Future Display",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-06-twotone",
+      "issues": ["issue-06"],
+      "category": "tech-ui",
+      "notes": "Shows two incompatible futures with real benefits and costs."
+    },
+    {
+      "prop_id": "MZ-PROP-COMPLETE-ECHO-EMBLEM",
+      "display_name": "Complete Echo Emblem",
+      "status": "proposed_story_canon",
+      "first_issue": "issue-06-twotone",
+      "issues": ["issue-06"],
+      "category": "mystery-motif",
+      "notes": "Full six-segment symbol only clear in January finale."
+    }
+  ]
+}
