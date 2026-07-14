@@ -27,11 +27,17 @@ Writable endpoints mutate the filesystem under the repo (`02_MONTHLY_ISSUES`, ar
 
 ## Recommended phases
 
-### Phase 0 — Stay local (now)
+### Phase 0 — Local ship (current production mode)
 
-- Keep using `.\Start-BananaLab.ps1` on your PC  
-- Remote desktop / Tailscale to home machine if needed  
-- **[ASSUMPTION]** Fastest path to “use at work” without multi-tenant design  
+**This is the active ship mode.** Writable Studio is single-owner and local.
+
+- Primary: `.\Start-BananaLab.ps1` → `http://127.0.0.1:8765`  
+- Work access: remote desktop (or Tailscale) **into the home machine**, then use localhost there  
+- Do **not** port-forward 8765 to the public internet  
+- GitHub Pages stays read-only; no public write URL is required or published  
+- Operator details: `docs/LOCAL_SHIP.md`  
+
+**[ASSUMPTION]** No third party has remote desktop or Tailscale access to the owner machine.
 
 ### Phase 1 — Private hosted single-user (target for first online ship)
 
@@ -139,7 +145,8 @@ gunicorn -b 0.0.0.0:8000 --workers 2 wsgi:app
 
 ## Decision for now
 
-**Ship local product quality first** (promote/archive fixes, live test green).  
-**Hosted work access:** Phase 0 (Tailscale/RDP) immediately; Phase 1 after auth PR is scoped and approved.
+**Shipped:** Phase 0 local single-owner Studio (`docs/LOCAL_SHIP.md`, tag `v0.9.0-local-ship`).  
+**Deferred:** Phase 1+ hosted writable backend until auth is implemented.  
+**Work use:** remote into the home machine; no public app link.
 
 [DEPENDENCY APPROVAL REQUIRED] if introducing OIDC libraries, Redis sessions, or object storage SDKs.

@@ -10,13 +10,15 @@ Open source at
 
 ## Banana Lab Studio (local production UI)
 
+**Current ship mode:** local single-owner (Phase 0). See `docs/LOCAL_SHIP.md`.
+
 The local writable production app lives at `character-bibles/_review_app/`.
 
 ```powershell
 .\Start-BananaLab.ps1
 ```
 
-Opens `http://127.0.0.1:8765`. GitHub Pages remains a public **read-only** preview.
+Opens `http://127.0.0.1:8765` (loopback only). GitHub Pages remains a public **read-only** preview — not a writable production host.
 
 | Doc | Contents |
 |---|---|
