@@ -15,7 +15,7 @@ def factory(tmp_path):
     (tmp_path / "02_MONTHLY_ISSUES").mkdir(); (tmp_path / "05_RELEASE_ARCHIVE").mkdir(); (tmp_path / "00_SYSTEM").mkdir()
     for rel in ("monkeyzoo_master_bible.md", "world_bible.md", "continuity_ledger.md"):
         (tmp_path / "00_SYSTEM" / rel).write_text("approved canon\n", encoding="utf-8")
-    for cid, name in (("MZ-CHAR-001","Ash"),("MZ-CHAR-ZOMBIE","Patch")):
+    for cid, name in (("MZ-CHAR-001","Moodz"),("MZ-CHAR-002","TwoTone"),("MZ-CHAR-005","NeonBlue"),("MZ-CHAR-CLEVER","Lily"),("MZ-CHAR-LILDEVIL","Sasha"),("MZ-CHAR-ZOMBIE","Patch")):
         bible = tmp_path / "character-bibles" / cid; bible.mkdir(parents=True)
         (bible / "bible.yaml").write_text(yaml.safe_dump({"identification":{"character_id":cid,"current_display_name":name,"canon_status":"approved_canon"},"voice_and_dialogue":{},"relationships":[],"personality_and_behavior":{},"visual_canon":{}}), encoding="utf-8")
     alias = tmp_path / "character-bibles" / "MZ-CHAR-PATCH"; alias.mkdir()
@@ -50,6 +50,46 @@ def test_snapshot_hashes_sources_and_deduplicates_alias(factory):
     assert snap["alias_resolutions"]["MZ-CHAR-PATCH"] == "MZ-CHAR-ZOMBIE"
     assert all(len(source["sha256"]) == 64 for source in snap["canon_sources"])
     assert not (issue / ".story-workspace").exists()
+
+
+@pytest.mark.parametrize("source,expected,annotation", [
+    ("NeonBlue (co-lead)", "NeonBlue", "(co-lead)"),
+    ("Moodz (primary)", "Moodz", "(primary)"),
+    ("TwoTone (secondary)", "TwoTone", "(secondary)"),
+    ("Patch (NEW — zombie, NeonBlue's old friend)", "Patch", "(NEW — zombie, NeonBlue's old friend)"),
+    ("Lily — supporting role", "Lily", "supporting role"),
+    ("Sasha - guest", "Sasha", "guest"),
+])
+def test_cast_reference_separates_canonical_name_and_annotation(source, expected, annotation):
+    parsed = story._clean_cast_reference(source, "guest")
+    assert parsed["reference"] == expected
+    assert annotation in parsed["annotation"]
+
+
+def test_balanced_and_multiline_cast_resolves_alias_and_canonical_names(factory):
+    root, issue = factory
+    (issue / "metadata.json").write_text(json.dumps({"issue_id":"MZ-2027-01-01","title":"Test"}), encoding="utf-8")
+    (issue / "issue_brief.md").write_text(
+        "Issue ID: MZ-2027-01-01\nMain Character: Moodz (primary)\n"
+        "Supporting Characters: NeonBlue (co-lead), TwoTone (secondary), Patch (NEW — zombie,\n"
+        "NeonBlue's old friend), Lily — supporting role, Sasha - guest\nConflict: Test\n", encoding="utf-8")
+    refs = story.cast_references(issue)
+    assert [item["reference"] for item in refs] == ["Moodz", "NeonBlue", "TwoTone", "Patch", "Lily", "Sasha"]
+    snapshot = story.canon_snapshot(issue, root, "outline")
+    assert snapshot["character_ids"] == ["MZ-CHAR-001", "MZ-CHAR-005", "MZ-CHAR-002", "MZ-CHAR-ZOMBIE", "MZ-CHAR-CLEVER", "MZ-CHAR-LILDEVIL"]
+    assert snapshot["alias_resolutions"]["Patch"] == "MZ-CHAR-ZOMBIE"
+    assert not snapshot["warnings"]
+
+
+def test_structured_cast_overrides_ambiguous_prose_and_unknown_remains_visible(factory):
+    root, issue = factory
+    (issue / "metadata.json").write_text(json.dumps({"issue_id":"MZ-2027-01-01","title":"Test","character_ids":[{"character_id":"MZ-CHAR-001","role":"primary"},{"character_id":"MZ-CHAR-002","role":"secondary"},{"character_id":"MZ-CHAR-UNKNOWN","role":"guest"}]}), encoding="utf-8")
+    (issue / "issue_brief.md").write_text("Issue ID: MZ-2027-01-01\nMain Character: Wrong Name\n", encoding="utf-8")
+    snapshot = story.canon_snapshot(issue, root, "outline")
+    assert snapshot["character_ids"] == ["MZ-CHAR-001", "MZ-CHAR-002"]
+    assert [item["role"] for item in snapshot["characters"]] == ["primary", "secondary"]
+    assert snapshot["excluded"][0]["reference"] == "MZ-CHAR-UNKNOWN"
+    assert "MZ-CHAR-UNKNOWN" in snapshot["warnings"][0]
 
 
 def test_manual_prompt_and_multiple_variants_are_preserved(factory):

@@ -9,6 +9,57 @@ let storyPreview = null;
 let adventureStyles = [];
 let productionStory = null;
 let storyImportKind = "outline";
+let runtimeCapability = {resolved: false, writable: false, reason: "unresolved"};
+
+const MUTATION_SELECTOR = [
+  "[data-mutation]", "#createIssueButton", "#saveStoryBtn", "#generateSampleBtn",
+  "#outlinePromptBtn", "#outlineImportBtn", "#scriptPromptBtn", "#scriptImportBtn",
+  "#storyImportSubmit", "#createPlanVariant", "#buildArtQueue", "#artAttemptFile",
+  "#createQAReview", "#releaseManifest", "#releaseApprove", "#releasePromote",
+  "#validateStageButton", "#approveStageButton", "#advanceStageButton", "#saveTraitBtn", "#undoBtn",
+  "#createIssueForm button[type='submit']", "#settingsForm button[type='submit']",
+  "[data-approve-variant]", "[data-promote-variant]", "[data-layout-approve]",
+  "[data-layout-promote]", "[data-art-select]", "[data-art-reject]", "[data-art-prompt]",
+  "[data-art-import]", "[data-qa-finalize]", "[data-qa-promote]"
+].join(",");
+
+function canMutate() { return runtimeCapability.resolved && runtimeCapability.writable === true; }
+function isTrustedRuntimeCapability(data) {
+  return Boolean(data && data.schema_version === "1.0" && data.runtime === "monkeyzoo-local" &&
+    data.capability === "monkeyzoo-production-write-v1" && data.writable === true);
+}
+function enforceMutationCapability(root = document) {
+  if (canMutate()) return;
+  root.querySelectorAll(MUTATION_SELECTOR).forEach(control => {
+    control.disabled = true;
+    control.title = "Trusted writable local runtime required";
+  });
+}
+async function resolveRuntimeCapability() {
+  // Static Pages sets this flag before the bundle runs. Stay fail-closed without probing a missing API.
+  if (window.BANANA_LAB_STATIC_MODE === true) {
+    runtimeCapability = {resolved: true, writable: false, reason: "static-preview"};
+    console.info(`MonkeyZoo read-only mode: ${runtimeCapability.reason}`);
+    enforceMutationCapability();
+    return runtimeCapability;
+  }
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 2000);
+  try {
+    const response = await fetch("/api/runtime-capabilities", {signal: controller.signal, cache: "no-store"});
+    const data = response.ok ? await response.json() : null;
+    const trusted = isTrustedRuntimeCapability(data);
+    runtimeCapability = {resolved: true, writable: trusted, reason: trusted ? "trusted-local-runtime" : "untrusted-capability"};
+  } catch (_error) {
+    runtimeCapability = {resolved: true, writable: false, reason: "capability-unavailable"};
+  } finally { clearTimeout(timer); }
+  if (canMutate()) document.querySelectorAll(MUTATION_SELECTOR).forEach(control => { control.disabled = false; control.title = ""; });
+  else {
+    console.info(`MonkeyZoo read-only mode: ${runtimeCapability.reason}`);
+    enforceMutationCapability();
+  }
+  return runtimeCapability;
+}
 
 const $ = (id) => document.getElementById(id);
 
@@ -23,6 +74,11 @@ function escapeHtml(value) {
 }
 
 async function api(path, options = {}) {
+  const method = String(options.method || "GET").toUpperCase();
+  const readOnlyPost = new Set(["/api/compare", "/api/story/preview", "/api/story/validate-script"]);
+  if (method !== "GET" && !readOnlyPost.has(path.split("?")[0]) && !canMutate()) {
+    throw new Error("Trusted writable local runtime required");
+  }
   const res = await fetch(path, {
     headers: {"Content-Type": "application/json"},
     ...options
@@ -36,14 +92,14 @@ async function loadCharacters() {
   try {
     characters = await api("/api/characters");
     if ($("statusBackend")) {
-      $("statusBackend").textContent = "Connected (127.0.0.1:8765)";
-      $("statusBackend").className = "status-value connected";
+      $("statusBackend").textContent = canMutate() ? "Trusted writable local runtime" : "Read-only static preview";
+      $("statusBackend").className = `status-value ${canMutate() ? "connected" : "disconnected"}`;
     }
     if ($("sidebarStatusIndicator")) {
-      $("sidebarStatusIndicator").className = "status-indicator online";
+      $("sidebarStatusIndicator").className = `status-indicator ${canMutate() ? "online" : "offline"}`;
     }
     if ($("sidebarStatusText")) {
-      $("sidebarStatusText").textContent = "Backend connected";
+      $("sidebarStatusText").textContent = canMutate() ? "Writable local runtime" : "Read-only static preview";
     }
     await loadIssuesMetadata();
   } catch (err) {
@@ -152,7 +208,7 @@ function setupIssueCreation() {
       $("issueCreateError").textContent = err.message || err.error || "Issue creation failed. No success state was recorded.";
     } finally {
       submitting = false;
-      submitButton.disabled = false;
+      submitButton.disabled = !canMutate();
       submitButton.textContent = "Create Issue";
     }
   });
@@ -331,7 +387,7 @@ async function loadCharacter(characterId) {
   current = await api(`/api/characters/${characterId}`);
   $("emptyState").classList.add("hidden");
   $("detailView").classList.remove("hidden");
-  $("undoBtn").disabled = false;
+  $("undoBtn").disabled = !canMutate();
   
   if ($("statusCharacter")) {
     $("statusCharacter").textContent = current.summary.display_name;
@@ -886,14 +942,20 @@ $("regenerateStoryBtn").addEventListener("click", previewStory);
 $("saveStoryBtn").addEventListener("click", saveStoryPacket);
 $("generateSampleBtn").addEventListener("click", generateSampleIssue);
 
-setupIssueCreation();
-setupProductionDashboard();
-setupProductionStoryWorkspace();
-setupLayoutWorkspace();
-setupArtQueue();
-setupQAWorkspace();
-setupReleaseWorkspace();
-loadCharacters();
+async function initializeApplication() {
+  enforceMutationCapability();
+  await resolveRuntimeCapability();
+  setupIssueCreation();
+  setupProductionDashboard();
+  setupProductionStoryWorkspace();
+  setupLayoutWorkspace();
+  setupArtQueue();
+  setupQAWorkspace();
+  setupReleaseWorkspace();
+  await loadCharacters();
+  enforceMutationCapability();
+}
+initializeApplication();
 
 let activeProductionIssue = null;
 let activeLayout = null;
@@ -945,7 +1007,7 @@ async function loadProductionStory(issueId) {
 }
 
 function renderProductionStory() {
-  const staticMode = window.BANANA_LAB_STATIC_MODE === true;
+  const staticMode = !canMutate();
   const {issue, workflow, canon} = productionStory;
   $("storyProductionStatus").textContent = `Active stage: ${workflow.current_stage.label}. ${workflow.blockers.join(" ") || "Stage evidence is ready."}`;
   $("storyIssueContext").innerHTML = [["Issue",issue.issue_id],["Title",issue.title],["Period",issue.month],["Primary",issue.primary_character],["Guest",issue.guest_character || "None"],["Workflow",workflow.current_stage.label],["Outline",productionStory.outline_approval ? "Approved" : "Not approved"],["Script",productionStory.script_approval ? "Approved" : "Not approved"],["Drafts",`${productionStory.draft_counts.outlines} outline · ${productionStory.draft_counts.scripts} script`]].map(([k,v])=>`<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
@@ -974,7 +1036,7 @@ function setupLayoutWorkspace(){
 }
 async function loadLayout(issueId){if(!issueId)return;try{activeLayout=await api(`/api/issues/${encodeURIComponent(issueId)}/layout`);renderLayout()}catch(e){$("layoutStatus").textContent=e.message}}
 function renderLayout(){
-  const staticMode=window.BANANA_LAB_STATIC_MODE===true,w=activeLayout.workflow;
+  const staticMode=!canMutate(),w=activeLayout.workflow;
   $("layoutStatus").textContent=`Active stage: ${w.current_stage.label}. ${w.blockers.join(" ")||"Stage evidence is ready."}`;
   $("layoutSummary").innerHTML=[["Issue",activeLayout.issue_id],["Stage",w.current_stage.label],["Script",activeLayout.script.exists?"Loaded":"Missing"],["Canonical plan",activeLayout.canonical_plan_exists?"Exists":"Not promoted"],["Variants",activeLayout.variants.length]].map(([k,v])=>`<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
   $("createPlanVariant").disabled=staticMode||w.active_stage!=="page_plan"; $("createPlanVariant").title=staticMode?"Local backend required":"";
@@ -991,7 +1053,7 @@ function setupArtQueue(){
 }
 async function loadArtQueue(issueId){if(!issueId)return;try{activeArtQueue=await api(`/api/issues/${encodeURIComponent(issueId)}/art-queue`);renderArtQueue()}catch(e){$("artQueueStatus").textContent=e.message}}
 function renderArtQueue(){
-  const staticMode=window.BANANA_LAB_STATIC_MODE===true,q=activeArtQueue.queue,w=activeArtQueue.workflow,items=q.items||[];
+  const staticMode=!canMutate(),q=activeArtQueue.queue,w=activeArtQueue.workflow,items=q.items||[];
   $("artQueueStatus").textContent=q.error||`Active stage: ${w.current_stage.label}. ${w.blockers.join(" ")||"Queue evidence ready."}`;
   $("artQueueSummary").innerHTML=[["Issue",activeArtQueue.issue_id],["Stage",w.current_stage.label],["Panels",items.length],["Approved",items.filter(i=>i.status==="approved").length],["Missing",items.filter(i=>i.status!=="approved").length],["Provider","Manual prompt/import"]].map(([k,v])=>`<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
   $("buildArtQueue").disabled=staticMode||!["art_prompts","art_production"].includes(w.active_stage);$("buildArtQueue").title=staticMode?"Local backend required":"";
@@ -1008,7 +1070,7 @@ async function artAttemptAction(value,action){const [panel,attempt]=value.split(
 function setupQAWorkspace(){$("qaIssueSelect")?.addEventListener("change",e=>loadQA(e.target.value));$("createQAReview")?.addEventListener("click",()=>qaPost("reviews",{}))}
 async function loadQA(id){if(!id)return;try{activeQA=await api(`/api/issues/${encodeURIComponent(id)}/qa`);renderQA()}catch(e){$("qaStatus").textContent=e.message}}
 function renderQA(){
- const staticMode=window.BANANA_LAB_STATIC_MODE===true,e=activeQA.evidence,w=activeQA.workflow;
+ const staticMode=!canMutate(),e=activeQA.evidence,w=activeQA.workflow;
  $("qaStatus").textContent=e.blockers?.join(" ")||`Active stage: ${w.current_stage.label}. No automated evidence blockers.`;
  $("qaSummary").innerHTML=[["Issue",activeQA.issue_id],["Stage",w.current_stage.label],["Planned",e.planned_panel_count||0],["Selected",e.selected_panel_count||0],["Blockers",e.blockers?.length||0],["Reviews",activeQA.reviews.length]].map(([k,v])=>`<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
  $("createQAReview").disabled=staticMode||w.active_stage!=="qa";$("createQAReview").title=staticMode?"Local backend required":"";
@@ -1021,7 +1083,7 @@ async function qaPost(path,body){try{await api(`/api/issues/${encodeURIComponent
 function setupReleaseWorkspace(){$("releaseIssueSelect")?.addEventListener("change",e=>loadRelease(e.target.value));$("releaseManifest")?.addEventListener("click",()=>releasePost("manifest",{}));$("releaseApprove")?.addEventListener("click",()=>releasePost("approve",{note:$("releaseOwnerNote").value}));$("releasePromote")?.addEventListener("click",()=>releasePost("promote-manifest",{}))}
 async function loadRelease(id){if(!id)return;try{activeRelease=await api(`/api/issues/${encodeURIComponent(id)}/release`);renderRelease()}catch(e){$("releaseStatus").textContent=e.message}}
 function renderRelease(){
- const staticMode=window.BANANA_LAB_STATIC_MODE===true,e=activeRelease.evidence,w=activeRelease.workflow;
+ const staticMode=!canMutate(),e=activeRelease.evidence,w=activeRelease.workflow;
  $("releaseStatus").textContent=e.blockers.join(" ")||`Evidence complete. ${activeRelease.approval_current?"Owner approval current.":"Owner approval required."}`;
  $("releaseSummary").innerHTML=[["Issue",activeRelease.issue_id],["Stage",w.current_stage.label],["QA",e.qa_verdict],["Covers",e.covers.length],["PDFs",e.pdfs.length],["Packages",e.packages.length],["Release ready",activeRelease.release_ready?"Yes":"No"],["Published evidence",activeRelease.publication_ready?"Complete":"Incomplete"]].map(([k,v])=>`<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
  const stageOK=["release","published"].includes(w.active_stage);$("releaseManifest").disabled=staticMode||!stageOK;$("releaseApprove").disabled=staticMode||!stageOK||e.blockers.length>0||activeRelease.approval_current;$("releasePromote").disabled=staticMode||!activeRelease.approval_current;["releaseManifest","releaseApprove","releasePromote"].forEach(id=>$(id).title=staticMode?"Local backend required":"");
@@ -1048,7 +1110,7 @@ async function openProductionDashboard(issueId) {
 
 function renderProductionDashboard(issue) {
   const workflow = issue.workflow;
-  const staticMode = window.BANANA_LAB_STATIC_MODE === true;
+  const staticMode = !canMutate();
   $("productionIdentity").textContent = `${issue.title} · ${issue.issue_id}`;
   $("productionSummary").innerHTML = [["Edition",issue.edition_number],["Period",issue.period],["Primary",issue.primary_character],["Guest",issue.guest_character || "None"],["Stage",workflow.current_stage.label],["Status",issue.validation_state],["Location",issue.location],["Updated",issue.last_updated]].map(([label,value]) => `<div><span>${escapeHtml(label)}</span><strong>${escapeHtml(value ?? "Unavailable")}</strong></div>`).join("");
   $("productionStageRail").innerHTML = workflow.stages.map(stage => `<button type="button" class="stage-node stage-${escapeHtml(stage.state)}" aria-label="Stage ${stage.number}: ${escapeHtml(stage.label)}, ${escapeHtml(stage.state)}"><span>${stage.number}</span><strong>${escapeHtml(stage.label)}</strong><small>${escapeHtml(stage.state.replace("_"," "))}</small></button>`).join("");

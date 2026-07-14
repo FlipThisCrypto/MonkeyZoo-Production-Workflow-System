@@ -35,6 +35,17 @@ def index():
     return send_from_directory(APP_DIR / "static", "index.html")
 
 
+@app.get("/api/runtime-capabilities")
+def runtime_capabilities():
+    """Explicit same-origin proof required before the UI enables mutations."""
+    return jsonify({
+        "schema_version": "1.0",
+        "runtime": "monkeyzoo-local",
+        "capability": "monkeyzoo-production-write-v1",
+        "writable": True,
+    })
+
+
 @app.get("/api/characters")
 def characters():
     return jsonify([store.character_summary(cid, data) for cid, data in store.load_all(BIBLES_ROOT)])

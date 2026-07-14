@@ -31,7 +31,7 @@
         <li>
           <button class="nav-item" data-view="issues">
             <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5L4 4.5A2.5 2.5 0 0 1 6.5 2M20 2v20"/></svg>
-            Issues <span class="badge-coming">Soon</span>
+            Issues
           </button>
         </li>
         <li>
@@ -510,8 +510,8 @@
                 <div class="story-actions">
                   <button id="previewStoryBtn" class="primary">Preview Context</button>
                   <button id="regenerateStoryBtn">Regenerate Trait Selection</button>
-                  <button id="saveStoryBtn">Save Packet</button>
-                  <button id="generateSampleBtn">Generate Sample Issue</button>
+                  <button id="saveStoryBtn" disabled>Save Packet</button>
+                  <button id="generateSampleBtn" disabled>Generate Sample Issue</button>
                 </div>
 
                 <div class="wizard-footer-actions">
@@ -528,7 +528,7 @@
               <div id="storyProductionStatus" role="status"></div>
               <section id="storyIssueContext" class="story-context-grid"></section>
               <details open><summary>Canon context review</summary><div id="storyCanonContext"></div></details>
-              <div class="story-production-columns"><section><h4>Outline variants</h4><div class="story-production-actions"><button id="outlinePromptBtn" type="button">Export manual prompt</button><button id="outlineImportBtn" type="button" class="primary">Import outline</button></div><div id="outlineVariants" class="variant-grid"></div></section><section><h4>Script variants</h4><div class="story-production-actions"><button id="scriptPromptBtn" type="button">Export manual prompt</button><button id="scriptImportBtn" type="button" class="primary">Import script</button></div><div id="scriptVariants" class="variant-grid"></div></section></div>
+              <div class="story-production-columns"><section><h4>Outline variants</h4><div class="story-production-actions"><button id="outlinePromptBtn" type="button" disabled>Export manual prompt</button><button id="outlineImportBtn" type="button" class="primary" disabled>Import outline</button></div><div id="outlineVariants" class="variant-grid"></div></section><section><h4>Script variants</h4><div class="story-production-actions"><button id="scriptPromptBtn" type="button" disabled>Export manual prompt</button><button id="scriptImportBtn" type="button" class="primary" disabled>Import script</button></div><div id="scriptVariants" class="variant-grid"></div></section></div>
             </section>
           </section>
         </div>
@@ -538,7 +538,7 @@
           <div class="card-header">
             <h3>Issue Intake & Production Manager <span class="data-tag tag-repo">[Repository Metadata]</span></h3>
             <p class="card-desc-muted">Track draft, active, and shipped issues under the local 10-stage pipeline.</p>
-            <button id="createIssueButton" class="primary" type="button">Create New Issue</button>
+            <button id="createIssueButton" class="primary" type="button" disabled>Create New Issue</button>
           </div>
           <div id="issueCreateResult" role="status"></div>
           <div id="issuesWorkspaceGrid" class="issue-grid"></div>
@@ -546,16 +546,16 @@
             <header class="production-header"><div><span class="eyebrow">MONKEYZOO COMIC FACTORY</span><h3 id="productionDashboardTitle">Issue Production Dashboard</h3><p id="productionIdentity"></p></div><button id="closeProductionDashboard" type="button">Close dashboard</button></header>
             <div id="productionSummary" class="production-summary"></div>
             <nav id="productionStageRail" class="stage-rail" aria-label="Production stages"></nav>
-            <div class="production-grid"><section class="current-stage-panel"><h4>Current stage</h4><div id="currentStageDetail"></div><div class="production-actions"><button id="validateStageButton" class="primary" type="button">Validate current stage</button><button id="approveStageButton" type="button" class="hidden">Record owner approval</button><button id="advanceStageButton" type="button">Advance safely</button></div></section><section><h4>Artifacts</h4><div id="artifactInventory"></div></section></div>
+            <div class="production-grid"><section class="current-stage-panel"><h4>Current stage</h4><div id="currentStageDetail"></div><div class="production-actions"><button id="validateStageButton" class="primary" type="button" disabled>Validate current stage</button><button id="approveStageButton" type="button" class="hidden" disabled>Record owner approval</button><button id="advanceStageButton" type="button" disabled>Advance safely</button></div></section><section><h4>Artifacts</h4><div id="artifactInventory"></div></section></div>
           </section>
         </div>
 
         <div id="viewLayout" class="workspace-view hidden">
-          <section class="layout-workspace" aria-labelledby="layoutTitle"><header><div><span class="eyebrow">VISUAL PRODUCTION PLAN</span><h3 id="layoutTitle">Page & Panel Planning</h3><p>Parse the canonical script, review every page and panel, approve a variant, then promote it without advancing the workflow.</p></div><label>Issue<select id="layoutIssueSelect" aria-label="Select issue for layout planning"><option value="">Choose an issue</option></select></label></header><div id="layoutStatus" role="status"></div><div id="layoutSummary" class="production-summary"></div><div class="layout-actions"><button id="createPlanVariant" class="primary" type="button">Parse script into variant</button></div><div id="layoutVariants"></div></section>
+          <section class="layout-workspace" aria-labelledby="layoutTitle"><header><div><span class="eyebrow">VISUAL PRODUCTION PLAN</span><h3 id="layoutTitle">Page & Panel Planning</h3><p>Parse the canonical script, review every page and panel, approve a variant, then promote it without advancing the workflow.</p></div><label>Issue<select id="layoutIssueSelect" aria-label="Select issue for layout planning"><option value="">Choose an issue</option></select></label></header><div id="layoutStatus" role="status"></div><div id="layoutSummary" class="production-summary"></div><div class="layout-actions"><button id="createPlanVariant" class="primary" type="button" disabled>Parse script into variant</button></div><div id="layoutVariants"></div></section>
         </div>
-        <div id="viewArtQueue" class="workspace-view hidden"><section class="art-queue-workspace" aria-labelledby="artQueueTitle"><header><div><span class="eyebrow">PANEL ART PRODUCTION</span><h3 id="artQueueTitle">Art Prompt & Queue</h3><p>Export real panel prompts, import manual results, and explicitly select preferred art.</p></div><label>Issue<select id="artQueueIssue" aria-label="Select issue for art queue"><option value="">Choose an issue</option></select></label></header><div id="artQueueStatus" role="status"></div><div id="artQueueSummary" class="production-summary"></div><button id="buildArtQueue" class="primary" type="button">Build or refresh queue</button><div id="artQueueItems"></div><input id="artAttemptFile" type="file" accept="image/png,image/jpeg,image/webp" class="hidden"></section></div>
-        <div id="viewQA" class="workspace-view hidden"><section class="qa-workspace" aria-labelledby="qaTitle"><header><div><span class="eyebrow">EVIDENCE REVIEW</span><h3 id="qaTitle">Visual Production QA</h3><p>Inventory selected panels, review blocking evidence, finalize Pass/Hold/Fail, and promote an auditable report.</p></div><label>Issue<select id="qaIssueSelect" aria-label="Select issue for QA"><option value="">Choose an issue</option></select></label></header><div id="qaStatus" role="status"></div><div id="qaSummary" class="production-summary"></div><button id="createQAReview" class="primary" type="button">Create evidence review</button><div class="qa-owner-inputs"><label>Owner review notes<textarea id="qaOwnerNotes" rows="3"></textarea></label><label>Continuity check note<input id="qaContinuityNote" type="text"></label></div><div id="qaPanels"></div><div id="qaReviews"></div></section></div>
-        <div id="viewRelease" class="workspace-view hidden"><section class="release-workspace" aria-labelledby="releaseTitle"><header><div><span class="eyebrow">PUBLICATION READINESS</span><h3 id="releaseTitle">Release Preparation</h3><p>Verify covers, CHIP-0015 metadata, social copy, exports, hashes, approval, and archive evidence.</p></div><label>Issue<select id="releaseIssueSelect" aria-label="Select issue for release"><option value="">Choose an issue</option></select></label></header><div id="releaseStatus" role="status"></div><div id="releaseSummary" class="production-summary"></div><label>Owner release note<input id="releaseOwnerNote" type="text"></label><div class="release-actions"><button id="releaseManifest" type="button">Build hash manifest</button><button id="releaseApprove" class="primary" type="button">Approve release</button><button id="releasePromote" type="button">Promote manifest</button></div><div id="releaseEvidence"></div></section></div>
+        <div id="viewArtQueue" class="workspace-view hidden"><section class="art-queue-workspace" aria-labelledby="artQueueTitle"><header><div><span class="eyebrow">PANEL ART PRODUCTION</span><h3 id="artQueueTitle">Art Prompt & Queue</h3><p>Export real panel prompts, import manual results, and explicitly select preferred art.</p></div><label>Issue<select id="artQueueIssue" aria-label="Select issue for art queue"><option value="">Choose an issue</option></select></label></header><div id="artQueueStatus" role="status"></div><div id="artQueueSummary" class="production-summary"></div><button id="buildArtQueue" class="primary" type="button" disabled>Build or refresh queue</button><div id="artQueueItems"></div><input id="artAttemptFile" type="file" accept="image/png,image/jpeg,image/webp" class="hidden" disabled></section></div>
+        <div id="viewQA" class="workspace-view hidden"><section class="qa-workspace" aria-labelledby="qaTitle"><header><div><span class="eyebrow">EVIDENCE REVIEW</span><h3 id="qaTitle">Visual Production QA</h3><p>Inventory selected panels, review blocking evidence, finalize Pass/Hold/Fail, and promote an auditable report.</p></div><label>Issue<select id="qaIssueSelect" aria-label="Select issue for QA"><option value="">Choose an issue</option></select></label></header><div id="qaStatus" role="status"></div><div id="qaSummary" class="production-summary"></div><button id="createQAReview" class="primary" type="button" disabled>Create evidence review</button><div class="qa-owner-inputs"><label>Owner review notes<textarea id="qaOwnerNotes" rows="3"></textarea></label><label>Continuity check note<input id="qaContinuityNote" type="text"></label></div><div id="qaPanels"></div><div id="qaReviews"></div></section></div>
+        <div id="viewRelease" class="workspace-view hidden"><section class="release-workspace" aria-labelledby="releaseTitle"><header><div><span class="eyebrow">PUBLICATION READINESS</span><h3 id="releaseTitle">Release Preparation</h3><p>Verify covers, CHIP-0015 metadata, social copy, exports, hashes, approval, and archive evidence.</p></div><label>Issue<select id="releaseIssueSelect" aria-label="Select issue for release"><option value="">Choose an issue</option></select></label></header><div id="releaseStatus" role="status"></div><div id="releaseSummary" class="production-summary"></div><label>Owner release note<input id="releaseOwnerNote" type="text"></label><div class="release-actions"><button id="releaseManifest" type="button" disabled>Build hash manifest</button><button id="releaseApprove" class="primary" type="button" disabled>Approve release</button><button id="releasePromote" type="button" disabled>Promote manifest</button></div><div id="releaseEvidence"></div></section></div>
 
         <!-- 5. LOCATIONS WORKSPACE MODULE (COMING SOON) -->
         <div id="viewLocations" class="workspace-view hidden">
@@ -738,7 +738,7 @@
               <label>ComfyUI Server Endpoint<input type="url" value="http://127.0.0.1:8188" disabled></label>
               <label>LoRA Path<input type="text" value="./models/loras/" disabled></label>
               <label>Target Render Batch Size<input type="number" value="4" disabled></label>
-              <button class="primary" style="align-self:start;">Save Config (Local Runtime Required)</button>
+              <button class="primary" type="submit" style="align-self:start;" disabled>Save Config (Local Runtime Required)</button>
             </form>
           </div>
         </div>
@@ -775,7 +775,7 @@
       <label>Incompatible traits<input id="editIncompatible" type="text" placeholder="comma-separated"></label>
       <div class="dialog-actions">
         <button value="cancel">Cancel</button>
-        <button id="saveTraitBtn" value="default">Save Trait</button>
+        <button id="saveTraitBtn" value="default" disabled>Save Trait</button>
       </div>
     </form>
   </dialog>
@@ -794,13 +794,13 @@
       <fieldset><legend>3. Character and canon review</legend><div id="issueCanonReview">Select a primary character to inspect repository-backed canon warnings.</div></fieldset>
       <fieldset><legend>4. Production configuration</legend><label>Pages<input name="page_count" type="number" value="8" min="1" max="64"></label><label>Panels<input name="panel_count" type="number" value="20" min="1" max="300"></label><p>Package includes cover prompts, metadata, social copy, and QA stubs.</p></fieldset>
       <fieldset><legend>5. Review and create</legend><label><input name="reviewed" type="checkbox" required> I reviewed the issue identity, story direction, and canon warnings.</label><div id="issueCreateError" class="error-message" role="alert"></div></fieldset>
-      <div class="dialog-actions"><button type="button" id="cancelIssueCreate">Cancel</button><button class="primary" type="submit">Create Issue</button></div>
+      <div class="dialog-actions"><button type="button" id="cancelIssueCreate">Cancel</button><button class="primary" type="submit" disabled>Create Issue</button></div>
     </form>
   </dialog>
   <dialog id="artifactDialog"><div class="artifact-viewer"><header><h3 id="artifactTitle">Artifact</h3><button id="closeArtifactDialog" type="button">Close</button></header><pre id="artifactContent"></pre></div></dialog>
-  <dialog id="storyImportDialog"><form method="dialog"><header><h3 id="storyImportTitle">Import variant</h3><button value="cancel" type="submit">Close</button></header><label>Provider/model label (optional)<input id="storyImportProvider"></label><label>Markdown<textarea id="storyImportContent" rows="20" required></textarea></label><button id="storyImportSubmit" type="button" class="primary">Import safely</button></form></dialog>
+  <dialog id="storyImportDialog"><form method="dialog"><header><h3 id="storyImportTitle">Import variant</h3><button value="cancel" type="submit">Close</button></header><label>Provider/model label (optional)<input id="storyImportProvider"></label><label>Markdown<textarea id="storyImportContent" rows="20" required></textarea></label><button id="storyImportSubmit" type="button" class="primary" disabled>Import safely</button></form></dialog>
   <dialog id="variantDialog"><header><h3 id="variantDialogTitle">Variant</h3><button id="closeVariantDialog" type="button">Close</button></header><pre id="variantDialogContent"></pre></dialog>
 
-  <script src="./static/app.js"></script>
+  <script src="./static/app.js?v=dd8910df82c314657c333c6fa34c3cf661e6ac202416a788179f0f5c9272396a"></script>
 </body>
 </html>
