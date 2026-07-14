@@ -44,7 +44,9 @@ def test_navigation_capability_labels_are_honest():
     assert 'Issues <span class="badge-coming">Soon</span>' not in html
     assert "Story Builder\n" in html
     assert 'Canon <span class="badge-coming">Foundation</span>' in html
-    for label in ("Locations", "Props", "Timeline", "Settings"):
+    for label in ("Locations", "Props", "Canon"):
+        assert f'{label} <span class="badge-coming">Foundation</span>' in html
+    for label in ("Timeline", "Settings"):
         assert f'{label} <span class="badge-coming">Soon</span>' in html
     for label in ("Art Queue", "Layout"):
         assert f'{label} <span class="badge-coming">Beta</span>' in html
