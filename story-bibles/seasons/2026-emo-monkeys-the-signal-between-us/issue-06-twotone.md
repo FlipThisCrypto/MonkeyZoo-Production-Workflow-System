@@ -10,3 +10,6 @@
 - Canon status: proposed story canon until owner-approved.
 
 See `SEASON-BIBLE.md` section 12 for the full working plan.
+
+**Locations / props:** see `location-and-prop-tracker.md`.
+
