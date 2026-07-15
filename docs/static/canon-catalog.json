@@ -19,7 +19,7 @@
       ],
       "season_role": "Default exterior; storm sheen in September; winter emergency exteriors in December.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/zoo-city-streets"
     },
     {
@@ -34,7 +34,7 @@
       ],
       "season_role": "Corporate contrast; marketing surface of FusionZoo infrastructure.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/fusionzoo-public"
     },
     {
@@ -49,7 +49,7 @@
       ],
       "season_role": "Truth archive contrast; not required as a season setpiece unless an issue stages it.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/fusion-annex"
     },
     {
@@ -64,7 +64,7 @@
       ],
       "season_role": "Primary Issue 01 environment: neon, food stands, games, temporary rides, projection screens.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/festival-grounds"
     },
     {
@@ -79,7 +79,7 @@
       ],
       "season_role": "Public spotlight and countdown; competing priority against overlooked rescues.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/festival-main-stage"
     },
     {
@@ -94,7 +94,7 @@
       ],
       "season_role": "Dark corridor where overlooked people are trapped during the climax.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/festival-service-corridor"
     },
     {
@@ -109,7 +109,7 @@
       ],
       "season_role": "Service gate and malfunctioning control box; reacts differently when NeonBlue approaches.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/festival-control-node"
     },
     {
@@ -124,7 +124,7 @@
       ],
       "season_role": "Back-to-routine storm season exteriors and public systems reactivating after summer.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/storm-routines"
     },
     {
@@ -139,7 +139,7 @@
       ],
       "season_role": "Transit boards and speakers carrying the six-tone interference.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/transit-announcement-hub"
     },
     {
@@ -154,7 +154,7 @@
       ],
       "season_role": "School speakers and routine-public systems that overload with the same burst.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/school-pa-zone"
     },
     {
@@ -172,7 +172,7 @@
       ],
       "season_role": "Climax of Issue 02; first mapped physical node of the dormant Echo network.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/old-relay-junction"
     },
     {
@@ -187,7 +187,7 @@
       ],
       "season_role": "Halloween attraction reopened over older FusionZoo infrastructure.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/haunted-attraction"
     },
     {
@@ -202,7 +202,7 @@
       ],
       "season_role": "Interior rooms with misdirecting exit signs and compliance tests.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/false-choice-gallery"
     },
     {
@@ -217,7 +217,7 @@
       ],
       "season_role": "Zombie-recognized legacy path; Scarline identifies current safe route above it.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/old-access-path"
     },
     {
@@ -232,7 +232,7 @@
       ],
       "season_role": "November gathering for gratitude, service, and chosen family.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/community-meal-hall"
     },
     {
@@ -247,7 +247,7 @@
       ],
       "season_role": "System that reorganizes seats for forced ideal harmony; Moodz rejects it.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/auto-harmony-seating"
     },
     {
@@ -262,7 +262,7 @@
       ],
       "season_role": "Storm shelter with holiday lights, temporary heat, and stranded residents.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/winter-emergency-shelter"
     },
     {
@@ -277,7 +277,7 @@
       ],
       "season_role": "Where heat is diverted to awaken the fifth Echo relay; strength alone cannot fix it.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/heating-infrastructure"
     },
     {
@@ -292,7 +292,7 @@
       ],
       "season_role": "City preparing what to preserve, rebuild, retire, and become.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/new-year-civic-prep"
     },
     {
@@ -307,7 +307,7 @@
       ],
       "season_role": "Dormant central relay; finale setpiece for two incompatible futures and third path.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/central-echo-relay"
     }
   ],
@@ -321,7 +321,7 @@
       ],
       "category": "signage",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/fusionzoo-upgrade-sign"
     },
     {
@@ -333,7 +333,7 @@
       ],
       "category": "tech-ui",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/fusion-ready-screen"
     },
     {
@@ -345,7 +345,7 @@
       ],
       "category": "tech-ui",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/floating-explainer"
     },
     {
@@ -364,7 +364,7 @@
       "category": "mystery-motif",
       "notes": "Readable B/W; hideable in scenery; complete only in January.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/echo-symbol"
     },
     {
@@ -379,7 +379,7 @@
       "category": "echo-tech",
       "notes": "Associated with Patch / NeonBlue memory; matches August frequency in September.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/cyan-relay-marker"
     },
     {
@@ -392,7 +392,7 @@
       ],
       "category": "infrastructure",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/festival-backup-panel"
     },
     {
@@ -406,7 +406,7 @@
       "category": "infrastructure",
       "notes": "Lil Devil wants to force it; only useful after NeonBlue identifies safe force.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/service-gate"
     },
     {
@@ -419,7 +419,7 @@
       ],
       "category": "infrastructure",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/control-box"
     },
     {
@@ -432,7 +432,7 @@
       ],
       "category": "signage",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/public-projection-screen"
     },
     {
@@ -446,7 +446,7 @@
       "category": "personal-device",
       "notes": "Issue 02 final image prop.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/powered-off-radio"
     },
     {
@@ -459,7 +459,7 @@
       ],
       "category": "public-device",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/transit-board"
     },
     {
@@ -472,7 +472,7 @@
       ],
       "category": "public-device",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/school-speaker"
     },
     {
@@ -485,7 +485,7 @@
       ],
       "category": "personal-device",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/personal-device-burst"
     },
     {
@@ -499,7 +499,7 @@
       "category": "tool",
       "notes": "Maps mechanism; cannot read emotional meaning of six tones.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/signal-analyzer"
     },
     {
@@ -517,7 +517,7 @@
       "category": "audio-motif",
       "notes": "Recurring audio/visual static pattern; not a physical handheld after first reveal unless staged.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/six-tone-motif"
     },
     {
@@ -531,7 +531,7 @@
       "category": "signage",
       "notes": "Directs different characters to different doors.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/misdirect-exit-sign"
     },
     {
@@ -546,7 +546,7 @@
       "category": "echo-tech",
       "notes": "Zombie touches it; third segment lights.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/old-wall-marking"
     },
     {
@@ -560,7 +560,7 @@
       "category": "environment-effect",
       "notes": "Smell/residue Zombie recognizes; not horror gore.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/fusionzoo-residue"
     },
     {
@@ -574,7 +574,7 @@
       "category": "set-dressing",
       "notes": "Playful scares contrast with real system under the attraction.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/haunted-theatrical-prop"
     },
     {
@@ -587,7 +587,7 @@
       ],
       "category": "furniture",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/community-table"
     },
     {
@@ -601,7 +601,7 @@
       "category": "furniture",
       "notes": "Final image: empty place marked by fifth unlit Echo segment.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/empty-placesetting"
     },
     {
@@ -615,7 +615,7 @@
       "category": "tech-ui",
       "notes": "Tracks emotional response; Static detects tracking.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/seating-system-ui"
     },
     {
@@ -628,7 +628,7 @@
       ],
       "category": "paper",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/invitation-card"
     },
     {
@@ -641,7 +641,7 @@
       ],
       "category": "set-dressing",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/holiday-lights"
     },
     {
@@ -655,7 +655,7 @@
       "category": "infrastructure",
       "notes": "Feeds the same failure pattern if misused.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/temporary-heat-source"
     },
     {
@@ -669,7 +669,7 @@
       "category": "echo-tech",
       "notes": "Ash recognizes old phrase/diagram; completes activation sequence with precise words.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/heating-sequence-plate"
     },
     {
@@ -683,7 +683,7 @@
       "category": "tool",
       "notes": "TwoTone keeps resources balanced until missing information appears.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/emergency-supply-board"
     },
     {
@@ -697,7 +697,7 @@
       "category": "environment",
       "notes": "Super Monkey holds structure; not the real fix.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/debris-brace"
     },
     {
@@ -710,7 +710,7 @@
       ],
       "category": "echo-tech",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/central-relay-console"
     },
     {
@@ -724,7 +724,7 @@
       "category": "tech-ui",
       "notes": "Shows two incompatible futures with real benefits and costs.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/two-path-display"
     },
     {
@@ -738,7 +738,7 @@
       "category": "mystery-motif",
       "notes": "Full six-segment symbol only clear in January finale.",
       "has_bible": true,
-      "has_primary_image": false,
+      "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/complete-echo-emblem"
     }
   ]
