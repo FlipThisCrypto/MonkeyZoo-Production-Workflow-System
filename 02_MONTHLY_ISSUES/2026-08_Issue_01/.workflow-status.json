@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "active_stage": "page_plan",
+  "transitions": [
+    {
+      "completed_stage": "intake",
+      "from_stage": "intake",
+      "to_stage": "canon_review",
+      "validated_at": "2026-07-15T22:54:41+00:00",
+      "artifact_hash": "8db86c000d90800786b8edc56ce683c0b96efa5cf2b4cc7ccad3cd793bfc30e1",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "canon_review",
+      "from_stage": "canon_review",
+      "to_stage": "outline",
+      "validated_at": "2026-07-15T22:54:41+00:00",
+      "artifact_hash": "8db86c000d90800786b8edc56ce683c0b96efa5cf2b4cc7ccad3cd793bfc30e1",
+      "approval": {
+        "required": true,
+        "record_stage": "canon_review"
+      }
+    },
+    {
+      "completed_stage": "outline",
+      "from_stage": "outline",
+      "to_stage": "script",
+      "validated_at": "2026-07-15T22:54:42+00:00",
+      "artifact_hash": "fb134b948577b249e42e52117c9879ba9c840b91e01dcd8c0fac292ad04ed506",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "script",
+      "from_stage": "script",
+      "to_stage": "page_plan",
+      "validated_at": "2026-07-15T22:54:44+00:00",
+      "artifact_hash": "b84496aa873d0511cb662ab9a9d6dcdae9d3ccd01992c3d81023cfa1ef47a30d",
+      "approval": {
+        "required": true,
+        "record_stage": "script"
+      }
+    }
+  ],
+  "approvals": {
+    "canon_review": {
+      "stage": "canon_review",
+      "approved": true,
+      "timestamp": "2026-07-15T22:54:41+00:00",
+      "artifact_hash": "8db86c000d90800786b8edc56ce683c0b96efa5cf2b4cc7ccad3cd793bfc30e1",
+      "note": "Issue 01 NeonBlue season package \u2014 owner path",
+      "actor": "project_owner"
+    },
+    "script": {
+      "stage": "script",
+      "approved": true,
+      "timestamp": "2026-07-15T22:54:44+00:00",
+      "artifact_hash": "b84496aa873d0511cb662ab9a9d6dcdae9d3ccd01992c3d81023cfa1ef47a30d",
+      "note": "Issue 01 NeonBlue season package \u2014 owner path",
+      "actor": "project_owner"
+    }
+  }
+}

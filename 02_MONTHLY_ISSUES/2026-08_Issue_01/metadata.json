@@ -1,0 +1,23 @@
+{
+  "issue_id": "MZ-2026-08-01",
+  "title": "The Last Light Of Summer",
+  "issue_type": "Monthly",
+  "year": 2026,
+  "month": 8,
+  "edition_number": 1,
+  "page_count": 8,
+  "panel_count": 24,
+  "primary_character": "MZ-CHAR-005",
+  "guest_character": "MZ-CHAR-LILDEVIL",
+  "opening_situation": "Six Emo Monkeys arrive at MonkeyZoo night festival; NeonBlue over-volunteers",
+  "required_canon_references": "NeonBlue identity; Lil Devil guest; festival locations; cyan relay / Echo motif proposed",
+  "prohibited_story_elements": "No full Patch resolution; no complete six-segment Echo; no unapproved redesigns",
+  "output_requirements": [
+    "QA",
+    "cover",
+    "metadata",
+    "social copy"
+  ],
+  "status": "intake",
+  "workflow_stage": "1. Intake"
+}
