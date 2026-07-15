@@ -16,6 +16,7 @@ import art_prompt_workspace
 import visual_qa_workspace
 import release_workspace
 import canon_catalog
+import project_direction
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "00_SYSTEM" / "scripts"))
 import new_issue
 
@@ -76,6 +77,11 @@ def prop_detail(prop_id):
 @app.get("/api/canon-catalog/summary")
 def canon_catalog_summary():
     return jsonify(canon_catalog.catalog_summary(WORKSPACE_ROOT))
+
+
+@app.get("/api/project-direction")
+def project_direction_api():
+    return jsonify(project_direction.enrich(project_direction.load_direction(WORKSPACE_ROOT)))
 
 
 @app.get("/api/expressions")
@@ -371,6 +377,8 @@ def handle_error(exc):
     elif isinstance(exc, release_workspace.ReleaseError):
         status, message = exc.status, str(exc)
     elif isinstance(exc, canon_catalog.CanonCatalogError):
+        status, message = exc.status, str(exc)
+    elif isinstance(exc, project_direction.ProjectDirectionError):
         status, message = exc.status, str(exc)
     elif isinstance(exc, (store.BibleStoreError, story_context.StoryContextError, new_issue.IssueCreationError, issue_workflow.IssueWorkflowError)):
         status, message = 400, str(exc)

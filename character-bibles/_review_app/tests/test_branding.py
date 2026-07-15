@@ -10,7 +10,7 @@ def test_banana_lab_brand_hierarchy_and_navigation():
     assert "The Banana Lab" in html
     assert "by Fiend Studios" in html
     assert "Active project" in html and "MonkeyZoo" in html
-    for label in ("Dashboard", "Issues", "Characters", "Story Builder", "Canon", "Timeline", "Art Queue", "QA", "Release", "Settings"):
+    for label in ("Dashboard", "Project Map", "Issues", "Characters", "Story Builder", "Canon", "Timeline", "Art Queue", "QA", "Release", "Settings"):
         assert label in html
 
 

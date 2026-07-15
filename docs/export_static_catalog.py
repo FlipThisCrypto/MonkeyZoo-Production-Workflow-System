@@ -13,6 +13,18 @@ import canon_catalog  # noqa: E402
 if __name__ == "__main__":
     out = ROOT / "docs" / "static"
     out.mkdir(parents=True, exist_ok=True)
+    # Project direction map for Project Map dashboard (Pages read-only)
+    try:
+        import project_direction  # noqa: E402
+
+        direction = project_direction.enrich(project_direction.load_direction(ROOT))
+        (out / "project-direction.json").write_text(
+            json.dumps(direction, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+        print(f"Exported project direction ({direction.get('task_counts', {}).get('total', '?')} tasks)")
+    except Exception as exc:  # pragma: no cover - export best-effort
+        print(f"Project direction export skipped: {exc}")
     # Expression image URLs are local-only; export inventory metadata without full image lists for Pages.
     expressions = [
         {

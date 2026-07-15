@@ -849,6 +849,7 @@ document.querySelectorAll(".nav-item").forEach(btn => {
     // Show active container
     const viewContainerMap = {
       dashboard: "viewDashboard",
+      projectMap: "viewProjectMap",
       characters: "viewCharacters",
       locations: "viewLocations",
       props: "viewProps",
@@ -882,8 +883,152 @@ function setupCanonCatalogs() {
       const view = btn.getAttribute("data-view");
       if ((view === "locations" || view === "props") && !catalogLocations.length) loadCanonCatalogs();
       if (view === "expressions" && !catalogExpressions.length) loadExpressionCatalog();
+      if (view === "projectMap" && !projectDirectionData) loadProjectDirection();
     });
   });
+}
+
+let projectDirectionData = null;
+
+function setupProjectMap() {
+  $("projectMapStatusFilter")?.addEventListener("change", () => renderProjectMap());
+  $("projectMapTrackFilter")?.addEventListener("change", () => renderProjectMap());
+  $("projectMapRefresh")?.addEventListener("click", () => loadProjectDirection(true));
+}
+
+async function loadProjectDirection(force = false) {
+  if (projectDirectionData && !force) {
+    renderProjectMap();
+    return;
+  }
+  if ($("projectMapStatus")) $("projectMapStatus").textContent = "Loading project direction…";
+  try {
+    projectDirectionData = await api("/api/project-direction");
+    renderProjectMap();
+  } catch (err) {
+    if ($("projectMapStatus")) {
+      $("projectMapStatus").textContent = err.message || "Project direction unavailable";
+    }
+  }
+}
+
+function renderProjectMap() {
+  const data = projectDirectionData;
+  if (!data || !$("projectMapTracks")) return;
+  const statusFilter = $("projectMapStatusFilter")?.value || "all";
+  const trackFilter = $("projectMapTrackFilter")?.value || "all";
+  const counts = data.task_counts || {};
+
+  if ($("projectMapTrackFilter") && $("projectMapTrackFilter").options.length <= 1) {
+    for (const track of data.tracks || []) {
+      const opt = document.createElement("option");
+      opt.value = track.id;
+      opt.textContent = track.title;
+      $("projectMapTrackFilter").appendChild(opt);
+    }
+  }
+
+  if ($("projectMapSummary")) {
+    $("projectMapSummary").innerHTML = [
+      ["Total tasks", counts.total || 0],
+      ["Done", counts.done || 0],
+      ["Active", counts.active || 0],
+      ["Next", counts.next || 0],
+      ["Later", counts.later || 0],
+      ["Blocked", counts.blocked || 0]
+    ].map(([k, v]) => `<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
+  }
+
+  if ($("projectMapNorthStar")) {
+    $("projectMapNorthStar").innerHTML = `
+      <h3>${escapeHtml(data.title || "Project Direction")}</h3>
+      <p class="project-map-subtitle">${escapeHtml(data.subtitle || "")}</p>
+      <p><strong>North star:</strong> ${escapeHtml(data.north_star || "")}</p>
+      <ul class="project-map-howto">${(data.how_to_use_this_map || []).map(line => `<li>${escapeHtml(line)}</li>`).join("")}</ul>
+      <p class="project-map-meta">Updated ${escapeHtml(data.updated || "—")} · Source <code>${escapeHtml(data.source_path || "00_SYSTEM/project_direction.json")}</code></p>`;
+  }
+
+  const mode = data.current_mode || {};
+  if ($("projectMapMode")) {
+    $("projectMapMode").innerHTML = `
+      <h4>Current mode</h4>
+      <div class="project-map-mode-card">
+        <span class="status-pill status-${escapeHtml(mode.status || "active")}">${escapeHtml(mode.phase || "—")}</span>
+        <p>${escapeHtml(mode.summary || "")}</p>
+        <p><strong>Start:</strong> <code>${escapeHtml(mode.start_command || "")}</code> → <code>${escapeHtml(mode.studio_url || "")}</code></p>
+      </div>`;
+  }
+
+  if ($("projectMapRecommended")) {
+    const rec = data.recommended_tasks || data.recommended_order || [];
+    const items = Array.isArray(rec) && rec.length && typeof rec[0] === "object"
+      ? rec
+      : (data.recommended_order || []).map(id => ({id, title: id}));
+    $("projectMapRecommended").innerHTML = `
+      <h4>Recommended order</h4>
+      <ol class="project-map-rec-list">${items.map((t, i) => `
+        <li><span class="rec-index">${i + 1}</span>
+          <strong>${escapeHtml(t.title || t.id)}</strong>
+          <span class="task-status badge-${escapeHtml(t.status || "next")}">${escapeHtml(t.status || "")}</span>
+          <span class="muted">${escapeHtml(t.track_title || "")}</span>
+        </li>`).join("")}</ol>`;
+  }
+
+  if ($("projectMapPhases")) {
+    $("projectMapPhases").innerHTML = `
+      <h4>Hosting / ship phases</h4>
+      <div class="project-map-phase-grid">${(data.phases || []).map(p => `
+        <article class="project-map-phase status-${escapeHtml(p.status || "later")}">
+          <header><strong>${escapeHtml(p.name)}</strong>
+          <span class="task-status badge-${escapeHtml(p.status || "later")}">${escapeHtml(p.status || "")}</span></header>
+          <p>${escapeHtml(p.goal || "")}</p>
+          <p class="project-map-instructions">${escapeHtml(p.instructions || "")}</p>
+        </article>`).join("")}</div>`;
+  }
+
+  if ($("projectMapPipeline")) {
+    $("projectMapPipeline").innerHTML = `
+      <h4>Issue production pipeline</h4>
+      <ol class="project-map-pipeline-list">${(data.pipeline_stages || []).map(s => `
+        <li><strong>${escapeHtml(s.label || s.stage)}</strong>
+          <span>${escapeHtml(s.evidence || "")}</span>
+          <em>${s.approval ? "Owner approval" : "No approval gate"}</em>
+        </li>`).join("")}</ol>`;
+  }
+
+  if ($("projectMapTracks")) {
+    const tracks = (data.tracks || []).filter(t => trackFilter === "all" || t.id === trackFilter);
+    $("projectMapTracks").innerHTML = tracks.map(track => {
+      const tasks = (track.tasks || []).filter(t => statusFilter === "all" || t.status === statusFilter);
+      if (!tasks.length && statusFilter !== "all") return "";
+      return `<section class="project-map-track">
+        <h4>${escapeHtml(track.title || track.id)}</h4>
+        <div class="project-map-task-list">${tasks.map(task => `
+          <details class="project-map-task status-${escapeHtml(task.status || "later")}" id="task-${escapeHtml(task.id || "")}">
+            <summary>
+              <span class="task-status badge-${escapeHtml(task.status || "later")}">${escapeHtml(task.status || "")}</span>
+              <span class="task-priority">${escapeHtml(task.priority || "")}</span>
+              <strong>${escapeHtml(task.title || task.id)}</strong>
+            </summary>
+            <div class="project-map-task-body">
+              <p class="project-map-instructions">${escapeHtml(task.instructions || "")}</p>
+              ${(task.docs && task.docs.length) ? `<p><strong>Docs:</strong> ${task.docs.map(d => `<code>${escapeHtml(d)}</code>`).join(" · ")}</p>` : ""}
+              <p class="muted">Task id: <code>${escapeHtml(task.id || "")}</code></p>
+            </div>
+          </details>`).join("") || "<p class=\"workspace-help\">No tasks match this filter.</p>"}
+      </section>`;
+    }).join("") || "<p class=\"workspace-help\">No tracks match this filter.</p>";
+  }
+
+  if ($("projectMapLinks")) {
+    $("projectMapLinks").innerHTML = `
+      <h4>Quick links (repo paths)</h4>
+      <ul>${(data.quick_links || []).map(l => `<li><strong>${escapeHtml(l.label)}</strong> — <code>${escapeHtml(l.path)}</code></li>`).join("")}</ul>`;
+  }
+
+  if ($("projectMapStatus")) {
+    $("projectMapStatus").textContent = `${counts.total || 0} tasks · ${counts.done || 0} done · ${counts.next || 0} next · mode: ${mode.phase || "—"}`;
+  }
 }
 
 function mediaUrl(url) {
@@ -1164,6 +1309,7 @@ async function initializeApplication() {
   setupQAWorkspace();
   setupReleaseWorkspace();
   setupCanonCatalogs();
+  setupProjectMap();
   await loadCharacters();
   await loadCanonCatalogs();
   enforceMutationCapability();
