@@ -1,5 +1,7 @@
 # Art reference priorities (locations & props)
 
+**Status:** Season inventory primary stills are filed (20 locations + 31 props as of local ship follow-up). Use this list for regenerations and quality upgrades.
+
 Use these when generating ComfyUI/Z-Image stills for approved canon folders.  
 Save selected results as:
 

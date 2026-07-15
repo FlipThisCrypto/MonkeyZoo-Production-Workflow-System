@@ -1093,6 +1093,7 @@ document.querySelectorAll(".nav-item").forEach(btn => {
       characters: "viewCharacters",
       locations: "viewLocations",
       props: "viewProps",
+      expressions: "viewExpressions",
       storyBuilder: "viewStoryBuilder",
       issues: "viewIssues",
       canon: "viewCanon",
@@ -1111,17 +1112,24 @@ document.querySelectorAll(".nav-item").forEach(btn => {
   });
 });
 
+let catalogExpressions = [];
+let selectedExpressionSlug = null;
+
 function setupCanonCatalogs() {
   $("locationFilter")?.addEventListener("change", () => renderLocationsList());
   $("propFilter")?.addEventListener("change", () => renderPropsList());
-  // Lazy-load detail when opening views
   document.querySelectorAll(".nav-item").forEach(btn => {
     btn.addEventListener("click", () => {
       const view = btn.getAttribute("data-view");
-      if (view === "locations" && !catalogLocations.length) loadCanonCatalogs();
-      if (view === "props" && !catalogProps.length) loadCanonCatalogs();
+      if ((view === "locations" || view === "props") && !catalogLocations.length) loadCanonCatalogs();
+      if (view === "expressions" && !catalogExpressions.length) loadExpressionCatalog();
     });
   });
+}
+
+function mediaUrl(url) {
+  if (!url) return "";
+  return String(url).split("/").map(encodeURIComponent).join("/").replace(/%2F/gi, "/");
 }
 
 async function loadCanonCatalogs() {
@@ -1136,6 +1144,7 @@ async function loadCanonCatalogs() {
     if ($("locationsSummary")) {
       $("locationsSummary").innerHTML = [
         ["Locations", summary.locations_count || catalogLocations.length],
+        ["With primary", summary.locations_with_primary || 0],
         ["Proposed", summary.locations_proposed || 0],
         ["Season", summary.season || "—"]
       ].map(([k, v]) => `<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
@@ -1143,6 +1152,7 @@ async function loadCanonCatalogs() {
     if ($("propsSummary")) {
       $("propsSummary").innerHTML = [
         ["Props", summary.props_count || catalogProps.length],
+        ["With primary", summary.props_with_primary || 0],
         ["Proposed", summary.props_proposed || 0],
         ["Season", summary.season || "—"]
       ].map(([k, v]) => `<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
@@ -1157,6 +1167,30 @@ async function loadCanonCatalogs() {
   }
 }
 
+async function loadExpressionCatalog() {
+  try {
+    const [sets, summary] = await Promise.all([
+      api("/api/expressions"),
+      api("/api/canon-catalog/summary")
+    ]);
+    catalogExpressions = Array.isArray(sets) ? sets : [];
+    if ($("expressionsSummary")) {
+      $("expressionsSummary").innerHTML = [
+        ["Sets", summary.expression_sets_count || catalogExpressions.length],
+        ["Images", summary.expression_images_count || 0]
+      ].map(([k, v]) => `<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
+    }
+    if ($("expressionsStatus")) {
+      $("expressionsStatus").textContent = catalogExpressions.length
+        ? `${catalogExpressions.length} expression sets loaded from approved_expressions.`
+        : "No local expression sets found (folder optional; owner-managed).";
+    }
+    renderExpressionsList();
+  } catch (err) {
+    if ($("expressionsStatus")) $("expressionsStatus").textContent = err.message || "Expressions unavailable";
+  }
+}
+
 function renderLocationsList() {
   if (!$("locationsList")) return;
   const filter = $("locationFilter")?.value || "all";
@@ -1164,9 +1198,10 @@ function renderLocationsList() {
   $("locationsList").innerHTML = rows.length
     ? rows.map(item => {
         const active = item.location_id === selectedLocationId ? "active" : "";
+        const img = item.has_primary_image ? " · image" : " · no image";
         return `<button type="button" class="catalog-row ${active}" data-location-id="${escapeHtml(item.location_id)}">
           <strong>${escapeHtml(item.display_name || item.location_id)}</strong>
-          <small>${escapeHtml(item.location_id)} · ${escapeHtml(item.status || "unknown")}</small>
+          <small>${escapeHtml(item.location_id)} · ${escapeHtml(item.status || "unknown")}${img}</small>
           <span>${escapeHtml(item.month || item.first_issue || "world")}</span>
         </button>`;
       }).join("")
@@ -1183,9 +1218,10 @@ function renderPropsList() {
   $("propsList").innerHTML = rows.length
     ? rows.map(item => {
         const active = item.prop_id === selectedPropId ? "active" : "";
+        const img = item.has_primary_image ? " · image" : " · no image";
         return `<button type="button" class="catalog-row ${active}" data-prop-id="${escapeHtml(item.prop_id)}">
           <strong>${escapeHtml(item.display_name || item.prop_id)}</strong>
-          <small>${escapeHtml(item.prop_id)} · ${escapeHtml(item.category || "prop")} · ${escapeHtml(item.status || "unknown")}</small>
+          <small>${escapeHtml(item.prop_id)} · ${escapeHtml(item.category || "prop")} · ${escapeHtml(item.status || "unknown")}${img}</small>
           <span>${escapeHtml(item.first_issue || "world")}</span>
         </button>`;
       }).join("")
@@ -1193,6 +1229,31 @@ function renderPropsList() {
   $("propsList").querySelectorAll("[data-prop-id]").forEach(btn => {
     btn.addEventListener("click", () => openPropDetail(btn.dataset.propId));
   });
+}
+
+function renderExpressionsList() {
+  if (!$("expressionsList")) return;
+  $("expressionsList").innerHTML = catalogExpressions.length
+    ? catalogExpressions.map(item => {
+        const active = item.slug === selectedExpressionSlug ? "active" : "";
+        return `<button type="button" class="catalog-row ${active}" data-expression-slug="${escapeHtml(item.slug)}">
+          <strong>${escapeHtml(item.display_name || item.slug)}</strong>
+          <small>${escapeHtml(item.slug)} · ${item.image_count || 0} plates</small>
+          <span>local sheet</span>
+        </button>`;
+      }).join("")
+    : "<p class=\"workspace-help\">No expression sets on disk yet.</p>";
+  $("expressionsList").querySelectorAll("[data-expression-slug]").forEach(btn => {
+    btn.addEventListener("click", () => openExpressionDetail(btn.dataset.expressionSlug));
+  });
+}
+
+function primaryImageBlock(url, label) {
+  if (!url) return `<p><strong>Primary image:</strong> Not yet filed</p>`;
+  return `<p><strong>Primary image:</strong> Present</p>
+    <figure class="catalog-primary-figure">
+      <img class="catalog-primary-image" src="${escapeHtml(mediaUrl(url))}" alt="${escapeHtml(label || "Primary reference")}" loading="lazy">
+    </figure>`;
 }
 
 async function openLocationDetail(locationId) {
@@ -1208,7 +1269,7 @@ async function openLocationDetail(locationId) {
       <p><code>${escapeHtml(s.location_id || locationId)}</code> · ${escapeHtml(s.status || "")}</p></header>
       <p><strong>Season role:</strong> ${escapeHtml(s.season_role || "—")}</p>
       <p><strong>Folder:</strong> <code>${escapeHtml(s.folder || "")}</code></p>
-      <p><strong>Primary image:</strong> ${data.has_primary_image ? "Present" : "Not yet filed"}</p>
+      ${primaryImageBlock(data.primary_image_url || s.primary_image_url, s.display_name)}
       <pre class="catalog-bible">${escapeHtml(data.bible_markdown || "No bible.md found.")}</pre>`;
   } catch (err) {
     $("locationDetail").innerHTML = `<p class="workspace-help">${escapeHtml(err.message || "Unavailable")}</p>`;
@@ -1228,10 +1289,33 @@ async function openPropDetail(propId) {
       <p><code>${escapeHtml(s.prop_id || propId)}</code> · ${escapeHtml(s.category || "prop")} · ${escapeHtml(s.status || "")}</p></header>
       <p><strong>Notes:</strong> ${escapeHtml(s.notes || "—")}</p>
       <p><strong>Folder:</strong> <code>${escapeHtml(s.folder || "")}</code></p>
-      <p><strong>Primary image:</strong> ${data.has_primary_image ? "Present" : "Not yet filed"}</p>
+      ${primaryImageBlock(data.primary_image_url || s.primary_image_url, s.display_name)}
       <pre class="catalog-bible">${escapeHtml(data.bible_markdown || "No bible.md found.")}</pre>`;
   } catch (err) {
     $("propDetail").innerHTML = `<p class="workspace-help">${escapeHtml(err.message || "Unavailable")}</p>`;
+  }
+}
+
+async function openExpressionDetail(slug) {
+  selectedExpressionSlug = slug;
+  renderExpressionsList();
+  if (!$("expressionDetail")) return;
+  $("expressionDetail").innerHTML = "<p class=\"workspace-help\">Loading…</p>";
+  try {
+    const data = await api(`/api/expressions/${encodeURIComponent(slug)}`);
+    const images = Array.isArray(data.images) ? data.images : [];
+    $("expressionDetail").innerHTML = `
+      <header><h4>${escapeHtml(data.display_name || slug)}</h4>
+      <p><code>${escapeHtml(data.slug || slug)}</code> · ${images.length} plates</p></header>
+      <p><strong>Folder:</strong> <code>${escapeHtml(data.folder || "")}</code></p>
+      <div class="expression-grid">
+        ${images.map(img => `<figure class="expression-tile">
+          <img src="${escapeHtml(mediaUrl(img.url))}" alt="${escapeHtml(img.filename)}" loading="lazy">
+          <figcaption>${escapeHtml(img.filename)}</figcaption>
+        </figure>`).join("")}
+      </div>`;
+  } catch (err) {
+    $("expressionDetail").innerHTML = `<p class="workspace-help">${escapeHtml(err.message || "Unavailable")}</p>`;
   }
 }
 
@@ -1495,7 +1579,7 @@ function renderArtQueue(){
   $("artQueueStatus").textContent=q.error||`Active stage: ${w.current_stage.label}. ${w.blockers.join(" ")||"Queue evidence ready."}`;
   $("artQueueSummary").innerHTML=[["Issue",activeArtQueue.issue_id],["Stage",w.current_stage.label],["Panels",items.length],["Approved",items.filter(i=>i.status==="approved").length],["Missing",items.filter(i=>i.status!=="approved").length],["Provider","Manual prompt/import"]].map(([k,v])=>`<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
   $("buildArtQueue").disabled=staticMode||!["art_prompts","art_production"].includes(w.active_stage);$("buildArtQueue").title=staticMode?"Local backend required":"";
-  $("artQueueItems").innerHTML=items.map(i=>`<article class="art-queue-item"><header><strong>${escapeHtml(i.panel_id)}</strong><span>${escapeHtml(i.status)}</span></header><p>${escapeHtml(i.location||"Location missing")} · ${escapeHtml(i.characters.join(", ")||"No characters")}</p><p>${escapeHtml(i.action||"Action missing")}</p><small>Props: ${escapeHtml((i.props||[]).join(", ")||"None")} · Attempts: ${i.attempt_count}</small><div class="reference-strip">${i.references.map(r=>`<span>${escapeHtml(r.display_name||r.character_id)} · ${r.error?escapeHtml(r.error):"individual reference"}</span>`).join("")}</div><div class="attempt-list">${(i.attempts||[]).map(a=>`<span>${escapeHtml(a.attempt_id)} · ${escapeHtml(a.format)} ${a.width}×${a.height} · ${escapeHtml(a.status)} <button data-art-select="${escapeHtml(i.panel_id)}|${escapeHtml(a.attempt_id)}" ${staticMode||a.status==="rejected"||a.status==="archived"?"disabled":""}>Select</button><button data-art-reject="${escapeHtml(i.panel_id)}|${escapeHtml(a.attempt_id)}" ${staticMode||a.status==="preferred"?"disabled":""}>Reject</button></span>`).join("")}</div><div><button data-art-prompt="${escapeHtml(i.panel_id)}" ${staticMode?"disabled":""}>Export prompt</button><button data-art-import="${escapeHtml(i.panel_id)}" ${staticMode||w.active_stage!=="art_production"?"disabled":""}>Import image</button></div></article>`).join("")||"<p>No queue items. Build the queue after the art prompt pack is promoted, or when art production is active.</p>";
+  $("artQueueItems").innerHTML=items.map(i=>`<article class="art-queue-item"><header><strong>${escapeHtml(i.panel_id)}</strong><span>${escapeHtml(i.status)}</span></header><p>${escapeHtml(i.location||"Location missing")} · ${escapeHtml(i.characters.join(", ")||"No characters")}</p><p>${escapeHtml(i.action||"Action missing")}</p><small>Props: ${escapeHtml((i.props||[]).join(", ")||"None")} · Attempts: ${i.attempt_count}</small><div class="reference-strip">${[...(i.references||[]).map(r=>({label:r.display_name||r.character_id,detail:r.error||"character",url:null})),...(i.location_ref?[({label:i.location_ref.display_name||i.location||"Location",detail:i.location_ref.error||"location",url:i.location_ref.primary_image_url})]:[]),...(i.prop_refs||[]).map(r=>({label:r.display_name||r.prop_id||"Prop",detail:r.error||"prop",url:r.primary_image_url}))].map(r=>`<span>${escapeHtml(r.label)} · ${escapeHtml(r.detail)}${r.url?` · <a href="${escapeHtml(mediaUrl(r.url))}" target="_blank" rel="noopener">ref</a>`:""}</span>`).join("")}</div><div class="attempt-list">${(i.attempts||[]).map(a=>`<span>${escapeHtml(a.attempt_id)} · ${escapeHtml(a.format)} ${a.width}×${a.height} · ${escapeHtml(a.status)} <button data-art-select="${escapeHtml(i.panel_id)}|${escapeHtml(a.attempt_id)}" ${staticMode||a.status==="rejected"||a.status==="archived"?"disabled":""}>Select</button><button data-art-reject="${escapeHtml(i.panel_id)}|${escapeHtml(a.attempt_id)}" ${staticMode||a.status==="preferred"?"disabled":""}>Reject</button></span>`).join("")}</div><div><button data-art-prompt="${escapeHtml(i.panel_id)}" ${staticMode?"disabled":""}>Export prompt</button><button data-art-import="${escapeHtml(i.panel_id)}" ${staticMode||w.active_stage!=="art_production"?"disabled":""}>Import image</button></div></article>`).join("")||"<p>No queue items. Build the queue after the art prompt pack is promoted, or when art production is active.</p>";
   $("artQueueItems").querySelectorAll("[data-art-prompt]").forEach(b=>b.addEventListener("click",()=>artQueuePost(`${b.dataset.artPrompt}/prompt`,true)));
   $("artQueueItems").querySelectorAll("[data-art-import]").forEach(b=>b.addEventListener("click",()=>{artUploadPanel=b.dataset.artImport;$("artAttemptFile").click()}));
   $("artQueueItems").querySelectorAll("[data-art-select]").forEach(b=>b.addEventListener("click",()=>artAttemptAction(b.dataset.artSelect,"select")));

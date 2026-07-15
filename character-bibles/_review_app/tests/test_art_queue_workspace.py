@@ -15,7 +15,7 @@ def factory(tmp_path):
 def png(color="yellow"):
  out=io.BytesIO();Image.new("RGB",(32,24),color).save(out,"PNG");return out.getvalue()
 def test_queue_has_one_item_per_panel_and_individual_refs(factory):
- root,issue,pid=factory;q=art.build_queue(issue,root,True);assert len(q["items"])==1;assert q["items"][0]["references"][0]["reference_kind"]=="individual_character";assert q["items"][0]["props"]==["console"]
+ root,issue,pid=factory;q=art.build_queue(issue,root,True);assert len(q["items"])==1;assert q["items"][0]["references"][0]["reference_kind"]=="individual_character";assert q["items"][0]["props"]==["console"];assert q["items"][0]["location_ref"]["display_name"]=="Lab";assert q["items"][0]["prop_refs"][0]["display_name"]=="console"
 def test_prompt_is_manual_and_hash_bound(factory):
  root,issue,pid=factory;p=art.prompt_package(issue,root,pid);assert p["execution_mode"]=="manual";assert p["panel_id"]==pid;assert len(p["plan_hash"])==64
 def test_import_validates_image_and_records_manual_source(factory):

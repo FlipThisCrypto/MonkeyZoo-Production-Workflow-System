@@ -78,6 +78,16 @@ def canon_catalog_summary():
     return jsonify(canon_catalog.catalog_summary(WORKSPACE_ROOT))
 
 
+@app.get("/api/expressions")
+def expressions():
+    return jsonify(canon_catalog.list_expression_sets(WORKSPACE_ROOT))
+
+
+@app.get("/api/expressions/<slug>")
+def expression_detail(slug):
+    return jsonify(canon_catalog.get_expression_set(WORKSPACE_ROOT, slug))
+
+
 @app.get("/api/characters/<character_id>")
 def character_detail(character_id):
     character_id = store.resolve_character_id(character_id, BIBLES_ROOT)
@@ -319,6 +329,24 @@ def promote_release_manifest(issue_id): return jsonify(release_workspace.promote
 def publish_release_archive(issue_id):
     body = request.get_json(silent=True) or {}
     return jsonify(release_workspace.publish_archive(issue_workflow.find_issue(issue_id, WORKSPACE_ROOT), WORKSPACE_ROOT, body.get("replace") is True)), 201
+
+
+@app.get("/media/locations/<slug>/<path:filename>")
+def media_location(slug, filename):
+    path = canon_catalog.resolve_canon_media(WORKSPACE_ROOT, "locations", slug, filename)
+    return send_from_directory(path.parent, path.name)
+
+
+@app.get("/media/props/<slug>/<path:filename>")
+def media_prop(slug, filename):
+    path = canon_catalog.resolve_canon_media(WORKSPACE_ROOT, "props", slug, filename)
+    return send_from_directory(path.parent, path.name)
+
+
+@app.get("/media/expressions/<slug>/<path:filename>")
+def media_expression(slug, filename):
+    path = canon_catalog.resolve_canon_media(WORKSPACE_ROOT, "expressions", slug, filename)
+    return send_from_directory(path.parent, path.name)
 
 
 @app.get("/media/<character_id>/<path:rel_path>")

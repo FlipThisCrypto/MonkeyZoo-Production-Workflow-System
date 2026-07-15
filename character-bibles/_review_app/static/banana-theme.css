@@ -195,6 +195,12 @@ dialog { max-height: 90vh; overflow: auto; border: 1px solid rgba(213, 223, 237,
 .catalog-detail { padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: rgba(3, 5, 10, 0.42); min-height: 280px; }
 .catalog-detail h4 { margin: 0 0 8px; }
 .catalog-bible { white-space: pre-wrap; font-size: 12px; line-height: 1.45; max-height: 48vh; overflow: auto; padding: 12px; border-radius: 10px; background: #05070c; border: 1px solid var(--line); }
+.catalog-primary-figure { margin: 10px 0 14px; }
+.catalog-primary-image { display: block; width: 100%; max-height: 320px; object-fit: contain; border-radius: 12px; border: 1px solid var(--line); background: #05070c; }
+.expression-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-top: 12px; max-height: 56vh; overflow: auto; }
+.expression-tile { margin: 0; padding: 6px; border: 1px solid var(--line); border-radius: 10px; background: #070b12; }
+.expression-tile img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; background: #05070c; }
+.expression-tile figcaption { margin-top: 6px; font-size: 10px; color: var(--muted); word-break: break-all; }
 @media (max-width: 900px) { .catalog-split { grid-template-columns: 1fr; } .catalog-list { max-height: 36vh; } }
 .art-queue-item { padding: 16px; margin-top: 12px; border: 1px solid var(--line); border-radius: 14px; background: #070b12; }
 .reference-strip { margin: 10px 0; color: var(--muted); }

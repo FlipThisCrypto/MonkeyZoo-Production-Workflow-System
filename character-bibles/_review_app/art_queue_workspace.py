@@ -4,7 +4,7 @@ import contextlib, datetime as dt, hashlib, io, json, os, re, tempfile, time
 from pathlib import Path
 from typing import Any
 from PIL import Image
-import bible_store, issue_workflow
+import bible_store, canon_catalog, issue_workflow
 
 PANEL_ID=re.compile(r"^MZ-\d{4}-\d{2}-\d{2}_P\d{2}_PANEL\d{2}$")
 ATTEMPT_ID=re.compile(r"^attempt-\d{8}T\d{6}Z-[0-9a-f]{6}$")
@@ -66,6 +66,10 @@ def _refs(root,characters):
             result.append({"character_id":cid,"display_name":bible.get("identification",{}).get("current_display_name"),"primary_reference":ref,"visual_constraints":visual.get("features_that_must_never_change",[]),"reference_kind":"individual_character",**({"error":"Approved individual character reference unavailable"} if not ref else {})})
         except ValueError: result.append({"character_id":raw,"error":"Approved individual character reference unavailable"})
     return result
+def _scene_refs(root,panel):
+    location_ref=canon_catalog.resolve_location_ref(root,panel.get("location"))
+    prop_refs=canon_catalog.resolve_prop_refs(root,panel.get("props",[]))
+    return location_ref,prop_refs
 def build_queue(folder,root,persist=False):
     _stage(folder,root,{"art_prompts","art_production"}); plan=_plan(folder); plan_hash=_plan_hash(folder); existing=_read_json(_workspace(folder)/"queue.json",{}) or {}; old={x["panel_id"]:x for x in existing.get("items",[])}
     items=[]
@@ -75,14 +79,16 @@ def build_queue(folder,root,persist=False):
             panel_attempts=attempts(folder,pid)
             for attempt in panel_attempts: attempt["plan_stale"]=attempt.get("plan_hash")!=plan_hash
             preferred=next((a["attempt_id"] for a in panel_attempts if a.get("status")=="preferred" and not a["plan_stale"]),None)
-            items.append({"panel_id":pid,"page_number":page.get("page_number"),"characters":panel.get("characters",[]),"location":panel.get("location"),"props":panel.get("props",[]),"action":panel.get("action"),"dialogue":panel.get("dialogue"),"caption":panel.get("caption"),"continuity_notes":panel.get("continuity_notes"),"art_prompt":panel.get("art_prompt"),"negative_prompt":panel.get("negative_prompt"),"references":_refs(root,panel.get("characters",[])),"attempt_count":len(panel_attempts),"attempts":panel_attempts,"preferred_attempt":preferred,"status":"approved" if preferred else "missing"})
+            location_ref,prop_refs=_scene_refs(root,panel)
+            items.append({"panel_id":pid,"page_number":page.get("page_number"),"characters":panel.get("characters",[]),"location":panel.get("location"),"props":panel.get("props",[]),"action":panel.get("action"),"dialogue":panel.get("dialogue"),"caption":panel.get("caption"),"continuity_notes":panel.get("continuity_notes"),"art_prompt":panel.get("art_prompt"),"negative_prompt":panel.get("negative_prompt"),"references":_refs(root,panel.get("characters",[])),"location_ref":location_ref,"prop_refs":prop_refs,"attempt_count":len(panel_attempts),"attempts":panel_attempts,"preferred_attempt":preferred,"status":"approved" if preferred else "missing"})
     queue={"schema_version":"1.0","issue_id":plan.get("issue_id"),"plan_hash":plan_hash,"created_at":existing.get("created_at") or _now(),"updated_at":_now() if persist else existing.get("updated_at"),"items":items}
     if persist:_write_json(_workspace(folder)/"queue.json",queue)
     return queue
 def prompt_package(folder,root,panel_id):
     _stage(folder,root,{"art_prompts","art_production"}); plan=_plan(folder); panel=_panel(plan,panel_id); refs=_refs(root,panel.get("characters",[]))
     if any(r.get("error") for r in refs):raise ArtQueueError("Panel has a character without an approved individual reference",409)
-    package={"generation_id":f"prompt-{int(time.time_ns())}","issue_id":plan["issue_id"],"panel_id":panel_id,"execution_mode":"manual","provider":"manual_prompt","plan_hash":_plan_hash(folder),"task":"Create one panel image; do not fabricate text, identities, or approval.","prompt":panel.get("art_prompt") or panel.get("action"),"negative_prompt":panel.get("negative_prompt") or "No text, duplicate characters, identity drift, or unapproved costume changes.","characters":refs,"location":panel.get("location"),"props":panel.get("props",[]),"continuity_notes":panel.get("continuity_notes"),"output_contract":{"formats":["PNG","JPEG","WEBP"],"one_panel_only":True}}
+    location_ref,prop_refs=_scene_refs(root,panel)
+    package={"generation_id":f"prompt-{int(time.time_ns())}","issue_id":plan["issue_id"],"panel_id":panel_id,"execution_mode":"manual","provider":"manual_prompt","plan_hash":_plan_hash(folder),"task":"Create one panel image; do not fabricate text, identities, or approval.","prompt":panel.get("art_prompt") or panel.get("action"),"negative_prompt":panel.get("negative_prompt") or "No text, duplicate characters, identity drift, or unapproved costume changes.","characters":refs,"location":panel.get("location"),"location_ref":location_ref,"props":panel.get("props",[]),"prop_refs":prop_refs,"continuity_notes":panel.get("continuity_notes"),"output_contract":{"formats":["PNG","JPEG","WEBP"],"one_panel_only":True}}
     package["prompt_hash"]=_hash(json.dumps(package,sort_keys=True).encode()); _write_json(_workspace(folder)/"prompts"/f"{panel_id}-{package['prompt_hash'][:8]}.json",package); return package
 def _image(data):
     if not data or len(data)>MAX_BYTES:raise ArtQueueError("Image is empty or exceeds 25 MB")
