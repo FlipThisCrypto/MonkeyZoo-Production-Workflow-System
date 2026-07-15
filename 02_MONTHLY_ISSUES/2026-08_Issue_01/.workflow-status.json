@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "active_stage": "page_plan",
+  "active_stage": "art_prompts",
   "transitions": [
     {
       "completed_stage": "intake",
@@ -44,6 +44,17 @@
       "approval": {
         "required": true,
         "record_stage": "script"
+      }
+    },
+    {
+      "completed_stage": "page_plan",
+      "from_stage": "page_plan",
+      "to_stage": "art_prompts",
+      "validated_at": "2026-07-15T22:56:42+00:00",
+      "artifact_hash": "e5667ee5d6c09b76393236e148078ee8b1c058a3a462c20eeb58d6a9728b8a1f",
+      "approval": {
+        "required": false,
+        "record_stage": null
       }
     }
   ],

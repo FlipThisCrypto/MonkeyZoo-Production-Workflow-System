@@ -1,0 +1,703 @@
+{
+  "issue_id": "MZ-2026-08-01",
+  "issue_title": "The Last Light Of Summer",
+  "page_count": 8,
+  "pages": [
+    {
+      "page_number": 1,
+      "page_purpose": "Story page",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-01_P01_PANEL01",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-001",
+            "MZ-CHAR-002",
+            "MZ-CHAR-003",
+            "MZ-CHAR-004",
+            "MZ-CHAR-006"
+          ],
+          "location": "Festival Grounds",
+          "camera_angle": "Medium",
+          "action": "The six Emo Monkeys arrive at the neon night festival; NeonBlue is already scanning tasks.",
+          "emotion": "Clear and readable",
+          "dialogue": "NEONBLUE: We can cover games, rides, and the stage—easy!",
+          "caption": "End of summer, Zoo City festival lights",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "All six identifiable; festival-grounds plate",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-001",
+            "MZ-CHAR-002",
+            "MZ-CHAR-003",
+            "MZ-CHAR-004",
+            "MZ-CHAR-006"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P01_PANEL02",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-LILDEVIL"
+          ],
+          "location": "Festival Grounds",
+          "camera_angle": "Medium",
+          "action": "NeonBlue volunteers the group for multiple jobs before anyone agrees; Lil Devil cracks knuckles.",
+          "emotion": "Clear and readable",
+          "dialogue": "LIL DEVIL: Or we force the fun.",
+          "caption": "Volunteering without consent",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Lil Devil restless energy; NeonBlue cheerful",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-LILDEVIL"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P01_PANEL03",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-001"
+          ],
+          "location": "Festival Main Stage",
+          "camera_angle": "Medium",
+          "action": "Main stage countdown board glows; NeonBlue points optimistically.",
+          "emotion": "Clear and readable",
+          "dialogue": "NEONBLUE: Backup systems never miss a finale.",
+          "caption": "Public spotlight warming up",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Main stage empty of crisis yet",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-001"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "page_purpose": "Story page",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-01_P02_PANEL01",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-003"
+          ],
+          "location": "Festival Grounds",
+          "camera_angle": "Medium",
+          "action": "First blackout drops a small food-stand section into darkness; Static flinches first.",
+          "emotion": "Clear and readable",
+          "dialogue": "STATIC: Something’s wrong in the power.",
+          "caption": "First failure",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Static senses interference before others",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P02_PANEL02",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-002"
+          ],
+          "location": "Festival Grounds",
+          "camera_angle": "Medium",
+          "action": "NeonBlue reassures the crowd that the backup will restore lights immediately.",
+          "emotion": "Clear and readable",
+          "dialogue": "NEONBLUE: It’s fine—watch the backup kick!",
+          "caption": "Reassurance before facts",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Promise before understanding",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-002"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P02_PANEL03",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-006"
+          ],
+          "location": "Festival Grounds",
+          "camera_angle": "Medium",
+          "action": "Backup fails; darkness stays; Scarline watches the crowd, not the wires.",
+          "emotion": "Clear and readable",
+          "dialogue": "SCARLINE: Panic isn’t the real threat.",
+          "caption": "Backup fails",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Scarline warns against wrong focus",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-006"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        }
+      ]
+    },
+    {
+      "page_number": 3,
+      "page_purpose": "Story page",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-01_P03_PANEL01",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-002",
+            "MZ-CHAR-003"
+          ],
+          "location": "Festival Grounds",
+          "camera_angle": "Medium",
+          "action": "Outages hop across booths in a moving pattern; TwoTone traces two paths with a finger.",
+          "emotion": "Clear and readable",
+          "dialogue": "TWOTONE: Two routes converging.",
+          "caption": "Pattern emerges",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "TwoTone maps dual paths",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-002",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P03_PANEL02",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-003"
+          ],
+          "location": "Festival Grounds",
+          "camera_angle": "Medium",
+          "action": "Public screens flash fractured cyan shapes; Static covers his ears.",
+          "emotion": "Clear and readable",
+          "dialogue": "STATIC: It’s not noise—it’s a pattern.",
+          "caption": "Cyan fracture on screens",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Fractured cyan motif; not full Echo",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P03_PANEL03",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-001"
+          ],
+          "location": "Festival Grounds",
+          "camera_angle": "Medium",
+          "action": "NeonBlue laughs too hard, herding people, eyes too bright.",
+          "emotion": "Clear and readable",
+          "dialogue": "NEONBLUE: We’ve got this—everyone stay happy!",
+          "caption": "Optimism as armor",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Moodz observes quietly nearby",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-001"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        }
+      ]
+    },
+    {
+      "page_number": 4,
+      "page_purpose": "Story page",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-01_P04_PANEL01",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-LILDEVIL",
+            "MZ-CHAR-005"
+          ],
+          "location": "Festival Control Node",
+          "camera_angle": "Medium",
+          "action": "Lil Devil grabs the locked service gate, ready to force it.",
+          "emotion": "Clear and readable",
+          "dialogue": "LIL DEVIL: Smash the box. Open it.",
+          "caption": "Impatience at the gate",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Do not force yet",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-LILDEVIL",
+            "MZ-CHAR-005"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P04_PANEL02",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-LILDEVIL"
+          ],
+          "location": "Festival Control Node",
+          "camera_angle": "Medium",
+          "action": "Malfunctioning control box flickers; LEDs change when NeonBlue steps closer.",
+          "emotion": "Clear and readable",
+          "dialogue": "NEONBLUE: Wait—it changed when I got near.",
+          "caption": "System reacts to NeonBlue",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Key beat: different reaction near NeonBlue",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-LILDEVIL"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P04_PANEL03",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-LILDEVIL",
+            "MZ-CHAR-004"
+          ],
+          "location": "Festival Control Node",
+          "camera_angle": "Medium",
+          "action": "Lil Devil still wants chaos; Ash gives one precise look.",
+          "emotion": "Clear and readable",
+          "dialogue": "ASH: Hope can read warnings.",
+          "caption": "Ash line",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Proposed Ash line; not a forced catchphrase brand",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-LILDEVIL",
+            "MZ-CHAR-004"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        }
+      ]
+    },
+    {
+      "page_number": 5,
+      "page_purpose": "Story page",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-01_P05_PANEL01",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005"
+          ],
+          "location": "Festival Service Corridor",
+          "camera_angle": "Medium",
+          "action": "NeonBlue finds a cyan relay marker / frequency tag with Patch-linked designation.",
+          "emotion": "Clear and readable",
+          "dialogue": "NEONBLUE: I’ve seen this pulse before…",
+          "caption": "Midpoint recognition",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Patch link emotional only; no full explain",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P05_PANEL02",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-001"
+          ],
+          "location": "Festival Service Corridor",
+          "camera_angle": "Medium",
+          "action": "NeonBlue’s cheer becomes louder and thinner; Moodz stands close.",
+          "emotion": "Clear and readable",
+          "dialogue": "MOODZ: You don’t have to pretend this feels safe.",
+          "caption": "Moodz truth",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Moodz names the performance",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-001"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P05_PANEL03",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-002",
+            "MZ-CHAR-003"
+          ],
+          "location": "Festival Grounds",
+          "camera_angle": "Medium",
+          "action": "Team regroups; TwoTone and Static confirm the pattern aims somewhere not the stage.",
+          "emotion": "Clear and readable",
+          "dialogue": "TWOTONE: Stage is the distraction path.",
+          "caption": "Converging data",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Team coordination rising",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-002",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        }
+      ]
+    },
+    {
+      "page_number": 6,
+      "page_purpose": "Story page",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-01_P06_PANEL01",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-LILDEVIL"
+          ],
+          "location": "Festival Main Stage",
+          "camera_angle": "Medium",
+          "action": "Main stage countdown hits critical; crowd surges toward the light.",
+          "emotion": "Clear and readable",
+          "dialogue": "NEONBLUE: If we lose the stage, the whole festival panics—",
+          "caption": "Public pressure",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Obvious choice: restore stage",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-LILDEVIL"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P06_PANEL02",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "location": "Festival Service Corridor",
+          "camera_angle": "Medium",
+          "action": "Static and Scarline find a younger group trapped in the dark service corridor.",
+          "emotion": "Clear and readable",
+          "dialogue": "STATIC: They’re stuck back here!",
+          "caption": "Overlooked trap",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Overlooked people vs spotlight",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P06_PANEL03",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-001"
+          ],
+          "location": "Festival Service Corridor",
+          "camera_angle": "Medium",
+          "action": "NeonBlue freezes between stage and corridor; Moodz waits without deciding for him.",
+          "emotion": "Clear and readable",
+          "dialogue": "NEONBLUE: …They’ll be left behind.",
+          "caption": "Choice forming",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "NeonBlue chooses the unseen",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-001"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        }
+      ]
+    },
+    {
+      "page_number": 7,
+      "page_purpose": "Story page",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-01_P07_PANEL01",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-LILDEVIL",
+            "MZ-CHAR-003",
+            "MZ-CHAR-002"
+          ],
+          "location": "Festival Control Node",
+          "camera_angle": "Medium",
+          "action": "NeonBlue stops promising and gives an honest plan: risk, force points, safe routes.",
+          "emotion": "Clear and readable",
+          "dialogue": "NEONBLUE: The system may fail. Here’s what we do anyway.",
+          "caption": "Honest plan",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Hope admits danger",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-LILDEVIL",
+            "MZ-CHAR-003",
+            "MZ-CHAR-002"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P07_PANEL02",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-LILDEVIL",
+            "MZ-CHAR-005"
+          ],
+          "location": "Festival Control Node",
+          "camera_angle": "Medium",
+          "action": "Lil Devil applies force only where NeonBlue marks it safe on the gate/box.",
+          "emotion": "Clear and readable",
+          "dialogue": "LIL DEVIL: Fine—directed smash only.",
+          "caption": "Restrained power",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Lil Devil learns directed force",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-LILDEVIL",
+            "MZ-CHAR-005"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P07_PANEL03",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-002",
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "location": "Festival Service Corridor",
+          "camera_angle": "Medium",
+          "action": "Team clears the corridor; trapped group exits into residual neon.",
+          "emotion": "Clear and readable",
+          "dialogue": "NEONBLUE: We get everyone out. That’s the win.",
+          "caption": "Rescue of the left-behind",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Rescue succeeds because of choice",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-002",
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        }
+      ]
+    },
+    {
+      "page_number": 8,
+      "page_purpose": "Story page",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-08-01_P08_PANEL01",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-001",
+            "MZ-CHAR-LILDEVIL"
+          ],
+          "location": "Festival Grounds",
+          "camera_angle": "Medium",
+          "action": "Festival continues in reduced form; NeonBlue does not sell perfection.",
+          "emotion": "Clear and readable",
+          "dialogue": "NEONBLUE: Not perfect. We got them out. That’s enough.",
+          "caption": "Reduced celebration",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "No slogan ending",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-001",
+            "MZ-CHAR-LILDEVIL"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P08_PANEL02",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005"
+          ],
+          "location": "Festival Grounds",
+          "camera_angle": "Medium",
+          "action": "Behind NeonBlue, a small cyan segment of the Echo symbol flickers once on a dark panel.",
+          "emotion": "Clear and readable",
+          "dialogue": "—",
+          "caption": "One-sixth Echo",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Partial Echo only; incomplete emblem",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        },
+        {
+          "panel_id": "MZ-2026-08-01_P08_PANEL03",
+          "panel_size": "full",
+          "characters": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-004"
+          ],
+          "location": "Festival Grounds",
+          "camera_angle": "Medium",
+          "action": "NeonBlue looks at restored lights; Ash stands nearby; unanswered question hangs.",
+          "emotion": "Clear and readable",
+          "dialogue": "NEONBLUE: Why did that relay know me?",
+          "caption": "New question",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs",
+          "continuity_notes": "Open Patch thread; no resolution",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-005",
+            "MZ-CHAR-004"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "deterministic per panel"
+        }
+      ]
+    }
+  ]
+}

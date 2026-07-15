@@ -4,11 +4,11 @@
   "subtitle": "Single-owner creative production system for MonkeyZoo comics",
   "updated": "2026-07-15",
   "active_one_thing": {
-    "id": "issue-01-page-plan",
-    "title": "Issue 01 — promote page_panel_plan from NeonBlue script",
+    "id": "issue-01-art-prompt-pack",
+    "title": "Issue 01 — build/approve/promote art_prompt_pack from page plan",
     "status": "next",
-    "completed_just_now": "issue-01-neonblue-story-package",
-    "note": "MZ-2026-08-01 The Last Light Of Summer is at page_plan with promoted outline+script (8 pages / 24 panels)."
+    "completed_just_now": "issue-01-page-plan",
+    "note": "MZ-2026-08-01 has promoted page_panel_plan.json (8 pages / 24 panels). Workflow stage art_prompts."
   },
   "owner": "Fiend Studios (single owner)",
   "product_names": {
@@ -470,12 +470,23 @@
         {
           "id": "issue-01-page-plan",
           "title": "Issue 01 — promote page_panel_plan from NeonBlue script",
-          "status": "next",
+          "status": "done",
           "priority": "P0",
-          "instructions": "NEXT ONE THING. Workflow stage is already page_plan. Create layout variant from promoted script, approve, promote page_panel_plan.json. Keep festival location/prop names aligned with approved inventories.",
+          "instructions": "DONE 2026-07-15. Layout variant validated (0 errors), approved, promoted page_panel_plan.json: 8 pages / 24 panels. Workflow advanced to art_prompts.",
           "docs": [
             "docs/PAGE_PANEL_WORKSPACE.md",
-            "02_MONTHLY_ISSUES/2026-08_Issue_01/issue_script.md"
+            "02_MONTHLY_ISSUES/2026-08_Issue_01/page_panel_plan.json"
+          ]
+        },
+        {
+          "id": "issue-01-art-prompt-pack",
+          "title": "Issue 01 — build/approve/promote art_prompt_pack",
+          "status": "next",
+          "priority": "P0",
+          "instructions": "NEXT ONE THING. Stage is art_prompts. Build pack from page plan, approve, promote art_prompt_pack.json. Then art production queue.",
+          "docs": [
+            "docs/ART_PROMPT_PACK_WORKSPACE.md",
+            "02_MONTHLY_ISSUES/2026-08_Issue_01/page_panel_plan.json"
           ]
         }
       ]
@@ -563,7 +574,7 @@
     }
   ],
   "recommended_order": [
-    "issue-01-page-plan",
+    "issue-01-art-prompt-pack",
     "full-issue-creative-proof",
     "issue-01-neonblue",
     "backup-habit",
@@ -576,15 +587,15 @@
   "task_counts": {
     "active": 6,
     "blocked": 0,
-    "done": 16,
+    "done": 17,
     "later": 7,
     "next": 4,
-    "total": 33
+    "total": 34
   },
   "recommended_tasks": [
     {
-      "id": "issue-01-page-plan",
-      "title": "Issue 01 — promote page_panel_plan from NeonBlue script",
+      "id": "issue-01-art-prompt-pack",
+      "title": "Issue 01 — build/approve/promote art_prompt_pack",
       "status": "next",
       "priority": "P0",
       "track_title": "How to run one issue (operator path)"
