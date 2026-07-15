@@ -4,11 +4,11 @@
   "subtitle": "Single-owner creative production system for MonkeyZoo comics",
   "updated": "2026-07-15",
   "active_one_thing": {
-    "id": "issue-01-art-production",
-    "title": "Issue 01 — art queue + preferred panels for all 24 panels",
+    "id": "issue-01-qa",
+    "title": "Issue 01 — Visual QA PASS and promote qa_report",
     "status": "next",
-    "completed_just_now": "issue-01-art-prompt-pack",
-    "note": "MZ-2026-08-01 has art_prompt_pack.json (24 panels). Workflow stage art_production."
+    "completed_just_now": "issue-01-art-production",
+    "note": "MZ-2026-08-01 has 24 preferred draft composites selected; stage is qa. Drafts are location/character composites (not final illustration)."
   },
   "owner": "Fiend Studios (single owner)",
   "product_names": {
@@ -361,10 +361,18 @@
         {
           "id": "issue-01-art-production",
           "title": "Issue 01 — art queue + preferred panels (24)",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE 2026-07-15. Built queue; composed draft panels from approved location plates + character primary refs (scripts/compose_issue01_draft_panels.py); imported and selected preferred for all 24 panels; owner-approved art_production; advanced to qa. NOTE: drafts are production composites for pipeline evidence — replace with final illustrated panels before public release quality claim.",
+          "docs": ["docs/ART_QUEUE_WORKSPACE.md", "02_MONTHLY_ISSUES/2026-08_Issue_01/generated_art/selected_panels/", "scripts/compose_issue01_draft_panels.py"]
+        },
+        {
+          "id": "issue-01-qa",
+          "title": "Issue 01 — Visual QA PASS",
           "status": "next",
           "priority": "P0",
-          "instructions": "NEXT ONE THING. Stage art_production. Build art queue, generate/import one attempt per panel, select preferred into generated_art/selected_panels. Use location/prop primary refs + character refs. May span multiple sessions if generation is manual.",
-          "docs": ["docs/ART_QUEUE_WORKSPACE.md", "02_MONTHLY_ISSUES/2026-08_Issue_01/art_prompt_pack.json"]
+          "instructions": "NEXT ONE THING. Stage qa. Create QA review, resolve blockers if any, finalize with exact VERDICT: PASS, promote qa_report.md, approve qa gate.",
+          "docs": ["docs/VISUAL_QA_WORKSPACE.md", "02_MONTHLY_ISSUES/2026-08_Issue_01/"]
         }
       ]
     },
@@ -413,7 +421,7 @@
     {"label": "This task map (markdown)", "path": "docs/PROJECT_DIRECTION.md"}
   ],
   "recommended_order": [
-    "issue-01-art-production",
+    "issue-01-qa",
     "full-issue-creative-proof",
     "issue-01-neonblue",
     "backup-habit",

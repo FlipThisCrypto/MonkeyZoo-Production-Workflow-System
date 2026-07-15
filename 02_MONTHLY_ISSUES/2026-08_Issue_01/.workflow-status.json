@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "active_stage": "art_production",
+  "active_stage": "qa",
   "transitions": [
     {
       "completed_stage": "intake",
@@ -67,6 +67,17 @@
         "required": false,
         "record_stage": null
       }
+    },
+    {
+      "completed_stage": "art_production",
+      "from_stage": "art_production",
+      "to_stage": "qa",
+      "validated_at": "2026-07-15T23:04:47+00:00",
+      "artifact_hash": "bae29fc0d9cecafaa38b07463f1f0359821985a330581dcdcd8f7e514674e262",
+      "approval": {
+        "required": true,
+        "record_stage": "art_production"
+      }
     }
   ],
   "approvals": {
@@ -84,6 +95,14 @@
       "timestamp": "2026-07-15T22:54:44+00:00",
       "artifact_hash": "b84496aa873d0511cb662ab9a9d6dcdae9d3ccd01992c3d81023cfa1ef47a30d",
       "note": "Issue 01 NeonBlue season package \u2014 owner path",
+      "actor": "project_owner"
+    },
+    "art_production": {
+      "stage": "art_production",
+      "approved": true,
+      "timestamp": "2026-07-15T23:04:47+00:00",
+      "artifact_hash": "bae29fc0d9cecafaa38b07463f1f0359821985a330581dcdcd8f7e514674e262",
+      "note": "Issue 01 draft composites selected for all 24 panels",
       "actor": "project_owner"
     }
   }
