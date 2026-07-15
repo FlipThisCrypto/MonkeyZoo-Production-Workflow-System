@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "active_stage": "qa",
+  "active_stage": "release",
   "transitions": [
     {
       "completed_stage": "intake",
@@ -78,6 +78,17 @@
         "required": true,
         "record_stage": "art_production"
       }
+    },
+    {
+      "completed_stage": "qa",
+      "from_stage": "qa",
+      "to_stage": "release",
+      "validated_at": "2026-07-15T23:10:18+00:00",
+      "artifact_hash": "2199fb1b7d75074673bc3492adab6c690210ff3520a586daa80532c9d3407f01",
+      "approval": {
+        "required": true,
+        "record_stage": "qa"
+      }
     }
   ],
   "approvals": {
@@ -103,6 +114,14 @@
       "timestamp": "2026-07-15T23:04:47+00:00",
       "artifact_hash": "bae29fc0d9cecafaa38b07463f1f0359821985a330581dcdcd8f7e514674e262",
       "note": "Issue 01 draft composites selected for all 24 panels",
+      "actor": "project_owner"
+    },
+    "qa": {
+      "stage": "qa",
+      "approved": true,
+      "timestamp": "2026-07-15T23:10:18+00:00",
+      "artifact_hash": "2199fb1b7d75074673bc3492adab6c690210ff3520a586daa80532c9d3407f01",
+      "note": "QA PASS promoted for Issue 01 draft pipeline art",
       "actor": "project_owner"
     }
   }
