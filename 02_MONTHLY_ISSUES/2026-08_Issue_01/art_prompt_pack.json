@@ -1,0 +1,959 @@
+{
+  "issue_id": "MZ-2026-08-01",
+  "style_lock_phrase": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop",
+  "base_negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+  "panels": [
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 1,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-01_P01_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-001",
+        "MZ-CHAR-002",
+        "MZ-CHAR-003",
+        "MZ-CHAR-004",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "The six Emo Monkeys arrive at the neon night festival; NeonBlue is already scanning tasks.",
+      "expression": "Clear and readable",
+      "environment": "Festival Grounds",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. The six Emo Monkeys arrive at the neon night festival; NeonBlue is already scanning tasks.. Location: Festival Grounds. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-001",
+        "MZ-CHAR-002",
+        "MZ-CHAR-003",
+        "MZ-CHAR-004",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100101,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 1,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-01_P01_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-LILDEVIL"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "NeonBlue volunteers the group for multiple jobs before anyone agrees; Lil Devil cracks knuckles.",
+      "expression": "Clear and readable",
+      "environment": "Festival Grounds",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. NeonBlue volunteers the group for multiple jobs before anyone agrees; Lil Devil cracks knuckles.. Location: Festival Grounds. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-LILDEVIL"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100102,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 1,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-08-01_P01_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-001"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Main stage countdown board glows; NeonBlue points optimistically.",
+      "expression": "Clear and readable",
+      "environment": "Festival Main Stage",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Main stage countdown board glows; NeonBlue points optimistically.. Location: Festival Main Stage. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-001"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100103,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 2,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-01_P02_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "First blackout drops a small food-stand section into darkness; Static flinches first.",
+      "expression": "Clear and readable",
+      "environment": "Festival Grounds",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. First blackout drops a small food-stand section into darkness; Static flinches first.. Location: Festival Grounds. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100201,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 2,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-01_P02_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "NeonBlue reassures the crowd that the backup will restore lights immediately.",
+      "expression": "Clear and readable",
+      "environment": "Festival Grounds",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. NeonBlue reassures the crowd that the backup will restore lights immediately.. Location: Festival Grounds. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100202,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 2,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-08-01_P02_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Backup fails; darkness stays; Scarline watches the crowd, not the wires.",
+      "expression": "Clear and readable",
+      "environment": "Festival Grounds",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Backup fails; darkness stays; Scarline watches the crowd, not the wires.. Location: Festival Grounds. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100203,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 3,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-01_P03_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-002",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Outages hop across booths in a moving pattern; TwoTone traces two paths with a finger.",
+      "expression": "Clear and readable",
+      "environment": "Festival Grounds",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Outages hop across booths in a moving pattern; TwoTone traces two paths with a finger.. Location: Festival Grounds. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-002",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100301,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 3,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-01_P03_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Public screens flash fractured cyan shapes; Static covers his ears.",
+      "expression": "Clear and readable",
+      "environment": "Festival Grounds",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Public screens flash fractured cyan shapes; Static covers his ears.. Location: Festival Grounds. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100302,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 3,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-08-01_P03_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-001"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "NeonBlue laughs too hard, herding people, eyes too bright.",
+      "expression": "Clear and readable",
+      "environment": "Festival Grounds",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. NeonBlue laughs too hard, herding people, eyes too bright.. Location: Festival Grounds. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-001"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100303,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 4,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-01_P04_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-LILDEVIL",
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Lil Devil grabs the locked service gate, ready to force it.",
+      "expression": "Clear and readable",
+      "environment": "Festival Control Node",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Lil Devil grabs the locked service gate, ready to force it.. Location: Festival Control Node. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-LILDEVIL",
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100401,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 4,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-01_P04_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-LILDEVIL"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Malfunctioning control box flickers; LEDs change when NeonBlue steps closer.",
+      "expression": "Clear and readable",
+      "environment": "Festival Control Node",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Malfunctioning control box flickers; LEDs change when NeonBlue steps closer.. Location: Festival Control Node. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-LILDEVIL"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100402,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 4,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-08-01_P04_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-LILDEVIL",
+        "MZ-CHAR-004"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Lil Devil still wants chaos; Ash gives one precise look.",
+      "expression": "Clear and readable",
+      "environment": "Festival Control Node",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Lil Devil still wants chaos; Ash gives one precise look.. Location: Festival Control Node. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-LILDEVIL",
+        "MZ-CHAR-004"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100403,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 5,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-01_P05_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "NeonBlue finds a cyan relay marker / frequency tag with Patch-linked designation.",
+      "expression": "Clear and readable",
+      "environment": "Festival Service Corridor",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. NeonBlue finds a cyan relay marker / frequency tag with Patch-linked designation.. Location: Festival Service Corridor. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100501,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 5,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-01_P05_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-001"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "NeonBlue’s cheer becomes louder and thinner; Moodz stands close.",
+      "expression": "Clear and readable",
+      "environment": "Festival Service Corridor",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. NeonBlue’s cheer becomes louder and thinner; Moodz stands close.. Location: Festival Service Corridor. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-001"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100502,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 5,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-08-01_P05_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-002",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Team regroups; TwoTone and Static confirm the pattern aims somewhere not the stage.",
+      "expression": "Clear and readable",
+      "environment": "Festival Grounds",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Team regroups; TwoTone and Static confirm the pattern aims somewhere not the stage.. Location: Festival Grounds. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-002",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100503,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 6,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-01_P06_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-LILDEVIL"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Main stage countdown hits critical; crowd surges toward the light.",
+      "expression": "Clear and readable",
+      "environment": "Festival Main Stage",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Main stage countdown hits critical; crowd surges toward the light.. Location: Festival Main Stage. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-LILDEVIL"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100601,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 6,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-01_P06_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static and Scarline find a younger group trapped in the dark service corridor.",
+      "expression": "Clear and readable",
+      "environment": "Festival Service Corridor",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Static and Scarline find a younger group trapped in the dark service corridor.. Location: Festival Service Corridor. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100602,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 6,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-08-01_P06_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-001"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "NeonBlue freezes between stage and corridor; Moodz waits without deciding for him.",
+      "expression": "Clear and readable",
+      "environment": "Festival Service Corridor",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. NeonBlue freezes between stage and corridor; Moodz waits without deciding for him.. Location: Festival Service Corridor. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-001"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100603,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 7,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-01_P07_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-LILDEVIL",
+        "MZ-CHAR-003",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "NeonBlue stops promising and gives an honest plan: risk, force points, safe routes.",
+      "expression": "Clear and readable",
+      "environment": "Festival Control Node",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. NeonBlue stops promising and gives an honest plan: risk, force points, safe routes.. Location: Festival Control Node. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-LILDEVIL",
+        "MZ-CHAR-003",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100701,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 7,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-01_P07_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-LILDEVIL",
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Lil Devil applies force only where NeonBlue marks it safe on the gate/box.",
+      "expression": "Clear and readable",
+      "environment": "Festival Control Node",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Lil Devil applies force only where NeonBlue marks it safe on the gate/box.. Location: Festival Control Node. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-LILDEVIL",
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100702,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 7,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-08-01_P07_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-002",
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Team clears the corridor; trapped group exits into residual neon.",
+      "expression": "Clear and readable",
+      "environment": "Festival Service Corridor",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Team clears the corridor; trapped group exits into residual neon.. Location: Festival Service Corridor. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-002",
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100703,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 8,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-08-01_P08_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-001",
+        "MZ-CHAR-LILDEVIL"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Festival continues in reduced form; NeonBlue does not sell perfection.",
+      "expression": "Clear and readable",
+      "environment": "Festival Grounds",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Festival continues in reduced form; NeonBlue does not sell perfection.. Location: Festival Grounds. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-001",
+        "MZ-CHAR-LILDEVIL"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100801,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 8,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-08-01_P08_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Behind NeonBlue, a small cyan segment of the Echo symbol flickers once on a dark panel.",
+      "expression": "Clear and readable",
+      "environment": "Festival Grounds",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. Behind NeonBlue, a small cyan segment of the Echo symbol flickers once on a dark panel.. Location: Festival Grounds. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100802,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-08-01",
+      "page_number": 8,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-08-01_P08_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-004"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "NeonBlue looks at restored lights; Ash stands nearby; unanswered question hangs.",
+      "expression": "Clear and readable",
+      "environment": "Festival Grounds",
+      "camera_angle": "Medium",
+      "lighting": "soft key light with readable silhouette",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop. NeonBlue looks at restored lights; Ash stands nearby; unanswered question hangs.. Location: Festival Grounds. Camera: Medium. Emotion: Clear and readable. Notes: MonkeyZoo house style; keep NeonBlue cyan readable; empty-plate environments match approved location refs.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-005",
+        "MZ-CHAR-004"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 100803,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    }
+  ]
+}

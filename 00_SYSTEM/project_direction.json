@@ -4,11 +4,11 @@
   "subtitle": "Single-owner creative production system for MonkeyZoo comics",
   "updated": "2026-07-15",
   "active_one_thing": {
-    "id": "issue-01-art-prompt-pack",
-    "title": "Issue 01 — build/approve/promote art_prompt_pack from page plan",
+    "id": "issue-01-art-production",
+    "title": "Issue 01 — art queue + preferred panels for all 24 panels",
     "status": "next",
-    "completed_just_now": "issue-01-page-plan",
-    "note": "MZ-2026-08-01 has promoted page_panel_plan.json (8 pages / 24 panels). Workflow stage art_prompts."
+    "completed_just_now": "issue-01-art-prompt-pack",
+    "note": "MZ-2026-08-01 has art_prompt_pack.json (24 panels). Workflow stage art_production."
   },
   "owner": "Fiend Studios (single owner)",
   "product_names": {
@@ -353,10 +353,18 @@
         {
           "id": "issue-01-art-prompt-pack",
           "title": "Issue 01 — build/approve/promote art_prompt_pack",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE 2026-07-15. Pack variant validated (0 errors), approved, promoted art_prompt_pack.json with 24 panels. Workflow advanced to art_production.",
+          "docs": ["docs/ART_PROMPT_PACK_WORKSPACE.md", "02_MONTHLY_ISSUES/2026-08_Issue_01/art_prompt_pack.json"]
+        },
+        {
+          "id": "issue-01-art-production",
+          "title": "Issue 01 — art queue + preferred panels (24)",
           "status": "next",
           "priority": "P0",
-          "instructions": "NEXT ONE THING. Stage is art_prompts. Build pack from page plan, approve, promote art_prompt_pack.json. Then art production queue.",
-          "docs": ["docs/ART_PROMPT_PACK_WORKSPACE.md", "02_MONTHLY_ISSUES/2026-08_Issue_01/page_panel_plan.json"]
+          "instructions": "NEXT ONE THING. Stage art_production. Build art queue, generate/import one attempt per panel, select preferred into generated_art/selected_panels. Use location/prop primary refs + character refs. May span multiple sessions if generation is manual.",
+          "docs": ["docs/ART_QUEUE_WORKSPACE.md", "02_MONTHLY_ISSUES/2026-08_Issue_01/art_prompt_pack.json"]
         }
       ]
     },
@@ -405,7 +413,7 @@
     {"label": "This task map (markdown)", "path": "docs/PROJECT_DIRECTION.md"}
   ],
   "recommended_order": [
-    "issue-01-art-prompt-pack",
+    "issue-01-art-production",
     "full-issue-creative-proof",
     "issue-01-neonblue",
     "backup-habit",

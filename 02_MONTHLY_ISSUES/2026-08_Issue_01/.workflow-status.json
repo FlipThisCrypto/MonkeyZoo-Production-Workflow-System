@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "active_stage": "art_prompts",
+  "active_stage": "art_production",
   "transitions": [
     {
       "completed_stage": "intake",
@@ -52,6 +52,17 @@
       "to_stage": "art_prompts",
       "validated_at": "2026-07-15T22:56:42+00:00",
       "artifact_hash": "e5667ee5d6c09b76393236e148078ee8b1c058a3a462c20eeb58d6a9728b8a1f",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "art_prompts",
+      "from_stage": "art_prompts",
+      "to_stage": "art_production",
+      "validated_at": "2026-07-15T22:58:55+00:00",
+      "artifact_hash": "dd845ec9990ae1d7ca7642edf40464596a3403ab287d8d473cbfc3484d8b3c87",
       "approval": {
         "required": false,
         "record_stage": null
