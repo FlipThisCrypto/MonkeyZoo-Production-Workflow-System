@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "active_stage": "release",
+  "active_stage": "published",
   "transitions": [
     {
       "completed_stage": "intake",
@@ -89,6 +89,28 @@
         "required": true,
         "record_stage": "qa"
       }
+    },
+    {
+      "completed_stage": "qa",
+      "from_stage": "qa",
+      "to_stage": "release",
+      "validated_at": "2026-07-16T00:05:17+00:00",
+      "artifact_hash": "058fc5a13450d5cd2fcdb83f81af2aeac4160faaa0e0891b76fab323c0c00ec2",
+      "approval": {
+        "required": true,
+        "record_stage": "qa"
+      }
+    },
+    {
+      "completed_stage": "release",
+      "from_stage": "release",
+      "to_stage": "published",
+      "validated_at": "2026-07-16T00:05:23+00:00",
+      "artifact_hash": "9c68795b3ac9c033a766e528e2dce9ba929b9eb68a8238ea5a3d4c7efa706580",
+      "approval": {
+        "required": true,
+        "record_stage": "release"
+      }
     }
   ],
   "approvals": {
@@ -119,10 +141,26 @@
     "qa": {
       "stage": "qa",
       "approved": true,
-      "timestamp": "2026-07-15T23:10:18+00:00",
-      "artifact_hash": "2199fb1b7d75074673bc3492adab6c690210ff3520a586daa80532c9d3407f01",
-      "note": "QA PASS promoted for Issue 01 draft pipeline art",
+      "timestamp": "2026-07-16T00:05:17+00:00",
+      "artifact_hash": "058fc5a13450d5cd2fcdb83f81af2aeac4160faaa0e0891b76fab323c0c00ec2",
+      "note": "Re-QA PASS with release assets",
+      "actor": "project_owner"
+    },
+    "release": {
+      "stage": "release",
+      "approved": true,
+      "timestamp": "2026-07-16T00:05:23+00:00",
+      "artifact_hash": "9c68795b3ac9c033a766e528e2dce9ba929b9eb68a8238ea5a3d4c7efa706580",
+      "note": "Archive published",
       "actor": "project_owner"
     }
-  }
+  },
+  "recovery_notes": [
+    {
+      "at": "2026-07-16T00:05:03+00:00",
+      "reason": "Re-open QA after adding release cover/PDF/CBZ/metadata so QA evidence hash matches release evidence",
+      "from": "release",
+      "to": "qa"
+    }
+  ]
 }

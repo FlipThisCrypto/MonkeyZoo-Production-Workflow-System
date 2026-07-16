@@ -1,10 +1,10 @@
 # QA Report — MZ-2026-08-01
-Review ID: qa-20260715T230952Z-5e6ce7
-Evidence hash: b7c93f64739ffe95300fcc25748f64909c8064f86929aa9c481594c3864a8f01
+Review ID: qa-20260716T000516Z-253602
+Evidence hash: 7e2ff82e03cdfbf9daeaecd53299008b5c618a35af0bf8d6349b69b034bd5f2f
 
 VERDICT: PASS
 
-Owner notes: Issue 01 NeonBlue: all 24 selected panels present as draft composites; continuity notes present in plan; no objective blockers. Owner accepts pipeline draft art for QA gate; final illustration still required before public release quality claim.
+Owner notes: Re-QA after release deliverables (cover/PDF/CBZ/metadata). Draft composite panels still labeled as draft-tier art.
 
 ## Panel inventory
 - MZ-2026-08-01_P01_PANEL01: present; PNG; 1280x960; no file error
@@ -36,10 +36,10 @@ Owner notes: Issue 01 NeonBlue: all 24 selected panels present as draft composit
 - None
 
 ## Evidence advisories
-- cover image is absent; Release owns the blocking cover-deliverable requirement
+- None
 
 ## Continuity review
-- NeonBlue and Lil Devil identity markers present on character refs used in composites
-- Festival locations map to approved location plates
-- Patch thread remains unresolved as required
-- Echo symbol remains incomplete (one segment beat only)
+- Cover present
+- 24 selected panels present
+- Release exports present
+- CHIP-0015 metadata complete

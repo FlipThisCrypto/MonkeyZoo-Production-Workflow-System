@@ -1,0 +1,8 @@
+{
+  "approved_at": "2026-07-16T00:05:19+00:00",
+  "issue_id": "MZ-2026-08-01",
+  "evidence_hash": "fcf9f38c860de9970507c64b548f2d1e8d5dd83a8151cb133b5d898d1e32403f",
+  "manifest_hash": "221b4b19a899ded9e026b89498788ffa8aff856091cb1bca058495f7b0cfa8ee",
+  "note": "Issue 01 draft pipeline release",
+  "actor": "project_owner"
+}

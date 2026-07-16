@@ -4,11 +4,11 @@
   "subtitle": "Single-owner creative production system for MonkeyZoo comics",
   "updated": "2026-07-15",
   "active_one_thing": {
-    "id": "issue-01-release",
-    "title": "Issue 01 — release package: cover, PDF/CBZ, approve, publish archive",
-    "status": "next",
-    "completed_just_now": "issue-01-qa",
-    "note": "MZ-2026-08-01 qa_report.md has VERDICT: PASS; stage is release. Cover image + real PDF/CBZ still required for publish."
+    "id": "issue-01-final-art-upgrade",
+    "title": "Optional: replace Issue 01 draft composites with final illustrated panels",
+    "status": "later",
+    "completed_just_now": "issue-01-release",
+    "note": "MZ-2026-08-01 is published (draft-tier art) at 05_RELEASE_ARCHIVE/2026/2026-08_Issue_01. Pipeline proof complete."
   },
   "owner": "Fiend Studios (single owner)",
   "product_names": {
@@ -195,10 +195,10 @@
         {
           "id": "issue-01-neonblue",
           "title": "Issue 01 — NeonBlue / festival (spotlight)",
-          "status": "active",
+          "status": "done",
           "priority": "P0",
-          "instructions": "IN PROGRESS. Package MZ-2026-08-01 exists at 02_MONTHLY_ISSUES/2026-08_Issue_01. Outline + script promoted; workflow stage page_plan. Next: layout/page_panel_plan → art pack → art production → QA → release. Use festival locations + Echo/cyan props. Driver script for story stages: scripts/drive_issue_01_neonblue_story.py",
-          "docs": ["docs/OPERATOR_RUNBOOK.md", "docs/PACKAGE_EXPORTS.md", "docs/STORY_SCRIPT_WORKSPACE.md", "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/issue-01-neonblue.md"]
+          "instructions": "DONE as draft pipeline publish. MZ-2026-08-01 The Last Light Of Summer is stage published with archive. Optional: final art upgrade before merch/print claims.",
+          "docs": ["docs/OPERATOR_RUNBOOK.md", "05_RELEASE_ARCHIVE/2026/2026-08_Issue_01/", "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/issue-01-neonblue.md"]
         },
         {
           "id": "issue-01-neonblue-story-package",
@@ -337,10 +337,10 @@
         {
           "id": "full-issue-creative-proof",
           "title": "One full creative proof issue (lettered PDF/CBZ quality)",
-          "status": "active",
+          "status": "done",
           "priority": "P0",
-          "instructions": "IN PROGRESS via Issue 01. Story stages complete (outline+script promoted). Remaining: page plan → art prompts → selected panels → QA PASS → lettered PDF/CBZ → release archive.",
-          "docs": ["docs/PACKAGE_EXPORTS.md", "docs/OPERATOR_RUNBOOK.md", "02_MONTHLY_ISSUES/2026-08_Issue_01/"]
+          "instructions": "DONE as draft-tier pipeline proof for Issue 01 (published archive). Not final print lettering/illustration quality — see issue-01-final-art-upgrade for optional upgrade path.",
+          "docs": ["docs/PACKAGE_EXPORTS.md", "docs/OPERATOR_RUNBOOK.md", "05_RELEASE_ARCHIVE/2026/2026-08_Issue_01/"]
         },
         {
           "id": "issue-01-page-plan",
@@ -377,10 +377,18 @@
         {
           "id": "issue-01-release",
           "title": "Issue 01 — release package + publish archive",
-          "status": "next",
+          "status": "done",
           "priority": "P0",
-          "instructions": "NEXT ONE THING. Stage release. Provide cover image, CHIP-0015 metadata, social copy, real PDF + CBZ/ZIP exports, build/promote hash manifest, owner-approve release, publish archive under unique year/folder path.",
-          "docs": ["docs/RELEASE_WORKSPACE.md", "docs/PACKAGE_EXPORTS.md", "02_MONTHLY_ISSUES/2026-08_Issue_01/"]
+          "instructions": "DONE 2026-07-16. Cover, PDF, CBZ, CHIP-0015 metadata, social/checklist prepared; re-QA PASS after assets; approve → promote manifest → publish archive 05_RELEASE_ARCHIVE/2026/2026-08_Issue_01; stage published; publication_ready true. Art tier remains draft_composite.",
+          "docs": ["docs/RELEASE_WORKSPACE.md", "docs/PACKAGE_EXPORTS.md", "scripts/prepare_issue01_release_assets.py", "05_RELEASE_ARCHIVE/2026/2026-08_Issue_01/"]
+        },
+        {
+          "id": "issue-01-final-art-upgrade",
+          "title": "Optional: Issue 01 final illustrated art upgrade",
+          "status": "later",
+          "priority": "P2",
+          "instructions": "Replace draft composite selected panels with final illustrated panels, re-run QA PASS, rebuild PDF/CBZ, re-publish archive if you want print/public merch quality.",
+          "docs": ["docs/ART_QUEUE_WORKSPACE.md", "02_MONTHLY_ISSUES/2026-08_Issue_01/"]
         }
       ]
     },
@@ -429,14 +437,12 @@
     {"label": "This task map (markdown)", "path": "docs/PROJECT_DIRECTION.md"}
   ],
   "recommended_order": [
-    "issue-01-release",
-    "full-issue-creative-proof",
-    "issue-01-neonblue",
     "backup-habit",
+    "issue-02-static",
     "world-bible-merge",
+    "issue-01-final-art-upgrade",
     "studio-ux-polish",
     "char-ref-variants",
-    "issue-02-static",
     "phase1-auth-host"
   ]
 }

@@ -18,6 +18,41 @@
     "metadata",
     "social copy"
   ],
-  "status": "intake",
-  "workflow_stage": "1. Intake"
+  "status": "release",
+  "workflow_stage": "9. Release",
+  "format": "CHIP-0015",
+  "name": "The Last Light Of Summer",
+  "description": "MonkeyZoo Issue 01: NeonBlue and Lil Devil at the end-of-summer night festival. A moving blackout forces NeonBlue to choose overlooked people over the public spotlight.",
+  "attributes": [
+    {
+      "trait_type": "Series",
+      "value": "MonkeyZoo"
+    },
+    {
+      "trait_type": "Issue",
+      "value": "01"
+    },
+    {
+      "trait_type": "Month",
+      "value": "2026-08"
+    },
+    {
+      "trait_type": "Featured",
+      "value": "NeonBlue"
+    },
+    {
+      "trait_type": "Guest",
+      "value": "Lil Devil"
+    },
+    {
+      "trait_type": "ArtTier",
+      "value": "draft_composite"
+    }
+  ],
+  "data": {
+    "@type": "DigitalDocument",
+    "name": "The Last Light Of Summer",
+    "url": "local://MonkeyZoo_MZ-2026-08-01_Web.pdf",
+    "sha256": "64ccd9dcf08d2089646053409fb1268102eb2cca244b5fb8665d97e986fbcbca"
+  }
 }

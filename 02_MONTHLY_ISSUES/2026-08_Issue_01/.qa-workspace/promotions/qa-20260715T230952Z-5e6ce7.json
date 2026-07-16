@@ -1,0 +1,9 @@
+{
+  "review_id": "qa-20260715T230952Z-5e6ce7",
+  "promoted_at": "2026-07-15T23:10:17+00:00",
+  "evidence_hash": "b7c93f64739ffe95300fcc25748f64909c8064f86929aa9c481594c3864a8f01",
+  "verdict": "PASS",
+  "destination": "qa_report.md",
+  "backup": ".qa-workspace/promotions/backup-qa-20260715T230952Z-5e6ce7.md",
+  "actor": "project_owner"
+}
