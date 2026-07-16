@@ -1,0 +1,23 @@
+{
+  "issue_id": "MZ-2026-09-02",
+  "title": "Signals In The Silence",
+  "issue_type": "Monthly",
+  "year": 2026,
+  "month": 9,
+  "edition_number": 2,
+  "page_count": 8,
+  "panel_count": 24,
+  "primary_character": "MZ-CHAR-003",
+  "guest_character": "MZ-CHAR-CLEVER",
+  "opening_situation": "Tiny device disruptions only Static notices as fall routines resume",
+  "required_canon_references": "Static identity; Clever guest; six-tone motif; August cyan frequency continuity",
+  "prohibited_story_elements": "No treating Static as irrational; no curing sensitivity; no complete Echo emblem",
+  "output_requirements": [
+    "QA",
+    "cover",
+    "metadata",
+    "social copy"
+  ],
+  "status": "intake",
+  "workflow_stage": "1. Intake"
+}
