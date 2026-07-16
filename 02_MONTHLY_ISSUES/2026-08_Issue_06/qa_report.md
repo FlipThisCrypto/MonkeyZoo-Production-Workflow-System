@@ -150,3 +150,20 @@ Residuals (edit-stage notes, carried to layout):
    Z-Image Fun ControlNet next issue.
 
 Pages, PDFs, CBZ, and social crops rebuilt from the corrected selects.
+
+
+## Final QA (Gate B) — formal verdict 2026-07-16
+
+Evidence run:
+- validate_issue --art: PASS (19/19 panels selected; plates staged as refs)
+- Exports: Print PDF, Web PDF, CBZ, lettered cover + variant — all present and rebuilt after the Scarline streak edit (P07_PANEL02, deterministic paint per escalation rule)
+- Continuity: ledger entry present (DRAFT); Issue 05 threads resolved/deferred correctly; next-issue teaser present (IT HEARD)
+- World bible: Issue 06 lore merged (Old Quarter, Relay 1, the Pending canon look, Keeper, Return Protocol)
+
+**VERDICT: HOLD — release-blocking items are owner/mint-day actions only:**
+1. metadata.json: 5 TODO-IPFS fields (urls + sha256) — fill from disk commands at upload time (automation_rules §6)
+2. Optional print-polish: manual lettering pass (draft-tier programmatic lettering shipped)
+3. Ledger entry flips DRAFT → released at publish
+
+Everything the pipeline can complete without minting is complete.
+NOTE: the platform's season numbering (MZ-2026-08-01, MZ-2026-09-02) supersedes this package's original monthly slot; Issue 06 stands as a complete worked example unless the owner schedules it.

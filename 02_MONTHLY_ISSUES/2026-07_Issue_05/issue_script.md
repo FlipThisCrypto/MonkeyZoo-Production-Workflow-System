@@ -81,7 +81,7 @@ neon. Copy: "NEXT: SOMEONE ELSE GOT THE NOTICE. — MonkeyZoo: Super."
 - Dialogue: NEONBLUE: "A free update! That's basically a gift." / ASH: "Gifts knock."
 - Caption: —
 - SFX: —
-- Visual notes: NeonBlue glow edge subtle; Ash hood up, half-lidded
+- Visual notes: NeonBlue glow edge subtle; Ash silver-white fringe over one eye, half-lidded
 - Continuity notes: NeonBlue ad-copy joke continues; Ash ≤4 words rule
 
 **Panel 2.3 (Third)**
@@ -243,7 +243,7 @@ neon. Copy: "NEXT: SOMEONE ELSE GOT THE NOTICE. — MonkeyZoo: Super."
 - Caption: —
 - SFX: THUD
 - Visual notes: Scarline's one line of the issue — give her the panel's full
-  quiet; scarf catches the last green light
+  quiet; red streak catches the last green light
 - Continuity notes: Scarline speech pattern law: one clear sentence, once
 
 **Panel 7.2 (Third)**
