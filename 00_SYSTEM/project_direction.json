@@ -4,11 +4,11 @@
   "subtitle": "Single-owner creative production system for MonkeyZoo comics",
   "updated": "2026-07-15",
   "active_one_thing": {
-    "id": "issue-01-final-art-upgrade",
-    "title": "Optional: replace Issue 01 draft composites with final illustrated panels",
-    "status": "later",
-    "completed_just_now": "issue-01-release",
-    "note": "MZ-2026-08-01 is published (draft-tier art) at 05_RELEASE_ARCHIVE/2026/2026-08_Issue_01. Pipeline proof complete."
+    "id": "issue-02-page-plan",
+    "title": "Issue 02 — promote page_panel_plan for Static",
+    "status": "next",
+    "completed_just_now": "issue-02-static-story-package",
+    "note": "MZ-2026-09-02 Signals In The Silence at page_plan with outline+script. (Edition 02 avoids collision with published live-probe 2026-09_Issue_01.)"
   },
   "owner": "Fiend Studios (single owner)",
   "product_names": {
@@ -211,10 +211,26 @@
         {
           "id": "issue-02-static",
           "title": "Issue 02 — Static / storm & six-tone",
-          "status": "later",
-          "priority": "P1",
-          "instructions": "After Issue 01 path is proven. Locations: storm-routines, transit hub, school PA, old-relay-junction. Props: radio, transit board, signal analyzer, six-tone motif.",
-          "docs": ["story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md"]
+          "status": "active",
+          "priority": "P0",
+          "instructions": "IN PROGRESS. MZ-2026-09-02 Signals In The Silence (folder 2026-09_Issue_02) has promoted outline+script; stage page_plan. Continue: page plan → art pack → draft panels → QA → release.",
+          "docs": ["story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md", "02_MONTHLY_ISSUES/2026-09_Issue_02/", "scripts/drive_issue_02_static_story.py"]
+        },
+        {
+          "id": "issue-02-static-story-package",
+          "title": "Issue 02 story package (outline + script promoted)",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE 2026-07-16. Created MZ-2026-09-02 with Static + Clever; promoted season-bible outline and 24-panel script; stage page_plan.",
+          "docs": ["02_MONTHLY_ISSUES/2026-09_Issue_02/", "scripts/drive_issue_02_static_story.py"]
+        },
+        {
+          "id": "issue-02-page-plan",
+          "title": "Issue 02 — promote page_panel_plan",
+          "status": "next",
+          "priority": "P0",
+          "instructions": "NEXT. Layout create/approve/promote page_panel_plan.json from Issue 02 script.",
+          "docs": ["docs/PAGE_PANEL_WORKSPACE.md", "02_MONTHLY_ISSUES/2026-09_Issue_02/issue_script.md"]
         },
         {
           "id": "issue-03-scarline",
@@ -437,8 +453,9 @@
     {"label": "This task map (markdown)", "path": "docs/PROJECT_DIRECTION.md"}
   ],
   "recommended_order": [
-    "backup-habit",
+    "issue-02-page-plan",
     "issue-02-static",
+    "backup-habit",
     "world-bible-merge",
     "issue-01-final-art-upgrade",
     "studio-ux-polish",
