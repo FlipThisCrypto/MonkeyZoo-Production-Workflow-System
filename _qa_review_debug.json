@@ -1,0 +1,479 @@
+{
+  "approval": null,
+  "approval_current": false,
+  "continuity_checks": [],
+  "created_at": "2026-07-15T23:09:52+00:00",
+  "evidence": {
+    "advisories": [
+      "cover image is absent; Release owns the blocking cover-deliverable requirement"
+    ],
+    "blockers": [],
+    "checks": {
+      "checklist_exists": true,
+      "continuity_missing": [],
+      "cover_images": 0,
+      "cover_prompt_exists": true,
+      "dialogue_or_caption_panels": [
+        "MZ-2026-08-01_P01_PANEL01",
+        "MZ-2026-08-01_P01_PANEL02",
+        "MZ-2026-08-01_P01_PANEL03",
+        "MZ-2026-08-01_P02_PANEL01",
+        "MZ-2026-08-01_P02_PANEL02",
+        "MZ-2026-08-01_P02_PANEL03",
+        "MZ-2026-08-01_P03_PANEL01",
+        "MZ-2026-08-01_P03_PANEL02",
+        "MZ-2026-08-01_P03_PANEL03",
+        "MZ-2026-08-01_P04_PANEL01",
+        "MZ-2026-08-01_P04_PANEL02",
+        "MZ-2026-08-01_P04_PANEL03",
+        "MZ-2026-08-01_P05_PANEL01",
+        "MZ-2026-08-01_P05_PANEL02",
+        "MZ-2026-08-01_P05_PANEL03",
+        "MZ-2026-08-01_P06_PANEL01",
+        "MZ-2026-08-01_P06_PANEL02",
+        "MZ-2026-08-01_P06_PANEL03",
+        "MZ-2026-08-01_P07_PANEL01",
+        "MZ-2026-08-01_P07_PANEL02",
+        "MZ-2026-08-01_P07_PANEL03",
+        "MZ-2026-08-01_P08_PANEL01",
+        "MZ-2026-08-01_P08_PANEL02",
+        "MZ-2026-08-01_P08_PANEL03"
+      ],
+      "dimension_mismatches": [],
+      "duplicate_art": [],
+      "identity_missing": [],
+      "invalid_images": [],
+      "metadata_missing": [],
+      "missing_panels": [],
+      "unmapped_images": []
+    },
+    "evidence_hash": "b7c93f64739ffe95300fcc25748f64909c8064f86929aa9c481594c3864a8f01",
+    "panels": [
+      {
+        "caption": "End of summer, Zoo City festival lights",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-001",
+          "MZ-CHAR-002",
+          "MZ-CHAR-003",
+          "MZ-CHAR-004",
+          "MZ-CHAR-006"
+        ],
+        "continuity_notes": "All six identifiable; festival-grounds plate",
+        "dialogue": "NEONBLUE: We can cover games, rides, and the stage\u2014easy!",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P01_PANEL01",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P01_PANEL01.png",
+        "sha256": "3c76c259695e5f669e5d03e0de5fc4ae0988ced6ec1af91c77d27f4f37ad1ce6",
+        "width": 1280
+      },
+      {
+        "caption": "Volunteering without consent",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-LILDEVIL"
+        ],
+        "continuity_notes": "Lil Devil restless energy; NeonBlue cheerful",
+        "dialogue": "LIL DEVIL: Or we force the fun.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P01_PANEL02",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P01_PANEL02.png",
+        "sha256": "88f5ad2bda86dfe05ccf9564e12f7ab2255a074905661dd88f43e7733db6a78e",
+        "width": 1280
+      },
+      {
+        "caption": "Public spotlight warming up",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-001"
+        ],
+        "continuity_notes": "Main stage empty of crisis yet",
+        "dialogue": "NEONBLUE: Backup systems never miss a finale.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P01_PANEL03",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P01_PANEL03.png",
+        "sha256": "a80bc247111315401984840e2317bd28e9de85ed14870d953c75c2eda6848d3e",
+        "width": 1280
+      },
+      {
+        "caption": "First failure",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-003"
+        ],
+        "continuity_notes": "Static senses interference before others",
+        "dialogue": "STATIC: Something\u2019s wrong in the power.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P02_PANEL01",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P02_PANEL01.png",
+        "sha256": "ebc8205a72e4b76409ab9206ce6b1f4c7258ad331cffa41508a3fcb19bf8a1a3",
+        "width": 1280
+      },
+      {
+        "caption": "Reassurance before facts",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-002"
+        ],
+        "continuity_notes": "Promise before understanding",
+        "dialogue": "NEONBLUE: It\u2019s fine\u2014watch the backup kick!",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P02_PANEL02",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P02_PANEL02.png",
+        "sha256": "e955fa245f7446c37af399f3195326e07c36959fc0ffb35c14268e8123ec40bf",
+        "width": 1280
+      },
+      {
+        "caption": "Backup fails",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-006"
+        ],
+        "continuity_notes": "Scarline warns against wrong focus",
+        "dialogue": "SCARLINE: Panic isn\u2019t the real threat.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P02_PANEL03",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P02_PANEL03.png",
+        "sha256": "bad61423d515c6687055bc286426636461ecce71ec7068304dc24cd743e50697",
+        "width": 1280
+      },
+      {
+        "caption": "Pattern emerges",
+        "characters": [
+          "MZ-CHAR-002",
+          "MZ-CHAR-003"
+        ],
+        "continuity_notes": "TwoTone maps dual paths",
+        "dialogue": "TWOTONE: Two routes converging.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P03_PANEL01",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P03_PANEL01.png",
+        "sha256": "4099ccc6cc311f3650ef96e3f890118c5e43ce428ce9a04bceee92a40d075f4a",
+        "width": 1280
+      },
+      {
+        "caption": "Cyan fracture on screens",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-003"
+        ],
+        "continuity_notes": "Fractured cyan motif; not full Echo",
+        "dialogue": "STATIC: It\u2019s not noise\u2014it\u2019s a pattern.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P03_PANEL02",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P03_PANEL02.png",
+        "sha256": "19defac9b797ba7a38d69bfc597edf1c2192f0a34ddb8dd9b9cbe7d4ce6e0616",
+        "width": 1280
+      },
+      {
+        "caption": "Optimism as armor",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-001"
+        ],
+        "continuity_notes": "Moodz observes quietly nearby",
+        "dialogue": "NEONBLUE: We\u2019ve got this\u2014everyone stay happy!",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P03_PANEL03",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P03_PANEL03.png",
+        "sha256": "0b8cb32b694fbc0beff6be66e3d86b5794043636cd95cb102f9d88abcd277831",
+        "width": 1280
+      },
+      {
+        "caption": "Impatience at the gate",
+        "characters": [
+          "MZ-CHAR-LILDEVIL",
+          "MZ-CHAR-005"
+        ],
+        "continuity_notes": "Do not force yet",
+        "dialogue": "LIL DEVIL: Smash the box. Open it.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P04_PANEL01",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P04_PANEL01.png",
+        "sha256": "67c7fd091cfe0a9d7faefe914936cb8b45cd84f7745f47b5fa3b2afb58c435a6",
+        "width": 1280
+      },
+      {
+        "caption": "System reacts to NeonBlue",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-LILDEVIL"
+        ],
+        "continuity_notes": "Key beat: different reaction near NeonBlue",
+        "dialogue": "NEONBLUE: Wait\u2014it changed when I got near.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P04_PANEL02",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P04_PANEL02.png",
+        "sha256": "f055ddd028ec102e3d2f24bde180aa7eeecdc3d01245c435e59a1615378ae578",
+        "width": 1280
+      },
+      {
+        "caption": "Ash line",
+        "characters": [
+          "MZ-CHAR-LILDEVIL",
+          "MZ-CHAR-004"
+        ],
+        "continuity_notes": "Proposed Ash line; not a forced catchphrase brand",
+        "dialogue": "ASH: Hope can read warnings.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P04_PANEL03",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P04_PANEL03.png",
+        "sha256": "4a01fa1bda6db2dfb8200e216e2ba7d3d9e6ce53e89a917f056d29b1922e771e",
+        "width": 1280
+      },
+      {
+        "caption": "Midpoint recognition",
+        "characters": [
+          "MZ-CHAR-005"
+        ],
+        "continuity_notes": "Patch link emotional only; no full explain",
+        "dialogue": "NEONBLUE: I\u2019ve seen this pulse before\u2026",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P05_PANEL01",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P05_PANEL01.png",
+        "sha256": "5406f4b302acbc6ac287376a316001defda75c9a800398f5248bc14e7e925bef",
+        "width": 1280
+      },
+      {
+        "caption": "Moodz truth",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-001"
+        ],
+        "continuity_notes": "Moodz names the performance",
+        "dialogue": "MOODZ: You don\u2019t have to pretend this feels safe.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P05_PANEL02",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P05_PANEL02.png",
+        "sha256": "a0f42a6308ab850056536f9abfa16e51e7c876513b5d4bfb54903f366cf57063",
+        "width": 1280
+      },
+      {
+        "caption": "Converging data",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-002",
+          "MZ-CHAR-003"
+        ],
+        "continuity_notes": "Team coordination rising",
+        "dialogue": "TWOTONE: Stage is the distraction path.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P05_PANEL03",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P05_PANEL03.png",
+        "sha256": "cc0cf139a52c6460b1b0c31f935b27abe4ceeff59bc0b3270cbc458266dd4066",
+        "width": 1280
+      },
+      {
+        "caption": "Public pressure",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-LILDEVIL"
+        ],
+        "continuity_notes": "Obvious choice: restore stage",
+        "dialogue": "NEONBLUE: If we lose the stage, the whole festival panics\u2014",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P06_PANEL01",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P06_PANEL01.png",
+        "sha256": "63d3c97ad0a096b0f5ec5db0e7e344d5bd6a1714f87dd82640e5a80ec58e8a77",
+        "width": 1280
+      },
+      {
+        "caption": "Overlooked trap",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-006"
+        ],
+        "continuity_notes": "Overlooked people vs spotlight",
+        "dialogue": "STATIC: They\u2019re stuck back here!",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P06_PANEL02",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P06_PANEL02.png",
+        "sha256": "bc8b784689274290cb79a36fc4d22cbfb20351e226ce2606e779531778dba766",
+        "width": 1280
+      },
+      {
+        "caption": "Choice forming",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-001"
+        ],
+        "continuity_notes": "NeonBlue chooses the unseen",
+        "dialogue": "NEONBLUE: \u2026They\u2019ll be left behind.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P06_PANEL03",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P06_PANEL03.png",
+        "sha256": "7fff4494bb00c2bc3e5f20a227e51ab232cf4aae3fdada7a549e769d60e200d3",
+        "width": 1280
+      },
+      {
+        "caption": "Honest plan",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-LILDEVIL",
+          "MZ-CHAR-003",
+          "MZ-CHAR-002"
+        ],
+        "continuity_notes": "Hope admits danger",
+        "dialogue": "NEONBLUE: The system may fail. Here\u2019s what we do anyway.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P07_PANEL01",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P07_PANEL01.png",
+        "sha256": "8d3191e91b644891e492c83e90d1bb3b01502492a2a5f482ffe442153cff581a",
+        "width": 1280
+      },
+      {
+        "caption": "Restrained power",
+        "characters": [
+          "MZ-CHAR-LILDEVIL",
+          "MZ-CHAR-005"
+        ],
+        "continuity_notes": "Lil Devil learns directed force",
+        "dialogue": "LIL DEVIL: Fine\u2014directed smash only.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P07_PANEL02",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P07_PANEL02.png",
+        "sha256": "8d9cac7c9f6602f8f584639032616fb7efe9b9af88b7ba09f19d7a116a461764",
+        "width": 1280
+      },
+      {
+        "caption": "Rescue of the left-behind",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-002",
+          "MZ-CHAR-003",
+          "MZ-CHAR-006"
+        ],
+        "continuity_notes": "Rescue succeeds because of choice",
+        "dialogue": "NEONBLUE: We get everyone out. That\u2019s the win.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P07_PANEL03",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P07_PANEL03.png",
+        "sha256": "2c031ccffada9de36391ea592095786c3b37efb57f87ae3c9492bb2262875921",
+        "width": 1280
+      },
+      {
+        "caption": "Reduced celebration",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-001",
+          "MZ-CHAR-LILDEVIL"
+        ],
+        "continuity_notes": "No slogan ending",
+        "dialogue": "NEONBLUE: Not perfect. We got them out. That\u2019s enough.",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P08_PANEL01",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P08_PANEL01.png",
+        "sha256": "0b4abc9625c617f87c28db512cee38f88d2faeae1f2201ac18883d0acd3205e3",
+        "width": 1280
+      },
+      {
+        "caption": "One-sixth Echo",
+        "characters": [
+          "MZ-CHAR-005"
+        ],
+        "continuity_notes": "Partial Echo only; incomplete emblem",
+        "dialogue": "\u2014",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P08_PANEL02",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P08_PANEL02.png",
+        "sha256": "465bdbba7cd0f58e3b57e07cfe4e76dde639090315ea51f062cd3e5dc8d5b313",
+        "width": 1280
+      },
+      {
+        "caption": "New question",
+        "characters": [
+          "MZ-CHAR-005",
+          "MZ-CHAR-004"
+        ],
+        "continuity_notes": "Open Patch thread; no resolution",
+        "dialogue": "NEONBLUE: Why did that relay know me?",
+        "error": null,
+        "exists": true,
+        "format": "PNG",
+        "height": 960,
+        "panel_id": "MZ-2026-08-01_P08_PANEL03",
+        "path": "generated_art/selected_panels/MZ-2026-08-01_P08_PANEL03.png",
+        "sha256": "64a3fef561ccc9106c2ad5b64bb5b9de27d96a0666892d3c7d27b9b44556c703",
+        "width": 1280
+      }
+    ],
+    "planned_panel_count": 24,
+    "selected_panel_count": 24
+  },
+  "evidence_hash": "b7c93f64739ffe95300fcc25748f64909c8064f86929aa9c481594c3864a8f01",
+  "evidence_stale": false,
+  "issue_id": "MZ-2026-08-01",
+  "owner_notes": "",
+  "review_id": "qa-20260715T230952Z-5e6ce7",
+  "schema_version": "1.0",
+  "verdict": null
+}

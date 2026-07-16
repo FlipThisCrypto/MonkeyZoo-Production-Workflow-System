@@ -7,7 +7,11 @@
     "steps": 30,
     "cfg": 6.0,
     "sampler": "dpmpp_2m_karras",
-    "base_resolutions": { "wide": "1216x832", "square": "1024x1024", "tall": "832x1216" }
+    "base_resolutions": {
+      "wide": "1216x832",
+      "square": "1024x1024",
+      "tall": "832x1216"
+    }
   },
   "panels": [
     {
@@ -26,11 +30,21 @@
       "style_lock_phrase_included": true,
       "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, EMPTY BACKGROUND PLATE with no characters, disused sci-fi corridor in deep one-point perspective, rows of numbered chamber doors, dusty floor with dormant light lines, dead floating screens, faint sickly green pulse glowing from the far end, soft-focus background simplification, desaturated charcoal and grey palette",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, any characters, monkeys, creatures, readable text on signs",
-      "references_required": ["Ed.4 facility corridor description (world_bible.md section 2)"],
+      "references_required": [
+        "Ed.4 facility corridor description (world_bible.md section 2)"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50001,
-      "controlnet": { "required": false, "type": "none", "reference": "" },
-      "identity_stack": { "tier": "text-only", "lora": [], "ipadapter_refs": [] },
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      },
       "resolution": "1216x832",
       "bubble_space_note": "n/a — plate"
     },
@@ -50,11 +64,22 @@
       "style_lock_phrase_included": true,
       "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, EMPTY BACKGROUND PLATE with no characters, vast circular sci-fi hall seen from high wide angle, central cracked glass cylinder chamber leaking pulsing green light through the fractures, dormant energy lines radiating across the floor, scattered debris, single light source green glow, deep shadow edges, soft-focus background simplification",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, any characters, monkeys, creatures, readable text on screens",
-      "references_required": ["Ed.4 fusion chamber description (world_bible.md section 2)", "Ed.4 rear-cover teaser image if archived"],
+      "references_required": [
+        "Ed.4 fusion chamber description (world_bible.md section 2)",
+        "Ed.4 rear-cover teaser image if archived"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50002,
-      "controlnet": { "required": false, "type": "none", "reference": "" },
-      "identity_stack": { "tier": "text-only", "lora": [], "ipadapter_refs": [] },
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      },
       "resolution": "832x1216",
       "bubble_space_note": "n/a — plate"
     },
@@ -63,14 +88,21 @@
       "page_number": 1,
       "panel_number": 1,
       "panel_id": "MZ-2026-07-05_P01_PANEL01",
-      "character_tokens": ["mz_moodz", "mz_twotone", "mz_static", "mz_ash", "mz_neonblue", "mz_scarline"],
+      "character_tokens": [
+        "mz_moodz",
+        "mz_twotone",
+        "mz_static",
+        "mz_ash",
+        "mz_neonblue",
+        "mz_scarline"
+      ],
       "character_design_reminders": [
         "Moodz: pale face, black emo fringe with blue streak, grey eye rings, studded cuffs, platform boots",
-        "TwoTone: hard vertical split, charcoal-black left half, off-white right half",
-        "Static: grey fur, jagged hair spikes, headphones around neck",
-        "Ash: charcoal hoodie hood up, half-lidded eyes, long sleeves",
-        "NeonBlue: neon-blue hair flick and zip jacket with subtle glow edge",
-        "Scarline: deep umber fur, stitched scar left brow to cheek, oxblood scarf"
+        "TwoTone: shaggy hair split half-black half-white, standard body",
+        "Static: black slicked widow's-peak hair, grey goggle eye-rings",
+        "Ash: silver-white emo fringe over one eye, grey eye bags, open black vest",
+        "NeonBlue: white-and-cyan spike crown, black studded vest, glowing cyan hair roots",
+        "Scarline: white bowl-cut with scarlet-red streak on the left, open black studded biker jacket"
       ],
       "pose": "six monkeys huddled in loose group under billboard, Moodz front receiving falling envelope in mitten hands; COMPOSE IN LAYERS: street plate + two 3-character groups",
       "expression": "wary, looking up at drone/envelope",
@@ -79,13 +111,27 @@
       "lighting": "cold neon rim light, billboard flicker, rain sheen",
       "color_palette": "desaturated greys with cyan-magenta neon accents; NO green",
       "style_lock_phrase_included": true,
-      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, wide establishing shot slight low angle, night rain on a cyberpunk street, six chibi monkeys huddled under a flickering billboard, mz_moodz (pale face, black fringe with blue streak, studded cuffs, platform boots), mz_twotone (hard vertical black-white split), mz_static (grey, jagged hair spikes, neck headphones), mz_ash (charcoal hoodie hood up, half-lidded eyes), mz_neonblue (neon-blue hair flick and glowing zip jacket), mz_scarline (deep umber fur, stitched brow scar, oxblood scarf), a small courier drone dropping a glowing pastel envelope toward the front monkey, wet asphalt neon reflections, desaturated grey street with cyan and magenta neon accents, characters small in frame, empty sky upper fifth for caption",
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, wide establishing shot slight low angle, night rain on a cyberpunk street, six chibi monkeys huddled under a flickering billboard, mz_moodz (pale face, black fringe with blue streak, studded cuffs, platform boots), mz_twotone (half-black-half-white split hair), mz_static (black slicked hair, grey eye rings), mz_ash (silver-white emo fringe over one eye, half-lidded eyes), mz_neonblue (glowing white-cyan spike crown), mz_scarline (silver-white bowl-cut with red streak, black studded biker jacket), a small courier drone dropping a glowing pastel envelope toward the front monkey, wet asphalt neon reflections, desaturated grey street with cyan and magenta neon accents, characters small in frame, empty sky upper fifth for caption",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green glow, green lighting, seventh monkey, readable billboard text",
-      "references_required": ["references/background_refs/zoo_city_street_plate.png", "03_APPROVED_CANON/approved_characters/* (all six)", "emo.png (street mood ref)"],
+      "references_required": [
+        "references/background_refs/zoo_city_street_plate.png",
+        "03_APPROVED_CANON/approved_characters/* (all six)",
+        "emo.png (street mood ref)"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50101,
-      "controlnet": { "required": true, "type": "depth", "reference": "references/background_refs/zoo_city_street_plate.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["03_APPROVED_CANON/approved_characters/<each lead>/ 2 refs each"] },
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/background_refs/zoo_city_street_plate.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "03_APPROVED_CANON/approved_characters/<each lead>/ 2 refs each"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "caption box top-left; keep upper fifth clear"
     },
@@ -94,10 +140,14 @@
       "page_number": 1,
       "panel_number": 2,
       "panel_id": "MZ-2026-07-05_P01_PANEL02",
-      "character_tokens": ["mz_static", "mz_twotone", "mz_moodz"],
+      "character_tokens": [
+        "mz_static",
+        "mz_twotone",
+        "mz_moodz"
+      ],
       "character_design_reminders": [
-        "Static: grey fur, jagged hair spikes, headphones around neck, shake lines ON",
-        "TwoTone: hard vertical black-white split, level flat mouth",
+        "Static: black slicked widow's-peak hair, grey goggle eye-rings, shake lines ON",
+        "TwoTone: half-black-half-white split hairstyle, level flat mouth",
         "Moodz: pale face, black fringe with blue streak, grey eye rings"
       ],
       "pose": "blank pastel notice held up in foreground mitts, three faces behind it reacting",
@@ -107,13 +157,29 @@
       "lighting": "soft pastel glow from the notice onto faces",
       "color_palette": "grey street neutrals, pastel pink-cream notice; NO green",
       "style_lock_phrase_included": true,
-      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, close-up of a BLANK glowing pastel notice card held in mitten hands in the foreground, three chibi monkey faces behind it reacting, mz_static (grey, jagged hair spikes, neck headphones, wide-eyed alarm, shake lines), mz_twotone (hard vertical black-white split, one raised brow), mz_moodz (pale face, black fringe with blue streak, wary side-eye), soft pastel glow from the card lighting their faces, rainy street bokeh behind, top fifth of frame empty for speech balloons",
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, close-up of a BLANK glowing pastel notice card held in mitten hands in the foreground, three chibi monkey faces behind it reacting, mz_static (black slicked hair, grey eye rings, wide-eyed alarm, shake lines), mz_twotone (hard half-black-half-white split hairstyle, one raised brow), mz_moodz (pale face, black fringe with blue streak, wary side-eye), soft pastel glow from the card lighting their faces, rainy street bokeh behind, top fifth of frame empty for speech balloons",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, text on the notice card, letters, typography, green glow",
-      "references_required": ["03_APPROVED_CANON/approved_characters/static/", "03_APPROVED_CANON/approved_characters/twotone/", "03_APPROVED_CANON/approved_characters/moodz/"],
+      "references_required": [
+        "03_APPROVED_CANON/approved_characters/static/",
+        "03_APPROVED_CANON/approved_characters/twotone/",
+        "03_APPROVED_CANON/approved_characters/moodz/"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50102,
-      "controlnet": { "required": true, "type": "openpose", "reference": "references/pose_refs/p01_notice_group.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["static x2", "twotone x2", "moodz x2"] },
+      "controlnet": {
+        "required": true,
+        "type": "openpose",
+        "reference": "references/pose_refs/p01_notice_group.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "static x2",
+          "twotone x2",
+          "moodz x2"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "three balloons across top fifth, Static-TwoTone-Static order"
     },
@@ -122,8 +188,12 @@
       "page_number": 2,
       "panel_number": 1,
       "panel_id": "MZ-2026-07-05_P02_PANEL01",
-      "character_tokens": ["mz_moodz"],
-      "character_design_reminders": ["Moodz: pale face, black emo fringe with blue streak, grey eye rings, studded cuffs and pants, platform boots"],
+      "character_tokens": [
+        "mz_moodz"
+      ],
+      "character_design_reminders": [
+        "Moodz: pale face, black emo fringe with blue streak, grey eye rings, studded cuffs and pants, platform boots"
+      ],
       "pose": "standing before a rusted door, seen from behind at three-quarter, face reflected in wet glass panel beside the door",
       "expression": "quiet dread hardening into resolve (visible in reflection)",
       "environment": "dead-end service alley, rusted Annex door with green light bleeding from the bottom seam, wet glass wall panel",
@@ -133,11 +203,24 @@
       "style_lock_phrase_included": true,
       "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, medium shot from behind, mz_moodz (pale face, black emo fringe with blue streak, grey eye rings, black studded cuffs and pants, grey platform boots) standing before a rusted metal door in a dead-end alley, sickly green light bleeding only from the bottom door seam, his face reflected in a wet glass panel beside the door showing quiet dread, dim grey alley, rust browns, restrained composition with heavy negative space, bottom third clear for caption",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, green flooding the scene, open door, other monkeys",
-      "references_required": ["03_APPROVED_CANON/approved_characters/moodz/", "references/background_refs/annex_alley_plate.png"],
+      "references_required": [
+        "03_APPROVED_CANON/approved_characters/moodz/",
+        "references/background_refs/annex_alley_plate.png"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50201,
-      "controlnet": { "required": true, "type": "depth", "reference": "references/background_refs/annex_alley_plate.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["moodz x3 incl one back view"] },
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/background_refs/annex_alley_plate.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "moodz x3 incl one back view"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "caption box bottom third"
     },
@@ -146,10 +229,13 @@
       "page_number": 2,
       "panel_number": 2,
       "panel_id": "MZ-2026-07-05_P02_PANEL02",
-      "character_tokens": ["mz_neonblue", "mz_ash"],
+      "character_tokens": [
+        "mz_neonblue",
+        "mz_ash"
+      ],
       "character_design_reminders": [
-        "NeonBlue: neon-blue hair flick, neon-blue zip jacket subtle glow edge, wide smile",
-        "Ash: charcoal hoodie hood up, half-lidded eyes, too-long sleeves, ember-orange drawstring tip"
+        "NeonBlue: white spike crown with cyan streaks, black vest with white studs, effortful smile",
+        "Ash: shaggy silver-white emo fringe over one eye, droopy grey-bagged eyes, open black vest, stitched chest, black studded pants"
       ],
       "pose": "NeonBlue bouncing on toes with open expansive posture; Ash motionless, arms crossed, staring at door seam",
       "expression": "NeonBlue bright grin; Ash half-lidded deadpan",
@@ -158,13 +244,27 @@
       "lighting": "dim grey with faint green rim from the seam",
       "color_palette": "neon blue accent vs desaturated charcoal; minimal green",
       "style_lock_phrase_included": true,
-      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, eye-level two-shot in a dim alley, mz_neonblue (brown monkey, swept neon-blue hair flick, neon-blue zip jacket with subtle glow edge, wide bright grin, bouncing on toes, open posture) beside mz_ash (ash-grey monkey, charcoal hoodie with hood up, half-lidded eyes, too-long sleeves, ember-orange drawstring tip, arms crossed, perfectly still), faint green rim light from a door seam behind them, contrast of bouncy optimism and flat stillness, top third clear for balloons",
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, eye-level two-shot in a dim alley, mz_neonblue (chocolate-brown monkey with pale grey face, starburst crown of white hair spikes with electric-cyan streaks, grey under-eye bags, silver plug in left ear, black vest with white studs, bright grin, bouncing on toes, open posture) beside mz_ash (pale-faced monkey with shaggy silver-white emo fringe over one eye, droopy grey-bagged eyes, open black vest over stitched chest, mocha-brown arms, arms crossed, perfectly still), faint green rim light from a door seam behind them, contrast of bouncy optimism and flat stillness, top third clear for balloons",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, hood down, Ash smiling, green flooding scene",
-      "references_required": ["03_APPROVED_CANON/approved_characters/neonblue/", "03_APPROVED_CANON/approved_characters/ash/"],
+      "references_required": [
+        "03_APPROVED_CANON/approved_characters/neonblue/",
+        "03_APPROVED_CANON/approved_characters/ash/"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50202,
-      "controlnet": { "required": true, "type": "openpose", "reference": "references/pose_refs/p02_twoshot.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["neonblue x2", "ash x2"] },
+      "controlnet": {
+        "required": true,
+        "type": "openpose",
+        "reference": "references/pose_refs/p02_twoshot.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "neonblue x2",
+          "ash x2"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "two balloons top third, NeonBlue left, Ash right"
     },
@@ -173,8 +273,12 @@
       "page_number": 2,
       "panel_number": 3,
       "panel_id": "MZ-2026-07-05_P02_PANEL03",
-      "character_tokens": ["mz_moodz"],
-      "character_design_reminders": ["Moodz: pale face, black fringe with blue streak, studded cuffs, platform boots"],
+      "character_tokens": [
+        "mz_moodz"
+      ],
+      "character_design_reminders": [
+        "Moodz: pale face, black fringe with blue streak, studded cuffs, platform boots"
+      ],
       "pose": "mitten hand pushing heavy door open, body braced, seen from low angle; faceless squad silhouettes small behind him",
       "expression": "set jaw, protective resolve",
       "environment": "alley door swinging open into green darkness, wedge of green light spilling across the frame",
@@ -184,11 +288,24 @@
       "style_lock_phrase_included": true,
       "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, dramatic low angle shot, mz_moodz (pale face, black emo fringe with blue streak, grey eye rings, black studded cuffs, grey platform boots) pushing a heavy rusted door open with one mitten hand, a wedge of sickly green light spilling out across the dark alley floor, faceless squad silhouettes small in the background behind him, set determined expression, strong diagonal composition, left third clear for balloon",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, visible faces on silhouettes, interior visible in detail",
-      "references_required": ["03_APPROVED_CANON/approved_characters/moodz/", "references/background_refs/annex_alley_plate.png"],
+      "references_required": [
+        "03_APPROVED_CANON/approved_characters/moodz/",
+        "references/background_refs/annex_alley_plate.png"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50203,
-      "controlnet": { "required": true, "type": "openpose", "reference": "references/pose_refs/p02_doorpush.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["moodz x3"] },
+      "controlnet": {
+        "required": true,
+        "type": "openpose",
+        "reference": "references/pose_refs/p02_doorpush.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "moodz x3"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "one balloon upper-left third"
     },
@@ -197,10 +314,13 @@
       "page_number": 3,
       "panel_number": 1,
       "panel_id": "MZ-2026-07-05_P03_PANEL01",
-      "character_tokens": ["mz_moodz", "mz_static"],
+      "character_tokens": [
+        "mz_moodz",
+        "mz_static"
+      ],
       "character_design_reminders": [
         "Moodz: pale face, black fringe with blue streak, leading stance",
-        "Static: grey, hair spikes, neck headphones, shake lines"
+        "Static: black slicked hair, grey eye rings, shake lines"
       ],
       "pose": "Moodz walking point, Static close behind gripping his own tail nervously, two rim-lit shapes further back",
       "expression": "Moodz focused; Static clenched, eyes darting",
@@ -209,13 +329,28 @@
       "lighting": "dark, rhythmic green pulse from corridor end",
       "color_palette": "charcoal greys, green vanishing point",
       "style_lock_phrase_included": true,
-      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, wide one-point perspective down a disused sci-fi corridor with numbered doors, mz_moodz (pale face, black fringe with blue streak, studded cuffs) walking point with focused expression, mz_static (grey monkey, jagged hair spikes, headphones around neck, shake lines, gripping his own curled tail nervously) close behind, two faceless rim-lit squad silhouettes further back, breathing green pulse glowing at the far vanishing point, oppressive symmetrical architecture, characters small against the corridor, top fifth clear for balloon",
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, wide one-point perspective down a disused sci-fi corridor with numbered doors, mz_moodz (pale face, black fringe with blue streak, studded cuffs) walking point with focused expression, mz_static (pale-grey-faced monkey, glossy black slicked widow's-peak hair, grey rings under eyes, shake lines, gripping his own curled tail nervously) close behind, two faceless rim-lit squad silhouettes further back, breathing green pulse glowing at the far vanishing point, oppressive symmetrical architecture, characters small against the corridor, top fifth clear for balloon",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, zombies visible, readable door numbers",
-      "references_required": ["references/background_refs/annex_corridor_plate.png (from P00_PLATE01)", "03_APPROVED_CANON/approved_characters/moodz/", "03_APPROVED_CANON/approved_characters/static/"],
+      "references_required": [
+        "references/background_refs/annex_corridor_plate.png (from P00_PLATE01)",
+        "03_APPROVED_CANON/approved_characters/moodz/",
+        "03_APPROVED_CANON/approved_characters/static/"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50301,
-      "controlnet": { "required": true, "type": "depth", "reference": "references/background_refs/annex_corridor_plate.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["moodz x2", "static x2"] },
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/background_refs/annex_corridor_plate.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "moodz x2",
+          "static x2"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "one balloon top fifth, tail to Static"
     },
@@ -224,8 +359,12 @@
       "page_number": 3,
       "panel_number": 2,
       "panel_id": "MZ-2026-07-05_P03_PANEL02",
-      "character_tokens": ["mz_faction_zombie"],
-      "character_design_reminders": ["The Stayed: pale-green zombie monkeys, exposed purple brains, rotten teeth, olive plush bodies with stitches, swaying not lunging"],
+      "character_tokens": [
+        "mz_faction_zombie"
+      ],
+      "character_design_reminders": [
+        "The Stayed: pale-green zombie monkeys, exposed purple brains, rotten teeth, olive plush bodies with stitches, swaying not lunging"
+      ],
       "pose": "three to four zombie monkeys shambling forward out of green haze in slow sway, arms loose; squad backs as dark foreground frame",
       "expression": "vacant hunger, tragic-funny, tiny pinprick pupils",
       "environment": "corridor mouth opening into green-lit dark",
@@ -235,11 +374,24 @@
       "style_lock_phrase_included": true,
       "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, over-shoulder shot framed by dark squad silhouettes in the foreground, three mz_faction_zombie monkeys (pale-green skin, exposed purple brains, rotten teeth, olive-green plush bodies with stitches) shambling slowly out of a green haze, swaying gentle zombie walk, vacant tragic-funny expressions with pinprick pupils, green backlight, comedy-horror tone not gore, middle band clear for chant balloons",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, blood, gore, wounds dripping red, horror realism, lunging attack poses",
-      "references_required": ["zombie.png (#1997 faction ref)", "references/background_refs/annex_corridor_plate.png"],
+      "references_required": [
+        "zombie.png (#1997 faction ref)",
+        "references/background_refs/annex_corridor_plate.png"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50302,
-      "controlnet": { "required": true, "type": "depth", "reference": "references/background_refs/annex_corridor_plate.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["zombie.png"] },
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/background_refs/annex_corridor_plate.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "zombie.png"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "two ragged chant balloons mid-band: MORE. MORE."
     },
@@ -248,8 +400,12 @@
       "page_number": 3,
       "panel_number": 3,
       "panel_id": "MZ-2026-07-05_P03_PANEL03",
-      "character_tokens": ["mz_faction_zombie"],
-      "character_design_reminders": ["Single Stayed face: huge white eyes, pinprick pupils, rotten grin, exposed brain glinting green — tragic-funny, not horror"],
+      "character_tokens": [
+        "mz_faction_zombie"
+      ],
+      "character_design_reminders": [
+        "Single Stayed face: huge white eyes, pinprick pupils, rotten grin, exposed brain glinting green — tragic-funny, not horror"
+      ],
       "pose": "single zombie face filling the frame, slight head tilt",
       "expression": "vacant rotten grin, pitiable",
       "environment": "abstract green-dark background",
@@ -259,11 +415,23 @@
       "style_lock_phrase_included": true,
       "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, extreme close-up of a single mz_faction_zombie monkey face filling the frame, pale-green skin, huge white oval eyes with pinprick pupils, rotten toothy grin, exposed purple brain glinting with green light, slight head tilt, expression pitiable and absurd rather than scary, abstract dark green background, bottom quarter clear for caption",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, blood, gore, realistic decay, body visible",
-      "references_required": ["zombie.png (#1997 faction ref)"],
+      "references_required": [
+        "zombie.png (#1997 faction ref)"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50303,
-      "controlnet": { "required": false, "type": "none", "reference": "" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["zombie.png"] },
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "zombie.png"
+        ]
+      },
       "resolution": "1024x1024",
       "bubble_space_note": "caption box bottom quarter"
     },
@@ -272,7 +440,15 @@
       "page_number": 4,
       "panel_number": 1,
       "panel_id": "MZ-2026-07-05_P04_PANEL01",
-      "character_tokens": ["mz_faction_zombie", "mz_moodz", "mz_twotone", "mz_static", "mz_ash", "mz_neonblue", "mz_scarline"],
+      "character_tokens": [
+        "mz_faction_zombie",
+        "mz_moodz",
+        "mz_twotone",
+        "mz_static",
+        "mz_ash",
+        "mz_neonblue",
+        "mz_scarline"
+      ],
       "character_design_reminders": [
         "Horde: 8-10 Stayed, faceless-at-distance except two near figures per faction ref",
         "Squad: six tiny dark silhouettes with signature shapes readable (fringe, split, spikes, hood, flick, scarf) in bottom-left doorway"
@@ -284,13 +460,27 @@
       "lighting": "single green source at center, orbital shadows",
       "color_palette": "black hall, radioactive green core, olive horde",
       "style_lock_phrase_included": true,
-      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, full-page splash, high wide angle looking down into a vast circular hall, a cracked glass cylinder chamber at center leaking pulsing green light, eight to ten mz_faction_zombie monkeys (pale-green, exposed purple brains, olive plush bodies) shuffling in a slow circular orbit around it like moths, two nearest zombies detailed and the rest simplified shapes, six tiny squad silhouettes with readable signature shapes (emo fringe, vertical split, hair spikes, hood, neon flick, scarf) clustered in a doorway at bottom-left breaking the symmetry, radiating dormant floor lines, monumental scale, sorrowful grandeur, upper band clear for caption",
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, full-page splash, high wide angle looking down into a vast circular hall, a cracked glass cylinder chamber at center leaking pulsing green light, eight to ten mz_faction_zombie monkeys (pale-green, exposed purple brains, olive plush bodies) shuffling in a slow circular orbit around it like moths, two nearest zombies detailed and the rest simplified shapes, six tiny squad silhouettes with readable signature shapes (black-blue emo fringe, split black-white hair, slick black widow's-peak hair, shaggy white fringe, cyan-streaked spike crown, red-streaked white bowl-cut) clustered in a doorway at bottom-left breaking the symmetry, radiating dormant floor lines, monumental scale, sorrowful grandeur, upper band clear for caption",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, blood, gore, squad faces visible, detailed faces on distant horde, readable screen text",
-      "references_required": ["references/background_refs/chamber0_hall_plate.png (from P00_PLATE02)", "zombie.png", "references/pose_refs/p04_splash_sketch.png (composition sketch REQUIRED)"],
+      "references_required": [
+        "references/background_refs/chamber0_hall_plate.png (from P00_PLATE02)",
+        "zombie.png",
+        "references/pose_refs/p04_splash_sketch.png (composition sketch REQUIRED)"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50401,
-      "controlnet": { "required": true, "type": "depth", "reference": "references/pose_refs/p04_splash_sketch.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["zombie.png"] },
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/pose_refs/p04_splash_sketch.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "zombie.png"
+        ]
+      },
       "resolution": "832x1216",
       "bubble_space_note": "caption box in upper dark band; full-bleed page, no border"
     },
@@ -299,9 +489,12 @@
       "page_number": 5,
       "panel_number": 1,
       "panel_id": "MZ-2026-07-05_P05_PANEL01",
-      "character_tokens": ["mz_neonblue", "mz_faction_zombie"],
+      "character_tokens": [
+        "mz_neonblue",
+        "mz_faction_zombie"
+      ],
       "character_design_reminders": [
-        "NeonBlue: neon-blue flick and jacket, smile MID-FALL (held, not dropped)",
+        "NeonBlue: white-cyan spike crown, black vest, smile MID-FALL (held, not dropped)",
         "Patch: faction ref #1997 EXACT — bitten left ear, bone-stump forearm, exposed brain, rotten teeth"
       ],
       "pose": "Patch shuffled to a stop in front of NeonBlue, head tilted; NeonBlue frozen mid-greeting",
@@ -311,13 +504,27 @@
       "lighting": "green ambient, NeonBlue's jacket glow dimming",
       "color_palette": "olive green vs neon blue — the issue's key color duel",
       "style_lock_phrase_included": true,
-      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, eye-level two-shot, a mz_faction_zombie monkey (pale-green skin, exposed purple brain, bitten left ear, bone-stump forearm, rotten teeth, olive plush body) stopped mid-shuffle with head tilted in front of mz_neonblue (brown monkey, neon-blue hair flick, neon-blue zip jacket with fading glow edge), NeonBlue's wide smile caught mid-falter, green ambient light against his blue glow, quiet confrontation staging with space between them, top third clear for balloon",
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, eye-level two-shot, a mz_faction_zombie monkey (pale-green skin, exposed purple brain, bitten left ear, bone-stump forearm, rotten teeth, olive plush body) stopped mid-shuffle with head tilted in front of mz_neonblue (brown monkey, white-and-cyan spike crown, black vest, cyan hair-root glow fading), NeonBlue's wide smile caught mid-falter, green ambient light against his blue glow, quiet confrontation staging with space between them, top third clear for balloon",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, blood, gore, attack pose, NeonBlue full smile, NeonBlue frowning",
-      "references_required": ["zombie.png (#1997 = Patch)", "03_APPROVED_CANON/approved_characters/neonblue/"],
+      "references_required": [
+        "zombie.png (#1997 = Patch)",
+        "03_APPROVED_CANON/approved_characters/neonblue/"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50501,
-      "controlnet": { "required": true, "type": "openpose", "reference": "references/pose_refs/p05_patch_meet.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["zombie.png", "neonblue x2"] },
+      "controlnet": {
+        "required": true,
+        "type": "openpose",
+        "reference": "references/pose_refs/p05_patch_meet.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "zombie.png",
+          "neonblue x2"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "one ragged balloon top third, tail to Patch"
     },
@@ -326,8 +533,12 @@
       "page_number": 5,
       "panel_number": 2,
       "panel_id": "MZ-2026-07-05_P05_PANEL02",
-      "character_tokens": ["mz_neonblue"],
-      "character_design_reminders": ["NeonBlue: neon-blue flick and jacket, THE smile-drop panel — smile fully fallen, glow edge dimmed 50%"],
+      "character_tokens": [
+        "mz_neonblue"
+      ],
+      "character_design_reminders": [
+        "NeonBlue: white-cyan spike crown, black vest, THE smile-drop panel — smile fully fallen, glow edge dimmed 50%"
+      ],
       "pose": "close-up, still, eyes wide, mouth small",
       "expression": "grief arriving mid-sentence — the once-per-issue smile-drop",
       "environment": "abstract green-dark, faint Patch reflection in eye highlight",
@@ -335,13 +546,25 @@
       "lighting": "dim green wash, jacket glow at half",
       "color_palette": "muted blue on dark green",
       "style_lock_phrase_included": true,
-      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, close-up portrait of mz_neonblue (brown monkey, swept neon-blue hair flick, neon-blue zip jacket with glow edge dimmed to half), his signature smile fully fallen into a small stunned mouth, huge eyes wide with a faint green silhouette reflected in one eye highlight, dim green wash background, still and quiet composition, bottom third clear for caption and balloon",
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, close-up portrait of mz_neonblue (brown monkey, starburst crown of white hair spikes with electric-cyan streaks, black studded vest with glow edge dimmed to half), his signature smile fully fallen into a small stunned mouth, huge eyes wide with a faint green silhouette reflected in one eye highlight, dim green wash background, still and quiet composition, bottom third clear for caption and balloon",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, smiling, grinning, tears, crying",
-      "references_required": ["03_APPROVED_CANON/approved_characters/neonblue/"],
+      "references_required": [
+        "03_APPROVED_CANON/approved_characters/neonblue/"
+      ],
       "seed_strategy": "per_character_base",
       "seed": 100005,
-      "controlnet": { "required": false, "type": "none", "reference": "" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["neonblue x3 incl one neutral-mouth ref"] },
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "neonblue x3 incl one neutral-mouth ref"
+        ]
+      },
       "resolution": "1024x1024",
       "bubble_space_note": "small balloon upper-left ('…Patch?'), caption bottom"
     },
@@ -350,7 +573,10 @@
       "page_number": 5,
       "panel_number": 3,
       "panel_id": "MZ-2026-07-05_P05_PANEL03",
-      "character_tokens": ["mz_faction_zombie", "mz_neonblue"],
+      "character_tokens": [
+        "mz_faction_zombie",
+        "mz_neonblue"
+      ],
       "character_design_reminders": [
         "Patch: bitten ear, bone stump, head tilt SINCERE not menacing",
         "NeonBlue: smile absent, posture deflated but composed"
@@ -362,13 +588,27 @@
       "lighting": "green ambient softened",
       "color_palette": "olive and muted blue",
       "style_lock_phrase_included": true,
-      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, reverse two-shot from slightly behind a mz_faction_zombie monkey (bitten left ear, bone-stump forearm, exposed purple brain) leaning in with a gentle sincere head tilt, facing mz_neonblue (neon-blue hair flick, blue zip jacket, no smile, deflated shoulders but standing his ground), soft green ambience, tender and sad staging not threatening, top third clear for two balloons",
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, reverse two-shot from slightly behind a mz_faction_zombie monkey (bitten left ear, bone-stump forearm, exposed purple brain) leaning in with a gentle sincere head tilt, facing mz_neonblue (white-and-cyan spike crown, black studded vest, no smile, deflated shoulders but standing his ground), soft green ambience, tender and sad staging not threatening, top third clear for two balloons",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, blood, gore, menacing looming, claws",
-      "references_required": ["zombie.png (#1997 = Patch)", "03_APPROVED_CANON/approved_characters/neonblue/"],
+      "references_required": [
+        "zombie.png (#1997 = Patch)",
+        "03_APPROVED_CANON/approved_characters/neonblue/"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50503,
-      "controlnet": { "required": true, "type": "openpose", "reference": "references/pose_refs/p05_leanin.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["zombie.png", "neonblue x2"] },
+      "controlnet": {
+        "required": true,
+        "type": "openpose",
+        "reference": "references/pose_refs/p05_leanin.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "zombie.png",
+          "neonblue x2"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "two balloons top third: Patch ragged left, NeonBlue right"
     },
@@ -377,7 +617,15 @@
       "page_number": 6,
       "panel_number": 1,
       "panel_id": "MZ-2026-07-05_P06_PANEL01",
-      "character_tokens": ["mz_moodz", "mz_twotone", "mz_static", "mz_ash", "mz_neonblue", "mz_scarline", "mz_faction_zombie"],
+      "character_tokens": [
+        "mz_moodz",
+        "mz_twotone",
+        "mz_static",
+        "mz_ash",
+        "mz_neonblue",
+        "mz_scarline",
+        "mz_faction_zombie"
+      ],
       "character_design_reminders": [
         "Squad: six leads rim-lit by waking floor lines, signature shapes readable",
         "The Stayed: turning in eerie unison toward the squad, background"
@@ -389,13 +637,28 @@
       "lighting": "harsh green flare, strobing floor path",
       "color_palette": "green flare over blacks",
       "style_lock_phrase_included": true,
-      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, dutch angle, the cracked glass chamber flaring awake with harsh green light, a path of floor lines igniting in sequence toward a cluster of six chibi monkeys with readable signature shapes (emo fringe with blue streak, black-white vertical split, grey hair spikes, charcoal hood, neon-blue flick, oxblood scarf) recoiling in alarm, one grey spiky monkey mid-shout, blank glowing screen face on the chamber, zombie monkeys turning in eerie unison in the background shadows, strobing urgency, upper-right clear for shout balloon and SFX",
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, dutch angle, the cracked glass chamber flaring awake with harsh green light, a path of floor lines igniting in sequence toward a cluster of six chibi monkeys with readable signature shapes (emo fringe with blue streak, half-black-half-white split hairstyle, slick black hair, white shaggy fringe, white-cyan spike crown, black studded biker jacket) recoiling in alarm, one grey spiky monkey mid-shout, blank glowing screen face on the chamber, zombie monkeys turning in eerie unison in the background shadows, strobing urgency, upper-right clear for shout balloon and SFX",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, readable screen text, anyone standing on the chamber platform, blood, gore",
-      "references_required": ["references/background_refs/chamber0_hall_plate.png", "all six lead ref folders", "zombie.png"],
+      "references_required": [
+        "references/background_refs/chamber0_hall_plate.png",
+        "all six lead ref folders",
+        "zombie.png"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50601,
-      "controlnet": { "required": true, "type": "depth", "reference": "references/background_refs/chamber0_hall_plate.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["all six leads x1 each", "zombie.png"] },
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/background_refs/chamber0_hall_plate.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "all six leads x1 each",
+          "zombie.png"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "shout balloon + WHRRRR SFX upper-right; screen text 'WELLNESS UPDATE READY. PLEASE HOLD STILL.' applied at lettering"
     },
@@ -404,8 +667,12 @@
       "page_number": 6,
       "panel_number": 2,
       "panel_id": "MZ-2026-07-05_P06_PANEL02",
-      "character_tokens": ["mz_moodz"],
-      "character_design_reminders": ["Moodz: pale face, black fringe with blue streak, grey eye rings, studded cuffs — CALM, steady eyes, small firm mouth"],
+      "character_tokens": [
+        "mz_moodz"
+      ],
+      "character_design_reminders": [
+        "Moodz: pale face, black fringe with blue streak, grey eye rings, studded cuffs — CALM, steady eyes, small firm mouth"
+      ],
       "pose": "standing dead-center at a control panel, one mitten hand holding a large abort switch down, weight settled, unhurried",
       "expression": "calm mastery — no fear, no anger",
       "environment": "Chamber 0 control panel, green light flickering and losing power around him",
@@ -415,11 +682,24 @@
       "style_lock_phrase_included": true,
       "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, perfectly symmetrical medium shot, mz_moodz (pale face, black emo fringe with blue streak, grey eye rings, black studded cuffs, platform boots) standing dead center at a control panel holding a large abort switch down with one mitten hand, completely calm, steady eyes, small firm mouth, green light flickering and dying around the frame edges as cool grey reclaims the scene, institutional symmetry owned by the character, monumental quiet, bottom third clear for balloon and caption",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, screaming, open mouth, action lines, other characters",
-      "references_required": ["03_APPROVED_CANON/approved_characters/moodz/", "references/background_refs/chamber0_hall_plate.png"],
+      "references_required": [
+        "03_APPROVED_CANON/approved_characters/moodz/",
+        "references/background_refs/chamber0_hall_plate.png"
+      ],
       "seed_strategy": "per_character_base",
       "seed": 100001,
-      "controlnet": { "required": true, "type": "openpose", "reference": "references/pose_refs/p06_abort_hold.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["moodz x3"] },
+      "controlnet": {
+        "required": true,
+        "type": "openpose",
+        "reference": "references/pose_refs/p06_abort_hold.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "moodz x3"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "small balloon lower-left ('Not today.'), caption box bottom edge"
     },
@@ -428,9 +708,12 @@
       "page_number": 7,
       "panel_number": 1,
       "panel_id": "MZ-2026-07-05_P07_PANEL01",
-      "character_tokens": ["mz_scarline", "mz_faction_zombie"],
+      "character_tokens": [
+        "mz_scarline",
+        "mz_faction_zombie"
+      ],
       "character_design_reminders": [
-        "Scarline: deep umber fur, single stitched scar left brow to cheek, oxblood scarf catching last green light, steady pupils, profile",
+        "Scarline: silver-white hair and palest face, single scarlet-red hair streak on the left, black studded biker jacket catching last green light, steady pupils, profile",
         "The Stayed: dim swaying background shapes"
       ],
       "pose": "Scarline in still profile, watching the horde; Stayed swaying gently in dimming background",
@@ -438,15 +721,30 @@
       "environment": "Chamber 0 hall powering down, green fading to embers",
       "camera_angle": "medium, profile",
       "lighting": "last green ember light on scarf edge",
-      "color_palette": "deep browns, oxblood, dying green",
+      "color_palette": "silver-white, scarlet hair-streak accent, dying green",
       "style_lock_phrase_included": true,
-      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, medium profile shot of mz_scarline (deep umber-brown monkey, single stitched scar from left brow to cheek, worn oxblood-red scarf with frayed ends, steady eyes) standing perfectly still watching swaying zombie monkey silhouettes in the dimming background, the last green ember light catching only her scarf edge, chamber powering down, stillness and authority, top band clear for balloons and SFX",
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, medium profile shot of mz_scarline (palest silver-white-faced monkey, white jagged bowl-cut with one scarlet-red streak on the left, grey eye rings, open black studded biker jacket over white chest, steady eyes) standing perfectly still watching swaying zombie monkey silhouettes in the dimming background, the last green ember light catching only her scarf edge, chamber powering down, stillness and authority, top band clear for balloons and SFX",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, multiple scars, scar on wrong side, frightened expression, blood, gore",
-      "references_required": ["03_APPROVED_CANON/approved_characters/scarline/", "zombie.png", "references/background_refs/chamber0_hall_plate.png"],
+      "references_required": [
+        "03_APPROVED_CANON/approved_characters/scarline/",
+        "zombie.png",
+        "references/background_refs/chamber0_hall_plate.png"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50701,
-      "controlnet": { "required": true, "type": "depth", "reference": "references/background_refs/chamber0_hall_plate.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["scarline x3", "zombie.png"] },
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/background_refs/chamber0_hall_plate.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "scarline x3",
+          "zombie.png"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "THUD SFX top-left; small fading chant balloon; Scarline's line bottom-right"
     },
@@ -455,10 +753,13 @@
       "page_number": 7,
       "panel_number": 2,
       "panel_id": "MZ-2026-07-05_P07_PANEL02",
-      "character_tokens": ["mz_moodz", "mz_twotone"],
+      "character_tokens": [
+        "mz_moodz",
+        "mz_twotone"
+      ],
       "character_design_reminders": [
         "Moodz: pale face, fringe with blue streak — hand gently stopping TwoTone's",
-        "TwoTone: vertical split, level mouth, reaction beat — stage on HIM"
+        "TwoTone: split black-white hair, level mouth, reaction beat — stage on HIM"
       ],
       "pose": "at the exit door, TwoTone's mitt on the door edge, Moodz's mitt resting on top stopping it; eye contact",
       "expression": "Moodz quiet certainty; TwoTone a rare flicker of surprise then acceptance",
@@ -467,13 +768,27 @@
       "lighting": "split lighting: rain grey vs interior dim",
       "color_palette": "greys and split shadow",
       "style_lock_phrase_included": true,
-      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, eye-level two-shot at a doorway threshold, mz_twotone (monkey split vertically charcoal-black left and off-white right, hard center edge) with one mitten hand on the door edge, mz_moodz (pale face, black fringe with blue streak, studded cuffs) resting his mitten hand gently on top to stop the door closing, eye contact between them, TwoTone showing a rare flicker of surprise, grey rain light from outside against dim interior, intimate quiet staging, top third clear for two balloons",
-      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, blended color split, gradient between halves, other characters visible",
-      "references_required": ["03_APPROVED_CANON/approved_characters/moodz/", "03_APPROVED_CANON/approved_characters/twotone/"],
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, eye-level two-shot at a doorway threshold, mz_twotone (pale-faced brown monkey with shaggy hair split vertically half jet-black half white, clean center parting) with one mitten hand on the door edge, mz_moodz (pale face, black fringe with blue streak, studded cuffs) resting his mitten hand gently on top to stop the door closing, eye contact between them, TwoTone showing a rare flicker of surprise, grey rain light from outside against dim interior, intimate quiet staging, top third clear for two balloons",
+      "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, blended hair split, gradient between hair halves, other characters visible",
+      "references_required": [
+        "03_APPROVED_CANON/approved_characters/moodz/",
+        "03_APPROVED_CANON/approved_characters/twotone/"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50702,
-      "controlnet": { "required": true, "type": "openpose", "reference": "references/pose_refs/p07_door_hands.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["moodz x2", "twotone x2"] },
+      "controlnet": {
+        "required": true,
+        "type": "openpose",
+        "reference": "references/pose_refs/p07_door_hands.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "moodz x2",
+          "twotone x2"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "two balloons top third: TwoTone left ('Locked?'), Moodz right ('Open. Their terms.')"
     },
@@ -482,8 +797,12 @@
       "page_number": 7,
       "panel_number": 3,
       "panel_id": "MZ-2026-07-05_P07_PANEL03",
-      "character_tokens": ["mz_faction_zombie"],
-      "character_design_reminders": ["Patch: bitten left ear, bone-stump forearm — small, still, seen from behind/three-quarter at the threshold"],
+      "character_tokens": [
+        "mz_faction_zombie"
+      ],
+      "character_design_reminders": [
+        "Patch: bitten left ear, bone-stump forearm — small, still, seen from behind/three-quarter at the threshold"
+      ],
       "pose": "Patch standing small at the open doorway, inside looking out at the rain, not crossing",
       "expression": "unreadable stillness (mostly silhouette)",
       "environment": "from inside the green-dim Annex looking out through the open door at grey rain-lit street",
@@ -493,11 +812,24 @@
       "style_lock_phrase_included": true,
       "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, wide shot from inside a dark green-tinted interior, a single small mz_faction_zombie monkey (bitten left ear, bone-stump forearm, olive plush body) standing at an open doorway seen from three-quarter behind, looking out at a bright silver-grey rain-lit street, not crossing the threshold, maximum negative space, two worlds in one frame, aching stillness, bottom quarter clear for caption",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, other zombies, squad visible, crossing the doorway, blood, gore",
-      "references_required": ["zombie.png (#1997 = Patch)", "references/background_refs/annex_alley_plate.png"],
+      "references_required": [
+        "zombie.png (#1997 = Patch)",
+        "references/background_refs/annex_alley_plate.png"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50703,
-      "controlnet": { "required": true, "type": "depth", "reference": "references/background_refs/annex_alley_plate.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["zombie.png"] },
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/background_refs/annex_alley_plate.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "zombie.png"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "caption box bottom quarter ('Choice is the upgrade.')"
     },
@@ -506,8 +838,17 @@
       "page_number": 8,
       "panel_number": 1,
       "panel_id": "MZ-2026-07-05_P08_PANEL01",
-      "character_tokens": ["mz_moodz", "mz_twotone", "mz_static", "mz_ash", "mz_neonblue", "mz_scarline"],
-      "character_design_reminders": ["All six from BEHIND: silhouette shapes must read — fringe, split, spikes, hood, flick, scarf; Scarline walking last"],
+      "character_tokens": [
+        "mz_moodz",
+        "mz_twotone",
+        "mz_static",
+        "mz_ash",
+        "mz_neonblue",
+        "mz_scarline"
+      ],
+      "character_design_reminders": [
+        "All six from BEHIND: silhouette shapes must read — fringe, split, spikes, hood, flick, scarf; Scarline walking last"
+      ],
       "pose": "six monkeys walking away down the street, backs to camera, loose line, Scarline unhurried at the rear; COMPOSE IN LAYERS: street plate + group",
       "expression": "posture only: tired, together",
       "environment": "Zoo City street, rain easing, puddle reflections, faint green Annex glow shrinking far behind",
@@ -515,13 +856,26 @@
       "lighting": "pre-dawn grey, softening neon",
       "color_palette": "silver greys, muted signature accents on each back",
       "style_lock_phrase_included": true,
-      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, wide shot from behind of six chibi monkeys walking away down a rain-slicked street toward the vanishing point, silhouette shapes readable from the back (black fringe with blue streak, vertical black-white split, grey hair spikes, charcoal hood up, neon-blue flick, oxblood scarf trailing, the scarfed one walking last unhurried), rain easing, puddle reflections, faint green glow shrinking in the far distance behind them, pre-dawn grey light, quiet togetherness, top fifth clear for balloons",
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, wide shot from behind of six chibi monkeys walking away down a rain-slicked street toward the vanishing point, silhouette shapes readable from the back (black fringe with blue streak, half-black-half-white split hairstyle, slick black hair, silver-white shaggy fringe, white-cyan spike crown, red-streaked white bowl-cut, the red-streaked white-haired one walking last unhurried), rain easing, puddle reflections, faint green glow shrinking in the far distance behind them, pre-dawn grey light, quiet togetherness, top fifth clear for balloons",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, faces visible, turning around, seventh figure",
-      "references_required": ["references/background_refs/zoo_city_street_plate.png", "all six lead ref folders (back views if available)"],
+      "references_required": [
+        "references/background_refs/zoo_city_street_plate.png",
+        "all six lead ref folders (back views if available)"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50801,
-      "controlnet": { "required": true, "type": "depth", "reference": "references/background_refs/zoo_city_street_plate.png" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["all six leads x1 each"] },
+      "controlnet": {
+        "required": true,
+        "type": "depth",
+        "reference": "references/background_refs/zoo_city_street_plate.png"
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "all six leads x1 each"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "two small balloons top fifth: Ash then Static"
     },
@@ -530,8 +884,12 @@
       "page_number": 8,
       "panel_number": 2,
       "panel_id": "MZ-2026-07-05_P08_PANEL02",
-      "character_tokens": ["mz_faction_super"],
-      "character_design_reminders": ["SILHOUETTE ONLY — hooded chibi monkey outline on rooftop edge, red domino mask the only lit detail, pastel notice in mitt; DO NOT reveal design"],
+      "character_tokens": [
+        "mz_faction_super"
+      ],
+      "character_design_reminders": [
+        "SILHOUETTE ONLY — hooded chibi monkey outline on rooftop edge, red domino mask the only lit detail, pastel notice in mitt; DO NOT reveal design"
+      ],
       "pose": "crouched-standing on rooftop parapet edge, looking down at the street, notice fluttering in one mitt",
       "expression": "hidden — silhouette",
       "environment": "rooftop parapet against neon-lit night sky, street tiny below",
@@ -541,11 +899,23 @@
       "style_lock_phrase_included": true,
       "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head, huge white oval eyes with tiny black dot pupils, two small dot nostrils, thick uniform black outlines, flat color fills with soft cel shading, simplified plush body with visible stitch seams, mitten hands, curled tail, clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop, dramatic low angle up at a rooftop parapet at night, a chibi monkey figure in FULL BLACK SILHOUETTE crouched at the edge looking down, only a red domino mask catching neon light and a small glowing pastel notice fluttering in one mitten hand, hooded outline, neon-lit night sky, mysterious teaser staging, bottom quarter clear for caption",
       "negative_prompt": "realistic anatomy, human hands, individual fingers, extra limbs, extra tails, small eyes, detailed fur texture, photorealism, 3d render, painterly brushwork, cross-hatching, thin sketchy lines, full-body gradient, watermark text, signature text, extra characters, duplicate character, redesigned costume, new accessories, jewelry, tattoos, extra scars, background characters with faces, deformed pupils, asymmetric eye sizes, visible face, visible costume details, cape, logo, green glow",
-      "references_required": ["super.png (silhouette shape reference only)"],
+      "references_required": [
+        "super.png (silhouette shape reference only)"
+      ],
       "seed_strategy": "per_panel",
       "seed": 50802,
-      "controlnet": { "required": false, "type": "none", "reference": "" },
-      "identity_stack": { "tier": "ipadapter", "lora": [], "ipadapter_refs": ["super.png at LOW weight, silhouette only"] },
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "ipadapter",
+        "lora": [],
+        "ipadapter_refs": [
+          "super.png at LOW weight, silhouette only"
+        ]
+      },
       "resolution": "1216x832",
       "bubble_space_note": "caption box bottom quarter ('Someone else got the recall notice too.')"
     }
