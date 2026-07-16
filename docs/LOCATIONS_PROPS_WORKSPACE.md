@@ -24,12 +24,23 @@ Season mapping: `story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/loc
 | GET | `/api/locations/<location_id>` |
 | GET | `/api/props` |
 | GET | `/api/props/<prop_id>` |
+| GET | `/api/expressions` |
+| GET | `/api/expressions/<slug>` |
 | GET | `/api/canon-catalog/summary` |
+| GET | `/media/locations/<slug>/primary-reference.png` |
+| GET | `/media/props/<slug>/primary-reference.png` |
+| GET | `/media/expressions/<slug>/<filename>` |
+
+Detail payloads include `primary_image_url` when a still is filed. Expression sheets are inventoried from `03_APPROVED_CANON/approved_expressions/` (owner-managed; optional on disk).
 
 ## GitHub Pages
 
-`docs/export_static_catalog.py` writes `docs/static/canon-catalog.json` during `sync_docs.ps1`. Static mode serves read-only list/detail snapshots.
+`docs/export_static_catalog.py` writes `docs/static/canon-catalog.json` during `sync_docs.ps1`. Static mode serves read-only list/detail snapshots (image bytes remain local-only).
 
-## Art next step
+## Art queue
 
-File selected stills as `primary-reference.png` in the matching folder. Priority targets are listed in `docs/ART_REFERENCE_PRIORITIES.md`.
+When a panel plan lists a location or props, Art Queue resolves them against approved inventories and attaches `location_ref` / `prop_refs` (with media URLs when present) next to character references.
+
+## Art stills
+
+File selected stills as `primary-reference.png` in the matching folder. Priority targets are listed in `docs/ART_REFERENCE_PRIORITIES.md`. **Current season baseline:** all inventory locations and props have primary stills.

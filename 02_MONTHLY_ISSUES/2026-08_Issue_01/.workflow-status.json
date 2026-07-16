@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "active_stage": "published",
+  "transitions": [
+    {
+      "completed_stage": "intake",
+      "from_stage": "intake",
+      "to_stage": "canon_review",
+      "validated_at": "2026-07-15T22:54:41+00:00",
+      "artifact_hash": "8db86c000d90800786b8edc56ce683c0b96efa5cf2b4cc7ccad3cd793bfc30e1",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "canon_review",
+      "from_stage": "canon_review",
+      "to_stage": "outline",
+      "validated_at": "2026-07-15T22:54:41+00:00",
+      "artifact_hash": "8db86c000d90800786b8edc56ce683c0b96efa5cf2b4cc7ccad3cd793bfc30e1",
+      "approval": {
+        "required": true,
+        "record_stage": "canon_review"
+      }
+    },
+    {
+      "completed_stage": "outline",
+      "from_stage": "outline",
+      "to_stage": "script",
+      "validated_at": "2026-07-15T22:54:42+00:00",
+      "artifact_hash": "fb134b948577b249e42e52117c9879ba9c840b91e01dcd8c0fac292ad04ed506",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "script",
+      "from_stage": "script",
+      "to_stage": "page_plan",
+      "validated_at": "2026-07-15T22:54:44+00:00",
+      "artifact_hash": "b84496aa873d0511cb662ab9a9d6dcdae9d3ccd01992c3d81023cfa1ef47a30d",
+      "approval": {
+        "required": true,
+        "record_stage": "script"
+      }
+    },
+    {
+      "completed_stage": "page_plan",
+      "from_stage": "page_plan",
+      "to_stage": "art_prompts",
+      "validated_at": "2026-07-15T22:56:42+00:00",
+      "artifact_hash": "e5667ee5d6c09b76393236e148078ee8b1c058a3a462c20eeb58d6a9728b8a1f",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "art_prompts",
+      "from_stage": "art_prompts",
+      "to_stage": "art_production",
+      "validated_at": "2026-07-15T22:58:55+00:00",
+      "artifact_hash": "dd845ec9990ae1d7ca7642edf40464596a3403ab287d8d473cbfc3484d8b3c87",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "art_production",
+      "from_stage": "art_production",
+      "to_stage": "qa",
+      "validated_at": "2026-07-15T23:04:47+00:00",
+      "artifact_hash": "bae29fc0d9cecafaa38b07463f1f0359821985a330581dcdcd8f7e514674e262",
+      "approval": {
+        "required": true,
+        "record_stage": "art_production"
+      }
+    },
+    {
+      "completed_stage": "qa",
+      "from_stage": "qa",
+      "to_stage": "release",
+      "validated_at": "2026-07-15T23:10:18+00:00",
+      "artifact_hash": "2199fb1b7d75074673bc3492adab6c690210ff3520a586daa80532c9d3407f01",
+      "approval": {
+        "required": true,
+        "record_stage": "qa"
+      }
+    },
+    {
+      "completed_stage": "qa",
+      "from_stage": "qa",
+      "to_stage": "release",
+      "validated_at": "2026-07-16T00:05:17+00:00",
+      "artifact_hash": "058fc5a13450d5cd2fcdb83f81af2aeac4160faaa0e0891b76fab323c0c00ec2",
+      "approval": {
+        "required": true,
+        "record_stage": "qa"
+      }
+    },
+    {
+      "completed_stage": "release",
+      "from_stage": "release",
+      "to_stage": "published",
+      "validated_at": "2026-07-16T00:05:23+00:00",
+      "artifact_hash": "9c68795b3ac9c033a766e528e2dce9ba929b9eb68a8238ea5a3d4c7efa706580",
+      "approval": {
+        "required": true,
+        "record_stage": "release"
+      }
+    }
+  ],
+  "approvals": {
+    "canon_review": {
+      "stage": "canon_review",
+      "approved": true,
+      "timestamp": "2026-07-15T22:54:41+00:00",
+      "artifact_hash": "8db86c000d90800786b8edc56ce683c0b96efa5cf2b4cc7ccad3cd793bfc30e1",
+      "note": "Issue 01 NeonBlue season package \u2014 owner path",
+      "actor": "project_owner"
+    },
+    "script": {
+      "stage": "script",
+      "approved": true,
+      "timestamp": "2026-07-15T22:54:44+00:00",
+      "artifact_hash": "b84496aa873d0511cb662ab9a9d6dcdae9d3ccd01992c3d81023cfa1ef47a30d",
+      "note": "Issue 01 NeonBlue season package \u2014 owner path",
+      "actor": "project_owner"
+    },
+    "art_production": {
+      "stage": "art_production",
+      "approved": true,
+      "timestamp": "2026-07-15T23:04:47+00:00",
+      "artifact_hash": "bae29fc0d9cecafaa38b07463f1f0359821985a330581dcdcd8f7e514674e262",
+      "note": "Issue 01 draft composites selected for all 24 panels",
+      "actor": "project_owner"
+    },
+    "qa": {
+      "stage": "qa",
+      "approved": true,
+      "timestamp": "2026-07-16T00:05:17+00:00",
+      "artifact_hash": "058fc5a13450d5cd2fcdb83f81af2aeac4160faaa0e0891b76fab323c0c00ec2",
+      "note": "Re-QA PASS with release assets",
+      "actor": "project_owner"
+    },
+    "release": {
+      "stage": "release",
+      "approved": true,
+      "timestamp": "2026-07-16T00:05:23+00:00",
+      "artifact_hash": "9c68795b3ac9c033a766e528e2dce9ba929b9eb68a8238ea5a3d4c7efa706580",
+      "note": "Archive published",
+      "actor": "project_owner"
+    }
+  },
+  "recovery_notes": [
+    {
+      "at": "2026-07-16T00:05:03+00:00",
+      "reason": "Re-open QA after adding release cover/PDF/CBZ/metadata so QA evidence hash matches release evidence",
+      "from": "release",
+      "to": "qa"
+    }
+  ]
+}

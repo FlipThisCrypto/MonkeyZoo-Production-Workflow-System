@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "variant_id": "outline-20260715T225441Z-807339",
+  "issue_id": "MZ-2026-08-01",
+  "kind": "outline",
+  "created_at": "2026-07-15T22:54:41+00:00",
+  "source_type": "manual_import",
+  "provider": "season_bible_manual",
+  "model": "user supplied",
+  "execution_mode": "manual",
+  "content": "# MZ-2026-08-01 — The Last Light Of Summer\n\nLogline: At MonkeyZoo’s end-of-summer night festival, NeonBlue races after a moving blackout pattern and must choose overlooked people over the public spotlight when a cyan pulse echoes his guilt about Patch.\nTheme: Honest hope can admit danger\nPage count: 8\nEmotional arc: Cheerful over-reassurance → fear dressed as slogans → honest plan → hope that includes risk\nConflict: Moving power failures pull NeonBlue into denial while Lil Devil pushes for reckless force; the team must rescue a group trapped in a dark service corridor during the main-stage countdown\nEnding: Festival continues reduced; NeonBlue refuses to call the night perfect; a partial cyan Echo segment flickers unseen\n\n## Page map\nPage 1 — Arrival and over-volunteering at the festival grounds\nPage 2 — First blackout and failed backup reassurance\nPage 3 — Outages travel; fractured cyan on public screens; Static hears a pattern\nPage 4 — Lil Devil at the service gate and control box; system reacts to NeonBlue\nPage 5 — Midpoint: Patch-linked frequency marker; Moodz names the pretending\nPage 6 — Crisis: overlooked group trapped in festival service corridor vs main stage countdown\nPage 7 — Climax: honest plan; directed force; rescue of the left-behind\nPage 8 — Resolution and partial Echo reveal; new question about the relay\n\n## Cast\n- Featured: NeonBlue (MZ-CHAR-005)\n- Guest: Lil Devil (MZ-CHAR-LILDEVIL)\n- Supporting: Static, TwoTone, Scarline, Moodz, Ash\n\n## Locations (approved canon)\n- festival-grounds, festival-main-stage, festival-service-corridor, festival-control-node\n\n## Props (approved canon)\n- public-projection-screen, festival-backup-panel, service-gate, control-box, cyan-relay-marker, echo-symbol\n\n## Continuity notes\n- Proposed story canon: Patch emotional link; cyan relay memory; do not resolve Patch status.\n- Echo: one-sixth of symbol lights only after NeonBlue chooses the unseen group.\n",
+  "content_hash": "82d522b5552b328940e6ab56dd8be497a0af1c710b0a68503516cd94589edcda",
+  "canon_snapshot_hash": "9b718dc9070a667aa1161f87e4ced00940d580019053a351971189cf6b4149e4",
+  "issue_brief_hash": "79e5accb93df17429917dbfa61a126e2cc95d3ce665613a1cfe33bb329b562d2",
+  "approved_outline": null,
+  "prompt_hash": null,
+  "validation": {
+    "status": "passed",
+    "errors": 0,
+    "findings": [],
+    "heuristic": true
+  },
+  "approval": {
+    "variant_id": "outline-20260715T225441Z-807339",
+    "issue_id": "MZ-2026-08-01",
+    "timestamp": "2026-07-15T22:54:42+00:00",
+    "content_hash": "82d522b5552b328940e6ab56dd8be497a0af1c710b0a68503516cd94589edcda",
+    "canon_snapshot_hash": "9b718dc9070a667aa1161f87e4ced00940d580019053a351971189cf6b4149e4",
+    "owner_note": "Season bible Issue 01",
+    "actor": "project_owner"
+  },
+  "superseded": false,
+  "owner_note": null
+}

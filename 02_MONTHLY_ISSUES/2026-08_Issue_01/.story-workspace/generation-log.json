@@ -1,0 +1,36 @@
+[
+  {
+    "event_id": "outline-20260715T225441Z-6c181d",
+    "issue_id": "MZ-2026-08-01",
+    "type": "outline_import",
+    "variant_id": "outline-20260715T225441Z-807339",
+    "provider": "season_bible_manual",
+    "model": "user supplied",
+    "execution_mode": "manual",
+    "start_time": "2026-07-15T22:54:41+00:00",
+    "end_time": "2026-07-15T22:54:41+00:00",
+    "success": true,
+    "prompt_hash": null,
+    "canon_snapshot_hash": "9b718dc9070a667aa1161f87e4ced00940d580019053a351971189cf6b4149e4",
+    "output_hash": "82d522b5552b328940e6ab56dd8be497a0af1c710b0a68503516cd94589edcda",
+    "validation_status": "passed",
+    "error_summary": null
+  },
+  {
+    "event_id": "script-20260715T225443Z-27144a",
+    "issue_id": "MZ-2026-08-01",
+    "type": "script_import",
+    "variant_id": "script-20260715T225443Z-547158",
+    "provider": "season_bible_manual",
+    "model": "user supplied",
+    "execution_mode": "manual",
+    "start_time": "2026-07-15T22:54:43+00:00",
+    "end_time": "2026-07-15T22:54:43+00:00",
+    "success": true,
+    "prompt_hash": null,
+    "canon_snapshot_hash": "bb0ec844e2122cf45f51428896b09c356b8d32e3ae8cc580e57f8efd57cb6e92",
+    "output_hash": "b02a7aba5a1bb6c643b133ea8591f5cd5a964cb9b255c8e1454c2749756d3467",
+    "validation_status": "passed",
+    "error_summary": null
+  }
+]

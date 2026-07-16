@@ -178,6 +178,17 @@ async function api(path, options = {}) {
     return catalog.summary || {};
   }
 
+  if (cleanPath === "/api/project-direction") {
+    const response = await fetch("./static/project-direction.json");
+    return response.json();
+  }
+
+  if (cleanPath === "/api/expressions") {
+    const response = await fetch("./static/canon-catalog.json");
+    const catalog = await response.json();
+    return catalog.expressions || [];
+  }
+
   if (cleanPath.startsWith("/api/locations/")) {
     const id = decodeURIComponent(cleanPath.split("/")[3] || "");
     const response = await fetch("./static/canon-catalog.json");
@@ -1090,9 +1101,11 @@ document.querySelectorAll(".nav-item").forEach(btn => {
     // Show active container
     const viewContainerMap = {
       dashboard: "viewDashboard",
+      projectMap: "viewProjectMap",
       characters: "viewCharacters",
       locations: "viewLocations",
       props: "viewProps",
+      expressions: "viewExpressions",
       storyBuilder: "viewStoryBuilder",
       issues: "viewIssues",
       canon: "viewCanon",
@@ -1111,17 +1124,168 @@ document.querySelectorAll(".nav-item").forEach(btn => {
   });
 });
 
+let catalogExpressions = [];
+let selectedExpressionSlug = null;
+
 function setupCanonCatalogs() {
   $("locationFilter")?.addEventListener("change", () => renderLocationsList());
   $("propFilter")?.addEventListener("change", () => renderPropsList());
-  // Lazy-load detail when opening views
   document.querySelectorAll(".nav-item").forEach(btn => {
     btn.addEventListener("click", () => {
       const view = btn.getAttribute("data-view");
-      if (view === "locations" && !catalogLocations.length) loadCanonCatalogs();
-      if (view === "props" && !catalogProps.length) loadCanonCatalogs();
+      if ((view === "locations" || view === "props") && !catalogLocations.length) loadCanonCatalogs();
+      if (view === "expressions" && !catalogExpressions.length) loadExpressionCatalog();
+      if (view === "projectMap" && !projectDirectionData) loadProjectDirection();
     });
   });
+}
+
+let projectDirectionData = null;
+
+function setupProjectMap() {
+  $("projectMapStatusFilter")?.addEventListener("change", () => renderProjectMap());
+  $("projectMapTrackFilter")?.addEventListener("change", () => renderProjectMap());
+  $("projectMapRefresh")?.addEventListener("click", () => loadProjectDirection(true));
+}
+
+async function loadProjectDirection(force = false) {
+  if (projectDirectionData && !force) {
+    renderProjectMap();
+    return;
+  }
+  if ($("projectMapStatus")) $("projectMapStatus").textContent = "Loading project direction…";
+  try {
+    projectDirectionData = await api("/api/project-direction");
+    renderProjectMap();
+  } catch (err) {
+    if ($("projectMapStatus")) {
+      $("projectMapStatus").textContent = err.message || "Project direction unavailable";
+    }
+  }
+}
+
+function renderProjectMap() {
+  const data = projectDirectionData;
+  if (!data || !$("projectMapTracks")) return;
+  const statusFilter = $("projectMapStatusFilter")?.value || "all";
+  const trackFilter = $("projectMapTrackFilter")?.value || "all";
+  const counts = data.task_counts || {};
+
+  if ($("projectMapTrackFilter") && $("projectMapTrackFilter").options.length <= 1) {
+    for (const track of data.tracks || []) {
+      const opt = document.createElement("option");
+      opt.value = track.id;
+      opt.textContent = track.title;
+      $("projectMapTrackFilter").appendChild(opt);
+    }
+  }
+
+  if ($("projectMapSummary")) {
+    $("projectMapSummary").innerHTML = [
+      ["Total tasks", counts.total || 0],
+      ["Done", counts.done || 0],
+      ["Active", counts.active || 0],
+      ["Next", counts.next || 0],
+      ["Later", counts.later || 0],
+      ["Blocked", counts.blocked || 0]
+    ].map(([k, v]) => `<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
+  }
+
+  if ($("projectMapNorthStar")) {
+    $("projectMapNorthStar").innerHTML = `
+      <h3>${escapeHtml(data.title || "Project Direction")}</h3>
+      <p class="project-map-subtitle">${escapeHtml(data.subtitle || "")}</p>
+      <p><strong>North star:</strong> ${escapeHtml(data.north_star || "")}</p>
+      <ul class="project-map-howto">${(data.how_to_use_this_map || []).map(line => `<li>${escapeHtml(line)}</li>`).join("")}</ul>
+      <p class="project-map-meta">Updated ${escapeHtml(data.updated || "—")} · Source <code>${escapeHtml(data.source_path || "00_SYSTEM/project_direction.json")}</code></p>`;
+  }
+
+  const mode = data.current_mode || {};
+  if ($("projectMapMode")) {
+    $("projectMapMode").innerHTML = `
+      <h4>Current mode</h4>
+      <div class="project-map-mode-card">
+        <span class="status-pill status-${escapeHtml(mode.status || "active")}">${escapeHtml(mode.phase || "—")}</span>
+        <p>${escapeHtml(mode.summary || "")}</p>
+        <p><strong>Start:</strong> <code>${escapeHtml(mode.start_command || "")}</code> → <code>${escapeHtml(mode.studio_url || "")}</code></p>
+      </div>`;
+  }
+
+  if ($("projectMapRecommended")) {
+    const rec = data.recommended_tasks || data.recommended_order || [];
+    const items = Array.isArray(rec) && rec.length && typeof rec[0] === "object"
+      ? rec
+      : (data.recommended_order || []).map(id => ({id, title: id}));
+    $("projectMapRecommended").innerHTML = `
+      <h4>Recommended order</h4>
+      <ol class="project-map-rec-list">${items.map((t, i) => `
+        <li><span class="rec-index">${i + 1}</span>
+          <strong>${escapeHtml(t.title || t.id)}</strong>
+          <span class="task-status badge-${escapeHtml(t.status || "next")}">${escapeHtml(t.status || "")}</span>
+          <span class="muted">${escapeHtml(t.track_title || "")}</span>
+        </li>`).join("")}</ol>`;
+  }
+
+  if ($("projectMapPhases")) {
+    $("projectMapPhases").innerHTML = `
+      <h4>Hosting / ship phases</h4>
+      <div class="project-map-phase-grid">${(data.phases || []).map(p => `
+        <article class="project-map-phase status-${escapeHtml(p.status || "later")}">
+          <header><strong>${escapeHtml(p.name)}</strong>
+          <span class="task-status badge-${escapeHtml(p.status || "later")}">${escapeHtml(p.status || "")}</span></header>
+          <p>${escapeHtml(p.goal || "")}</p>
+          <p class="project-map-instructions">${escapeHtml(p.instructions || "")}</p>
+        </article>`).join("")}</div>`;
+  }
+
+  if ($("projectMapPipeline")) {
+    $("projectMapPipeline").innerHTML = `
+      <h4>Issue production pipeline</h4>
+      <ol class="project-map-pipeline-list">${(data.pipeline_stages || []).map(s => `
+        <li><strong>${escapeHtml(s.label || s.stage)}</strong>
+          <span>${escapeHtml(s.evidence || "")}</span>
+          <em>${s.approval ? "Owner approval" : "No approval gate"}</em>
+        </li>`).join("")}</ol>`;
+  }
+
+  if ($("projectMapTracks")) {
+    const tracks = (data.tracks || []).filter(t => trackFilter === "all" || t.id === trackFilter);
+    $("projectMapTracks").innerHTML = tracks.map(track => {
+      const tasks = (track.tasks || []).filter(t => statusFilter === "all" || t.status === statusFilter);
+      if (!tasks.length && statusFilter !== "all") return "";
+      return `<section class="project-map-track">
+        <h4>${escapeHtml(track.title || track.id)}</h4>
+        <div class="project-map-task-list">${tasks.map(task => `
+          <details class="project-map-task status-${escapeHtml(task.status || "later")}" id="task-${escapeHtml(task.id || "")}">
+            <summary>
+              <span class="task-status badge-${escapeHtml(task.status || "later")}">${escapeHtml(task.status || "")}</span>
+              <span class="task-priority">${escapeHtml(task.priority || "")}</span>
+              <strong>${escapeHtml(task.title || task.id)}</strong>
+            </summary>
+            <div class="project-map-task-body">
+              <p class="project-map-instructions">${escapeHtml(task.instructions || "")}</p>
+              ${(task.docs && task.docs.length) ? `<p><strong>Docs:</strong> ${task.docs.map(d => `<code>${escapeHtml(d)}</code>`).join(" · ")}</p>` : ""}
+              <p class="muted">Task id: <code>${escapeHtml(task.id || "")}</code></p>
+            </div>
+          </details>`).join("") || "<p class=\"workspace-help\">No tasks match this filter.</p>"}
+      </section>`;
+    }).join("") || "<p class=\"workspace-help\">No tracks match this filter.</p>";
+  }
+
+  if ($("projectMapLinks")) {
+    $("projectMapLinks").innerHTML = `
+      <h4>Quick links (repo paths)</h4>
+      <ul>${(data.quick_links || []).map(l => `<li><strong>${escapeHtml(l.label)}</strong> — <code>${escapeHtml(l.path)}</code></li>`).join("")}</ul>`;
+  }
+
+  if ($("projectMapStatus")) {
+    $("projectMapStatus").textContent = `${counts.total || 0} tasks · ${counts.done || 0} done · ${counts.next || 0} next · mode: ${mode.phase || "—"}`;
+  }
+}
+
+function mediaUrl(url) {
+  if (!url) return "";
+  return String(url).split("/").map(encodeURIComponent).join("/").replace(/%2F/gi, "/");
 }
 
 async function loadCanonCatalogs() {
@@ -1136,6 +1300,7 @@ async function loadCanonCatalogs() {
     if ($("locationsSummary")) {
       $("locationsSummary").innerHTML = [
         ["Locations", summary.locations_count || catalogLocations.length],
+        ["With primary", summary.locations_with_primary || 0],
         ["Proposed", summary.locations_proposed || 0],
         ["Season", summary.season || "—"]
       ].map(([k, v]) => `<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
@@ -1143,6 +1308,7 @@ async function loadCanonCatalogs() {
     if ($("propsSummary")) {
       $("propsSummary").innerHTML = [
         ["Props", summary.props_count || catalogProps.length],
+        ["With primary", summary.props_with_primary || 0],
         ["Proposed", summary.props_proposed || 0],
         ["Season", summary.season || "—"]
       ].map(([k, v]) => `<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
@@ -1157,6 +1323,30 @@ async function loadCanonCatalogs() {
   }
 }
 
+async function loadExpressionCatalog() {
+  try {
+    const [sets, summary] = await Promise.all([
+      api("/api/expressions"),
+      api("/api/canon-catalog/summary")
+    ]);
+    catalogExpressions = Array.isArray(sets) ? sets : [];
+    if ($("expressionsSummary")) {
+      $("expressionsSummary").innerHTML = [
+        ["Sets", summary.expression_sets_count || catalogExpressions.length],
+        ["Images", summary.expression_images_count || 0]
+      ].map(([k, v]) => `<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
+    }
+    if ($("expressionsStatus")) {
+      $("expressionsStatus").textContent = catalogExpressions.length
+        ? `${catalogExpressions.length} expression sets loaded from approved_expressions.`
+        : "No local expression sets found (folder optional; owner-managed).";
+    }
+    renderExpressionsList();
+  } catch (err) {
+    if ($("expressionsStatus")) $("expressionsStatus").textContent = err.message || "Expressions unavailable";
+  }
+}
+
 function renderLocationsList() {
   if (!$("locationsList")) return;
   const filter = $("locationFilter")?.value || "all";
@@ -1164,9 +1354,10 @@ function renderLocationsList() {
   $("locationsList").innerHTML = rows.length
     ? rows.map(item => {
         const active = item.location_id === selectedLocationId ? "active" : "";
+        const img = item.has_primary_image ? " · image" : " · no image";
         return `<button type="button" class="catalog-row ${active}" data-location-id="${escapeHtml(item.location_id)}">
           <strong>${escapeHtml(item.display_name || item.location_id)}</strong>
-          <small>${escapeHtml(item.location_id)} · ${escapeHtml(item.status || "unknown")}</small>
+          <small>${escapeHtml(item.location_id)} · ${escapeHtml(item.status || "unknown")}${img}</small>
           <span>${escapeHtml(item.month || item.first_issue || "world")}</span>
         </button>`;
       }).join("")
@@ -1183,9 +1374,10 @@ function renderPropsList() {
   $("propsList").innerHTML = rows.length
     ? rows.map(item => {
         const active = item.prop_id === selectedPropId ? "active" : "";
+        const img = item.has_primary_image ? " · image" : " · no image";
         return `<button type="button" class="catalog-row ${active}" data-prop-id="${escapeHtml(item.prop_id)}">
           <strong>${escapeHtml(item.display_name || item.prop_id)}</strong>
-          <small>${escapeHtml(item.prop_id)} · ${escapeHtml(item.category || "prop")} · ${escapeHtml(item.status || "unknown")}</small>
+          <small>${escapeHtml(item.prop_id)} · ${escapeHtml(item.category || "prop")} · ${escapeHtml(item.status || "unknown")}${img}</small>
           <span>${escapeHtml(item.first_issue || "world")}</span>
         </button>`;
       }).join("")
@@ -1193,6 +1385,31 @@ function renderPropsList() {
   $("propsList").querySelectorAll("[data-prop-id]").forEach(btn => {
     btn.addEventListener("click", () => openPropDetail(btn.dataset.propId));
   });
+}
+
+function renderExpressionsList() {
+  if (!$("expressionsList")) return;
+  $("expressionsList").innerHTML = catalogExpressions.length
+    ? catalogExpressions.map(item => {
+        const active = item.slug === selectedExpressionSlug ? "active" : "";
+        return `<button type="button" class="catalog-row ${active}" data-expression-slug="${escapeHtml(item.slug)}">
+          <strong>${escapeHtml(item.display_name || item.slug)}</strong>
+          <small>${escapeHtml(item.slug)} · ${item.image_count || 0} plates</small>
+          <span>local sheet</span>
+        </button>`;
+      }).join("")
+    : "<p class=\"workspace-help\">No expression sets on disk yet.</p>";
+  $("expressionsList").querySelectorAll("[data-expression-slug]").forEach(btn => {
+    btn.addEventListener("click", () => openExpressionDetail(btn.dataset.expressionSlug));
+  });
+}
+
+function primaryImageBlock(url, label) {
+  if (!url) return `<p><strong>Primary image:</strong> Not yet filed</p>`;
+  return `<p><strong>Primary image:</strong> Present</p>
+    <figure class="catalog-primary-figure">
+      <img class="catalog-primary-image" src="${escapeHtml(mediaUrl(url))}" alt="${escapeHtml(label || "Primary reference")}" loading="lazy">
+    </figure>`;
 }
 
 async function openLocationDetail(locationId) {
@@ -1208,7 +1425,7 @@ async function openLocationDetail(locationId) {
       <p><code>${escapeHtml(s.location_id || locationId)}</code> · ${escapeHtml(s.status || "")}</p></header>
       <p><strong>Season role:</strong> ${escapeHtml(s.season_role || "—")}</p>
       <p><strong>Folder:</strong> <code>${escapeHtml(s.folder || "")}</code></p>
-      <p><strong>Primary image:</strong> ${data.has_primary_image ? "Present" : "Not yet filed"}</p>
+      ${primaryImageBlock(data.primary_image_url || s.primary_image_url, s.display_name)}
       <pre class="catalog-bible">${escapeHtml(data.bible_markdown || "No bible.md found.")}</pre>`;
   } catch (err) {
     $("locationDetail").innerHTML = `<p class="workspace-help">${escapeHtml(err.message || "Unavailable")}</p>`;
@@ -1228,10 +1445,33 @@ async function openPropDetail(propId) {
       <p><code>${escapeHtml(s.prop_id || propId)}</code> · ${escapeHtml(s.category || "prop")} · ${escapeHtml(s.status || "")}</p></header>
       <p><strong>Notes:</strong> ${escapeHtml(s.notes || "—")}</p>
       <p><strong>Folder:</strong> <code>${escapeHtml(s.folder || "")}</code></p>
-      <p><strong>Primary image:</strong> ${data.has_primary_image ? "Present" : "Not yet filed"}</p>
+      ${primaryImageBlock(data.primary_image_url || s.primary_image_url, s.display_name)}
       <pre class="catalog-bible">${escapeHtml(data.bible_markdown || "No bible.md found.")}</pre>`;
   } catch (err) {
     $("propDetail").innerHTML = `<p class="workspace-help">${escapeHtml(err.message || "Unavailable")}</p>`;
+  }
+}
+
+async function openExpressionDetail(slug) {
+  selectedExpressionSlug = slug;
+  renderExpressionsList();
+  if (!$("expressionDetail")) return;
+  $("expressionDetail").innerHTML = "<p class=\"workspace-help\">Loading…</p>";
+  try {
+    const data = await api(`/api/expressions/${encodeURIComponent(slug)}`);
+    const images = Array.isArray(data.images) ? data.images : [];
+    $("expressionDetail").innerHTML = `
+      <header><h4>${escapeHtml(data.display_name || slug)}</h4>
+      <p><code>${escapeHtml(data.slug || slug)}</code> · ${images.length} plates</p></header>
+      <p><strong>Folder:</strong> <code>${escapeHtml(data.folder || "")}</code></p>
+      <div class="expression-grid">
+        ${images.map(img => `<figure class="expression-tile">
+          <img src="${escapeHtml(mediaUrl(img.url))}" alt="${escapeHtml(img.filename)}" loading="lazy">
+          <figcaption>${escapeHtml(img.filename)}</figcaption>
+        </figure>`).join("")}
+      </div>`;
+  } catch (err) {
+    $("expressionDetail").innerHTML = `<p class="workspace-help">${escapeHtml(err.message || "Unavailable")}</p>`;
   }
 }
 
@@ -1321,6 +1561,7 @@ async function initializeApplication() {
   setupQAWorkspace();
   setupReleaseWorkspace();
   setupCanonCatalogs();
+  setupProjectMap();
   await loadCharacters();
   await loadCanonCatalogs();
   enforceMutationCapability();
@@ -1495,7 +1736,7 @@ function renderArtQueue(){
   $("artQueueStatus").textContent=q.error||`Active stage: ${w.current_stage.label}. ${w.blockers.join(" ")||"Queue evidence ready."}`;
   $("artQueueSummary").innerHTML=[["Issue",activeArtQueue.issue_id],["Stage",w.current_stage.label],["Panels",items.length],["Approved",items.filter(i=>i.status==="approved").length],["Missing",items.filter(i=>i.status!=="approved").length],["Provider","Manual prompt/import"]].map(([k,v])=>`<div><span>${escapeHtml(k)}</span><strong>${escapeHtml(v)}</strong></div>`).join("");
   $("buildArtQueue").disabled=staticMode||!["art_prompts","art_production"].includes(w.active_stage);$("buildArtQueue").title=staticMode?"Local backend required":"";
-  $("artQueueItems").innerHTML=items.map(i=>`<article class="art-queue-item"><header><strong>${escapeHtml(i.panel_id)}</strong><span>${escapeHtml(i.status)}</span></header><p>${escapeHtml(i.location||"Location missing")} · ${escapeHtml(i.characters.join(", ")||"No characters")}</p><p>${escapeHtml(i.action||"Action missing")}</p><small>Props: ${escapeHtml((i.props||[]).join(", ")||"None")} · Attempts: ${i.attempt_count}</small><div class="reference-strip">${i.references.map(r=>`<span>${escapeHtml(r.display_name||r.character_id)} · ${r.error?escapeHtml(r.error):"individual reference"}</span>`).join("")}</div><div class="attempt-list">${(i.attempts||[]).map(a=>`<span>${escapeHtml(a.attempt_id)} · ${escapeHtml(a.format)} ${a.width}×${a.height} · ${escapeHtml(a.status)} <button data-art-select="${escapeHtml(i.panel_id)}|${escapeHtml(a.attempt_id)}" ${staticMode||a.status==="rejected"||a.status==="archived"?"disabled":""}>Select</button><button data-art-reject="${escapeHtml(i.panel_id)}|${escapeHtml(a.attempt_id)}" ${staticMode||a.status==="preferred"?"disabled":""}>Reject</button></span>`).join("")}</div><div><button data-art-prompt="${escapeHtml(i.panel_id)}" ${staticMode?"disabled":""}>Export prompt</button><button data-art-import="${escapeHtml(i.panel_id)}" ${staticMode||w.active_stage!=="art_production"?"disabled":""}>Import image</button></div></article>`).join("")||"<p>No queue items. Build the queue after the art prompt pack is promoted, or when art production is active.</p>";
+  $("artQueueItems").innerHTML=items.map(i=>`<article class="art-queue-item"><header><strong>${escapeHtml(i.panel_id)}</strong><span>${escapeHtml(i.status)}</span></header><p>${escapeHtml(i.location||"Location missing")} · ${escapeHtml(i.characters.join(", ")||"No characters")}</p><p>${escapeHtml(i.action||"Action missing")}</p><small>Props: ${escapeHtml((i.props||[]).join(", ")||"None")} · Attempts: ${i.attempt_count}</small><div class="reference-strip">${[...(i.references||[]).map(r=>({label:r.display_name||r.character_id,detail:r.error||"character",url:null})),...(i.location_ref?[({label:i.location_ref.display_name||i.location||"Location",detail:i.location_ref.error||"location",url:i.location_ref.primary_image_url})]:[]),...(i.prop_refs||[]).map(r=>({label:r.display_name||r.prop_id||"Prop",detail:r.error||"prop",url:r.primary_image_url}))].map(r=>`<span>${escapeHtml(r.label)} · ${escapeHtml(r.detail)}${r.url?` · <a href="${escapeHtml(mediaUrl(r.url))}" target="_blank" rel="noopener">ref</a>`:""}</span>`).join("")}</div><div class="attempt-list">${(i.attempts||[]).map(a=>`<span>${escapeHtml(a.attempt_id)} · ${escapeHtml(a.format)} ${a.width}×${a.height} · ${escapeHtml(a.status)} <button data-art-select="${escapeHtml(i.panel_id)}|${escapeHtml(a.attempt_id)}" ${staticMode||a.status==="rejected"||a.status==="archived"?"disabled":""}>Select</button><button data-art-reject="${escapeHtml(i.panel_id)}|${escapeHtml(a.attempt_id)}" ${staticMode||a.status==="preferred"?"disabled":""}>Reject</button></span>`).join("")}</div><div><button data-art-prompt="${escapeHtml(i.panel_id)}" ${staticMode?"disabled":""}>Export prompt</button><button data-art-import="${escapeHtml(i.panel_id)}" ${staticMode||w.active_stage!=="art_production"?"disabled":""}>Import image</button></div></article>`).join("")||"<p>No queue items. Build the queue after the art prompt pack is promoted, or when art production is active.</p>";
   $("artQueueItems").querySelectorAll("[data-art-prompt]").forEach(b=>b.addEventListener("click",()=>artQueuePost(`${b.dataset.artPrompt}/prompt`,true)));
   $("artQueueItems").querySelectorAll("[data-art-import]").forEach(b=>b.addEventListener("click",()=>{artUploadPanel=b.dataset.artImport;$("artAttemptFile").click()}));
   $("artQueueItems").querySelectorAll("[data-art-select]").forEach(b=>b.addEventListener("click",()=>artAttemptAction(b.dataset.artSelect,"select")));

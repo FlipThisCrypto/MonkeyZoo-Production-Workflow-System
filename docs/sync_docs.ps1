@@ -254,6 +254,17 @@ async function api(path, options = {}) {
     return catalog.summary || {};
   }
 
+  if (cleanPath === "/api/project-direction") {
+    const response = await fetch("./static/project-direction.json");
+    return response.json();
+  }
+
+  if (cleanPath === "/api/expressions") {
+    const response = await fetch("./static/canon-catalog.json");
+    const catalog = await response.json();
+    return catalog.expressions || [];
+  }
+
   if (cleanPath.startsWith("/api/locations/")) {
     const id = decodeURIComponent(cleanPath.split("/")[3] || "");
     const response = await fetch("./static/canon-catalog.json");

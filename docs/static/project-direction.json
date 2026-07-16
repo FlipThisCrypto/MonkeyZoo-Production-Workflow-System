@@ -1,0 +1,691 @@
+{
+  "schema_version": "1.0",
+  "title": "MonkeyZoo / Banana Lab — Project Direction",
+  "subtitle": "Single-owner creative production system for MonkeyZoo comics",
+  "updated": "2026-07-15",
+  "active_one_thing": {
+    "id": "issue-01-final-art-upgrade",
+    "title": "Optional: replace Issue 01 draft composites with final illustrated panels",
+    "status": "later",
+    "completed_just_now": "issue-01-release",
+    "note": "MZ-2026-08-01 is published (draft-tier art) at 05_RELEASE_ARCHIVE/2026/2026-08_Issue_01. Pipeline proof complete."
+  },
+  "owner": "Fiend Studios (single owner)",
+  "product_names": {
+    "studio": "The Banana Lab",
+    "series": "MonkeyZoo",
+    "company": "Fiend Studios"
+  },
+  "north_star": "Ship monthly MonkeyZoo comic issues with consistent characters, locations, props, and continuity — using a local, evidence-gated production pipeline that never pretends work is done without real artifacts.",
+  "current_mode": {
+    "phase": "Phase 0 — Local ship",
+    "status": "active",
+    "summary": "Writable Studio runs only on the owner machine (127.0.0.1:8765). GitHub Pages is public read-only. Work access uses RDP/Tailscale into the home PC, not a public write URL.",
+    "start_command": ".\\Start-BananaLab.ps1",
+    "studio_url": "http://127.0.0.1:8765",
+    "tag_baseline": "v0.9.0-local-ship"
+  },
+  "how_to_use_this_map": [
+    "Open Studio → Project Map (this view) for live status filters and full instructions.",
+    "Or read docs/PROJECT_DIRECTION.md and 00_SYSTEM/project_direction.json in the repo.",
+    "Statuses: done = shipped/usable; active = current focus; next = recommended soon; later = deferred; blocked = waiting on a decision or dependency.",
+    "Do not open a public writable backend until Phase 1 auth is real (see HOSTING_PLAN.md)."
+  ],
+  "phases": [
+    {
+      "id": "phase-0",
+      "name": "Phase 0 — Local ship",
+      "status": "done",
+      "goal": "Owner can produce and publish issue archives on one trusted PC.",
+      "instructions": "Run Start-BananaLab.ps1, work issues through intake → published, backup with Backup-BananaLab.ps1. Prefer RDP/Tailscale for remote use; never port-forward 8765 to the open internet."
+    },
+    {
+      "id": "phase-1",
+      "name": "Phase 1 — Private hosted single-user",
+      "status": "later",
+      "goal": "Browser access from work over HTTPS with authentication.",
+      "instructions": "Only start when RDP is no longer enough. Implement session auth, CSRF, production WSGI, env secrets, healthz, upload limits. See docs/HOSTING_PLAN.md. Do not deploy Flask debug on a public IP."
+    },
+    {
+      "id": "phase-2",
+      "name": "Phase 2 — Small team",
+      "status": "later",
+      "goal": "Owner vs reviewer roles, audit log, optional object storage.",
+      "instructions": "After Phase 1 is stable. Extend locks and approval identity; optional S3 for art."
+    },
+    {
+      "id": "phase-3",
+      "name": "Phase 3 — Productized SaaS",
+      "status": "later",
+      "goal": "Multi-tenant product (out of scope for v1).",
+      "instructions": "Explicitly deferred. Do not design multi-tenant isolation until single-owner + small team paths are proven."
+    }
+  ],
+  "pipeline_stages": [
+    {
+      "stage": "intake",
+      "label": "1. Intake",
+      "evidence": "issue_brief.md, metadata.json",
+      "approval": false
+    },
+    {
+      "stage": "canon_review",
+      "label": "2. Canon Review",
+      "evidence": "Characters resolve to Character Bibles",
+      "approval": true
+    },
+    {
+      "stage": "outline",
+      "label": "3. Outline",
+      "evidence": "issue_outline.md",
+      "approval": false
+    },
+    {
+      "stage": "script",
+      "label": "4. Script",
+      "evidence": "issue_script.md",
+      "approval": true
+    },
+    {
+      "stage": "page_plan",
+      "label": "5. Page & Panel Plan",
+      "evidence": "page_panel_plan.json",
+      "approval": false
+    },
+    {
+      "stage": "art_prompts",
+      "label": "6. Art Prompt Pack",
+      "evidence": "art_prompt_pack.json",
+      "approval": false
+    },
+    {
+      "stage": "art_production",
+      "label": "7. Art Production",
+      "evidence": "selected PNG per planned panel",
+      "approval": true
+    },
+    {
+      "stage": "qa",
+      "label": "8. Visual QA",
+      "evidence": "qa_report.md with VERDICT: PASS",
+      "approval": true
+    },
+    {
+      "stage": "release",
+      "label": "9. Release",
+      "evidence": "cover, CHIP-0015, social, PDF, CBZ",
+      "approval": true
+    },
+    {
+      "stage": "published",
+      "label": "10. Published",
+      "evidence": "05_RELEASE_ARCHIVE/YYYY/<issue-folder>/",
+      "approval": false
+    }
+  ],
+  "tracks": [
+    {
+      "id": "ops-start",
+      "title": "Daily operations",
+      "order": 1,
+      "tasks": [
+        {
+          "id": "start-studio",
+          "title": "Start local Studio",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "From repo root run .\\Start-BananaLab.ps1 and open http://127.0.0.1:8765. Confirm status shows writable local runtime before mutating issues.",
+          "docs": [
+            "docs/LOCAL_SHIP.md",
+            "docs/OPERATOR_RUNBOOK.md"
+          ]
+        },
+        {
+          "id": "backup-habit",
+          "title": "Run backups after real art or before machine moves",
+          "status": "active",
+          "priority": "P0",
+          "instructions": "After bulk art work or before travel: .\\Backup-BananaLab.ps1. Git does not replace offline backups for expression sheets, PDFs, CBZ, or 05_RELEASE_ARCHIVE packages.",
+          "docs": [
+            "docs/BACKUPS.md"
+          ]
+        },
+        {
+          "id": "remote-work-path",
+          "title": "Remote work via RDP/Tailscale only (Phase 0)",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "At work: remote desktop into the home machine, then use localhost Studio there. Do not expose 8765 on the public internet.",
+          "docs": [
+            "docs/LOCAL_SHIP.md",
+            "docs/HOSTING_PLAN.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "platform",
+      "title": "Studio platform (Banana Lab)",
+      "order": 2,
+      "tasks": [
+        {
+          "id": "phase0-ship",
+          "title": "Phase 0 local ship baseline",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "Shipped: capability fail-closed, issue workflow, story/layout/art/QA/release, unique publish archives, promote replace for stubs. Tag baseline v0.9.0-local-ship.",
+          "docs": [
+            "docs/LOCAL_SHIP.md",
+            "docs/SHIP_READINESS_ASSESSMENT.md",
+            "docs/LIVE_APP_TEST_REPORT.md"
+          ]
+        },
+        {
+          "id": "locations-props-browsers",
+          "title": "Locations & Props foundation browsers",
+          "status": "done",
+          "priority": "P1",
+          "instructions": "Use Foundations → Locations / Props to browse inventories and bibles. Inventories live under 03_APPROVED_CANON/approved_locations|props.",
+          "docs": [
+            "docs/LOCATIONS_PROPS_WORKSPACE.md"
+          ]
+        },
+        {
+          "id": "location-prop-primary-stills",
+          "title": "Primary stills for all approved locations & props",
+          "status": "done",
+          "priority": "P1",
+          "instructions": "Each slug folder has primary-reference.png (20 locations, 31 props). Studio serves them via /media/locations|props/... and shows images in detail views.",
+          "docs": [
+            "docs/ART_REFERENCE_PRIORITIES.md",
+            "docs/LOCATIONS_PROPS_WORKSPACE.md"
+          ]
+        },
+        {
+          "id": "expressions-browser",
+          "title": "Expressions foundation browser",
+          "status": "done",
+          "priority": "P1",
+          "instructions": "Open Foundations → Expressions when approved_expressions sheets exist on disk. PNG binaries are owner-managed (backup them); git may not track every plate.",
+          "docs": [
+            "docs/BACKUPS.md",
+            "docs/LOCATIONS_PROPS_WORKSPACE.md"
+          ]
+        },
+        {
+          "id": "art-queue-scene-refs",
+          "title": "Art Queue location/prop reference resolution",
+          "status": "done",
+          "priority": "P1",
+          "instructions": "When panel plans name locations/props, queue items attach location_ref and prop_refs with media URLs when available. Character refs still gate prompt packages.",
+          "docs": [
+            "docs/ART_QUEUE_WORKSPACE.md"
+          ]
+        },
+        {
+          "id": "project-map-dashboard",
+          "title": "Project Map dashboard (this page)",
+          "status": "active",
+          "priority": "P1",
+          "instructions": "Keep 00_SYSTEM/project_direction.json updated when priorities change. Export static copy via docs sync so GitHub Pages can show the same map read-only.",
+          "docs": [
+            "00_SYSTEM/project_direction.json",
+            "docs/PROJECT_DIRECTION.md"
+          ]
+        },
+        {
+          "id": "studio-ux-polish",
+          "title": "Studio UX polish pass",
+          "status": "next",
+          "priority": "P2",
+          "instructions": "Improve issue selection clarity, empty states, and production stage rail feedback after real monthly issue runs. Prefer small PRs; keep capability fail-closed.",
+          "docs": [
+            "docs/LOCAL_SHIP.md"
+          ]
+        },
+        {
+          "id": "phase1-auth-host",
+          "title": "Phase 1 private host with auth",
+          "status": "later",
+          "priority": "P2",
+          "instructions": "Implement only when browser-native remote is required. Auth middleware, CSRF, Gunicorn, reverse proxy, no public unauthenticated writes.",
+          "docs": [
+            "docs/HOSTING_PLAN.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "creative-season",
+      "title": "Season creative — Emo Monkeys: The Signal Between Us",
+      "order": 3,
+      "tasks": [
+        {
+          "id": "season-bible",
+          "title": "Season bible & location/prop tracker (Aug 2026–Jan 2027)",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "Source of story truth for six issues: story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/. Proposed story canon stays out of world_bible until owner merge.",
+          "docs": [
+            "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md",
+            "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/location-and-prop-tracker.md"
+          ]
+        },
+        {
+          "id": "issue-01-neonblue",
+          "title": "Issue 01 — NeonBlue / festival (spotlight)",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE as draft pipeline publish. MZ-2026-08-01 The Last Light Of Summer is stage published with archive. Optional: final art upgrade before merch/print claims.",
+          "docs": [
+            "docs/OPERATOR_RUNBOOK.md",
+            "05_RELEASE_ARCHIVE/2026/2026-08_Issue_01/",
+            "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/issue-01-neonblue.md"
+          ]
+        },
+        {
+          "id": "issue-01-neonblue-story-package",
+          "title": "Issue 01 story package (outline + script promoted)",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE 2026-07-15. Created MZ-2026-08-01 The Last Light Of Summer (NeonBlue + Lil Devil). Advanced intake→canon→outline→script. Promoted season-bible-aligned outline and 24-panel script. Active stage is page_plan.",
+          "docs": [
+            "02_MONTHLY_ISSUES/2026-08_Issue_01/",
+            "scripts/drive_issue_01_neonblue_story.py"
+          ]
+        },
+        {
+          "id": "issue-02-static",
+          "title": "Issue 02 — Static / storm & six-tone",
+          "status": "later",
+          "priority": "P1",
+          "instructions": "After Issue 01 path is proven. Locations: storm-routines, transit hub, school PA, old-relay-junction. Props: radio, transit board, signal analyzer, six-tone motif.",
+          "docs": [
+            "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md"
+          ]
+        },
+        {
+          "id": "issue-03-scarline",
+          "title": "Issue 03 — Scarline / haunted attraction",
+          "status": "later",
+          "priority": "P1",
+          "instructions": "Haunted attraction over old FusionZoo path; misdirect exits; wall marking / residue props.",
+          "docs": [
+            "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md"
+          ]
+        },
+        {
+          "id": "issue-04-moodz",
+          "title": "Issue 04 — Moodz / community meal",
+          "status": "later",
+          "priority": "P1",
+          "instructions": "Community meal hall + auto-harmony seating rejection arc; empty placesetting final beat.",
+          "docs": [
+            "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md"
+          ]
+        },
+        {
+          "id": "issue-05-ash",
+          "title": "Issue 05 — Ash / winter shelter & heating node",
+          "status": "later",
+          "priority": "P1",
+          "instructions": "Shelter + heating infrastructure; heating sequence plate; strength alone cannot fix the node.",
+          "docs": [
+            "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md"
+          ]
+        },
+        {
+          "id": "issue-06-twotone",
+          "title": "Issue 06 — TwoTone / central Echo relay finale",
+          "status": "later",
+          "priority": "P1",
+          "instructions": "Central relay + two-path display + complete Echo emblem. Third path must be earned by season setup.",
+          "docs": [
+            "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md"
+          ]
+        },
+        {
+          "id": "world-bible-merge",
+          "title": "Owner-approve proposed locations/props into world bible",
+          "status": "next",
+          "priority": "P2",
+          "instructions": "After using sets in issues, merge permanent geography/props into 00_SYSTEM/world_bible.md and continuity_ledger.md. Until then they remain proposed_story_canon.",
+          "docs": [
+            "00_SYSTEM/world_bible.md",
+            "00_SYSTEM/continuity_ledger.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "canon-assets",
+      "title": "Canon assets & consistency",
+      "order": 4,
+      "tasks": [
+        {
+          "id": "character-bibles",
+          "title": "Character Bibles maintained",
+          "status": "active",
+          "priority": "P0",
+          "instructions": "Edit only through Studio Characters or approved bible.yaml process. Keep primary references and traits honest; do not invent canon traits without owner approval.",
+          "docs": [
+            "character-bibles/",
+            "docs/OPERATOR_RUNBOOK.md"
+          ]
+        },
+        {
+          "id": "char-ref-variants",
+          "title": "Expand character pose/expression refs toward LoRA threshold",
+          "status": "next",
+          "priority": "P2",
+          "instructions": "Use approved_expressions sheets and mz-char-refs skill for consistent variants. Back up sheets; optionally commit selected approved sets later if repo size is acceptable.",
+          "docs": [
+            "docs/BACKUPS.md",
+            ".claude/skills/mz-char-refs/SKILL.md"
+          ]
+        },
+        {
+          "id": "regenerate-weak-stills",
+          "title": "Optional: regenerate weak location/prop stills",
+          "status": "later",
+          "priority": "P3",
+          "instructions": "If a still is too branded, wrong aspect, or off-continuity, replace primary-reference.png in that slug folder and re-export catalog.",
+          "docs": [
+            "docs/ART_REFERENCE_PRIORITIES.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "issue-pipeline",
+      "title": "How to run one issue (operator path)",
+      "order": 5,
+      "tasks": [
+        {
+          "id": "create-issue",
+          "title": "Create issue package",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "Studio Create New Issue or API: issue_id MZ-YYYY-MM-NN, known primary character, clean title. Creates folder under 02_MONTHLY_ISSUES.",
+          "docs": [
+            "docs/OPERATOR_RUNBOOK.md"
+          ]
+        },
+        {
+          "id": "story-path",
+          "title": "Outline → script promote",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "Generate/import Markdown variants, approve, promote. First promote may replace create-issue stubs (Studio handles replace).",
+          "docs": [
+            "docs/STORY_SCRIPT_WORKSPACE.md"
+          ]
+        },
+        {
+          "id": "layout-path",
+          "title": "Page/panel plan promote",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "Build plan from script, approve, promote page_panel_plan.json. Panel locations/props should use names that match approved inventories when possible.",
+          "docs": [
+            "docs/PAGE_PANEL_WORKSPACE.md"
+          ]
+        },
+        {
+          "id": "art-path",
+          "title": "Art prompt pack + queue + select panels",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "Build pack from plan, approve, promote. Build queue, export prompts, import attempts, select preferred PNG per panel into generated_art/selected_panels.",
+          "docs": [
+            "docs/ART_PROMPT_PACK_WORKSPACE.md",
+            "docs/ART_QUEUE_WORKSPACE.md"
+          ]
+        },
+        {
+          "id": "qa-release-path",
+          "title": "QA PASS → release archive publish",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "Finalize QA with VERDICT: PASS, promote report, build release checklist/metadata/exports, approve, promote manifest, publish archive under unique year/folder path.",
+          "docs": [
+            "docs/VISUAL_QA_WORKSPACE.md",
+            "docs/RELEASE_WORKSPACE.md",
+            "docs/PACKAGE_EXPORTS.md"
+          ]
+        },
+        {
+          "id": "full-issue-creative-proof",
+          "title": "One full creative proof issue (lettered PDF/CBZ quality)",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE as draft-tier pipeline proof for Issue 01 (published archive). Not final print lettering/illustration quality — see issue-01-final-art-upgrade for optional upgrade path.",
+          "docs": [
+            "docs/PACKAGE_EXPORTS.md",
+            "docs/OPERATOR_RUNBOOK.md",
+            "05_RELEASE_ARCHIVE/2026/2026-08_Issue_01/"
+          ]
+        },
+        {
+          "id": "issue-01-page-plan",
+          "title": "Issue 01 — promote page_panel_plan from NeonBlue script",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE 2026-07-15. Layout variant validated (0 errors), approved, promoted page_panel_plan.json: 8 pages / 24 panels. Workflow advanced to art_prompts.",
+          "docs": [
+            "docs/PAGE_PANEL_WORKSPACE.md",
+            "02_MONTHLY_ISSUES/2026-08_Issue_01/page_panel_plan.json"
+          ]
+        },
+        {
+          "id": "issue-01-art-prompt-pack",
+          "title": "Issue 01 — build/approve/promote art_prompt_pack",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE 2026-07-15. Pack variant validated (0 errors), approved, promoted art_prompt_pack.json with 24 panels. Workflow advanced to art_production.",
+          "docs": [
+            "docs/ART_PROMPT_PACK_WORKSPACE.md",
+            "02_MONTHLY_ISSUES/2026-08_Issue_01/art_prompt_pack.json"
+          ]
+        },
+        {
+          "id": "issue-01-art-production",
+          "title": "Issue 01 — art queue + preferred panels (24)",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE 2026-07-15. Built queue; composed draft panels from approved location plates + character primary refs (scripts/compose_issue01_draft_panels.py); imported and selected preferred for all 24 panels; owner-approved art_production; advanced to qa. NOTE: drafts are production composites for pipeline evidence — replace with final illustrated panels before public release quality claim.",
+          "docs": [
+            "docs/ART_QUEUE_WORKSPACE.md",
+            "02_MONTHLY_ISSUES/2026-08_Issue_01/generated_art/selected_panels/",
+            "scripts/compose_issue01_draft_panels.py"
+          ]
+        },
+        {
+          "id": "issue-01-qa",
+          "title": "Issue 01 — Visual QA PASS",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE 2026-07-15. QA review created with 0 objective blockers; finalized PASS; promoted qa_report.md; qa gate approved; advanced to release. Advisory: cover image still absent (owned by Release). Draft composites accepted only as pipeline evidence.",
+          "docs": [
+            "docs/VISUAL_QA_WORKSPACE.md",
+            "02_MONTHLY_ISSUES/2026-08_Issue_01/qa_report.md"
+          ]
+        },
+        {
+          "id": "issue-01-release",
+          "title": "Issue 01 — release package + publish archive",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE 2026-07-16. Cover, PDF, CBZ, CHIP-0015 metadata, social/checklist prepared; re-QA PASS after assets; approve → promote manifest → publish archive 05_RELEASE_ARCHIVE/2026/2026-08_Issue_01; stage published; publication_ready true. Art tier remains draft_composite.",
+          "docs": [
+            "docs/RELEASE_WORKSPACE.md",
+            "docs/PACKAGE_EXPORTS.md",
+            "scripts/prepare_issue01_release_assets.py",
+            "05_RELEASE_ARCHIVE/2026/2026-08_Issue_01/"
+          ]
+        },
+        {
+          "id": "issue-01-final-art-upgrade",
+          "title": "Optional: Issue 01 final illustrated art upgrade",
+          "status": "later",
+          "priority": "P2",
+          "instructions": "Replace draft composite selected panels with final illustrated panels, re-run QA PASS, rebuild PDF/CBZ, re-publish archive if you want print/public merch quality.",
+          "docs": [
+            "docs/ART_QUEUE_WORKSPACE.md",
+            "02_MONTHLY_ISSUES/2026-08_Issue_01/"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "title": "Security & integrity rules",
+      "order": 6,
+      "tasks": [
+        {
+          "id": "no-public-write",
+          "title": "Never public unauthenticated write",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "Keep app on 127.0.0.1 or private RDP. Pages is read-only. No 0.0.0.0 bind without auth.",
+          "docs": [
+            "docs/HOSTING_PLAN.md",
+            "docs/LOCAL_SHIP.md"
+          ]
+        },
+        {
+          "id": "evidence-gated",
+          "title": "Evidence-gated workflow (no fake complete)",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "Buttons must not invent completion. Stages require real files and, where configured, owner approval hashes.",
+          "docs": [
+            "docs/OPERATOR_RUNBOOK.md"
+          ]
+        },
+        {
+          "id": "proposed-vs-established",
+          "title": "Keep proposed season facts out of hard world bible until approved",
+          "status": "active",
+          "priority": "P1",
+          "instructions": "Season locations/props are proposed_story_canon until you merge them. Character continuity still uses continuity_ledger + bible approvals.",
+          "docs": [
+            "00_SYSTEM/world_bible.md",
+            "00_SYSTEM/continuity_ledger.md"
+          ]
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "label": "Start Studio",
+      "path": "Start-BananaLab.ps1"
+    },
+    {
+      "label": "Local ship",
+      "path": "docs/LOCAL_SHIP.md"
+    },
+    {
+      "label": "Operator runbook",
+      "path": "docs/OPERATOR_RUNBOOK.md"
+    },
+    {
+      "label": "Hosting plan",
+      "path": "docs/HOSTING_PLAN.md"
+    },
+    {
+      "label": "Season bible",
+      "path": "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md"
+    },
+    {
+      "label": "Locations/props workspace",
+      "path": "docs/LOCATIONS_PROPS_WORKSPACE.md"
+    },
+    {
+      "label": "Art priorities",
+      "path": "docs/ART_REFERENCE_PRIORITIES.md"
+    },
+    {
+      "label": "Backups",
+      "path": "docs/BACKUPS.md"
+    },
+    {
+      "label": "This task map (JSON)",
+      "path": "00_SYSTEM/project_direction.json"
+    },
+    {
+      "label": "This task map (markdown)",
+      "path": "docs/PROJECT_DIRECTION.md"
+    }
+  ],
+  "recommended_order": [
+    "backup-habit",
+    "issue-02-static",
+    "world-bible-merge",
+    "issue-01-final-art-upgrade",
+    "studio-ux-polish",
+    "char-ref-variants",
+    "phase1-auth-host"
+  ],
+  "task_counts": {
+    "active": 4,
+    "blocked": 0,
+    "done": 23,
+    "later": 8,
+    "next": 3,
+    "total": 38
+  },
+  "recommended_tasks": [
+    {
+      "id": "backup-habit",
+      "title": "Run backups after real art or before machine moves",
+      "status": "active",
+      "priority": "P0",
+      "track_title": "Daily operations"
+    },
+    {
+      "id": "issue-02-static",
+      "title": "Issue 02 — Static / storm & six-tone",
+      "status": "later",
+      "priority": "P1",
+      "track_title": "Season creative — Emo Monkeys: The Signal Between Us"
+    },
+    {
+      "id": "world-bible-merge",
+      "title": "Owner-approve proposed locations/props into world bible",
+      "status": "next",
+      "priority": "P2",
+      "track_title": "Season creative — Emo Monkeys: The Signal Between Us"
+    },
+    {
+      "id": "issue-01-final-art-upgrade",
+      "title": "Optional: Issue 01 final illustrated art upgrade",
+      "status": "later",
+      "priority": "P2",
+      "track_title": "How to run one issue (operator path)"
+    },
+    {
+      "id": "studio-ux-polish",
+      "title": "Studio UX polish pass",
+      "status": "next",
+      "priority": "P2",
+      "track_title": "Studio platform (Banana Lab)"
+    },
+    {
+      "id": "char-ref-variants",
+      "title": "Expand character pose/expression refs toward LoRA threshold",
+      "status": "next",
+      "priority": "P2",
+      "track_title": "Canon assets & consistency"
+    },
+    {
+      "id": "phase1-auth-host",
+      "title": "Phase 1 private host with auth",
+      "status": "later",
+      "priority": "P2",
+      "track_title": "Studio platform (Banana Lab)"
+    }
+  ],
+  "source_path": "00_SYSTEM/project_direction.json"
+}

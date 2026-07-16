@@ -1,0 +1,9 @@
+{
+  "variant_id": "script-20260715T225443Z-547158",
+  "promoted_at": "2026-07-15T22:54:44+00:00",
+  "content_hash": "b02a7aba5a1bb6c643b133ea8591f5cd5a964cb9b255c8e1454c2749756d3467",
+  "canon_snapshot_hash": "bb0ec844e2122cf45f51428896b09c356b8d32e3ae8cc580e57f8efd57cb6e92",
+  "destination": "issue_script.md",
+  "backup": ".story-workspace/scripts/promotions/backup-20260715T225444Z.md",
+  "actor": "project_owner"
+}

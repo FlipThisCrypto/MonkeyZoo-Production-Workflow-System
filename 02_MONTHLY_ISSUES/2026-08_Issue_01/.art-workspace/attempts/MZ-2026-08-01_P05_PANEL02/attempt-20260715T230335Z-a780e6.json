@@ -1,0 +1,17 @@
+{
+  "attempt_id": "attempt-20260715T230335Z-a780e6",
+  "panel_id": "MZ-2026-08-01_P05_PANEL02",
+  "imported_at": "2026-07-15T23:03:35+00:00",
+  "source_type": "manual_import",
+  "provider": "draft_composite",
+  "original_name": "MZ-2026-08-01_P05_PANEL02.png",
+  "format": "PNG",
+  "width": 1280,
+  "height": 960,
+  "sha256": "8abf7b28d839237ba883c1792424a9c23632dbce30114d4adb74d2da3aebc8b8",
+  "plan_hash": "0271efc885944b3ab0bed9c95285b9708a2163ec4ecdc641fc9c4ff10ab0f8f3",
+  "asset_path": ".art-workspace/attempts/MZ-2026-08-01_P05_PANEL02/attempt-20260715T230335Z-a780e6.png",
+  "status": "preferred",
+  "actor": "project_owner",
+  "selected_at": "2026-07-15T23:03:35+00:00"
+}
