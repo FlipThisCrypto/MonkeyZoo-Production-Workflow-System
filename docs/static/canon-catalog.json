@@ -802,85 +802,1621 @@
       "slug": "ash",
       "display_name": "Ash",
       "image_count": 31,
-      "base_image": "ash_00_clean_base.png",
-      "folder": "03_APPROVED_CANON/approved_expressions/ash"
+      "base_image": "ash_00_clean_base.webp",
+      "base_image_url": "./media/expressions/ash/ash_00_clean_base.webp",
+      "folder": "03_APPROVED_CANON/approved_expressions/ash",
+      "images": [
+        {
+          "filename": "ash_00_clean_base.webp",
+          "url": "./media/expressions/ash/ash_00_clean_base.webp"
+        },
+        {
+          "filename": "ash_01_neutral.webp",
+          "url": "./media/expressions/ash/ash_01_neutral.webp"
+        },
+        {
+          "filename": "ash_02_threeqtr.webp",
+          "url": "./media/expressions/ash/ash_02_threeqtr.webp"
+        },
+        {
+          "filename": "ash_03_profile.webp",
+          "url": "./media/expressions/ash/ash_03_profile.webp"
+        },
+        {
+          "filename": "ash_04_overshoulder.webp",
+          "url": "./media/expressions/ash/ash_04_overshoulder.webp"
+        },
+        {
+          "filename": "ash_05_portrait.webp",
+          "url": "./media/expressions/ash/ash_05_portrait.webp"
+        },
+        {
+          "filename": "ash_06_angry.webp",
+          "url": "./media/expressions/ash/ash_06_angry.webp"
+        },
+        {
+          "filename": "ash_07_sad.webp",
+          "url": "./media/expressions/ash/ash_07_sad.webp"
+        },
+        {
+          "filename": "ash_08_shocked.webp",
+          "url": "./media/expressions/ash/ash_08_shocked.webp"
+        },
+        {
+          "filename": "ash_09_smile.webp",
+          "url": "./media/expressions/ash/ash_09_smile.webp"
+        },
+        {
+          "filename": "ash_10_walking.webp",
+          "url": "./media/expressions/ash/ash_10_walking.webp"
+        },
+        {
+          "filename": "ash_11_armscrossed.webp",
+          "url": "./media/expressions/ash/ash_11_armscrossed.webp"
+        },
+        {
+          "filename": "ash_12_sitting.webp",
+          "url": "./media/expressions/ash/ash_12_sitting.webp"
+        },
+        {
+          "filename": "ash_13_pointing.webp",
+          "url": "./media/expressions/ash/ash_13_pointing.webp"
+        },
+        {
+          "filename": "ash_14_shout.webp",
+          "url": "./media/expressions/ash/ash_14_shout.webp"
+        },
+        {
+          "filename": "ash_15_laughing.webp",
+          "url": "./media/expressions/ash/ash_15_laughing.webp"
+        },
+        {
+          "filename": "ash_16_worried.webp",
+          "url": "./media/expressions/ash/ash_16_worried.webp"
+        },
+        {
+          "filename": "ash_17_disgusted.webp",
+          "url": "./media/expressions/ash/ash_17_disgusted.webp"
+        },
+        {
+          "filename": "ash_18_sleepy.webp",
+          "url": "./media/expressions/ash/ash_18_sleepy.webp"
+        },
+        {
+          "filename": "ash_19_determined.webp",
+          "url": "./media/expressions/ash/ash_19_determined.webp"
+        },
+        {
+          "filename": "ash_20_confused.webp",
+          "url": "./media/expressions/ash/ash_20_confused.webp"
+        },
+        {
+          "filename": "ash_21_running.webp",
+          "url": "./media/expressions/ash/ash_21_running.webp"
+        },
+        {
+          "filename": "ash_22_jumping.webp",
+          "url": "./media/expressions/ash/ash_22_jumping.webp"
+        },
+        {
+          "filename": "ash_23_waving.webp",
+          "url": "./media/expressions/ash/ash_23_waving.webp"
+        },
+        {
+          "filename": "ash_24_thinking.webp",
+          "url": "./media/expressions/ash/ash_24_thinking.webp"
+        },
+        {
+          "filename": "ash_25_crouching.webp",
+          "url": "./media/expressions/ash/ash_25_crouching.webp"
+        },
+        {
+          "filename": "ash_26_reaching.webp",
+          "url": "./media/expressions/ash/ash_26_reaching.webp"
+        },
+        {
+          "filename": "ash_27_defeated.webp",
+          "url": "./media/expressions/ash/ash_27_defeated.webp"
+        },
+        {
+          "filename": "ash_28_celebrating.webp",
+          "url": "./media/expressions/ash/ash_28_celebrating.webp"
+        },
+        {
+          "filename": "ash_29_lookingup.webp",
+          "url": "./media/expressions/ash/ash_29_lookingup.webp"
+        },
+        {
+          "filename": "ash_30_backview.webp",
+          "url": "./media/expressions/ash/ash_30_backview.webp"
+        }
+      ],
+      "static_media": true
     },
     {
       "slug": "cheeky",
       "display_name": "Cheeky",
       "image_count": 31,
-      "base_image": "cheeky_00_clean_base.png",
-      "folder": "03_APPROVED_CANON/approved_expressions/cheeky"
+      "base_image": "cheeky_00_clean_base.webp",
+      "base_image_url": "./media/expressions/cheeky/cheeky_00_clean_base.webp",
+      "folder": "03_APPROVED_CANON/approved_expressions/cheeky",
+      "images": [
+        {
+          "filename": "cheeky_00_clean_base.webp",
+          "url": "./media/expressions/cheeky/cheeky_00_clean_base.webp"
+        },
+        {
+          "filename": "cheeky_01_neutral.webp",
+          "url": "./media/expressions/cheeky/cheeky_01_neutral.webp"
+        },
+        {
+          "filename": "cheeky_02_threeqtr.webp",
+          "url": "./media/expressions/cheeky/cheeky_02_threeqtr.webp"
+        },
+        {
+          "filename": "cheeky_03_profile.webp",
+          "url": "./media/expressions/cheeky/cheeky_03_profile.webp"
+        },
+        {
+          "filename": "cheeky_04_overshoulder.webp",
+          "url": "./media/expressions/cheeky/cheeky_04_overshoulder.webp"
+        },
+        {
+          "filename": "cheeky_05_portrait.webp",
+          "url": "./media/expressions/cheeky/cheeky_05_portrait.webp"
+        },
+        {
+          "filename": "cheeky_06_angry.webp",
+          "url": "./media/expressions/cheeky/cheeky_06_angry.webp"
+        },
+        {
+          "filename": "cheeky_07_sad.webp",
+          "url": "./media/expressions/cheeky/cheeky_07_sad.webp"
+        },
+        {
+          "filename": "cheeky_08_shocked.webp",
+          "url": "./media/expressions/cheeky/cheeky_08_shocked.webp"
+        },
+        {
+          "filename": "cheeky_09_smile.webp",
+          "url": "./media/expressions/cheeky/cheeky_09_smile.webp"
+        },
+        {
+          "filename": "cheeky_10_walking.webp",
+          "url": "./media/expressions/cheeky/cheeky_10_walking.webp"
+        },
+        {
+          "filename": "cheeky_11_armscrossed.webp",
+          "url": "./media/expressions/cheeky/cheeky_11_armscrossed.webp"
+        },
+        {
+          "filename": "cheeky_12_sitting.webp",
+          "url": "./media/expressions/cheeky/cheeky_12_sitting.webp"
+        },
+        {
+          "filename": "cheeky_13_pointing.webp",
+          "url": "./media/expressions/cheeky/cheeky_13_pointing.webp"
+        },
+        {
+          "filename": "cheeky_14_shout.webp",
+          "url": "./media/expressions/cheeky/cheeky_14_shout.webp"
+        },
+        {
+          "filename": "cheeky_15_laughing.webp",
+          "url": "./media/expressions/cheeky/cheeky_15_laughing.webp"
+        },
+        {
+          "filename": "cheeky_16_worried.webp",
+          "url": "./media/expressions/cheeky/cheeky_16_worried.webp"
+        },
+        {
+          "filename": "cheeky_17_disgusted.webp",
+          "url": "./media/expressions/cheeky/cheeky_17_disgusted.webp"
+        },
+        {
+          "filename": "cheeky_18_sleepy.webp",
+          "url": "./media/expressions/cheeky/cheeky_18_sleepy.webp"
+        },
+        {
+          "filename": "cheeky_19_determined.webp",
+          "url": "./media/expressions/cheeky/cheeky_19_determined.webp"
+        },
+        {
+          "filename": "cheeky_20_confused.webp",
+          "url": "./media/expressions/cheeky/cheeky_20_confused.webp"
+        },
+        {
+          "filename": "cheeky_21_running.webp",
+          "url": "./media/expressions/cheeky/cheeky_21_running.webp"
+        },
+        {
+          "filename": "cheeky_22_jumping.webp",
+          "url": "./media/expressions/cheeky/cheeky_22_jumping.webp"
+        },
+        {
+          "filename": "cheeky_23_waving.webp",
+          "url": "./media/expressions/cheeky/cheeky_23_waving.webp"
+        },
+        {
+          "filename": "cheeky_24_thinking.webp",
+          "url": "./media/expressions/cheeky/cheeky_24_thinking.webp"
+        },
+        {
+          "filename": "cheeky_25_crouching.webp",
+          "url": "./media/expressions/cheeky/cheeky_25_crouching.webp"
+        },
+        {
+          "filename": "cheeky_26_reaching.webp",
+          "url": "./media/expressions/cheeky/cheeky_26_reaching.webp"
+        },
+        {
+          "filename": "cheeky_27_defeated.webp",
+          "url": "./media/expressions/cheeky/cheeky_27_defeated.webp"
+        },
+        {
+          "filename": "cheeky_28_celebrating.webp",
+          "url": "./media/expressions/cheeky/cheeky_28_celebrating.webp"
+        },
+        {
+          "filename": "cheeky_29_lookingup.webp",
+          "url": "./media/expressions/cheeky/cheeky_29_lookingup.webp"
+        },
+        {
+          "filename": "cheeky_30_backview.webp",
+          "url": "./media/expressions/cheeky/cheeky_30_backview.webp"
+        }
+      ],
+      "static_media": true
     },
     {
       "slug": "clever",
       "display_name": "Clever",
       "image_count": 31,
-      "base_image": "clever_00_clean_base.png",
-      "folder": "03_APPROVED_CANON/approved_expressions/clever"
+      "base_image": "clever_00_clean_base.webp",
+      "base_image_url": "./media/expressions/clever/clever_00_clean_base.webp",
+      "folder": "03_APPROVED_CANON/approved_expressions/clever",
+      "images": [
+        {
+          "filename": "clever_00_clean_base.webp",
+          "url": "./media/expressions/clever/clever_00_clean_base.webp"
+        },
+        {
+          "filename": "clever_01_neutral.webp",
+          "url": "./media/expressions/clever/clever_01_neutral.webp"
+        },
+        {
+          "filename": "clever_02_threeqtr.webp",
+          "url": "./media/expressions/clever/clever_02_threeqtr.webp"
+        },
+        {
+          "filename": "clever_03_profile.webp",
+          "url": "./media/expressions/clever/clever_03_profile.webp"
+        },
+        {
+          "filename": "clever_04_overshoulder.webp",
+          "url": "./media/expressions/clever/clever_04_overshoulder.webp"
+        },
+        {
+          "filename": "clever_05_portrait.webp",
+          "url": "./media/expressions/clever/clever_05_portrait.webp"
+        },
+        {
+          "filename": "clever_06_angry.webp",
+          "url": "./media/expressions/clever/clever_06_angry.webp"
+        },
+        {
+          "filename": "clever_07_sad.webp",
+          "url": "./media/expressions/clever/clever_07_sad.webp"
+        },
+        {
+          "filename": "clever_08_shocked.webp",
+          "url": "./media/expressions/clever/clever_08_shocked.webp"
+        },
+        {
+          "filename": "clever_09_smile.webp",
+          "url": "./media/expressions/clever/clever_09_smile.webp"
+        },
+        {
+          "filename": "clever_10_walking.webp",
+          "url": "./media/expressions/clever/clever_10_walking.webp"
+        },
+        {
+          "filename": "clever_11_armscrossed.webp",
+          "url": "./media/expressions/clever/clever_11_armscrossed.webp"
+        },
+        {
+          "filename": "clever_12_sitting.webp",
+          "url": "./media/expressions/clever/clever_12_sitting.webp"
+        },
+        {
+          "filename": "clever_13_pointing.webp",
+          "url": "./media/expressions/clever/clever_13_pointing.webp"
+        },
+        {
+          "filename": "clever_14_shout.webp",
+          "url": "./media/expressions/clever/clever_14_shout.webp"
+        },
+        {
+          "filename": "clever_15_laughing.webp",
+          "url": "./media/expressions/clever/clever_15_laughing.webp"
+        },
+        {
+          "filename": "clever_16_worried.webp",
+          "url": "./media/expressions/clever/clever_16_worried.webp"
+        },
+        {
+          "filename": "clever_17_disgusted.webp",
+          "url": "./media/expressions/clever/clever_17_disgusted.webp"
+        },
+        {
+          "filename": "clever_18_sleepy.webp",
+          "url": "./media/expressions/clever/clever_18_sleepy.webp"
+        },
+        {
+          "filename": "clever_19_determined.webp",
+          "url": "./media/expressions/clever/clever_19_determined.webp"
+        },
+        {
+          "filename": "clever_20_confused.webp",
+          "url": "./media/expressions/clever/clever_20_confused.webp"
+        },
+        {
+          "filename": "clever_21_running.webp",
+          "url": "./media/expressions/clever/clever_21_running.webp"
+        },
+        {
+          "filename": "clever_22_jumping.webp",
+          "url": "./media/expressions/clever/clever_22_jumping.webp"
+        },
+        {
+          "filename": "clever_23_waving.webp",
+          "url": "./media/expressions/clever/clever_23_waving.webp"
+        },
+        {
+          "filename": "clever_24_thinking.webp",
+          "url": "./media/expressions/clever/clever_24_thinking.webp"
+        },
+        {
+          "filename": "clever_25_crouching.webp",
+          "url": "./media/expressions/clever/clever_25_crouching.webp"
+        },
+        {
+          "filename": "clever_26_reaching.webp",
+          "url": "./media/expressions/clever/clever_26_reaching.webp"
+        },
+        {
+          "filename": "clever_27_defeated.webp",
+          "url": "./media/expressions/clever/clever_27_defeated.webp"
+        },
+        {
+          "filename": "clever_28_celebrating.webp",
+          "url": "./media/expressions/clever/clever_28_celebrating.webp"
+        },
+        {
+          "filename": "clever_29_lookingup.webp",
+          "url": "./media/expressions/clever/clever_29_lookingup.webp"
+        },
+        {
+          "filename": "clever_30_backview.webp",
+          "url": "./media/expressions/clever/clever_30_backview.webp"
+        }
+      ],
+      "static_media": true
     },
     {
       "slug": "emo",
       "display_name": "Emo",
       "image_count": 31,
-      "base_image": "emo_00_clean_base.png",
-      "folder": "03_APPROVED_CANON/approved_expressions/emo"
+      "base_image": "emo_00_clean_base.webp",
+      "base_image_url": "./media/expressions/emo/emo_00_clean_base.webp",
+      "folder": "03_APPROVED_CANON/approved_expressions/emo",
+      "images": [
+        {
+          "filename": "emo_00_clean_base.webp",
+          "url": "./media/expressions/emo/emo_00_clean_base.webp"
+        },
+        {
+          "filename": "emo_01_neutral.webp",
+          "url": "./media/expressions/emo/emo_01_neutral.webp"
+        },
+        {
+          "filename": "emo_02_threeqtr.webp",
+          "url": "./media/expressions/emo/emo_02_threeqtr.webp"
+        },
+        {
+          "filename": "emo_03_profile.webp",
+          "url": "./media/expressions/emo/emo_03_profile.webp"
+        },
+        {
+          "filename": "emo_04_overshoulder.webp",
+          "url": "./media/expressions/emo/emo_04_overshoulder.webp"
+        },
+        {
+          "filename": "emo_05_portrait.webp",
+          "url": "./media/expressions/emo/emo_05_portrait.webp"
+        },
+        {
+          "filename": "emo_06_angry.webp",
+          "url": "./media/expressions/emo/emo_06_angry.webp"
+        },
+        {
+          "filename": "emo_07_sad.webp",
+          "url": "./media/expressions/emo/emo_07_sad.webp"
+        },
+        {
+          "filename": "emo_08_shocked.webp",
+          "url": "./media/expressions/emo/emo_08_shocked.webp"
+        },
+        {
+          "filename": "emo_09_smile.webp",
+          "url": "./media/expressions/emo/emo_09_smile.webp"
+        },
+        {
+          "filename": "emo_10_walking.webp",
+          "url": "./media/expressions/emo/emo_10_walking.webp"
+        },
+        {
+          "filename": "emo_11_armscrossed.webp",
+          "url": "./media/expressions/emo/emo_11_armscrossed.webp"
+        },
+        {
+          "filename": "emo_12_sitting.webp",
+          "url": "./media/expressions/emo/emo_12_sitting.webp"
+        },
+        {
+          "filename": "emo_13_pointing.webp",
+          "url": "./media/expressions/emo/emo_13_pointing.webp"
+        },
+        {
+          "filename": "emo_14_shout.webp",
+          "url": "./media/expressions/emo/emo_14_shout.webp"
+        },
+        {
+          "filename": "emo_15_laughing.webp",
+          "url": "./media/expressions/emo/emo_15_laughing.webp"
+        },
+        {
+          "filename": "emo_16_worried.webp",
+          "url": "./media/expressions/emo/emo_16_worried.webp"
+        },
+        {
+          "filename": "emo_17_disgusted.webp",
+          "url": "./media/expressions/emo/emo_17_disgusted.webp"
+        },
+        {
+          "filename": "emo_18_sleepy.webp",
+          "url": "./media/expressions/emo/emo_18_sleepy.webp"
+        },
+        {
+          "filename": "emo_19_determined.webp",
+          "url": "./media/expressions/emo/emo_19_determined.webp"
+        },
+        {
+          "filename": "emo_20_confused.webp",
+          "url": "./media/expressions/emo/emo_20_confused.webp"
+        },
+        {
+          "filename": "emo_21_running.webp",
+          "url": "./media/expressions/emo/emo_21_running.webp"
+        },
+        {
+          "filename": "emo_22_jumping.webp",
+          "url": "./media/expressions/emo/emo_22_jumping.webp"
+        },
+        {
+          "filename": "emo_23_waving.webp",
+          "url": "./media/expressions/emo/emo_23_waving.webp"
+        },
+        {
+          "filename": "emo_24_thinking.webp",
+          "url": "./media/expressions/emo/emo_24_thinking.webp"
+        },
+        {
+          "filename": "emo_25_crouching.webp",
+          "url": "./media/expressions/emo/emo_25_crouching.webp"
+        },
+        {
+          "filename": "emo_26_reaching.webp",
+          "url": "./media/expressions/emo/emo_26_reaching.webp"
+        },
+        {
+          "filename": "emo_27_defeated.webp",
+          "url": "./media/expressions/emo/emo_27_defeated.webp"
+        },
+        {
+          "filename": "emo_28_celebrating.webp",
+          "url": "./media/expressions/emo/emo_28_celebrating.webp"
+        },
+        {
+          "filename": "emo_29_lookingup.webp",
+          "url": "./media/expressions/emo/emo_29_lookingup.webp"
+        },
+        {
+          "filename": "emo_30_backview.webp",
+          "url": "./media/expressions/emo/emo_30_backview.webp"
+        }
+      ],
+      "static_media": true
     },
     {
       "slug": "lil devil",
       "display_name": "Lil Devil",
       "image_count": 31,
-      "base_image": "lildevil_00_clean_base.png",
-      "folder": "03_APPROVED_CANON/approved_expressions/lil devil"
+      "base_image": "lildevil_00_clean_base.webp",
+      "base_image_url": "./media/expressions/lil%20devil/lildevil_00_clean_base.webp",
+      "folder": "03_APPROVED_CANON/approved_expressions/lil devil",
+      "images": [
+        {
+          "filename": "lildevil_00_clean_base.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_00_clean_base.webp"
+        },
+        {
+          "filename": "lildevil_01_neutral.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_01_neutral.webp"
+        },
+        {
+          "filename": "lildevil_02_threeqtr.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_02_threeqtr.webp"
+        },
+        {
+          "filename": "lildevil_03_profile.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_03_profile.webp"
+        },
+        {
+          "filename": "lildevil_04_overshoulder.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_04_overshoulder.webp"
+        },
+        {
+          "filename": "lildevil_05_portrait.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_05_portrait.webp"
+        },
+        {
+          "filename": "lildevil_06_angry.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_06_angry.webp"
+        },
+        {
+          "filename": "lildevil_07_sad.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_07_sad.webp"
+        },
+        {
+          "filename": "lildevil_08_shocked.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_08_shocked.webp"
+        },
+        {
+          "filename": "lildevil_09_smile.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_09_smile.webp"
+        },
+        {
+          "filename": "lildevil_10_walking.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_10_walking.webp"
+        },
+        {
+          "filename": "lildevil_11_armscrossed.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_11_armscrossed.webp"
+        },
+        {
+          "filename": "lildevil_12_sitting.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_12_sitting.webp"
+        },
+        {
+          "filename": "lildevil_13_pointing.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_13_pointing.webp"
+        },
+        {
+          "filename": "lildevil_14_shout.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_14_shout.webp"
+        },
+        {
+          "filename": "lildevil_15_laughing.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_15_laughing.webp"
+        },
+        {
+          "filename": "lildevil_16_worried.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_16_worried.webp"
+        },
+        {
+          "filename": "lildevil_17_disgusted.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_17_disgusted.webp"
+        },
+        {
+          "filename": "lildevil_18_sleepy.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_18_sleepy.webp"
+        },
+        {
+          "filename": "lildevil_19_determined.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_19_determined.webp"
+        },
+        {
+          "filename": "lildevil_20_confused.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_20_confused.webp"
+        },
+        {
+          "filename": "lildevil_21_running.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_21_running.webp"
+        },
+        {
+          "filename": "lildevil_22_jumping.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_22_jumping.webp"
+        },
+        {
+          "filename": "lildevil_23_waving.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_23_waving.webp"
+        },
+        {
+          "filename": "lildevil_24_thinking.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_24_thinking.webp"
+        },
+        {
+          "filename": "lildevil_25_crouching.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_25_crouching.webp"
+        },
+        {
+          "filename": "lildevil_26_reaching.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_26_reaching.webp"
+        },
+        {
+          "filename": "lildevil_27_defeated.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_27_defeated.webp"
+        },
+        {
+          "filename": "lildevil_28_celebrating.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_28_celebrating.webp"
+        },
+        {
+          "filename": "lildevil_29_lookingup.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_29_lookingup.webp"
+        },
+        {
+          "filename": "lildevil_30_backview.webp",
+          "url": "./media/expressions/lil%20devil/lildevil_30_backview.webp"
+        }
+      ],
+      "static_media": true
     },
     {
       "slug": "moodz",
       "display_name": "Moodz",
       "image_count": 31,
-      "base_image": "moodz_00_clean_base.png",
-      "folder": "03_APPROVED_CANON/approved_expressions/moodz"
+      "base_image": "moodz_00_clean_base.webp",
+      "base_image_url": "./media/expressions/moodz/moodz_00_clean_base.webp",
+      "folder": "03_APPROVED_CANON/approved_expressions/moodz",
+      "images": [
+        {
+          "filename": "moodz_00_clean_base.webp",
+          "url": "./media/expressions/moodz/moodz_00_clean_base.webp"
+        },
+        {
+          "filename": "moodz_01_neutral.webp",
+          "url": "./media/expressions/moodz/moodz_01_neutral.webp"
+        },
+        {
+          "filename": "moodz_02_threeqtr.webp",
+          "url": "./media/expressions/moodz/moodz_02_threeqtr.webp"
+        },
+        {
+          "filename": "moodz_03_profile.webp",
+          "url": "./media/expressions/moodz/moodz_03_profile.webp"
+        },
+        {
+          "filename": "moodz_04_overshoulder.webp",
+          "url": "./media/expressions/moodz/moodz_04_overshoulder.webp"
+        },
+        {
+          "filename": "moodz_05_portrait.webp",
+          "url": "./media/expressions/moodz/moodz_05_portrait.webp"
+        },
+        {
+          "filename": "moodz_06_angry.webp",
+          "url": "./media/expressions/moodz/moodz_06_angry.webp"
+        },
+        {
+          "filename": "moodz_07_sad.webp",
+          "url": "./media/expressions/moodz/moodz_07_sad.webp"
+        },
+        {
+          "filename": "moodz_08_shocked.webp",
+          "url": "./media/expressions/moodz/moodz_08_shocked.webp"
+        },
+        {
+          "filename": "moodz_09_smile.webp",
+          "url": "./media/expressions/moodz/moodz_09_smile.webp"
+        },
+        {
+          "filename": "moodz_10_walking.webp",
+          "url": "./media/expressions/moodz/moodz_10_walking.webp"
+        },
+        {
+          "filename": "moodz_11_armscrossed.webp",
+          "url": "./media/expressions/moodz/moodz_11_armscrossed.webp"
+        },
+        {
+          "filename": "moodz_12_sitting.webp",
+          "url": "./media/expressions/moodz/moodz_12_sitting.webp"
+        },
+        {
+          "filename": "moodz_13_pointing.webp",
+          "url": "./media/expressions/moodz/moodz_13_pointing.webp"
+        },
+        {
+          "filename": "moodz_14_shout.webp",
+          "url": "./media/expressions/moodz/moodz_14_shout.webp"
+        },
+        {
+          "filename": "moodz_15_laughing.webp",
+          "url": "./media/expressions/moodz/moodz_15_laughing.webp"
+        },
+        {
+          "filename": "moodz_16_worried.webp",
+          "url": "./media/expressions/moodz/moodz_16_worried.webp"
+        },
+        {
+          "filename": "moodz_17_disgusted.webp",
+          "url": "./media/expressions/moodz/moodz_17_disgusted.webp"
+        },
+        {
+          "filename": "moodz_18_sleepy.webp",
+          "url": "./media/expressions/moodz/moodz_18_sleepy.webp"
+        },
+        {
+          "filename": "moodz_19_determined.webp",
+          "url": "./media/expressions/moodz/moodz_19_determined.webp"
+        },
+        {
+          "filename": "moodz_20_confused.webp",
+          "url": "./media/expressions/moodz/moodz_20_confused.webp"
+        },
+        {
+          "filename": "moodz_21_running.webp",
+          "url": "./media/expressions/moodz/moodz_21_running.webp"
+        },
+        {
+          "filename": "moodz_22_jumping.webp",
+          "url": "./media/expressions/moodz/moodz_22_jumping.webp"
+        },
+        {
+          "filename": "moodz_23_waving.webp",
+          "url": "./media/expressions/moodz/moodz_23_waving.webp"
+        },
+        {
+          "filename": "moodz_24_thinking.webp",
+          "url": "./media/expressions/moodz/moodz_24_thinking.webp"
+        },
+        {
+          "filename": "moodz_25_crouching.webp",
+          "url": "./media/expressions/moodz/moodz_25_crouching.webp"
+        },
+        {
+          "filename": "moodz_26_reaching.webp",
+          "url": "./media/expressions/moodz/moodz_26_reaching.webp"
+        },
+        {
+          "filename": "moodz_27_defeated.webp",
+          "url": "./media/expressions/moodz/moodz_27_defeated.webp"
+        },
+        {
+          "filename": "moodz_28_celebrating.webp",
+          "url": "./media/expressions/moodz/moodz_28_celebrating.webp"
+        },
+        {
+          "filename": "moodz_29_lookingup.webp",
+          "url": "./media/expressions/moodz/moodz_29_lookingup.webp"
+        },
+        {
+          "filename": "moodz_30_backview.webp",
+          "url": "./media/expressions/moodz/moodz_30_backview.webp"
+        }
+      ],
+      "static_media": true
     },
     {
       "slug": "neonblue",
       "display_name": "Neonblue",
       "image_count": 31,
-      "base_image": "neonblue_00_clean_base.png",
-      "folder": "03_APPROVED_CANON/approved_expressions/neonblue"
+      "base_image": "neonblue_00_clean_base.webp",
+      "base_image_url": "./media/expressions/neonblue/neonblue_00_clean_base.webp",
+      "folder": "03_APPROVED_CANON/approved_expressions/neonblue",
+      "images": [
+        {
+          "filename": "neonblue_00_clean_base.webp",
+          "url": "./media/expressions/neonblue/neonblue_00_clean_base.webp"
+        },
+        {
+          "filename": "neonblue_01_neutral.webp",
+          "url": "./media/expressions/neonblue/neonblue_01_neutral.webp"
+        },
+        {
+          "filename": "neonblue_02_threeqtr.webp",
+          "url": "./media/expressions/neonblue/neonblue_02_threeqtr.webp"
+        },
+        {
+          "filename": "neonblue_03_profile.webp",
+          "url": "./media/expressions/neonblue/neonblue_03_profile.webp"
+        },
+        {
+          "filename": "neonblue_04_overshoulder.webp",
+          "url": "./media/expressions/neonblue/neonblue_04_overshoulder.webp"
+        },
+        {
+          "filename": "neonblue_05_portrait.webp",
+          "url": "./media/expressions/neonblue/neonblue_05_portrait.webp"
+        },
+        {
+          "filename": "neonblue_06_angry.webp",
+          "url": "./media/expressions/neonblue/neonblue_06_angry.webp"
+        },
+        {
+          "filename": "neonblue_07_sad.webp",
+          "url": "./media/expressions/neonblue/neonblue_07_sad.webp"
+        },
+        {
+          "filename": "neonblue_08_shocked.webp",
+          "url": "./media/expressions/neonblue/neonblue_08_shocked.webp"
+        },
+        {
+          "filename": "neonblue_09_smile.webp",
+          "url": "./media/expressions/neonblue/neonblue_09_smile.webp"
+        },
+        {
+          "filename": "neonblue_10_walking.webp",
+          "url": "./media/expressions/neonblue/neonblue_10_walking.webp"
+        },
+        {
+          "filename": "neonblue_11_armscrossed.webp",
+          "url": "./media/expressions/neonblue/neonblue_11_armscrossed.webp"
+        },
+        {
+          "filename": "neonblue_12_sitting.webp",
+          "url": "./media/expressions/neonblue/neonblue_12_sitting.webp"
+        },
+        {
+          "filename": "neonblue_13_pointing.webp",
+          "url": "./media/expressions/neonblue/neonblue_13_pointing.webp"
+        },
+        {
+          "filename": "neonblue_14_shout.webp",
+          "url": "./media/expressions/neonblue/neonblue_14_shout.webp"
+        },
+        {
+          "filename": "neonblue_15_laughing.webp",
+          "url": "./media/expressions/neonblue/neonblue_15_laughing.webp"
+        },
+        {
+          "filename": "neonblue_16_worried.webp",
+          "url": "./media/expressions/neonblue/neonblue_16_worried.webp"
+        },
+        {
+          "filename": "neonblue_17_disgusted.webp",
+          "url": "./media/expressions/neonblue/neonblue_17_disgusted.webp"
+        },
+        {
+          "filename": "neonblue_18_sleepy.webp",
+          "url": "./media/expressions/neonblue/neonblue_18_sleepy.webp"
+        },
+        {
+          "filename": "neonblue_19_determined.webp",
+          "url": "./media/expressions/neonblue/neonblue_19_determined.webp"
+        },
+        {
+          "filename": "neonblue_20_confused.webp",
+          "url": "./media/expressions/neonblue/neonblue_20_confused.webp"
+        },
+        {
+          "filename": "neonblue_21_running.webp",
+          "url": "./media/expressions/neonblue/neonblue_21_running.webp"
+        },
+        {
+          "filename": "neonblue_22_jumping.webp",
+          "url": "./media/expressions/neonblue/neonblue_22_jumping.webp"
+        },
+        {
+          "filename": "neonblue_23_waving.webp",
+          "url": "./media/expressions/neonblue/neonblue_23_waving.webp"
+        },
+        {
+          "filename": "neonblue_24_thinking.webp",
+          "url": "./media/expressions/neonblue/neonblue_24_thinking.webp"
+        },
+        {
+          "filename": "neonblue_25_crouching.webp",
+          "url": "./media/expressions/neonblue/neonblue_25_crouching.webp"
+        },
+        {
+          "filename": "neonblue_26_reaching.webp",
+          "url": "./media/expressions/neonblue/neonblue_26_reaching.webp"
+        },
+        {
+          "filename": "neonblue_27_defeated.webp",
+          "url": "./media/expressions/neonblue/neonblue_27_defeated.webp"
+        },
+        {
+          "filename": "neonblue_28_celebrating.webp",
+          "url": "./media/expressions/neonblue/neonblue_28_celebrating.webp"
+        },
+        {
+          "filename": "neonblue_29_lookingup.webp",
+          "url": "./media/expressions/neonblue/neonblue_29_lookingup.webp"
+        },
+        {
+          "filename": "neonblue_30_backview.webp",
+          "url": "./media/expressions/neonblue/neonblue_30_backview.webp"
+        }
+      ],
+      "static_media": true
     },
     {
       "slug": "scarline",
       "display_name": "Scarline",
       "image_count": 31,
-      "base_image": "scarline_00_clean_base.png",
-      "folder": "03_APPROVED_CANON/approved_expressions/scarline"
+      "base_image": "scarline_00_clean_base.webp",
+      "base_image_url": "./media/expressions/scarline/scarline_00_clean_base.webp",
+      "folder": "03_APPROVED_CANON/approved_expressions/scarline",
+      "images": [
+        {
+          "filename": "scarline_00_clean_base.webp",
+          "url": "./media/expressions/scarline/scarline_00_clean_base.webp"
+        },
+        {
+          "filename": "scarline_01_neutral.webp",
+          "url": "./media/expressions/scarline/scarline_01_neutral.webp"
+        },
+        {
+          "filename": "scarline_02_threeqtr.webp",
+          "url": "./media/expressions/scarline/scarline_02_threeqtr.webp"
+        },
+        {
+          "filename": "scarline_03_profile.webp",
+          "url": "./media/expressions/scarline/scarline_03_profile.webp"
+        },
+        {
+          "filename": "scarline_04_overshoulder.webp",
+          "url": "./media/expressions/scarline/scarline_04_overshoulder.webp"
+        },
+        {
+          "filename": "scarline_05_portrait.webp",
+          "url": "./media/expressions/scarline/scarline_05_portrait.webp"
+        },
+        {
+          "filename": "scarline_06_angry.webp",
+          "url": "./media/expressions/scarline/scarline_06_angry.webp"
+        },
+        {
+          "filename": "scarline_07_sad.webp",
+          "url": "./media/expressions/scarline/scarline_07_sad.webp"
+        },
+        {
+          "filename": "scarline_08_shocked.webp",
+          "url": "./media/expressions/scarline/scarline_08_shocked.webp"
+        },
+        {
+          "filename": "scarline_09_smile.webp",
+          "url": "./media/expressions/scarline/scarline_09_smile.webp"
+        },
+        {
+          "filename": "scarline_10_walking.webp",
+          "url": "./media/expressions/scarline/scarline_10_walking.webp"
+        },
+        {
+          "filename": "scarline_11_armscrossed.webp",
+          "url": "./media/expressions/scarline/scarline_11_armscrossed.webp"
+        },
+        {
+          "filename": "scarline_12_sitting.webp",
+          "url": "./media/expressions/scarline/scarline_12_sitting.webp"
+        },
+        {
+          "filename": "scarline_13_pointing.webp",
+          "url": "./media/expressions/scarline/scarline_13_pointing.webp"
+        },
+        {
+          "filename": "scarline_14_shout.webp",
+          "url": "./media/expressions/scarline/scarline_14_shout.webp"
+        },
+        {
+          "filename": "scarline_15_laughing.webp",
+          "url": "./media/expressions/scarline/scarline_15_laughing.webp"
+        },
+        {
+          "filename": "scarline_16_worried.webp",
+          "url": "./media/expressions/scarline/scarline_16_worried.webp"
+        },
+        {
+          "filename": "scarline_17_disgusted.webp",
+          "url": "./media/expressions/scarline/scarline_17_disgusted.webp"
+        },
+        {
+          "filename": "scarline_18_sleepy.webp",
+          "url": "./media/expressions/scarline/scarline_18_sleepy.webp"
+        },
+        {
+          "filename": "scarline_19_determined.webp",
+          "url": "./media/expressions/scarline/scarline_19_determined.webp"
+        },
+        {
+          "filename": "scarline_20_confused.webp",
+          "url": "./media/expressions/scarline/scarline_20_confused.webp"
+        },
+        {
+          "filename": "scarline_21_running.webp",
+          "url": "./media/expressions/scarline/scarline_21_running.webp"
+        },
+        {
+          "filename": "scarline_22_jumping.webp",
+          "url": "./media/expressions/scarline/scarline_22_jumping.webp"
+        },
+        {
+          "filename": "scarline_23_waving.webp",
+          "url": "./media/expressions/scarline/scarline_23_waving.webp"
+        },
+        {
+          "filename": "scarline_24_thinking.webp",
+          "url": "./media/expressions/scarline/scarline_24_thinking.webp"
+        },
+        {
+          "filename": "scarline_25_crouching.webp",
+          "url": "./media/expressions/scarline/scarline_25_crouching.webp"
+        },
+        {
+          "filename": "scarline_26_reaching.webp",
+          "url": "./media/expressions/scarline/scarline_26_reaching.webp"
+        },
+        {
+          "filename": "scarline_27_defeated.webp",
+          "url": "./media/expressions/scarline/scarline_27_defeated.webp"
+        },
+        {
+          "filename": "scarline_28_celebrating.webp",
+          "url": "./media/expressions/scarline/scarline_28_celebrating.webp"
+        },
+        {
+          "filename": "scarline_29_lookingup.webp",
+          "url": "./media/expressions/scarline/scarline_29_lookingup.webp"
+        },
+        {
+          "filename": "scarline_30_backview.webp",
+          "url": "./media/expressions/scarline/scarline_30_backview.webp"
+        }
+      ],
+      "static_media": true
     },
     {
       "slug": "static",
       "display_name": "Static",
       "image_count": 31,
-      "base_image": "static_00_clean_base.png",
-      "folder": "03_APPROVED_CANON/approved_expressions/static"
+      "base_image": "static_00_clean_base.webp",
+      "base_image_url": "./media/expressions/static/static_00_clean_base.webp",
+      "folder": "03_APPROVED_CANON/approved_expressions/static",
+      "images": [
+        {
+          "filename": "static_00_clean_base.webp",
+          "url": "./media/expressions/static/static_00_clean_base.webp"
+        },
+        {
+          "filename": "static_01_neutral.webp",
+          "url": "./media/expressions/static/static_01_neutral.webp"
+        },
+        {
+          "filename": "static_02_threeqtr.webp",
+          "url": "./media/expressions/static/static_02_threeqtr.webp"
+        },
+        {
+          "filename": "static_03_profile.webp",
+          "url": "./media/expressions/static/static_03_profile.webp"
+        },
+        {
+          "filename": "static_04_overshoulder.webp",
+          "url": "./media/expressions/static/static_04_overshoulder.webp"
+        },
+        {
+          "filename": "static_05_portrait.webp",
+          "url": "./media/expressions/static/static_05_portrait.webp"
+        },
+        {
+          "filename": "static_06_angry.webp",
+          "url": "./media/expressions/static/static_06_angry.webp"
+        },
+        {
+          "filename": "static_07_sad.webp",
+          "url": "./media/expressions/static/static_07_sad.webp"
+        },
+        {
+          "filename": "static_08_shocked.webp",
+          "url": "./media/expressions/static/static_08_shocked.webp"
+        },
+        {
+          "filename": "static_09_smile.webp",
+          "url": "./media/expressions/static/static_09_smile.webp"
+        },
+        {
+          "filename": "static_10_walking.webp",
+          "url": "./media/expressions/static/static_10_walking.webp"
+        },
+        {
+          "filename": "static_11_armscrossed.webp",
+          "url": "./media/expressions/static/static_11_armscrossed.webp"
+        },
+        {
+          "filename": "static_12_sitting.webp",
+          "url": "./media/expressions/static/static_12_sitting.webp"
+        },
+        {
+          "filename": "static_13_pointing.webp",
+          "url": "./media/expressions/static/static_13_pointing.webp"
+        },
+        {
+          "filename": "static_14_shout.webp",
+          "url": "./media/expressions/static/static_14_shout.webp"
+        },
+        {
+          "filename": "static_15_laughing.webp",
+          "url": "./media/expressions/static/static_15_laughing.webp"
+        },
+        {
+          "filename": "static_16_worried.webp",
+          "url": "./media/expressions/static/static_16_worried.webp"
+        },
+        {
+          "filename": "static_17_disgusted.webp",
+          "url": "./media/expressions/static/static_17_disgusted.webp"
+        },
+        {
+          "filename": "static_18_sleepy.webp",
+          "url": "./media/expressions/static/static_18_sleepy.webp"
+        },
+        {
+          "filename": "static_19_determined.webp",
+          "url": "./media/expressions/static/static_19_determined.webp"
+        },
+        {
+          "filename": "static_20_confused.webp",
+          "url": "./media/expressions/static/static_20_confused.webp"
+        },
+        {
+          "filename": "static_21_running.webp",
+          "url": "./media/expressions/static/static_21_running.webp"
+        },
+        {
+          "filename": "static_22_jumping.webp",
+          "url": "./media/expressions/static/static_22_jumping.webp"
+        },
+        {
+          "filename": "static_23_waving.webp",
+          "url": "./media/expressions/static/static_23_waving.webp"
+        },
+        {
+          "filename": "static_24_thinking.webp",
+          "url": "./media/expressions/static/static_24_thinking.webp"
+        },
+        {
+          "filename": "static_25_crouching.webp",
+          "url": "./media/expressions/static/static_25_crouching.webp"
+        },
+        {
+          "filename": "static_26_reaching.webp",
+          "url": "./media/expressions/static/static_26_reaching.webp"
+        },
+        {
+          "filename": "static_27_defeated.webp",
+          "url": "./media/expressions/static/static_27_defeated.webp"
+        },
+        {
+          "filename": "static_28_celebrating.webp",
+          "url": "./media/expressions/static/static_28_celebrating.webp"
+        },
+        {
+          "filename": "static_29_lookingup.webp",
+          "url": "./media/expressions/static/static_29_lookingup.webp"
+        },
+        {
+          "filename": "static_30_backview.webp",
+          "url": "./media/expressions/static/static_30_backview.webp"
+        }
+      ],
+      "static_media": true
     },
     {
       "slug": "super",
       "display_name": "Super",
       "image_count": 31,
-      "base_image": "super_00_clean_base.png",
-      "folder": "03_APPROVED_CANON/approved_expressions/super"
+      "base_image": "super_00_clean_base.webp",
+      "base_image_url": "./media/expressions/super/super_00_clean_base.webp",
+      "folder": "03_APPROVED_CANON/approved_expressions/super",
+      "images": [
+        {
+          "filename": "super_00_clean_base.webp",
+          "url": "./media/expressions/super/super_00_clean_base.webp"
+        },
+        {
+          "filename": "super_01_neutral.webp",
+          "url": "./media/expressions/super/super_01_neutral.webp"
+        },
+        {
+          "filename": "super_02_threeqtr.webp",
+          "url": "./media/expressions/super/super_02_threeqtr.webp"
+        },
+        {
+          "filename": "super_03_profile.webp",
+          "url": "./media/expressions/super/super_03_profile.webp"
+        },
+        {
+          "filename": "super_04_overshoulder.webp",
+          "url": "./media/expressions/super/super_04_overshoulder.webp"
+        },
+        {
+          "filename": "super_05_portrait.webp",
+          "url": "./media/expressions/super/super_05_portrait.webp"
+        },
+        {
+          "filename": "super_06_angry.webp",
+          "url": "./media/expressions/super/super_06_angry.webp"
+        },
+        {
+          "filename": "super_07_sad.webp",
+          "url": "./media/expressions/super/super_07_sad.webp"
+        },
+        {
+          "filename": "super_08_shocked.webp",
+          "url": "./media/expressions/super/super_08_shocked.webp"
+        },
+        {
+          "filename": "super_09_smile.webp",
+          "url": "./media/expressions/super/super_09_smile.webp"
+        },
+        {
+          "filename": "super_10_walking.webp",
+          "url": "./media/expressions/super/super_10_walking.webp"
+        },
+        {
+          "filename": "super_11_armscrossed.webp",
+          "url": "./media/expressions/super/super_11_armscrossed.webp"
+        },
+        {
+          "filename": "super_12_sitting.webp",
+          "url": "./media/expressions/super/super_12_sitting.webp"
+        },
+        {
+          "filename": "super_13_pointing.webp",
+          "url": "./media/expressions/super/super_13_pointing.webp"
+        },
+        {
+          "filename": "super_14_shout.webp",
+          "url": "./media/expressions/super/super_14_shout.webp"
+        },
+        {
+          "filename": "super_15_laughing.webp",
+          "url": "./media/expressions/super/super_15_laughing.webp"
+        },
+        {
+          "filename": "super_16_worried.webp",
+          "url": "./media/expressions/super/super_16_worried.webp"
+        },
+        {
+          "filename": "super_17_disgusted.webp",
+          "url": "./media/expressions/super/super_17_disgusted.webp"
+        },
+        {
+          "filename": "super_18_sleepy.webp",
+          "url": "./media/expressions/super/super_18_sleepy.webp"
+        },
+        {
+          "filename": "super_19_determined.webp",
+          "url": "./media/expressions/super/super_19_determined.webp"
+        },
+        {
+          "filename": "super_20_confused.webp",
+          "url": "./media/expressions/super/super_20_confused.webp"
+        },
+        {
+          "filename": "super_21_running.webp",
+          "url": "./media/expressions/super/super_21_running.webp"
+        },
+        {
+          "filename": "super_22_jumping.webp",
+          "url": "./media/expressions/super/super_22_jumping.webp"
+        },
+        {
+          "filename": "super_23_waving.webp",
+          "url": "./media/expressions/super/super_23_waving.webp"
+        },
+        {
+          "filename": "super_24_thinking.webp",
+          "url": "./media/expressions/super/super_24_thinking.webp"
+        },
+        {
+          "filename": "super_25_crouching.webp",
+          "url": "./media/expressions/super/super_25_crouching.webp"
+        },
+        {
+          "filename": "super_26_reaching.webp",
+          "url": "./media/expressions/super/super_26_reaching.webp"
+        },
+        {
+          "filename": "super_27_defeated.webp",
+          "url": "./media/expressions/super/super_27_defeated.webp"
+        },
+        {
+          "filename": "super_28_celebrating.webp",
+          "url": "./media/expressions/super/super_28_celebrating.webp"
+        },
+        {
+          "filename": "super_29_lookingup.webp",
+          "url": "./media/expressions/super/super_29_lookingup.webp"
+        },
+        {
+          "filename": "super_30_backview.webp",
+          "url": "./media/expressions/super/super_30_backview.webp"
+        }
+      ],
+      "static_media": true
     },
     {
       "slug": "twotone",
       "display_name": "Twotone",
       "image_count": 31,
-      "base_image": "twotone_00_clean_base.png",
-      "folder": "03_APPROVED_CANON/approved_expressions/twotone"
+      "base_image": "twotone_00_clean_base.webp",
+      "base_image_url": "./media/expressions/twotone/twotone_00_clean_base.webp",
+      "folder": "03_APPROVED_CANON/approved_expressions/twotone",
+      "images": [
+        {
+          "filename": "twotone_00_clean_base.webp",
+          "url": "./media/expressions/twotone/twotone_00_clean_base.webp"
+        },
+        {
+          "filename": "twotone_01_neutral.webp",
+          "url": "./media/expressions/twotone/twotone_01_neutral.webp"
+        },
+        {
+          "filename": "twotone_02_threeqtr.webp",
+          "url": "./media/expressions/twotone/twotone_02_threeqtr.webp"
+        },
+        {
+          "filename": "twotone_03_profile.webp",
+          "url": "./media/expressions/twotone/twotone_03_profile.webp"
+        },
+        {
+          "filename": "twotone_04_overshoulder.webp",
+          "url": "./media/expressions/twotone/twotone_04_overshoulder.webp"
+        },
+        {
+          "filename": "twotone_05_portrait.webp",
+          "url": "./media/expressions/twotone/twotone_05_portrait.webp"
+        },
+        {
+          "filename": "twotone_06_angry.webp",
+          "url": "./media/expressions/twotone/twotone_06_angry.webp"
+        },
+        {
+          "filename": "twotone_07_sad.webp",
+          "url": "./media/expressions/twotone/twotone_07_sad.webp"
+        },
+        {
+          "filename": "twotone_08_shocked.webp",
+          "url": "./media/expressions/twotone/twotone_08_shocked.webp"
+        },
+        {
+          "filename": "twotone_09_smile.webp",
+          "url": "./media/expressions/twotone/twotone_09_smile.webp"
+        },
+        {
+          "filename": "twotone_10_walking.webp",
+          "url": "./media/expressions/twotone/twotone_10_walking.webp"
+        },
+        {
+          "filename": "twotone_11_armscrossed.webp",
+          "url": "./media/expressions/twotone/twotone_11_armscrossed.webp"
+        },
+        {
+          "filename": "twotone_12_sitting.webp",
+          "url": "./media/expressions/twotone/twotone_12_sitting.webp"
+        },
+        {
+          "filename": "twotone_13_pointing.webp",
+          "url": "./media/expressions/twotone/twotone_13_pointing.webp"
+        },
+        {
+          "filename": "twotone_14_shout.webp",
+          "url": "./media/expressions/twotone/twotone_14_shout.webp"
+        },
+        {
+          "filename": "twotone_15_laughing.webp",
+          "url": "./media/expressions/twotone/twotone_15_laughing.webp"
+        },
+        {
+          "filename": "twotone_16_worried.webp",
+          "url": "./media/expressions/twotone/twotone_16_worried.webp"
+        },
+        {
+          "filename": "twotone_17_disgusted.webp",
+          "url": "./media/expressions/twotone/twotone_17_disgusted.webp"
+        },
+        {
+          "filename": "twotone_18_sleepy.webp",
+          "url": "./media/expressions/twotone/twotone_18_sleepy.webp"
+        },
+        {
+          "filename": "twotone_19_determined.webp",
+          "url": "./media/expressions/twotone/twotone_19_determined.webp"
+        },
+        {
+          "filename": "twotone_20_confused.webp",
+          "url": "./media/expressions/twotone/twotone_20_confused.webp"
+        },
+        {
+          "filename": "twotone_21_running.webp",
+          "url": "./media/expressions/twotone/twotone_21_running.webp"
+        },
+        {
+          "filename": "twotone_22_jumping.webp",
+          "url": "./media/expressions/twotone/twotone_22_jumping.webp"
+        },
+        {
+          "filename": "twotone_23_waving.webp",
+          "url": "./media/expressions/twotone/twotone_23_waving.webp"
+        },
+        {
+          "filename": "twotone_24_thinking.webp",
+          "url": "./media/expressions/twotone/twotone_24_thinking.webp"
+        },
+        {
+          "filename": "twotone_25_crouching.webp",
+          "url": "./media/expressions/twotone/twotone_25_crouching.webp"
+        },
+        {
+          "filename": "twotone_26_reaching.webp",
+          "url": "./media/expressions/twotone/twotone_26_reaching.webp"
+        },
+        {
+          "filename": "twotone_27_defeated.webp",
+          "url": "./media/expressions/twotone/twotone_27_defeated.webp"
+        },
+        {
+          "filename": "twotone_28_celebrating.webp",
+          "url": "./media/expressions/twotone/twotone_28_celebrating.webp"
+        },
+        {
+          "filename": "twotone_29_lookingup.webp",
+          "url": "./media/expressions/twotone/twotone_29_lookingup.webp"
+        },
+        {
+          "filename": "twotone_30_backview.webp",
+          "url": "./media/expressions/twotone/twotone_30_backview.webp"
+        }
+      ],
+      "static_media": true
     },
     {
       "slug": "zombie",
       "display_name": "Zombie",
       "image_count": 31,
-      "base_image": "zombie_00_clean_base.png",
-      "folder": "03_APPROVED_CANON/approved_expressions/zombie"
+      "base_image": "zombie_00_clean_base.webp",
+      "base_image_url": "./media/expressions/zombie/zombie_00_clean_base.webp",
+      "folder": "03_APPROVED_CANON/approved_expressions/zombie",
+      "images": [
+        {
+          "filename": "zombie_00_clean_base.webp",
+          "url": "./media/expressions/zombie/zombie_00_clean_base.webp"
+        },
+        {
+          "filename": "zombie_01_neutral.webp",
+          "url": "./media/expressions/zombie/zombie_01_neutral.webp"
+        },
+        {
+          "filename": "zombie_02_threeqtr.webp",
+          "url": "./media/expressions/zombie/zombie_02_threeqtr.webp"
+        },
+        {
+          "filename": "zombie_03_profile.webp",
+          "url": "./media/expressions/zombie/zombie_03_profile.webp"
+        },
+        {
+          "filename": "zombie_04_overshoulder.webp",
+          "url": "./media/expressions/zombie/zombie_04_overshoulder.webp"
+        },
+        {
+          "filename": "zombie_05_portrait.webp",
+          "url": "./media/expressions/zombie/zombie_05_portrait.webp"
+        },
+        {
+          "filename": "zombie_06_angry.webp",
+          "url": "./media/expressions/zombie/zombie_06_angry.webp"
+        },
+        {
+          "filename": "zombie_07_sad.webp",
+          "url": "./media/expressions/zombie/zombie_07_sad.webp"
+        },
+        {
+          "filename": "zombie_08_shocked.webp",
+          "url": "./media/expressions/zombie/zombie_08_shocked.webp"
+        },
+        {
+          "filename": "zombie_09_smile.webp",
+          "url": "./media/expressions/zombie/zombie_09_smile.webp"
+        },
+        {
+          "filename": "zombie_10_walking.webp",
+          "url": "./media/expressions/zombie/zombie_10_walking.webp"
+        },
+        {
+          "filename": "zombie_11_armscrossed.webp",
+          "url": "./media/expressions/zombie/zombie_11_armscrossed.webp"
+        },
+        {
+          "filename": "zombie_12_sitting.webp",
+          "url": "./media/expressions/zombie/zombie_12_sitting.webp"
+        },
+        {
+          "filename": "zombie_13_pointing.webp",
+          "url": "./media/expressions/zombie/zombie_13_pointing.webp"
+        },
+        {
+          "filename": "zombie_14_shout.webp",
+          "url": "./media/expressions/zombie/zombie_14_shout.webp"
+        },
+        {
+          "filename": "zombie_15_laughing.webp",
+          "url": "./media/expressions/zombie/zombie_15_laughing.webp"
+        },
+        {
+          "filename": "zombie_16_worried.webp",
+          "url": "./media/expressions/zombie/zombie_16_worried.webp"
+        },
+        {
+          "filename": "zombie_17_disgusted.webp",
+          "url": "./media/expressions/zombie/zombie_17_disgusted.webp"
+        },
+        {
+          "filename": "zombie_18_sleepy.webp",
+          "url": "./media/expressions/zombie/zombie_18_sleepy.webp"
+        },
+        {
+          "filename": "zombie_19_determined.webp",
+          "url": "./media/expressions/zombie/zombie_19_determined.webp"
+        },
+        {
+          "filename": "zombie_20_confused.webp",
+          "url": "./media/expressions/zombie/zombie_20_confused.webp"
+        },
+        {
+          "filename": "zombie_21_running.webp",
+          "url": "./media/expressions/zombie/zombie_21_running.webp"
+        },
+        {
+          "filename": "zombie_22_jumping.webp",
+          "url": "./media/expressions/zombie/zombie_22_jumping.webp"
+        },
+        {
+          "filename": "zombie_23_waving.webp",
+          "url": "./media/expressions/zombie/zombie_23_waving.webp"
+        },
+        {
+          "filename": "zombie_24_thinking.webp",
+          "url": "./media/expressions/zombie/zombie_24_thinking.webp"
+        },
+        {
+          "filename": "zombie_25_crouching.webp",
+          "url": "./media/expressions/zombie/zombie_25_crouching.webp"
+        },
+        {
+          "filename": "zombie_26_reaching.webp",
+          "url": "./media/expressions/zombie/zombie_26_reaching.webp"
+        },
+        {
+          "filename": "zombie_27_defeated.webp",
+          "url": "./media/expressions/zombie/zombie_27_defeated.webp"
+        },
+        {
+          "filename": "zombie_28_celebrating.webp",
+          "url": "./media/expressions/zombie/zombie_28_celebrating.webp"
+        },
+        {
+          "filename": "zombie_29_lookingup.webp",
+          "url": "./media/expressions/zombie/zombie_29_lookingup.webp"
+        },
+        {
+          "filename": "zombie_30_backview.webp",
+          "url": "./media/expressions/zombie/zombie_30_backview.webp"
+        }
+      ],
+      "static_media": true
     }
   ]
 }
