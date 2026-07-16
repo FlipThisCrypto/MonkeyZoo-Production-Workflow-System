@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "active_stage": "page_plan",
+  "transitions": [
+    {
+      "completed_stage": "intake",
+      "from_stage": "intake",
+      "to_stage": "canon_review",
+      "validated_at": "2026-07-16T00:58:19+00:00",
+      "artifact_hash": "1a5f829031bfa0b8ab7986b5e30764fe5df2ace3dd407b1c2dbcb5ab9c492e02",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "canon_review",
+      "from_stage": "canon_review",
+      "to_stage": "outline",
+      "validated_at": "2026-07-16T00:58:19+00:00",
+      "artifact_hash": "1a5f829031bfa0b8ab7986b5e30764fe5df2ace3dd407b1c2dbcb5ab9c492e02",
+      "approval": {
+        "required": true,
+        "record_stage": "canon_review"
+      }
+    },
+    {
+      "completed_stage": "outline",
+      "from_stage": "outline",
+      "to_stage": "script",
+      "validated_at": "2026-07-16T00:58:20+00:00",
+      "artifact_hash": "4c63cee4c542f016a68da003adb567a822a9cc6bd13585d288c841ffc644ce0b",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "script",
+      "from_stage": "script",
+      "to_stage": "page_plan",
+      "validated_at": "2026-07-16T00:58:22+00:00",
+      "artifact_hash": "4882fcf227d07a695891936209a3c28391faa4a594e6970bb47e8973e464d0a0",
+      "approval": {
+        "required": true,
+        "record_stage": "script"
+      }
+    }
+  ],
+  "approvals": {
+    "canon_review": {
+      "stage": "canon_review",
+      "approved": true,
+      "timestamp": "2026-07-16T00:58:19+00:00",
+      "artifact_hash": "1a5f829031bfa0b8ab7986b5e30764fe5df2ace3dd407b1c2dbcb5ab9c492e02",
+      "note": "Issue 02 Static season package",
+      "actor": "project_owner"
+    },
+    "script": {
+      "stage": "script",
+      "approved": true,
+      "timestamp": "2026-07-16T00:58:22+00:00",
+      "artifact_hash": "4882fcf227d07a695891936209a3c28391faa4a594e6970bb47e8973e464d0a0",
+      "note": "Issue 02 Static season package",
+      "actor": "project_owner"
+    }
+  }
+}

@@ -265,6 +265,15 @@ async function api(path, options = {}) {
     return catalog.expressions || [];
   }
 
+  if (cleanPath.startsWith("/api/expressions/")) {
+    const slug = decodeURIComponent(cleanPath.slice("/api/expressions/".length));
+    const response = await fetch("./static/canon-catalog.json");
+    const catalog = await response.json();
+    const item = (catalog.expressions || []).find(e => e.slug === slug);
+    if (!item) return { error: "Expression set unavailable", slug };
+    return item;
+  }
+
   if (cleanPath.startsWith("/api/locations/")) {
     const id = decodeURIComponent(cleanPath.split("/")[3] || "");
     const response = await fetch("./static/canon-catalog.json");

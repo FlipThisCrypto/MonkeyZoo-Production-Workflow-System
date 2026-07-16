@@ -189,6 +189,15 @@ async function api(path, options = {}) {
     return catalog.expressions || [];
   }
 
+  if (cleanPath.startsWith("/api/expressions/")) {
+    const slug = decodeURIComponent(cleanPath.slice("/api/expressions/".length));
+    const response = await fetch("./static/canon-catalog.json");
+    const catalog = await response.json();
+    const item = (catalog.expressions || []).find(e => e.slug === slug);
+    if (!item) return { error: "Expression set unavailable", slug };
+    return item;
+  }
+
   if (cleanPath.startsWith("/api/locations/")) {
     const id = decodeURIComponent(cleanPath.split("/")[3] || "");
     const response = await fetch("./static/canon-catalog.json");
@@ -1392,15 +1401,22 @@ function renderExpressionsList() {
   $("expressionsList").innerHTML = catalogExpressions.length
     ? catalogExpressions.map(item => {
         const active = item.slug === selectedExpressionSlug ? "active" : "";
-        return `<button type="button" class="catalog-row ${active}" data-expression-slug="${escapeHtml(item.slug)}">
-          <strong>${escapeHtml(item.display_name || item.slug)}</strong>
-          <small>${escapeHtml(item.slug)} · ${item.image_count || 0} plates</small>
-          <span>local sheet</span>
+        const thumb = item.base_image_url
+          ? `<img class="catalog-row-thumb" src="${escapeHtml(mediaUrl(item.base_image_url))}" alt="" loading="lazy">`
+          : "";
+        // data-slug holds the exact slug; avoid dataset camelCase issues with spaces
+        return `<button type="button" class="catalog-row catalog-row-with-thumb ${active}" data-expression-slug="${escapeHtml(item.slug)}">
+          ${thumb}
+          <span class="catalog-row-text">
+            <strong>${escapeHtml(item.display_name || item.slug)}</strong>
+            <small>${escapeHtml(item.slug)} · ${item.image_count || 0} plates</small>
+            <span>${item.static_media ? "static media" : "local sheet"}</span>
+          </span>
         </button>`;
       }).join("")
-    : "<p class=\"workspace-help\">No expression sets on disk yet.</p>";
+    : "<p class=\"workspace-help\">No expression sets available in this build.</p>";
   $("expressionsList").querySelectorAll("[data-expression-slug]").forEach(btn => {
-    btn.addEventListener("click", () => openExpressionDetail(btn.dataset.expressionSlug));
+    btn.addEventListener("click", () => openExpressionDetail(btn.getAttribute("data-expression-slug") || ""));
   });
 }
 
@@ -1458,18 +1474,31 @@ async function openExpressionDetail(slug) {
   if (!$("expressionDetail")) return;
   $("expressionDetail").innerHTML = "<p class=\"workspace-help\">Loading…</p>";
   try {
-    const data = await api(`/api/expressions/${encodeURIComponent(slug)}`);
+    let data = null;
+    try {
+      data = await api(`/api/expressions/${encodeURIComponent(slug)}`);
+    } catch (_err) {
+      data = null;
+    }
+    // Static/demo fallback: use list payload when detail endpoint is sparse
+    if (!data || data.error || !Array.isArray(data.images) || !data.images.length) {
+      const cached = catalogExpressions.find(item => item.slug === slug);
+      if (cached) data = { ...cached, ...(data && !data.error ? data : {}) };
+    }
+    if (!data || data.error) {
+      throw new Error((data && data.error) || "Expression set unavailable");
+    }
     const images = Array.isArray(data.images) ? data.images : [];
     $("expressionDetail").innerHTML = `
       <header><h4>${escapeHtml(data.display_name || slug)}</h4>
-      <p><code>${escapeHtml(data.slug || slug)}</code> · ${images.length} plates</p></header>
+      <p><code>${escapeHtml(data.slug || slug)}</code> · ${images.length || data.image_count || 0} plates</p></header>
       <p><strong>Folder:</strong> <code>${escapeHtml(data.folder || "")}</code></p>
-      <div class="expression-grid">
+      ${images.length ? `<div class="expression-grid">
         ${images.map(img => `<figure class="expression-tile">
           <img src="${escapeHtml(mediaUrl(img.url))}" alt="${escapeHtml(img.filename)}" loading="lazy">
           <figcaption>${escapeHtml(img.filename)}</figcaption>
         </figure>`).join("")}
-      </div>`;
+      </div>` : `<p class="workspace-help">No plate previews in this static build. Open local Studio for full expression files under <code>approved_expressions</code>.</p>`}`;
   } catch (err) {
     $("expressionDetail").innerHTML = `<p class="workspace-help">${escapeHtml(err.message || "Unavailable")}</p>`;
   }
