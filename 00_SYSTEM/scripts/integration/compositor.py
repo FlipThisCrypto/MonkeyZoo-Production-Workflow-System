@@ -17,6 +17,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from perspective import GroundPlane  # noqa: E402
 from shadow import draw_contact_shadow  # noqa: E402
 from relight import relight  # noqa: E402
+from occlusion import add_foreground_rain  # noqa: E402
 import numpy as np  # noqa: E402
 
 
@@ -144,7 +145,13 @@ def run(poc_dir: Path) -> dict:
         relight_spec=relight_spec,
     )
 
-    out_path = poc_dir / "03_geometry_shadow_relight.png"
+    occlusion_applied = False
+    if "rain layer in front of the character" in " ".join(pose.get("occlusion", [])):
+        canvas = add_foreground_rain(canvas, tuple(report["paste_box"]))
+        occlusion_applied = True
+    report["foreground_rain_applied"] = occlusion_applied
+
+    out_path = poc_dir / "04_final_integrated.png"
     canvas.convert("RGB").save(out_path)
     report["output"] = str(out_path)
     return report

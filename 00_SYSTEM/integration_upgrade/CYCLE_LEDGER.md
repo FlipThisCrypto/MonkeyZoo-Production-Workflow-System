@@ -269,3 +269,68 @@ adds real form-shading.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 6 — Foreground rain occlusion layer
+
+**Selected because**: the brief explicitly calls out "Environmental
+Occlusion" and lists rain-across-the-character as its first example, and
+this is the last acceptance-checklist gap the POC pose_spec had already
+flagged (`occlusion: ["rain layer in front of the character", ...]`) but
+not yet implemented.
+
+**Scoped for one cycle**: yes.
+
+**Files created**: `00_SYSTEM/scripts/integration/occlusion.py` —
+`add_foreground_rain()`: deterministic (fixed-seed) streak generator drawn
+on a top layer over an expanded character bbox, angle matched to the
+plate's own rain lean (visual estimate, same honesty caveat as the
+ground-plane values — flagged, not measured). Wired into `compositor.py`
+as the final stage, gated on the `pose_spec.json` occlusion list actually
+requesting it (so panels that don't call for rain-in-front don't get it by
+default).
+
+**Test**: re-ran `compositor.py` — `foreground_rain_applied: true`, final
+output `04_final_integrated.png`.
+
+**Visual inspection**: cropped/upscaled the character region — rain
+streaks are now visibly crossing his head and torso, reading as falling
+between camera and character rather than only behind him.
+
+**Numeric verification**: diffed the character-bbox region between the
+pre-occlusion (`03_...`) and final (`04_...`) renders — 4.3% of pixels
+inside the character's own bounding box changed by more than a
+noise-level threshold, confirming streaks genuinely cross the silhouette
+rather than only appearing in the surrounding background.
+
+**Defects found**: none blocking.
+
+**Verdict**: **PASS**. This closes the last acceptance-checklist gap
+identified for the POC panel — see the acceptance-checklist run below.
+
+---
+
+### POC acceptance-checklist run — `MZ-2026-09-02_P01_PANEL01`, final render `04_final_integrated.png`
+
+| # | Criterion | Result |
+|---|---|---|
+| 1 | No card background/border/number/signature | **PASS** — alpha layer has none |
+| 2 | Pose expresses the scripted action | **PARTIAL** — orientation/placement match the beat, but this is Static's existing clean-base pose, not a bespoke freeze-mid-step render (no GPU available this session; documented in `pose_spec.json`'s `asset_limitation`) |
+| 3 | Character identity remains canonical | **PASS** — no linework/alpha touched, only recolored via relight |
+| 4 | Scale fits the environment | **PASS** — calibrated against the plate's own trash can |
+| 5 | Perspective fits the camera | **PASS** for this single-figure, standing-on-flat-ground case; not yet tested against a non-eye-level camera |
+| 6 | Believable ground contact | **PASS** — foot anchor + contact shadow |
+| 7 | Lighting matches actual position | **PASS** — directional key/fill tint + exposure match, verified numerically |
+| 8 | Plausible contact shadow | **PASS** — verified numerically (Cycle 4) |
+| 9 | Reflections where required | **NOT IMPLEMENTED** — character stands beside, not in, the puddle per the pose spec, so no reflection was required for this specific pose; puddle-reflection compositing itself remains unbuilt |
+| 10 | Environmental effects behind/in front | **PASS** — plate rain behind, new foreground rain layer in front |
+| 11 | Eye lines/body direction support story | **PARTIAL** — same caveat as #2 |
+| 12 | Multiple characters share one spatial system | **N/A** — single-character panel |
+| 13 | Line treatment/color fit the environment | **PASS** — relight brings exposure/tint in line |
+| 14 | Looks intentionally illustrated as one composition | **PASS** on direct visual inspection |
+| 15 | Visually inspected, not just generated | **PASS** — every stage in this ledger was opened and looked at, several also numerically diffed |
+
+**Overall POC verdict: PASS with two known, disclosed gaps** (bespoke pose
+render blocked on ComfyUI being offline; puddle-reflection compositing not
+yet built). Both are named as explicit follow-up work, not hidden.
+
+---
