@@ -68,3 +68,40 @@ tool as generally reliable.
 asset touched; safe to delete the module without side effects.
 
 ---
+
+## Cycle 2 — Batch-validate alpha matte across all 6 leads + build a transparent layer library
+
+**Selected because**: Cycle 1 proved the algorithm on one image; the six
+leads use six different backdrop colors (orange/purple/hot-pink/teal/
+spring-green/light-grey per `gen_char_refs.py`), and Scarline's own fur is
+light-grey — the single hardest case for a color-distance key (backdrop
+color nearly matches a real character color). Needed to know if the tool
+generalizes before anything downstream depends on it.
+
+**Scoped for one cycle**: yes.
+
+**Files created**: `00_SYSTEM/scripts/integration/batch_matte.py` (runs
+`alpha_matte.extract` across a sample ref per character, verdicts PASS
+only if all corners are transparent AND opaque fraction is in a plausible
+15–60% silhouette range) and
+`00_SYSTEM/integration_upgrade/character_layers/<char>/*.png` (the
+resulting transparent layers — a small seed library, not a full batch of
+all refs yet).
+
+**Test**: ran across Moodz, TwoTone, Static, Ash, NeonBlue, Scarline
+primary refs — **6/6 PASS** (all corners fully transparent, opaque
+fractions 0.31–0.36, tight and consistent).
+
+**Visual inspection**: composited Scarline and Ash over a dark test
+background and inspected the PNGs directly. Scarline (light-grey backdrop
++ light-grey fur, the adversarial case) came through clean — fur
+preserved, backdrop gone, no halo. This is direct evidence the
+border-connected flood-fill approach (not a naive global threshold) is
+doing real work, not just getting lucky on easy cases.
+
+**Defects found**: none. Algorithm confirmed to generalize without
+per-character tuning.
+
+**Verdict**: **PASS**.
+
+---
