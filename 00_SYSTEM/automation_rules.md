@@ -87,35 +87,59 @@ from conversation context or memory. Rationale + background: `tooling_pxpipe.md`
 (context-compression tooling can silently confabulate hex). Stage 9 verifies
 hashes by recomputation only.
 
-## 6A. Character Integration Pipeline (optional Stage 6.5, added 2026-07-16)
+## 6A. Character Integration Pipeline (optional Stage 6.5; built 2026-07-16, extended 2026-07-17)
 
-For panels where a character needs to be composited onto an *existing
-approved* background plate (rather than generated monolithically in one
-prompt), use `00_SYSTEM/scripts/integration/` instead of hand-pasting a
-character reference:
+For panels where characters are composited onto an *existing approved*
+background plate (rather than generated monolithically in one prompt),
+use `00_SYSTEM/scripts/integration/`:
 
 ```
-alpha_matte.py    -- chroma-key a character ref into a true-alpha layer
-                      (border-connected flood fill; see character_layers/)
-compositor.py      -- scale/anchor a layer onto a plate via a ground-plane
-                      spec (scene_blocking.json) + a pose spec
-                      (pose_spec.json), applying shadow.py, relight.py,
-                      and occlusion.py in sequence
-validate_integration.py -- automated QA gate: catches leftover reference/
-                      card colors and verifies a contact shadow exists
-                      at the declared foot anchor
+alpha_matte.py     -- chroma-key a ref into a true-alpha layer (border-
+                       connected flood fill; baked-ground-shadow stripper;
+                       --inset mode for card-style refs like Clever's set)
+gen_scene_pose.py  -- bespoke scene poses: TEXT2IMG from the calibrated
+                       BASE prompt + pose clause. img2img from minted
+                       cards drifts identity colors at any pose-changing
+                       denoise (measured, Cycle 13) -- don't use it for
+                       new poses.
+compositor.py      -- single (pose_spec.json) or multi-character
+                       (characters_spec.json) placement on a calibrated
+                       ground plane: depth-sorted far-to-near, per-
+                       character relight (shadow.py/relight.py), contact
+                       shadow (ground-adaptive opacity), reflections
+                       (reflection.py, per declared surface), depth haze
+                       (haze.py, color sampled from the plate), behind-
+                       geometry occlusion (traced occluder polygons),
+                       foreground weather (occlusion.py), per-character
+                       grounding_boost overrides, calib_to_character_factor
+                       for non-chibi-scale calibration objects
+calibrate_check.py -- renders horizon/calibration/lights/surfaces/
+                       occluders over the plate; EVERY calibration value
+                       gets a look-at-it verification image
+identity_check.py  -- canon-palette drift detection for layers (catches
+                       the beige-face class; NOT a character classifier)
+validate_integration.py -- pixel QA gate: leftover reference/card colors
+                       (plate-baseline-subtracted), flat debug overlays,
+                       plate-diff grounding check under each foot anchor
+stage_preview.py   -- stages finals + before/after sheets into the
+                       issue's generated_art/integration_preview/
+validate_issue.py --integration  -- runs the gate over all staged
+                       previews (the Stage 9 hook; see qa_checklist v1.1
+                       Gate A "Integration" section for the human items)
 ```
 
-This does **not** replace Stage 6 (ComfyUI panel generation) — it is an
-alternative compositing path for panels built from a location plate +
-character refs, and it still requires human Gate A/B sign-off same as any
-other generated art before entering `03_APPROVED_CANON/`. See
-`00_SYSTEM/integration_upgrade/CYCLE_LEDGER.md` for how it was built and
-verified, and `.claude/skills/mz-art-run/SKILL.md` for the operational
-recipe. Known limitations as of 2026-07-16: character poses are drawn from
-existing reference art, not bespoke ComfyUI renders (no pose-generation
-capability is wired in yet); puddle-reflection compositing is unbuilt;
-multi-character staging is unbuilt.
+Plate calibrations for all five Issue-02 environments live in
+`00_SYSTEM/integration_upgrade/plate_calibrations/` (measured horizons
+with documented derivations and uncertainty bands). Six Issue-02 panels are
+staged as integration previews with comparison sheets.
+
+This does **not** replace Stage 6 — it is an alternative path for
+plate+character panels, and human Gate A/B sign-off still applies before
+anything is promoted; `stage_preview.py` never writes `selected_panels/`.
+Full build/verification record: `00_SYSTEM/integration_upgrade/
+CYCLE_LEDGER.md` (30 cycles, including honest rejections — masked-ring
+img2img edge unification was evaluated and REJECTED with evidence at cfg
+1.0; see the Cycle 16 entry before reconsidering it).
 
 ## 7. Failure / Rollback Rules
 

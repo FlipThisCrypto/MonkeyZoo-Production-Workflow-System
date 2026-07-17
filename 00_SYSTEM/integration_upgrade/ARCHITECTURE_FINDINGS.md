@@ -31,3 +31,23 @@ hang history on this rig (see `pxpipe-token-proxy` memory and Issue 06
 generation log). Cycles in this track are sequenced to not depend on new
 GPU generation where deterministic PIL/numpy/scipy compositing can solve
 the same problem against already-approved reference art.
+
+
+## Status update (2026-07-17, after Cycles 11-30)
+
+The "what needs building" table above described the 2026-07-16 baseline.
+Current state:
+
+| Capability | Status now |
+|---|---|
+| True-alpha character layers | **Built** — incl. card-format refs (inset mode) and baked-shadow stripping; 7 characters in the layer library |
+| Bespoke scene poses | **Built** — text2img recipe (img2img rejected with measured identity-drift evidence) |
+| Ground-plane placement | **Built** — 5 plates calibrated with measured horizons; character-height factor for odd calib objects |
+| Contact shadows | **Built** — ground-adaptive opacity, per-character boost overrides |
+| Reflections | **Built** — per declared surface (soft gloss vs hard puddle) |
+| Relight / haze | **Built** — key/fill per position; plate-sampled depth haze |
+| Geometry occlusion | **Built** — traced solid occluders (behind-object placement) |
+| Multi-character staging | **Built** — depth-sorted, per-character lighting, gaze-aware blocking |
+| Edge unification (img2img ring) | **Rejected with evidence** (Cycle 16) — engine hallucinates at cfg 1.0 |
+| Integration QA | **Built** — pixel gate (plate-baselined colors/overlays + plate-diff grounding), layer identity check, `validate_issue --integration`, Gate A checklist v1.1 |
+| Integrated panels staged | 6 of Issue 02's 24 (P01_P01, P01_P02, P02_P01, P02_P03, P06_P02, P07_P02) with before/after sheets |

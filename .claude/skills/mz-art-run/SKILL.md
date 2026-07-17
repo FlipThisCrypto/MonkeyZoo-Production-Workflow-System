@@ -65,16 +65,27 @@ selected_panels. Calibrated on this rig (RX 6800 16GB, ~90s/image warm).
 - LoRA training threshold: 20+ approved refs per character (Kohya SS).
 
 ## Character-integration compositing (alternative to monolithic generation)
-If a panel is a character standing in an *already-approved* location plate
-(not a new scene needing full ComfyUI generation), you can composite
-instead of generating: `00_SYSTEM/scripts/integration/compositor.py` scales
-and grounds a character layer onto the plate via a `scene_blocking.json` +
-`pose_spec.json` pair (ground-plane calibration, light sources, foot
-anchor), then applies contact shadow, environmental relighting, and
-foreground occlusion in sequence. Run
-`validate_integration.py <panel.png> <foot_x> <foot_y>` afterward — it
-fails on leftover reference/card colors or a missing contact shadow. See
-`00_SYSTEM/automation_rules.md` §6A and
-`00_SYSTEM/integration_upgrade/CYCLE_LEDGER.md` for the full build record
-and current limitations (no bespoke pose generation yet; this uses
-existing reference poses).
+If a panel is characters standing in an *already-approved* location plate
+(not a new scene needing full ComfyUI generation), composite instead of
+generating — full pipeline and file map in `00_SYSTEM/automation_rules.md`
+§6A. Operational notes that belong here:
+- **Bespoke scene poses: text2img ONLY** (`gen_scene_pose.py`) — the BASE
+  prompt + a pure-positive pose clause. img2img from the minted cards
+  drifts identity colors (beige face) at any pose-changing denoise;
+  measured across 6 renders in Cycle 13. Matte winners with
+  `alpha_matte.py` (it strips the baked ground-shadow ellipse Z-Image
+  likes to add) and score them with `identity_check.py` before use.
+- Five Issue-02 plates are already calibrated
+  (`integration_upgrade/plate_calibrations/`); new plates need the same
+  estimate-render-inspect loop via `calibrate_check.py`. Watch two traps:
+  a calibration object that isn't chibi-scale needs
+  `calib_to_character_factor` (relay junction: knee-high slab), and
+  hand-painted plates have inconsistent internal perspective — record the
+  uncertainty band, then trust a test render over theory.
+- Gate every composite: `validate_integration.py <png> <foot_x> <foot_y>
+  --plate=<plate.png>` per character anchor, then stage with
+  `stage_preview.py` (never writes selected_panels) and run
+  `validate_issue.py <issue> --integration` before Gate A review.
+- Masked-ring img2img edge unification was tried and REJECTED (cfg 1.0
+  hallucinates in the ring; destroyed a tail). Don't re-attempt on this
+  engine — the deterministic edges already pass; see Cycle 16.

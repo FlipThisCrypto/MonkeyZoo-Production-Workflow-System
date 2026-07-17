@@ -1219,3 +1219,35 @@ outcome, noted rather than hidden.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 30 — Docs truth sweep
+
+**Selected because**: automation_rules §6A, the mz-art-run skill,
+ARCHITECTURE_FINDINGS, and project_direction.json all still described the
+Cycle-10 state — including limitations that no longer exist ("no bespoke
+pose generation", "reflection unbuilt", "multi-character unbuilt") and
+none of the hard-won operational lessons (text2img-only for poses, the
+rejected edge-unify, calibration traps).
+
+**Files updated**: `automation_rules.md` §6A (full current module map +
+the Cycle 16 rejection warning), `.claude/skills/mz-art-run/SKILL.md`
+(operational recipe: text2img pose rule, calibration traps, gate/staging
+commands), `ARCHITECTURE_FINDINGS.md` (appended a Round-2 status table —
+appended, not rewritten, so the baseline diagnosis stays as history),
+`project_direction.json` (`character-integration-pipeline` → status
+`active`, instructions now state exactly what exists, what the OWNER GATE
+is — reviewing the 6 comparison sheets and deciding promotion — and what
+engineering remains).
+
+**Self-caught error during this cycle**: my first draft claimed "7
+panels staged"; listing the preview directory shows **6** (I had
+double-counted). Both docs corrected against the actual listing before
+commit — the byte-exact discipline applies to prose counts too.
+
+**Verification**: Studio's own `test_project_direction.py` suite — 4/4
+PASS on the edited file; grep confirms no stale "Seven/no bespoke pose"
+claims remain.
+
+**Verdict**: **PASS**.
+
+---
