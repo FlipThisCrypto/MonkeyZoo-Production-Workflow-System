@@ -973,3 +973,43 @@ ground-plane calibrations — panel-level integration can begin anywhere in
 the issue.
 
 ---
+
+## Cycle 23 — First panel on an agent-calibrated plate (Transit Hub, P02_PANEL03) + gate hardening
+
+**Selected because**: proves the Cycle-18 calibrations are actually
+usable end-to-end, on a regime the pipeline had never touched: indoor
+scene, luminous-signage key light, polished glossy floor, no rain.
+
+**Panel**: `MZ-2026-09-02_P02_PANEL03` — "Scarline steadies the space
+without shutting Static down." Static mid-ground before the departure
+boards (worried variant, 157.7px), Scarline foreground-right at a
+deliberate supportive distance (clean-base calm variant, 230.7px, gaze
+landing left onto him), both with floor reflections (soft glossy-floor
+for him, hard puddle mirror for her — per-surface as declared),
+`foreground_rain: false` respected. Visual inspection: scales correct
+against the turnstile, cool board-glow relight reads, the distance
+carries the beat. Staged into the issue workspace with a compare sheet.
+
+**Defect found — and it was the GATE, not the panel** (the substantive
+part): the QA gate FAILED the visually-clean composite. Diagnosis, not
+acceptance: ran the gate on the RAW PLATE — the 3 "flat debug overlay"
+regions are the plate's own dark signage rectangles (plate-inherited),
+and the 3 "scarline_backdrop_grey" hits sat ON THE CHARACTERS' FACES:
+indoor exposure-matching darkens canon porcelain white into exactly the
+neutral-grey family of Scarline's ref backdrop. Two principled fixes:
+1. **Plate-baseline subtraction** (`run_gate(..., plate_path=...)`):
+   findings whose bbox substantially overlaps a finding already present
+   in the raw plate are scene content, not compositing defects — the
+   pipeline can only ADD problems where it composited.
+2. **min_area 1500 on the color check** (was 200): every real observed
+   backdrop failure is thousands of px (the actual card: 29,899 + 3,584
+   border); the 500–900px relit-face fragments are noise at panel level,
+   and sub-1500px leaks are already owned by the matte-stage gates.
+
+**Full control matrix re-run after the fixes**: transit composite
+PASS (with baseline); zoo known-bad still FAIL (card fill survives any
+sane threshold); zoo integrated still PASS; regression suite 21/21.
+
+**Verdict**: **PASS**.
+
+---

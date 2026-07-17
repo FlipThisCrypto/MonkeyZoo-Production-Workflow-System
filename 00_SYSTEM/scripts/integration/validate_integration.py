@@ -57,7 +57,15 @@ def find_flat_card_regions(
     the wrong tool here. See `known_reference_color_regions()` below for
     the check that actually catches a pasted, unmasked character card;
     this function is kept for the separate, genuinely-caught case of
-    flat non-scene UI elements (caption bars, debug banners)."""
+    flat non-scene UI elements (caption bars, debug banners).
+
+    min_area on the color check is 1500px (raised from 200 in Cycle 23):
+    the transit-hub panel showed that relit porcelain-white faces darken
+    into the neutral-grey family and get flagged in 500-900px fragments,
+    while every REAL leftover-backdrop failure observed so far is
+    thousands of px (the actual pasted card: 29,899px fill + 3,584px
+    border). Sub-1500px leaks are the matte-stage gates' job
+    (corner-transparency, opaque-fraction, halo rim check)."""
     gray = np.array(img.convert("L"), dtype=np.float64)
     std_map = _local_std_map(gray, window)
     flat = std_map < std_thresh
@@ -110,7 +118,7 @@ KNOWN_BAD_COLORS = {
 
 
 def known_reference_color_regions(
-    img: Image.Image, threshold: float = 18.0, min_area: int = 200, flatness_std_thresh: float = 6.0
+    img: Image.Image, threshold: float = 18.0, min_area: int = 1500, flatness_std_thresh: float = 6.0
 ) -> list[dict]:
     """Color match alone false-positives on legitimate saturated neon
     signage (verified directly: the POC's MonkeyZoo sign glow reads as
@@ -161,10 +169,37 @@ def check_contact_shadow(img: Image.Image, foot_anchor_px: tuple[float, float], 
     }
 
 
-def run_gate(image_path: Path, foot_anchor_px: tuple[float, float] | None = None) -> dict:
+def _bbox_overlaps(a: list, b: list) -> bool:
+    ax0, ay0, ax1, ay1 = a
+    bx0, by0, bx1, by1 = b
+    ix = max(0, min(ax1, bx1) - max(ax0, bx0))
+    iy = max(0, min(ay1, by1) - max(ay0, by0))
+    inter = ix * iy
+    area_a = max(1, (ax1 - ax0) * (ay1 - ay0))
+    return inter / area_a > 0.5
+
+
+def run_gate(image_path: Path, foot_anchor_px: tuple[float, float] | None = None,
+             plate_path: Path | None = None) -> dict:
+    """plate_path enables baseline subtraction: findings whose bbox
+    substantially overlaps a finding ALREADY PRESENT in the raw plate are
+    plate content (signage, dark corners), not compositing defects -- the
+    pipeline can only have added problems where it composited. Added in
+    Cycle 23 when the transit-hub plate's own flat signage rectangles
+    false-failed an otherwise clean composite."""
     img = Image.open(image_path).convert("RGB")
     flat_regions = find_flat_card_regions(img)
     bad_color_regions = known_reference_color_regions(img)
+
+    if plate_path is not None:
+        plate_img = Image.open(plate_path).convert("RGB")
+        plate_flat = find_flat_card_regions(plate_img)
+        plate_bad = known_reference_color_regions(plate_img)
+        flat_regions = [r for r in flat_regions
+                        if not any(_bbox_overlaps(r["bbox"], p["bbox"]) for p in plate_flat)]
+        bad_color_regions = [r for r in bad_color_regions
+                             if not any(_bbox_overlaps(r["bbox"], p["bbox"]) for p in plate_bad
+                                        if p["matched_color"] == r["matched_color"])]
     result = {
         "image": str(image_path),
         "flat_card_regions_found": len(flat_regions),
@@ -188,8 +223,10 @@ def run_gate(image_path: Path, foot_anchor_px: tuple[float, float] | None = None
 
 
 if __name__ == "__main__":
-    path = Path(sys.argv[1])
+    ap_args = [a for a in sys.argv[1:] if not a.startswith("--plate=")]
+    plate = next((Path(a.split("=", 1)[1]) for a in sys.argv[1:] if a.startswith("--plate=")), None)
+    path = Path(ap_args[0])
     anchor = None
-    if len(sys.argv) > 3:
-        anchor = (float(sys.argv[2]), float(sys.argv[3]))
-    print(json.dumps(run_gate(path, anchor), indent=2))
+    if len(ap_args) > 2:
+        anchor = (float(ap_args[1]), float(ap_args[2]))
+    print(json.dumps(run_gate(path, anchor, plate_path=plate), indent=2))
