@@ -75,6 +75,7 @@ def place_character(
     relight_spec: dict | None = None,
     reflection_polygon: list | None = None,
     atmosphere: dict | None = None,
+    behind_polygons: list[list] | None = None,
 ) -> tuple[Image.Image, dict]:
     """Scale char_layer so its apparent height matches the ground plane at
     foot_anchor_px, draw a contact shadow under the anchor if requested,
@@ -124,8 +125,13 @@ def place_character(
             canvas, resized, tuple(paste_box), reflection_polygon
         )
     canvas.alpha_composite(resized, (paste_x, paste_y))
+    occluded = False
+    if behind_polygons:
+        canvas = repaint_occluders(canvas, plate, behind_polygons)
+        occluded = True
 
     return canvas, {
+        "occluded_by_geometry": occluded,
         "target_height_px": round(target_h, 1),
         "source_bbox_in_layer": bbox,
         "scale_factor": round(scale, 4),
@@ -135,6 +141,23 @@ def place_character(
         "haze_k": round(haze_k, 3),
         "reflection": reflection_report,
     }
+
+
+def repaint_occluders(canvas: Image.Image, plate: Image.Image,
+                      occluder_polygons: list[list]) -> Image.Image:
+    """Re-paints the ORIGINAL plate pixels of each occluder polygon over
+    the canvas, so a character pasted before this call reads as standing
+    BEHIND those scene objects. Solid objects only (a traced trash can,
+    console, railing slat) -- see-through occluders like chain-link would
+    need a wire-level mask, which polygon tracing can't provide."""
+    from PIL import ImageDraw
+    mask = Image.new("L", canvas.size, 0)
+    d = ImageDraw.Draw(mask)
+    for poly in occluder_polygons:
+        d.polygon([tuple(p) for p in poly], fill=255)
+    out = canvas.copy()
+    out.paste(plate.convert("RGBA"), (0, 0), mask)
+    return out
 
 
 def derive_relight_spec(scene: dict, foot_anchor: tuple[float, float]) -> dict | None:
@@ -168,6 +191,7 @@ def run_scene(spec_dir: Path) -> dict:
     gp = load_ground_plane(scene)
 
     surfaces = {s["id"]: s["polygon"] for s in scene.get("reflective_surfaces", [])}
+    occluders = {o["id"]: o["polygon"] for o in scene.get("occluders", [])}
     reports = {}
     ordered = sorted(spec["characters"], key=lambda c: c["ground_contact"]["foot_anchor_px"][1])
     for inst in ordered:
@@ -179,12 +203,18 @@ def run_scene(spec_dir: Path) -> dict:
             if refl_poly is None:
                 raise ValueError(f"{inst['character']}: unknown reflective surface "
                                  f"{inst['reflection']['surface']!r}")
+        behind = [occluders[b] for b in inst.get("behind", [])
+                  if b in occluders] or None
+        missing = [b for b in inst.get("behind", []) if b not in occluders]
+        if missing:
+            raise ValueError(f"{inst['character']}: unknown occluder(s) {missing}")
         canvas, rep = place_character(
             canvas, char_layer, foot, gp,
             shadow_direction=inst.get("lighting", {}).get("shadow_direction"),
             relight_spec=derive_relight_spec(scene, foot),
             reflection_polygon=refl_poly,
             atmosphere=scene.get("atmosphere"),
+            behind_polygons=behind,
         )
         reports[inst["character"]] = rep
 
@@ -222,12 +252,19 @@ def run(poc_dir: Path) -> dict:
             raise ValueError(f"pose_spec requests reflection on surface "
                              f"{refl_req.get('surface')!r} but scene_blocking declares no such surface")
 
+    occluders = {o["id"]: o["polygon"] for o in scene.get("occluders", [])}
+    behind = [occluders[b] for b in pose.get("behind", []) if b in occluders] or None
+    missing = [b for b in pose.get("behind", []) if b not in occluders]
+    if missing:
+        raise ValueError(f"pose_spec declares unknown occluder(s) {missing}")
+
     canvas, report = place_character(
         plate, char_layer, foot_anchor, gp,
         shadow_direction=pose.get("lighting", {}).get("shadow_direction"),
         relight_spec=relight_spec,
         reflection_polygon=reflection_polygon,
         atmosphere=scene.get("atmosphere"),
+        behind_polygons=behind,
     )
 
     occlusion_applied = False

@@ -47,6 +47,10 @@ def render_overlay(scene_path: Path, out_path: Path | None = None) -> Path:
         d.polygon([tuple(p) for p in surf["polygon"]], fill=(255, 60, 60, 70), outline=(255, 0, 0, 255))
         d.text(tuple(surf["polygon"][0]), surf["id"], fill=(255, 90, 90, 255))
 
+    for occ in scene.get("occluders", []):
+        d.polygon([tuple(p) for p in occ["polygon"]], fill=(60, 120, 255, 70), outline=(0, 120, 255, 255))
+        d.text(tuple(occ["polygon"][0]), occ["id"], fill=(120, 180, 255, 255))
+
     if out_path is None:
         out_path = scene_path.parent / "calibration_check.png"
     plate.save(out_path)

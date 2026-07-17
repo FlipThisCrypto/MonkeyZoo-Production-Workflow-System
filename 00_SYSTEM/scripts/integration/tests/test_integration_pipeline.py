@@ -143,6 +143,38 @@ def test_identity_check_passes_cross_pose():
 
 
 # ---------------------------------------------------------------------------
+# behind-geometry occlusion
+# ---------------------------------------------------------------------------
+
+def test_repaint_occluders_restores_plate_inside_polygon():
+    from compositor import repaint_occluders
+    from PIL import Image
+    import numpy as np
+    plate = Image.new("RGBA", (100, 100), (0, 200, 0, 255))
+    canvas = plate.copy()
+    canvas.paste(Image.new("RGBA", (40, 40), (255, 0, 0, 255)), (30, 30))  # "character"
+    out = np.array(repaint_occluders(canvas, plate, [[(30, 30), (70, 30), (70, 70), (30, 70)]]))
+    assert tuple(out[50, 50][:3]) == (0, 200, 0), "occluder region must show plate again"
+    assert tuple(np.array(canvas)[50, 50][:3]) == (255, 0, 0), "input canvas must be untouched"
+
+
+def test_run_rejects_unknown_occluder(tmp_path):
+    import json as _json
+    from compositor import run
+    import shutil
+    src = ROOT / "00_SYSTEM" / "integration_upgrade" / "poc" / "MZ-2026-09-02_P01_PANEL01"
+    if not src.exists():
+        pytest.skip("POC dir missing")
+    work = tmp_path / "panel"
+    shutil.copytree(src, work)
+    pose = _json.loads((work / "pose_spec.json").read_text(encoding="utf-8"))
+    pose["behind"] = ["no-such-object"]
+    (work / "pose_spec.json").write_text(_json.dumps(pose), encoding="utf-8")
+    with pytest.raises(ValueError, match="unknown occluder"):
+        run(work)
+
+
+# ---------------------------------------------------------------------------
 # haze
 # ---------------------------------------------------------------------------
 

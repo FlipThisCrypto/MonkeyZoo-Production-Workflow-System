@@ -864,3 +864,41 @@ monotonic-toward-horizon, color-mix math). Suite: **19/19 PASS**.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 21 — Behind-geometry occlusion
+
+**Selected because**: "The environment must sometimes pass in front of
+the character" is a whole brief section (railing over legs, console over
+torso), and the only occlusion so far was weather (rain in front). No
+mechanism existed for scene GEOMETRY to cut a character.
+
+**Implementation**: `scene_blocking.json` gains `occluders` (traced
+polygons of solid scene objects); a pose/character spec declares
+`behind: [ids]`; `repaint_occluders()` pastes the ORIGINAL plate pixels
+of those polygons back over the freshly-pasted character. In multi-char
+scenes the repaint happens immediately after each character's own paste,
+so depth-sorted nearer characters still land on top. Documented
+limitation: solid objects only — see-through occluders (chain-link fence)
+would need wire-level masks that polygon tracing can't provide.
+
+**Occluder authored with evidence**: the zoo-street trash can traced on a
+10px measurement grid (`_test/trashcan_grid.png`); `calibrate_check.py`
+extended to draw occluder polygons (blue) so every future occluder gets
+the same render-and-look verification as surfaces/lights.
+
+**Defect found during demo (composition, not code)**: first placement put
+the character full-behind the can — and since a chibi (66px at that
+depth) is SHORTER than the can (79px), he vanished except a sliver. The
+math was right; the STAGING was wrong. Repositioned to the classic
+half-behind read (body split by the can's edge) — reads perfectly:
+left side cleanly cut by the can, right side visible and relit. Demo
+saved to `demos/occlusion_behind_trashcan.png`.
+
+**Tests**: 2 new (repaint restores plate inside polygon + input canvas
+immutability; unknown-occluder spec rejected with a clear error). POC
+re-run confirmed byte-stable (occluders present but not declared by the
+pose spec → no change). Suite: **21/21 PASS**.
+
+**Verdict**: **PASS**.
+
+---

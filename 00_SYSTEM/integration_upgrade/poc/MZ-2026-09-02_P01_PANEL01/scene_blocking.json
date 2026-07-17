@@ -102,5 +102,69 @@
     ],
     "haze_max": 0.55,
     "note": "Haze color SAMPLED from the plate's far-street band just below the horizon (y 335-365, x 700-900: mean [75.9, 79.8, 102.5]), not guessed. haze_max 0.55 matches how much the plate's own distant content fades."
-  }
+  },
+  "occluders": [
+    {
+      "id": "trashcan_left",
+      "polygon": [
+        [
+          197,
+          431
+        ],
+        [
+          223,
+          423
+        ],
+        [
+          224,
+          418
+        ],
+        [
+          244,
+          418
+        ],
+        [
+          246,
+          424
+        ],
+        [
+          271,
+          432
+        ],
+        [
+          269,
+          442
+        ],
+        [
+          262,
+          442
+        ],
+        [
+          263,
+          489
+        ],
+        [
+          268,
+          497
+        ],
+        [
+          199,
+          497
+        ],
+        [
+          203,
+          489
+        ],
+        [
+          205,
+          442
+        ],
+        [
+          198,
+          442
+        ]
+      ],
+      "note": "Solid sidewalk trash can, traced on a 10px measurement grid (_test/trashcan_grid.png). Base sits at y=497; anything declaring behind=trashcan_left must anchor at foot_y < 497."
+    }
+  ]
 }
