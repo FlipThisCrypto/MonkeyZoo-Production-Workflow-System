@@ -15,6 +15,7 @@ from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).parent))
 from perspective import GroundPlane  # noqa: E402
+from shadow import draw_contact_shadow  # noqa: E402
 
 
 def load_ground_plane(scene_blocking: dict) -> GroundPlane:
@@ -27,14 +28,27 @@ def load_ground_plane(scene_blocking: dict) -> GroundPlane:
     )
 
 
+SHADOW_DIRECTIONS = {
+    "down": 90, "down-left": 135, "down-and-left": 135, "left": 180,
+    "down-right": 45, "down-and-right": 45, "right": 0, "up": 270,
+}
+
+
+def _shadow_angle(direction_text: str) -> float:
+    key = direction_text.strip().lower()
+    return SHADOW_DIRECTIONS.get(key, 135)
+
+
 def place_character(
     plate: Image.Image,
     char_layer: Image.Image,
     foot_anchor_px: tuple[float, float],
     ground_plane: GroundPlane,
+    shadow_direction: str | None = None,
 ) -> tuple[Image.Image, dict]:
     """Scale char_layer so its apparent height matches the ground plane at
-    foot_anchor_px, then paste it (alpha-composited) so its own visual foot
+    foot_anchor_px, draw a contact shadow under the anchor if requested,
+    then paste the character (alpha-composited) so its own visual foot
     point (bottom-center of its opaque bbox, not the raw canvas edge) lands
     exactly on foot_anchor_px."""
     target_h = ground_plane.height_at(foot_anchor_px[1])
@@ -54,6 +68,12 @@ def place_character(
     paste_y = round(foot_anchor_px[1] - new_h)
 
     canvas = plate.convert("RGBA").copy()
+    shadow_used = False
+    if shadow_direction:
+        canvas = draw_contact_shadow(
+            canvas, foot_anchor_px, new_w, shadow_direction_deg=_shadow_angle(shadow_direction)
+        )
+        shadow_used = True
     canvas.alpha_composite(resized, (paste_x, paste_y))
 
     return canvas, {
@@ -61,6 +81,7 @@ def place_character(
         "source_bbox_in_layer": bbox,
         "scale_factor": round(scale, 4),
         "paste_box": [paste_x, paste_y, paste_x + new_w, paste_y + new_h],
+        "contact_shadow_applied": shadow_used,
     }
 
 
@@ -74,10 +95,11 @@ def run(poc_dir: Path) -> dict:
     gp = load_ground_plane(scene)
 
     canvas, report = place_character(
-        plate, char_layer, tuple(pose["ground_contact"]["foot_anchor_px"]), gp
+        plate, char_layer, tuple(pose["ground_contact"]["foot_anchor_px"]), gp,
+        shadow_direction=pose.get("lighting", {}).get("shadow_direction"),
     )
 
-    out_path = poc_dir / "01_geometry_placement.png"
+    out_path = poc_dir / "02_geometry_plus_shadow.png"
     canvas.convert("RGB").save(out_path)
     report["output"] = str(out_path)
     return report

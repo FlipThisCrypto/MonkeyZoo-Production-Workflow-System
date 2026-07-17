@@ -177,3 +177,43 @@ future precision pass if the technique is productionized.
 complete — continues in Cycles 4–5).
 
 ---
+
+## Cycle 4 — Procedural contact shadow generator
+
+**Selected because**: Cycle 3's own inspection notes named the exact next
+gap — geometry alone still reads as pasted because nothing grounds the
+character to the surface. "Missing cast shadows and contact shadows" is
+also an explicit QA-gate failure condition in the brief.
+
+**Scoped for one cycle**: yes.
+
+**Files created**: `00_SYSTEM/scripts/integration/shadow.py` —
+`draw_contact_shadow()`: a blurred, directionally-offset ellipse under the
+foot anchor (flattened footprint, not a circle; offset driven by a
+shadow-direction angle so it reads as cast light, not a generic drop
+shadow). Wired into `compositor.py`: `place_character()` now takes a
+`shadow_direction` string (matches the plain-English values already used
+in `pose_spec.json`'s `lighting.shadow_direction`), draws the shadow on
+the canvas *before* pasting the character so it sits correctly underneath.
+
+**Test**: re-ran `compositor.py` on the POC panel — `contact_shadow_applied:
+true`, output `02_geometry_plus_shadow.png`.
+
+**Visual inspection**: cropped and 3×-upscaled the foot area and looked
+directly at the pixels (not just the full-frame thumbnail, where a subtle
+night-scene shadow is easy to miss) — a real soft dark patch is visible
+under and slightly screen-left of his feet.
+
+**Numeric verification** (not just eyeballing): sampled mean RGB luminance
+in the shadow's actual bounding box, before vs. after —
+`42.16 → 34.23` (a 7.93-point / ~19% darkening). Confirms the shadow is
+real and not a no-op that happened to look plausible in a dark scene.
+
+**Defects found**: none blocking. Noted limitation: opacity (0.42) was
+tuned by eye for this one dark, low-contrast night scene — a bright
+daylight panel would need a different default; flagged as a follow-up
+tuning pass once more panel types are tested.
+
+**Verdict**: **PASS**.
+
+---
