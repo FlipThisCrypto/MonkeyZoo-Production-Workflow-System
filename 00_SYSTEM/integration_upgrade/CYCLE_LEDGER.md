@@ -1096,3 +1096,29 @@ under the new metric); transit still PASS; suite 21/21. Preview re-staged.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 27 — Storm-routines panel (P02_PANEL01, three characters, neon night street)
+
+**Selected because**: fourth lighting regime (pre-rain neon night street)
+and the first THREE-character staging on an agent-calibrated plate; also
+first appearances of TwoTone and NeonBlue in the integration pipeline.
+
+**Panel**: "Storm rolls in; every device emits the same interference
+burst." Staggered-triangle staging (not a lineup): Static small
+mid-street (73.5px, worried — he hears it), TwoTone mid-left backing off
+the magenta lamp (135.5px, worried variant, canon split hair verified
+viewer-left-black), NeonBlue foreground-right (178.1px) using the
+`29_lookingup` variant so his gaze lands exactly on the buzzing cyan key
+lamp above his position. All three reflect in the road's wet sheet
+(2,173 / 6,198 / 4,595 px). New mattes (twotone_16_worried,
+neonblue_29_lookingup): matte PASS + identity 1.0 both.
+`foreground_rain: false` with a recorded reason — the plate draws
+pre-rain storm air, and adding streaks the plate lacks would mismatch
+(honoring the Cycle 18 calibration caveat rather than ignoring it).
+
+**Gate**: PASS plate-baselined (shadow delta at the foreground anchor
++9.02); staged to the issue preview with compare sheet.
+
+**Verdict**: **PASS**.
+
+---
