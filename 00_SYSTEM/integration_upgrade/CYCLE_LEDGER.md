@@ -720,3 +720,80 @@ multi-character system is separately proven in Cycle 14).
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 16 — Localized img2img edge unification — **HOLD (rejected with evidence; does NOT count toward the 20)**
+
+**Selected because**: the brief's preferred-pipeline step 12 ("localized
+inpainting or image-to-image integration around the character boundary")
+was the only unimplemented stage of the preferred hybrid workflow.
+
+**Built**: `edge_unify.py` — dilate-minus-erode ring mask around the
+composited silhouette, masked img2img via SetLatentNoiseMask at low
+denoise, plus a pixel-space clamp making background-preservation outside
+the ring a mathematical guarantee (output = ring*sampled + (1-ring)*orig).
+
+**Attempt 1** (ring 4px in / 22px out, denoise 0.35): metrics fine
+(12,929 ring px re-imagined, zero change outside after clamp) but visual
+inspection failed it hard — hallucinated foreign blobs at the seam
+(brown mass behind the head, white blob at the hip), the character's thin
+tail destroyed (it fits inside the erosion band), muddy boot contact.
+
+**Attempt 2** (character fully protected, 10px outer ring, denoise 0.18):
+worse — and diagnosing it found a real scipy pitfall: `binary_erosion(...,
+iterations=0)` means "erode until CONVERGENCE" (erases everything), not
+"no erosion" — so the entire character was silently repaintable and got
+repainted (studded pants replaced with plain legs, face flattened). Bug
+fixed in the module with a warning comment.
+
+**Verdict rationale**: at cfg 1.0 (negatives inert, weak guidance) this
+engine re-imagines masked regions rather than harmonizing them, while the
+deterministic compositor's feathered/defringed edges already pass all
+acceptance criteria — so the stage adds hallucination risk with no
+measured benefit. Module retained with a REJECTED banner for future
+engines with real guidance; not wired into any pipeline path.
+
+**Verdict**: **HOLD** — investigation complete and valuable (one scipy
+bug fixed, one engine limitation established with before/after evidence),
+but no shipped improvement, so per the loop's own rules it does not count
+toward the 20.
+
+---
+
+## Cycle 17 — Ground-plane calibration measured, corrected, and tooled
+
+**Selected because**: while verifying calibrations with the new overlay
+renderer (built this cycle), the horizon estimate from Cycle 3 (y=205)
+looked wrong against the plate's receding structure — and horizon error
+grows with distance from the calibration point, which matters exactly
+when panels start using far-field placements (the multi-char panel
+already spans y=545–688).
+
+**Tool built**: `calibrate_check.py` — renders horizon line, calibration
+marker (now with `calib_x`), light-source positions, and reflective
+polygons over the plate. Every calibration now gets a look-at-it
+verification artifact, same discipline as the puddle polygon in Cycle 12.
+
+**Measurement (not eyeball)**: the plate's two same-height streetlamps
+give simultaneous equations for the horizon: near lamp (base y=470,
+340px tall) and left lamp (base y=437, 242px tall) → H≈355. Receding
+awning/fence lines converge ≈320. Adopted **330 (±25)**, documented in
+`scene_blocking.json`'s new `horizon_derivation` field.
+
+**Empirical confirmation before committing**: rendered the POC character
+at both horizons side-by-side (H=205 → 107px vs H=330 → 136px at the same
+foot anchor) — the corrected scale reads clearly better against the
+trash can and doorway (`_test/horizon_compare.png`).
+
+**Applied**: both POC scene_blocking files updated; both panels
+re-composited (P01: 135.6px; P06: static 94.1 / scarline 147.9 / moodz
+156.6 — foreground flankers now have proper near-camera presence);
+QA gate re-run PASS on both; regression suite 10/10.
+
+**Honest caveat**: the plate is itself AI-generated art, and its internal
+perspective is not perfectly consistent (lamp math says 355, structure
+lines say 320). 330 is the best single value the plate supports; the
+uncertainty band is recorded in the spec rather than hidden.
+
+**Verdict**: **PASS**.
+
+---

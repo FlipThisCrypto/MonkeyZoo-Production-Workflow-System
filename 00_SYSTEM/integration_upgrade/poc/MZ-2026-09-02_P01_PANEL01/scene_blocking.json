@@ -1,36 +1,50 @@
 {
   "panel_id": "MZ-2026-09-02_P01_PANEL01",
   "background_plate": "03_APPROVED_CANON/approved_locations/zoo-city-streets/primary-reference.png",
-  "plate_size": [1280, 720],
+  "plate_size": [
+    1280,
+    720
+  ],
   "derivation_note": "Ground-plane values below are estimated by visual inspection of the plate (no camera-calibration tooling exists in this repo) -- treat as art-directed estimates, not measured facts. Recorded explicitly so a future cycle can replace this with a real vanishing-point/line detector if precision matters.",
   "ground_plane": {
-    "horizon_y": 205,
+    "horizon_y": 330,
     "calibration": {
       "reference_object": "sidewalk trash can, visible left-foreground",
       "calib_y_foot": 490,
       "calib_height_px": 70,
-      "note": "Trash can bottom/top sampled directly from the plate; used as the scale proxy because its apparent size at that depth is closer to Static's chibi scale than the human-height doorway also visible in the plate."
-    }
+      "note": "Trash can bottom/top sampled directly from the plate; used as the scale proxy because its apparent size at that depth is closer to Static's chibi scale than the human-height doorway also visible in the plate.",
+      "calib_x": 230
+    },
+    "horizon_derivation": "MEASURED (Cycle 17), replacing the Cycle-3 eyeball estimate of 205: the plate's two same-height streetlamps give H=(hn*yb_far - hf*yb_near)/(hn-hf) -- near lamp base y=470 h=340px, left lamp base y=437 h=242px -> H=355; receding awning/fence structure lines converge ~320. Adopted 330 (+/-25 uncertainty band noted). Side-by-side render comparison at the POC foot anchor confirmed the corrected scale reads better against in-scene reference objects (_test/horizon_compare.png)."
   },
   "light_sources": [
     {
       "id": "streetlamp_near",
       "type": "key",
-      "position_px": [680, 120],
+      "position_px": [
+        680,
+        120
+      ],
       "color": "cool cyan-white",
       "note": "Nearest streetlamp cone, casts down-and-slightly-right onto the sidewalk area where the character is placed."
     },
     {
       "id": "signage_magenta",
       "type": "fill",
-      "position_px": [330, 60],
+      "position_px": [
+        330,
+        60
+      ],
       "color": "magenta",
       "note": "MONKEY sign glow, bounces warm-magenta fill light and produces the magenta puddle reflection at screen-left."
     },
     {
       "id": "signage_green",
       "type": "fill",
-      "position_px": [500, 90],
+      "position_px": [
+        500,
+        90
+      ],
       "color": "spring green",
       "note": "Zoo sign glow, secondary bounce fill from screen-left."
     }
@@ -43,7 +57,36 @@
   "reflective_surfaces": [
     {
       "id": "sidewalk_sheet_left",
-      "polygon": [[35, 618], [250, 600], [370, 650], [430, 705], [300, 719], [40, 719], [25, 660]],
+      "polygon": [
+        [
+          35,
+          618
+        ],
+        [
+          250,
+          600
+        ],
+        [
+          370,
+          650
+        ],
+        [
+          430,
+          705
+        ],
+        [
+          300,
+          719
+        ],
+        [
+          40,
+          719
+        ],
+        [
+          25,
+          660
+        ]
+      ],
       "note": "Wet water-sheet on the lower-left sidewalk pavers (visible rain ripple rings in the plate). Polygon traced visually and verified by rendering an overlay against the plate (_test/puddle_poly_check.png) before use -- same estimate-then-inspect discipline as the ground-plane calibration."
     }
   ],
