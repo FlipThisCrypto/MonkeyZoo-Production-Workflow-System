@@ -1177,3 +1177,45 @@ fixes — per the correction note, not retroactively.
 **Verdict (Cycle 28)**: **PASS**.
 
 ---
+
+## Cycle 29 — Relay Junction panel (P07_PANEL02) + first supporting-cast character
+
+**Selected because**: last uncalibrated-in-practice plate (fifth regime:
+dark industrial interior, overhead cage key + teal crystal fills) and the
+pipeline's first non-lead character — Clever, whose refs are a different
+FORMAT (card-style: character on a cyan rounded card with black outline
+on a white page).
+
+**Three real defects found and fixed, all by inspection**:
+1. **Card-format mattes failed** (0.97 opaque — flood fill stops at the
+   card outline). Fixed with a new `inset` mode in `alpha_matte.extract`
+   (crop inside the card frame first; inset must clear margin + border +
+   corner radius — 40 was still white-cornered, 95 works: backdrop
+   correctly detected as the cyan [49,199,228], opaque 0.54, Clever's
+   cyan-ADJACENT blue shirt survives because interior regions are
+   unreachable by the border-connected fill).
+2. **Slab-height calibration undershot**: the relay calib object is
+   knee-height, and the agent's caveat said to scale characters from its
+   real height — implemented `calib_to_character_factor` (2.25 =
+   0.9m/0.4m). The test render STILL read mouse-scale against the room's
+   own wall units (the painted room's internal scale is oversized), so
+   the factor was art-directed to 3.2 by render inspection — both the
+   principled value and the override are recorded in the spec.
+3. **Clever's pointing variant is foot-clipped in its own source card** —
+   flat cut visible in the foreground. Swapped to his full-body clean
+   base at mid-depth and moved TwoTone to the foreground instead.
+
+Also fixed: the haze hook assumed every `atmosphere` block has a
+`haze_color` — the agent-authored relay spec carries atmosphere metadata
+without one (crashed; now guarded).
+
+**Final state**: all 3 anchors PASS the plate-diff grounding gate
+(7.81 / 9.32 / 10.68); TwoTone foreground shows teal crystal fill on his
+white hair side; Clever full-body with his canon 8-ball prop preserved;
+staged to the issue preview. Suite 21/21. Clever's brighter pastel canon
+palette makes him the eye-target of the arrival beat — an accepted art
+outcome, noted rather than hidden.
+
+**Verdict**: **PASS**.
+
+---

@@ -83,13 +83,14 @@ def place_character(
     behind_polygons: list[list] | None = None,
     shadow_opacity: float | None = None,
     reflection_opacity: float | None = None,
+    character_height_factor: float = 1.0,
 ) -> tuple[Image.Image, dict]:
     """Scale char_layer so its apparent height matches the ground plane at
     foot_anchor_px, draw a contact shadow under the anchor if requested,
     then paste the character (alpha-composited) so its own visual foot
     point (bottom-center of its opaque bbox, not the raw canvas edge) lands
     exactly on foot_anchor_px."""
-    target_h = ground_plane.height_at(foot_anchor_px[1])
+    target_h = ground_plane.height_at(foot_anchor_px[1]) * character_height_factor
 
     alpha = char_layer.split()[-1]
     bbox = alpha.getbbox()
@@ -103,7 +104,11 @@ def place_character(
         relit = True
 
     haze_k = 0.0
-    if atmosphere:
+    # an atmosphere block only drives haze when it declares a sampled
+    # haze_color -- agent-authored scene specs may carry atmosphere
+    # metadata (mood, humidity notes) without one (found on the relay
+    # plate spec)
+    if atmosphere and atmosphere.get("haze_color"):
         haze_k = depth_haze_factor(foot_anchor_px[1], ground_plane.horizon_y,
                                    ground_plane.calib_y, atmosphere.get("haze_max", 0.5))
         cropped = apply_haze(cropped, haze_k, tuple(atmosphere["haze_color"]))
@@ -228,6 +233,8 @@ def run_scene(spec_dir: Path) -> dict:
             behind_polygons=behind,
             shadow_opacity=inst.get("grounding_boost", {}).get("shadow_opacity"),
             reflection_opacity=inst.get("grounding_boost", {}).get("reflection_opacity"),
+            character_height_factor=scene["ground_plane"]["calibration"].get(
+                "calib_to_character_factor", 1.0),
         )
         reports[inst["character"]] = rep
 

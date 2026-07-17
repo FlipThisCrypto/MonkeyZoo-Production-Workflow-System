@@ -96,8 +96,18 @@ def strip_baked_ground_shadow(arr: np.ndarray, alpha: np.ndarray, bg_color: np.n
     return out
 
 
-def extract(src: Path, dst: Path, threshold: float = COLOR_DIST_THRESHOLD) -> dict:
+def extract(src: Path, dst: Path, threshold: float = COLOR_DIST_THRESHOLD,
+            inset: int = 0) -> dict:
+    """inset: crop N pixels off every edge BEFORE matting. For card-style
+    refs (character on a colored rounded card with a dark outline on a
+    page background -- e.g. Clever's supporting-cast set), the flood fill
+    from the outer corners stops at the card outline and removes nothing
+    (found in Cycle 29: 0.97 opaque). An inset that starts inside the
+    card frame makes the card interior the border-connected backdrop, and
+    the standard algorithm applies unchanged."""
     img = Image.open(src).convert("RGB")
+    if inset:
+        img = img.crop((inset, inset, img.width - inset, img.height - inset))
     arr = np.array(img)
     bg = estimate_backdrop_color(arr)
 
