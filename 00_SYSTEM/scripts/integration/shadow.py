@@ -41,7 +41,21 @@ def draw_contact_shadow(
     cy = foot_anchor_px[1] + offset_y
 
     bbox = [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2]
-    alpha = int(255 * opacity)
+
+    # Ground-adaptive opacity (Cycle 26): 0.42 was tuned on a dark night
+    # street; the same alpha over bright sunlit tile leaves the character
+    # visually floating (found on the school hallway panel). Sample the
+    # ground under the footprint and strengthen the shadow on bright
+    # ground; dark-scene output is unchanged (factor is 1.0 below
+    # luma 90).
+    import numpy as np
+    gx0, gy0 = max(0, int(cx - w / 2)), max(0, int(cy - h / 2))
+    gx1, gy1 = min(canvas.width, int(cx + w / 2)), min(canvas.height, int(cy + h / 2))
+    patch = np.array(canvas.convert("L").crop((gx0, gy0, gx1, gy1)), dtype=np.float32)
+    ground_luma = float(patch.mean()) if patch.size else 128.0
+    effective = min(0.65, opacity * (1.0 + max(0.0, ground_luma - 90.0) / 255.0 * 1.2))
+
+    alpha = int(255 * effective)
     draw.ellipse(bbox, fill=(10, 8, 15, alpha))
 
     layer = layer.filter(ImageFilter.GaussianBlur(blur_px))

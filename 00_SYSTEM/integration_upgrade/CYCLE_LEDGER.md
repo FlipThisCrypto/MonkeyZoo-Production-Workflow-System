@@ -1062,3 +1062,37 @@ previews exist.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 26 — School PA-zone panel (P01_PANEL02) + bright-regime shadow fixes
+
+**Selected because**: third lighting regime (bright fluorescent-lit
+hallway) — precisely the case the Cycle-4 ledger flagged as untested
+("opacity 0.42 tuned by eye for this one dark scene").
+
+**Panel**: `MZ-2026-09-02_P01_PANEL02` — "A PA speaker glitches a
+half-second; Moodz watches Static flinch." Static small mid-hallway under
+the speaker array (confused variant = the flinch), Moodz foreground at
+the main puddle (thinking variant, gaze landing left onto Static),
+puddle reflection under Moodz (2,652px). New mattes for both variants
+passed matte + identity gates (1.0 both).
+
+**The flagged risk materialized, was measured, and got fixed properly**:
+Static's shadow check failed at **-7.69** — diagnosis showed BOTH a weak
+shadow (night-tuned 0.42 alpha over bright tile → visually floating,
+confirmed by zoom) AND a biased metric (baseline sampled the floor
+farther up the hallway, which is inherently darker on this plate — the
+gradient swamped the shadow). Fixes:
+1. `shadow.py`: ground-adaptive opacity — samples ground luma under the
+   footprint, strengthens up to 0.65 on bright ground, **unchanged below
+   luma 90** so all validated night renders stay identical.
+2. `check_contact_shadow`: baseline switched to LATERAL same-depth strips
+   (same y-band shares the floor's inherent brightness; only the shadow
+   differs).
+
+**Full control matrix after both fixes**: school PASS (delta +17.3, was
+-7.69); zoo known-bad still FAIL; zoo integrated still PASS (delta 17.68
+under the new metric); transit still PASS; suite 21/21. Preview re-staged.
+
+**Verdict**: **PASS**.
+
+---

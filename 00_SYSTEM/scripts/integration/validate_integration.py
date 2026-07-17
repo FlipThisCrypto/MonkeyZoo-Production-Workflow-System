@@ -150,21 +150,29 @@ def known_reference_color_regions(
 
 
 def check_contact_shadow(img: Image.Image, foot_anchor_px: tuple[float, float], radius: int = 45) -> dict:
+    """Baseline = LATERAL strips at the SAME y-band as the anchor (same
+    scene depth), not the band farther up. The original farther-up
+    baseline false-failed on the school hallway, whose floor is
+    inherently darker with distance -- the gradient swamped a real
+    shadow (measured -7.7 with a visible shadow present). Same-depth
+    lateral strips share the floor's inherent brightness, so only the
+    shadow itself differs."""
     gray = np.array(img.convert("L"), dtype=np.float64)
     h, w = gray.shape
     x, y = foot_anchor_px
-    near = gray[max(0, int(y - radius // 2)):min(h, int(y + radius // 2)),
-                max(0, int(x - radius)):min(w, int(x + radius))]
-    far = gray[max(0, int(y - radius * 2)):max(0, int(y - radius)),
-               max(0, int(x - radius * 2)):min(w, int(x + radius * 2))]
-    if near.size == 0 or far.size == 0:
+    y0, y1 = max(0, int(y - radius // 2)), min(h, int(y + radius // 2))
+    near = gray[y0:y1, max(0, int(x - radius)):min(w, int(x + radius))]
+    left = gray[y0:y1, max(0, int(x - radius * 3)):max(0, int(x - radius))]
+    right = gray[y0:y1, min(w, int(x + radius)):min(w, int(x + radius * 3))]
+    lateral = np.concatenate([s.ravel() for s in (left, right) if s.size]) if (left.size or right.size) else None
+    if near.size == 0 or lateral is None:
         return {"verdict": "SKIP", "reason": "anchor too close to image edge"}
-    near_mean, far_mean = float(near.mean()), float(far.mean())
-    darkened = far_mean - near_mean
+    near_mean, lateral_mean = float(near.mean()), float(lateral.mean())
+    darkened = lateral_mean - near_mean
     return {
         "verdict": "PASS" if darkened > 2.0 else "FAIL",
         "near_mean_luma": round(near_mean, 2),
-        "far_mean_luma": round(far_mean, 2),
+        "lateral_mean_luma": round(lateral_mean, 2),
         "darkened_by": round(darkened, 2),
     }
 

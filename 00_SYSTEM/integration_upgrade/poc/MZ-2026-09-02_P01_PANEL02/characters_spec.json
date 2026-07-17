@@ -1,0 +1,56 @@
+{
+  "panel_id": "MZ-2026-09-02_P01_PANEL02",
+  "source_script_line": "A PA speaker glitches a half-second; Moodz watches Static flinch.",
+  "staging_intent": "Static small mid-hallway directly under the speaker array, caught mid-flinch; Moodz nearer camera at the puddle, still, just watching. The empty hallway depth between them isolates the flinch.",
+  "foreground_rain": false,
+  "characters": [
+    {
+      "character": "static",
+      "character_token": "MZ-CHAR-003",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_20_confused.png",
+      "asset_note": "Confused variant reads as the half-second flinch -- head engaged, body uncertain.",
+      "action": "flinching at the glitched PA burst",
+      "emotion": "startled confusion",
+      "body_orientation": "three-quarter, caught turning toward the speakers",
+      "eye_target": "wall speakers above",
+      "depth_layer": "middle_ground",
+      "ground_contact": {
+        "surface": "hallway tile",
+        "foot_anchor_px": [
+          400,
+          560
+        ]
+      },
+      "lighting": {
+        "key_source": "ceiling_fluorescent_near",
+        "shadow_direction": "down"
+      }
+    },
+    {
+      "character": "moodz",
+      "character_token": "MZ-CHAR-001",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/moodz/moodz_24_thinking.png",
+      "asset_note": "Thinking pose: quiet observation, hand near chin -- watching, not reacting.",
+      "action": "watching Static flinch, noting it",
+      "emotion": "quiet concern",
+      "body_orientation": "angled toward Static up the hallway",
+      "eye_target": "Static",
+      "depth_layer": "foreground",
+      "ground_contact": {
+        "surface": "wet tile at the main hallway puddle",
+        "foot_anchor_px": [
+          750,
+          675
+        ]
+      },
+      "lighting": {
+        "key_source": "ceiling_fluorescent_near",
+        "shadow_direction": "down-right"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "hall_puddle_main"
+      }
+    }
+  ]
+}
