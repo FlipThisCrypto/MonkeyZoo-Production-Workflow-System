@@ -74,6 +74,28 @@ def defringe(arr: np.ndarray, alpha: np.ndarray, bg_color: np.ndarray, band: int
     return out
 
 
+def strip_baked_ground_shadow(arr: np.ndarray, alpha: np.ndarray, bg_color: np.ndarray,
+                              band_frac: float = 0.30, threshold: float = 62.0) -> np.ndarray:
+    """Z-Image likes to bake a soft backdrop-tinted drop-shadow ellipse
+    under a character's feet (found live in Cycle 15: a pink ellipse rode
+    through the matte into the composite because it's backdrop-FAMILY but
+    beyond the strict key threshold). In the bottom band of the opaque
+    bbox, re-key with a relaxed threshold: the ellipse is always close to
+    the backdrop color there, while boots/legs are far from it."""
+    ys, xs = np.where(alpha > 0)
+    if len(ys) == 0:
+        return alpha
+    y0, y1 = ys.min(), ys.max()
+    band_start = int(y1 - (y1 - y0) * band_frac)
+    dist = np.linalg.norm(arr.astype(np.float32) - bg_color.astype(np.float32), axis=2)
+    band = np.zeros_like(alpha, dtype=bool)
+    band[band_start:, :] = True
+    kill = band & (dist < threshold) & (alpha > 0)
+    out = alpha.copy()
+    out[kill] = 0
+    return out
+
+
 def extract(src: Path, dst: Path, threshold: float = COLOR_DIST_THRESHOLD) -> dict:
     img = Image.open(src).convert("RGB")
     arr = np.array(img)
@@ -81,6 +103,7 @@ def extract(src: Path, dst: Path, threshold: float = COLOR_DIST_THRESHOLD) -> di
 
     bg_mask = background_mask(arr, bg, threshold)
     alpha = np.where(bg_mask, 0, 255).astype(np.uint8)
+    alpha = strip_baked_ground_shadow(arr, alpha, bg)
 
     # feather: blur alpha, but keep the fully-opaque core untouched so the
     # character doesn't shrink -- only the transition band softens.

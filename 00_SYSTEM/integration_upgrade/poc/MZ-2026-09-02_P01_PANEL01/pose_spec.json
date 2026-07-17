@@ -33,6 +33,6 @@
     "surface": "sidewalk_sheet_left",
     "note": "Restrained mirrored reflection in the wet sheet below-left of his stance -- consistent with the plate's own diffuse neon reflections. Boots themselves stay on dry-ish pavers; the reflection lives on the adjacent water sheet, which is physically correct for a standing figure next to a reflective surface."
   },
-  "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_00_clean_base.png",
-  "asset_limitation": "This is Static's neutral clean-base reference pose (three-quarter-ish standing, satchel visible), not a custom-generated freeze-mid-step pose -- ComfyUI is offline this session so no new pose could be rendered. Orientation/placement below is chosen to match this existing asset as closely as the scripted beat allows; a true bespoke pose render is flagged as follow-up work once generation is available again."
+  "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_scene_freeze.png",
+  "asset_history": "Cycle 3 used static_00_clean_base.png (generic reference pose) because ComfyUI was offline; Cycle 13 generated the bespoke freeze-mid-step render (text2img, seed 777021 -- see CYCLE_LEDGER for the 3-attempt selection evidence) and Cycle 15 swapped it in. The scripted beat (three-quarter right, head up toward the signage, raised mitten fist, weight settling) is now expressed by the asset itself, not approximated by placement."
 }

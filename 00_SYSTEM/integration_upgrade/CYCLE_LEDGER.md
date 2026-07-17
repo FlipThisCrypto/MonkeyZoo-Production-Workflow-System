@@ -681,3 +681,42 @@ the documented default for scene poses.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 15 — POC re-composite with the bespoke pose + acceptance re-run
+
+**Selected because**: closes the loop Cycle 13 opened — the bespoke asset
+existed but the flagship POC still showed the generic pose.
+
+**Defect found and fixed (the substantive part)**: first re-composite
+showed a **pink ellipse under the character** — Z-Image had baked a
+backdrop-tinted drop-shadow into the winning render, and it survived the
+matte because it's backdrop-*family* but outside the strict key threshold
+(also explaining the suspicious 0.51 opaque fraction noted at matte time —
+a warning sign initially misread as "pose fills more frame"). Fixed
+generally, not as a one-off: new `strip_baked_ground_shadow()` in
+`alpha_matte.py` re-keys the bottom 30% of the opaque bbox with a relaxed
+threshold (62) — the baked ellipse is always near the backdrop color
+there, while boots/legs are far from it. Re-matte: opaque 0.478, ellipse
+gone (verified visually), boots intact.
+
+**Files changed**: `alpha_matte.py` (+`strip_baked_ground_shadow`),
+`pose_spec.json` (asset swap + `asset_history` provenance),
+`character_layers/static/static_scene_freeze.png` (re-matted).
+
+**Tests**: regression suite 10/10 after the matte change (including the
+three parametrized corner/opaque assertions — proving the new stripper
+doesn't damage normal refs). QA gate on the new final render: **PASS**,
+contact shadow delta 38.6 luma.
+
+**Acceptance checklist re-score** (vs. the Cycle 6 run): criteria 2 (pose
+expresses scripted action) and 11 (eye lines/body direction) move
+**PARTIAL → PASS** — the freeze-and-notice beat is now in the asset
+itself: three-quarter-right stance, head tilted up toward the signage,
+raised mitten fist, o-mouth alarm. Criterion 9 (reflections) moved
+NOT IMPLEMENTED → PASS in Cycle 12. **All 14 applicable criteria now
+PASS** (criterion 12 remains N/A — single-character panel; the
+multi-character system is separately proven in Cycle 14).
+
+**Verdict**: **PASS**.
+
+---
