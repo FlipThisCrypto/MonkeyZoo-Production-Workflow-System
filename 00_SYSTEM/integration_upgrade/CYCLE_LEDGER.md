@@ -397,3 +397,32 @@ instruction that generating a file without inspecting it doesn't count as
 validation.
 
 ---
+
+## Cycle 8 — Regression test suite
+
+**Selected because**: every prior cycle was validated manually. Without
+pinned tests, a future edit (e.g. re-tuning `alpha_matte`'s threshold, or
+touching `validate_integration`'s color palette) could silently
+reintroduce either bug found in Cycle 7 with no signal. Repo already has
+an established pytest convention (`character-bibles/_review_app/tests/`),
+so this follows existing project format rather than inventing a new one.
+
+**Scoped for one cycle**: yes.
+
+**Files created**:
+`00_SYSTEM/scripts/integration/tests/test_integration_pipeline.py` — 10
+tests covering: alpha-matte corner transparency across 3 characters
+(parametrized), the Scarline adversarial enclosed-color case, ground-plane
+height/depth monotonicity + round-trip + horizon-guard, contact-shadow
+darkening, and the two Cycle-7 negative-control images pinned as automated
+assertions (before → FAIL with a caught bad-color region, after → PASS).
+
+**Test**: `python -m pytest 00_SYSTEM/scripts/integration/tests -v` —
+**10/10 PASSED** in 7.18s.
+
+**Defects found**: none — this cycle formalized existing verified
+behavior into regression coverage rather than finding new bugs.
+
+**Verdict**: **PASS**.
+
+---
