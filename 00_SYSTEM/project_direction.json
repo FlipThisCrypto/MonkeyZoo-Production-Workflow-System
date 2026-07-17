@@ -471,6 +471,20 @@
           "docs": [
             "docs/ART_REFERENCE_PRIORITIES.md"
           ]
+        },
+        {
+          "id": "character-integration-pipeline",
+          "title": "Character-into-scene integration tooling (POC done 2026-07-16)",
+          "status": "next",
+          "priority": "P2",
+          "instructions": "Built and verified: alpha-matte extraction, ground-plane scale/anchor placement, contact shadow, environmental relighting, foreground rain occlusion, and an automated QA gate (validated with a real before/after negative control) -- replaces the flat NFT-card-paste look with grounded, lit, occluded compositing. Proof of concept: MZ-2026-09-02_P01_PANEL01. Remaining before this can batch-replace draft composites: (1) bespoke pose generation is blocked on ComfyUI being offline this session -- current POC reuses existing reference poses; (2) puddle-reflection compositing and (3) multi-character staging are unbuilt. Directly unblocks issue-01-final-art-upgrade below.",
+          "docs": [
+            "00_SYSTEM/automation_rules.md",
+            "00_SYSTEM/integration_upgrade/CYCLE_LEDGER.md",
+            "00_SYSTEM/integration_upgrade/ARCHITECTURE_FINDINGS.md",
+            "00_SYSTEM/scripts/integration/",
+            ".claude/skills/mz-art-run/SKILL.md"
+          ]
         }
       ]
     },
@@ -607,10 +621,11 @@
           "title": "Optional: Issue 01 final illustrated art upgrade",
           "status": "later",
           "priority": "P2",
-          "instructions": "Replace draft composite selected panels with final illustrated panels, re-run QA PASS, rebuild PDF/CBZ, re-publish archive if you want print/public merch quality.",
+          "instructions": "Replace draft composite selected panels with final illustrated panels, re-run QA PASS, rebuild PDF/CBZ, re-publish archive if you want print/public merch quality. Use the character-integration-pipeline tooling (canon-assets track) instead of hand re-pasting -- proof of concept already validated on a comparable single-character rainy-street panel.",
           "docs": [
             "docs/ART_QUEUE_WORKSPACE.md",
-            "02_MONTHLY_ISSUES/2026-08_Issue_01/"
+            "02_MONTHLY_ISSUES/2026-08_Issue_01/",
+            "00_SYSTEM/scripts/integration/"
           ]
         }
       ]
@@ -701,6 +716,7 @@
     "issue-03-scarline-script",
     "issue-03-scarline",
     "world-bible-merge",
+    "character-integration-pipeline",
     "issue-01-final-art-upgrade",
     "studio-ux-polish",
     "char-ref-variants",

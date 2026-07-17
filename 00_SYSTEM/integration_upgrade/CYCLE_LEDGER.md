@@ -457,3 +457,33 @@ landed in the right section and didn't corrupt surrounding structure
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 10 — Register character-integration track in project_direction.json
+
+**Selected because**: `project_direction.json` is the file every session
+is instructed to read first (per its own file and per this repo's memory
+notes) and the authoritative priority source for the Studio platform.
+Cycles 1-9 were invisible to it until this cycle — the brief's item 13
+("Update project direction... when applicable") calls for exactly this.
+
+**Scoped for one cycle**: yes.
+
+**Files changed**: `00_SYSTEM/project_direction.json` — added task
+`character-integration-pipeline` under the `canon-assets` track
+(status `next`, priority P2, full instructions + doc pointers), updated
+`issue-01-final-art-upgrade`'s instructions to point at the new tooling
+instead of hand re-pasting, and inserted the new task into
+`recommended_order` directly before `issue-01-final-art-upgrade` (the task
+it most directly unblocks).
+
+**Test**: `python -m pytest character-bibles/_review_app/tests/test_project_direction.py -v`
+— this is the Studio platform's own loader/schema test suite, run against
+the edited file (not a self-authored check) — **4/4 PASSED**. Also
+independently re-parsed the file with `json.load` and confirmed the new
+task id appears and `recommended_order` is well-formed.
+
+**Defects found**: none.
+
+**Verdict**: **PASS**.
+
+---
