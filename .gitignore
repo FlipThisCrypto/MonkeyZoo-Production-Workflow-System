@@ -32,3 +32,6 @@ desktop.ini
 .env
 .env.*
 issues/
+
+# character-integration-upgrade scratch inspection renders (not pipeline output)
+00_SYSTEM/integration_upgrade/_test/
