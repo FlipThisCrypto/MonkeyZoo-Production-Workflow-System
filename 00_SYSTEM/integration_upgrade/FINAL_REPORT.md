@@ -1,196 +1,104 @@
-# Character Integration Upgrade — Final Report
+# Character Integration Upgrade — Final Report (Rounds 1 + 2, 30 cycles)
 
-Branch: `character-integration-upgrade-20260716` → [PR #29](https://github.com/FlipThisCrypto/MonkeyZoo-Production-Workflow-System/pull/29)
-(open, awaiting the "validate" required status check + owner review — main
-is branch-protected, same as PR #28 earlier this session).
+Branch: `character-integration-upgrade-20260716` → [PR #29](https://github.com/FlipThisCrypto/MonkeyZoo-Production-Workflow-System/pull/29).
+Round 1 = Cycles 1–10 (2026-07-16, ComfyUI offline). Round 2 = Cycles
+11–31 (2026-07-16/17, ComfyUI restored, 20 more One Things requested and
+delivered). Full per-cycle evidence: `CYCLE_LEDGER.md`.
 
-**Scope actually completed: 10 of the requested 20 One Thing cycles, all
-PASS, all with real tests and real defects found and fixed.** This report
-explains why 10 and not 20, and exactly what's real vs. what's follow-up.
-
-## Why 10, not 20
-
-The instructions are explicit that planning doesn't count as a cycle,
-generating a file without inspecting it doesn't count as validation, and
-the same One Thing can't be repeated under a different title to pad the
-count. By Cycle 10 the reachable, non-repetitive, GPU-independent work was
-genuinely done: a working end-to-end compositing pipeline, a validated QA
-gate, a regression suite, and the documentation/project-direction wiring
-to make it discoverable. Every further high-value item I can identify
-(batch rollout to more panels, multi-character staging, puddle
-reflections, a real bespoke pose render) either needs ComfyUI — offline
-this entire session, confirmed by a direct connection check at the start,
-consistent with this rig's documented ZLUDA hang history — or would mean
-re-running the same panel-by-panel pattern already proven in Cycles 3-7
-without learning anything new, which the instructions call out as not
-legitimate. I judged manufacturing 10 more cycles to hit a round number
-would violate the brief's own "do not repeat the same One Thing" rule more
-than stopping honestly at a real inflection point does. Section
-"Recommended Next One Thing" below gives the concrete next step.
+**Score: 30 counted PASS cycles across both rounds** (Round 1: 10;
+Round 2: 20 — Cycles 11–15, 17–31, with Cycle 16 recorded as an honest
+HOLD that does not count). Every cycle has implementation + tests +
+inspected evidence + rollback in its ledger entry.
 
 ## Executive Summary
 
-Before this branch, every character in a shipped or draft panel was
-either (a) generated monolithically in one ComfyUI prompt with no
-compositing step at all, or (b) a literal minted-NFT-card thumbnail —
-background color, border, card number, signature and all — pasted as an
-opaque rectangle in a fixed row near the bottom of a background plate.
-Neither path had any masking, scale/perspective logic, shadow, lighting
-match, or occlusion. QA had no way to catch this because
-`validate_issue.py` only checks schema/file-existence, never pixels.
+Before this branch, a "character in a scene" was either a monolithic
+one-prompt render or a literal minted NFT card pasted as an opaque
+rectangle. The branch delivers a complete, tested, deterministic
+character-integration pipeline: true-alpha extraction (including
+card-format supporting-cast refs), bespoke text2img scene poses,
+measured ground-plane calibration for all five Issue-02 environments,
+depth-sorted multi-character staging, per-position relighting, ground-
+adaptive contact shadows, surface-clipped reflections, plate-sampled
+depth haze, behind-geometry occlusion, foreground weather — plus an
+automated QA stack (plate-baselined pixel gate, plate-diff grounding
+check, canon-palette identity drift detection, `validate_issue
+--integration`, and a v1.1 human Gate A checklist section). Six Issue-02
+panels spanning all five environments and seven characters are staged as
+integration previews with before/after comparison sheets for the owner's
+Gate A decision.
 
-This branch adds a real, tested, four-stage deterministic compositor
-(`00_SYSTEM/scripts/integration/`) that turns an approved character
-reference into a properly scaled, grounded, lit, and occluded scene
-element: **alpha matte → ground-plane placement → contact shadow →
-environmental relighting → foreground occlusion**, plus an automated QA
-gate that mechanically catches the old failure mode (proven against the
-real bad image, not a synthetic stand-in) and a 10-test regression suite.
-It is wired into `automation_rules.md`, the `mz-art-run` skill, and
-`project_direction.json` so it's an operational pipeline stage, not an
-orphaned experiment.
+## What Round 2 added (over Round 1's foundation)
 
-## Cycle Ledger
+| Cycle | One Thing | Verdict |
+|---|---|---|
+| 11 | ComfyUI restored + verified (VRAM check + smoke render, reusable script) | PASS |
+| 12 | Puddle/wet-surface reflections (surface-clipped, deterministic) | PASS |
+| 13 | Bespoke freeze-pose for the POC — 9 renders, img2img identity-drift root-caused, **text2img recipe established**; satchel canon error fixed pre-generation | PASS |
+| 14 | Multi-character staging (depth-sort, per-character lighting, gaze-aware blocking) | PASS |
+| 15 | POC re-composited with the bespoke pose — **all 14 applicable acceptance criteria PASS**; baked-ground-shadow matte stripper added | PASS |
+| 16 | Masked-ring img2img edge unification — **rejected with visual evidence** (cfg-1.0 hallucination; scipy iterations=0 pitfall found and fixed) | HOLD (not counted) |
+| 17 | Horizon MEASURED from the plate's own lamps (205→330) + calibrate_check overlay tool | PASS |
+| 18 | 4 plates calibrated via agent fan-out; 3 verifier agents died on a session limit so **all overlays re-verified by direct inspection**; light-color fallbacks fixed | PASS |
+| 19 | Identity drift QA — calibrated on the real beige renders; v1 caught scoring drift=canon by its own negative control; limitation (not a classifier) measured and documented | PASS |
+| 20 | Depth haze (plate-sampled color; zero effect at near field — validated renders untouched) | PASS |
+| 21 | Behind-geometry occlusion (traced occluders; half-behind staging lesson) | PASS |
+| 22 | Integration previews + before/after sheets staged into the issue workspace (never touches selected_panels) | PASS |
+| 23 | First panel on an agent-calibrated plate (Transit Hub) + gate plate-baseline subtraction (two false-positive classes root-caused) | PASS |
+| 24 | `validate_issue.py --integration` (factory's own validator gates staged previews) | PASS |
+| 25 | Gate A "Integration" section in qa_checklist v1.1 + mz-package Stage 9 hook | PASS |
+| 26 | School hallway panel + bright-regime fixes (ground-adaptive shadow opacity; depth-fair metric) | PASS |
+| 27 | Storm street panel (3 characters, lamp-matched lighting) — **initial ledger entry falsely claimed gate PASS; corrected on the record** | PASS (after correction) |
+| 28 | Plate-diff grounding check (replaces the confounded lateral metric; floating control fails correctly) + per-character grounding boosts | PASS |
+| 29 | Relay junction panel + first supporting-cast character (Clever): card-format inset mattes, calib-to-character height factor (principled 2.25 → art-directed 3.2, both recorded) | PASS |
+| 30 | Docs truth sweep (rules/skill/findings/project_direction) — self-caught a panel-count overclaim, corrected against disk | PASS |
+| 31 | Ship: 6/6 panels pass the full `--integration` gate, 21/21 regression tests, report + PR + memory updated | PASS |
 
-Full detail with numeric evidence, screenshots-by-inspection, and every
-defect found lives in `00_SYSTEM/integration_upgrade/CYCLE_LEDGER.md`.
-Condensed:
+## Integrity notes (what went wrong and was said out loud)
 
-| # | One Thing | Verdict | Key evidence |
-|---|---|---|---|
-| 1 | Chroma-key alpha extraction | PASS | Border-connected flood fill; corners fully transparent, no halo on visual inspection |
-| 2 | Batch-validate across all 6 leads | PASS | 6/6 pass incl. adversarial Scarline grey-on-grey case |
-| 3 | scene_blocking/pose_spec schema + ground-plane placement (POC) | PASS | Card/border/number/signature eliminated; scale calibrated against a real in-plate reference object |
-| 4 | Procedural contact shadow | PASS | ~19% luminance drop in shadow footprint, measured not assumed |
-| 5 | Environmental relighting | PASS | Ambient exposure moved 86.6→73.4; directional key/fill asymmetry confirmed numerically |
-| 6 | Foreground rain occlusion | PASS | 4.3% of character-bbox pixels altered by streaks crossing the silhouette |
-| 7 | Automated integration QA gate | PASS | Negative control against real before/after images; **found and fixed two real bugs during testing** (fragmented-card false negative, neon-sign false positive) |
-| 8 | Regression test suite | PASS | 10/10 tests pass, pinning Cycle 7's negative control so it can't silently regress |
-| 9 | Document pipeline in operational docs | PASS | `automation_rules.md` §6A + `mz-art-run` skill updated; re-read both files to confirm no corruption |
-| 10 | Register in project_direction.json | PASS | Studio's own `test_project_direction.py` suite run against the edit — 4/4 pass |
+- **Cycle 27's first ledger entry claimed a gate PASS that was actually a
+  FAIL** — I wrote the entry before reading the output. An append-only
+  CORRECTION was committed before any fix work, and the underlying
+  failure became Cycle 28's honest diagnosis (three confounders in the
+  old shadow metric).
+- **Cycle 16 is a rejection, not a success**, and is excluded from the
+  count per the loop's own rules.
+- **Cycle 30 self-caught a "7 panels" overclaim** (actual: 6, verified by
+  directory listing) before it shipped.
+- 3 of 4 calibration verifier agents died on a session limit in Cycle 18;
+  rather than counting unverified work, every overlay was re-verified
+  directly and that substitution is recorded.
 
-## Before-and-After Assessment
-
-**Before**: one of two paths. Monolithic single-prompt generation (no
-compositing at all — character and background exist only inside the
-diffusion model's single imagined frame, with no scale/lighting control),
-or a literal opaque NFT-card thumbnail pasted in a fixed-position row,
-self-labeled `"DRAFT COMPOSITE"` by the code that produces it.
-
-**After**: a four-stage compositor that (1) extracts a true-alpha
-character layer from the same approved references already in the repo,
-(2) places it at a geometrically correct scale and foot position using a
-documented ground-plane calibration, (3) grounds it with a measured
-contact shadow, (4) relights it to match the scene's actual key/fill light
-sources instead of showing up flat and overbright, (5) lets foreground
-weather cross in front of it. Every stage was visually inspected, and the
-shadow/relight/occlusion stages were additionally verified with pixel-
-level numeric diffs, not eyeballing alone.
-
-## Proof-of-Concept Result
-
-**Panel**: `MZ-2026-09-02_P01_PANEL01` — rainy Zoo City street, single
-character (Static, MZ-CHAR-003), the exact panel type the brief asked for
-(clear ground plane, wet pavement, puddles, neon reflections, directional
-street lighting, rain, atmospheric depth, single character).
-
-**Modifications**: background plate preserved unmodified
-(`03_APPROVED_CANON/approved_locations/zoo-city-streets/primary-reference.png`);
-original card composite fully replaced; character alpha-extracted,
-scaled/anchored via a ground-plane spec calibrated against an in-scene
-trash can, given a directional contact shadow, relit with cyan
-key/magenta fill matched to the plate's own streetlamp and signage, and
-crossed by a foreground rain-streak layer.
-
-**Acceptance checklist result** (full table in `CYCLE_LEDGER.md`): **12 of
-15 criteria PASS outright**, 2 PARTIAL (pose/eye-line — uses an existing
-reference pose, not a bespoke render, because ComfyUI was unavailable),
-1 N/A (multi-character — single-character panel), 1 explicitly
-NOT IMPLEMENTED (puddle reflection — not required for this specific pose,
-but the capability itself doesn't exist yet). **Overall: PASS with two
-disclosed, named gaps**, not a silent partial success.
-
-Final render: `00_SYSTEM/integration_upgrade/poc/MZ-2026-09-02_P01_PANEL01/04_final_integrated.png`
-
-## Repository Changes
-
-**New**:
-- `00_SYSTEM/scripts/integration/` — `alpha_matte.py`, `batch_matte.py`,
-  `perspective.py`, `shadow.py`, `relight.py`, `occlusion.py`,
-  `compositor.py`, `validate_integration.py`, `tests/test_integration_pipeline.py`
-- `00_SYSTEM/integration_upgrade/` — `ARCHITECTURE_FINDINGS.md`,
-  `CYCLE_LEDGER.md`, `FINAL_REPORT.md` (this file), `character_layers/`
-  (seed transparent-layer library), `poc/MZ-2026-09-02_P01_PANEL01/`
-  (`scene_blocking.json`, `pose_spec.json`, and the 4 staged renders)
-
-**Modified**: `00_SYSTEM/automation_rules.md` (+§6A),
-`.claude/skills/mz-art-run/SKILL.md` (+integration subsection),
-`00_SYSTEM/project_direction.json` (+task, +recommended_order entry,
-updated `issue-01-final-art-upgrade` instructions), `.gitignore`
-(+scratch-render exclusion).
-
-**Nothing deleted, nothing in `03_APPROVED_CANON/` touched, no existing
-generation script's behavior changed** — this is a new optional stage,
-not a replacement of Stage 6.
-
-## Validation Results
+## Validation results (final state)
 
 ```
-python -m pytest 00_SYSTEM/scripts/integration/tests -v
-  10 passed in 7.18s
+python 00_SYSTEM/scripts/validate_issue.py 2026-09_Issue_02 --integration
+  6/6 staged previews pass the pixel gate (all plate-baselined)  -> PASS exit 0
 
-python -m pytest character-bibles/_review_app/tests/test_project_direction.py -v
-  4 passed in 0.07s
+python -m pytest 00_SYSTEM/scripts/integration/tests -q
+  21 passed
 
-python 00_SYSTEM/scripts/integration/validate_integration.py \
-  02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/selected_panels/MZ-2026-09-02_P01_PANEL01.png 300 640
-  verdict: FAIL (3 flat debug-overlay regions, 4 known-bad-color regions, no contact shadow)
-
-python 00_SYSTEM/scripts/integration/validate_integration.py \
-  00_SYSTEM/integration_upgrade/poc/MZ-2026-09-02_P01_PANEL01/04_final_integrated.png 300 640
-  verdict: PASS (0 flat regions, 0 color-match regions, contact shadow present)
+Grounding gate: 11 anchors + 3 relay anchors across 6 panels -- all PASS
+Floating negative control (plate vs itself): FAIL (correct)
+Known-bad pasted-card image: FAIL (correct, still caught)
 ```
 
-No unresolved warnings. Two real bugs were found and fixed during Cycle 7
-testing (documented above and in the ledger) — neither shipped.
+## Owner decisions required
 
-## Remaining Risks
+1. **The Gate A promotion call**: six before/after comparison sheets sit
+   in `02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/
+   integration_preview/` — decide whether integrated panels replace the
+   shipped draft composites (promotion into `selected_panels/` is
+   human-only; nothing has been promoted).
+2. Merge PR #29 (branch-protected main).
+3. Whether to fund the remaining engineering: batch specs for Issue 02's
+   other 18 panels, LoRA training (all leads are ref-ready) for tighter
+   identity than text description gives, and cover integration.
 
-- **Technical**: ground-plane/light-source values in `scene_blocking.json`
-  are visually estimated, not measured (no vanishing-point detection tool
-  exists) — fine for a single POC, would drift across many panels without
-  a precision pass. The relight model is a 2D gradient approximation with
-  no real normal map; correct for this flat cel-shaded style only.
-- **Creative**: the POC's pose is a reused reference pose, not the
-  scripted "freeze mid-step" beat — a human should judge whether that's
-  acceptable for the actual issue or whether it must wait for real pose
-  generation.
-- **Performance/storage**: not batch-tested; compositing time per panel
-  and the growth of `character_layers/`/`poc/` output haven't been
-  measured at issue scale.
-- **Consistency**: only tested on one panel type (single character,
-  night, rain, eye-level camera). Multi-character, daylight, and non-
-  eye-level camera cases are unverified.
+## Recommended next One Thing
 
-## Owner Decisions Required
-
-- Whether to merge PR #29 (branch-protected main requires the "validate"
-  check + review, same as PR #28).
-- Whether the POC's reused reference pose is acceptable for real issue
-  art, or whether this pipeline should wait for bespoke pose generation
-  before touching a real issue's shipped panels.
-- Whether to actually replace Issue 01/02's draft composites with this
-  pipeline's output (`issue-01-final-art-upgrade` is still `status:
-  later`, P2 — this branch makes it more tractable but doesn't promote it).
-
-## Recommended Next One Thing
-
-**Restore reliable ComfyUI availability, then generate one bespoke
-scene-specific pose for the POC character** (replacing the reused
-clean-base reference pose with an actual "freezing mid-step, three-
-quarter turn" render) **and re-run the full compositor + acceptance
-checklist on that real pose.** This closes the single largest disclosed
-gap in the current POC and is the natural next cycle once the
-infrastructure blocker clears — everything else (ground-plane math,
-shadow, relight, occlusion, QA gate) is already built and would apply to
-the new pose render unchanged.
+**Author specs and integrate the remaining 18 Issue-02 panels in batch**
+(the five calibrated plates cover every environment; the per-panel work
+is now spec-writing + staging judgment, ~15 minutes each with all
+tooling in place), so the owner's promotion decision can cover the whole
+issue instead of a quarter of it.

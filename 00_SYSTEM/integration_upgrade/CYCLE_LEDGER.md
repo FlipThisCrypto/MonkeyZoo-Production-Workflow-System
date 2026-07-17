@@ -1251,3 +1251,18 @@ claims remain.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 31 — Ship Round 2
+
+**Final gates**: `validate_issue.py 2026-09_Issue_02 --integration` →
+6/6 staged previews PASS (plate-baselined), package PASS exit 0.
+Regression suite 21/21. FINAL_REPORT.md rewritten for the 30-cycle state
+(including the integrity notes: the Cycle 27 false claim + correction,
+the Cycle 16 non-counted rejection, the Cycle 30 self-caught overclaim).
+Branch pushed; PR #29 updated to describe both rounds; project memory
+updated for future sessions.
+
+**Verdict**: **PASS**. Round 2 closes at 20 counted PASS cycles
+(11–15, 17–31), 30 total across both rounds.
+
+---
