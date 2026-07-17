@@ -836,3 +836,31 @@ committed as small fixed test fixtures (384px).
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 20 — Atmospheric depth haze
+
+**Selected because**: "Fog softening distant figures" / weather-and-
+atmosphere integration is a named brief requirement, and every placement
+so far has been near-field — the first genuinely deep placement (any
+character up the street) would have popped forward unnaturally with no
+depth cue no matter how correct its scale.
+
+**Files created/changed**: `haze.py` (`depth_haze_factor` — linear in the
+same ground-plane depth proxy the scaler uses; `apply_haze` — pixel mix
+toward the scene haze color, alpha untouched); `compositor.py` threads an
+optional `atmosphere` block through both single- and multi-character
+paths; both POC `scene_blocking.json` files gained an `atmosphere` block
+whose haze color was **sampled from the plate's own far-street band**
+([75.9, 79.8, 102.5] measured at y 335–365) — not guessed.
+
+**Verification**: near placement (POC anchor y=640) → k=0.0, output
+byte-identical (all current POC renders unaffected — confirmed by re-run:
+P01 and all three P06 characters report haze_k 0.0). Synthetic deep
+placement (y=390 → 26px tall, k=0.344) rendered and inspected: the
+character veils into the plate's purple-grey distance exactly like the
+plate's own far content. 3 new regression tests (zero-at-calib,
+monotonic-toward-horizon, color-mix math). Suite: **19/19 PASS**.
+
+**Verdict**: **PASS**.
+
+---

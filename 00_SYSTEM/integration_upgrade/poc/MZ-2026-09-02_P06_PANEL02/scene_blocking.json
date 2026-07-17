@@ -93,5 +93,14 @@
   "camera": {
     "shot_scale": "medium-wide establishing",
     "angle": "eye-level, static locked-off"
+  },
+  "atmosphere": {
+    "haze_color": [
+      76,
+      80,
+      103
+    ],
+    "haze_max": 0.55,
+    "note": "Haze color SAMPLED from the plate's far-street band just below the horizon (y 335-365, x 700-900: mean [75.9, 79.8, 102.5]), not guessed. haze_max 0.55 matches how much the plate's own distant content fades."
   }
 }

@@ -142,6 +142,33 @@ def test_identity_check_passes_cross_pose():
     assert check_identity(layer, "static")["verdict"] == "PASS"
 
 
+# ---------------------------------------------------------------------------
+# haze
+# ---------------------------------------------------------------------------
+
+def test_haze_zero_at_calibration_depth_and_nearer():
+    from haze import depth_haze_factor
+    assert depth_haze_factor(490, 330, 490, 0.55) == 0.0
+    assert depth_haze_factor(640, 330, 490, 0.55) == 0.0  # nearer than calib
+
+
+def test_haze_grows_toward_horizon():
+    from haze import depth_haze_factor
+    mid = depth_haze_factor(410, 330, 490, 0.55)
+    deep = depth_haze_factor(350, 330, 490, 0.55)
+    assert 0 < mid < deep <= 0.55
+
+
+def test_haze_shifts_colors_toward_haze_color():
+    from haze import apply_haze
+    from PIL import Image
+    import numpy as np
+    layer = Image.new("RGBA", (10, 10), (255, 255, 255, 255))
+    out = np.array(apply_haze(layer, 0.5, (76, 80, 103)))
+    assert abs(int(out[5, 5, 0]) - 165) <= 2  # 255*0.5 + 76*0.5
+    assert out[5, 5, 3] == 255  # alpha untouched
+
+
 @pytest.mark.parametrize("seed", [777001, 777011])
 def test_identity_check_fails_beige_drift(seed):
     """The actual failed renders from Cycle 13 -- the exact drift class

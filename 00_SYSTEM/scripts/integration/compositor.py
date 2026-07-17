@@ -19,6 +19,7 @@ from shadow import draw_contact_shadow  # noqa: E402
 from relight import relight  # noqa: E402
 from occlusion import add_foreground_rain  # noqa: E402
 from reflection import add_puddle_reflection  # noqa: E402
+from haze import depth_haze_factor, apply_haze  # noqa: E402
 import numpy as np  # noqa: E402
 
 
@@ -73,6 +74,7 @@ def place_character(
     shadow_direction: str | None = None,
     relight_spec: dict | None = None,
     reflection_polygon: list | None = None,
+    atmosphere: dict | None = None,
 ) -> tuple[Image.Image, dict]:
     """Scale char_layer so its apparent height matches the ground plane at
     foot_anchor_px, draw a contact shadow under the anchor if requested,
@@ -91,6 +93,12 @@ def place_character(
         ambient = sample_ambient_luma(plate, foot_anchor_px)
         cropped = relight(cropped, ambient_luma=ambient, **relight_spec)
         relit = True
+
+    haze_k = 0.0
+    if atmosphere:
+        haze_k = depth_haze_factor(foot_anchor_px[1], ground_plane.horizon_y,
+                                   ground_plane.calib_y, atmosphere.get("haze_max", 0.5))
+        cropped = apply_haze(cropped, haze_k, tuple(atmosphere["haze_color"]))
 
     scale = target_h / cropped.height
     new_w = max(1, round(cropped.width * scale))
@@ -124,6 +132,7 @@ def place_character(
         "paste_box": paste_box,
         "contact_shadow_applied": shadow_used,
         "relit": relit,
+        "haze_k": round(haze_k, 3),
         "reflection": reflection_report,
     }
 
@@ -175,6 +184,7 @@ def run_scene(spec_dir: Path) -> dict:
             shadow_direction=inst.get("lighting", {}).get("shadow_direction"),
             relight_spec=derive_relight_spec(scene, foot),
             reflection_polygon=refl_poly,
+            atmosphere=scene.get("atmosphere"),
         )
         reports[inst["character"]] = rep
 
@@ -217,6 +227,7 @@ def run(poc_dir: Path) -> dict:
         shadow_direction=pose.get("lighting", {}).get("shadow_direction"),
         relight_spec=relight_spec,
         reflection_polygon=reflection_polygon,
+        atmosphere=scene.get("atmosphere"),
     )
 
     occlusion_applied = False
