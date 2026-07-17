@@ -797,3 +797,42 @@ uncertainty band is recorded in the spec rather than hidden.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 19 — Identity color QA check (calibrated on real drift evidence)
+
+**Selected because**: Cycle 13 proved identity drift is this pipeline's
+most dangerous silent failure (beige face renders that still "look like a
+cute monkey"), and it was caught by eye — nothing automated guards the
+layer-prep stage. "Character identity validation" is also a named brief
+area.
+
+**Files created**: `identity_check.py` — canon palettes computed from the
+approved alpha layers (quantized opaque-pixel histograms, renormalized),
+candidate scored by weighted nearest-bin credit; plus `check_halo()` for
+backdrop-fringe defringe failures at the rim.
+
+**The negative control caught my own first draft** (the substantive part):
+v1 (QUANT=32, credit radius 55→120) scored the real beige-drift renders
+IDENTICALLY to canon (0.966 vs 0.966) — because beige face sits only ~29
+RGB-units from porcelain white, inside both the credit radius and the
+quantization noise. Retuned on evidence: QUANT=8, credit full ≤12 / zero
+by 30, weights renormalized. Result: canon self-scores 1.0, cross-pose
+0.999–1.0, the accepted bespoke freeze pose 0.886 (PASS ≥0.80), all three
+real drift renders 0.62–0.65 (FAIL) — clean separation with the accepted
+render comfortably inside and the drift class comfortably outside.
+
+**Honest limitation documented in the module**: measured, not guessed —
+a Scarline layer scores 0.99 against *Static's* canon, because the six
+leads share one Emo body template and the distinguishing marks are a
+small palette fraction. This is a drift detector, NOT a character
+classifier; wrong-character catches stay with human Gate A (or a future
+hair-region check).
+
+**Tests**: 6 new regression tests (canon layers pass ×3, cross-pose
+passes, both real drift fixtures FAIL — pinned so a tolerance loosening
+can't silently regress the check). Suite: **16/16 PASS**. Drift renders
+committed as small fixed test fixtures (384px).
+
+**Verdict**: **PASS**.
+
+---

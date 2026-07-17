@@ -114,3 +114,42 @@ def test_qa_gate_passes_on_integrated_poc():
         pytest.skip(f"fixture missing: {final} -- run compositor.py first")
     result = run_gate(final, foot_anchor_px=(300, 640))
     assert result["verdict"] == "PASS", result["fail_reasons"]
+
+
+# ---------------------------------------------------------------------------
+# identity_check -- calibrated against the real Cycle-13 drift renders
+# ---------------------------------------------------------------------------
+
+LAYERS = ROOT / "00_SYSTEM" / "integration_upgrade" / "character_layers"
+FIXTURES = Path(__file__).parent / "fixtures"
+
+
+@pytest.mark.parametrize("char", ["static", "scarline", "moodz"])
+def test_identity_check_passes_canon_layers(char):
+    from identity_check import check_identity
+    layer = LAYERS / char / f"{char}_00_clean_base.png"
+    if not layer.exists():
+        pytest.skip(f"fixture missing: {layer}")
+    r = check_identity(layer, char)
+    assert r["verdict"] == "PASS" and r["identity_score"] >= 0.95
+
+
+def test_identity_check_passes_cross_pose():
+    from identity_check import check_identity
+    layer = LAYERS / "static" / "static_16_worried.png"
+    if not layer.exists():
+        pytest.skip(f"fixture missing: {layer}")
+    assert check_identity(layer, "static")["verdict"] == "PASS"
+
+
+@pytest.mark.parametrize("seed", [777001, 777011])
+def test_identity_check_fails_beige_drift(seed):
+    """The actual failed renders from Cycle 13 -- the exact drift class
+    this check exists to catch. If a tolerance change makes these pass,
+    the check has regressed to useless."""
+    from identity_check import check_identity
+    fixture = FIXTURES / f"drift_static_seed{seed}.png"
+    if not fixture.exists():
+        pytest.skip(f"fixture missing: {fixture}")
+    r = check_identity(fixture, "static")
+    assert r["verdict"] == "FAIL", f"drift render scored {r['identity_score']} -- tolerances too loose"
