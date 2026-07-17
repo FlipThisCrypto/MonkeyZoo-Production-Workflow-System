@@ -30,6 +30,19 @@ def closeup_panel(layer_path, plate_path, plate_crop_box,
     bg = ImageEnhance.Brightness(bg).enhance(bg_darken).filter(ImageFilter.GaussianBlur(bg_blur))
 
     layer = Image.open(layer_path).convert("RGBA")
+
+    # De-halo (Cycle 32): the matte leaves a thin backdrop-colored fringe on
+    # the alpha edge that is invisible at full-body scale but MAGNIFIED into a
+    # visible colored halo when a close-up upscales the head ~2x (the
+    # independent QA agents flagged this pink ring on 5 close-ups). Erode the
+    # alpha a few px so the contaminated partial-alpha ring is removed and the
+    # new silhouette edge is clean fully-opaque interior.
+    r, g, b, a = layer.split()
+    a = a.point(lambda v: 255 if v > 160 else 0)   # harden the edge first
+    a = a.filter(ImageFilter.MinFilter(5))          # erode ~2px
+    a = a.filter(ImageFilter.GaussianBlur(0.6))     # re-soften by a hair
+    layer = Image.merge("RGBA", (r, g, b, a))
+
     bbox = layer.split()[-1].getbbox()
     char = layer.crop(bbox)
     y0 = int(char.height * head_window[0])

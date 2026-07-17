@@ -1,0 +1,11 @@
+{
+  "panel_id": "MZ-2026-09-02_P04_PANEL03",
+  "type": "scene",
+  "location": "Transit Announcement Hub",
+  "action": "Static talks fast at the hub, hands moving; the words pile up faster than anyone can sort.",
+  "foreground_rain": false,
+  "characters": [
+    {"character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_14_shout.png", "foot_anchor": [720, 630], "shadow": "down-left", "reflection_surface": "glossy_floor_full"},
+    {"character": "scarline", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/scarline/scarline_19_determined.png", "foot_anchor": [370, 495], "shadow": "down-right", "reflection_surface": "glossy_floor_full"}
+  ]
+}

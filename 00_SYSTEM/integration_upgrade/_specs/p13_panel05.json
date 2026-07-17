@@ -1,0 +1,27 @@
+{
+  "panel_id": "MZ-2026-09-02_P13_PANEL05",
+  "type": "scene",
+  "location": "Old Relay Junction",
+  "action": "The junction door gives; flashlight beams cross the dormant relay wall and its faint cyan veins.",
+  "foreground_rain": false,
+  "characters": [
+    {
+      "character": "twotone",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/twotone/twotone_10_walking.png",
+      "foot_anchor": [330, 540],
+      "shadow": "down-right"
+    },
+    {
+      "character": "clever",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/clever/clever_13_pointing.png",
+      "foot_anchor": [660, 600],
+      "shadow": "down"
+    },
+    {
+      "character": "static",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_29_lookingup.png",
+      "foot_anchor": [980, 665],
+      "shadow": "down-left"
+    }
+  ]
+}

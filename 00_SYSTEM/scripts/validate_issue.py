@@ -128,12 +128,17 @@ def main() -> None:
             sys.path.insert(0, str(SYSTEM / "scripts" / "integration"))
             from validate_integration import run_gate  # noqa: E402
             spec_root = SYSTEM / "integration_upgrade" / "poc"
-            # camera per panel: Close shots skip the flat-region check
-            cameras = {}
+            # Flat-region check is skipped for (a) Close shots — a flat-cel
+            # face is legitimately a big flat field — and (b) establishing
+            # panels with no characters — those ARE just the plate, whose
+            # flat sky/wall regions are scene content, not a pasted card.
+            cameras, characterless = {}, set()
             if plan:
                 for _pg in plan.get("pages", []):
                     for _pa in _pg.get("panels", []):
                         cameras[_pa["panel_id"]] = _pa.get("camera_angle", "")
+                        if not _pa.get("characters"):
+                            characterless.add(_pa["panel_id"])
             n_pass = 0
             for pv in previews:
                 pid = pv.stem
@@ -144,8 +149,10 @@ def main() -> None:
                     candidate = FACTORY / spec.get("background_plate", "")
                     plate = candidate if candidate.exists() else None
                 is_close = cameras.get(pid, "").lower().startswith("close")
-                result = run_gate(pv, plate_path=plate, skip_flat_regions=is_close)
-                base = (" (plate-baselined)" if plate else "") + (" (close-up)" if is_close else "")
+                is_establish = pid in characterless
+                result = run_gate(pv, plate_path=plate, skip_flat_regions=is_close or is_establish)
+                tag = " (close-up)" if is_close else (" (establish)" if is_establish else "")
+                base = (" (plate-baselined)" if plate else "") + tag
                 if result["verdict"] == "PASS":
                     n_pass += 1
                     print(f"  integration {pid}: PASS{base}")

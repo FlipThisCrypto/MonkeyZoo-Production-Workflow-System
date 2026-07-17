@@ -1,0 +1,12 @@
+{
+ "panel_id":"MZ-2026-09-02_P11_PANEL01",
+ "type":"scene",
+ "location":"Early-Fall Storm Streets and Routine Nodes",
+ "action":"The storm peaks; emergency klaxons join the interference and the whole street strobes.",
+ "foreground_rain":true,
+ "characters":[
+  {"character":"static","pose_file":"00_SYSTEM/integration_upgrade/character_layers/static/static_16_worried.png","foot_anchor":[600,560],"shadow":"down","reflection_surface":"road_wet_sheet"},
+  {"character":"neonblue","pose_file":"00_SYSTEM/integration_upgrade/character_layers/neonblue/neonblue_29_lookingup.png","foot_anchor":[270,650],"shadow":"down-right","reflection_surface":"road_wet_sheet"},
+  {"character":"twotone","pose_file":"00_SYSTEM/integration_upgrade/character_layers/twotone/twotone_16_worried.png","foot_anchor":[1000,615],"shadow":"down-left","reflection_surface":"road_wet_sheet"}
+ ]
+}

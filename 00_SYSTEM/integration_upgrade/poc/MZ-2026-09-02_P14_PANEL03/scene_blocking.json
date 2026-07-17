@@ -1,0 +1,69 @@
+{
+  "panel_id": "MZ-2026-09-02_P14_PANEL03",
+  "background_plate": "03_APPROVED_CANON/approved_locations/old-relay-junction/primary-reference.png",
+  "plate_size": [
+    1280,
+    720
+  ],
+  "derivation_note": "Inherited from plate_calibrations/old-relay-junction (Cycle 18, verified + independent agent ACCEPT). Ground-plane values below are estimated by visual inspection of the plate (no camera-calibration tooling exists in this repo) -- treat as art-directed estimates, not measured facts. Location-level calibration: panels shot on this plate inherit it.",
+  "ground_plane": {
+    "horizon_y": 435,
+    "calibration": {
+      "reference_object": "glowing relay-crystal debris slab on the floor grate, right-center midground",
+      "calib_x": 930,
+      "calib_y_foot": 653,
+      "calib_height_px": 38,
+      "note": "Slab bottom/top sampled from a 3x gridded crop and corrected against the round-1 overlay render: left tip x~853, right tip x~1007, top crest y~615, resting edge y~653. Chosen because it is the only discrete free-standing object ON the floor plane with a clean top and foot line -- the wall breaker boxes are mounted, the pipes are stacked against the left wall, and the plank/wrench are too flat. It is a low slab (roughly knee-height, ~0.4 m real-world), i.e. slightly BELOW trash-can scale; scale chibi characters accordingly rather than treating 43 px as a 0.7 m trash can.",
+      "calib_to_character_factor": 3.2,
+      "factor_note": "Slab-derived 2.25 (0.4m slab, 0.9m chibi) rendered characters mouse-scale against the room's own wall units -- the painted room's internal scale is oversized/inconsistent. Art-directed to 3.2 by test-render inspection: chibi reads ~0.75 of a wall-unit height, matching the franchise's stylized figure-to-set ratio. Both the principled value and the override are recorded per estimate-then-inspect discipline."
+    },
+    "horizon_derivation": "Two-line convergence of the visible wall/floor joins (receding parallel structure lines): left-wall join sampled at (360,498) and (0,630), right-wall join sampled at (750,505) and (1280,675); extended lines intersect at ~(533,437). Debug renders with candidate horizons at 420/435/450 over the plate showed 435 passing through the intersection, and the longitudinal floor-grate seams read consistent with a VP near x~535. Ceiling joins converge higher (~y=322) -- hand-painted plate inconsistency; the floor lines take precedence for character placement."
+  },
+  "light_sources": [
+    {
+      "id": "cage_lamp_overhead",
+      "type": "key",
+      "position_px": [
+        543,
+        203
+      ],
+      "color": "cool cyan-white",
+      "note": "Caged work lamp hanging from the ceiling pipe on a chain; brightest source in the plate (core ~RGB 224,245,226 -- near-white with a faint mint tint). Casts the visible light pool on the back wall around the ECHO stencil and is the dominant top-down light on characters mid-room."
+    },
+    {
+      "id": "relay_crystal_wall_right_low",
+      "type": "fill",
+      "position_px": [
+        1168,
+        470
+      ],
+      "color": "teal",
+      "note": "Large glowing relay crystal in the lower-right wall box (brightest core ~RGB 135,218,208; marker centered on the glowing mass). Represents the whole bank of teal crystal clusters along the right wall (clusters from ~(780,220) up to ~(1090,162)); rims characters from screen-right. 'teal' is not in the compositor's named-color list, so it will fall back to neutral grey unless teal is added -- the actual hue is saturated cyan-teal (G~B >> R), which none of the listed names (cool cyan-white / magenta / spring green / warm-magenta) matches."
+    },
+    {
+      "id": "relay_crystal_floor_slab",
+      "type": "fill",
+      "position_px": [
+        941,
+        628
+      ],
+      "color": "teal",
+      "note": "The glowing floor debris slab (same object as the ground-plane calibration reference, core ~RGB 117,212,206) -- a low teal up-light/underlight for characters standing near it. Same 'teal' fallback caveat as the wall fill."
+    }
+  ],
+  "weather": {
+    "rain": false,
+    "wet_pavement": false,
+    "puddle_reflections": false
+  },
+  "atmosphere": {
+    "indoor": true,
+    "note": "Underground utility interior; dark ambient with faint dust haze around the cage lamp. No weather effects reach this space."
+  },
+  "reflective_surfaces": [],
+  "camera": {
+    "shot_scale": "wide establishing interior",
+    "angle": "eye-level one-point perspective toward the back wall (VP ~(533,435)), static locked-off"
+  },
+  "decompression_note": "Was MZ-2026-09-02_P07_PANEL02 in the 24-panel edition; same locked beat, renumbered by the 16-page/96-panel format directive."
+}

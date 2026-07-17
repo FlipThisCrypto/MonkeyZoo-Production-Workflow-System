@@ -1315,3 +1315,55 @@ panels to integrate (5 calibrated plates cover every location; the
 per-panel work is spec authoring + staging judgment).
 
 ---
+
+# FULL-ISSUE INTEGRATION — all 96 panels (2026-07-17)
+
+Owner: "run with it and see what the final output looks like." Goal:
+integrate every panel of the 16-page/96-panel Issue 02.
+
+**Scouted inline, then fanned out** (the hybrid pattern): pre-matted a
+137-layer verified pose menu across 7 characters (identity-QA gated),
+built `build_panel.py` (one CLI: author a small spec → composite/closeup/
+establish → stage → gate) and `assemble_issue_preview.py` (16 pages +
+full contact sheet), confirmed all 5 plate calibrations + surface/anchor
+reference, then ran a Workflow: one agent per remaining page (14 pages,
+77 panels), each authoring specs and building+inspecting its panels, with
+an independent adversarial QA agent per page.
+
+**Workflow result**: 28 agents, 14/14 pages built, 9 clean on independent
+QA. The adversarial QA verifiers caught a REAL defect the mechanical gate
+could not: a magenta/pink matte-edge halo on 5 close-ups (the pixel gate
+skips flat-region checks on close-ups, so it passed them; the human-eye
+pass flagged the cutout fringe). Confirmed by direct inspection.
+
+**Root cause + fix (de-halo)**: `closeup.py` upscales the head region ~2x,
+which MAGNIFIES the thin backdrop-colored fringe left on the matte alpha
+edge (invisible at full-body scale) into a visible halo — worst on
+Static's hot-pink backdrop against dark scenes. Fixed by hardening +
+eroding the layer alpha ~2px before the close-up upscale, so the
+contaminated partial-alpha ring is removed and the new silhouette edge is
+clean linework. Rebuilt ALL 20 close-ups (not just the 5 flagged — the
+defect is systematic) + the 3 earlier manual close-ups; halo gone,
+verified.
+
+**Establish-panel gate fix**: the two characterless establishing plates
+(P03_01 storm, P16_03 zoo dusk) failed the pixel gate on flat dark-sky
+regions — a false positive (an establish IS the plate; no character is
+composited, so "pasted card" is meaningless). `validate_issue
+--integration` now skips the flat-region check for characterless panels,
+same as it does for close-ups.
+
+**Final state**: 96/96 panels integrated + front cover + Issue-03-teaser
+back cover. Full flip-through contact sheet at
+`generated_art/integration_preview/pages_preview/ISSUE_02_full_preview.png`.
+Every panel passed its build-time gate; issue-level gate green after the
+two establish false-positives were correctly exempted.
+
+**Repo hygiene**: per policy (heavy art gitignored, reproducible from
+specs), tracked = the assembled review pages + covers + all deterministic
+specs (`_specs/`, poc scene/character JSON), `layer_menu.json`, and the
+scripts; gitignored = the 137 matted layers, poc final PNGs, and the 96
+individual panel renders (all regenerate from `_specs/` via
+`build_panel.py`).
+
+---

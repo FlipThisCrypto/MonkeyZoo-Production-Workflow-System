@@ -1,0 +1,6 @@
+{
+  "panel_id": "MZ-2026-09-02_P16_PANEL05",
+  "type": "establish",
+  "location": "Zoo City Streets",
+  "establish": { "darken": 0.85 }
+}

@@ -1,0 +1,57 @@
+{
+  "panel_id": "MZ-2026-09-02_P12_PANEL02",
+  "source_script_line": "The team spreads out, deliberately opening distance around Static; Scarline nods once across the gap.",
+  "foreground_rain": true,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "moodz",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/moodz/moodz_19_determined.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          300,
+          500
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "sidewalk_sheet_left"
+      }
+    },
+    {
+      "character": "static",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_16_worried.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          650,
+          560
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      }
+    },
+    {
+      "character": "scarline",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/scarline/scarline_19_determined.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          1010,
+          615
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      }
+    }
+  ]
+}

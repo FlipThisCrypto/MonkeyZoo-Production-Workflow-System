@@ -35,3 +35,11 @@ issues/
 
 # character-integration-upgrade scratch inspection renders (not pipeline output)
 00_SYSTEM/integration_upgrade/_test/
+
+# Full-issue integration: heavy per-panel intermediates are reproducible
+# from _specs/ via build_panel.py; only the assembled review pages + specs
+# are tracked (repo policy: heavy art gitignored, reproducible from packs).
+00_SYSTEM/integration_upgrade/character_layers/
+00_SYSTEM/integration_upgrade/poc/*/final_integrated.png
+02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_*.png
+02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/*_compare.png

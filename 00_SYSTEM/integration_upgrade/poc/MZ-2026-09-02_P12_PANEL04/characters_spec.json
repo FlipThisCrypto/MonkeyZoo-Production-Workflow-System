@@ -1,0 +1,42 @@
+{
+  "panel_id": "MZ-2026-09-02_P12_PANEL04",
+  "source_script_line": "Static answers Scarline: yes, but on his terms, one line at a time.",
+  "foreground_rain": true,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "static",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_19_determined.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          360,
+          620
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-right"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "sidewalk_sheet_left"
+      }
+    },
+    {
+      "character": "scarline",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/scarline/scarline_00_clean_base.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          820,
+          560
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      }
+    }
+  ]
+}

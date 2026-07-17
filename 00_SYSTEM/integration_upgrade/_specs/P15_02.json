@@ -1,0 +1,15 @@
+{
+  "panel_id": "MZ-2026-09-02_P15_PANEL02",
+  "type": "scene",
+  "location": "Zoo City Streets",
+  "action": "Static writes his method: sense / know / fear / check.",
+  "foreground_rain": false,
+  "characters": [
+    {
+      "character": "static",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_25_crouching.png",
+      "foot_anchor": [540, 645],
+      "shadow": "down-left"
+    }
+  ]
+}

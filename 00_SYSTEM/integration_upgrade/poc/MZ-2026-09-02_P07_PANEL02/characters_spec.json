@@ -1,0 +1,46 @@
+{
+  "panel_id": "MZ-2026-09-02_P07_PANEL02",
+  "source_script_line": "Clever isolates six distinct tones on the analyzer display.",
+  "foreground_rain": false,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "clever",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/clever/clever_13_pointing.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          560,
+          600
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-right"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "glossy_floor_full"
+      }
+    },
+    {
+      "character": "static",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_19_determined.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          880,
+          480
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "glossy_floor_full"
+      }
+    }
+  ]
+}
