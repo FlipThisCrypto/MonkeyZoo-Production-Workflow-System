@@ -2,13 +2,19 @@
 """Validate a MonkeyZoo issue package (gate checks for Stages 4/5/9).
 
 Usage:
-    python validate_issue.py 2026-07_Issue_05 [--art]
+    python validate_issue.py 2026-07_Issue_05 [--art] [--integration]
 
 Checks:
   - page_panel_plan.json / art_prompt_pack.json parse and match the schemas'
     required fields, ID patterns, and cross-references
   - panel ids are unique, sequential per page, and consistent between files
   - with --art: every planned panel has a file in generated_art/selected_panels
+  - with --integration: every staged panel in generated_art/
+    integration_preview runs through the pixel-level integration QA gate
+    (00_SYSTEM/scripts/integration/validate_integration.py) with
+    plate-baseline subtraction when the panel's spec dir declares its
+    background plate. Panels without a preview are skipped, not failed --
+    staging integrated art is optional per-panel.
 Uses jsonschema if installed; otherwise falls back to built-in checks.
 """
 import json
@@ -108,6 +114,34 @@ def main() -> None:
         for pid in plan_ids:
             if not (sel / f"{pid}.png").exists():
                 err(f"art: no selected panel for {pid}")
+
+    if "--integration" in sys.argv:
+        preview = issue_dir / "generated_art" / "integration_preview"
+        previews = sorted(preview.glob("*.png")) if preview.is_dir() else []
+        previews = [p for p in previews if not p.stem.endswith("_compare")]
+        if not previews:
+            print("  integration: no staged previews to check (skipped)")
+        else:
+            sys.path.insert(0, str(SYSTEM / "scripts" / "integration"))
+            from validate_integration import run_gate  # noqa: E402
+            spec_root = SYSTEM / "integration_upgrade" / "poc"
+            n_pass = 0
+            for pv in previews:
+                pid = pv.stem
+                plate = None
+                spec_file = spec_root / pid / "scene_blocking.json"
+                if spec_file.exists():
+                    spec = json.loads(spec_file.read_text(encoding="utf-8"))
+                    candidate = FACTORY / spec.get("background_plate", "")
+                    plate = candidate if candidate.exists() else None
+                result = run_gate(pv, plate_path=plate)
+                base = " (plate-baselined)" if plate else ""
+                if result["verdict"] == "PASS":
+                    n_pass += 1
+                    print(f"  integration {pid}: PASS{base}")
+                else:
+                    err(f"integration {pid}: {'; '.join(result['fail_reasons'])}")
+            print(f"  integration: {n_pass}/{len(previews)} staged previews pass the pixel gate")
 
     if ERRORS:
         print(f"FAIL — {len(ERRORS)} problem(s):")

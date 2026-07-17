@@ -1013,3 +1013,27 @@ sane threshold); zoo integrated still PASS; regression suite 21/21.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 24 — Integration gate wired into validate_issue.py
+
+**Selected because**: release gating through the factory's OWN validator
+is the difference between a side-tool someone must remember to run and a
+pipeline stage the Studio's existing habits already cover. The
+architecture scan flagged from day one that `validate_issue.py` has no
+pixel checks at all.
+
+**Implementation**: new `--integration` mode — every staged panel in
+`generated_art/integration_preview/` runs through the pixel gate, with
+plate-baseline subtraction automatically enabled when the panel's spec
+dir declares its background plate. Panels without a staged preview are
+skipped, not failed (staging is per-panel opt-in). Purely additive:
+without the flag the script's behavior and output are unchanged
+(verified by running both ways).
+
+**Test**: `validate_issue.py 2026-09_Issue_02 --integration` →
+`3/3 staged previews pass the pixel gate` (all plate-baselined), overall
+PASS exit 0; flagless run identical to before.
+
+**Verdict**: **PASS**.
+
+---
