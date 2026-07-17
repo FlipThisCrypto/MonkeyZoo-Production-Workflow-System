@@ -83,22 +83,39 @@ Floating negative control (plate vs itself): FAIL (correct)
 Known-bad pasted-card image: FAIL (correct, still caught)
 ```
 
-## Owner decisions required
+## Epilogue — full-issue integration (2026-07-17, after this report's 31 cycles)
 
-1. **The Gate A promotion call**: six before/after comparison sheets sit
-   in `02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/
-   integration_preview/` — decide whether integrated panels replace the
-   shipped draft composites (promotion into `selected_panels/` is
-   human-only; nothing has been promoted).
-2. Merge PR #29 (branch-protected main).
-3. Whether to fund the remaining engineering: batch specs for Issue 02's
-   other 18 panels, LoRA training (all leads are ref-ready) for tighter
-   identity than text description gives, and cover integration.
+Two owner directives followed the 31-cycle work above and are now done:
+
+1. **Format change**: Issue 02 was rewritten from 24 panels to the new
+   house standard — **16 pages, 96 panels, + 1-panel front cover + 1-panel
+   back cover teasing Issue 03** (each locked beat decompressed into a
+   4-panel acting sequence; original events/dialogue preserved verbatim in
+   each sequence's core panel).
+2. **Integrate everything**: **all 96 panels + both covers are now
+   integrated and staged**, 96/96 passing `validate_issue --integration`.
+   Built via a 14-agent-per-page workflow over a new `build_panel.py` CLI
+   and a 137-layer pre-matted pose menu, with an independent adversarial
+   QA agent per page — which caught a close-up matte-edge halo the pixel
+   gate structurally can't see (fixed in `closeup.py`). Full flip-through:
+   `generated_art/integration_preview/pages_preview/ISSUE_02_full_preview.png`.
+
+Also this session: fixed the GitHub CI (`validate.yml` lacked numpy/scipy,
+which broke the whole test suite's collection) — CI green, 225 passed.
+
+## Owner decisions still open
+
+1. **The Gate A promotion call**: the assembled preview pages + per-panel
+   previews sit in `generated_art/integration_preview/` — decide whether
+   these integrated panels replace the shipped draft composites (promotion
+   into `selected_panels/` is human-only; nothing has been promoted).
+2. Merge PR #29 (branch-protected main; CI green, MERGEABLE/CLEAN).
 
 ## Recommended next One Thing
 
-**Author specs and integrate the remaining 18 Issue-02 panels in batch**
-(the five calibrated plates cover every environment; the per-panel work
-is now spec-writing + staging judgment, ~15 minutes each with all
-tooling in place), so the owner's promotion decision can cover the whole
-issue instead of a quarter of it.
+**Bespoke ComfyUI portrait renders for the close-up panels.** Every panel
+is integrated, but the ~23 close-ups use the deterministic head-crop
+builder (`closeup.py`) rather than purpose-drawn portraits — the single
+biggest remaining quality lift, and the pipeline (`gen_scene_pose.py` with
+a portrait clause → matte → `build_panel.py closeup`) is already in place
+to do it once GPU time is allotted.

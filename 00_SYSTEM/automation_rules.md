@@ -140,8 +140,14 @@ validate_issue.py --integration  -- runs the gate over all staged
 
 Plate calibrations for all five Issue-02 environments live in
 `00_SYSTEM/integration_upgrade/plate_calibrations/` (measured horizons
-with documented derivations and uncertainty bands). Six Issue-02 panels are
-staged as integration previews with comparison sheets.
+with documented derivations and uncertainty bands). Issue 02 is fully
+integrated: all 96 panels + front cover + Issue-03-teaser back cover
+staged as integration previews (96/96 pass `validate_issue
+--integration`); full flip-through at
+`02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/
+pages_preview/ISSUE_02_full_preview.png`. Per-panel specs live in
+`00_SYSTEM/integration_upgrade/_specs/`; every panel regenerates via
+`build_panel.py <spec.json>`.
 
 This does **not** replace Stage 6 — it is an alternative path for
 plate+character panels, and human Gate A/B sign-off still applies before

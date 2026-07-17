@@ -33,7 +33,7 @@ GPU generation where deterministic PIL/numpy/scipy compositing can solve
 the same problem against already-approved reference art.
 
 
-## Status update (2026-07-17, after Cycles 11-30)
+## Status update (2026-07-17, after Cycles 11-31 + full-issue integration)
 
 The "what needs building" table above described the 2026-07-16 baseline.
 Current state:
@@ -50,4 +50,5 @@ Current state:
 | Multi-character staging | **Built** — depth-sorted, per-character lighting, gaze-aware blocking |
 | Edge unification (img2img ring) | **Rejected with evidence** (Cycle 16) — engine hallucinates at cfg 1.0 |
 | Integration QA | **Built** — pixel gate (plate-baselined colors/overlays + plate-diff grounding), layer identity check, `validate_issue --integration`, Gate A checklist v1.1 |
-| Integrated panels staged | 6 of Issue 02's 24 (P01_P01, P01_P02, P02_P01, P02_P03, P06_P02, P07_P02) with before/after sheets |
+| Integrated panels staged | **ALL 96** of the decompressed 16-page Issue 02 + front/back covers; 96/96 pass `validate_issue --integration`. Built by a 14-agent-per-page workflow over `build_panel.py` + a 137-layer pose menu; adversarial QA caught a close-up matte-halo (fixed in `closeup.py`). Full flip-through: `integration_preview/pages_preview/ISSUE_02_full_preview.png` |
+| Close-up panels | Deterministic head-crop builder (`closeup.py`, alpha eroded pre-upscale to kill matte halo). Bespoke ComfyUI portrait renders remain the quality upgrade |

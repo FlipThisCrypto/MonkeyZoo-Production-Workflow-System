@@ -1367,3 +1367,16 @@ individual panel renders (all regenerate from `_specs/` via
 `build_panel.py`).
 
 ---
+
+## Docs sync + finish (2026-07-17)
+
+After full-issue integration, swept every doc still claiming the old
+"6 panels / Cycles 11-30" state to the true final state (96/96 integrated):
+`automation_rules.md` §6A, `ARCHITECTURE_FINDINGS.md` status table,
+`FINAL_REPORT.md` (epilogue + owner-decisions + recommended-next now =
+bespoke close-up portraits), `project_direction.json`
+(character-integration task → done, 96/96; Studio loader test 4/4 PASS).
+Committed the 3 de-halo'd early close-ups (P01_04, P02_01, P02_05).
+Regression suite 21/21 against current code (closeup/validate changes).
+Recommended next One Thing: bespoke ComfyUI portrait renders for the ~23
+close-ups (pipeline in place; needs GPU time).

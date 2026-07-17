@@ -477,15 +477,18 @@
           "title": "Character-into-scene integration tooling (POC done 2026-07-16)",
           "status": "active",
           "priority": "P2",
-          "instructions": "Round 2 complete (Cycles 11-30, see 00_SYSTEM/integration_upgrade/CYCLE_LEDGER.md): ComfyUI restored; bespoke text2img scene poses (img2img rejected -- identity drift, measured); reflections, depth haze, behind-geometry occlusion, multi-character staging; all 5 Issue-02 plates calibrated (agent fan-out, verified overlays); 7 panels integrated + staged as previews with before/after sheets in 02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/; QA: plate-baselined pixel gate + plate-diff grounding + identity drift check + validate_issue --integration + qa_checklist v1.1 Gate A Integration section. OWNER GATE NEXT: review the comparison sheets and decide whether integrated panels replace the shipped draft composites (Gate A promotion into selected_panels is human-only; stage_preview never writes there). Remaining engineering: batch-author specs for the other 17 panels; LoRA training for tighter identity; cover integration.",
+          "instructions": "DONE (2026-07-17): Issue 02 fully integrated to the new 16-page/96-panel format (+1-panel front cover, +1-panel Issue-03-teaser back cover). ALL 96 panels staged as integration previews; 96/96 pass validate_issue --integration. Built by a 14-agent-per-page workflow over build_panel.py (spec->composite/closeup/establish->stage->gate) + a 137-layer pre-matted pose menu (layer_menu.json); per-panel specs in 00_SYSTEM/integration_upgrade/_specs/ regenerate every panel. Adversarial per-page QA caught a close-up matte-halo -> fixed in closeup.py. Full flip-through: 02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/pages_preview/ISSUE_02_full_preview.png. OWNER GATE NEXT: review the preview pages and decide whether integrated panels replace the shipped draft composites (Gate A promotion into selected_panels is human-only; nothing promoted). Quality upgrade available: bespoke ComfyUI portrait renders for the ~23 close-ups (currently deterministic head-crops).",
           "docs": [
             ".claude/skills/mz-art-run/SKILL.md",
             "00_SYSTEM/automation_rules.md",
             "00_SYSTEM/integration_upgrade/ARCHITECTURE_FINDINGS.md",
             "00_SYSTEM/integration_upgrade/CYCLE_LEDGER.md",
             "00_SYSTEM/integration_upgrade/FINAL_REPORT.md",
+            "00_SYSTEM/integration_upgrade/_specs/",
             "00_SYSTEM/scripts/integration/",
-            "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/"
+            "00_SYSTEM/scripts/integration/build_panel.py",
+            "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/",
+            "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/pages_preview/"
           ]
         }
       ]
