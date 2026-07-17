@@ -29,6 +29,11 @@ NAMED_LIGHT_COLORS = {
     "magenta": (230, 70, 190),
     "spring green": (110, 230, 120),
     "warm-magenta": (230, 90, 180),
+    # added for the Cycle-18 plate calibrations (agents documented these
+    # names falling back to neutral grey): relay-junction crystal glow and
+    # the school hallway's fluorescent tint
+    "teal": (45, 195, 190),
+    "pale yellow-green": (215, 230, 170),
 }
 
 

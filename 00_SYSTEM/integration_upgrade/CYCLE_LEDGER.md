@@ -931,3 +931,45 @@ untouched; reported `selected_panels_untouched: true` in both runs.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 18 — Batch plate calibration (4 locations, agent fan-out + my own verification)
+
+**Selected because**: Issue 02's 24 panels span 5 environments; only
+zoo-city-streets was calibrated. The other four plates (transit hub — 8
+panels, school PA zone — 3, storm streets — 4, old relay junction — 2)
+each needed the same horizon/calibration/lights/surfaces work, which is
+genuinely parallel — ran as a 4-agent workflow fan-out, each agent doing
+the estimate → render overlay → inspect → iterate loop with
+`calibrate_check.py`, plus a second adversarial-verifier stage.
+
+**Results** (all high confidence, 2 iterations each):
+- `transit-announcement-hub` H=349 — vanishing-point IQR 3px (unusually
+  consistent plate); glossy floor polygon correctly cut around benches
+- `school-pa-zone` H=385 — floor-plane lines only (the plate's wall
+  perspective cheats vs the floor VP; floor governs feet, so correct call)
+- `storm-routines` H=425 — solved from three same-design streetlamps
+  pairwise, cross-checked against curb convergence; ±20px band recorded
+- `old-relay-junction` H=435 — floor lines given precedence over the
+  ceiling's inconsistent hand-painted convergence; knee-height calib slab
+  documented so nobody scales from a trash-can assumption
+
+**Verification — honest accounting**: the workflow's adversarial-verify
+stage completed for only ONE plate (old-relay-junction: independent
+ACCEPT) before the remaining three verifier agents died on a session
+limit. Rather than counting unverified work, I verified all four overlays
+MYSELF by direct inspection (horizon vs actual convergence, marker on the
+claimed object at its true height, lights on actual emitters, polygons
+over real wet/glossy floor) — all four ACCEPT. Also validated all four
+specs load through the compositor's own `load_ground_plane` path.
+
+**Fallout fixed**: two agents documented (correctly, rather than
+silently) that their honest light colors — "teal" (relay crystals) and
+"pale yellow-green" (school fluorescents) — weren't in
+`NAMED_LIGHT_COLORS` and would fall back to neutral grey. Added both;
+re-checked all 4 specs resolve every light color. Suite still 21/21.
+
+**Verdict**: **PASS**. All five Issue-02 environments now have verified
+ground-plane calibrations — panel-level integration can begin anywhere in
+the issue.
+
+---
