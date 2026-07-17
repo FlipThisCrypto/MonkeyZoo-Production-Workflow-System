@@ -105,3 +105,75 @@ per-character tuning.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 3 — scene_blocking/pose_spec schema + ground-plane geometry placement (POC)
+
+**Selected because**: with transparent layers in hand, the next blocker is
+*where and how big* to place a character so it isn't floating/mis-scaled —
+the literal #1 symptom in the brief (NFT card floating in front of the
+background, screenshotted as the "before" evidence below). Chose the
+brief's own POC target panel, `MZ-2026-09-02_P01_PANEL01` (rainy Zoo City
+street, single character Static) — confirmed via `art_prompt_pack.json`
+this is exactly the panel matching the brief's description.
+
+**Before (baseline evidence)**: inspected the current shipped image,
+`generated_art/selected_panels/MZ-2026-09-02_P01_PANEL01.png` — it is
+literally Static's minted NFT card (#1199, magenta card background, blue
+border, "MonkeyZoo" signature) pasted in a small framed box near the
+bottom of the plate, with a debug caption strip overlay. This is the exact
+failure mode described in the brief, now captured as before/after evidence
+rather than taken on faith.
+
+**Files inspected**: `art_prompt_pack.json` (panel's pose/environment/
+lighting text), `03_APPROVED_CANON/approved_locations/zoo-city-streets/
+primary-reference.png` (the clean 1280×720 plate, no card/no caption —
+confirmed the real background asset already exists and is high quality;
+the problem is purely how the character gets added to it).
+
+**Files created**:
+- `00_SYSTEM/scripts/integration/perspective.py` — single-point
+  ground-plane height-line scaling (`scale(y_foot) = calib_height_px *
+  (y_foot - horizon_y) / (calib_y - horizon_y)`), the standard matte-
+  painting technique for consistent character scale vs. depth.
+- `00_SYSTEM/integration_upgrade/poc/MZ-2026-09-02_P01_PANEL01/
+  scene_blocking.json` — horizon/calibration (against the visible trash
+  can, chosen over the doorway because its scale is closer to Static's
+  chibi proportions) and three light sources (streetlamp key, magenta
+  sign fill, green sign fill) read off the plate. Documents explicitly
+  that these are visually-estimated art-direction values, not
+  camera-calibrated measurements — no vanishing-point detection tool
+  exists in this repo.
+- `00_SYSTEM/integration_upgrade/poc/MZ-2026-09-02_P01_PANEL01/
+  pose_spec.json` — full acting-direction spec (orientation, eye target,
+  stance, hands, ground contact, lighting assignment, occlusion plan) per
+  the brief's character-instance schema, adapted to this scene. Honestly
+  flags a real limitation: ComfyUI is offline this session, so this uses
+  Static's existing clean-base reference pose rather than a bespoke
+  freeze-mid-step render — recorded as follow-up work, not hidden.
+- `00_SYSTEM/scripts/integration/compositor.py` — `place_character()`:
+  crops the character layer to its opaque bbox, scales it to the ground
+  plane's computed height at the foot anchor, and alpha-composites it so
+  the bbox's bottom-center lands exactly on the anchor pixel.
+
+**Test**: ran `compositor.py` on the POC panel — target height 106.8px at
+foot anchor (300, 640), scale factor 0.1211, output saved to
+`01_geometry_placement.png`.
+
+**Visual inspection**: opened the output directly. Card/border/number/
+signature are completely gone (replaced by the real alpha layer). Scale
+reads correctly next to the trash can it was calibrated against. Feet land
+at the intended pavement point. However — as expected, since this cycle is
+geometry-only — the character still reads as pasted: too bright/saturated
+against the dark moody plate, no contact shadow, no relighting. This is
+the exact remaining gap the brief describes and is the explicit scope of
+Cycles 4–5, not a defect in this cycle's own deliverable.
+
+**Defects found**: none in the geometry math itself (anchor/scale both
+verified correct by inspection). Noted limitation: horizon/calibration
+values are estimated, not measured — acceptable for a POC, flagged for a
+future precision pass if the technique is productionized.
+
+**Verdict**: **PASS** (scoped to geometry only; integration is not yet
+complete — continues in Cycles 4–5).
+
+---
