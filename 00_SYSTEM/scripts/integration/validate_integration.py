@@ -177,6 +177,40 @@ def check_contact_shadow(img: Image.Image, foot_anchor_px: tuple[float, float], 
     }
 
 
+def check_grounding_below(img: Image.Image, plate: Image.Image,
+                          foot_anchor_px: tuple[float, float],
+                          halfwidth: int = 40, band_h: int = 14,
+                          min_mean_diff: float = 3.0) -> dict:
+    """Plate-diff grounding check (Cycle 28): a grounded character has
+    SOMETHING drawn on the ground plane directly below its feet — a
+    contact shadow (darker) or a reflection (often brighter). A floating
+    character leaves the plate untouched there. Comparing the composite
+    to the raw plate in a thin band just below the anchor is immune to
+    the floor's own lateral brightness gradients and to shadow/reflection
+    cancellation, both of which confounded the lateral-luma heuristic
+    (measured on the storm panel: a visibly-grounded character scored
+    -2.68 because its bright reflection canceled its shadow in-band while
+    the offset shadow darkened the lateral baseline)."""
+    a = np.array(img.convert("L"), dtype=np.float64)
+    p = np.array(plate.convert("L"), dtype=np.float64)
+    if a.shape != p.shape:
+        return {"verdict": "SKIP", "reason": "composite/plate size mismatch"}
+    h, w = a.shape
+    x, y = foot_anchor_px
+    y0, y1 = min(h - 1, int(y + 2)), min(h, int(y + 2 + band_h))
+    x0, x1 = max(0, int(x - halfwidth)), min(w, int(x + halfwidth))
+    if y1 <= y0 or x1 <= x0:
+        return {"verdict": "SKIP", "reason": "anchor too close to image edge"}
+    diff = np.abs(a[y0:y1, x0:x1] - p[y0:y1, x0:x1])
+    mean_diff = float(diff.mean())
+    return {
+        "verdict": "PASS" if mean_diff >= min_mean_diff else "FAIL",
+        "band": [x0, y0, x1, y1],
+        "mean_abs_diff_vs_plate": round(mean_diff, 2),
+        "threshold": min_mean_diff,
+    }
+
+
 def _bbox_overlaps(a: list, b: list) -> bool:
     ax0, ay0, ax1, ay1 = a
     bx0, by0, bx1, by1 = b
@@ -216,7 +250,13 @@ def run_gate(image_path: Path, foot_anchor_px: tuple[float, float] | None = None
         "known_bad_color_regions": bad_color_regions,
     }
     if foot_anchor_px:
-        result["contact_shadow"] = check_contact_shadow(img, foot_anchor_px)
+        # with a plate available, the robust plate-diff grounding check is
+        # authoritative; the lateral heuristic remains the plateless fallback
+        if plate_path is not None:
+            result["grounding"] = check_grounding_below(img, Image.open(plate_path), foot_anchor_px)
+            result["contact_shadow"] = result["grounding"]  # back-compat key
+        else:
+            result["contact_shadow"] = check_contact_shadow(img, foot_anchor_px)
 
     fails = []
     if flat_regions:
@@ -224,7 +264,7 @@ def run_gate(image_path: Path, foot_anchor_px: tuple[float, float] | None = None
     if bad_color_regions:
         fails.append(f"{len(bad_color_regions)} region(s) matching a known reference-backdrop or minted-card color")
     if foot_anchor_px and result.get("contact_shadow", {}).get("verdict") == "FAIL":
-        fails.append("no measurable contact shadow at declared foot anchor")
+        fails.append("no grounding cue (shadow/reflection) measurable at declared foot anchor")
     result["verdict"] = "FAIL" if fails else "PASS"
     result["fail_reasons"] = fails
     return result

@@ -29,6 +29,11 @@
       "reflection": {
         "enabled": true,
         "surface": "road_wet_sheet"
+      },
+      "grounding_boost": {
+        "shadow_opacity": 0.58,
+        "reflection_opacity": 0.45,
+        "note": "Art-directed boost (Cycle 28): small mid-ground figure on very dark asphalt -- default shadow is invisible on near-black ground and his dark outfit's reflection washes out; measured grounding diff was 2.87 (below the 3.0 gate). Boosted until the cue both measures and reads."
       }
     },
     {

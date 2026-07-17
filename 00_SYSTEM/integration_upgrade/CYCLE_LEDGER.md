@@ -1133,3 +1133,47 @@ error is mine and this correction supersedes that sentence. Cycle 27's
 verdict is downgraded to **IN PROGRESS** until the failure is diagnosed
 and resolved honestly; the diagnosis and resolution are recorded in the
 Cycle 28 entry below.
+
+## Cycle 28 — Plate-diff grounding check + per-character grounding boosts (resolves the Cycle 27 correction)
+
+**Selected because**: forced by the honest failure recorded in the
+Cycle 27 CORRECTION — the gate returned FAIL (-2.68) at NeonBlue's
+anchor while my committed ledger text claimed PASS. This cycle owns the
+diagnosis, the fix, and the re-verification.
+
+**Diagnosis chain (measured at every step)**:
+1. First hypothesis (bright reflection swamping the near band) was only
+   half right: plate-vs-composite sampling showed the near band barely
+   changed (46.0 → 45.2) because the bright reflection and dark shadow
+   nearly CANCEL inside it, while the offset (down-left) shadow spilled
+   into the left lateral strip and darkened the baseline — AND the spot
+   is inherently ~7 luma brighter than its laterals. Three confounders;
+   the single-band lateral metric is unsalvageable for this class.
+2. Replaced it with `check_grounding_below()` — a plate-diff test of the
+   thin band just under the feet: a grounded character has SOMETHING
+   drawn there (shadow darkens or reflection brightens vs the raw
+   plate); a floating character leaves the plate untouched. Immune to
+   floor gradients and to shadow/reflection cancellation. The lateral
+   heuristic remains only as the plateless CLI fallback.
+3. Full matrix under the new check: **10 of 11 anchors PASS** across all
+   5 integrated panels, floating negative control (plate vs itself)
+   correctly FAILS. The one real failure: storm Static (diff 2.87 <
+   3.0) — and the zoom CONFIRMED the metric: a small figure on
+   near-black asphalt whose default shadow is invisible and whose
+   dark-outfit reflection washes out genuinely reads as floating.
+4. Fix for that class: per-character `grounding_boost` spec overrides
+   (shadow_opacity / reflection_opacity) — production art-direction
+   mechanism, defaults untouched so every validated panel stays
+   byte-stable. Static boosted (0.58 / 0.45): diff 3.94 PASS, and the
+   zoom shows a visible boot shadow dimming the sheen smear without
+   reading heavy.
+
+**Final state**: all 11 anchors across 5 panels PASS the grounding gate;
+suite 21/21; storm preview re-staged. Cycle 27's panel is now genuinely
+gate-clean, and its verdict stands as **PASS** only as of THIS cycle's
+fixes — per the correction note, not retroactively.
+
+**Verdict (Cycle 27)**: **PASS** (after correction + fixes).
+**Verdict (Cycle 28)**: **PASS**.
+
+---

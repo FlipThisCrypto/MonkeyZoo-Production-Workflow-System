@@ -81,6 +81,8 @@ def place_character(
     reflection_polygon: list | None = None,
     atmosphere: dict | None = None,
     behind_polygons: list[list] | None = None,
+    shadow_opacity: float | None = None,
+    reflection_opacity: float | None = None,
 ) -> tuple[Image.Image, dict]:
     """Scale char_layer so its apparent height matches the ground plane at
     foot_anchor_px, draw a contact shadow under the anchor if requested,
@@ -117,17 +119,21 @@ def place_character(
     canvas = plate.convert("RGBA").copy()
     shadow_used = False
     if shadow_direction:
-        canvas = draw_contact_shadow(
-            canvas, foot_anchor_px, new_w, shadow_direction_deg=_shadow_angle(shadow_direction)
-        )
+        shadow_kwargs = {"shadow_direction_deg": _shadow_angle(shadow_direction)}
+        if shadow_opacity is not None:
+            shadow_kwargs["opacity"] = shadow_opacity
+        canvas = draw_contact_shadow(canvas, foot_anchor_px, new_w, **shadow_kwargs)
         shadow_used = True
 
     paste_box = [paste_x, paste_y, paste_x + new_w, paste_y + new_h]
     reflection_report = None
     if reflection_polygon:
         # reflection drawn before the character so it never overlaps the sprite
+        refl_kwargs = {}
+        if reflection_opacity is not None:
+            refl_kwargs["opacity"] = reflection_opacity
         canvas, reflection_report = add_puddle_reflection(
-            canvas, resized, tuple(paste_box), reflection_polygon
+            canvas, resized, tuple(paste_box), reflection_polygon, **refl_kwargs
         )
     canvas.alpha_composite(resized, (paste_x, paste_y))
     occluded = False
@@ -220,6 +226,8 @@ def run_scene(spec_dir: Path) -> dict:
             reflection_polygon=refl_poly,
             atmosphere=scene.get("atmosphere"),
             behind_polygons=behind,
+            shadow_opacity=inst.get("grounding_boost", {}).get("shadow_opacity"),
+            reflection_opacity=inst.get("grounding_boost", {}).get("reflection_opacity"),
         )
         reports[inst["character"]] = rep
 
