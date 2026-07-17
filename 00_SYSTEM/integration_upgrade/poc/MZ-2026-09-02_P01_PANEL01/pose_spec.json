@@ -27,6 +27,11 @@
     "rain layer in front of the character (existing plate rain is behind him only; a foreground rain pass is added so drops read as falling between camera and character)",
     "no puddle overlap on the boots at this stance (dry pavers per ground_contact note) -- reserved for a future pose variant if the script calls for a puddle step"
   ],
+  "reflection": {
+    "enabled": true,
+    "surface": "sidewalk_sheet_left",
+    "note": "Restrained mirrored reflection in the wet sheet below-left of his stance -- consistent with the plate's own diffuse neon reflections. Boots themselves stay on dry-ish pavers; the reflection lives on the adjacent water sheet, which is physically correct for a standing figure next to a reflective surface."
+  },
   "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_00_clean_base.png",
   "asset_limitation": "This is Static's neutral clean-base reference pose (three-quarter-ish standing, satchel visible), not a custom-generated freeze-mid-step pose -- ComfyUI is offline this session so no new pose could be rendered. Orientation/placement below is chosen to match this existing asset as closely as the scripted beat allows; a true bespoke pose render is flagged as follow-up work once generation is available again."
 }

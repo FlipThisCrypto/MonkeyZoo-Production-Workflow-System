@@ -40,6 +40,13 @@
     "wet_pavement": true,
     "puddle_reflections": true
   },
+  "reflective_surfaces": [
+    {
+      "id": "sidewalk_sheet_left",
+      "polygon": [[35, 618], [250, 600], [370, 650], [430, 705], [300, 719], [40, 719], [25, 660]],
+      "note": "Wet water-sheet on the lower-left sidewalk pavers (visible rain ripple rings in the plate). Polygon traced visually and verified by rendering an overlay against the plate (_test/puddle_poly_check.png) before use -- same estimate-then-inspect discipline as the ground-plane calibration."
+    }
+  ],
   "camera": {
     "shot_scale": "medium-wide establishing",
     "angle": "eye-level, static locked-off"

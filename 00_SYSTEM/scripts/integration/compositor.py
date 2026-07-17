@@ -18,6 +18,7 @@ from perspective import GroundPlane  # noqa: E402
 from shadow import draw_contact_shadow  # noqa: E402
 from relight import relight  # noqa: E402
 from occlusion import add_foreground_rain  # noqa: E402
+from reflection import add_puddle_reflection  # noqa: E402
 import numpy as np  # noqa: E402
 
 
@@ -71,6 +72,7 @@ def place_character(
     ground_plane: GroundPlane,
     shadow_direction: str | None = None,
     relight_spec: dict | None = None,
+    reflection_polygon: list | None = None,
 ) -> tuple[Image.Image, dict]:
     """Scale char_layer so its apparent height matches the ground plane at
     foot_anchor_px, draw a contact shadow under the anchor if requested,
@@ -105,15 +107,24 @@ def place_character(
             canvas, foot_anchor_px, new_w, shadow_direction_deg=_shadow_angle(shadow_direction)
         )
         shadow_used = True
+
+    paste_box = [paste_x, paste_y, paste_x + new_w, paste_y + new_h]
+    reflection_report = None
+    if reflection_polygon:
+        # reflection drawn before the character so it never overlaps the sprite
+        canvas, reflection_report = add_puddle_reflection(
+            canvas, resized, tuple(paste_box), reflection_polygon
+        )
     canvas.alpha_composite(resized, (paste_x, paste_y))
 
     return canvas, {
         "target_height_px": round(target_h, 1),
         "source_bbox_in_layer": bbox,
         "scale_factor": round(scale, 4),
-        "paste_box": [paste_x, paste_y, paste_x + new_w, paste_y + new_h],
+        "paste_box": paste_box,
         "contact_shadow_applied": shadow_used,
         "relit": relit,
+        "reflection": reflection_report,
     }
 
 
@@ -139,10 +150,20 @@ def run(poc_dir: Path) -> dict:
             "key_on_high_side": key_on_high_side,
         }
 
+    reflection_polygon = None
+    refl_req = pose.get("reflection", {})
+    if refl_req.get("enabled"):
+        surfaces = {s["id"]: s["polygon"] for s in scene.get("reflective_surfaces", [])}
+        reflection_polygon = surfaces.get(refl_req.get("surface"))
+        if reflection_polygon is None:
+            raise ValueError(f"pose_spec requests reflection on surface "
+                             f"{refl_req.get('surface')!r} but scene_blocking declares no such surface")
+
     canvas, report = place_character(
         plate, char_layer, foot_anchor, gp,
         shadow_direction=pose.get("lighting", {}).get("shadow_direction"),
         relight_spec=relight_spec,
+        reflection_polygon=reflection_polygon,
     )
 
     occlusion_applied = False

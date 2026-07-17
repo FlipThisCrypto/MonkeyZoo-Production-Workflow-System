@@ -527,3 +527,49 @@ re-improvise this check.
 **Verdict**: **PASS**. Generation-dependent cycles are unblocked.
 
 ---
+
+## Cycle 12 — Puddle reflection compositing module
+
+**Selected because**: the one acceptance-checklist item marked NOT
+IMPLEMENTED in Round 1 (criterion 9), and a named brief requirement
+("Reflections on wet surfaces"). Doable deterministically without GPU, so
+it ran while ComfyUI booted.
+
+**Scoped for one cycle**: yes.
+
+**Files created/changed**:
+- `00_SYSTEM/scripts/integration/reflection.py` — `add_puddle_reflection()`:
+  mirrors the already-scaled/relit sprite across the ground contact line,
+  squashes (0.80), fades vertically from the contact line, applies a
+  deterministic per-row sine ripple, tints toward water color, clips to a
+  declared reflective-surface polygon. Zero randomness.
+- `scene_blocking.json` — new `reflective_surfaces` array; the polygon was
+  traced visually then **verified by rendering an overlay against the
+  plate and inspecting it** (`_test/puddle_poly_check.png`) before use.
+- `pose_spec.json` — `reflection` opt-in block (surface reference +
+  physical-plausibility note).
+- `compositor.py` — reflection drawn after shadow, before character paste
+  (never overlaps the sprite); raises a clear error if a pose requests a
+  surface the scene doesn't declare.
+
+**Test**: full compositor re-run — `reflection_visible_px: 4542`. QA gate
+on the new final render: PASS. Regression suite: 10/10.
+
+**Visual + numeric verification**: the reflection is deliberately
+restrained (dark outfit over dark water), so visual inspection alone was
+inconclusive — instead diffed the new render against the git-committed
+pre-reflection render (byte-identical pipeline otherwise, since the rain
+layer is fixed-seed): **3,565 changed pixels, ALL confined to x 262–339 /
+y 640–719** — exactly the mirror region below the contact line, nothing
+else in the frame touched. The 6×-amplified diff image shows the mirrored
+boot soles at the contact line fading downward — correct orientation,
+correct falloff. (Side benefit: this diff also proves the occlusion rain
+layer is fully deterministic, as claimed in Cycle 6.)
+
+**Defects found**: none. Noted judgment call: reflection strength tuned to
+match the plate's own diffuse neon reflections rather than a mirror-sharp
+look that would break the flat cel style.
+
+**Verdict**: **PASS**.
+
+---
