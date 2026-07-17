@@ -573,3 +573,56 @@ look that would break the flat cel style.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 14 — Multi-character staging (completed while Cycle 13's renders were queued)
+
+**Selected because**: one of the two remaining Round-1 gaps ("multi-
+character staging is unbuilt"), and the brief's Multi-Character Scenes
+requirements (shared perspective/scale/ground plane, depth positions,
+meaningful interaction, no sticker-row lineups). Ran during Cycle 13's GPU
+wait — the ledger records completion order honestly.
+
+**Target panel**: `MZ-2026-09-02_P06_PANEL02` — "Team gives Static space
+instead of ordering silence" (Moodz, Scarline, Static) on the same
+zoo-city-streets plate whose ground plane was already calibrated.
+
+**Files created/changed**:
+- `compositor.py` — new `run_scene()`: `characters_spec.json` array, all
+  characters share one ground plane and light set; composited far-to-near
+  (sorted by foot-anchor y) so near figures overlap far ones; per-character
+  relight with the key side decided per character position (factored
+  `derive_relight_spec()` out of `run()`); foreground rain applied once
+  over the union region at the end. CLI auto-detects multi vs single spec.
+- `poc/MZ-2026-09-02_P06_PANEL02/scene_blocking.json` — inherited verbatim
+  from the P01 calibration (same plate/camera), retagged.
+- `poc/MZ-2026-09-02_P06_PANEL02/characters_spec.json` — full staging spec.
+  Blocking uses the two characters' natural gaze directions (Moodz glances
+  viewer-right → placed screen-left; Scarline glances viewer-left → placed
+  screen-right) so both eye-lines land on Static WITHOUT mirroring any
+  sprite — mirroring is forbidden for asymmetric identity marks (Scarline's
+  stripe is canon viewer-left).
+- Asset prep: matted `*_16_worried` for all three (PASS: opaque 0.29–0.34).
+
+**Defects found during testing**:
+1. First matte attempt used the `_02_threeqtr` variants — FAILED (opaque
+   0.96): those refs don't have flat backdrops. Led to a full 12-character
+   scan of which approved refs are matte-able; also exposed that the
+   corner-std pre-filter false-positives on dark-cornered busy refs, so
+   the matte's own corner+opaque verdict stays the authoritative gate.
+   Bad outputs deleted, not left in the layer library.
+2. First composite gave Moodz (standing IN the water sheet) a shadow only
+   — read as floating on water. Fixed by enabling his reflection on the
+   declared surface (the physically correct grounding cue); re-ran and
+   verified 1,493 visible reflection pixels + visual zoom inspection.
+
+**Test**: composite ran with correct depth order (static → scarline →
+moodz, far-to-near); regression suite still 10/10; single-character path
+re-verified byte-identical behavior (same reflection px count).
+
+**Visual verdict**: three characters at three depths, ground-plane-correct
+scales, individual lighting, rain crossing all figures, no sticker-row —
+the spatial gap between the flankers and Static carries the story beat.
+
+**Verdict**: **PASS**.
+
+---

@@ -128,6 +128,69 @@ def place_character(
     }
 
 
+def derive_relight_spec(scene: dict, foot_anchor: tuple[float, float]) -> dict | None:
+    """Key/fill tint from the scene's declared light sources, with the key
+    side decided per character position (a character left of the lamp is
+    lit from its right, and vice versa)."""
+    key = next((l for l in scene["light_sources"] if l["type"] == "key"), None)
+    fill = next((l for l in scene["light_sources"] if l["type"] == "fill"), None)
+    if not (key and fill):
+        return None
+    return {
+        "key_color": _hex_or_named(key["color"]),
+        "fill_color": _hex_or_named(fill["color"]),
+        "gradient_axis": "horizontal",
+        "key_on_high_side": key["position_px"][0] >= foot_anchor[0],
+    }
+
+
+def run_scene(spec_dir: Path) -> dict:
+    """Multi-character staging: characters_spec.json holds a `characters`
+    array; all share one ground plane and light set from scene_blocking.
+    Characters are composited far-to-near (sorted by foot y ascending) so
+    nearer figures correctly overlap farther ones. Foreground rain, if
+    requested at scene level, is applied once at the end over the union of
+    paste boxes so streaks cross every figure consistently."""
+    scene = json.loads((spec_dir / "scene_blocking.json").read_text(encoding="utf-8"))
+    spec = json.loads((spec_dir / "characters_spec.json").read_text(encoding="utf-8"))
+
+    root = Path(__file__).resolve().parents[3]
+    canvas = Image.open(root / scene["background_plate"]).convert("RGBA")
+    gp = load_ground_plane(scene)
+
+    surfaces = {s["id"]: s["polygon"] for s in scene.get("reflective_surfaces", [])}
+    reports = {}
+    ordered = sorted(spec["characters"], key=lambda c: c["ground_contact"]["foot_anchor_px"][1])
+    for inst in ordered:
+        char_layer = Image.open(root / inst["asset_used"]).convert("RGBA")
+        foot = tuple(inst["ground_contact"]["foot_anchor_px"])
+        refl_poly = None
+        if inst.get("reflection", {}).get("enabled"):
+            refl_poly = surfaces.get(inst["reflection"]["surface"])
+            if refl_poly is None:
+                raise ValueError(f"{inst['character']}: unknown reflective surface "
+                                 f"{inst['reflection']['surface']!r}")
+        canvas, rep = place_character(
+            canvas, char_layer, foot, gp,
+            shadow_direction=inst.get("lighting", {}).get("shadow_direction"),
+            relight_spec=derive_relight_spec(scene, foot),
+            reflection_polygon=refl_poly,
+        )
+        reports[inst["character"]] = rep
+
+    if spec.get("foreground_rain"):
+        boxes = [r["paste_box"] for r in reports.values()]
+        union = [min(b[0] for b in boxes), min(b[1] for b in boxes),
+                 max(b[2] for b in boxes), max(b[3] for b in boxes)]
+        canvas = add_foreground_rain(canvas, tuple(union),
+                                     density=spec.get("rain_density", 110))
+
+    out_path = spec_dir / "final_integrated.png"
+    canvas.convert("RGB").save(out_path)
+    return {"characters": reports, "depth_order": [c["character"] for c in ordered],
+            "output": str(out_path)}
+
+
 def run(poc_dir: Path) -> dict:
     scene = json.loads((poc_dir / "scene_blocking.json").read_text(encoding="utf-8"))
     pose = json.loads((poc_dir / "pose_spec.json").read_text(encoding="utf-8"))
@@ -138,17 +201,7 @@ def run(poc_dir: Path) -> dict:
     gp = load_ground_plane(scene)
 
     foot_anchor = tuple(pose["ground_contact"]["foot_anchor_px"])
-    key = next((l for l in scene["light_sources"] if l["type"] == "key"), None)
-    fill = next((l for l in scene["light_sources"] if l["type"] == "fill"), None)
-    relight_spec = None
-    if key and fill:
-        key_on_high_side = key["position_px"][0] >= foot_anchor[0]
-        relight_spec = {
-            "key_color": _hex_or_named(key["color"]),
-            "fill_color": _hex_or_named(fill["color"]),
-            "gradient_axis": "horizontal",
-            "key_on_high_side": key_on_high_side,
-        }
+    relight_spec = derive_relight_spec(scene, foot_anchor)
 
     reflection_polygon = None
     refl_req = pose.get("reflection", {})
@@ -181,4 +234,5 @@ def run(poc_dir: Path) -> dict:
 if __name__ == "__main__":
     poc_dir = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parents[3] \
         / "00_SYSTEM" / "integration_upgrade" / "poc" / "MZ-2026-09-02_P01_PANEL01"
-    print(json.dumps(run(poc_dir), indent=2))
+    entry = run_scene if (poc_dir / "characters_spec.json").exists() else run
+    print(json.dumps(entry(poc_dir), indent=2))

@@ -1,0 +1,95 @@
+{
+  "panel_id": "MZ-2026-09-02_P06_PANEL02",
+  "background_plate": "03_APPROVED_CANON/approved_locations/zoo-city-streets/primary-reference.png",
+  "plate_size": [
+    1280,
+    720
+  ],
+  "derivation_note": "Ground plane, lights, and reflective surfaces inherited verbatim from the P01_PANEL01 calibration -- same zoo-city-streets plate, same camera. Ground-plane values below are estimated by visual inspection of the plate (no camera-calibration tooling exists in this repo) -- treat as art-directed estimates, not measured facts. Recorded explicitly so a future cycle can replace this with a real vanishing-point/line detector if precision matters.",
+  "ground_plane": {
+    "horizon_y": 205,
+    "calibration": {
+      "reference_object": "sidewalk trash can, visible left-foreground",
+      "calib_y_foot": 490,
+      "calib_height_px": 70,
+      "note": "Trash can bottom/top sampled directly from the plate; used as the scale proxy because its apparent size at that depth is closer to Static's chibi scale than the human-height doorway also visible in the plate."
+    }
+  },
+  "light_sources": [
+    {
+      "id": "streetlamp_near",
+      "type": "key",
+      "position_px": [
+        680,
+        120
+      ],
+      "color": "cool cyan-white",
+      "note": "Nearest streetlamp cone, casts down-and-slightly-right onto the sidewalk area where the character is placed."
+    },
+    {
+      "id": "signage_magenta",
+      "type": "fill",
+      "position_px": [
+        330,
+        60
+      ],
+      "color": "magenta",
+      "note": "MONKEY sign glow, bounces warm-magenta fill light and produces the magenta puddle reflection at screen-left."
+    },
+    {
+      "id": "signage_green",
+      "type": "fill",
+      "position_px": [
+        500,
+        90
+      ],
+      "color": "spring green",
+      "note": "Zoo sign glow, secondary bounce fill from screen-left."
+    }
+  ],
+  "weather": {
+    "rain": true,
+    "wet_pavement": true,
+    "puddle_reflections": true
+  },
+  "reflective_surfaces": [
+    {
+      "id": "sidewalk_sheet_left",
+      "polygon": [
+        [
+          35,
+          618
+        ],
+        [
+          250,
+          600
+        ],
+        [
+          370,
+          650
+        ],
+        [
+          430,
+          705
+        ],
+        [
+          300,
+          719
+        ],
+        [
+          40,
+          719
+        ],
+        [
+          25,
+          660
+        ]
+      ],
+      "note": "Wet water-sheet on the lower-left sidewalk pavers (visible rain ripple rings in the plate). Polygon traced visually and verified by rendering an overlay against the plate (_test/puddle_poly_check.png) before use -- same estimate-then-inspect discipline as the ground-plane calibration."
+    }
+  ],
+  "camera": {
+    "shot_scale": "medium-wide establishing",
+    "angle": "eye-level, static locked-off"
+  }
+}
