@@ -8,8 +8,9 @@
   "head_direction": "turned further right and slightly up, toward the flickering signage",
   "eye_target": "the malfunctioning sign/transit area up the street",
   "stance": "weight settling onto rear (left) leg mid-stride-stop, front (right) foot planted flat, back heel just lifting",
-  "left_hand": "gripping satchel strap at his shoulder",
-  "right_hand": "slightly raised, fingers open -- a startled half-gesture, not a full stop-sign",
+  "left_hand": "mitten fist held in close to the body",
+  "right_hand": "mitten fist raised halfway in front of the chest in hesitation",
+  "hands_canon_note": "CORRECTED 2026-07-16 (Cycle 13): an earlier draft said 'gripping satchel strap' -- that detail leaked in from an example prose block in the direction brief, not from canon. Static has no satchel in any approved reference or in character_bible.md; hands are canon mitten fists. Fixed before the bespoke pose render so the error never reached generated art.",
   "shot_scale": "full body, small-in-frame (environmental establishing shot)",
   "depth_layer": "foreground-left sidewalk, in front of the storefront glow, left of the puddle streaked with sign reflections",
   "ground_contact": {

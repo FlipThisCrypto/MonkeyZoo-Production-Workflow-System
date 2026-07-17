@@ -626,3 +626,58 @@ the spatial gap between the flankers and Static carries the story beat.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 13 — Bespoke scene-specific pose render (Static freeze-mid-step)
+
+**Selected because**: the single largest disclosed gap from Round 1 — the
+POC used Static's generic reference pose instead of the scripted beat.
+Round 1's final report named this the recommended next One Thing.
+
+**Canon fix first**: while re-reading `pose_spec.json` before generating,
+caught that "gripping satchel strap" had leaked into the spec from the
+direction brief's *example prose* — Static has no satchel in any approved
+ref or in `character_bible.md`. Corrected to canon mitten-fist acting
+BEFORE generation, so the error never reached rendered art (documented in
+the spec's `hands_canon_note`).
+
+**Three generation attempts, evidence-driven** (9 renders total):
+1. **img2img @ denoise 0.85** from the minted frame-0 PNG (the documented
+   pose-tier recipe), 3 seeds — poses usable, but ALL drifted identity:
+   beige face instead of canon porcelain white [222,222,222], weakened
+   black hair cap. Measured, not eyeballed: face sampled at [249,233,218].
+2. **img2img @ denoise 0.80 + "reinforced" prompt**, 3 seeds — worse, and
+   diagnosing it exposed a self-inflicted cfg-1.0 trap: the reinforcement
+   said "never beige, never tan" — but at cfg 1.0 negatives are inert, so
+   naming "beige" PROMOTES it (same failure class as the documented
+   balloon-clause hazard in run_art_batch.py). A lesson re-learned and now
+   re-recorded.
+3. **text2img (no init) with the calibrated BASE prompt + pure-positive
+   pose clause**, 3 seeds — root cause confirmed: the init image itself
+   was dragging colors warm at every denoise; without it, all 3 seeds
+   render canon colors. Winner seed 777021: porcelain-white face, glossy
+   jet-black cap, separated grey eye rings, chest stitch, o-mouth, raised
+   mitten fist, three-quarter-right with head tilted up — the scripted
+   freeze-and-notice beat.
+
+**Also fixed during this cycle**: `gen_scene_pose.py`'s wait loop
+originally globbed `{name}_scene_seed*` and returned instantly when a
+previous batch's files matched — found live on attempt 2, fixed to
+seed-exact matching (comment documents the failure).
+
+**Deliverables**: `gen_scene_pose.py` (reusable scene-pose generator that
+imports the canonical identity descriptors from gen_char_refs.py instead
+of duplicating them); 9 candidate renders under
+`I:\ai\nft\output\MZ-SCENE-POSE\`; winner matted into
+`character_layers/static/static_scene_freeze.png` (matte PASS: corners
+transparent, opaque 0.51 — higher than the 0.31-0.36 typical because the
+pose fills more frame; within the 0.15-0.60 gate).
+
+**Knowledge captured**: img2img from minted cards = identity-color drift
+at any pose-changing denoise on this engine; bespoke poses should be
+text2img from BASE + pose clause, with img2img reserved for
+close-to-init variants. This inverts the Round-1 assumption and is now
+the documented default for scene poses.
+
+**Verdict**: **PASS**.
+
+---
