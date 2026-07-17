@@ -1037,3 +1037,28 @@ PASS exit 0; flagless run identical to before.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 25 — Integration criteria added to the human QA checklist + mz-package
+
+**Selected because**: the automated gate (Cycles 7/23/24) covers the
+mechanically-checkable subset, but Gate A is a HUMAN checklist — and it
+still had zero integration items, the exact blind spot the architecture
+scan identified on day one ("a monolithic render and a literal card-paste
+composite pass the same checklist").
+
+**Files changed**: `00_SYSTEM/qa_checklist.md` → v1.1 — new Gate A
+"Integration" section (9 items: card artifacts, reference-object scale,
+ground contact, shadow-or-reflection, position-matched lighting,
+environment-in-front, multi-character shared space, the sticker-row test,
+and the automated `--integration` pre-check as its own line item).
+Versioned header documents WHY the section exists.
+`.claude/skills/mz-package/SKILL.md` — Stage 9 now requires the
+`--integration` gate + eye-judged Integration section whenever staged
+previews exist.
+
+**Test**: re-read both files; existing checklist items untouched
+(additive only, consistent with the ledger's append-style discipline).
+
+**Verdict**: **PASS**.
+
+---

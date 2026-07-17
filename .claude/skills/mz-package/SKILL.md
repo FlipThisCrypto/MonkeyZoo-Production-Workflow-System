@@ -24,6 +24,10 @@ description: Run MonkeyZoo layout, lettering, exports, and release gates (Stages
 
 ## Stage 9 — Final QA (Gate B, `00_SYSTEM/qa_checklist.md`)
 - `validate_issue.py <folder> --art` PASS.
+- If any panel was composited via the integration pipeline (staged
+  previews exist in `generated_art/integration_preview/`):
+  `validate_issue.py <folder> --integration` PASS, plus the Gate A
+  "Integration" checklist section judged by eye per panel.
 - Ledger entry appended and consistent with the SHIPPED script; previous
   teaser honored/deferred; new lore copied into world/character bibles;
   next-issue teaser present.
