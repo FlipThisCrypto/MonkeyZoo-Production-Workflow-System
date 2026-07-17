@@ -87,6 +87,36 @@ from conversation context or memory. Rationale + background: `tooling_pxpipe.md`
 (context-compression tooling can silently confabulate hex). Stage 9 verifies
 hashes by recomputation only.
 
+## 6A. Character Integration Pipeline (optional Stage 6.5, added 2026-07-16)
+
+For panels where a character needs to be composited onto an *existing
+approved* background plate (rather than generated monolithically in one
+prompt), use `00_SYSTEM/scripts/integration/` instead of hand-pasting a
+character reference:
+
+```
+alpha_matte.py    -- chroma-key a character ref into a true-alpha layer
+                      (border-connected flood fill; see character_layers/)
+compositor.py      -- scale/anchor a layer onto a plate via a ground-plane
+                      spec (scene_blocking.json) + a pose spec
+                      (pose_spec.json), applying shadow.py, relight.py,
+                      and occlusion.py in sequence
+validate_integration.py -- automated QA gate: catches leftover reference/
+                      card colors and verifies a contact shadow exists
+                      at the declared foot anchor
+```
+
+This does **not** replace Stage 6 (ComfyUI panel generation) — it is an
+alternative compositing path for panels built from a location plate +
+character refs, and it still requires human Gate A/B sign-off same as any
+other generated art before entering `03_APPROVED_CANON/`. See
+`00_SYSTEM/integration_upgrade/CYCLE_LEDGER.md` for how it was built and
+verified, and `.claude/skills/mz-art-run/SKILL.md` for the operational
+recipe. Known limitations as of 2026-07-16: character poses are drawn from
+existing reference art, not bespoke ComfyUI renders (no pose-generation
+capability is wired in yet); puddle-reflection compositing is unbuilt;
+multi-character staging is unbuilt.
+
 ## 7. Failure / Rollback Rules
 
 - Schema validation failure → block gate, report exact field, never hand-fix

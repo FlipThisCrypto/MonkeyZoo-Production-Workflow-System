@@ -426,3 +426,34 @@ behavior into regression coverage rather than finding new bugs.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 9 — Document integration pipeline in operational docs
+
+**Selected because**: "Studio workflow integration" is explicitly named in
+the brief's prioritization list, and everything built in Cycles 1-8 was an
+orphaned side project until this cycle — invisible to `automation_rules.md`
+(the tool-roles/pipeline-gates source of truth) and to the `mz-art-run`
+skill an operator or future session would actually reach for.
+
+**Scoped for one cycle**: yes.
+
+**Files changed**:
+- `00_SYSTEM/automation_rules.md` — new §6A "Character Integration
+  Pipeline (optional Stage 6.5)": documents the four scripts, states
+  explicitly it does NOT replace Stage 6 generation and still requires
+  human Gate A/B sign-off (no gate was weakened), and names current
+  limitations honestly (no bespoke pose generation, no puddle reflection,
+  no multi-character staging).
+- `.claude/skills/mz-art-run/SKILL.md` — new subsection pointing at the
+  compositor + QA gate as an alternative to monolithic generation for
+  plate+character panels, with the exact QA-gate invocation.
+
+**Test**: re-read both files after editing to confirm the insertions
+landed in the right section and didn't corrupt surrounding structure
+(pipeline gates table, engine-facts section) — both intact.
+
+**Defects found**: none.
+
+**Verdict**: **PASS**.
+
+---

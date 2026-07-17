@@ -63,3 +63,18 @@ selected_panels. Calibrated on this rig (RX 6800 16GB, ~90s/image warm).
 - TwoTone's split hair needs image conditioning; his minted ref is
   `03_APPROVED_CANON/approved_characters/factions/twotone.webp`.
 - LoRA training threshold: 20+ approved refs per character (Kohya SS).
+
+## Character-integration compositing (alternative to monolithic generation)
+If a panel is a character standing in an *already-approved* location plate
+(not a new scene needing full ComfyUI generation), you can composite
+instead of generating: `00_SYSTEM/scripts/integration/compositor.py` scales
+and grounds a character layer onto the plate via a `scene_blocking.json` +
+`pose_spec.json` pair (ground-plane calibration, light sources, foot
+anchor), then applies contact shadow, environmental relighting, and
+foreground occlusion in sequence. Run
+`validate_integration.py <panel.png> <foot_x> <foot_y>` afterward — it
+fails on leftover reference/card colors or a missing contact shadow. See
+`00_SYSTEM/automation_rules.md` §6A and
+`00_SYSTEM/integration_upgrade/CYCLE_LEDGER.md` for the full build record
+and current limitations (no bespoke pose generation yet; this uses
+existing reference poses).
