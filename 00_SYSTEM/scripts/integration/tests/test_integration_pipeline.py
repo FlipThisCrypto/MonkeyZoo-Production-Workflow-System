@@ -13,9 +13,19 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-import numpy as np
 import pytest
-from PIL import Image
+
+# The integration pipeline needs numpy/scipy/Pillow. Skip this whole module
+# cleanly if they're absent (e.g. a CI runner without the scientific stack)
+# rather than raising an ImportError at collection time -- an uncaught
+# collection error interrupts pytest for the ENTIRE repo, failing every
+# other test too. importorskip converts that into a module-level skip.
+pytest.importorskip("numpy")
+pytest.importorskip("scipy")
+pytest.importorskip("PIL")
+
+import numpy as np  # noqa: E402
+from PIL import Image  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
