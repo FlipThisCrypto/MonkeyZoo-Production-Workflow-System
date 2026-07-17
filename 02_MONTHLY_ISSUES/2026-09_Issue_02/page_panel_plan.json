@@ -1,26 +1,70 @@
 {
   "issue_id": "MZ-2026-09-02",
   "issue_title": "Signals In The Silence",
-  "page_count": 8,
+  "page_count": 16,
   "pages": [
     {
       "page_number": 1,
-      "page_purpose": "Story page",
+      "page_purpose": "Cold open: the click only Static hears",
       "layout_recipe": "custom",
       "panels": [
         {
           "panel_id": "MZ-2026-09-02_P01_PANEL01",
-          "panel_size": "full",
+          "panel_size": "third",
+          "characters": [],
+          "location": "Zoo City Streets",
+          "camera_angle": "Wide",
+          "action": "Zoo City street at dusk before the storm; the transit board glows steady over the wet sidewalk.",
+          "emotion": "calm before",
+          "dialogue": "—",
+          "caption": "Zoo City. Early fall.",
+          "sfx": "tik",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P01_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P01_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Medium",
+          "action": "Static walks the sidewalk with his hood down, half-lost in thought, one ear already tilting back.",
+          "emotion": "distracted ease",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "tik",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P01_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P01_PANEL03",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003"
           ],
           "location": "Zoo City Streets",
           "camera_angle": "Medium",
           "action": "Static freezes on a sidewalk as a transit board clicks off-rhythm.",
-          "emotion": "Clear and readable",
+          "emotion": "alert",
           "dialogue": "STATIC: That click… it repeated.",
           "caption": "Tiny disruption",
-          "sfx": "—",
+          "sfx": "TIK-tik",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Others ignore it",
           "art_prompt": "",
@@ -30,11 +74,61 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P01_PANEL02",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P01_PANEL04",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Close",
+          "action": "Close on Static's wide eyes reflecting the board's glow; commuters blur past without slowing.",
+          "emotion": "isolated certainty",
+          "dialogue": "STATIC (small): Nobody else stopped.",
+          "caption": "Others ignore it",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P01_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P01_PANEL05",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-001"
+          ],
+          "location": "School / Public Address Zone",
+          "camera_angle": "Wide",
+          "action": "School hallway; Static and Moodz walk beneath the wall speakers as one hiccups mid-announcement.",
+          "emotion": "ordinary day, wrong note",
+          "dialogue": "PA (jagged): …st-stud…ents…",
+          "caption": "School speaker glitch",
+          "sfx": "BZZT",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P01_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-001"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P01_PANEL06",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-001"
@@ -42,9 +136,9 @@
           "location": "School / Public Address Zone",
           "camera_angle": "Medium",
           "action": "A PA speaker glitches a half-second; Moodz watches Static flinch.",
-          "emotion": "Clear and readable",
+          "emotion": "watchful",
           "dialogue": "MOODZ: You heard it again.",
-          "caption": "School speaker glitch",
+          "caption": "—",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Moodz believes without pressure",
@@ -56,22 +150,107 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "page_purpose": "Belief without pressure; a soothe that misses",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-09-02_P02_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-001"
+          ],
+          "location": "School / Public Address Zone",
+          "camera_angle": "Close",
+          "action": "Static's shoulders come down a centimeter; he searches Moodz's face for doubt and finds none.",
+          "emotion": "tested trust",
+          "dialogue": "STATIC: You're not saying I imagined it.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P01_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-001"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P01_PANEL03",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P02_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-001"
+          ],
+          "location": "School / Public Address Zone",
+          "camera_angle": "Medium",
+          "action": "Moodz shrugs without breaking stride, hands in pockets, making belief look easy.",
+          "emotion": "steady",
+          "dialogue": "MOODZ: I'm saying you heard it.",
+          "caption": "Moodz believes without pressure",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P01_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-001"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P02_PANEL03",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-005"
           ],
           "location": "Zoo City Streets",
           "camera_angle": "Medium",
-          "action": "NeonBlue tries to reassure; Static’s ears still track a buzz.",
-          "emotion": "Clear and readable",
-          "dialogue": "NEONBLUE: Probably just old wires—",
+          "action": "Back on the street, NeonBlue catches up, waving it off with too much energy.",
+          "emotion": "bright deflection",
+          "dialogue": "NEONBLUE: Hey, hey — the city's old, it creaks!",
           "caption": "Quick reassurance risk",
           "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P01_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P02_PANEL04",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Medium",
+          "action": "NeonBlue tries to reassure; Static's ears still track a buzz.",
+          "emotion": "kind but rushing",
+          "dialogue": "NEONBLUE: Probably just old wires—",
+          "caption": "—",
+          "sfx": "bzz",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "NeonBlue believes but soothes too fast",
           "art_prompt": "",
@@ -82,18 +261,90 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P02_PANEL05",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Close",
+          "action": "Static half-turns away, ears angled at a lamppost only he is listening to.",
+          "emotion": "polite retreat inward",
+          "dialogue": "STATIC: …yeah. Probably.",
+          "caption": "—",
+          "sfx": "bzz",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P01_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P02_PANEL06",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Wide",
+          "action": "The two stand small under the signage; every light on the street flickers a single frame together.",
+          "emotion": "unnoticed omen",
+          "dialogue": "—",
+          "caption": "NeonBlue believes but soothes too fast",
+          "sfx": "flk",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P01_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         }
       ]
     },
     {
-      "page_number": 2,
-      "page_purpose": "Story page",
+      "page_number": 3,
+      "page_purpose": "The storm makes it everyone's problem",
       "layout_recipe": "custom",
       "panels": [
         {
-          "panel_id": "MZ-2026-09-02_P02_PANEL01",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P03_PANEL01",
+          "panel_size": "third",
+          "characters": [],
+          "location": "Early-Fall Storm Streets and Routine Nodes",
+          "camera_angle": "Wide",
+          "action": "Storm front swallows the neon skyline; the first fat drops hit the dark street.",
+          "emotion": "pressure drop",
+          "dialogue": "—",
+          "caption": "Storm rolls in",
+          "sfx": "rmmml",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P02_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P03_PANEL02",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-002",
@@ -102,10 +353,10 @@
           "location": "Early-Fall Storm Streets and Routine Nodes",
           "camera_angle": "Medium",
           "action": "Storm rolls in; every device emits the same interference burst.",
-          "emotion": "Clear and readable",
-          "dialogue": "STATIC: It’s the same burst!",
-          "caption": "Storm burst",
-          "sfx": "—",
+          "emotion": "shared alarm",
+          "dialogue": "STATIC: It's the same burst!",
+          "caption": "Citywide pattern",
+          "sfx": "BZZT BZZT",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Citywide pattern",
           "art_prompt": "",
@@ -117,21 +368,132 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P02_PANEL02",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P03_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002",
+            "MZ-CHAR-005"
+          ],
+          "location": "Early-Fall Storm Streets and Routine Nodes",
+          "camera_angle": "Medium",
+          "action": "TwoTone and NeonBlue pull out their own devices — both screens stutter in the same rhythm at once.",
+          "emotion": "confirmation dawning",
+          "dialogue": "TWOTONE: …mine too.",
+          "caption": "—",
+          "sfx": "BZZT",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P02_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002",
+            "MZ-CHAR-005"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P03_PANEL04",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002",
+            "MZ-CHAR-005"
+          ],
+          "location": "Early-Fall Storm Streets and Routine Nodes",
+          "camera_angle": "Close",
+          "action": "Three faces lit by three glitching screens, the same jagged waveform on each.",
+          "emotion": "it's real",
+          "dialogue": "NEONBLUE (small): Okay. Not old wires.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P02_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002",
+            "MZ-CHAR-005"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P03_PANEL05",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Wide",
+          "action": "Static alone in the transit hall as the big departure boards begin to stutter top to bottom.",
+          "emotion": "eye of the storm",
+          "dialogue": "—",
+          "caption": "Transit hub",
+          "sfx": "flk-flk",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P02_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P03_PANEL06",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Close",
+          "action": "Static's ears snap forward BEFORE the glitch peaks; his body reads it early.",
+          "emotion": "reflex ahead of reason",
+          "dialogue": "—",
+          "caption": "Static first",
+          "sfx": "tik",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P02_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 4,
+      "page_purpose": "Static reacts first; Scarline guards the room",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-09-02_P04_PANEL01",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003"
           ],
           "location": "Transit Announcement Hub",
           "camera_angle": "Medium",
           "action": "Static reacts before the hub screens finish glitching.",
-          "emotion": "Clear and readable",
+          "emotion": "certain",
           "dialogue": "STATIC: Before the sound finishes—danger is already here.",
           "caption": "First reaction",
-          "sfx": "—",
+          "sfx": "BZZT",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Static first",
           "art_prompt": "",
@@ -141,11 +503,87 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P02_PANEL03",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P04_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Wide",
+          "action": "The boards settle back to normal; Static stands in the empty hall, the only one who moved.",
+          "emotion": "alone with proof",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P02_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P04_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Medium",
+          "action": "Static talks fast at the hub, hands moving; the words pile up faster than anyone can sort.",
+          "emotion": "spilling over",
+          "dialogue": "STATIC: It came from the north relay then the school then twice from—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P02_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P04_PANEL04",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Medium",
+          "action": "Off-panel voices overlap him — 'slow down' — 'one thing at a time' — the balloon tails crowd his head.",
+          "emotion": "drowning in help",
+          "dialogue": "OFF: Slow down— / OFF: Which one—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P02_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P04_PANEL05",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-006"
@@ -153,9 +591,9 @@
           "location": "Transit Announcement Hub",
           "camera_angle": "Medium",
           "action": "Scarline steadies the space without shutting Static down.",
-          "emotion": "Clear and readable",
-          "dialogue": "SCARLINE: Don’t drown him out.",
-          "caption": "Space to listen",
+          "emotion": "calm authority",
+          "dialogue": "SCARLINE: Don't drown him out.",
+          "caption": "Scarline steadies",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Scarline protects signal space",
@@ -167,18 +605,70 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P04_PANEL06",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Close",
+          "action": "Quiet lands. Static breathes once; Scarline holds the room with a look, not a word.",
+          "emotion": "protected",
+          "dialogue": "STATIC (small): …thanks.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P02_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         }
       ]
     },
     {
-      "page_number": 3,
-      "page_purpose": "Story page",
+      "page_number": 5,
+      "page_purpose": "Clever's hardware dead-end becomes respect",
       "layout_recipe": "custom",
       "panels": [
         {
-          "panel_id": "MZ-2026-09-02_P03_PANEL01",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P05_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Wide",
+          "action": "Clever arrives at the hub hauling analyzer gear, tool roll over one shoulder, all business.",
+          "emotion": "competence arriving",
+          "dialogue": "CLEVER: Where's the loudest wall?",
+          "caption": "Clever arrives",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P03_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P05_PANEL02",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-CLEVER",
             "MZ-CHAR-003"
@@ -186,10 +676,10 @@
           "location": "Transit Announcement Hub",
           "camera_angle": "Medium",
           "action": "Clever arrives with analyzer gear and opens a panel.",
-          "emotion": "Clear and readable",
+          "emotion": "methodical",
           "dialogue": "CLEVER: Hardware first. Pattern later.",
-          "caption": "Clever inspects",
-          "sfx": "—",
+          "caption": "—",
+          "sfx": "klk",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Maps mechanism",
           "art_prompt": "",
@@ -200,11 +690,89 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P03_PANEL02",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P05_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Close",
+          "action": "Inside the service panel: clean wiring, no faults, every contact bright — nothing broken to find.",
+          "emotion": "the easy answer dies",
+          "dialogue": "CLEVER (small): Huh.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P03_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P05_PANEL04",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Medium",
+          "action": "Clever glances from the healthy wiring to Static, recalibrating who the real instrument is.",
+          "emotion": "respect forming",
+          "dialogue": "CLEVER: Hardware's fine. Tell me what you heard.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P03_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P05_PANEL05",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Medium",
+          "action": "Static winds up to answer and the answer arrives all at once, fingers counting nothing.",
+          "emotion": "flooded",
+          "dialogue": "STATIC: Okay so—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P03_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P05_PANEL06",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-CLEVER"
@@ -212,9 +780,9 @@
           "location": "Transit Announcement Hub",
           "camera_angle": "Medium",
           "action": "Static talks too fast—six signals, three dangers, old memories.",
-          "emotion": "Clear and readable",
+          "emotion": "overload",
           "dialogue": "STATIC: Six—no, three—no, listen—",
-          "caption": "Overload speech",
+          "caption": "Too many at once",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Correct but unusable delivery",
@@ -226,11 +794,96 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 6,
+      "page_purpose": "Overload met with patience; Ash's question",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-09-02_P06_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Close",
+          "action": "Clever doesn't interrupt; the analyzer keeps rolling, capturing everything Static spills.",
+          "emotion": "patient capture",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "rec",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P03_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P03_PANEL03",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P06_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Medium",
+          "action": "Static runs out of air and looks down, embarrassed; Clever taps the analyzer — got it anyway.",
+          "emotion": "shame meets patience",
+          "dialogue": "CLEVER: Good. It's all in here.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P03_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P06_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-004"
+          ],
+          "location": "School / Public Address Zone",
+          "camera_angle": "Wide",
+          "action": "School hallway; Clever traces conduit with a finger-light while Ash leans on the lockers, watching.",
+          "emotion": "parallel minds",
+          "dialogue": "—",
+          "caption": "Following wires",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P03_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-004"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P06_PANEL04",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-CLEVER",
             "MZ-CHAR-004"
@@ -238,9 +891,9 @@
           "location": "School / Public Address Zone",
           "camera_angle": "Medium",
           "action": "Clever follows wires; Ash asks one short question.",
-          "emotion": "Clear and readable",
+          "emotion": "cut to the center",
           "dialogue": "ASH: Which part repeats?",
-          "caption": "Ash cuts noise",
+          "caption": "Ash's question",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Proposed Ash line",
@@ -252,18 +905,96 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P06_PANEL05",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-004"
+          ],
+          "location": "School / Public Address Zone",
+          "camera_angle": "Close",
+          "action": "Clever stops mid-trace — the question lands harder than any reading.",
+          "emotion": "struck",
+          "dialogue": "CLEVER: …the part nobody's sending.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P03_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-004"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P06_PANEL06",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-004"
+          ],
+          "location": "School / Public Address Zone",
+          "camera_angle": "Medium",
+          "action": "Ash pushes off the lockers and walks on, fringe over one eye, having said exactly enough.",
+          "emotion": "economy",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P03_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-004"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         }
       ]
     },
     {
-      "page_number": 4,
-      "page_purpose": "Story page",
+      "page_number": 7,
+      "page_purpose": "Six tones made visible",
       "layout_recipe": "custom",
       "panels": [
         {
-          "panel_id": "MZ-2026-09-02_P04_PANEL01",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P07_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Medium",
+          "action": "The analyzer screen at the hub resolves noise into six clean spikes; Clever leans in.",
+          "emotion": "signal from noise",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "ping",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P04_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P07_PANEL02",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-CLEVER",
             "MZ-CHAR-003"
@@ -271,9 +1002,9 @@
           "location": "Transit Announcement Hub",
           "camera_angle": "Medium",
           "action": "Clever isolates six distinct tones on the analyzer display.",
-          "emotion": "Clear and readable",
+          "emotion": "vindication",
           "dialogue": "CLEVER: Six tones. Structured. Not random.",
-          "caption": "Six tones proven",
+          "caption": "Six tones",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Clever proves structure",
@@ -285,21 +1016,99 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P04_PANEL02",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P07_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Close",
+          "action": "Static stares at the screen — the shapes he's been hearing for days, finally visible to everyone.",
+          "emotion": "seen at last",
+          "dialogue": "STATIC (small): That's them. That's exactly them.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P04_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P07_PANEL04",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Medium",
+          "action": "Clever tilts the screen toward Static like handing over a mirror.",
+          "emotion": "credit given",
+          "dialogue": "CLEVER: You counted them by ear.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P04_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P07_PANEL05",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-005"
           ],
           "location": "Transit Announcement Hub",
           "camera_angle": "Medium",
-          "action": "One tone matches August’s cyan frequency; NeonBlue goes still.",
-          "emotion": "Clear and readable",
-          "dialogue": "STATIC: That’s the cyan one… from summer.",
-          "caption": "August frequency match",
+          "action": "Clever cycles tones; the third one paints the hub screens faint cyan for half a beat.",
+          "emotion": "recognition incoming",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "toooon",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P04_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P07_PANEL06",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Medium",
+          "action": "One tone matches August's cyan frequency; NeonBlue goes still.",
+          "emotion": "ghost of summer",
+          "dialogue": "STATIC: That's the cyan one… from summer.",
+          "caption": "Cyan frequency",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Continuity with Issue 01",
@@ -311,11 +1120,96 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 8,
+      "page_purpose": "The cyan ghost; pairs not piles",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-09-02_P08_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Close",
+          "action": "Close on NeonBlue — the spiky bravado drains; his hair's glow is the same cyan as the tone.",
+          "emotion": "personally haunted",
+          "dialogue": "NEONBLUE (small): …August.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P04_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P04_PANEL03",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P08_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Medium",
+          "action": "Nobody jokes. Scarline's hand lands on NeonBlue's shoulder without ceremony.",
+          "emotion": "shared weight",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P04_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P08_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Medium",
+          "action": "Street corner worktable of scavenged parts; TwoTone lays tone-cards out in two columns.",
+          "emotion": "order from chaos",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P04_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P08_PANEL04",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-002"
@@ -323,9 +1217,9 @@
           "location": "Zoo City Streets",
           "camera_angle": "Medium",
           "action": "TwoTone helps pair frequencies into readable couples.",
-          "emotion": "Clear and readable",
-          "dialogue": "TWOTONE: Pair them. Don’t stack them.",
-          "caption": "Paired frequencies",
+          "emotion": "practical genius",
+          "dialogue": "TWOTONE: Pair them. Don't stack them.",
+          "caption": "Pairs, not piles",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "TwoTone support",
@@ -337,18 +1231,96 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P08_PANEL05",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Close",
+          "action": "Six tones become three pairs on the board; the pattern suddenly reads like a sentence.",
+          "emotion": "legibility",
+          "dialogue": "STATIC: Call and answer. They're call and answer!",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P04_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P08_PANEL06",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Medium",
+          "action": "TwoTone allows himself half a smile on the white side of his face.",
+          "emotion": "quiet pride",
+          "dialogue": "TWOTONE: Now it's music.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P04_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         }
       ]
     },
     {
-      "page_number": 5,
-      "page_purpose": "Story page",
+      "page_number": 9,
+      "page_purpose": "The turn: it's listening for us",
       "layout_recipe": "custom",
       "panels": [
         {
-          "panel_id": "MZ-2026-09-02_P05_PANEL01",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P09_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "location": "Early-Fall Storm Streets and Routine Nodes",
+          "camera_angle": "Wide",
+          "action": "Storm street at night; Static stands very still in the rain-light, listening past the city.",
+          "emotion": "the quiet before the thought",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P05_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P09_PANEL02",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-CLEVER"
@@ -356,9 +1328,9 @@
           "location": "Early-Fall Storm Streets and Routine Nodes",
           "camera_angle": "Medium",
           "action": "Static realizes the signal is searching for responses, not broadcasting out.",
-          "emotion": "Clear and readable",
-          "dialogue": "STATIC: It’s listening for us.",
-          "caption": "Searching not broadcasting",
+          "emotion": "vertigo of insight",
+          "dialogue": "STATIC: It's listening for us.",
+          "caption": "The turn",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Key midpoint insight",
@@ -370,21 +1342,99 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P05_PANEL02",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P09_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "location": "Early-Fall Storm Streets and Routine Nodes",
+          "camera_angle": "Close",
+          "action": "Clever freezes mid-note; the pen stops on the pad as the sentence rearranges everything.",
+          "emotion": "paradigm flip",
+          "dialogue": "CLEVER (small): …calls waiting for answers.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P05_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P09_PANEL04",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "location": "Early-Fall Storm Streets and Routine Nodes",
+          "camera_angle": "Wide",
+          "action": "The street's neon reflections ripple; every light suddenly reads like an eye that might blink back.",
+          "emotion": "the city changes meaning",
+          "dialogue": "—",
+          "caption": "Searching, not broadcasting",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P05_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P09_PANEL05",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-001",
             "MZ-CHAR-003"
           ],
           "location": "School / Public Address Zone",
           "camera_angle": "Medium",
-          "action": "Moodz blocks pressure for Static to “just calm down.”",
-          "emotion": "Clear and readable",
-          "dialogue": "MOODZ: He doesn’t have to be comfortable for you.",
-          "caption": "Protection from pressure",
+          "action": "School hallway; an off-panel voice tells Static to 'just calm down' and Moodz steps between.",
+          "emotion": "line being drawn",
+          "dialogue": "OFF: Maybe if he just calmed d—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P05_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P09_PANEL06",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-003"
+          ],
+          "location": "School / Public Address Zone",
+          "camera_angle": "Medium",
+          "action": "Moodz blocks pressure for Static to 'just calm down.'",
+          "emotion": "shield up",
+          "dialogue": "MOODZ: He doesn't have to be comfortable for you.",
+          "caption": "Moodz blocks",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Moodz function",
@@ -396,11 +1446,96 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 10,
+      "page_purpose": "Moodz draws the line; Scarline offers the choice",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-09-02_P10_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-003"
+          ],
+          "location": "School / Public Address Zone",
+          "camera_angle": "Close",
+          "action": "Static behind Moodz's shoulder — startled that someone spent capital on him without being asked.",
+          "emotion": "defended",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P05_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P05_PANEL03",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P10_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-003"
+          ],
+          "location": "School / Public Address Zone",
+          "camera_angle": "Medium",
+          "action": "Moodz doesn't even look back, beanie low, already done with the argument.",
+          "emotion": "unbothered loyalty",
+          "dialogue": "MOODZ (small): Next question.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P05_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P10_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Medium",
+          "action": "Hub, quieter now; Scarline sits Static down across from her, eye level, no audience.",
+          "emotion": "made safe to choose",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P05_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P10_PANEL04",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-006"
@@ -408,9 +1543,9 @@
           "location": "Transit Announcement Hub",
           "camera_angle": "Medium",
           "action": "Scarline offers a clear choice: keep listening or stop.",
-          "emotion": "Clear and readable",
+          "emotion": "respect as a question",
           "dialogue": "SCARLINE: Do you want to keep listening?",
-          "caption": "Clear choice",
+          "caption": "A real choice",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Agency for Static",
@@ -422,18 +1557,98 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P10_PANEL05",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Close",
+          "action": "Static actually weighs it — the first time anyone made stopping a legitimate option.",
+          "emotion": "agency returning",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P05_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P10_PANEL06",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Close",
+          "action": "Static lifts his head; the exhaustion is still there but it has a spine in it now.",
+          "emotion": "chosen burden",
+          "dialogue": "STATIC: I want it to matter that I do.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P05_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         }
       ]
     },
     {
-      "page_number": 6,
-      "page_purpose": "Story page",
+      "page_number": 11,
+      "page_purpose": "Peak overload; the team makes room",
       "layout_recipe": "custom",
       "panels": [
         {
-          "panel_id": "MZ-2026-09-02_P06_PANEL01",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P11_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-002"
+          ],
+          "location": "Early-Fall Storm Streets and Routine Nodes",
+          "camera_angle": "Wide",
+          "action": "The storm peaks; emergency klaxons join the interference and the whole street strobes.",
+          "emotion": "system overload",
+          "dialogue": "—",
+          "caption": "Interference spreads",
+          "sfx": "WRRRN",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P06_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-002"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P11_PANEL02",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-005",
@@ -442,10 +1657,10 @@
           "location": "Early-Fall Storm Streets and Routine Nodes",
           "camera_angle": "Medium",
           "action": "Interference spreads into emergency systems; Static begins repeating every danger at once.",
-          "emotion": "Clear and readable",
+          "emotion": "breaking",
           "dialogue": "STATIC: Flood—fire—relay—stop—",
-          "caption": "Overload crisis",
-          "sfx": "—",
+          "caption": "Every danger at once",
+          "sfx": "WRRRN",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Confusion risk",
           "art_prompt": "",
@@ -457,11 +1672,95 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P06_PANEL02",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P11_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-002"
+          ],
+          "location": "Early-Fall Storm Streets and Routine Nodes",
+          "camera_angle": "Close",
+          "action": "Static's hands over his ears, eyes squeezed shut, the words still forcing their way out.",
+          "emotion": "overrun",
+          "dialogue": "STATIC: —west—twelve—flood—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P06_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-002"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P11_PANEL04",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-002"
+          ],
+          "location": "Early-Fall Storm Streets and Routine Nodes",
+          "camera_angle": "Medium",
+          "action": "NeonBlue and TwoTone flank him without touching him, bodies making a wall against the noise.",
+          "emotion": "instinctive protection",
+          "dialogue": "NEONBLUE: We're here. Take the exit you need.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P06_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-002"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P11_PANEL05",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-006",
+            "MZ-CHAR-003"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Wide",
+          "action": "The team spreads out across the street, deliberately opening distance around Static.",
+          "emotion": "space as care",
+          "dialogue": "—",
+          "caption": "Room, not volume",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P06_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-006",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P11_PANEL06",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-001",
             "MZ-CHAR-006",
@@ -470,9 +1769,9 @@
           "location": "Zoo City Streets",
           "camera_angle": "Medium",
           "action": "Team gives Static space instead of ordering silence.",
-          "emotion": "Clear and readable",
+          "emotion": "held at a distance",
           "dialogue": "MOODZ: Room. Not volume.",
-          "caption": "Space not order",
+          "caption": "—",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Team growth",
@@ -485,11 +1784,100 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 12,
+      "page_purpose": "On his terms; mobilized west",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-09-02_P12_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-006",
+            "MZ-CHAR-003"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Close",
+          "action": "In the gap they made, Static's breathing finds a rhythm; the repeating words slow to a trickle.",
+          "emotion": "regulating",
+          "dialogue": "STATIC (small): …relay. West.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P06_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-006",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P06_PANEL03",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P12_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-006",
+            "MZ-CHAR-003"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Wide",
+          "action": "Scarline nods once across the distance — the signal that the space is working.",
+          "emotion": "quiet coordination",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P06_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-006",
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P12_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Medium",
+          "action": "Scarline closes half the distance, keeping her voice under the rain.",
+          "emotion": "final check-in",
+          "dialogue": "SCARLINE: Still your call.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P06_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P12_PANEL04",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-006"
@@ -497,9 +1885,9 @@
           "location": "Zoo City Streets",
           "camera_angle": "Medium",
           "action": "Static answers Scarline: yes—on his terms.",
-          "emotion": "Clear and readable",
+          "emotion": "ownership",
           "dialogue": "STATIC: Yes. But one line at a time.",
-          "caption": "Choice yes",
+          "caption": "On his terms",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "On his terms",
@@ -511,18 +1899,96 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P12_PANEL05",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Close",
+          "action": "Scarline's red stripe catches the neon as she nods — terms accepted, no negotiation.",
+          "emotion": "sealed",
+          "dialogue": "SCARLINE: One line.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P06_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P12_PANEL06",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Wide",
+          "action": "The team turns as one toward the west sector, rain parting around their small determined shapes.",
+          "emotion": "mobilized",
+          "dialogue": "—",
+          "caption": "West",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P06_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         }
       ]
     },
     {
-      "page_number": 7,
-      "page_purpose": "Story page",
+      "page_number": 13,
+      "page_purpose": "One clean line; machine seconds the ear",
       "layout_recipe": "custom",
       "panels": [
         {
-          "panel_id": "MZ-2026-09-02_P07_PANEL01",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P13_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Medium",
+          "action": "Hub, one last check; Static closes his eyes and lets everything through except one thing.",
+          "emotion": "filtering",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "toooon",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P07_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P13_PANEL02",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-CLEVER"
@@ -530,9 +1996,9 @@
           "location": "Transit Announcement Hub",
           "camera_angle": "Medium",
           "action": "Static reduces the interference to one repeating element and states it cleanly.",
-          "emotion": "Clear and readable",
+          "emotion": "distilled",
           "dialogue": "STATIC: The third tone. Every twelve seconds. West sector.",
-          "caption": "One clear warning",
+          "caption": "One clean line",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Usable communication",
@@ -544,11 +2010,91 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P07_PANEL02",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P13_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Close",
+          "action": "Clever's analyzer confirms a half-second later — the machine agreeing with the boy.",
+          "emotion": "instrument parity",
+          "dialogue": "CLEVER: Confirmed. Twelve point out.",
+          "caption": "—",
+          "sfx": "ping",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P07_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P13_PANEL04",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "location": "Transit Announcement Hub",
+          "camera_angle": "Medium",
+          "action": "A look passes between them: ear first, machine second, and both of them fine with the order.",
+          "emotion": "mutual respect",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P07_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P13_PANEL05",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-002"
+          ],
+          "location": "Old Relay Junction",
+          "camera_angle": "Wide",
+          "action": "The junction door gives; flashlight beams cross the dormant relay wall and its faint cyan veins.",
+          "emotion": "arrival at the source",
+          "dialogue": "—",
+          "caption": "Old relay junction",
+          "sfx": "kreee",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P07_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-002"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P13_PANEL06",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-CLEVER",
@@ -557,9 +2103,9 @@
           "location": "Old Relay Junction",
           "camera_angle": "Medium",
           "action": "Team reaches the old relay junction before overload; cyan residual glow in dormant nodes.",
-          "emotion": "Clear and readable",
+          "emotion": "urgency focused",
           "dialogue": "CLEVER: Junction confirmed. Acting now.",
-          "caption": "Relay located",
+          "caption": "Before overload",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Physical Echo node",
@@ -572,11 +2118,102 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 14,
+      "page_purpose": "The junction acts in the twelve-second window",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-09-02_P14_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-002"
+          ],
+          "location": "Old Relay Junction",
+          "camera_angle": "Close",
+          "action": "TwoTone's hands work the breaker sequence while Clever counts the twelve-second window aloud.",
+          "emotion": "precision under pressure",
+          "dialogue": "CLEVER: …nine… ten…",
+          "caption": "—",
+          "sfx": "klk klk",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P07_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-002"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P07_PANEL03",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P14_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-002"
+          ],
+          "location": "Old Relay Junction",
+          "camera_angle": "Medium",
+          "action": "Static stands in the middle, ears wide open, conducting the room toward the tone only he can track.",
+          "emotion": "his gift, weaponized gently",
+          "dialogue": "STATIC: Now.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P07_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-002"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P14_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-004"
+          ],
+          "location": "Old Relay Junction",
+          "camera_angle": "Wide",
+          "action": "The junction's glow settles from strobe to steady; the klaxons outside die mid-howl.",
+          "emotion": "release",
+          "dialogue": "—",
+          "caption": "Stabilized",
+          "sfx": "…",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P07_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-004"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P14_PANEL04",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-005",
@@ -584,10 +2221,10 @@
           ],
           "location": "Old Relay Junction",
           "camera_angle": "Medium",
-          "action": "Team acts on Static’s warning; systems stabilize enough for a breath.",
-          "emotion": "Clear and readable",
+          "action": "Team acts on Static's warning; systems stabilize enough for a breath.",
+          "emotion": "collective exhale",
           "dialogue": "NEONBLUE: We heard you.",
-          "caption": "Warning used",
+          "caption": "—",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Belief becomes action",
@@ -600,27 +2237,107 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P14_PANEL05",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-004"
+          ],
+          "location": "Old Relay Junction",
+          "camera_angle": "Close",
+          "action": "Static hears it land — not 'we fixed it,' but 'we heard YOU' — and has to look away for a second.",
+          "emotion": "witnessed",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P07_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-004"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P14_PANEL06",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-004"
+          ],
+          "location": "Old Relay Junction",
+          "camera_angle": "Wide",
+          "action": "Ash, by the door the whole time, gives a single approving nod nobody else catches.",
+          "emotion": "quiet witness",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P07_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-004"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         }
       ]
     },
     {
-      "page_number": 8,
-      "page_purpose": "Story page",
+      "page_number": 15,
+      "page_purpose": "Stabilized; witnessed",
       "layout_recipe": "custom",
       "panels": [
         {
-          "panel_id": "MZ-2026-09-02_P08_PANEL01",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P15_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Medium",
+          "action": "Morning after; Static crouches on the drying sidewalk with a marker and a scrap of board.",
+          "emotion": "processing on paper",
+          "dialogue": "—",
+          "caption": "Morning after",
+          "sfx": "skrt",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P08_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P15_PANEL02",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003"
           ],
           "location": "Zoo City Streets",
           "camera_angle": "Medium",
           "action": "Static writes his method: sense / know / fear / check.",
-          "emotion": "Clear and readable",
+          "emotion": "building a tool",
           "dialogue": "STATIC: What I sense. What I know. What I fear. What needs checking.",
-          "caption": "Method established",
+          "caption": "The method",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Growth not cure",
@@ -631,21 +2348,95 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P08_PANEL02",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P15_PANEL03",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Close",
+          "action": "The four lines on the board, marker-rough, rain-spotted — a framework made of a bad week.",
+          "emotion": "hard-won clarity",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P08_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P15_PANEL04",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Medium",
+          "action": "Static caps the marker and reads it back once, testing whether it holds his weight.",
+          "emotion": "self-trust, provisional",
+          "dialogue": "STATIC (small): Okay. That's the order.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P08_PANEL01",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P15_PANEL05",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003",
             "MZ-CHAR-CLEVER"
           ],
           "location": "Early-Fall Storm Streets and Routine Nodes",
           "camera_angle": "Medium",
-          "action": "Clever packs the analyzer; respects Static’s emotional reading as data of another kind.",
-          "emotion": "Clear and readable",
+          "action": "Clever packs the analyzer beside him, cables coiled with surgical neatness.",
+          "emotion": "work complete",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "zzp",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P08_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P15_PANEL06",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "location": "Early-Fall Storm Streets and Routine Nodes",
+          "camera_angle": "Medium",
+          "action": "Clever packs the analyzer; respects Static's emotional reading as data of another kind.",
+          "emotion": "peer recognition",
           "dialogue": "CLEVER: I can map the how. You map the why.",
-          "caption": "Guest resolution",
+          "caption": "Data of another kind",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
           "continuity_notes": "Complement not overwrite",
@@ -657,23 +2448,102 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        }
+      ]
+    },
+    {
+      "page_number": 16,
+      "page_purpose": "The method; partnership; one soft final tone",
+      "layout_recipe": "custom",
+      "panels": [
+        {
+          "panel_id": "MZ-2026-09-02_P16_PANEL01",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "location": "Early-Fall Storm Streets and Routine Nodes",
+          "camera_angle": "Close",
+          "action": "Static blinks at being called a mapmaker; the word fits better than anything anyone's tried.",
+          "emotion": "reframed",
+          "dialogue": "STATIC: …deal.",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P08_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         },
         {
-          "panel_id": "MZ-2026-09-02_P08_PANEL03",
-          "panel_size": "full",
+          "panel_id": "MZ-2026-09-02_P16_PANEL02",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "location": "Early-Fall Storm Streets and Routine Nodes",
+          "camera_angle": "Wide",
+          "action": "The two of them small against the recovering street, instruments packed, city humming normal.",
+          "emotion": "partnership formed",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P08_PANEL02",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P16_PANEL03",
+          "panel_size": "third",
+          "characters": [],
+          "location": "Zoo City Streets",
+          "camera_angle": "Wide",
+          "action": "Dusk again; the street where it started, boards ticking in perfect rhythm now.",
+          "emotion": "restored surface",
+          "dialogue": "—",
+          "caption": "—",
+          "sfx": "tik. tik.",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P08_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P16_PANEL04",
+          "panel_size": "third",
           "characters": [
             "MZ-CHAR-003"
           ],
           "location": "Zoo City Streets",
           "camera_angle": "Medium",
-          "action": "Final image: powered-off radio still emits one soft final tone.",
-          "emotion": "Clear and readable",
+          "action": "Static passes an old powered-off street radio on a stoop and pauses mid-step.",
+          "emotion": "the ear never sleeps",
           "dialogue": "—",
-          "caption": "Final soft tone",
+          "caption": "—",
           "sfx": "—",
           "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
-          "continuity_notes": "Issue 02 final image prop",
+          "continuity_notes": "acting support for locked beat P08_PANEL03",
           "art_prompt": "",
           "negative_prompt": "",
           "references_required": [
@@ -681,7 +2551,51 @@
           ],
           "lora_required": [],
           "controlnet_required": "",
-          "seed_strategy": "deterministic per panel"
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P16_PANEL05",
+          "panel_size": "third",
+          "characters": [],
+          "location": "Zoo City Streets",
+          "camera_angle": "Close",
+          "action": "Final image: powered-off radio still emits one soft final tone.",
+          "emotion": "unfinished frequency",
+          "dialogue": "—",
+          "caption": "One soft final tone",
+          "sfx": "toooon…",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "Issue 02 final image prop",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
+        },
+        {
+          "panel_id": "MZ-2026-09-02_P16_PANEL06",
+          "panel_size": "third",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "location": "Zoo City Streets",
+          "camera_angle": "Wide",
+          "action": "Static looks back over his shoulder at the dead radio, then walks on — listening, choosing when to answer.",
+          "emotion": "changed, ready",
+          "dialogue": "CAPTION: Next: the signal answers back.",
+          "caption": "End of Issue 02",
+          "sfx": "—",
+          "visual_notes": "MonkeyZoo house style; early-fall storm light; keep Static identity readable",
+          "continuity_notes": "acting support for locked beat P08_PANEL03",
+          "art_prompt": "",
+          "negative_prompt": "",
+          "references_required": [
+            "MZ-CHAR-003"
+          ],
+          "lora_required": [],
+          "controlnet_required": "",
+          "seed_strategy": "per_panel"
         }
       ]
     }

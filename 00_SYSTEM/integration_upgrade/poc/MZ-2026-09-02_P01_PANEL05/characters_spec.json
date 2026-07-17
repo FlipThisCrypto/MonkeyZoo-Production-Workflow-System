@@ -1,0 +1,38 @@
+{
+  "panel_id": "MZ-2026-09-02_P01_PANEL05",
+  "source_script_line": "The two walk beneath the speakers as one hiccups.",
+  "foreground_rain": false,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "static",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_00_clean_base.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          430,
+          545
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down"
+      }
+    },
+    {
+      "character": "moodz",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/moodz/moodz_00_clean_base.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          530,
+          560
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down"
+      }
+    }
+  ]
+}

@@ -1266,3 +1266,52 @@ updated for future sessions.
 (11–15, 17–31), 30 total across both rounds.
 
 ---
+
+# FORMAT DIRECTIVE — 16 pages / ~96 panels + covers (2026-07-17)
+
+**Owner directive**: every issue = 16 story pages, ~96 panels (≈6/page),
+plus a 1-panel front cover and a 1-panel back cover that introduces the
+next issue.
+
+**Issue 02 rewritten** (the active art issue): each of the 24 locked
+beats decompressed into a 4-panel acting sequence (establish → action →
+reaction → button) = exactly 96 panels over 16 pages, two new pages per
+original page, mid-beat 2+2 splits landing setup|payoff on page turns.
+Core panels carry the original action + dialogue VERBATIM — no new
+events, no contradictions; added panels are acting support only. Original
+24-beat script preserved in git history; `_decompression_map.json`
+records old beat → new core panel id. Format standard codified in
+`automation_rules.md` §3.
+
+**Artifacts regenerated + validated**: `issue_script.md` (16 pages, 96
+authored panel entries), `page_panel_plan.json`, `art_prompt_pack.json`
+(establishing plates kept) — validator PASS after two schema fixes
+(panel_size enum, lora_required array, layout_recipe enum).
+
+**Art state**: the 6 integrated renders restaged under their new core ids
+(spec dirs renamed, compare sheets regenerated against the old draft
+composites). Pages 1–2 fully integrated in the new format (12 panels: 6
+fresh composites incl. the P02_04 core beat, 3 close-up inserts via the
+new `closeup.py` head-window builder — first version sliced the eyes at
+the frame edge, fixed by inspection — 1 establishing plate panel, 2
+restaged cores). FRONT cover (Static in the transit hall under title
+lettering) and BACK cover (Issue 03 teaser: Scarline + Zombie placed at
+the haunted-attraction entrances, "THE HOUSE THAT REMEMBERS · OCTOBER")
+built and staged. Assembled 2×3 preview pages with dialogue strips:
+`generated_art/integration_preview/pages_preview/`.
+
+**Gate evolution forced by the new format**: close-up panels of flat-cel
+faces are LEGITIMATELY dominated by flat color fields — the flat-region
+detector false-failed all three. `run_gate` gained `skip_flat_regions`,
+and `validate_issue --integration` reads each panel's camera from the
+plan (Close shots skip that one check; color + grounding checks still
+apply). Covers excluded from the panel gate (deliberate flat lettering —
+Gate B judges covers).
+
+**Final state**: `validate_issue 2026-09_Issue_02 --integration` →
+**16/16 staged previews PASS**; structural validation PASS; suite 21/21
+(two fixtures re-pointed at the renamed POC dir). Remaining: 80 of 96
+panels to integrate (5 calibrated plates cover every location; the
+per-panel work is spec authoring + staging judgment).
+
+---

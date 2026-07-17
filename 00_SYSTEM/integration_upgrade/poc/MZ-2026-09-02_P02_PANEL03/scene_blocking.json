@@ -1,226 +1,171 @@
 {
   "panel_id": "MZ-2026-09-02_P02_PANEL03",
-  "background_plate": "03_APPROVED_CANON/approved_locations/transit-announcement-hub/primary-reference.png",
+  "background_plate": "03_APPROVED_CANON/approved_locations/zoo-city-streets/primary-reference.png",
   "plate_size": [
     1280,
     720
   ],
-  "derivation_note": "Inherited verbatim from plate_calibrations/transit-announcement-hub (Cycle 18 agent calibration, verified by overlay inspection). Location-level calibration; Issue-02 panels using this plate inherit it. Ground-plane values measured with the estimate-then-inspect discipline: horizon solved programmatically from detected floor tile joints (see horizon_derivation), calibration object and light positions sampled from labeled 4x/3x grid zooms of the plate, then verified against the calibrate_check.py overlay.",
+  "derivation_note": "Ground-plane values below are estimated by visual inspection of the plate (no camera-calibration tooling exists in this repo) -- treat as art-directed estimates, not measured facts. Recorded explicitly so a future cycle can replace this with a real vanishing-point/line detector if precision matters.",
   "ground_plane": {
-    "horizon_y": 349,
+    "horizon_y": 330,
     "calibration": {
-      "reference_object": "ticket turnstile pedestal, far-left mid-ground",
-      "calib_x": 105,
-      "calib_y_foot": 475,
-      "calib_height_px": 92,
-      "note": "Right turnstile pedestal: top rim y=383, foot y=475 sampled from a 4x grid zoom. A transit turnstile is ~1.0 m, i.e. door-handle/waist scale -- right for a chibi character, unlike the human-height vending machine or the doorway. Scale sanity: h/(y_foot - horizon) = 92/126 = 0.73 of camera eye height, consistent with a ~1.0 m barrier seen from standing eye level."
+      "reference_object": "sidewalk trash can, visible left-foreground",
+      "calib_y_foot": 490,
+      "calib_height_px": 70,
+      "note": "Trash can bottom/top sampled directly from the plate; used as the scale proxy because its apparent size at that depth is closer to Static's chibi scale than the human-height doorway also visible in the plate.",
+      "calib_x": 230
     },
-    "horizon_derivation": "MEASURED: Canny + probabilistic Hough on the floor region (y 480-720) detected 21 receding tile-joint segments; pairwise intersections of opposite-slope joints converge tightly at a vanishing point x=629, y=349 (IQR of intersection y: 348-351). Verified visually by rendering every detected joint extended across the plate -- all converge mid center departure board (one-point perspective). Horizon adopted at y=349; back-wall floor join at y~468 sits below it as expected."
+    "horizon_derivation": "MEASURED (Cycle 17), replacing the Cycle-3 eyeball estimate of 205: the plate's two same-height streetlamps give H=(hn*yb_far - hf*yb_near)/(hn-hf) -- near lamp base y=470 h=340px, left lamp base y=437 h=242px -> H=355; receding awning/fence structure lines converge ~320. Adopted 330 (+/-25 uncertainty band noted). Side-by-side render comparison at the POC foot anchor confirmed the corrected scale reads better against in-scene reference objects (_test/horizon_compare.png)."
   },
   "light_sources": [
     {
-      "id": "departure_boards_key",
+      "id": "streetlamp_near",
       "type": "key",
       "position_px": [
-        585,
-        310
+        680,
+        120
       ],
       "color": "cool cyan-white",
-      "note": "Three large luminous departure boards on the back wall are the dominant light source; their teal-cyan glow reads across the whole glossy floor and is the main reflection everywhere a character will stand."
+      "note": "Nearest streetlamp cone, casts down-and-slightly-right onto the sidewalk area where the character is placed."
     },
     {
-      "id": "neon_tube_magenta",
+      "id": "signage_magenta",
       "type": "fill",
       "position_px": [
-        725,
-        90
+        330,
+        60
       ],
       "color": "magenta",
-      "note": "Magenta neon ceiling tube top-center (twin smaller magenta tubes upper-left add the same hue from screen-left); gives the magenta rim/fill from above."
+      "note": "MONKEY sign glow, bounces warm-magenta fill light and produces the magenta puddle reflection at screen-left."
     },
     {
-      "id": "doorway_trim_cyan",
+      "id": "signage_green",
       "type": "fill",
       "position_px": [
-        1213,
-        390
+        500,
+        90
       ],
-      "color": "cool cyan-white",
-      "note": "Positioned on the long right vertical trim bar; represents the full set of cyan neon segments around the right doorway arch, which give strong cyan fill and floor reflections on the right third of the plate. True hue is saturated cyan, not white -- named with the listed color so the compositor does not fall back to neutral grey."
+      "color": "spring green",
+      "note": "Zoo sign glow, secondary bounce fill from screen-left."
     }
   ],
   "weather": {
     "rain": true,
-    "wet_floor": true,
-    "puddle_reflections": true,
-    "note": "Indoor transit hall: rain is visible through the upper-right skylight and as leak-drip streaks on the back wall; ceiling leaks pool as mirror puddles on the polished tile floor."
+    "wet_pavement": true,
+    "puddle_reflections": true
   },
   "reflective_surfaces": [
     {
-      "id": "glossy_floor_full",
+      "id": "sidewalk_sheet_left",
       "polygon": [
         [
-          300,
-          467
+          35,
+          618
         ],
         [
-          950,
-          467
-        ],
-        [
-          1005,
-          480
-        ],
-        [
-          1280,
-          552
-        ],
-        [
-          1280,
-          719
-        ],
-        [
-          200,
-          719
-        ],
-        [
-          260,
-          655
-        ],
-        [
-          310,
+          250,
           600
         ],
         [
-          355,
-          525
-        ]
-      ],
-      "note": "The hall floor is polished glossy tile -- the departure-board glow reflects across all of it, so any placed character needs a soft floor reflection wherever they stand. Bounded by the back-wall join (y~468) and the right doorway base line; the lower-left bench block (three benches, diagonal band from ~(355,525) to ~(200,719)) is cut out because the benches occlude the floor there and reflections must not be painted over them."
-    },
-    {
-      "id": "puddle_center",
-      "polygon": [
-        [
-          335,
-          622
-        ],
-        [
-          405,
-          592
-        ],
-        [
-          520,
-          586
-        ],
-        [
-          600,
-          600
-        ],
-        [
-          655,
-          635
-        ],
-        [
-          560,
-          660
+          370,
+          650
         ],
         [
           430,
-          665
+          705
         ],
         [
-          360,
-          645
-        ]
-      ],
-      "note": "Large mirror puddle center-left foreground; hard cyan board reflection."
-    },
-    {
-      "id": "puddle_right_large",
-      "polygon": [
-        [
-          810,
-          655
-        ],
-        [
-          905,
-          627
-        ],
-        [
-          1075,
-          630
-        ],
-        [
-          1235,
-          675
-        ],
-        [
-          1240,
+          300,
           719
         ],
         [
-          860,
+          40,
           719
+        ],
+        [
+          25,
+          660
         ]
       ],
-      "note": "Largest mirror puddle bottom-right, runs off the bottom edge; reflects the cyan doorway trim."
-    },
-    {
-      "id": "puddle_midright_small",
-      "polygon": [
-        [
-          835,
-          545
-        ],
-        [
-          925,
-          522
-        ],
-        [
-          1005,
-          530
-        ],
-        [
-          955,
-          555
-        ],
-        [
-          870,
-          556
-        ]
-      ],
-      "note": "Elongated puddle just past the mid-floor hazard stripe, screen right."
-    },
-    {
-      "id": "puddle_topcenter_small",
-      "polygon": [
-        [
-          395,
-          505
-        ],
-        [
-          455,
-          497
-        ],
-        [
-          500,
-          508
-        ],
-        [
-          450,
-          518
-        ],
-        [
-          410,
-          515
-        ]
-      ],
-      "note": "Small puddle near the back wall, left of center."
+      "note": "Wet water-sheet on the lower-left sidewalk pavers (visible rain ripple rings in the plate). Polygon traced visually and verified by rendering an overlay against the plate (_test/puddle_poly_check.png) before use -- same estimate-then-inspect discipline as the ground-plane calibration."
     }
   ],
   "camera": {
-    "shot_scale": "wide establishing",
-    "angle": "eye-level, one-point perspective square onto the departure boards, static locked-off"
-  }
+    "shot_scale": "medium-wide establishing",
+    "angle": "eye-level, static locked-off"
+  },
+  "atmosphere": {
+    "haze_color": [
+      76,
+      80,
+      103
+    ],
+    "haze_max": 0.55,
+    "note": "Haze color SAMPLED from the plate's far-street band just below the horizon (y 335-365, x 700-900: mean [75.9, 79.8, 102.5]), not guessed. haze_max 0.55 matches how much the plate's own distant content fades."
+  },
+  "occluders": [
+    {
+      "id": "trashcan_left",
+      "polygon": [
+        [
+          197,
+          431
+        ],
+        [
+          223,
+          423
+        ],
+        [
+          224,
+          418
+        ],
+        [
+          244,
+          418
+        ],
+        [
+          246,
+          424
+        ],
+        [
+          271,
+          432
+        ],
+        [
+          269,
+          442
+        ],
+        [
+          262,
+          442
+        ],
+        [
+          263,
+          489
+        ],
+        [
+          268,
+          497
+        ],
+        [
+          199,
+          497
+        ],
+        [
+          203,
+          489
+        ],
+        [
+          205,
+          442
+        ],
+        [
+          198,
+          442
+        ]
+      ],
+      "note": "Solid sidewalk trash can, traced on a 10px measurement grid (_test/trashcan_grid.png). Base sits at y=497; anything declaring behind=trashcan_left must anchor at foot_y < 497."
+    }
+  ],
+  "decompression_note": "Was MZ-2026-09-02_P01_PANEL01 in the 24-panel edition; same locked beat, renumbered by the 16-page/96-panel format directive."
 }

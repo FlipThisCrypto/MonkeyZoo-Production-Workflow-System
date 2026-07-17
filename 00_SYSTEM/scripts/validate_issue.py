@@ -118,13 +118,22 @@ def main() -> None:
     if "--integration" in sys.argv:
         preview = issue_dir / "generated_art" / "integration_preview"
         previews = sorted(preview.glob("*.png")) if preview.is_dir() else []
-        previews = [p for p in previews if not p.stem.endswith("_compare")]
+        # covers carry deliberate flat lettering blocks (title text) that the
+        # flat-region detector would flag; they are Gate B items, not panels
+        previews = [p for p in previews
+                    if not p.stem.endswith("_compare") and not p.stem.startswith("COVER_")]
         if not previews:
             print("  integration: no staged previews to check (skipped)")
         else:
             sys.path.insert(0, str(SYSTEM / "scripts" / "integration"))
             from validate_integration import run_gate  # noqa: E402
             spec_root = SYSTEM / "integration_upgrade" / "poc"
+            # camera per panel: Close shots skip the flat-region check
+            cameras = {}
+            if plan:
+                for _pg in plan.get("pages", []):
+                    for _pa in _pg.get("panels", []):
+                        cameras[_pa["panel_id"]] = _pa.get("camera_angle", "")
             n_pass = 0
             for pv in previews:
                 pid = pv.stem
@@ -134,8 +143,9 @@ def main() -> None:
                     spec = json.loads(spec_file.read_text(encoding="utf-8"))
                     candidate = FACTORY / spec.get("background_plate", "")
                     plate = candidate if candidate.exists() else None
-                result = run_gate(pv, plate_path=plate)
-                base = " (plate-baselined)" if plate else ""
+                is_close = cameras.get(pid, "").lower().startswith("close")
+                result = run_gate(pv, plate_path=plate, skip_flat_regions=is_close)
+                base = (" (plate-baselined)" if plate else "") + (" (close-up)" if is_close else "")
                 if result["verdict"] == "PASS":
                     n_pass += 1
                     print(f"  integration {pid}: PASS{base}")

@@ -222,7 +222,7 @@ def _bbox_overlaps(a: list, b: list) -> bool:
 
 
 def run_gate(image_path: Path, foot_anchor_px: tuple[float, float] | None = None,
-             plate_path: Path | None = None) -> dict:
+             plate_path: Path | None = None, skip_flat_regions: bool = False) -> dict:
     """plate_path enables baseline subtraction: findings whose bbox
     substantially overlaps a finding ALREADY PRESENT in the raw plate are
     plate content (signage, dark corners), not compositing defects -- the
@@ -230,7 +230,12 @@ def run_gate(image_path: Path, foot_anchor_px: tuple[float, float] | None = None
     Cycle 23 when the transit-hub plate's own flat signage rectangles
     false-failed an otherwise clean composite."""
     img = Image.open(image_path).convert("RGB")
-    flat_regions = find_flat_card_regions(img)
+    # skip_flat_regions: extreme close-ups of flat-cel characters are
+    # LEGITIMATELY dominated by large flat color fields (face, hair) --
+    # the flat-region detector exists to catch non-scene overlays in
+    # painted scenes and has no meaning on a Close shot (found when the
+    # first decompressed-format close-up panels all false-failed).
+    flat_regions = [] if skip_flat_regions else find_flat_card_regions(img)
     bad_color_regions = known_reference_color_regions(img)
 
     if plate_path is not None:

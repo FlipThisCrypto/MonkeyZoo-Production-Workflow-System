@@ -1,166 +1,171 @@
 {
   "panel_id": "MZ-2026-09-02_P01_PANEL02",
-  "background_plate": "03_APPROVED_CANON/approved_locations/school-pa-zone/primary-reference.png",
+  "background_plate": "03_APPROVED_CANON/approved_locations/zoo-city-streets/primary-reference.png",
   "plate_size": [
     1280,
     720
   ],
-  "derivation_note": "Inherited verbatim from plate_calibrations/school-pa-zone (Cycle 18 agent calibration, verified). Location-level plate calibration (panels shot on this plate inherit it). Ground-plane values are art-directed estimates verified by overlay render (estimate-then-inspect), not camera-solver output. Floor-plane lines were extracted programmatically (color-boundary scan + robust least-squares) which tightens the usual eyeball error band, but the plate is hand-drawn cartoon perspective and cheats: right-wall window lines do NOT converge to the floor VP, so only floor-plane lines were used -- characters stand on the floor, so floor convergence governs scaling.",
+  "derivation_note": "Ground-plane values below are estimated by visual inspection of the plate (no camera-calibration tooling exists in this repo) -- treat as art-directed estimates, not measured facts. Recorded explicitly so a future cycle can replace this with a real vanishing-point/line detector if precision matters.",
   "ground_plane": {
-    "horizon_y": 385,
+    "horizon_y": 330,
     "calibration": {
-      "reference_object": "right-wall window sill, floor-to-sill-top at the near/mid window (x=880)",
-      "calib_x": 880,
-      "calib_y_foot": 688,
-      "calib_height_px": 131,
-      "note": "Vertical from the baseboard/floor join (y=688, on the fitted join line y=0.584x+173) up to the sill front-top edge (y=557) at x=880; round-1 overlay showed the first estimate (122px) stopping ~9px short of the sill edge, corrected to 131. In-world sill height ~0.9 m -- chibi head height, so a chibi character standing at this depth spans roughly this many pixels. Chosen over the far-end banana-shrine pedestal (x=430, foot y=445, h=43px) because the sill is mid-ground where characters will actually be blocked, and the larger pixel span halves the relative scaling error."
+      "reference_object": "sidewalk trash can, visible left-foreground",
+      "calib_y_foot": 490,
+      "calib_height_px": 70,
+      "note": "Trash can bottom/top sampled directly from the plate; used as the scale proxy because its apparent size at that depth is closer to Static's chibi scale than the human-height doorway also visible in the plate.",
+      "calib_x": 230
     },
-    "horizon_derivation": "MEASURED from three independent floor-plane lines, each extracted by color-boundary detection (tan floor vs grey locker plinth / plum baseboard / dark tile seam) and robust least-squares fit: left locker-bank base y=-1.17x+812, right baseboard-floor join y=0.584x+173, longitudinal floor-tile seam x=0.547y+141. Pairwise intersections (364,386), (346,375), (357,395) -> consensus vanishing point (355,385); adopted horizon_y=385 (+/-12 uncertainty band). VP sits left of frame center: camera looks slightly right of the hallway axis. Sanity checks: horizon is above the far-wall floor join (y~443) and below the far-wall ceiling join (y~290) as required; implied camera height ~0.38 of hallway height (low, chibi eye-level). Right-wall window top/sill lines cheat upward (hand-drawn art) and were deliberately excluded from the solve. CROSS-CHECK: the same-height window sill measured at two depths validates the horizon -- sill at x=880 is 131px with foot 688, sill at x=610 measures ~64px with foot ~529; predicted from horizon 385: 131*(529-385)/(688-385)=62px. 62~64 -> horizon confirmed within a few px."
+    "horizon_derivation": "MEASURED (Cycle 17), replacing the Cycle-3 eyeball estimate of 205: the plate's two same-height streetlamps give H=(hn*yb_far - hf*yb_near)/(hn-hf) -- near lamp base y=470 h=340px, left lamp base y=437 h=242px -> H=355; receding awning/fence structure lines converge ~320. Adopted 330 (+/-25 uncertainty band noted). Side-by-side render comparison at the POC foot anchor confirmed the corrected scale reads better against in-scene reference objects (_test/horizon_compare.png)."
   },
   "light_sources": [
     {
-      "id": "ceiling_fluorescent_near",
+      "id": "streetlamp_near",
       "type": "key",
       "position_px": [
-        445,
-        55
-      ],
-      "color": "pale yellow-green",
-      "note": "Nearest ceiling fluorescent strip fixture (two more recede down the hall at ~(410,180) and ~(390,238); this one dominates). Sampled tube color (219,234,163) -- institutional yellow-green fluorescent, top-down soft key. NON-LISTED color name: compositor will fall back to neutral grey, which is acceptable here since the cast is subtle; do not substitute 'spring green' (far too saturated)."
-    },
-    {
-      "id": "pa_screen_purple",
-      "type": "fill",
-      "position_px": [
-        428,
-        345
-      ],
-      "color": "magenta",
-      "note": "Glowing purple PA/vending display on the far end wall above the banana shrine, sampled (174,108,211). Closest listed color is 'magenta'; actual hue is violet-purple. Weak rim/fill for characters deep in the hallway only."
-    },
-    {
-      "id": "window_daylight_right",
-      "type": "fill",
-      "position_px": [
-        1060,
-        300
+        680,
+        120
       ],
       "color": "cool cyan-white",
-      "note": "Overcast rainy daylight through the big right-wall window (same quality from the whole window row), sampled (91,95,101) -- dim neutral-cool grey-blue. Listed 'cool cyan-white' is directionally right; keep intensity low, it is a soft screen-right fill, not a sun key."
+      "note": "Nearest streetlamp cone, casts down-and-slightly-right onto the sidewalk area where the character is placed."
+    },
+    {
+      "id": "signage_magenta",
+      "type": "fill",
+      "position_px": [
+        330,
+        60
+      ],
+      "color": "magenta",
+      "note": "MONKEY sign glow, bounces warm-magenta fill light and produces the magenta puddle reflection at screen-left."
+    },
+    {
+      "id": "signage_green",
+      "type": "fill",
+      "position_px": [
+        500,
+        90
+      ],
+      "color": "spring green",
+      "note": "Zoo sign glow, secondary bounce fill from screen-left."
     }
   ],
   "weather": {
-    "indoor": true,
-    "rain_outside_windows": true,
-    "autumn_leaves_indoors": true,
-    "wet_floor_patches": true
+    "rain": true,
+    "wet_pavement": true,
+    "puddle_reflections": true
   },
   "reflective_surfaces": [
     {
-      "id": "hall_puddle_main",
+      "id": "sidewalk_sheet_left",
       "polygon": [
         [
-          648,
-          658
+          35,
+          618
         ],
         [
-          712,
+          250,
+          600
+        ],
+        [
+          370,
           650
         ],
         [
-          778,
-          658
+          430,
+          705
         ],
         [
-          845,
-          672
-        ],
-        [
-          902,
-          690
-        ],
-        [
-          918,
-          708
-        ],
-        [
-          905,
+          300,
           719
         ],
         [
-          700,
+          40,
           719
         ],
         [
-          655,
-          694
-        ],
-        [
-          636,
-          672
+          25,
+          660
         ]
       ],
-      "note": "Large grey-blue rain puddle on the hallway tile along the right baseboard (leaves floating in it), cut off by the bottom frame edge between x~700-882. Traced visually from a 2x gridded crop; verified against the calibration overlay render."
-    },
-    {
-      "id": "hall_wet_spot_small",
-      "polygon": [
-        [
-          604,
-          658
-        ],
-        [
-          636,
-          654
-        ],
-        [
-          644,
-          664
-        ],
-        [
-          622,
-          672
-        ],
-        [
-          602,
-          666
-        ]
-      ],
-      "note": "Small separate wet smear just left of the main puddle."
-    },
-    {
-      "id": "window_wet_patch_mid",
-      "polygon": [
-        [
-          538,
-          512
-        ],
-        [
-          592,
-          502
-        ],
-        [
-          638,
-          512
-        ],
-        [
-          646,
-          528
-        ],
-        [
-          600,
-          540
-        ],
-        [
-          548,
-          532
-        ]
-      ],
-      "note": "Smaller wet patch below the middle right-wall window (rain blown in), mid-ground depth."
+      "note": "Wet water-sheet on the lower-left sidewalk pavers (visible rain ripple rings in the plate). Polygon traced visually and verified by rendering an overlay against the plate (_test/puddle_poly_check.png) before use -- same estimate-then-inspect discipline as the ground-plane calibration."
     }
   ],
   "camera": {
-    "shot_scale": "wide establishing (hallway master; location plate shared by 3 panels)",
-    "angle": "one-point perspective down the hall, eye-level slightly low (chibi eye-height), locked-off"
-  }
+    "shot_scale": "medium-wide establishing",
+    "angle": "eye-level, static locked-off"
+  },
+  "atmosphere": {
+    "haze_color": [
+      76,
+      80,
+      103
+    ],
+    "haze_max": 0.55,
+    "note": "Haze color SAMPLED from the plate's far-street band just below the horizon (y 335-365, x 700-900: mean [75.9, 79.8, 102.5]), not guessed. haze_max 0.55 matches how much the plate's own distant content fades."
+  },
+  "occluders": [
+    {
+      "id": "trashcan_left",
+      "polygon": [
+        [
+          197,
+          431
+        ],
+        [
+          223,
+          423
+        ],
+        [
+          224,
+          418
+        ],
+        [
+          244,
+          418
+        ],
+        [
+          246,
+          424
+        ],
+        [
+          271,
+          432
+        ],
+        [
+          269,
+          442
+        ],
+        [
+          262,
+          442
+        ],
+        [
+          263,
+          489
+        ],
+        [
+          268,
+          497
+        ],
+        [
+          199,
+          497
+        ],
+        [
+          203,
+          489
+        ],
+        [
+          205,
+          442
+        ],
+        [
+          198,
+          442
+        ]
+      ],
+      "note": "Solid sidewalk trash can, traced on a 10px measurement grid (_test/trashcan_grid.png). Base sits at y=497; anything declaring behind=trashcan_left must anchor at foot_y < 497."
+    }
+  ],
+  "decompression_note": "Was MZ-2026-09-02_P01_PANEL01 in the 24-panel edition; same locked beat, renumbered by the 16-page/96-panel format directive."
 }

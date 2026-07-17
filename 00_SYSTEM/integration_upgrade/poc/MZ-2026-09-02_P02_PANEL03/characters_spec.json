@@ -1,60 +1,41 @@
 {
   "panel_id": "MZ-2026-09-02_P02_PANEL03",
-  "source_script_line": "Scarline steadies the space without shutting Static down.",
-  "staging_intent": "Static mid-ground before the glowing departure boards, agitated but contained; Scarline nearer camera at a deliberate, respectful distance, calm and planted, facing him. The gap between them is support-without-crowding -- same spatial storytelling as P06_PANEL02.",
-  "foreground_rain": false,
+  "source_script_line": "NeonBlue catches up with too much energy.",
+  "foreground_rain": true,
+  "rain_density": 80,
   "characters": [
     {
       "character": "static",
-      "character_token": "MZ-CHAR-003",
-      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_16_worried.png",
-      "action": "ears tracking the boards' off-rhythm clicks, hunched",
-      "emotion": "agitated, overloaded",
-      "body_orientation": "three-quarter toward the boards",
-      "eye_target": "the malfunctioning departure boards",
-      "depth_layer": "middle_ground",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_00_clean_base.png",
+      "asset_note": "",
       "ground_contact": {
-        "surface": "polished glossy tile",
+        "surface": "per scene",
         "foot_anchor_px": [
-          520,
-          565
+          330,
+          620
         ]
       },
       "lighting": {
-        "key_source": "departure_boards_key",
         "shadow_direction": "down-left"
       },
       "reflection": {
         "enabled": true,
-        "surface": "glossy_floor_full",
-        "note": "Polished tile reflects everything standing on it (per the plate note); soft reflection, not a hard puddle mirror."
+        "surface": "sidewalk_sheet_left"
       }
     },
     {
-      "character": "scarline",
-      "character_token": "MZ-CHAR-006",
-      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/scarline/scarline_00_clean_base.png",
-      "asset_note": "Clean-base (calm, steady) rather than worried -- the beat is Scarline as the stable anchor. Gaze reads slightly viewer-left, so she is placed screen-right of Static so it lands on him.",
-      "action": "standing planted, present without crowding",
-      "emotion": "calm steadiness",
-      "body_orientation": "three-quarter left, toward Static",
-      "eye_target": "Static",
-      "depth_layer": "foreground",
+      "character": "neonblue",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/neonblue/neonblue_23_waving.png",
+      "asset_note": "waving = bright deflection",
       "ground_contact": {
-        "surface": "edge of the large right mirror puddle",
+        "surface": "per scene",
         "foot_anchor_px": [
-          900,
-          665
+          480,
+          650
         ]
       },
       "lighting": {
-        "key_source": "departure_boards_key",
-        "shadow_direction": "down-right"
-      },
-      "reflection": {
-        "enabled": true,
-        "surface": "puddle_right_large",
-        "note": "She stands at the big right puddle; hard mirror reflection clipped to it."
+        "shadow_direction": "down-left"
       }
     }
   ]

@@ -25,7 +25,8 @@ from shadow import draw_contact_shadow  # noqa: E402
 from validate_integration import run_gate  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[4]
-POC_DIR = ROOT / "00_SYSTEM" / "integration_upgrade" / "poc" / "MZ-2026-09-02_P01_PANEL01"
+# renamed P01_PANEL01 -> P01_PANEL03 by the 16-page/96-panel decompression (same locked beat)
+POC_DIR = ROOT / "00_SYSTEM" / "integration_upgrade" / "poc" / "MZ-2026-09-02_P01_PANEL03"
 BEFORE_IMG = ROOT / "02_MONTHLY_ISSUES" / "2026-09_Issue_02" / "generated_art" / \
     "selected_panels" / "MZ-2026-09-02_P01_PANEL01.png"
 
@@ -162,7 +163,7 @@ def test_run_rejects_unknown_occluder(tmp_path):
     import json as _json
     from compositor import run
     import shutil
-    src = ROOT / "00_SYSTEM" / "integration_upgrade" / "poc" / "MZ-2026-09-02_P01_PANEL01"
+    src = ROOT / "00_SYSTEM" / "integration_upgrade" / "poc" / "MZ-2026-09-02_P01_PANEL03"
     if not src.exists():
         pytest.skip("POC dir missing")
     work = tmp_path / "panel"

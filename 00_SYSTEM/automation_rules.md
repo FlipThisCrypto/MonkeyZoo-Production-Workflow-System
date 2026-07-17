@@ -32,6 +32,16 @@ Who does what, and what may run without a human.
 
 ## 3. File & Naming Conventions (scripts enforce)
 
+- **Issue format standard (owner directive 2026-07-17):** 16 story pages,
+  ~96 panels total (target 6 per page), plus a single-panel FRONT cover
+  and a single-panel BACK cover. The back cover always introduces the
+  next issue (title + teaser image built from the next issue's location/
+  cast). Existing shorter issues are decompressed to this format: each
+  original story beat becomes a 4-panel acting sequence (establish →
+  action → reaction → button) so published events and dialogue stay
+  locked while page count doubles. Covers live outside page_panel_plan
+  (cover_prompt.md + exports), same as before; Gate B's "next-issue
+  teaser on rear cover" item is now satisfied by the back-cover panel.
 - Issue folder: `YYYY-MM_Issue_##` · Issue ID: `MZ-YYYY-MM-##`
 - Panel ID: `MZ-YYYY-MM-##_P<page 2-digit>_PANEL<2-digit>`
 - Raw art: `<panel_id>_seed<seed>_v<n>.png` in `raw_panels/`
