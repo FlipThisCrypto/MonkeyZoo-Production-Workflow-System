@@ -487,3 +487,43 @@ task id appears and `recommended_order` is well-formed.
 **Verdict**: **PASS**.
 
 ---
+
+# ROUND 2 — Cycles 11–30 (2026-07-16, second sweep)
+
+Round 1 (Cycles 1–10) ended with three disclosed gaps: bespoke pose
+generation (blocked on ComfyUI being offline), puddle reflection, and
+multi-character staging. Round 2 starts by clearing the infra blocker.
+
+---
+
+## Cycle 11 — ComfyUI restored + verified stable render
+
+**Selected because**: the single named blocker from Round 1's final
+report. Every generation-dependent improvement (bespoke poses, img2img
+edge unification, new plates) is gated behind a *verified-stable* server —
+and this rig's history (Issue 06 generation log, mz-art-run skill) shows
+"server responds" is not the same as "server renders" (VRAM-leak trap).
+
+**Scoped for one cycle**: yes — launch, verify, smoke-render, confirm.
+
+**Procedure followed** (per mz-art-run's hang-recovery/VRAM rules):
+1. Checked for stale ComfyUI python processes first — none found.
+2. Launched `I:\ai\ComfyUI\run_zluda.bat` minimized; 2 processes spawned
+   (launcher loop + server).
+3. Polled `/system_stats` — up after ~45s (warm relaunch, not the ~7min
+   cold path). `vram_free` = 15.85 GB ✔ (matches the skill's ≈15.8 GB
+   healthy threshold).
+4. Queued a minimal Z-Image graph (new `smoke_render.py`, reusable for
+   future recoveries) — **render completed in 50s**.
+5. Verified the output is real content, not a black/corrupt frame:
+   512×512, mean 208.1, std 80.5, 914 unique sampled colors.
+6. Re-checked VRAM after render: 15.61 GB free — no leak.
+
+**Files created**: `00_SYSTEM/scripts/integration/smoke_render.py` — the
+verification step as a reusable script (queue minimal graph, poll for the
+output file, exit code = verdict), so future hang recoveries don't
+re-improvise this check.
+
+**Verdict**: **PASS**. Generation-dependent cycles are unblocked.
+
+---
