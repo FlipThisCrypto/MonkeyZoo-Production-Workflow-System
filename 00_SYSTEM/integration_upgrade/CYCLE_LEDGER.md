@@ -902,3 +902,32 @@ pose spec → no change). Suite: **21/21 PASS**.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 22 — Integration previews staged into the issue workspace + before/after sheets
+
+**Selected because**: every integrated render so far lived in
+`00_SYSTEM/integration_upgrade/poc/` — invisible to the issue workspace
+and to the owner's approval workflow. Making results consumable (without
+bypassing any gate) is what turns this track from a tech demo into a
+production path.
+
+**Files created**: `stage_preview.py` — copies a spec dir's final render
+into `<issue>/generated_art/integration_preview/<panel_id>.png` and
+builds a labeled BEFORE (shipped selected panel) / AFTER (integrated)
+comparison sheet next to it. **Never writes selected_panels/** — the
+promote decision is Gate A, human-only, and the sheet exists to give the
+owner exactly that evidence.
+
+**Ran for both POC panels** into `02_MONTHLY_ISSUES/2026-09_Issue_02/`:
+- `MZ-2026-09-02_P01_PANEL01(_compare).png` — the sheet shows the shipped
+  pink NFT-card-in-a-box next to the integrated character standing on the
+  sidewalk (bespoke pose, shadow, reflection, relight, rain).
+- `MZ-2026-09-02_P06_PANEL02(_compare).png` — three-character staging vs
+  the shipped card-row draft.
+
+**Verified**: sheets opened and inspected; `selected_panels/` mtimes
+untouched; reported `selected_panels_untouched: true` in both runs.
+
+**Verdict**: **PASS**.
+
+---
