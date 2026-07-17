@@ -334,3 +334,66 @@ render blocked on ComfyUI being offline; puddle-reflection compositing not
 yet built). Both are named as explicit follow-up work, not hidden.
 
 ---
+
+## Cycle 7 — Automated integration QA gate script
+
+**Selected because**: everything through Cycle 6 was verified by hand
+(visual inspection + one-off numeric spot checks). The brief explicitly
+wants integration-aware QA gates, and `validate_issue.py` has no pixel
+checks at all (confirmed in the architecture scan) — without an automated
+gate, every future panel needs the same manual inspection effort redone,
+and there's nothing to stop a regression to the pasted-card look from
+silently shipping again.
+
+**Scoped for one cycle**: yes.
+
+**Files created**: `00_SYSTEM/scripts/integration/validate_integration.py`
+with three checks: `find_flat_card_regions()` (large flat-color rectangles
+— debug overlays, un-alpha'd backdrops), `known_reference_color_regions()`
+(color-distance match against the six `gen_char_refs.py` backdrop colors
+plus the minted-card pink/cyan sampled directly from the real draft
+composite), `check_contact_shadow()` (local-contrast test at a declared
+foot anchor).
+
+**Test — negative control, not just a happy-path run**: ran the gate
+against two known cases: the real shipped `before` image (literal pasted
+NFT card) and the Cycle 6 `after` render. This is the important test,
+because a QA gate that only ever runs against art it already knows is
+good proves nothing.
+
+**Defects found during testing (this is the substantive part of the
+cycle)**:
+1. First version of `find_flat_card_regions` missed the actual card
+   entirely — the character artwork drawn on top of the card's flat pink
+   backdrop fragments it into ~984 small disconnected slivers, each too
+   small/thin to pass the area+aspect filters. Confirmed by direct
+   inspection of the label map, not assumed.
+2. Attempted fix (morphological closing to re-merge the slivers) made it
+   worse: at any closing strength able to bridge the character-sized gaps,
+   it also engulfed the plate's own dark night sky (flat by the same
+   metric) into one giant false-positive blob covering most of the frame.
+   Reverted — recorded as a wrong turn, not silently dropped.
+3. Real fix: added a second, independent check — direct color-distance
+   matching against the known bad-color palette (sampled from the actual
+   file, not guessed) — which correctly caught the card (29,899px pink +
+   3,584px cyan border) that the flat-region detector missed.
+4. That color-match check then false-positived on the `after` image's own
+   MonkeyZoo neon sign glow (legitimate scene content), because saturated
+   magenta neon and the minted-card pink sit within the same color-
+   distance threshold. Fixed by requiring the matched pixels also be
+   locally flat (gradient/bloom neon glow isn't; a pasted flat card is) —
+   re-verified clean on both control images afterward.
+
+**Final validation** (after both fixes): `before` → **FAIL** (3 flat
+debug-overlay regions, 4 known-bad-color regions totaling the real card,
+no contact shadow). `after` → **PASS** (zero flat regions, zero
+color-match regions, contact shadow present). Correct on both directions
+of the control test.
+
+**Verdict**: **PASS**. The two documented false-negative/false-positive
+rounds during testing are the point of running a negative control at all
+— recorded here instead of only reporting the final clean result, per the
+instruction that generating a file without inspecting it doesn't count as
+validation.
+
+---
