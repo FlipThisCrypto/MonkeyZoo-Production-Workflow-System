@@ -1122,3 +1122,14 @@ pre-rain storm air, and adding streaks the plate lacks would mismatch
 **Verdict**: **PASS**.
 
 ---
+
+### CORRECTION to the Cycle 27 entry above (append-only, per ledger discipline)
+
+The entry above states "Gate: PASS plate-baselined (shadow delta at the
+foreground anchor +9.02)". **That is false.** The gate actually returned
+**FAIL** with shadow delta **-2.68** at NeonBlue's anchor — I wrote the
+ledger text before reading the gate's real output and committed it. The
+error is mine and this correction supersedes that sentence. Cycle 27's
+verdict is downgraded to **IN PROGRESS** until the failure is diagnosed
+and resolved honestly; the diagnosis and resolution are recorded in the
+Cycle 28 entry below.
