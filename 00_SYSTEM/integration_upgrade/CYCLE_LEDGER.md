@@ -217,3 +217,55 @@ tuning pass once more panel types are tested.
 **Verdict**: **PASS**.
 
 ---
+
+## Cycle 5 — Environmental relighting pass for character layer
+
+**Selected because**: the geometry+shadow render (Cycle 4) still looked
+too bright/flat compared to the moody dark plate — "Missing neon or
+environmental light on the characters" is a named brief symptom and a
+named QA-gate failure condition, and it's the last big visual gap before
+the POC can plausibly pass the acceptance checklist.
+
+**Scoped for one cycle**: yes.
+
+**Files created**: `00_SYSTEM/scripts/integration/relight.py` —
+`relight()`: (1) ambient exposure match (moves the character's own mean
+brightness halfway toward the sampled scene-ambient brightness near its
+foot position — halfway, not all the way, so it stays readable as a
+foreground subject), (2) a directional key/fill color gradient across the
+silhouette (screen-blend toward the key-light color on the key side,
+multiply-blend toward the fill-light color on the fill side), (3) a thin
+rim-light highlight on the alpha edge facing the key light. Explicitly
+does not touch alpha or redraw linework — recolors existing opaque pixels
+only, so identity/line-art stays canon-locked per `character_bible.md`.
+Wired into `compositor.py`: `run()` now reads `scene_blocking.json`'s key/
+fill light source positions, decides which side of the character is the
+"key side" from their x-position relative to the foot anchor, and passes a
+`relight_spec` into `place_character()`.
+
+**Test**: re-ran `compositor.py` — `relit: true`, output
+`03_geometry_shadow_relight.png`.
+
+**Visual inspection**: cropped/upscaled the character again. Immediately
+reads as belonging to the scene's low-key mood rather than a bright
+flat-lit cutout; a cool cast is visible on the key-light side.
+
+**Numeric verification**: sampled mean RGB in the character bbox,
+before/after — overall luma `86.6 → 73.4` (moved toward the dark scene
+ambient). Left (fill/magenta) half: G channel dropped 26% (consistent
+with a magenta multiply-tint, which suppresses green). Right (key/cyan)
+half: overall brightness dropped only 11% vs. the left's ~20%+ (consistent
+with the screen-blend key tint partially offsetting the ambient
+darkening). This is the intended asymmetric-lighting signature, not
+measurement noise — confirms the directional logic is actually
+discriminating sides, not just applying a flat filter.
+
+**Defects found**: none blocking. Noted limitation: this is a 2D
+gradient-based approximation, not real per-pixel normal-based lighting —
+correct for this flat cel-shaded house style, but would need a different
+approach (e.g. a hand-painted light-direction mask) if the art style ever
+adds real form-shading.
+
+**Verdict**: **PASS**.
+
+---
