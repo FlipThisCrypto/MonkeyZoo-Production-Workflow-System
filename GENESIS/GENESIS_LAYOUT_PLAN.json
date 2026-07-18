@@ -1,0 +1,1976 @@
+{
+  "schema_version": "genesis-1.0",
+  "series": "MonkeyZoo",
+  "issue_title": "Genesis",
+  "story_subtitle": "Signals in the Silence",
+  "production_issue": 8,
+  "published_issue": 1,
+  "slug": "genesis",
+  "seed": 20260718,
+  "source_issue": "02_MONTHLY_ISSUES/2026-09_Issue_02/page_panel_plan.json",
+  "source_panel_dir": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview",
+  "story_page_count": 22,
+  "front_cover": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/COVER_FRONT.png",
+  "back_cover": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/COVER_BACK.png",
+  "total_panels": 96,
+  "pages": [
+    {
+      "page_number": 1,
+      "reader_side": "right",
+      "panel_count": 4,
+      "layout_template": "grid4",
+      "location": "Zoo City Streets",
+      "scene_span": [
+        0
+      ],
+      "beat_summary": [
+        "establishing",
+        "action",
+        "dialogue",
+        "dialogue"
+      ],
+      "page_turn_purpose": "cold open — establish tone and the first anomaly",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P01_PANEL01",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [],
+          "dialogue": "",
+          "caption": "ZOO CITY — EARLY FALL",
+          "beat_note": "Zoo City. Early fall.",
+          "sfx": "tik",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P01_PANEL02",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "action",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "tik",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P01_PANEL03",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "STATIC: That click… it repeated.",
+          "caption": "",
+          "beat_note": "Tiny disruption",
+          "sfx": "TIK-tik",
+          "dialogue_words": 5
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P01_PANEL04",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "STATIC (small): Nobody else stopped.",
+          "caption": "",
+          "beat_note": "Others ignore it",
+          "sfx": "",
+          "dialogue_words": 5
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "reader_side": "left",
+      "panel_count": 4,
+      "layout_template": "feature_left3",
+      "location": "School / Public Address Zone",
+      "scene_span": [
+        1
+      ],
+      "beat_summary": [
+        "dialogue",
+        "action",
+        "dialogue",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P01_PANEL06",
+          "emphasis": true,
+          "shot": "medium",
+          "beat": "action",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-001"
+          ],
+          "dialogue": "MOODZ: You heard it again.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 5
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P01_PANEL05",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-001"
+          ],
+          "dialogue": "PA (jagged): …st-stud…ents…",
+          "caption": "ZOO CITY — SCHOOL",
+          "beat_note": "School speaker glitch",
+          "sfx": "BZZT",
+          "dialogue_words": 3
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P02_PANEL01",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-001"
+          ],
+          "dialogue": "STATIC: You're not saying I imagined it.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 7
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P02_PANEL02",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-001"
+          ],
+          "dialogue": "MOODZ: I'm saying you heard it.",
+          "caption": "",
+          "beat_note": "Moodz believes without pressure",
+          "sfx": "",
+          "dialogue_words": 6
+        }
+      ]
+    },
+    {
+      "page_number": 3,
+      "reader_side": "right",
+      "panel_count": 4,
+      "layout_template": "grid4",
+      "location": "Zoo City Streets",
+      "scene_span": [
+        2
+      ],
+      "beat_summary": [
+        "dialogue",
+        "dialogue",
+        "reaction",
+        "establishing"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P02_PANEL03",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "dialogue": "NEONBLUE: Hey, hey — the city's old, it creaks!",
+          "caption": "ZOO CITY",
+          "beat_note": "Quick reassurance risk",
+          "sfx": "",
+          "dialogue_words": 9
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P02_PANEL04",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "dialogue": "NEONBLUE: Probably just old wires—",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "bzz",
+          "dialogue_words": 5
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P02_PANEL05",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "reaction",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "dialogue": "STATIC: …yeah. Probably.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "bzz",
+          "dialogue_words": 3
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P02_PANEL06",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "NeonBlue believes but soothes too fast",
+          "sfx": "flk",
+          "dialogue_words": 0
+        }
+      ]
+    },
+    {
+      "page_number": 4,
+      "reader_side": "left",
+      "panel_count": 4,
+      "layout_template": "feature_top3",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "scene_span": [
+        3
+      ],
+      "beat_summary": [
+        "establishing",
+        "action",
+        "dialogue",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P03_PANEL02",
+          "emphasis": true,
+          "shot": "medium",
+          "beat": "action",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002",
+            "MZ-CHAR-005"
+          ],
+          "dialogue": "STATIC: It's the same burst!",
+          "caption": "",
+          "beat_note": "Citywide pattern",
+          "sfx": "BZZT BZZT",
+          "dialogue_words": 5
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P03_PANEL01",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [],
+          "dialogue": "",
+          "caption": "ACROSS ZOO CITY",
+          "beat_note": "Storm rolls in",
+          "sfx": "rmmml",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P03_PANEL03",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002",
+            "MZ-CHAR-005"
+          ],
+          "dialogue": "TWOTONE: …mine too.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "BZZT",
+          "dialogue_words": 3
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P03_PANEL04",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002",
+            "MZ-CHAR-005"
+          ],
+          "dialogue": "NEONBLUE (small): Okay. Not old wires.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 6
+        }
+      ]
+    },
+    {
+      "page_number": 5,
+      "reader_side": "right",
+      "panel_count": 6,
+      "layout_template": "grid6",
+      "location": "Transit Announcement Hub",
+      "scene_span": [
+        4
+      ],
+      "beat_summary": [
+        "establishing",
+        "action",
+        "dialogue",
+        "establishing",
+        "dialogue",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P03_PANEL05",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "",
+          "caption": "TRANSIT HUB",
+          "beat_note": "Transit hub",
+          "sfx": "flk-flk",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P03_PANEL06",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "action",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "Static first",
+          "sfx": "tik",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P04_PANEL01",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "STATIC: Before the sound finishes—danger is already here.",
+          "caption": "",
+          "beat_note": "First reaction",
+          "sfx": "BZZT",
+          "dialogue_words": 8
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P04_PANEL02",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 4,
+          "source_panel_id": "MZ-2026-09-02_P04_PANEL03",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "dialogue": "STATIC: It came from the north relay then the school then twice from—",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 13
+        },
+        {
+          "slot": 5,
+          "source_panel_id": "MZ-2026-09-02_P04_PANEL04",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "dialogue": "OFF: Slow down— / OFF: Which one—",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 7
+        }
+      ]
+    },
+    {
+      "page_number": 6,
+      "reader_side": "left",
+      "panel_count": 4,
+      "layout_template": "feature_left3",
+      "location": "Transit Announcement Hub",
+      "scene_span": [
+        4
+      ],
+      "beat_summary": [
+        "dialogue",
+        "reaction",
+        "dialogue",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P04_PANEL06",
+          "emphasis": true,
+          "shot": "close",
+          "beat": "reaction",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "dialogue": "STATIC (small): …thanks.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 3
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P04_PANEL05",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "dialogue": "SCARLINE: Don't drown him out.",
+          "caption": "",
+          "beat_note": "Scarline steadies",
+          "sfx": "",
+          "dialogue_words": 5
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P05_PANEL01",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "CLEVER: Where's the loudest wall?",
+          "caption": "",
+          "beat_note": "Clever arrives",
+          "sfx": "",
+          "dialogue_words": 5
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P05_PANEL02",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "CLEVER: Hardware first. Pattern later.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "klk",
+          "dialogue_words": 5
+        }
+      ]
+    },
+    {
+      "page_number": 7,
+      "reader_side": "right",
+      "panel_count": 6,
+      "layout_template": "grid6",
+      "location": "Transit Announcement Hub",
+      "scene_span": [
+        4
+      ],
+      "beat_summary": [
+        "reaction",
+        "dialogue",
+        "dialogue",
+        "dialogue",
+        "action",
+        "action"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P05_PANEL03",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "reaction",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "CLEVER (small): Huh.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 3
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P05_PANEL04",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "CLEVER: Hardware's fine. Tell me what you heard.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 8
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P05_PANEL05",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "STATIC: Okay so—",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 3
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P05_PANEL06",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "STATIC: Six—no, three—no, listen—",
+          "caption": "",
+          "beat_note": "Too many at once",
+          "sfx": "",
+          "dialogue_words": 4
+        },
+        {
+          "slot": 4,
+          "source_panel_id": "MZ-2026-09-02_P06_PANEL01",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "action",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "rec",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 5,
+          "source_panel_id": "MZ-2026-09-02_P06_PANEL02",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "action",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "CLEVER: Good. It's all in here.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 6
+        }
+      ]
+    },
+    {
+      "page_number": 8,
+      "reader_side": "left",
+      "panel_count": 4,
+      "layout_template": "feature_top3",
+      "location": "School / Public Address Zone",
+      "scene_span": [
+        5
+      ],
+      "beat_summary": [
+        "establishing",
+        "dialogue",
+        "dialogue",
+        "action"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P06_PANEL06",
+          "emphasis": true,
+          "shot": "medium",
+          "beat": "action",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-004"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P06_PANEL03",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-004"
+          ],
+          "dialogue": "",
+          "caption": "ZOO CITY — SCHOOL",
+          "beat_note": "Following wires",
+          "sfx": "",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P06_PANEL04",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-004"
+          ],
+          "dialogue": "ASH: Which part repeats?",
+          "caption": "",
+          "beat_note": "Ash's question",
+          "sfx": "",
+          "dialogue_words": 4
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P06_PANEL05",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-004"
+          ],
+          "dialogue": "CLEVER: …the part nobody's sending.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 5
+        }
+      ]
+    },
+    {
+      "page_number": 9,
+      "reader_side": "right",
+      "panel_count": 6,
+      "layout_template": "grid6",
+      "location": "Transit Announcement Hub",
+      "scene_span": [
+        6
+      ],
+      "beat_summary": [
+        "action",
+        "dialogue",
+        "dialogue",
+        "dialogue",
+        "action",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P07_PANEL01",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "action",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "",
+          "caption": "TRANSIT HUB",
+          "beat_note": "",
+          "sfx": "ping",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P07_PANEL02",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "CLEVER: Six tones. Structured. Not random.",
+          "caption": "",
+          "beat_note": "Six tones",
+          "sfx": "",
+          "dialogue_words": 6
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P07_PANEL03",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "STATIC (small): That's them. That's exactly them.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 7
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P07_PANEL04",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "CLEVER: You counted them by ear.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 6
+        },
+        {
+          "slot": 4,
+          "source_panel_id": "MZ-2026-09-02_P07_PANEL05",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "action",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "toooon",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 5,
+          "source_panel_id": "MZ-2026-09-02_P07_PANEL06",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "dialogue": "STATIC: That's the cyan one… from summer.",
+          "caption": "",
+          "beat_note": "Cyan frequency",
+          "sfx": "",
+          "dialogue_words": 7
+        }
+      ]
+    },
+    {
+      "page_number": 10,
+      "reader_side": "left",
+      "panel_count": 6,
+      "layout_template": "feature_top5",
+      "location": "Transit Announcement Hub",
+      "scene_span": [
+        6,
+        7
+      ],
+      "beat_summary": [
+        "reaction",
+        "transition",
+        "transition",
+        "dialogue",
+        "dialogue",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P08_PANEL01",
+          "emphasis": true,
+          "shot": "close",
+          "beat": "reaction",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "dialogue": "NEONBLUE (small): …August.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 3
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P08_PANEL02",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "transition",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P08_PANEL03",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "transition",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P08_PANEL04",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002"
+          ],
+          "dialogue": "TWOTONE: Pair them. Don't stack them.",
+          "caption": "",
+          "beat_note": "Pairs, not piles",
+          "sfx": "",
+          "dialogue_words": 6
+        },
+        {
+          "slot": 4,
+          "source_panel_id": "MZ-2026-09-02_P08_PANEL05",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002"
+          ],
+          "dialogue": "STATIC: Call and answer. They're call and answer!",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 8
+        },
+        {
+          "slot": 5,
+          "source_panel_id": "MZ-2026-09-02_P08_PANEL06",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-002"
+          ],
+          "dialogue": "TWOTONE: Now it's music.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 4
+        }
+      ]
+    },
+    {
+      "page_number": 11,
+      "reader_side": "right",
+      "panel_count": 4,
+      "layout_template": "feature_left3",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "scene_span": [
+        8
+      ],
+      "beat_summary": [
+        "establishing",
+        "reveal",
+        "dialogue",
+        "establishing"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P09_PANEL02",
+          "emphasis": true,
+          "shot": "medium",
+          "beat": "reveal",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "STATIC: It's listening for us.",
+          "caption": "",
+          "beat_note": "The turn",
+          "sfx": "",
+          "dialogue_words": 5
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P09_PANEL01",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "",
+          "caption": "ACROSS ZOO CITY",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P09_PANEL03",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "CLEVER (small): …calls waiting for answers.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 6
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P09_PANEL04",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "Searching, not broadcasting",
+          "sfx": "",
+          "dialogue_words": 0
+        }
+      ]
+    },
+    {
+      "page_number": 12,
+      "reader_side": "left",
+      "panel_count": 4,
+      "layout_template": "grid4",
+      "location": "School / Public Address Zone",
+      "scene_span": [
+        9
+      ],
+      "beat_summary": [
+        "dialogue",
+        "dialogue",
+        "reaction",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P09_PANEL05",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "OFF: Maybe if he just calmed d—",
+          "caption": "ZOO CITY — SCHOOL",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 7
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P09_PANEL06",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "MOODZ: He doesn't have to be comfortable for you.",
+          "caption": "",
+          "beat_note": "Moodz blocks",
+          "sfx": "",
+          "dialogue_words": 9
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P10_PANEL01",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "reaction",
+          "characters": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P10_PANEL02",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "MOODZ (small): Next question.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 4
+        }
+      ]
+    },
+    {
+      "page_number": 13,
+      "reader_side": "right",
+      "panel_count": 4,
+      "layout_template": "feature_top3",
+      "location": "Transit Announcement Hub",
+      "scene_span": [
+        10
+      ],
+      "beat_summary": [
+        "transition",
+        "dialogue",
+        "reaction",
+        "action"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P10_PANEL06",
+          "emphasis": true,
+          "shot": "close",
+          "beat": "action",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "dialogue": "STATIC: I want it to matter that I do.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 9
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P10_PANEL03",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "transition",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "dialogue": "",
+          "caption": "TRANSIT HUB",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P10_PANEL04",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "dialogue": "SCARLINE: Do you want to keep listening?",
+          "caption": "",
+          "beat_note": "A real choice",
+          "sfx": "",
+          "dialogue_words": 7
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P10_PANEL05",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "reaction",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        }
+      ]
+    },
+    {
+      "page_number": 14,
+      "reader_side": "left",
+      "panel_count": 4,
+      "layout_template": "feature_left3",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "scene_span": [
+        11
+      ],
+      "beat_summary": [
+        "establishing",
+        "dialogue",
+        "reaction",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P11_PANEL01",
+          "emphasis": true,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-002"
+          ],
+          "dialogue": "",
+          "caption": "ACROSS ZOO CITY",
+          "beat_note": "Interference spreads",
+          "sfx": "WRRRN",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P11_PANEL02",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-002"
+          ],
+          "dialogue": "STATIC: Flood—fire—relay—stop—",
+          "caption": "",
+          "beat_note": "Every danger at once",
+          "sfx": "WRRRN",
+          "dialogue_words": 2
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P11_PANEL03",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "reaction",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-002"
+          ],
+          "dialogue": "STATIC: —west—twelve—flood—",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 2
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P11_PANEL04",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-002"
+          ],
+          "dialogue": "NEONBLUE: We're here. Take the exit you need.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 8
+        }
+      ]
+    },
+    {
+      "page_number": 15,
+      "reader_side": "right",
+      "panel_count": 3,
+      "layout_template": "feature_left2",
+      "location": "Zoo City Streets",
+      "scene_span": [
+        12
+      ],
+      "beat_summary": [
+        "establishing",
+        "dialogue",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P11_PANEL05",
+          "emphasis": true,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-006",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "",
+          "caption": "ZOO CITY",
+          "beat_note": "Room, not volume",
+          "sfx": "",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P11_PANEL06",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-006",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "MOODZ: Room. Not volume.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 4
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P12_PANEL01",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-006",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "STATIC (small): …relay. West.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 4
+        }
+      ]
+    },
+    {
+      "page_number": 16,
+      "reader_side": "left",
+      "panel_count": 5,
+      "layout_template": "grid5",
+      "location": "Zoo City Streets",
+      "scene_span": [
+        12
+      ],
+      "beat_summary": [
+        "establishing",
+        "dialogue",
+        "dialogue",
+        "reaction",
+        "establishing"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P12_PANEL02",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [
+            "MZ-CHAR-001",
+            "MZ-CHAR-006",
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P12_PANEL03",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "dialogue": "SCARLINE: Still your call.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 4
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P12_PANEL04",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "dialogue": "STATIC: Yes. But one line at a time.",
+          "caption": "",
+          "beat_note": "On his terms",
+          "sfx": "",
+          "dialogue_words": 8
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P12_PANEL05",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "reaction",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "dialogue": "SCARLINE: One line.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 3
+        },
+        {
+          "slot": 4,
+          "source_panel_id": "MZ-2026-09-02_P12_PANEL06",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-006"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "West",
+          "sfx": "",
+          "dialogue_words": 0
+        }
+      ]
+    },
+    {
+      "page_number": 17,
+      "reader_side": "right",
+      "panel_count": 4,
+      "layout_template": "feature_left3",
+      "location": "Transit Announcement Hub",
+      "scene_span": [
+        13
+      ],
+      "beat_summary": [
+        "action",
+        "dialogue",
+        "dialogue",
+        "transition"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P13_PANEL01",
+          "emphasis": true,
+          "shot": "medium",
+          "beat": "action",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "",
+          "caption": "TRANSIT HUB",
+          "beat_note": "",
+          "sfx": "toooon",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P13_PANEL02",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "STATIC: The third tone. Every twelve seconds. West sector.",
+          "caption": "",
+          "beat_note": "One clean line",
+          "sfx": "",
+          "dialogue_words": 9
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P13_PANEL03",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "CLEVER: Confirmed. Twelve point out.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "ping",
+          "dialogue_words": 5
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P13_PANEL04",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "transition",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        }
+      ]
+    },
+    {
+      "page_number": 18,
+      "reader_side": "left",
+      "panel_count": 3,
+      "layout_template": "feature_left2",
+      "location": "Old Relay Junction",
+      "scene_span": [
+        14
+      ],
+      "beat_summary": [
+        "establishing",
+        "action",
+        "reaction"
+      ],
+      "page_turn_purpose": "hold on reaction before the turn",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P13_PANEL06",
+          "emphasis": true,
+          "shot": "medium",
+          "beat": "action",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-002"
+          ],
+          "dialogue": "CLEVER: Junction confirmed. Acting now.",
+          "caption": "",
+          "beat_note": "Before overload",
+          "sfx": "",
+          "dialogue_words": 5
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P13_PANEL05",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-002"
+          ],
+          "dialogue": "",
+          "caption": "OLD RELAY JUNCTION",
+          "beat_note": "Old relay junction",
+          "sfx": "kreee",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P14_PANEL01",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "reaction",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-002"
+          ],
+          "dialogue": "CLEVER: …nine… ten…",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "klk klk",
+          "dialogue_words": 3
+        }
+      ]
+    },
+    {
+      "page_number": 19,
+      "reader_side": "right",
+      "panel_count": 5,
+      "layout_template": "grid5",
+      "location": "Old Relay Junction",
+      "scene_span": [
+        14
+      ],
+      "beat_summary": [
+        "dialogue",
+        "establishing",
+        "dialogue",
+        "reaction",
+        "establishing"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P14_PANEL02",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER",
+            "MZ-CHAR-002"
+          ],
+          "dialogue": "STATIC: Now.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 2
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P14_PANEL03",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-004"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "Stabilized",
+          "sfx": "…",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P14_PANEL04",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-004"
+          ],
+          "dialogue": "NEONBLUE: We heard you.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 4
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P14_PANEL05",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "reaction",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-004"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 4,
+          "source_panel_id": "MZ-2026-09-02_P14_PANEL06",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-005",
+            "MZ-CHAR-004"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        }
+      ]
+    },
+    {
+      "page_number": 20,
+      "reader_side": "left",
+      "panel_count": 4,
+      "layout_template": "feature_left3",
+      "location": "Zoo City Streets",
+      "scene_span": [
+        15
+      ],
+      "beat_summary": [
+        "action",
+        "dialogue",
+        "reaction",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P15_PANEL01",
+          "emphasis": true,
+          "shot": "medium",
+          "beat": "action",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "",
+          "caption": "ZOO CITY",
+          "beat_note": "Morning after",
+          "sfx": "skrt",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P15_PANEL02",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "STATIC: What I sense. What I know. What I fear. What needs checking.",
+          "caption": "",
+          "beat_note": "The method",
+          "sfx": "",
+          "dialogue_words": 13
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P15_PANEL03",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "reaction",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P15_PANEL04",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "STATIC (small): Okay. That's the order.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 6
+        }
+      ]
+    },
+    {
+      "page_number": 21,
+      "reader_side": "right",
+      "panel_count": 5,
+      "layout_template": "left_feature4",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "scene_span": [
+        16,
+        17
+      ],
+      "beat_summary": [
+        "action",
+        "dialogue",
+        "reaction",
+        "establishing",
+        "establishing"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P15_PANEL05",
+          "emphasis": true,
+          "shot": "medium",
+          "beat": "action",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "",
+          "caption": "ACROSS ZOO CITY",
+          "beat_note": "",
+          "sfx": "zzp",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P15_PANEL06",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "CLEVER: I can map the how. You map the why.",
+          "caption": "",
+          "beat_note": "Data of another kind",
+          "sfx": "",
+          "dialogue_words": 10
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P16_PANEL01",
+          "emphasis": false,
+          "shot": "close",
+          "beat": "reaction",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "STATIC: …deal.",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 2
+        },
+        {
+          "slot": 3,
+          "source_panel_id": "MZ-2026-09-02_P16_PANEL02",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [
+            "MZ-CHAR-003",
+            "MZ-CHAR-CLEVER"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 4,
+          "source_panel_id": "MZ-2026-09-02_P16_PANEL03",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "establishing",
+          "characters": [],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "tik. tik.",
+          "dialogue_words": 0
+        }
+      ]
+    },
+    {
+      "page_number": 22,
+      "reader_side": "left",
+      "panel_count": 3,
+      "layout_template": "feature_top2",
+      "location": "Zoo City Streets",
+      "scene_span": [
+        17
+      ],
+      "beat_summary": [
+        "transition",
+        "action",
+        "dialogue"
+      ],
+      "page_turn_purpose": "final image / next-issue stinger",
+      "panels": [
+        {
+          "slot": 0,
+          "source_panel_id": "MZ-2026-09-02_P16_PANEL05",
+          "emphasis": true,
+          "shot": "close",
+          "beat": "action",
+          "characters": [],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "One soft final tone",
+          "sfx": "toooon…",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 1,
+          "source_panel_id": "MZ-2026-09-02_P16_PANEL04",
+          "emphasis": false,
+          "shot": "medium",
+          "beat": "transition",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "",
+          "caption": "",
+          "beat_note": "",
+          "sfx": "",
+          "dialogue_words": 0
+        },
+        {
+          "slot": 2,
+          "source_panel_id": "MZ-2026-09-02_P16_PANEL06",
+          "emphasis": false,
+          "shot": "wide",
+          "beat": "dialogue",
+          "characters": [
+            "MZ-CHAR-003"
+          ],
+          "dialogue": "CAPTION: Next: the signal answers back.",
+          "caption": "END — MONKEYZOO RETURNS",
+          "beat_note": "End of Issue 02",
+          "sfx": "",
+          "dialogue_words": 6
+        }
+      ]
+    }
+  ]
+}

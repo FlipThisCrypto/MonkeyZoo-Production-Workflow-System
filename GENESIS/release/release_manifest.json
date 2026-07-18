@@ -1,0 +1,51 @@
+{
+  "series": "MonkeyZoo",
+  "issue_title": "Genesis",
+  "published_issue": 1,
+  "production_issue": 8,
+  "reading_order": [
+    "01_FRONT_COVER.jpg",
+    "02_PAGE_01.jpg",
+    "03_PAGE_02.jpg",
+    "04_PAGE_03.jpg",
+    "05_PAGE_04.jpg",
+    "06_PAGE_05.jpg",
+    "07_PAGE_06.jpg",
+    "08_PAGE_07.jpg",
+    "09_PAGE_08.jpg",
+    "10_PAGE_09.jpg",
+    "11_PAGE_10.jpg",
+    "12_PAGE_11.jpg",
+    "13_PAGE_12.jpg",
+    "14_PAGE_13.jpg",
+    "15_PAGE_14.jpg",
+    "16_PAGE_15.jpg",
+    "17_PAGE_16.jpg",
+    "18_PAGE_17.jpg",
+    "19_PAGE_18.jpg",
+    "20_PAGE_19.jpg",
+    "21_PAGE_20.jpg",
+    "22_PAGE_21.jpg",
+    "23_PAGE_22.jpg",
+    "24_BACK_COVER.jpg"
+  ],
+  "page_count_total": 24,
+  "story_pages": 22,
+  "covers": {
+    "front": "01_FRONT_COVER.jpg",
+    "back": "24_BACK_COVER.jpg"
+  },
+  "edition": "web (1600px wide, JPG q88) \u2014 source panels are 1280x720 web tier",
+  "artifacts": {
+    "cbz": {
+      "file": "MonkeyZoo_Genesis.cbz",
+      "sha256": "a7e3f662a371ec8461f58c1e023b85dbcc7c00413a26b6d61ef88044448abdbc",
+      "bytes": 11650601
+    },
+    "pdf": {
+      "file": "MonkeyZoo_Genesis.pdf",
+      "sha256": "17e70ee6e767bb0cebc73e7a9fc17d8afde40e65842bbea2c984b4f5985c1536",
+      "bytes": 8905908
+    }
+  }
+}

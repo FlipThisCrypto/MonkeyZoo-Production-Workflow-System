@@ -1,0 +1,29 @@
+{
+  "series": "MonkeyZoo",
+  "issue_title": "Genesis",
+  "story_subtitle": "Signals in the Silence",
+  "production_issue": 8,
+  "published_issue": 1,
+  "slug": "genesis",
+  "seed": 20260718,
+  "story_pages": 22,
+  "total_panels": 96,
+  "total_images": 24,
+  "deliverables": {
+    "front_cover": "covers/01_FRONT_COVER.png (master) \u00b7 web/covers/01_FRONT_COVER.jpg",
+    "back_cover": "covers/24_BACK_COVER.png (master) \u00b7 web/covers/24_BACK_COVER.jpg",
+    "story_pages": "story_pages/02_PAGE_01.png .. 23_PAGE_22.png (masters) \u00b7 web/story_pages/*.jpg",
+    "cbz": "release/MonkeyZoo_Genesis.cbz",
+    "pdf": "release/MonkeyZoo_Genesis.pdf",
+    "manifest": "release/release_manifest.json",
+    "checksums": "release/SHA256SUMS.txt",
+    "layout_plan": "GENESIS_LAYOUT_PLAN.json / .md",
+    "contact_sheet": "previews/full_issue_contact_sheet.jpg"
+  },
+  "source": {
+    "panels": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview",
+    "panel_resolution": "1280x720 (web tier)",
+    "source_issue": "02_MONTHLY_ISSUES/2026-09_Issue_02/page_panel_plan.json"
+  },
+  "qa_overall": true
+}

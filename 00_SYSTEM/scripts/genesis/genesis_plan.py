@@ -98,6 +98,21 @@ IMPORTANCE = {
     "dialogue": 0.45, "beat": 0.4, "transition": 0.3,
 }
 
+# The source "caption" field holds beat/director shorthand ("Quick reassurance
+# risk", "A real choice"), NOT reader copy -- rendering it makes the issue read
+# like an annotated storyboard. We keep it as an internal beat_note and instead
+# place clean scene-establishing captions at each new location (standard comic
+# grammar, derived from real location data, not invented story).
+LOCATION_CAPTIONS = {
+    "Zoo City Streets": "ZOO CITY",
+    "School / Public Address Zone": "ZOO CITY — SCHOOL",
+    "Early-Fall Storm Streets and Routine Nodes": "ACROSS ZOO CITY",
+    "Transit Announcement Hub": "TRANSIT HUB",
+    "Old Relay Junction": "OLD RELAY JUNCTION",
+}
+OPENING_CAPTION = "ZOO CITY — EARLY FALL"
+CLOSING_CAPTION = "END — MONKEYZOO RETURNS"
+
 
 def load_panels() -> list[dict]:
     plan = json.loads(SOURCE_PLAN.read_text(encoding="utf-8"))
@@ -221,6 +236,8 @@ def build_plan() -> dict:
     bounds = segment(panels)
     pages = []
     prev_template = None
+    prev_scene = None
+    n_pages = len(bounds)
     for pi, (a, b) in enumerate(bounds):
         group = panels[a:b]
         size = len(group)
@@ -245,10 +262,32 @@ def build_plan() -> dict:
                 "beat": g["beat"],
                 "characters": g["characters"],
                 "dialogue": g["dialogue"],
-                "caption": g["caption"],
+                "caption": "",                      # reader caption assigned below
+                "beat_note": g["caption"],          # internal beat shorthand (not rendered)
                 "sfx": g["sfx"],
                 "dialogue_words": g["dialogue_words"],
             })
+        # Scene-establishing caption on the first source-order panel of a page
+        # that opens a new location; opening/closing get special captions.
+        page_open = group[0]
+        first_pid = page_open["source_panel_id"]
+        cap = None
+        if pi == 0:
+            cap = OPENING_CAPTION
+        elif page_open["scene"] != prev_scene:
+            cap = LOCATION_CAPTIONS.get(page_open["location"], page_open["location"].upper())
+        if cap:
+            for pp in page_panels:
+                if pp["source_panel_id"] == first_pid:
+                    pp["caption"] = cap
+                    break
+        if pi == n_pages - 1:
+            last_pid = group[-1]["source_panel_id"]
+            for pp in page_panels:
+                if pp["source_panel_id"] == last_pid:
+                    pp["caption"] = CLOSING_CAPTION
+                    break
+        prev_scene = group[-1]["scene"]
         beats = [g["beat"] for g in group]
         pages.append({
             "page_number": pi + 1,

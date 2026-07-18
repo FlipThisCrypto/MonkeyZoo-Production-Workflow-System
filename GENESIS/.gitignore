@@ -1,0 +1,5 @@
+# Genesis heavy print-tier masters — deterministically regenerable from the
+# layout plan + source panels via 00_SYSTEM/scripts/genesis/genesis_build.py.
+# The tracked web/ edition + release/ CBZ+PDF are the shipped deliverable.
+/story_pages/
+/covers/*.png
