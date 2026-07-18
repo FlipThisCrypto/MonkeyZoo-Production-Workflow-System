@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "title": "MonkeyZoo / Banana Lab \u2014 Project Direction",
+  "title": "MonkeyZoo / Banana Lab — Project Direction",
   "subtitle": "Single-owner creative production system for MonkeyZoo comics",
-  "updated": "2026-07-16",
+  "updated": "2026-07-18",
   "active_one_thing": {
     "id": "issue-03-scarline-script",
-    "title": "Issue 03 \u2014 promote full script for Scarline",
+    "title": "Issue 03 — promote full script for Scarline",
     "status": "next",
     "completed_just_now": "issue-03-scarline-scaffold",
     "note": "MZ-2026-10-02 The House That Remembers created; outline promoted; stage script. (Edition 02 avoids published Oct live-probe.)"
@@ -16,9 +16,9 @@
     "series": "MonkeyZoo",
     "company": "Fiend Studios"
   },
-  "north_star": "Ship monthly MonkeyZoo comic issues with consistent characters, locations, props, and continuity \u2014 using a local, evidence-gated production pipeline that never pretends work is done without real artifacts.",
+  "north_star": "Ship monthly MonkeyZoo comic issues with consistent characters, locations, props, and continuity — using a local, evidence-gated production pipeline that never pretends work is done without real artifacts.",
   "current_mode": {
-    "phase": "Phase 0 \u2014 Local ship",
+    "phase": "Phase 0 — Local ship",
     "status": "active",
     "summary": "Writable Studio runs only on the owner machine (127.0.0.1:8765). GitHub Pages is public read-only. Work access uses RDP/Tailscale into the home PC, not a public write URL.",
     "start_command": ".\\Start-BananaLab.ps1",
@@ -26,7 +26,7 @@
     "tag_baseline": "v0.9.0-local-ship"
   },
   "how_to_use_this_map": [
-    "Open Studio \u2192 Project Map (this view) for live status filters and full instructions.",
+    "Open Studio → Project Map (this view) for live status filters and full instructions.",
     "Or read docs/PROJECT_DIRECTION.md and 00_SYSTEM/project_direction.json in the repo.",
     "Statuses: done = shipped/usable; active = current focus; next = recommended soon; later = deferred; blocked = waiting on a decision or dependency.",
     "Do not open a public writable backend until Phase 1 auth is real (see HOSTING_PLAN.md)."
@@ -34,28 +34,28 @@
   "phases": [
     {
       "id": "phase-0",
-      "name": "Phase 0 \u2014 Local ship",
+      "name": "Phase 0 — Local ship",
       "status": "done",
       "goal": "Owner can produce and publish issue archives on one trusted PC.",
-      "instructions": "Run Start-BananaLab.ps1, work issues through intake \u2192 published, backup with Backup-BananaLab.ps1. Prefer RDP/Tailscale for remote use; never port-forward 8765 to the open internet."
+      "instructions": "Run Start-BananaLab.ps1, work issues through intake → published, backup with Backup-BananaLab.ps1. Prefer RDP/Tailscale for remote use; never port-forward 8765 to the open internet."
     },
     {
       "id": "phase-1",
-      "name": "Phase 1 \u2014 Private hosted single-user",
+      "name": "Phase 1 — Private hosted single-user",
       "status": "later",
       "goal": "Browser access from work over HTTPS with authentication.",
       "instructions": "Only start when RDP is no longer enough. Implement session auth, CSRF, production WSGI, env secrets, healthz, upload limits. See docs/HOSTING_PLAN.md. Do not deploy Flask debug on a public IP."
     },
     {
       "id": "phase-2",
-      "name": "Phase 2 \u2014 Small team",
+      "name": "Phase 2 — Small team",
       "status": "later",
       "goal": "Owner vs reviewer roles, audit log, optional object storage.",
       "instructions": "After Phase 1 is stable. Extend locks and approval identity; optional S3 for art."
     },
     {
       "id": "phase-3",
-      "name": "Phase 3 \u2014 Productized SaaS",
+      "name": "Phase 3 — Productized SaaS",
       "status": "later",
       "goal": "Multi-tenant product (out of scope for v1).",
       "instructions": "Explicitly deferred. Do not design multi-tenant isolation until single-owner + small team paths are proven."
@@ -185,7 +185,7 @@
           "title": "Locations & Props foundation browsers",
           "status": "done",
           "priority": "P1",
-          "instructions": "Use Foundations \u2192 Locations / Props to browse inventories and bibles. Inventories live under 03_APPROVED_CANON/approved_locations|props.",
+          "instructions": "Use Foundations → Locations / Props to browse inventories and bibles. Inventories live under 03_APPROVED_CANON/approved_locations|props.",
           "docs": [
             "docs/LOCATIONS_PROPS_WORKSPACE.md"
           ]
@@ -206,7 +206,7 @@
           "title": "Expressions foundation browser",
           "status": "done",
           "priority": "P1",
-          "instructions": "Open Foundations \u2192 Expressions when approved_expressions sheets exist on disk. PNG binaries are owner-managed (backup them); git may not track every plate.",
+          "instructions": "Open Foundations → Expressions when approved_expressions sheets exist on disk. PNG binaries are owner-managed (backup them); git may not track every plate.",
           "docs": [
             "docs/BACKUPS.md",
             "docs/LOCATIONS_PROPS_WORKSPACE.md"
@@ -257,12 +257,12 @@
     },
     {
       "id": "creative-season",
-      "title": "Season creative \u2014 Emo Monkeys: The Signal Between Us",
+      "title": "Season creative — Emo Monkeys: The Signal Between Us",
       "order": 3,
       "tasks": [
         {
           "id": "season-bible",
-          "title": "Season bible & location/prop tracker (Aug 2026\u2013Jan 2027)",
+          "title": "Season bible & location/prop tracker (Aug 2026–Jan 2027)",
           "status": "done",
           "priority": "P0",
           "instructions": "Source of story truth for six issues: story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/. Proposed story canon stays out of world_bible until owner merge.",
@@ -273,7 +273,7 @@
         },
         {
           "id": "issue-01-neonblue",
-          "title": "Issue 01 \u2014 NeonBlue / festival (spotlight)",
+          "title": "Issue 01 — NeonBlue / festival (spotlight)",
           "status": "done",
           "priority": "P0",
           "instructions": "DONE as draft pipeline publish. MZ-2026-08-01 The Last Light Of Summer is stage published with archive. Optional: final art upgrade before merch/print claims.",
@@ -288,7 +288,7 @@
           "title": "Issue 01 story package (outline + script promoted)",
           "status": "done",
           "priority": "P0",
-          "instructions": "DONE 2026-07-15. Created MZ-2026-08-01 The Last Light Of Summer (NeonBlue + Lil Devil). Advanced intake\u2192canon\u2192outline\u2192script. Promoted season-bible-aligned outline and 24-panel script. Active stage is page_plan.",
+          "instructions": "DONE 2026-07-15. Created MZ-2026-08-01 The Last Light Of Summer (NeonBlue + Lil Devil). Advanced intake→canon→outline→script. Promoted season-bible-aligned outline and 24-panel script. Active stage is page_plan.",
           "docs": [
             "02_MONTHLY_ISSUES/2026-08_Issue_01/",
             "scripts/drive_issue_01_neonblue_story.py"
@@ -296,7 +296,7 @@
         },
         {
           "id": "issue-02-static",
-          "title": "Issue 02 \u2014 Static / storm & six-tone",
+          "title": "Issue 02 — Static / storm & six-tone",
           "status": "done",
           "priority": "P0",
           "instructions": "DONE as draft pipeline publish 2026-07-16. MZ-2026-09-02 Signals In The Silence stage published; archive 05_RELEASE_ARCHIVE/2026/2026-09_Issue_02. Optional: final art upgrade.",
@@ -319,7 +319,7 @@
         },
         {
           "id": "issue-02-page-plan",
-          "title": "Issue 02 \u2014 promote page_panel_plan",
+          "title": "Issue 02 — promote page_panel_plan",
           "status": "done",
           "priority": "P0",
           "instructions": "DONE 2026-07-16. Layout variant validated, approved, promoted page_panel_plan.json (8 pages / 24 panels). Advanced to art_prompts.",
@@ -330,7 +330,7 @@
         },
         {
           "id": "issue-02-art-prompt-pack",
-          "title": "Issue 02 \u2014 art prompt pack promote",
+          "title": "Issue 02 — art prompt pack promote",
           "status": "done",
           "priority": "P0",
           "instructions": "DONE 2026-07-16. art_prompt_pack.json promoted (24 panels); advanced to art_production.",
@@ -341,7 +341,7 @@
         },
         {
           "id": "issue-02-art-production",
-          "title": "Issue 02 \u2014 draft composites for 24 panels",
+          "title": "Issue 02 — draft composites for 24 panels",
           "status": "done",
           "priority": "P0",
           "instructions": "DONE 2026-07-16. Draft composites from location plates + character refs selected for all 24 panels; advanced to qa. Draft tier only.",
@@ -352,7 +352,7 @@
         },
         {
           "id": "issue-02-qa-release",
-          "title": "Issue 02 \u2014 QA PASS + release archive publish",
+          "title": "Issue 02 — QA PASS + release archive publish",
           "status": "done",
           "priority": "P0",
           "instructions": "DONE 2026-07-16. Re-QA after assets; cover/PDF/CBZ/CHIP-0015; published 05_RELEASE_ARCHIVE/2026/2026-09_Issue_02; stage published.",
@@ -363,7 +363,7 @@
         },
         {
           "id": "issue-03-scarline-scaffold",
-          "title": "Issue 03 \u2014 create Scarline package + intake brief",
+          "title": "Issue 03 — create Scarline package + intake brief",
           "status": "done",
           "priority": "P0",
           "instructions": "DONE 2026-07-16. Created MZ-2026-10-02 The House That Remembers (Scarline + Zombie). Brief filed; canon approved; outline promoted; stage script.",
@@ -373,7 +373,7 @@
         },
         {
           "id": "issue-03-scarline-script",
-          "title": "Issue 03 \u2014 promote full script",
+          "title": "Issue 03 — promote full script",
           "status": "next",
           "priority": "P0",
           "instructions": "NEXT. Write/import 24-panel script for The House That Remembers; approve; promote; advance to page_plan.",
@@ -384,17 +384,17 @@
         },
         {
           "id": "issue-03-scarline",
-          "title": "Issue 03 \u2014 Scarline / haunted attraction",
+          "title": "Issue 03 — Scarline / haunted attraction",
           "status": "active",
           "priority": "P1",
-          "instructions": "IN PROGRESS. MZ-2026-10-02 scaffolded with outline at script stage. Continue: script \u2192 page plan \u2192 art pack \u2192 draft panels \u2192 QA \u2192 release.",
+          "instructions": "IN PROGRESS. MZ-2026-10-02 scaffolded with outline at script stage. Continue: script → page plan → art pack → draft panels → QA → release.",
           "docs": [
             "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md"
           ]
         },
         {
           "id": "issue-04-moodz",
-          "title": "Issue 04 \u2014 Moodz / community meal",
+          "title": "Issue 04 — Moodz / community meal",
           "status": "later",
           "priority": "P1",
           "instructions": "Community meal hall + auto-harmony seating rejection arc; empty placesetting final beat.",
@@ -404,7 +404,7 @@
         },
         {
           "id": "issue-05-ash",
-          "title": "Issue 05 \u2014 Ash / winter shelter & heating node",
+          "title": "Issue 05 — Ash / winter shelter & heating node",
           "status": "later",
           "priority": "P1",
           "instructions": "Shelter + heating infrastructure; heating sequence plate; strength alone cannot fix the node.",
@@ -414,7 +414,7 @@
         },
         {
           "id": "issue-06-twotone",
-          "title": "Issue 06 \u2014 TwoTone / central Echo relay finale",
+          "title": "Issue 06 — TwoTone / central Echo relay finale",
           "status": "later",
           "priority": "P1",
           "instructions": "Central relay + two-path display + complete Echo emblem. Third path must be earned by season setup.",
@@ -510,7 +510,7 @@
         },
         {
           "id": "story-path",
-          "title": "Outline \u2192 script promote",
+          "title": "Outline → script promote",
           "status": "done",
           "priority": "P0",
           "instructions": "Generate/import Markdown variants, approve, promote. First promote may replace create-issue stubs (Studio handles replace).",
@@ -541,7 +541,7 @@
         },
         {
           "id": "qa-release-path",
-          "title": "QA PASS \u2192 release archive publish",
+          "title": "QA PASS → release archive publish",
           "status": "done",
           "priority": "P0",
           "instructions": "Finalize QA with VERDICT: PASS, promote report, build release checklist/metadata/exports, approve, promote manifest, publish archive under unique year/folder path.",
@@ -556,7 +556,7 @@
           "title": "One full creative proof issue (lettered PDF/CBZ quality)",
           "status": "done",
           "priority": "P0",
-          "instructions": "DONE as draft-tier pipeline proof for Issue 01 (published archive). Not final print lettering/illustration quality \u2014 see issue-01-final-art-upgrade for optional upgrade path.",
+          "instructions": "DONE as draft-tier pipeline proof for Issue 01 (published archive). Not final print lettering/illustration quality — see issue-01-final-art-upgrade for optional upgrade path.",
           "docs": [
             "docs/PACKAGE_EXPORTS.md",
             "docs/OPERATOR_RUNBOOK.md",
@@ -565,7 +565,7 @@
         },
         {
           "id": "issue-01-page-plan",
-          "title": "Issue 01 \u2014 promote page_panel_plan from NeonBlue script",
+          "title": "Issue 01 — promote page_panel_plan from NeonBlue script",
           "status": "done",
           "priority": "P0",
           "instructions": "DONE 2026-07-15. Layout variant validated (0 errors), approved, promoted page_panel_plan.json: 8 pages / 24 panels. Workflow advanced to art_prompts.",
@@ -576,7 +576,7 @@
         },
         {
           "id": "issue-01-art-prompt-pack",
-          "title": "Issue 01 \u2014 build/approve/promote art_prompt_pack",
+          "title": "Issue 01 — build/approve/promote art_prompt_pack",
           "status": "done",
           "priority": "P0",
           "instructions": "DONE 2026-07-15. Pack variant validated (0 errors), approved, promoted art_prompt_pack.json with 24 panels. Workflow advanced to art_production.",
@@ -587,10 +587,10 @@
         },
         {
           "id": "issue-01-art-production",
-          "title": "Issue 01 \u2014 art queue + preferred panels (24)",
+          "title": "Issue 01 — art queue + preferred panels (24)",
           "status": "done",
           "priority": "P0",
-          "instructions": "DONE 2026-07-15. Built queue; composed draft panels from approved location plates + character primary refs (scripts/compose_issue01_draft_panels.py); imported and selected preferred for all 24 panels; owner-approved art_production; advanced to qa. NOTE: drafts are production composites for pipeline evidence \u2014 replace with final illustrated panels before public release quality claim.",
+          "instructions": "DONE 2026-07-15. Built queue; composed draft panels from approved location plates + character primary refs (scripts/compose_issue01_draft_panels.py); imported and selected preferred for all 24 panels; owner-approved art_production; advanced to qa. NOTE: drafts are production composites for pipeline evidence — replace with final illustrated panels before public release quality claim.",
           "docs": [
             "docs/ART_QUEUE_WORKSPACE.md",
             "02_MONTHLY_ISSUES/2026-08_Issue_01/generated_art/selected_panels/",
@@ -599,7 +599,7 @@
         },
         {
           "id": "issue-01-qa",
-          "title": "Issue 01 \u2014 Visual QA PASS",
+          "title": "Issue 01 — Visual QA PASS",
           "status": "done",
           "priority": "P0",
           "instructions": "DONE 2026-07-15. QA review created with 0 objective blockers; finalized PASS; promoted qa_report.md; qa gate approved; advanced to release. Advisory: cover image still absent (owned by Release). Draft composites accepted only as pipeline evidence.",
@@ -610,10 +610,10 @@
         },
         {
           "id": "issue-01-release",
-          "title": "Issue 01 \u2014 release package + publish archive",
+          "title": "Issue 01 — release package + publish archive",
           "status": "done",
           "priority": "P0",
-          "instructions": "DONE 2026-07-16. Cover, PDF, CBZ, CHIP-0015 metadata, social/checklist prepared; re-QA PASS after assets; approve \u2192 promote manifest \u2192 publish archive 05_RELEASE_ARCHIVE/2026/2026-08_Issue_01; stage published; publication_ready true. Art tier remains draft_composite.",
+          "instructions": "DONE 2026-07-16. Cover, PDF, CBZ, CHIP-0015 metadata, social/checklist prepared; re-QA PASS after assets; approve → promote manifest → publish archive 05_RELEASE_ARCHIVE/2026/2026-08_Issue_01; stage published; publication_ready true. Art tier remains draft_composite.",
           "docs": [
             "docs/RELEASE_WORKSPACE.md",
             "docs/PACKAGE_EXPORTS.md",
@@ -673,6 +673,24 @@
           ]
         }
       ]
+    },
+    {
+      "id": "genesis-issue",
+      "title": "MonkeyZoo: Genesis — finished 22-page issue (Published Issue 01)",
+      "order": 7,
+      "tasks": [
+        {
+          "id": "genesis-assembled",
+          "title": "Assemble Genesis (layout, lettering, covers, release)",
+          "status": "done",
+          "priority": "P1",
+          "instructions": "Complete 22-page web edition in GENESIS/ from the 96 Issue-02 integrated panels. Rebuild: python 00_SYSTEM/scripts/genesis/{genesis_plan,genesis_build,genesis_release,genesis_qa,genesis_report}.py . PR #30. Layout/lettering/packaging only; bespoke ComfyUI art re-renders and canon promotion remain owner-gated.",
+          "docs": [
+            "GENESIS/README.md",
+            "GENESIS/GENESIS_RELEASE_REPORT.md"
+          ]
+        }
+      ]
     }
   ],
   "quick_links": [
@@ -715,6 +733,10 @@
     {
       "label": "This task map (markdown)",
       "path": "docs/PROJECT_DIRECTION.md"
+    },
+    {
+      "label": "MonkeyZoo: Genesis (finished Issue 01)",
+      "path": "GENESIS/README.md"
     }
   ],
   "recommended_order": [
