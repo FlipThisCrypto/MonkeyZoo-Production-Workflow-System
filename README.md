@@ -69,7 +69,7 @@ The local Studio, validators, and pipeline tooling are covered by a pytest
 suite. From the repo root:
 
 ```
-pip install pytest pytest-asyncio anyio flask Pillow pyyaml jsonschema numpy scipy
+pip install -r requirements-dev.txt  # Studio + validators + test suite
 python -m pytest                     # full suite (the same set CI runs)
 python -m pytest character-bibles/_review_app/tests -q   # just the Studio app
 ```
