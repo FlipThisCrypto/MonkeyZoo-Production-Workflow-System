@@ -151,6 +151,36 @@ def test_qa_gate_passes_on_integrated_poc():
     assert result["verdict"] == "PASS", result["fail_reasons"]
 
 
+# --- plate-baseline subtraction branch (used by validate_issue --integration) ---
+
+def test_qa_gate_plate_baseline_keeps_defect_absent_from_plate(tmp_path):
+    """The plate-baseline path must only subtract findings that the plate
+    itself owns. A genuine pasted-card defect that is NOT in the plate must
+    still FAIL -- otherwise baselining could scrub real defects before Gate A."""
+    if not BEFORE_IMG.exists():
+        pytest.skip(f"fixture missing: {BEFORE_IMG}")
+    img = Image.open(BEFORE_IMG).convert("RGB")
+    plain_plate = tmp_path / "plain_plate.png"
+    Image.new("RGB", img.size, (128, 128, 128)).save(plain_plate)   # no known-bad colors
+    result = run_gate(BEFORE_IMG, foot_anchor_px=(300, 640), plate_path=plain_plate)
+    assert result["verdict"] == "FAIL"
+    assert result["known_bad_color_regions_found"] > 0, \
+        "a defect absent from the plate must survive baseline subtraction"
+
+
+def test_qa_gate_plate_baseline_subtracts_plate_owned_region():
+    """When the same region is present in the plate, it is plate content and
+    must be subtracted out -- pins the Cycle-23 baseline behaviour."""
+    if not BEFORE_IMG.exists():
+        pytest.skip(f"fixture missing: {BEFORE_IMG}")
+    # plate == composite: every finding overlaps an identical plate finding
+    result = run_gate(BEFORE_IMG, foot_anchor_px=(300, 640), plate_path=BEFORE_IMG)
+    assert result["known_bad_color_regions_found"] == 0, \
+        "plate-owned known-bad regions must be subtracted"
+    assert result["flat_card_regions_found"] == 0, \
+        "plate-owned flat regions must be subtracted"
+
+
 # ---------------------------------------------------------------------------
 # identity_check -- calibrated against the real Cycle-13 drift renders
 # ---------------------------------------------------------------------------
