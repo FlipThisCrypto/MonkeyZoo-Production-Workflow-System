@@ -50,7 +50,7 @@ F_SFX_SMALL = _font("ariali.ttf", 52)
 F_SCREEN = _font("consola.ttf", 40)
 F_WM = _font("comicbd.ttf", 54)
 F_PAGENO = _font("arial.ttf", 40)
-F_TITLE = ImageFont.truetype(str(FONTS / "impact.ttf"), 170)
+F_TITLE = _font("impact.ttf", 170)
 
 
 def wrap(draw, text, font, max_w):
