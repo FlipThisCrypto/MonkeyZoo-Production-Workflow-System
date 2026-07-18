@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
 import sys
 
@@ -387,5 +388,14 @@ def handle_error(exc):
     return jsonify({"ok": False, "error": message}), status
 
 
+def _debug_enabled() -> bool:
+    """Flask debug (Werkzeug's interactive debugger) is an in-browser RCE
+    console. This is a WRITABLE local service that performs filesystem writes,
+    so debug/reloader stay OFF by default and must be opted into explicitly for
+    local development via MZ_STUDIO_DEBUG=1."""
+    return os.environ.get("MZ_STUDIO_DEBUG", "").strip().lower() in {"1", "true", "yes", "on"}
+
+
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=8765, debug=True)
+    debug = _debug_enabled()
+    app.run(host="127.0.0.1", port=8765, debug=debug, use_reloader=debug)

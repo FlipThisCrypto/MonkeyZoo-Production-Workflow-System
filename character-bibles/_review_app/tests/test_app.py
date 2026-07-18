@@ -140,3 +140,22 @@ def test_create_issue_api_rejects_bad_json_as_400(client, body, content_type):
     assert res.status_code == 400
     assert res.get_json()["ok"] is False
     assert res.get_json()["error"]
+
+
+# --- Flask debug (Werkzeug RCE console) must default OFF on the writable server ---
+
+def test_debug_disabled_by_default(monkeypatch):
+    monkeypatch.delenv("MZ_STUDIO_DEBUG", raising=False)
+    assert review_app._debug_enabled() is False
+
+
+@pytest.mark.parametrize("value", ["0", "false", "no", "off", "", "  ", "nope"])
+def test_debug_stays_off_for_non_truthy_values(monkeypatch, value):
+    monkeypatch.setenv("MZ_STUDIO_DEBUG", value)
+    assert review_app._debug_enabled() is False
+
+
+@pytest.mark.parametrize("value", ["1", "true", "TRUE", "Yes", "on"])
+def test_debug_opt_in_only_via_explicit_flag(monkeypatch, value):
+    monkeypatch.setenv("MZ_STUDIO_DEBUG", value)
+    assert review_app._debug_enabled() is True
