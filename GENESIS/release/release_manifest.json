@@ -39,13 +39,13 @@
   "artifacts": {
     "cbz": {
       "file": "MonkeyZoo_Genesis.cbz",
-      "sha256": "f8fd327f8df4cfc2a742e30b2a0def3d488f35bebd3b53f964b2cd9efc437026",
-      "bytes": 11660926
+      "sha256": "5dffbcc799a6c49369fe09f9374f194f336c0345b54ef9fa7a1e09a867c8a820",
+      "bytes": 11402230
     },
     "pdf": {
       "file": "MonkeyZoo_Genesis.pdf",
-      "sha256": "4c083295e90c09a86fbc2da98a0ac80ec923cb8a78c12f04ac75f6fffa110790",
-      "bytes": 8914250
+      "sha256": "33438f49a1147f82bf63def35f22c628a177b5203ed1c25cfdf6e23663375088",
+      "bytes": 8783047
     }
   }
 }

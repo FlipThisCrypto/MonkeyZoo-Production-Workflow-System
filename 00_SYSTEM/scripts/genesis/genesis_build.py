@@ -99,34 +99,48 @@ def split_dialogue(s: str) -> list[tuple[str, str]]:
     return out
 
 
+# Speakers that need an explicit label because a tail can't identify them
+# (electronic / public-address / off-panel / on-screen). Ordinary cast speech
+# drops the label and relies on the balloon tail, as in real comics.
+LABELLED_SPEAKERS = {"PA", "SCREEN", "RADIO", "RELAY", "SIGNAL", "OFF", "OFF-PANEL",
+                     "ANNOUNCE", "ANNOUNCEMENT", "MONITOR", "SPEAKER", "COMM"}
+
+
 def _letter_panel(d: ImageDraw.ImageDraw, rect, panel: dict, splash: bool) -> list[str]:
     """Draw dialogue/caption/SFX for one panel; return lettering warnings."""
     sx, sy, sw, sh = rect
     warns = []
-    balloons = split_dialogue(panel.get("dialogue", ""))
-    if balloons:
+    parsed = split_dialogue(panel.get("dialogue", ""))
+    speech = [(s, t) for s, t in parsed if s != "CAPTION"]
+    dialogue_caps = [t for s, t in parsed if s == "CAPTION"]   # CAPTION: -> narration box
+    if speech:
         max_w = min(560, int(sw * 0.8))
-        step = sw / (len(balloons) + 1)
-        for i, (spk, txt) in enumerate(balloons, 1):
+        step = sw / (len(speech) + 1)
+        for i, (spk, txt) in enumerate(speech, 1):
             bx = sx + step * i
             by = sy + 0.17 * sh
-            ap.draw_bubble(d, bx, by, txt, spk, max_w=max_w)
+            # keep the label only for electronic/off-panel voices; ordinary cast
+            # speech uses the tail (no "STATIC:" style prefix)
+            tag = spk if spk.upper() in LABELLED_SPEAKERS else ""
+            ap.draw_bubble(d, bx, by, txt, tag, max_w=max_w)
             if len(txt.split()) > 35:
                 warns.append(f"balloon >35 words: {panel['source_panel_id']}")
-    cap = panel.get("caption", "")
-    if not ap._is_blank(cap):
-        for part in [p for p in cap.split(" / ") if not ap._is_blank(p)]:
-            cy = sy + 0.80 * sh
-            cx = sx + 0.03 * sw
-            ap.draw_caption(d, cx, cy, part.strip(), max_w=int(sw * 0.9))
+    # captions: scene stamp (panel["caption"]) + any CAPTION: narration
+    cap_parts = [p for p in str(panel.get("caption", "")).split(" / ") if not ap._is_blank(p)]
+    cap_parts += dialogue_caps
+    cy = sy + 0.80 * sh
+    for part in cap_parts:
+        cx = sx + 0.03 * sw
+        h = ap.draw_caption(d, cx, cy, part.strip(), max_w=int(sw * 0.9))
+        cy -= (h + 14)                       # stack upward if more than one
     sfx = panel.get("sfx", "")
     if not ap._is_blank(sfx):
-        sfx_y = 0.66 if balloons else 0.12   # keep SFX clear of top-anchored balloons
+        sfx_y = 0.66 if speech else 0.12     # keep SFX clear of top-anchored balloons
         ap.draw_sfx(d, sx + 0.60 * sw, sy + sfx_y * sh, sfx, small=("bmp" in sfx.lower()))
     return warns
 
 
-def render_page(page: dict, panel_dir: Path) -> tuple[Image.Image, list[str]]:
+def render_page(page: dict, panel_dir: Path, crops: dict | None = None) -> tuple[Image.Image, list[str]]:
     canvas = Image.new("RGB", (PAGE_W, PAGE_H), "white")
     d = ImageDraw.Draw(canvas)
     template = page["layout_template"]
@@ -134,12 +148,14 @@ def render_page(page: dict, panel_dir: Path) -> tuple[Image.Image, list[str]]:
     rects = template_rects(template, count)
     warns = []
     splash = template == "splash"
+    crops = crops or {}
     for panel, rect in zip(page["panels"], rects):
         sx, sy, sw, sh = rect
         pid = panel["source_panel_id"]
         art_path = panel_dir / f"{pid}.png"
         if art_path.exists():
-            art = ap.fit_cover(Image.open(art_path).convert("RGB"), sw, sh)
+            crop = crops.get(pid)                        # crop-variation window (L,T,R,B) or None
+            art = ap.fit_cover(Image.open(art_path).convert("RGB"), sw, sh, crop)
             canvas.paste(art, (sx, sy))
         else:
             d.rectangle([sx, sy, sx + sw, sy + sh], fill=(210, 210, 210))
@@ -241,10 +257,14 @@ def build(genesis_dir: Path) -> dict:
     front.save(covers / "01_FRONT_COVER.png"); _save_web(front, web_c / "01_FRONT_COVER.png")
     back.save(covers / "24_BACK_COVER.png"); _save_web(back, web_c / "24_BACK_COVER.png")
 
+    # crop-variation windows (from genesis_dupes) reframe reused backgrounds
+    crops_file = genesis_dir / "metadata" / "panel_crops.json"
+    crops = json.loads(crops_file.read_text(encoding="utf-8"))["crops"] if crops_file.exists() else {}
+
     # story pages -> numbered 02..23 (01=front, 24=back)
     page_imgs = []
     for pg in plan["pages"]:
-        img, warns = render_page(pg, panel_dir)
+        img, warns = render_page(pg, panel_dir, crops)
         all_warns += warns
         seq = pg["page_number"] + 1                 # page 1 -> file index 02
         name = f"{seq:02d}_PAGE_{pg['page_number']:02d}.png"
