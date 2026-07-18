@@ -82,3 +82,52 @@ def test_string_page_number_in_pack_is_reported_not_crashed(tmp_path, capsys):
     _write_issue(tmp_path, "2026-05_Issue_03", plan=plan, pack=pack)
     assert _run("2026-05_Issue_03") == 1
     assert "non-integer page_number" in capsys.readouterr().out
+
+
+# --- gate content checks: Rule-3 style lock, prompt/negative prefixes, cross-ref ---
+
+_PLAN_PID = "MZ-2026-05-01_P01_PANEL01"
+
+
+def _plan_one(pid=_PLAN_PID):
+    return {"issue_id": "MZ-2026-05-01", "issue_title": "T", "page_count": 1,
+            "pages": [{"page_number": 1, "page_purpose": "x", "panels": [_panel(pid)]}]}
+
+
+def _pack(style="MonkeyZoo house style", base="lowres", panels=None):
+    return {"issue_id": "MZ-2026-05-01", "style_lock_phrase": style,
+            "base_negative_prompt": base, "panels": panels if panels is not None else []}
+
+
+def _pack_panel(pid=_PLAN_PID, prompt="MonkeyZoo house style, a scene",
+                negative="lowres, blurry", page_number=1):
+    return {"panel_id": pid, "page_number": page_number, "prompt": prompt, "negative_prompt": negative}
+
+
+def test_altered_style_lock_phrase_is_flagged(tmp_path, capsys):
+    pack = _pack(style="Off-brand house style", panels=[_pack_panel(prompt="Off-brand house style x")])
+    _write_issue(tmp_path, "2026-05_Issue_10", plan=_plan_one(), pack=pack)
+    assert _run("2026-05_Issue_10") == 1
+    assert "style_lock_phrase missing or altered" in capsys.readouterr().out
+
+
+def test_prompt_not_starting_with_lock_is_flagged(tmp_path, capsys):
+    pack = _pack(panels=[_pack_panel(prompt="a non-conforming prompt")])
+    _write_issue(tmp_path, "2026-05_Issue_11", plan=_plan_one(), pack=pack)
+    assert _run("2026-05_Issue_11") == 1
+    assert "prompt does not start with style lock phrase" in capsys.readouterr().out
+
+
+def test_negative_not_starting_with_base_is_flagged(tmp_path, capsys):
+    pack = _pack(panels=[_pack_panel(negative="unrelated negative")])
+    _write_issue(tmp_path, "2026-05_Issue_12", plan=_plan_one(), pack=pack)
+    assert _run("2026-05_Issue_12") == 1
+    assert "negative does not start with base negative" in capsys.readouterr().out
+
+
+def test_plan_pack_panel_id_mismatch_is_flagged(tmp_path, capsys):
+    pack = _pack(panels=[_pack_panel(pid="MZ-2026-05-01_P09_PANEL09")])
+    _write_issue(tmp_path, "2026-05_Issue_13", plan=_plan_one(), pack=pack)
+    assert _run("2026-05_Issue_13") == 1
+    out = capsys.readouterr().out
+    assert "missing panels" in out or "unknown panels" in out
