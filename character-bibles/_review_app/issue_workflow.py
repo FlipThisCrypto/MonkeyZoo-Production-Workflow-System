@@ -217,7 +217,37 @@ def workflow_status(folder: Path, root: Path) -> dict[str, Any]:
     blockers = list(current["validation"]["messages"])
     if current["approval"]["required"] and not current["approval"]["approved"]:
         blockers.append("Owner approval is stale" if current["approval"]["stale"] else "Owner approval is required")
-    return {"issue_id": issue_id, "active_stage": current["id"], "current_stage": {k: current[k] for k in ("id", "number", "label", "state")}, "stages": stages, "blockers": blockers, "next_action": {"id": "advance", "label": f"Advance {current['label']}"}, "owner_approval_required": current["approval"]["required"], "approval": current["approval"], "state_source": "inferred", "state_notice": "Inferred from repository evidence; active stage defaults to Intake and no approval is inferred."} if inferred else {"issue_id": issue_id, "active_stage": current["id"], "current_stage": {k: current[k] for k in ("id", "number", "label", "state")}, "stages": stages, "blockers": blockers, "next_action": {"id": "advance", "label": f"Advance {current['label']}"}, "owner_approval_required": current["approval"]["required"], "approval": current["approval"], "state_source": "recorded", "state_notice": None}
+    # Integrity: a stage previously approved whose evidence hash no longer
+    # matches the current issue files. The current stage's staleness is
+    # already handled above; here we surface stale PRIOR (completed)
+    # approvals -- otherwise a terminal `published` issue whose files were
+    # changed after approval reports zero blockers and reads as clean,
+    # silently hiding that the record no longer matches what was approved
+    # and archived.
+    stale_prior = [s["id"] for i, s in enumerate(stages)
+                   if i != active_index and s["approval"].get("stale")
+                   and ((s["approval"].get("record") or {}).get("approved") is True)]
+    if stale_prior:
+        blockers.append(
+            "Approval evidence is stale for prior stage(s): "
+            + ", ".join(stale_prior)
+            + " — issue files changed after approval; re-approval required before this record is trustworthy")
+    integrity = {
+        "consistent": not stale_prior and not current["approval"].get("stale"),
+        "stale_stages": [s["id"] for s in stages if s["approval"].get("stale")],
+    }
+    base = {"issue_id": issue_id, "active_stage": current["id"],
+            "current_stage": {k: current[k] for k in ("id", "number", "label", "state")},
+            "stages": stages, "blockers": blockers,
+            "next_action": {"id": "advance", "label": f"Advance {current['label']}"},
+            "owner_approval_required": current["approval"]["required"],
+            "approval": current["approval"], "integrity": integrity}
+    if inferred:
+        base.update(state_source="inferred",
+                    state_notice="Inferred from repository evidence; active stage defaults to Intake and no approval is inferred.")
+    else:
+        base.update(state_source="recorded", state_notice=None)
+    return base
 
 
 def issue_detail(folder: Path, root: Path) -> dict[str, Any]:
