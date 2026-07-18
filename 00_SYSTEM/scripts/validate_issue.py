@@ -74,6 +74,9 @@ def main() -> None:
             err(f"plan: page_count={plan.get('page_count')} but {len(pages)} pages present")
         for page in pages:
             pn = page.get("page_number")
+            if not isinstance(pn, int) or isinstance(pn, bool):
+                err(f"plan: page has non-integer page_number {pn!r}")
+                continue
             for i, panel in enumerate(page.get("panels", []), 1):
                 pid = panel.get("panel_id", "")
                 expected = f"{iid}_P{pn:02d}_PANEL{i:02d}"
@@ -93,7 +96,11 @@ def main() -> None:
         pack_ids = []
         for p in pack.get("panels", []):
             pid = p.get("panel_id", "")
-            if p.get("page_number", 1) > 0:  # page 0 = establishing plates
+            pgno = p.get("page_number", 1)
+            if not isinstance(pgno, int) or isinstance(pgno, bool):
+                err(f"pack {pid}: non-integer page_number {pgno!r}")
+                pgno = 1  # treat as a normal panel so the remaining checks still run
+            if pgno > 0:  # page 0 = establishing plates
                 pack_ids.append(pid)
             if not p.get("prompt", "").startswith(pack.get("style_lock_phrase", "x")):
                 err(f"pack {pid}: prompt does not start with style lock phrase")

@@ -167,6 +167,21 @@ def find_art(issue_dir, pid):
     return sel if sel.exists() else None
 
 
+def compute_slots(recipe, panel_count):
+    """Panel bounding boxes for a page. A splash is one full-bleed slot; a page
+    with zero panels yields no slots -- guarding a legacy/malformed page whose
+    empty panels list otherwise hit `usable_h // 0` and crashed the whole run
+    with a ZeroDivisionError before any page was written."""
+    if recipe == "splash":
+        return [(0, 0, PAGE_W, PAGE_H)]
+    if panel_count <= 0:
+        return []
+    usable_h = PAGE_H - 2 * MARGIN - (panel_count - 1) * GUTTER
+    sh = usable_h // panel_count
+    return [(MARGIN, MARGIN + i * (sh + GUTTER), PAGE_W - 2 * MARGIN, sh)
+            for i in range(panel_count)]
+
+
 def main():
     issue = sys.argv[1]
     issue_dir = FACTORY / "02_MONTHLY_ISSUES" / issue
@@ -186,14 +201,7 @@ def main():
         canvas = Image.new("RGB", (PAGE_W, PAGE_H), "white")
         d = ImageDraw.Draw(canvas)
 
-        if recipe == "splash":
-            slots = [(0, 0, PAGE_W, PAGE_H)]
-        else:
-            count = len(panels)
-            usable_h = PAGE_H - 2 * MARGIN - (count - 1) * GUTTER
-            sh = usable_h // count
-            slots = [(MARGIN, MARGIN + i * (sh + GUTTER), PAGE_W - 2 * MARGIN, sh)
-                     for i in range(count)]
+        slots = compute_slots(recipe, len(panels))
 
         for panel, (sx, sy, sw, shh) in zip(panels, slots):
             pid = panel["panel_id"]

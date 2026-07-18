@@ -44,3 +44,32 @@ def test_multiple_balloons_split_and_drop_blank_parts():
     assert ap.parse_dialogue("MOODZ: hey / STATIC: yeah") == [("", "MOODZ: hey"), ("", "STATIC: yeah")]
     # a trailing/again em-dash part is dropped, real ones kept
     assert ap.parse_dialogue("MOODZ: hey / —") == [("", "MOODZ: hey")]
+
+
+# --- compute_slots: page layout geometry (regression for the empty-page crash) ---
+
+def test_compute_slots_empty_page_returns_no_slots_no_crash():
+    # a non-splash page with zero panels previously hit `usable_h // 0`
+    # (ZeroDivisionError) and aborted the whole Stage-8 run
+    assert ap.compute_slots("grid", 0) == []
+
+
+def test_compute_slots_splash_is_one_full_bleed_slot():
+    assert ap.compute_slots("splash", 0) == [(0, 0, ap.PAGE_W, ap.PAGE_H)]
+    # splash ignores panel count -- always one full-bleed slot
+    assert ap.compute_slots("splash", 5) == [(0, 0, ap.PAGE_W, ap.PAGE_H)]
+
+
+def test_compute_slots_grid_partitions_page_within_margins():
+    slots = ap.compute_slots("grid", 3)
+    assert len(slots) == 3
+    for (sx, sy, sw, shh) in slots:
+        assert sx == ap.MARGIN
+        assert sw == ap.PAGE_W - 2 * ap.MARGIN
+        assert shh > 0
+        assert sy >= ap.MARGIN
+        assert sy + shh <= ap.PAGE_H  # stays on the page
+    # slots are stacked top-to-bottom, non-overlapping
+    tops = [s[1] for s in slots]
+    assert tops == sorted(tops)
+    assert slots[1][1] >= slots[0][1] + slots[0][3]
