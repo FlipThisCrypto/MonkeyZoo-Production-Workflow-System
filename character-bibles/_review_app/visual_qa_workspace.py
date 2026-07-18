@@ -70,7 +70,7 @@ def evidence(folder):
    inventory.append(entry)
  duplicates=[ids for ids in hashes.values() if len(ids)>1]
  metadata=issue_workflow._json(folder/"metadata.json") or {};metadata_missing=[k for k in ("issue_id","title") if not metadata.get(k)]
- covers=list((folder/"generated_art").rglob("*cover*.png")) if (folder/"generated_art").exists() else []
+ covers=sorted((folder/"generated_art").rglob("*cover*.png")) if (folder/"generated_art").exists() else []  # sorted: evidence hash must be order-stable across platforms/restores (matches release_workspace)
  files=[folder/"page_panel_plan.json",folder/"metadata.json",folder/"cover_prompt.md",folder/"final_export_checklist.md",*sorted(p for p in selected.glob("*.png")),*covers] if selected.exists() else [folder/"page_panel_plan.json",folder/"metadata.json",folder/"cover_prompt.md",folder/"final_export_checklist.md",*covers]
  digest=hashlib.sha256()
  for path in files:
