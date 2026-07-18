@@ -1,0 +1,945 @@
+{
+  "issue": "MonkeyZoo: Genesis",
+  "pages": [
+    {
+      "page": 1,
+      "reader_side": "right",
+      "panel_count": 4,
+      "layout_template": "grid4",
+      "hero_panel": "MZ-2026-09-02_P01_PANEL01",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shots": [
+        "wide",
+        "medium",
+        "medium",
+        "close"
+      ],
+      "shot_mix": {
+        "wide": 1,
+        "medium": 2,
+        "close": 1
+      },
+      "dialogue_words": 10,
+      "balloon_count": 2,
+      "sfx_count": 3,
+      "close_background_repeats": 3,
+      "panels_reframed": 2,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "establishing",
+        "action",
+        "dialogue",
+        "dialogue"
+      ],
+      "page_turn_purpose": "cold open — establish tone and the first anomaly",
+      "actions_taken": [
+        "crop-variation reframed 2 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    },
+    {
+      "page": 2,
+      "reader_side": "left",
+      "panel_count": 4,
+      "layout_template": "feature_left3",
+      "hero_panel": "MZ-2026-09-02_P01_PANEL06",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003"
+      ],
+      "shots": [
+        "medium",
+        "wide",
+        "close",
+        "medium"
+      ],
+      "shot_mix": {
+        "medium": 2,
+        "wide": 1,
+        "close": 1
+      },
+      "dialogue_words": 21,
+      "balloon_count": 4,
+      "sfx_count": 1,
+      "close_background_repeats": 2,
+      "panels_reframed": 2,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "dialogue",
+        "action",
+        "dialogue",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 2 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    },
+    {
+      "page": 3,
+      "reader_side": "right",
+      "panel_count": 4,
+      "layout_template": "grid4",
+      "hero_panel": "MZ-2026-09-02_P02_PANEL03",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "shots": [
+        "medium",
+        "medium",
+        "close",
+        "wide"
+      ],
+      "shot_mix": {
+        "medium": 2,
+        "close": 1,
+        "wide": 1
+      },
+      "dialogue_words": 17,
+      "balloon_count": 3,
+      "sfx_count": 3,
+      "close_background_repeats": 2,
+      "panels_reframed": 2,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "dialogue",
+        "dialogue",
+        "reaction",
+        "establishing"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 2 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    },
+    {
+      "page": 4,
+      "reader_side": "left",
+      "panel_count": 4,
+      "layout_template": "feature_top3",
+      "hero_panel": "MZ-2026-09-02_P03_PANEL02",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-002",
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "shots": [
+        "medium",
+        "wide",
+        "medium",
+        "close"
+      ],
+      "shot_mix": {
+        "medium": 2,
+        "wide": 1,
+        "close": 1
+      },
+      "dialogue_words": 14,
+      "balloon_count": 3,
+      "sfx_count": 3,
+      "close_background_repeats": 3,
+      "panels_reframed": 2,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "establishing",
+        "action",
+        "dialogue",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 2 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    },
+    {
+      "page": 5,
+      "reader_side": "right",
+      "panel_count": 6,
+      "layout_template": "grid6",
+      "hero_panel": "MZ-2026-09-02_P03_PANEL05",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shots": [
+        "wide",
+        "close",
+        "medium",
+        "wide",
+        "medium",
+        "medium"
+      ],
+      "shot_mix": {
+        "wide": 2,
+        "close": 1,
+        "medium": 3
+      },
+      "dialogue_words": 28,
+      "balloon_count": 3,
+      "sfx_count": 3,
+      "close_background_repeats": 8,
+      "panels_reframed": 4,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "establishing",
+        "action",
+        "dialogue",
+        "establishing",
+        "dialogue",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 4 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    },
+    {
+      "page": 6,
+      "reader_side": "left",
+      "panel_count": 4,
+      "layout_template": "feature_left3",
+      "hero_panel": "MZ-2026-09-02_P04_PANEL06",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shots": [
+        "close",
+        "medium",
+        "wide",
+        "medium"
+      ],
+      "shot_mix": {
+        "close": 1,
+        "medium": 2,
+        "wide": 1
+      },
+      "dialogue_words": 18,
+      "balloon_count": 4,
+      "sfx_count": 1,
+      "close_background_repeats": 3,
+      "panels_reframed": 2,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "dialogue",
+        "reaction",
+        "dialogue",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 2 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    },
+    {
+      "page": 7,
+      "reader_side": "right",
+      "panel_count": 6,
+      "layout_template": "grid6",
+      "hero_panel": "MZ-2026-09-02_P05_PANEL03",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shots": [
+        "close",
+        "medium",
+        "medium",
+        "medium",
+        "close",
+        "medium"
+      ],
+      "shot_mix": {
+        "close": 2,
+        "medium": 4
+      },
+      "dialogue_words": 24,
+      "balloon_count": 5,
+      "sfx_count": 1,
+      "close_background_repeats": 4,
+      "panels_reframed": 4,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "reaction",
+        "dialogue",
+        "dialogue",
+        "dialogue",
+        "action",
+        "action"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 4 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    },
+    {
+      "page": 8,
+      "reader_side": "left",
+      "panel_count": 4,
+      "layout_template": "feature_top3",
+      "hero_panel": "MZ-2026-09-02_P06_PANEL06",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-004",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shots": [
+        "medium",
+        "wide",
+        "medium",
+        "close"
+      ],
+      "shot_mix": {
+        "medium": 2,
+        "wide": 1,
+        "close": 1
+      },
+      "dialogue_words": 9,
+      "balloon_count": 2,
+      "sfx_count": 0,
+      "close_background_repeats": 2,
+      "panels_reframed": 2,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "establishing",
+        "dialogue",
+        "dialogue",
+        "action"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 2 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons"
+      ]
+    },
+    {
+      "page": 9,
+      "reader_side": "right",
+      "panel_count": 6,
+      "layout_template": "grid6",
+      "hero_panel": "MZ-2026-09-02_P07_PANEL01",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shots": [
+        "medium",
+        "medium",
+        "close",
+        "medium",
+        "medium",
+        "medium"
+      ],
+      "shot_mix": {
+        "medium": 5,
+        "close": 1
+      },
+      "dialogue_words": 26,
+      "balloon_count": 4,
+      "sfx_count": 2,
+      "close_background_repeats": 6,
+      "panels_reframed": 4,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "action",
+        "dialogue",
+        "dialogue",
+        "dialogue",
+        "action",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 4 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    },
+    {
+      "page": 10,
+      "reader_side": "left",
+      "panel_count": 6,
+      "layout_template": "feature_top5",
+      "hero_panel": "MZ-2026-09-02_P08_PANEL01",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-002",
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "shots": [
+        "close",
+        "medium",
+        "medium",
+        "medium",
+        "close",
+        "medium"
+      ],
+      "shot_mix": {
+        "close": 2,
+        "medium": 4
+      },
+      "dialogue_words": 21,
+      "balloon_count": 4,
+      "sfx_count": 0,
+      "close_background_repeats": 2,
+      "panels_reframed": 3,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "reaction",
+        "transition",
+        "transition",
+        "dialogue",
+        "dialogue",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 3 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons"
+      ]
+    },
+    {
+      "page": 11,
+      "reader_side": "right",
+      "panel_count": 4,
+      "layout_template": "feature_left3",
+      "hero_panel": "MZ-2026-09-02_P09_PANEL02",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shots": [
+        "medium",
+        "wide",
+        "close",
+        "wide"
+      ],
+      "shot_mix": {
+        "medium": 1,
+        "wide": 2,
+        "close": 1
+      },
+      "dialogue_words": 11,
+      "balloon_count": 2,
+      "sfx_count": 0,
+      "close_background_repeats": 2,
+      "panels_reframed": 2,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "establishing",
+        "reveal",
+        "dialogue",
+        "establishing"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 2 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons"
+      ]
+    },
+    {
+      "page": 12,
+      "reader_side": "left",
+      "panel_count": 4,
+      "layout_template": "grid4",
+      "hero_panel": "MZ-2026-09-02_P09_PANEL05",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003"
+      ],
+      "shots": [
+        "medium",
+        "medium",
+        "close",
+        "medium"
+      ],
+      "shot_mix": {
+        "medium": 3,
+        "close": 1
+      },
+      "dialogue_words": 20,
+      "balloon_count": 3,
+      "sfx_count": 0,
+      "close_background_repeats": 2,
+      "panels_reframed": 2,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "dialogue",
+        "dialogue",
+        "reaction",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 2 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons"
+      ]
+    },
+    {
+      "page": 13,
+      "reader_side": "right",
+      "panel_count": 4,
+      "layout_template": "feature_top3",
+      "hero_panel": "MZ-2026-09-02_P10_PANEL06",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shots": [
+        "close",
+        "medium",
+        "medium",
+        "close"
+      ],
+      "shot_mix": {
+        "close": 2,
+        "medium": 2
+      },
+      "dialogue_words": 16,
+      "balloon_count": 2,
+      "sfx_count": 0,
+      "close_background_repeats": 1,
+      "panels_reframed": 1,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "transition",
+        "dialogue",
+        "reaction",
+        "action"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 1 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons"
+      ]
+    },
+    {
+      "page": 14,
+      "reader_side": "left",
+      "panel_count": 4,
+      "layout_template": "feature_left3",
+      "hero_panel": "MZ-2026-09-02_P11_PANEL01",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-002",
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "shots": [
+        "wide",
+        "medium",
+        "close",
+        "medium"
+      ],
+      "shot_mix": {
+        "wide": 1,
+        "medium": 2,
+        "close": 1
+      },
+      "dialogue_words": 12,
+      "balloon_count": 3,
+      "sfx_count": 2,
+      "close_background_repeats": 2,
+      "panels_reframed": 2,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "establishing",
+        "dialogue",
+        "reaction",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 2 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    },
+    {
+      "page": 15,
+      "reader_side": "right",
+      "panel_count": 3,
+      "layout_template": "feature_left2",
+      "hero_panel": "MZ-2026-09-02_P11_PANEL05",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shots": [
+        "wide",
+        "medium",
+        "close"
+      ],
+      "shot_mix": {
+        "wide": 1,
+        "medium": 1,
+        "close": 1
+      },
+      "dialogue_words": 8,
+      "balloon_count": 2,
+      "sfx_count": 0,
+      "close_background_repeats": 2,
+      "panels_reframed": 1,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "establishing",
+        "dialogue",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 1 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons"
+      ]
+    },
+    {
+      "page": 16,
+      "reader_side": "left",
+      "panel_count": 5,
+      "layout_template": "grid5",
+      "hero_panel": "MZ-2026-09-02_P12_PANEL02",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shots": [
+        "wide",
+        "medium",
+        "medium",
+        "close",
+        "wide"
+      ],
+      "shot_mix": {
+        "wide": 2,
+        "medium": 2,
+        "close": 1
+      },
+      "dialogue_words": 15,
+      "balloon_count": 3,
+      "sfx_count": 0,
+      "close_background_repeats": 4,
+      "panels_reframed": 4,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "establishing",
+        "dialogue",
+        "dialogue",
+        "reaction",
+        "establishing"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 4 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons"
+      ]
+    },
+    {
+      "page": 17,
+      "reader_side": "right",
+      "panel_count": 4,
+      "layout_template": "feature_left3",
+      "hero_panel": "MZ-2026-09-02_P13_PANEL01",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shots": [
+        "medium",
+        "medium",
+        "close",
+        "medium"
+      ],
+      "shot_mix": {
+        "medium": 3,
+        "close": 1
+      },
+      "dialogue_words": 14,
+      "balloon_count": 2,
+      "sfx_count": 2,
+      "close_background_repeats": 2,
+      "panels_reframed": 2,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "action",
+        "dialogue",
+        "dialogue",
+        "transition"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 2 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    },
+    {
+      "page": 18,
+      "reader_side": "left",
+      "panel_count": 3,
+      "layout_template": "feature_left2",
+      "hero_panel": "MZ-2026-09-02_P13_PANEL06",
+      "location": "Old Relay Junction",
+      "characters": [
+        "MZ-CHAR-002",
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shots": [
+        "medium",
+        "wide",
+        "close"
+      ],
+      "shot_mix": {
+        "medium": 1,
+        "wide": 1,
+        "close": 1
+      },
+      "dialogue_words": 8,
+      "balloon_count": 2,
+      "sfx_count": 2,
+      "close_background_repeats": 2,
+      "panels_reframed": 1,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "establishing",
+        "action",
+        "reaction"
+      ],
+      "page_turn_purpose": "hold on reaction before the turn",
+      "actions_taken": [
+        "crop-variation reframed 1 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    },
+    {
+      "page": 19,
+      "reader_side": "right",
+      "panel_count": 5,
+      "layout_template": "grid5",
+      "hero_panel": "MZ-2026-09-02_P14_PANEL02",
+      "location": "Old Relay Junction",
+      "characters": [
+        "MZ-CHAR-002",
+        "MZ-CHAR-003",
+        "MZ-CHAR-004",
+        "MZ-CHAR-005",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shots": [
+        "medium",
+        "wide",
+        "medium",
+        "close",
+        "wide"
+      ],
+      "shot_mix": {
+        "medium": 2,
+        "wide": 2,
+        "close": 1
+      },
+      "dialogue_words": 6,
+      "balloon_count": 2,
+      "sfx_count": 1,
+      "close_background_repeats": 4,
+      "panels_reframed": 4,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "dialogue",
+        "establishing",
+        "dialogue",
+        "reaction",
+        "establishing"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 4 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    },
+    {
+      "page": 20,
+      "reader_side": "left",
+      "panel_count": 4,
+      "layout_template": "feature_left3",
+      "hero_panel": "MZ-2026-09-02_P15_PANEL01",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shots": [
+        "medium",
+        "medium",
+        "close",
+        "medium"
+      ],
+      "shot_mix": {
+        "medium": 3,
+        "close": 1
+      },
+      "dialogue_words": 19,
+      "balloon_count": 2,
+      "sfx_count": 1,
+      "close_background_repeats": 2,
+      "panels_reframed": 2,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "action",
+        "dialogue",
+        "reaction",
+        "dialogue"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 2 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    },
+    {
+      "page": 21,
+      "reader_side": "right",
+      "panel_count": 5,
+      "layout_template": "left_feature4",
+      "hero_panel": "MZ-2026-09-02_P15_PANEL05",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shots": [
+        "medium",
+        "medium",
+        "close",
+        "wide",
+        "wide"
+      ],
+      "shot_mix": {
+        "medium": 2,
+        "close": 1,
+        "wide": 2
+      },
+      "dialogue_words": 12,
+      "balloon_count": 2,
+      "sfx_count": 2,
+      "close_background_repeats": 4,
+      "panels_reframed": 2,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "action",
+        "dialogue",
+        "reaction",
+        "establishing",
+        "establishing"
+      ],
+      "page_turn_purpose": "carry momentum into the next beat",
+      "actions_taken": [
+        "crop-variation reframed 2 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    },
+    {
+      "page": 22,
+      "reader_side": "left",
+      "panel_count": 3,
+      "layout_template": "feature_top2",
+      "hero_panel": "MZ-2026-09-02_P16_PANEL05",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shots": [
+        "close",
+        "medium",
+        "wide"
+      ],
+      "shot_mix": {
+        "close": 1,
+        "medium": 1,
+        "wide": 1
+      },
+      "dialogue_words": 6,
+      "balloon_count": 1,
+      "sfx_count": 1,
+      "close_background_repeats": 3,
+      "panels_reframed": 2,
+      "layout_same_as_prev": false,
+      "layout_same_as_next": false,
+      "story_beats": [
+        "transition",
+        "action",
+        "dialogue"
+      ],
+      "page_turn_purpose": "final image / next-issue stinger",
+      "actions_taken": [
+        "crop-variation reframed 2 reused-background panel(s)",
+        "speaker prefixes removed from cast balloons",
+        "SFX styled by loudness + rotation"
+      ]
+    }
+  ],
+  "summary": {
+    "total_pages": 22,
+    "pages_reframed": 22,
+    "total_panels_reframed": 52,
+    "adjacent_same_template": 0
+  }
+}

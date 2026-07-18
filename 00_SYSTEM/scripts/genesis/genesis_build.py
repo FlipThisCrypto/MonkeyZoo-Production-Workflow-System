@@ -102,11 +102,53 @@ def split_dialogue(s: str) -> list[tuple[str, str]]:
 # Speakers that need an explicit label because a tail can't identify them
 # (electronic / public-address / off-panel / on-screen). Ordinary cast speech
 # drops the label and relies on the balloon tail, as in real comics.
-LABELLED_SPEAKERS = {"PA", "SCREEN", "RADIO", "RELAY", "SIGNAL", "OFF", "OFF-PANEL",
+# Only device/broadcast voices get a label (a tail can't point to a speaker);
+# off-panel CAST speech reads fine as a plain balloon with the tail off-frame.
+LABELLED_SPEAKERS = {"PA", "SCREEN", "RADIO", "RELAY", "SIGNAL",
                      "ANNOUNCE", "ANNOUNCEMENT", "MONITOR", "SPEAKER", "COMM"}
 
 
-def _letter_panel(d: ImageDraw.ImageDraw, rect, panel: dict, splash: bool) -> list[str]:
+def speaker_tag(spk: str) -> str:
+    """The label to show above a balloon: empty for ordinary cast speech (the
+    tail identifies the speaker), the name for device/broadcast voices."""
+    return spk if str(spk).upper() in LABELLED_SPEAKERS else ""
+
+
+def _sfx_style(text: str) -> tuple[int, tuple[int, int, int]]:
+    """Size + colour by loudness: quiet lowercase ticks stay small and cool;
+    all-caps effects are big and warm."""
+    t = text.strip()
+    letters = re.sub(r"[^A-Za-z]", "", t)
+    if t.isupper() and len(letters) >= 3:
+        return 168, (255, 238, 170)          # loud: BZZT, WRRRN
+    if t.islower() and len(letters) <= 3:
+        return 78, (225, 228, 240)           # quiet: tik, bzz
+    return 116, (250, 220, 120)              # medium
+
+
+def genesis_draw_sfx(canvas: Image.Image, cx: float, cy: float, text: str, seed: int) -> None:
+    """Draw a sound effect with an outline, loudness-based size, and a small
+    deterministic rotation so it reads as integrated sound, not a floating label."""
+    size, color = _sfx_style(text)
+    f = ap._font("impact.ttf", size)
+    probe = ImageDraw.Draw(canvas)
+    bb = probe.textbbox((0, 0), text, font=f)
+    tw, th = bb[2] - bb[0], bb[3] - bb[1]
+    pad = 10
+    layer = Image.new("RGBA", (tw + 2 * pad + 8, th + 2 * pad + 8), (0, 0, 0, 0))
+    ld = ImageDraw.Draw(layer)
+    ox, oy = pad - bb[0], pad - bb[1]
+    for dx in (-4, 0, 4):
+        for dy in (-4, 0, 4):
+            ld.text((ox + dx, oy + dy), text, font=f, fill=(0, 0, 0, 255))
+    ld.text((ox, oy), text, font=f, fill=color + (255,))
+    angle = ((seed * 37) % 25) - 12          # deterministic -12..+12 degrees
+    rot = layer.rotate(angle, expand=True, resample=Image.BICUBIC)
+    canvas.paste(rot, (int(cx - rot.width / 2), int(cy - rot.height / 2)), rot)
+
+
+def _letter_panel(canvas: Image.Image, d: ImageDraw.ImageDraw, rect, panel: dict,
+                  splash: bool, seed: int) -> list[str]:
     """Draw dialogue/caption/SFX for one panel; return lettering warnings."""
     sx, sy, sw, sh = rect
     warns = []
@@ -121,8 +163,7 @@ def _letter_panel(d: ImageDraw.ImageDraw, rect, panel: dict, splash: bool) -> li
             by = sy + 0.17 * sh
             # keep the label only for electronic/off-panel voices; ordinary cast
             # speech uses the tail (no "STATIC:" style prefix)
-            tag = spk if spk.upper() in LABELLED_SPEAKERS else ""
-            ap.draw_bubble(d, bx, by, txt, tag, max_w=max_w)
+            ap.draw_bubble(d, bx, by, txt, speaker_tag(spk), max_w=max_w)
             if len(txt.split()) > 35:
                 warns.append(f"balloon >35 words: {panel['source_panel_id']}")
     # captions: scene stamp (panel["caption"]) + any CAPTION: narration
@@ -135,8 +176,8 @@ def _letter_panel(d: ImageDraw.ImageDraw, rect, panel: dict, splash: bool) -> li
         cy -= (h + 14)                       # stack upward if more than one
     sfx = panel.get("sfx", "")
     if not ap._is_blank(sfx):
-        sfx_y = 0.66 if speech else 0.12     # keep SFX clear of top-anchored balloons
-        ap.draw_sfx(d, sx + 0.60 * sw, sy + sfx_y * sh, sfx, small=("bmp" in sfx.lower()))
+        sfx_y = 0.66 if speech else 0.14     # keep SFX clear of top-anchored balloons
+        genesis_draw_sfx(canvas, sx + 0.60 * sw, sy + sfx_y * sh, sfx.strip(), seed)
     return warns
 
 
@@ -149,7 +190,7 @@ def render_page(page: dict, panel_dir: Path, crops: dict | None = None) -> tuple
     warns = []
     splash = template == "splash"
     crops = crops or {}
-    for panel, rect in zip(page["panels"], rects):
+    for idx, (panel, rect) in enumerate(zip(page["panels"], rects)):
         sx, sy, sw, sh = rect
         pid = panel["source_panel_id"]
         art_path = panel_dir / f"{pid}.png"
@@ -162,7 +203,7 @@ def render_page(page: dict, panel_dir: Path, crops: dict | None = None) -> tuple
             d.text((sx + 40, sy + 40), f"MISSING {pid}", font=ap.F_CAPTION, fill="red")
             warns.append(f"missing art: {pid}")
         d.rectangle([sx, sy, sx + sw, sy + sh], outline="black", width=BORDER)
-        warns += _letter_panel(d, rect, panel, splash)
+        warns += _letter_panel(canvas, d, rect, panel, splash, page["page_number"] * 10 + idx)
     # footer: series/issue + page number
     d.text((PAGE_W - 360, PAGE_H - 74), "MonkeyZoo · GENESIS", font=ap.F_PAGENO, fill=(90, 90, 90))
     d.text((MARGIN, PAGE_H - 74), f"{page['page_number']}", font=ap.F_PAGENO, fill=(90, 90, 90))

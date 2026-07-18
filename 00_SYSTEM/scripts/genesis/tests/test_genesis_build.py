@@ -73,3 +73,34 @@ def test_count_mismatch_falls_back_gracefully():
     # grid4 defined for 4 slots but asked for 5 -> safe fallback of 5
     rects = gb.template_rects("grid4", 5)
     assert len(rects) == 5
+
+
+# --- speaker-tag policy: cast speech unlabelled, devices labelled ---
+
+@pytest.mark.parametrize("spk", ["STATIC", "MOODZ", "CLEVER", "NEONBLUE", "SCARLINE", "TWOTONE", "ASH"])
+def test_cast_speech_has_no_speaker_tag(spk):
+    assert gb.speaker_tag(spk) == ""
+
+
+@pytest.mark.parametrize("spk", ["PA", "SCREEN", "RADIO", "RELAY", "SIGNAL", "MONITOR"])
+def test_device_voices_keep_a_label(spk):
+    assert gb.speaker_tag(spk) == spk
+
+
+# --- SFX loudness styling ---
+
+def test_sfx_loud_allcaps_is_large():
+    size, _ = gb._sfx_style("BZZT")
+    assert size >= 150
+
+
+def test_sfx_quiet_lowercase_is_small():
+    size, _ = gb._sfx_style("tik")
+    assert size <= 90
+
+
+def test_sfx_medium_between():
+    lo, _ = gb._sfx_style("tik")
+    md, _ = gb._sfx_style("Rmmml")
+    hi, _ = gb._sfx_style("WRRRN")
+    assert lo < md < hi
