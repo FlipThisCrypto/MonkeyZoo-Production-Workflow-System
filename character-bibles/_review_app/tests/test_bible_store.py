@@ -164,3 +164,74 @@ def test_comparison_dedupes_same_character_and_ignores_shared_writing_rules():
     overlap = bible_store.compute_overlap(items)
     assert "do not reduce the character to the easiest visual joke or single trait." not in overlap["story_role"]
     assert overlap["story_role"]["emotional anchor"] == ["A", "B"]
+
+
+# ---------------------------------------------------------------------------
+# hardening: malformed-input error handling + atomic canon writes
+# ---------------------------------------------------------------------------
+
+def _boom(*args, **kwargs):
+    raise OSError("simulated disk failure")
+
+
+def test_malformed_bible_raises_clean_error_not_yamlerror(bible_root):
+    """One corrupt bible.yaml must surface as a BibleStoreError (HTTP 400),
+    not an uncaught yaml.YAMLError that 500s character resolution."""
+    bad = bible_root / "MZ-CHAR-BAD"
+    bad.mkdir()
+    (bad / "bible.yaml").write_text("identification: [unclosed\n:::\n", encoding="utf-8")
+    with pytest.raises(bible_store.BibleStoreError):
+        bible_store.resolve_character_id("MZ-CHAR-TEST", bible_root)
+    with pytest.raises(bible_store.BibleStoreError):
+        bible_store.load_all(bible_root)
+
+
+def test_malformed_history_raises_clean_error(bible_root):
+    hp = bible_store.history_path("MZ-CHAR-TEST", bible_root)
+    hp.write_text("{ not valid json", encoding="utf-8")
+    with pytest.raises(bible_store.BibleStoreError):
+        bible_store.load_history("MZ-CHAR-TEST", bible_root)
+
+
+@pytest.mark.parametrize("data,path", [
+    ({"a": {"b": 1}}, "a.nope"),        # missing dict key
+    ({"xs": [1, 2]}, "xs.5"),           # list index out of range
+    ({"xs": [1, 2]}, "xs.abc"),         # non-numeric list index
+    ({"a": 1}, "a.b"),                  # descend into a scalar
+])
+def test_get_path_bad_path_raises_clean_error(data, path):
+    with pytest.raises(bible_store.BibleStoreError):
+        bible_store.get_path(data, path)
+
+
+@pytest.mark.parametrize("data,path", [
+    ({"a": {}}, "a.b.c"),               # missing intermediate key
+    ({"xs": [1]}, "xs.9"),              # list index out of range
+    ({"xs": [1]}, "xs.x"),              # non-numeric list index
+])
+def test_set_path_bad_path_raises_clean_error(data, path):
+    with pytest.raises(bible_store.BibleStoreError):
+        bible_store.set_path(data, path, "v")
+
+
+def test_save_bible_round_trip_preserves_edit(bible_root):
+    data = bible_store.load_bible("MZ-CHAR-TEST", bible_root)
+    data["identification"]["current_display_name"] = "Renamed"
+    bible_store.save_bible("MZ-CHAR-TEST", data, bible_root)
+    reloaded = bible_store.load_bible("MZ-CHAR-TEST", bible_root)
+    assert reloaded["identification"]["current_display_name"] == "Renamed"
+
+
+def test_save_bible_is_atomic_original_intact_on_failure(bible_root, monkeypatch):
+    """A crash during the write (os.replace failing) must leave the original
+    canon bible.yaml untouched and leave no temp litter behind."""
+    path = bible_root / "MZ-CHAR-TEST" / "bible.yaml"
+    original = path.read_text(encoding="utf-8")
+    data = bible_store.load_bible("MZ-CHAR-TEST", bible_root)
+    data["identification"]["current_display_name"] = "HALF-WRITTEN"
+    monkeypatch.setattr(bible_store.os, "replace", _boom)
+    with pytest.raises(OSError):
+        bible_store.save_bible("MZ-CHAR-TEST", data, bible_root)
+    assert path.read_text(encoding="utf-8") == original          # canon untouched
+    leftovers = [p.name for p in (bible_root / "MZ-CHAR-TEST").iterdir() if p.name.endswith(".tmp")]
+    assert leftovers == []                                        # temp cleaned up
