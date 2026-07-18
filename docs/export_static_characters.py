@@ -15,17 +15,23 @@ import bible_store
 def export(root: Path = ROOT) -> list[dict]:
     bibles = root / "character-bibles"
     media = root / "docs" / "media"
-    if media.exists():
-        shutil.rmtree(media)
-    media.mkdir(parents=True)
+    media.mkdir(parents=True, exist_ok=True)
     records = []
+    seen: set[str] = set()
     for character_id, data in bible_store.load_all(bibles):
+        seen.add(character_id)
         summary = bible_store.character_summary(character_id, data)
         relative = (data.get("visual_canon") or {}).get("primary_reference_image")
         source = bibles / character_id / relative if relative else None
+        target_dir = media / character_id
+        # Refresh only THIS character's portrait folder. Never rmtree the whole
+        # docs/media tree: sibling subtrees like docs/media/expressions/ are
+        # git-tracked and owned by export_static_catalog.py, and wiping them
+        # here deletes 372 tracked files this script never regenerates.
+        if target_dir.exists():
+            shutil.rmtree(target_dir)
         if source and source.is_file():
-            target_dir = media / character_id
-            target_dir.mkdir()
+            target_dir.mkdir(parents=True)
             target = target_dir / f"portrait{source.suffix.lower()}"
             shutil.copy2(source, target)
             summary["primary_image"] = f"./media/{character_id}/{target.name}"
@@ -34,6 +40,11 @@ def export(root: Path = ROOT) -> list[dict]:
             summary["primary_image"] = None
             summary["image_status"] = "unavailable"
         records.append(summary)
+    # Prune portrait folders for characters no longer in canon, without touching
+    # sibling subtrees (expressions/, locations/, props/, ...).
+    for child in media.iterdir():
+        if child.is_dir() and child.name.startswith("MZ-CHAR-") and child.name not in seen:
+            shutil.rmtree(child)
     output = root / "docs" / "static" / "characters.json"
     output.write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return records

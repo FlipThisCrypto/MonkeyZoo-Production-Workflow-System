@@ -123,6 +123,11 @@ def build_scene(spec):
 def main(spec_path):
     spec = json.loads(Path(spec_path).read_text(encoding="utf-8"))
     t = spec["type"]
+    # Validate the location up front: the build_* helpers index LOC[location]
+    # and would otherwise raise a bare KeyError before the line-136 guard runs.
+    if spec.get("location") not in LOC:
+        raise ValueError(
+            f"unknown location {spec.get('location')!r}; calibrated locations are {sorted(LOC)}")
     rep = None
     if t == "establish":
         out, skip_flat = build_establish(spec)

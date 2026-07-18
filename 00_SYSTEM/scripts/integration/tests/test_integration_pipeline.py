@@ -307,3 +307,17 @@ def test_identity_check_fails_beige_drift(seed):
         pytest.skip(f"fixture missing: {fixture}")
     r = check_identity(fixture, "static")
     assert r["verdict"] == "FAIL", f"drift render scored {r['identity_score']} -- tolerances too loose"
+
+
+# ---------------------------------------------------------------------------
+# build_panel -- uncalibrated location must be a clean error, not a bare KeyError
+# ---------------------------------------------------------------------------
+
+def test_build_panel_rejects_uncalibrated_location(tmp_path):
+    import json as _json
+    import build_panel
+    spec = {"type": "establish", "location": "Nonexistent Cafe", "panel_id": "X"}
+    spec_path = tmp_path / "spec.json"
+    spec_path.write_text(_json.dumps(spec), encoding="utf-8")
+    with pytest.raises(ValueError, match="unknown location"):
+        build_panel.main(str(spec_path))
