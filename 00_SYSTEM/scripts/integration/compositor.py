@@ -192,6 +192,17 @@ def derive_relight_spec(scene: dict, foot_anchor: tuple[float, float]) -> dict |
     }
 
 
+def _rain_union(boxes, canvas_size) -> tuple[int, int, int, int]:
+    """Bounding box for foreground rain: the union of the character paste boxes,
+    or the whole plate when there are no characters -- guards min()/max() over
+    an empty box list (a characters:[] + foreground_rain scene otherwise crashed
+    with 'min() arg is an empty sequence')."""
+    if not boxes:
+        return (0, 0, canvas_size[0], canvas_size[1])
+    return (min(b[0] for b in boxes), min(b[1] for b in boxes),
+            max(b[2] for b in boxes), max(b[3] for b in boxes))
+
+
 def run_scene(spec_dir: Path) -> dict:
     """Multi-character staging: characters_spec.json holds a `characters`
     array; all share one ground plane and light set from scene_blocking.
@@ -240,9 +251,8 @@ def run_scene(spec_dir: Path) -> dict:
 
     if spec.get("foreground_rain"):
         boxes = [r["paste_box"] for r in reports.values()]
-        union = [min(b[0] for b in boxes), min(b[1] for b in boxes),
-                 max(b[2] for b in boxes), max(b[3] for b in boxes)]
-        canvas = add_foreground_rain(canvas, tuple(union),
+        union = _rain_union(boxes, (canvas.width, canvas.height))
+        canvas = add_foreground_rain(canvas, union,
                                      density=spec.get("rain_density", 110))
 
     out_path = spec_dir / "final_integrated.png"

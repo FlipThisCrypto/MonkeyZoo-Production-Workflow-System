@@ -3,6 +3,7 @@ and the archive immutability guard -- both release-critical and previously
 untested."""
 from __future__ import annotations
 
+import os
 import sys
 import zipfile
 from pathlib import Path
@@ -69,3 +70,33 @@ def test_archive_excludes_raw_panels_and_is_immutable(tmp_path, monkeypatch):
     # re-archiving the same issue must refuse (immutable release record)
     with pytest.raises(SystemExit):
         br.archive(issue, "01")
+
+
+def test_archive_interrupted_copy_leaves_no_partial_and_allows_retry(tmp_path, monkeypatch):
+    monkeypatch.setattr(br, "FACTORY", tmp_path)
+    issue = _issue_with_pages(tmp_path, pages=1, cover=True)
+    (issue / "metadata.json").write_text("{}", encoding="utf-8")
+    dest = tmp_path / "05_RELEASE_ARCHIVE" / "2027" / "2027-01_Issue_01"
+    year_dir = tmp_path / "05_RELEASE_ARCHIVE" / "2027"
+
+    real_copytree = br.shutil.copytree
+    calls = {"n": 0}
+
+    def flaky_copytree(src, dst, *a, **k):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            os.makedirs(dst, exist_ok=True)      # partial dir created...
+            raise KeyboardInterrupt("interrupted mid-copy")   # ...then interrupted
+        return real_copytree(src, dst, *a, **k)
+
+    monkeypatch.setattr(br.shutil, "copytree", flaky_copytree)
+    with pytest.raises(KeyboardInterrupt):
+        br.archive(issue, "01")
+    assert not dest.exists()                                   # nothing committed
+    assert list(year_dir.glob(".*partial*")) == []            # temp cleaned up
+
+    # retry now succeeds -- before the fix the partial dest permanently blocked it
+    monkeypatch.setattr(br.shutil, "copytree", real_copytree)
+    br.archive(issue, "01")
+    assert dest.exists()
+    assert (dest / "metadata.json").exists()

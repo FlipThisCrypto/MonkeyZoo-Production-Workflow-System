@@ -94,6 +94,30 @@ def test_ground_plane_rejects_above_horizon():
         gp.height_at(100)
 
 
+def test_ground_plane_rejects_degenerate_calibration():
+    # calib foot coincident with the horizon -> height_at would divide by zero;
+    # must raise a clear ValueError at construction, not ZeroDivisionError later
+    with pytest.raises(ValueError):
+        GroundPlane(horizon_y=512, calib_y=512, calib_height_px=100)
+
+
+def test_ground_plane_rejects_nonpositive_calib_height():
+    with pytest.raises(ValueError):
+        GroundPlane(horizon_y=200, calib_y=500, calib_height_px=0)
+
+
+def test_rain_union_empty_boxes_falls_back_to_full_plate():
+    # characters:[] + foreground_rain previously hit min() over an empty sequence
+    from compositor import _rain_union
+    assert _rain_union([], (800, 600)) == (0, 0, 800, 600)
+
+
+def test_rain_union_spans_all_character_boxes():
+    from compositor import _rain_union
+    boxes = [(10, 20, 100, 120), (50, 5, 300, 80)]
+    assert _rain_union(boxes, (800, 600)) == (10, 5, 300, 120)
+
+
 # ---------------------------------------------------------------------------
 # shadow
 # ---------------------------------------------------------------------------

@@ -9,6 +9,7 @@ CBZ = zip of layout/web_layout pages in reading order plus cover.png.
 PDFs are produced by the layout tool (Krita/Affinity export); this script
 verifies they exist and reports what's missing rather than faking them.
 """
+import os
 import shutil
 import sys
 import zipfile
@@ -69,10 +70,19 @@ def archive(issue_dir: Path, number: str) -> None:
     dest = FACTORY / "05_RELEASE_ARCHIVE" / year / issue_dir.name
     if dest.exists():
         sys.exit(f"ABORT: archive already exists at {dest}")
-    shutil.copytree(
-        issue_dir, dest,
-        ignore=shutil.ignore_patterns("raw_panels"),
-    )
+    # Copy into a temp sibling and rename into place only on success, so an
+    # interrupted copy (Ctrl-C, disk full, per-file error) cannot leave a
+    # partial archive that the exists() guard then permanently refuses to retry.
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    tmp = dest.with_name(f".{dest.name}.partial-{os.getpid()}")
+    if tmp.exists():
+        shutil.rmtree(tmp)
+    try:
+        shutil.copytree(issue_dir, tmp, ignore=shutil.ignore_patterns("raw_panels"))
+        os.replace(tmp, dest)
+    except BaseException:
+        shutil.rmtree(tmp, ignore_errors=True)
+        raise
     print(f"  Archived to {dest} (raw_panels excluded)")
 
 

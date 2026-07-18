@@ -24,6 +24,17 @@ class GroundPlane:
     calib_y: float
     calib_height_px: float
 
+    def __post_init__(self) -> None:
+        # Guard degenerate calibrations that would make height_at /
+        # foot_y_for_height divide by zero -- surface a clear error at
+        # construction instead of a raw ZeroDivisionError deep in the compositor.
+        if self.calib_y == self.horizon_y:
+            raise ValueError(
+                f"degenerate ground plane: calib_y ({self.calib_y}) coincides with "
+                f"horizon_y ({self.horizon_y}); the calibration foot cannot sit on the horizon")
+        if self.calib_height_px <= 0:
+            raise ValueError(f"calib_height_px must be positive, got {self.calib_height_px}")
+
     def height_at(self, y_foot: float) -> float:
         if y_foot <= self.horizon_y:
             raise ValueError(f"y_foot={y_foot} is above the horizon ({self.horizon_y}); "
