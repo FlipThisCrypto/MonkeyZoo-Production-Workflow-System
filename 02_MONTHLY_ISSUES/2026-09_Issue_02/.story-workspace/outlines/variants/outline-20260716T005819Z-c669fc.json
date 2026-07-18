@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "variant_id": "outline-20260716T005819Z-c669fc",
+  "issue_id": "MZ-2026-09-02",
+  "kind": "outline",
+  "created_at": "2026-07-16T00:58:19+00:00",
+  "source_type": "manual_import",
+  "provider": "season_bible_manual",
+  "model": "user supplied",
+  "execution_mode": "manual",
+  "content": "# MZ-2026-09-02 — Signals In The Silence\n\nLogline: After summer, storm-season devices all emit the same interference; Static proves the noise is a structured six-tone search while Clever maps the hardware, and Static learns to share one clear warning at a time.\nTheme: Sensitivity without being silenced\nPage count: 8\nEmotional arc: Overload and dismissal risk → structured proof → choice to keep listening on his terms → clear usable warning\nConflict: Public systems broadcast interference Static alone can parse; overload makes him hard to hear even when he is right\nEnding: Old relay junction located before overload; Static’s four-part method for future emergencies\n\n## Page map\nPage 1 — Tiny disruptions only Static notices\nPage 2 — Storm burst hits every device; Static reacts first\nPage 3 — Clever inspects equipment; Static over-explains\nPage 4 — Six tones isolated; one matches August cyan frequency\nPage 5 — Signal searching for responses, not broadcasting outward\nPage 6 — Emergency systems catch interference; team gives Static space\nPage 7 — Static reduces to one repeating element; points to old relay junction\nPage 8 — Method established; powered-off radio soft tone final image\n\n## Cast\n- Featured: Static (MZ-CHAR-003)\n- Guest: Clever Monkey (MZ-CHAR-CLEVER)\n- Supporting: NeonBlue, TwoTone, Moodz, Scarline, Ash\n\n## Locations (approved canon)\n- storm-routines, transit-announcement-hub, school-pa-zone, old-relay-junction, zoo-city-streets\n\n## Props (approved canon)\n- transit-board, school-speaker, personal-device-burst, signal-analyzer, six-tone-motif, powered-off-radio, cyan-relay-marker, echo-symbol\n\n## Continuity notes\n- Six tones include August cyan frequency match\n- Do not treat Static as irrational\n- Growth is method, not a cure\n",
+  "content_hash": "6aa1bfd486b778e1211f19f3479934101051f30f76e7a0ce2cf31df667c65c2b",
+  "canon_snapshot_hash": "52df40af3bbf5d4de11a51bbe2ae5fb9ea44b1791a96ca9fb052ae9d9891f9f7",
+  "issue_brief_hash": "1ce839e638a89d0a4ab6c3f78481ee4937ed8f8d3fa8d3c6b8a511a9246d0685",
+  "approved_outline": null,
+  "prompt_hash": null,
+  "validation": {
+    "status": "passed",
+    "errors": 0,
+    "findings": [],
+    "heuristic": true
+  },
+  "approval": {
+    "variant_id": "outline-20260716T005819Z-c669fc",
+    "issue_id": "MZ-2026-09-02",
+    "timestamp": "2026-07-16T00:58:20+00:00",
+    "content_hash": "6aa1bfd486b778e1211f19f3479934101051f30f76e7a0ce2cf31df667c65c2b",
+    "canon_snapshot_hash": "52df40af3bbf5d4de11a51bbe2ae5fb9ea44b1791a96ca9fb052ae9d9891f9f7",
+    "owner_note": "Season bible Issue 02",
+    "actor": "project_owner"
+  },
+  "superseded": false,
+  "owner_note": null
+}

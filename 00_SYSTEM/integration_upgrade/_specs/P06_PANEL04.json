@@ -1,0 +1,13 @@
+{
+  "panel_id": "MZ-2026-09-02_P06_PANEL04",
+  "type": "scene",
+  "location": "School / Public Address Zone",
+  "action": "Clever follows wires; Ash asks one short question.",
+  "foreground_rain": false,
+  "characters": [
+    {"character": "clever", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/clever/clever_26_reaching.png",
+     "foot_anchor": [400, 590], "shadow": "down-right"},
+    {"character": "ash", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/ash/ash_13_pointing.png",
+     "foot_anchor": [860, 665], "shadow": "down-left"}
+  ]
+}

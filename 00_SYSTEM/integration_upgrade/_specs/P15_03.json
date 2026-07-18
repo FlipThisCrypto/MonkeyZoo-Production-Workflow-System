@@ -1,0 +1,11 @@
+{
+  "panel_id": "MZ-2026-09-02_P15_PANEL03",
+  "type": "closeup",
+  "location": "Zoo City Streets",
+  "closeup": {
+    "character": "static",
+    "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_24_thinking.png",
+    "crop_box": [720, 330, 1180, 690],
+    "char_x_frac": 0.5
+  }
+}

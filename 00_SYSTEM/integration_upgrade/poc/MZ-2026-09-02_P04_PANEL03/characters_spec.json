@@ -1,0 +1,46 @@
+{
+  "panel_id": "MZ-2026-09-02_P04_PANEL03",
+  "source_script_line": "Static talks fast at the hub, hands moving; the words pile up faster than anyone can sort.",
+  "foreground_rain": false,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "static",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_14_shout.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          720,
+          630
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "glossy_floor_full"
+      }
+    },
+    {
+      "character": "scarline",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/scarline/scarline_19_determined.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          370,
+          495
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-right"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "glossy_floor_full"
+      }
+    }
+  ]
+}

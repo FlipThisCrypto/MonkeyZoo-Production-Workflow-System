@@ -1,0 +1,23 @@
+{
+  "panel_id": "MZ-2026-09-02_P10_PANEL04",
+  "type": "scene",
+  "location": "Transit Announcement Hub",
+  "action": "Scarline offers a clear choice: keep listening or stop.",
+  "foreground_rain": false,
+  "characters": [
+    {
+      "character": "static",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_24_thinking.png",
+      "foot_anchor": [455, 570],
+      "shadow": "down-right",
+      "reflection_surface": "glossy_floor_full"
+    },
+    {
+      "character": "scarline",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/scarline/scarline_26_reaching.png",
+      "foot_anchor": [815, 552],
+      "shadow": "down-left",
+      "reflection_surface": "glossy_floor_full"
+    }
+  ]
+}

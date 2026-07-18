@@ -32,6 +32,16 @@ Who does what, and what may run without a human.
 
 ## 3. File & Naming Conventions (scripts enforce)
 
+- **Issue format standard (owner directive 2026-07-17):** 16 story pages,
+  ~96 panels total (target 6 per page), plus a single-panel FRONT cover
+  and a single-panel BACK cover. The back cover always introduces the
+  next issue (title + teaser image built from the next issue's location/
+  cast). Existing shorter issues are decompressed to this format: each
+  original story beat becomes a 4-panel acting sequence (establish →
+  action → reaction → button) so published events and dialogue stay
+  locked while page count doubles. Covers live outside page_panel_plan
+  (cover_prompt.md + exports), same as before; Gate B's "next-issue
+  teaser on rear cover" item is now satisfied by the back-cover panel.
 - Issue folder: `YYYY-MM_Issue_##` · Issue ID: `MZ-YYYY-MM-##`
 - Panel ID: `MZ-YYYY-MM-##_P<page 2-digit>_PANEL<2-digit>`
 - Raw art: `<panel_id>_seed<seed>_v<n>.png` in `raw_panels/`
@@ -86,6 +96,66 @@ moment of writing (`Get-FileHash`, reading the source file), NEVER transcribed
 from conversation context or memory. Rationale + background: `tooling_pxpipe.md`
 (context-compression tooling can silently confabulate hex). Stage 9 verifies
 hashes by recomputation only.
+
+## 6A. Character Integration Pipeline (optional Stage 6.5; built 2026-07-16, extended 2026-07-17)
+
+For panels where characters are composited onto an *existing approved*
+background plate (rather than generated monolithically in one prompt),
+use `00_SYSTEM/scripts/integration/`:
+
+```
+alpha_matte.py     -- chroma-key a ref into a true-alpha layer (border-
+                       connected flood fill; baked-ground-shadow stripper;
+                       --inset mode for card-style refs like Clever's set)
+gen_scene_pose.py  -- bespoke scene poses: TEXT2IMG from the calibrated
+                       BASE prompt + pose clause. img2img from minted
+                       cards drifts identity colors at any pose-changing
+                       denoise (measured, Cycle 13) -- don't use it for
+                       new poses.
+compositor.py      -- single (pose_spec.json) or multi-character
+                       (characters_spec.json) placement on a calibrated
+                       ground plane: depth-sorted far-to-near, per-
+                       character relight (shadow.py/relight.py), contact
+                       shadow (ground-adaptive opacity), reflections
+                       (reflection.py, per declared surface), depth haze
+                       (haze.py, color sampled from the plate), behind-
+                       geometry occlusion (traced occluder polygons),
+                       foreground weather (occlusion.py), per-character
+                       grounding_boost overrides, calib_to_character_factor
+                       for non-chibi-scale calibration objects
+calibrate_check.py -- renders horizon/calibration/lights/surfaces/
+                       occluders over the plate; EVERY calibration value
+                       gets a look-at-it verification image
+identity_check.py  -- canon-palette drift detection for layers (catches
+                       the beige-face class; NOT a character classifier)
+validate_integration.py -- pixel QA gate: leftover reference/card colors
+                       (plate-baseline-subtracted), flat debug overlays,
+                       plate-diff grounding check under each foot anchor
+stage_preview.py   -- stages finals + before/after sheets into the
+                       issue's generated_art/integration_preview/
+validate_issue.py --integration  -- runs the gate over all staged
+                       previews (the Stage 9 hook; see qa_checklist v1.1
+                       Gate A "Integration" section for the human items)
+```
+
+Plate calibrations for all five Issue-02 environments live in
+`00_SYSTEM/integration_upgrade/plate_calibrations/` (measured horizons
+with documented derivations and uncertainty bands). Issue 02 is fully
+integrated: all 96 panels + front cover + Issue-03-teaser back cover
+staged as integration previews (96/96 pass `validate_issue
+--integration`); full flip-through at
+`02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/
+pages_preview/ISSUE_02_full_preview.png`. Per-panel specs live in
+`00_SYSTEM/integration_upgrade/_specs/`; every panel regenerates via
+`build_panel.py <spec.json>`.
+
+This does **not** replace Stage 6 — it is an alternative path for
+plate+character panels, and human Gate A/B sign-off still applies before
+anything is promoted; `stage_preview.py` never writes `selected_panels/`.
+Full build/verification record: `00_SYSTEM/integration_upgrade/
+CYCLE_LEDGER.md` (30 cycles, including honest rejections — masked-ring
+img2img edge unification was evaluated and REJECTED with evidence at cfg
+1.0; see the Cycle 16 entry before reconsidering it).
 
 ## 7. Failure / Rollback Rules
 

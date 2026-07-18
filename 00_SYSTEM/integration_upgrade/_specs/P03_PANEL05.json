@@ -1,0 +1,10 @@
+{
+  "panel_id": "MZ-2026-09-02_P03_PANEL05",
+  "type": "scene",
+  "location": "Transit Announcement Hub",
+  "action": "Static alone in the transit hall as the big departure boards begin to stutter top to bottom.",
+  "foreground_rain": false,
+  "characters": [
+    {"character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_29_lookingup.png", "foot_anchor": [600, 555], "shadow": "down", "reflection_surface": "glossy_floor_full"}
+  ]
+}

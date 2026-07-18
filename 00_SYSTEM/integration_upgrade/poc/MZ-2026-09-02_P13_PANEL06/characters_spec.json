@@ -1,0 +1,73 @@
+{
+  "panel_id": "MZ-2026-09-02_P13_PANEL06",
+  "source_script_line": "Team reaches the old relay junction before overload; cyan residual glow in dormant nodes.",
+  "staging_intent": "Arrival energy: Clever bursts in foreground-left pointing at the glowing wall units; Static mid-center reading the room; TwoTone right, closest to the relay wall. Diagonal staging toward the crystals, no lineup.",
+  "foreground_rain": false,
+  "characters": [
+    {
+      "character": "static",
+      "character_token": "MZ-CHAR-003",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_19_determined.png",
+      "action": "scanning the junction, warning delivered",
+      "emotion": "determined focus",
+      "body_orientation": "three-quarter toward the relay wall",
+      "eye_target": "the dormant crystal nodes",
+      "depth_layer": "middle_ground",
+      "ground_contact": {
+        "surface": "steel floor grate",
+        "foot_anchor_px": [
+          610,
+          585
+        ]
+      },
+      "lighting": {
+        "key_source": "cage_lamp_overhead",
+        "shadow_direction": "down"
+      }
+    },
+    {
+      "character": "clever",
+      "character_token": "MZ-CHAR-CLEVER",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/clever/clever_00_clean_base.png",
+      "asset_note": "Clean-base full-body layer: the pointing variant's feet are clipped by its own card frame in the SOURCE render (flat cut, unusable in foreground). Clean base is fully inside the card. Placed mid-left.",
+      "action": "arriving, reading the wall of dormant nodes",
+      "emotion": "urgent analysis",
+      "body_orientation": "three-quarter toward the relay wall",
+      "eye_target": "the glowing wall crystals",
+      "depth_layer": "middle_left",
+      "ground_contact": {
+        "surface": "steel floor grate",
+        "foot_anchor_px": [
+          400,
+          620
+        ]
+      },
+      "lighting": {
+        "key_source": "cage_lamp_overhead",
+        "shadow_direction": "down-right"
+      }
+    },
+    {
+      "character": "twotone",
+      "character_token": "MZ-CHAR-002",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/twotone/twotone_19_determined.png",
+      "action": "moving toward the relay wall, ready to act",
+      "emotion": "determined",
+      "body_orientation": "toward the crystal wall units",
+      "eye_target": "the nearest wall unit",
+      "depth_layer": "foreground_right",
+      "ground_contact": {
+        "surface": "steel floor grate",
+        "foot_anchor_px": [
+          905,
+          695
+        ]
+      },
+      "lighting": {
+        "key_source": "relay_crystal_wall_right_low",
+        "shadow_direction": "down-left"
+      }
+    }
+  ],
+  "decompression_note": "Was MZ-2026-09-02_P07_PANEL02 in the 24-panel edition; same locked beat, renumbered by the 16-page/96-panel format directive."
+}

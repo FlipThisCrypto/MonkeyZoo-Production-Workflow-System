@@ -1,0 +1,12 @@
+{
+  "panel_id": "MZ-2026-09-02_P14_PANEL02",
+  "type": "scene",
+  "location": "Old Relay Junction",
+  "action": "Static stands in the middle, ears wide open, conducting the room toward the tone only he can track.",
+  "foreground_rain": false,
+  "characters": [
+    {"character": "twotone", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/twotone/twotone_26_reaching.png", "foot_anchor": [270, 560], "shadow": "down-right"},
+    {"character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_19_determined.png", "foot_anchor": [650, 665], "shadow": "down"},
+    {"character": "clever", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/clever/clever_19_determined.png", "foot_anchor": [1010, 600], "shadow": "down-left"}
+  ]
+}

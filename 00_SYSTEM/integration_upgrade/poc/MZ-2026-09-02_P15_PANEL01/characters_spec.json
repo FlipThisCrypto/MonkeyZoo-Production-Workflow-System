@@ -1,0 +1,23 @@
+{
+  "panel_id": "MZ-2026-09-02_P15_PANEL01",
+  "source_script_line": "Morning after; Static crouches on the drying sidewalk with a marker and a scrap of board.",
+  "foreground_rain": false,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "static",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_25_crouching.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          590,
+          590
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      }
+    }
+  ]
+}

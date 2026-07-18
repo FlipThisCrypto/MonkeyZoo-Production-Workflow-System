@@ -1,0 +1,28 @@
+{
+  "panel_id": "MZ-2026-09-02_P12_PANEL02",
+  "type": "scene",
+  "location": "Zoo City Streets",
+  "action": "The team spreads out, deliberately opening distance around Static; Scarline nods once across the gap.",
+  "foreground_rain": true,
+  "characters": [
+    {
+      "character": "moodz",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/moodz/moodz_19_determined.png",
+      "foot_anchor": [300, 500],
+      "shadow": "down-left",
+      "reflection_surface": "sidewalk_sheet_left"
+    },
+    {
+      "character": "static",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_16_worried.png",
+      "foot_anchor": [650, 560],
+      "shadow": "down-left"
+    },
+    {
+      "character": "scarline",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/scarline/scarline_19_determined.png",
+      "foot_anchor": [1010, 615],
+      "shadow": "down-left"
+    }
+  ]
+}

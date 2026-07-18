@@ -45,6 +45,25 @@ class StoryContextError(ValueError):
     pass
 
 
+# issue_id from the request body becomes a filesystem folder name in
+# issue_output_dir(), so it must be a single safe path component. This accepts
+# the MZ-DRAFT-... default, real MZ-YYYY-MM-NN ids, and freeform labels
+# (e.g. MZ-TEST), but rejects any path separator, parent ref ("..") , drive
+# letter, or dot -- otherwise a POST to /api/story/save|generate-sample could
+# drive an arbitrary-location mkdir + file write (path traversal).
+_SAFE_ISSUE_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$")
+
+
+def safe_issue_id(value: Any) -> str:
+    text = str(value or "").strip()
+    if not _SAFE_ISSUE_ID.fullmatch(text):
+        raise StoryContextError(
+            "issue_id must be a simple identifier (letters, digits, '-', '_') "
+            "with no path separators or '..'"
+        )
+    return text
+
+
 def default_setup() -> dict[str, Any]:
     return {
         "issue_id": f"MZ-DRAFT-{dt.datetime.now().strftime('%Y%m%d-%H%M%S')}",
@@ -146,6 +165,7 @@ def generate_sample_issue(body: dict[str, Any], bibles_root: Path, workspace_roo
 def normalize_setup(body: dict[str, Any]) -> dict[str, Any]:
     setup = default_setup()
     setup.update({key: value for key, value in body.items() if value is not None})
+    setup["issue_id"] = safe_issue_id(setup.get("issue_id"))
     setup["page_count"] = clamp_int(setup.get("page_count"), 1, 64, 4)
     setup["panel_count"] = clamp_int(setup.get("panel_count"), 1, 240, setup["page_count"] * 3)
     setup["adventure_style"] = setup["adventure_style"] if setup["adventure_style"] in ADVENTURE_STYLES else ADVENTURE_STYLES[-1]
@@ -697,6 +717,7 @@ def propose_continuity_update(packet: dict[str, Any], script_text: str | None = 
 
 
 def issue_output_dir(issue_id: str, workspace_root: Path) -> Path:
+    issue_id = safe_issue_id(issue_id)  # never build a path from an unvalidated id at the sink
     factory_issue = workspace_root / "MonkeyZoo_Comic_Factory" / "02_MONTHLY_ISSUES" / issue_id
     if factory_issue.exists():
         return factory_issue

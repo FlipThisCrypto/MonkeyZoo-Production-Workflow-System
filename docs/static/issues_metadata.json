@@ -60,6 +60,18 @@
         "pages":  2
     },
     {
+        "panels":  24,
+        "release_log":  "Compiled PDF \u0026 CBZ",
+        "is_demo":  false,
+        "qa_status":  "Passed",
+        "completion":  "100%",
+        "owner":  "Lead Writer",
+        "issue_id":  "MZ-2026-09-02",
+        "title":  "Signals In The Silence",
+        "stage":  "10. Release",
+        "pages":  8
+    },
+    {
         "panels":  2,
         "release_log":  "Compiled PDF \u0026 CBZ",
         "is_demo":  false,

@@ -1,0 +1,11 @@
+{
+  "panel_id": "MZ-2026-09-02_P03_PANEL04",
+  "type": "closeup",
+  "location": "Early-Fall Storm Streets and Routine Nodes",
+  "closeup": {
+    "character": "neonblue",
+    "pose_file": "00_SYSTEM/integration_upgrade/character_layers/neonblue/neonblue_16_worried.png",
+    "crop_box": [430, 150, 900, 520],
+    "char_x_frac": 0.5
+  }
+}

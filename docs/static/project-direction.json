@@ -2,13 +2,13 @@
   "schema_version": "1.0",
   "title": "MonkeyZoo / Banana Lab — Project Direction",
   "subtitle": "Single-owner creative production system for MonkeyZoo comics",
-  "updated": "2026-07-15",
+  "updated": "2026-07-16",
   "active_one_thing": {
-    "id": "issue-02-page-plan",
-    "title": "Issue 02 — promote page_panel_plan for Static",
+    "id": "issue-03-scarline-script",
+    "title": "Issue 03 — promote full script for Scarline",
     "status": "next",
-    "completed_just_now": "issue-02-static-story-package",
-    "note": "MZ-2026-09-02 Signals In The Silence at page_plan with outline+script. (Edition 02 avoids collision with published live-probe 2026-09_Issue_01.)"
+    "completed_just_now": "issue-03-scarline-scaffold",
+    "note": "MZ-2026-10-02 The House That Remembers created; outline promoted; stage script. (Edition 02 avoids published Oct live-probe.)"
   },
   "owner": "Fiend Studios (single owner)",
   "product_names": {
@@ -143,9 +143,9 @@
         {
           "id": "backup-habit",
           "title": "Run backups after real art or before machine moves",
-          "status": "active",
+          "status": "done",
           "priority": "P0",
-          "instructions": "After bulk art work or before travel: .\\Backup-BananaLab.ps1. Git does not replace offline backups for expression sheets, PDFs, CBZ, or 05_RELEASE_ARCHIVE packages.",
+          "instructions": "DONE 2026-07-16 post Issue 02 publish: 06_BACKUPS/monkeyzoo-backup-20260716T153542Z (1965 files).",
           "docs": [
             "docs/BACKUPS.md"
           ]
@@ -225,9 +225,9 @@
         {
           "id": "project-map-dashboard",
           "title": "Project Map dashboard (this page)",
-          "status": "active",
+          "status": "done",
           "priority": "P1",
-          "instructions": "Keep 00_SYSTEM/project_direction.json updated when priorities change. Export static copy via docs sync so GitHub Pages can show the same map read-only.",
+          "instructions": "Project Map kept current; export via docs sync for GitHub Pages read-only map.",
           "docs": [
             "00_SYSTEM/project_direction.json",
             "docs/PROJECT_DIRECTION.md"
@@ -297,9 +297,9 @@
         {
           "id": "issue-02-static",
           "title": "Issue 02 — Static / storm & six-tone",
-          "status": "active",
+          "status": "done",
           "priority": "P0",
-          "instructions": "IN PROGRESS. MZ-2026-09-02 Signals In The Silence (folder 2026-09_Issue_02) has promoted outline+script; stage page_plan. Continue: page plan → art pack → draft panels → QA → release.",
+          "instructions": "DONE as draft pipeline publish 2026-07-16. MZ-2026-09-02 Signals In The Silence stage published; archive 05_RELEASE_ARCHIVE/2026/2026-09_Issue_02. Optional: final art upgrade.",
           "docs": [
             "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md",
             "02_MONTHLY_ISSUES/2026-09_Issue_02/",
@@ -320,20 +320,74 @@
         {
           "id": "issue-02-page-plan",
           "title": "Issue 02 — promote page_panel_plan",
-          "status": "next",
+          "status": "done",
           "priority": "P0",
-          "instructions": "NEXT. Layout create/approve/promote page_panel_plan.json from Issue 02 script.",
+          "instructions": "DONE 2026-07-16. Layout variant validated, approved, promoted page_panel_plan.json (8 pages / 24 panels). Advanced to art_prompts.",
           "docs": [
             "docs/PAGE_PANEL_WORKSPACE.md",
             "02_MONTHLY_ISSUES/2026-09_Issue_02/issue_script.md"
           ]
         },
         {
+          "id": "issue-02-art-prompt-pack",
+          "title": "Issue 02 — art prompt pack promote",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE 2026-07-16. art_prompt_pack.json promoted (24 panels); advanced to art_production.",
+          "docs": [
+            "02_MONTHLY_ISSUES/2026-09_Issue_02/art_prompt_pack.json",
+            "scripts/drive_issue_02_pipeline.py"
+          ]
+        },
+        {
+          "id": "issue-02-art-production",
+          "title": "Issue 02 — draft composites for 24 panels",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE 2026-07-16. Draft composites from location plates + character refs selected for all 24 panels; advanced to qa. Draft tier only.",
+          "docs": [
+            "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/selected_panels/",
+            "scripts/drive_issue_02_pipeline.py"
+          ]
+        },
+        {
+          "id": "issue-02-qa-release",
+          "title": "Issue 02 — QA PASS + release archive publish",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE 2026-07-16. Re-QA after assets; cover/PDF/CBZ/CHIP-0015; published 05_RELEASE_ARCHIVE/2026/2026-09_Issue_02; stage published.",
+          "docs": [
+            "05_RELEASE_ARCHIVE/2026/2026-09_Issue_02/",
+            "scripts/drive_issue_02_pipeline.py"
+          ]
+        },
+        {
+          "id": "issue-03-scarline-scaffold",
+          "title": "Issue 03 — create Scarline package + intake brief",
+          "status": "done",
+          "priority": "P0",
+          "instructions": "DONE 2026-07-16. Created MZ-2026-10-02 The House That Remembers (Scarline + Zombie). Brief filed; canon approved; outline promoted; stage script.",
+          "docs": [
+            "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/issue-03-scarline.md"
+          ]
+        },
+        {
+          "id": "issue-03-scarline-script",
+          "title": "Issue 03 — promote full script",
+          "status": "next",
+          "priority": "P0",
+          "instructions": "NEXT. Write/import 24-panel script for The House That Remembers; approve; promote; advance to page_plan.",
+          "docs": [
+            "02_MONTHLY_ISSUES/2026-10_Issue_02/",
+            "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/issue-03-scarline.md"
+          ]
+        },
+        {
           "id": "issue-03-scarline",
           "title": "Issue 03 — Scarline / haunted attraction",
-          "status": "later",
+          "status": "active",
           "priority": "P1",
-          "instructions": "Haunted attraction over old FusionZoo path; misdirect exits; wall marking / residue props.",
+          "instructions": "IN PROGRESS. MZ-2026-10-02 scaffolded with outline at script stage. Continue: script → page plan → art pack → draft panels → QA → release.",
           "docs": [
             "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md"
           ]
@@ -644,80 +698,12 @@
     }
   ],
   "recommended_order": [
-    "issue-02-page-plan",
-    "issue-02-static",
-    "backup-habit",
+    "issue-03-scarline-script",
+    "issue-03-scarline",
     "world-bible-merge",
     "issue-01-final-art-upgrade",
     "studio-ux-polish",
     "char-ref-variants",
     "phase1-auth-host"
-  ],
-  "task_counts": {
-    "active": 5,
-    "blocked": 0,
-    "done": 24,
-    "later": 7,
-    "next": 4,
-    "total": 40
-  },
-  "recommended_tasks": [
-    {
-      "id": "issue-02-page-plan",
-      "title": "Issue 02 — promote page_panel_plan",
-      "status": "next",
-      "priority": "P0",
-      "track_title": "Season creative — Emo Monkeys: The Signal Between Us"
-    },
-    {
-      "id": "issue-02-static",
-      "title": "Issue 02 — Static / storm & six-tone",
-      "status": "active",
-      "priority": "P0",
-      "track_title": "Season creative — Emo Monkeys: The Signal Between Us"
-    },
-    {
-      "id": "backup-habit",
-      "title": "Run backups after real art or before machine moves",
-      "status": "active",
-      "priority": "P0",
-      "track_title": "Daily operations"
-    },
-    {
-      "id": "world-bible-merge",
-      "title": "Owner-approve proposed locations/props into world bible",
-      "status": "next",
-      "priority": "P2",
-      "track_title": "Season creative — Emo Monkeys: The Signal Between Us"
-    },
-    {
-      "id": "issue-01-final-art-upgrade",
-      "title": "Optional: Issue 01 final illustrated art upgrade",
-      "status": "later",
-      "priority": "P2",
-      "track_title": "How to run one issue (operator path)"
-    },
-    {
-      "id": "studio-ux-polish",
-      "title": "Studio UX polish pass",
-      "status": "next",
-      "priority": "P2",
-      "track_title": "Studio platform (Banana Lab)"
-    },
-    {
-      "id": "char-ref-variants",
-      "title": "Expand character pose/expression refs toward LoRA threshold",
-      "status": "next",
-      "priority": "P2",
-      "track_title": "Canon assets & consistency"
-    },
-    {
-      "id": "phase1-auth-host",
-      "title": "Phase 1 private host with auth",
-      "status": "later",
-      "priority": "P2",
-      "track_title": "Studio platform (Banana Lab)"
-    }
-  ],
-  "source_path": "00_SYSTEM/project_direction.json"
+  ]
 }

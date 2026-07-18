@@ -26,15 +26,31 @@ PAGE_W, PAGE_H = 2480, 3508
 MARGIN, GUTTER, BORDER = 100, 40, 12
 FONTS = Path(r"C:\Windows\Fonts")
 
-F_BUBBLE = ImageFont.truetype(str(FONTS / "comicbd.ttf"), 46)
-F_SPEAKER = ImageFont.truetype(str(FONTS / "comic.ttf"), 30)
-F_CAPTION = ImageFont.truetype(str(FONTS / "ariali.ttf"), 44)
-F_SFX = ImageFont.truetype(str(FONTS / "impact.ttf"), 90)
-F_SFX_SMALL = ImageFont.truetype(str(FONTS / "ariali.ttf"), 52)
-F_SCREEN = ImageFont.truetype(str(FONTS / "consola.ttf"), 40)
-F_WM = ImageFont.truetype(str(FONTS / "comicbd.ttf"), 54)
-F_PAGENO = ImageFont.truetype(str(FONTS / "arial.ttf"), 40)
-F_TITLE = ImageFont.truetype(str(FONTS / "impact.ttf"), 170)
+
+def _font(name: str, size: int):
+    """Load a Windows font, but degrade gracefully when it is absent
+    (Linux CI / non-Windows dev) so the module stays importable and
+    testable instead of crashing at import. On Windows the exact fonts
+    load as before; elsewhere it falls back to a system-resolvable name
+    and finally to Pillow's default so page assembly still runs."""
+    try:
+        return ImageFont.truetype(str(FONTS / name), size)
+    except OSError:
+        try:
+            return ImageFont.truetype(name, size)  # on the system font path?
+        except OSError:
+            return ImageFont.load_default()
+
+
+F_BUBBLE = _font("comicbd.ttf", 46)
+F_SPEAKER = _font("comic.ttf", 30)
+F_CAPTION = _font("ariali.ttf", 44)
+F_SFX = _font("impact.ttf", 90)
+F_SFX_SMALL = _font("ariali.ttf", 52)
+F_SCREEN = _font("consola.ttf", 40)
+F_WM = _font("comicbd.ttf", 54)
+F_PAGENO = _font("arial.ttf", 40)
+F_TITLE = _font("impact.ttf", 170)
 
 
 def wrap(draw, text, font, max_w):
@@ -108,9 +124,21 @@ def draw_sfx(draw, x, y, text, small=False):
     draw.text((x, y), text, font=f, fill=fill)
 
 
+# The scripts use "—" (and other dash marks) plus blanks as the "none"
+# convention for empty dialogue/caption/SFX fields. Without this guard the
+# lettering drew a literal "—" bubble/caption/SFX on every such panel.
+_BLANK_RE = re.compile(r"^[\s\-‐-―−]*$")
+
+
+def _is_blank(s) -> bool:
+    return not s or bool(_BLANK_RE.match(str(s)))
+
+
 def parse_dialogue(s):
+    if _is_blank(s):
+        return []
     out = []
-    for part in [p for p in s.split(" / ") if p.strip()]:
+    for part in [p for p in s.split(" / ") if p.strip() and not _is_blank(p)]:
         m = re.match(r'\s*([^:]+):\s*"(.*)"\s*$', part)
         if m:
             out.append((m.group(1).strip(), m.group(2)))
@@ -139,6 +167,21 @@ def find_art(issue_dir, pid):
     return sel if sel.exists() else None
 
 
+def compute_slots(recipe, panel_count):
+    """Panel bounding boxes for a page. A splash is one full-bleed slot; a page
+    with zero panels yields no slots -- guarding a legacy/malformed page whose
+    empty panels list otherwise hit `usable_h // 0` and crashed the whole run
+    with a ZeroDivisionError before any page was written."""
+    if recipe == "splash":
+        return [(0, 0, PAGE_W, PAGE_H)]
+    if panel_count <= 0:
+        return []
+    usable_h = PAGE_H - 2 * MARGIN - (panel_count - 1) * GUTTER
+    sh = usable_h // panel_count
+    return [(MARGIN, MARGIN + i * (sh + GUTTER), PAGE_W - 2 * MARGIN, sh)
+            for i in range(panel_count)]
+
+
 def main():
     issue = sys.argv[1]
     issue_dir = FACTORY / "02_MONTHLY_ISSUES" / issue
@@ -158,14 +201,7 @@ def main():
         canvas = Image.new("RGB", (PAGE_W, PAGE_H), "white")
         d = ImageDraw.Draw(canvas)
 
-        if recipe == "splash":
-            slots = [(0, 0, PAGE_W, PAGE_H)]
-        else:
-            count = len(panels)
-            usable_h = PAGE_H - 2 * MARGIN - (count - 1) * GUTTER
-            sh = usable_h // count
-            slots = [(MARGIN, MARGIN + i * (sh + GUTTER), PAGE_W - 2 * MARGIN, sh)
-                     for i in range(count)]
+        slots = compute_slots(recipe, len(panels))
 
         for panel, (sx, sy, sw, shh) in zip(panels, slots):
             pid = panel["panel_id"]
@@ -190,14 +226,14 @@ def main():
                     by = sy + po.get("bubble_y", 0.16) * shh
                     draw_bubble(d, bx, by, txt, spk)
             cap = panel.get("caption", "")
-            if cap:
-                for part in cap.split(" / "):
+            if not _is_blank(cap):
+                for part in [p for p in cap.split(" / ") if not _is_blank(p)]:
                     cy = sy + po.get("caption_y", 0.82) * shh
                     cx = sx + 0.03 * sw
                     h = draw_caption(d, cx, cy, part.strip())
                     po["caption_y"] = po.get("caption_y", 0.82) - (h + 12) / shh
             sfx = panel.get("sfx", "")
-            if sfx:
+            if not _is_blank(sfx):
                 draw_sfx(d, sx + po.get("sfx_x", 0.66) * sw,
                          sy + po.get("sfx_y", 0.08) * shh, sfx,
                          small="bmp" in sfx.lower())

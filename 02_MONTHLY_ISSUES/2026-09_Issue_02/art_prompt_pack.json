@@ -1,0 +1,3739 @@
+{
+  "issue_id": "MZ-2026-09-02",
+  "style_lock_phrase": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop",
+  "base_negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+  "panels": [
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 1,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P01_PANEL01",
+      "character_tokens": [],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Zoo City street at dusk before the storm; the transit board glows steady over the wet sidewalk.",
+      "expression": "calm before",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Zoo City street at dusk before the storm; the transit board glows steady over the wet sidewalk.. Location: Zoo City Streets. Camera: Wide. Emotion: calm before. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [],
+      "seed_strategy": "per_panel",
+      "seed": 200103,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 1,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P01_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static walks the sidewalk with his hood down, half-lost in thought, one ear already tilting back.",
+      "expression": "distracted ease",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static walks the sidewalk with his hood down, half-lost in thought, one ear already tilting back.. Location: Zoo City Streets. Camera: Medium. Emotion: distracted ease. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200106,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 1,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P01_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static freezes on a sidewalk as a transit board clicks off-rhythm.",
+      "expression": "alert",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static freezes on a sidewalk as a transit board clicks off-rhythm.. Location: Zoo City Streets. Camera: Medium. Emotion: alert. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200109,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 1,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P01_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Close on Static's wide eyes reflecting the board's glow; commuters blur past without slowing.",
+      "expression": "isolated certainty",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Close on Static's wide eyes reflecting the board's glow; commuters blur past without slowing.. Location: Zoo City Streets. Camera: Close. Emotion: isolated certainty. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200112,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 1,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P01_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-001"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "School hallway; Static and Moodz walk beneath the wall speakers as one hiccups mid-announcement.",
+      "expression": "ordinary day, wrong note",
+      "environment": "School / Public Address Zone",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop School hallway; Static and Moodz walk beneath the wall speakers as one hiccups mid-announcement.. Location: School / Public Address Zone. Camera: Wide. Emotion: ordinary day, wrong note. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-001"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200115,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 1,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P01_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-001"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "A PA speaker glitches a half-second; Moodz watches Static flinch.",
+      "expression": "watchful",
+      "environment": "School / Public Address Zone",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop A PA speaker glitches a half-second; Moodz watches Static flinch.. Location: School / Public Address Zone. Camera: Medium. Emotion: watchful. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-001"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200118,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 2,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P02_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-001"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static's shoulders come down a centimeter; he searches Moodz's face for doubt and finds none.",
+      "expression": "tested trust",
+      "environment": "School / Public Address Zone",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static's shoulders come down a centimeter; he searches Moodz's face for doubt and finds none.. Location: School / Public Address Zone. Camera: Close. Emotion: tested trust. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-001"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200203,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 2,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P02_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-001"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Moodz shrugs without breaking stride, hands in pockets, making belief look easy.",
+      "expression": "steady",
+      "environment": "School / Public Address Zone",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Moodz shrugs without breaking stride, hands in pockets, making belief look easy.. Location: School / Public Address Zone. Camera: Medium. Emotion: steady. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-001"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200206,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 2,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P02_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Back on the street, NeonBlue catches up, waving it off with too much energy.",
+      "expression": "bright deflection",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Back on the street, NeonBlue catches up, waving it off with too much energy.. Location: Zoo City Streets. Camera: Medium. Emotion: bright deflection. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200209,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 2,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P02_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "NeonBlue tries to reassure; Static's ears still track a buzz.",
+      "expression": "kind but rushing",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop NeonBlue tries to reassure; Static's ears still track a buzz.. Location: Zoo City Streets. Camera: Medium. Emotion: kind but rushing. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200212,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 2,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P02_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static half-turns away, ears angled at a lamppost only he is listening to.",
+      "expression": "polite retreat inward",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static half-turns away, ears angled at a lamppost only he is listening to.. Location: Zoo City Streets. Camera: Close. Emotion: polite retreat inward. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200215,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 2,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P02_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "The two stand small under the signage; every light on the street flickers a single frame together.",
+      "expression": "unnoticed omen",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop The two stand small under the signage; every light on the street flickers a single frame together.. Location: Zoo City Streets. Camera: Wide. Emotion: unnoticed omen. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200218,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 3,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P03_PANEL01",
+      "character_tokens": [],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Storm front swallows the neon skyline; the first fat drops hit the dark street.",
+      "expression": "pressure drop",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Storm front swallows the neon skyline; the first fat drops hit the dark street.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Wide. Emotion: pressure drop. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [],
+      "seed_strategy": "per_panel",
+      "seed": 200303,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 3,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P03_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002",
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Storm rolls in; every device emits the same interference burst.",
+      "expression": "shared alarm",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Storm rolls in; every device emits the same interference burst.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Medium. Emotion: shared alarm. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002",
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200306,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 3,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P03_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002",
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "TwoTone and NeonBlue pull out their own devices — both screens stutter in the same rhythm at once.",
+      "expression": "confirmation dawning",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop TwoTone and NeonBlue pull out their own devices — both screens stutter in the same rhythm at once.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Medium. Emotion: confirmation dawning. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002",
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200309,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 3,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P03_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002",
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Three faces lit by three glitching screens, the same jagged waveform on each.",
+      "expression": "it's real",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Three faces lit by three glitching screens, the same jagged waveform on each.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Close. Emotion: it's real. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002",
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200312,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 3,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P03_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static alone in the transit hall as the big departure boards begin to stutter top to bottom.",
+      "expression": "eye of the storm",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static alone in the transit hall as the big departure boards begin to stutter top to bottom.. Location: Transit Announcement Hub. Camera: Wide. Emotion: eye of the storm. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200315,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 3,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P03_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static's ears snap forward BEFORE the glitch peaks; his body reads it early.",
+      "expression": "reflex ahead of reason",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static's ears snap forward BEFORE the glitch peaks; his body reads it early.. Location: Transit Announcement Hub. Camera: Close. Emotion: reflex ahead of reason. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200318,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 4,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P04_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static reacts before the hub screens finish glitching.",
+      "expression": "certain",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static reacts before the hub screens finish glitching.. Location: Transit Announcement Hub. Camera: Medium. Emotion: certain. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200403,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 4,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P04_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "The boards settle back to normal; Static stands in the empty hall, the only one who moved.",
+      "expression": "alone with proof",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop The boards settle back to normal; Static stands in the empty hall, the only one who moved.. Location: Transit Announcement Hub. Camera: Wide. Emotion: alone with proof. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200406,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 4,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P04_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static talks fast at the hub, hands moving; the words pile up faster than anyone can sort.",
+      "expression": "spilling over",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static talks fast at the hub, hands moving; the words pile up faster than anyone can sort.. Location: Transit Announcement Hub. Camera: Medium. Emotion: spilling over. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200409,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 4,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P04_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Off-panel voices overlap him — 'slow down' — 'one thing at a time' — the balloon tails crowd his head.",
+      "expression": "drowning in help",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Off-panel voices overlap him — 'slow down' — 'one thing at a time' — the balloon tails crowd his head.. Location: Transit Announcement Hub. Camera: Medium. Emotion: drowning in help. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200412,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 4,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P04_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Scarline steadies the space without shutting Static down.",
+      "expression": "calm authority",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Scarline steadies the space without shutting Static down.. Location: Transit Announcement Hub. Camera: Medium. Emotion: calm authority. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200415,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 4,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P04_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Quiet lands. Static breathes once; Scarline holds the room with a look, not a word.",
+      "expression": "protected",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Quiet lands. Static breathes once; Scarline holds the room with a look, not a word.. Location: Transit Announcement Hub. Camera: Close. Emotion: protected. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200418,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 5,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P05_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Clever arrives at the hub hauling analyzer gear, tool roll over one shoulder, all business.",
+      "expression": "competence arriving",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Clever arrives at the hub hauling analyzer gear, tool roll over one shoulder, all business.. Location: Transit Announcement Hub. Camera: Wide. Emotion: competence arriving. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200503,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 5,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P05_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Clever arrives with analyzer gear and opens a panel.",
+      "expression": "methodical",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Clever arrives with analyzer gear and opens a panel.. Location: Transit Announcement Hub. Camera: Medium. Emotion: methodical. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200506,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 5,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P05_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Inside the service panel: clean wiring, no faults, every contact bright — nothing broken to find.",
+      "expression": "the easy answer dies",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Inside the service panel: clean wiring, no faults, every contact bright — nothing broken to find.. Location: Transit Announcement Hub. Camera: Close. Emotion: the easy answer dies. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200509,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 5,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P05_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Clever glances from the healthy wiring to Static, recalibrating who the real instrument is.",
+      "expression": "respect forming",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Clever glances from the healthy wiring to Static, recalibrating who the real instrument is.. Location: Transit Announcement Hub. Camera: Medium. Emotion: respect forming. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200512,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 5,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P05_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static winds up to answer and the answer arrives all at once, fingers counting nothing.",
+      "expression": "flooded",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static winds up to answer and the answer arrives all at once, fingers counting nothing.. Location: Transit Announcement Hub. Camera: Medium. Emotion: flooded. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200515,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 5,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P05_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static talks too fast—six signals, three dangers, old memories.",
+      "expression": "overload",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static talks too fast—six signals, three dangers, old memories.. Location: Transit Announcement Hub. Camera: Medium. Emotion: overload. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200518,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 6,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P06_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Clever doesn't interrupt; the analyzer keeps rolling, capturing everything Static spills.",
+      "expression": "patient capture",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Clever doesn't interrupt; the analyzer keeps rolling, capturing everything Static spills.. Location: Transit Announcement Hub. Camera: Close. Emotion: patient capture. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200603,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 6,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P06_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static runs out of air and looks down, embarrassed; Clever taps the analyzer — got it anyway.",
+      "expression": "shame meets patience",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static runs out of air and looks down, embarrassed; Clever taps the analyzer — got it anyway.. Location: Transit Announcement Hub. Camera: Medium. Emotion: shame meets patience. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200606,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 6,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P06_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-004"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "School hallway; Clever traces conduit with a finger-light while Ash leans on the lockers, watching.",
+      "expression": "parallel minds",
+      "environment": "School / Public Address Zone",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop School hallway; Clever traces conduit with a finger-light while Ash leans on the lockers, watching.. Location: School / Public Address Zone. Camera: Wide. Emotion: parallel minds. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-004"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200609,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 6,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P06_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-004"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Clever follows wires; Ash asks one short question.",
+      "expression": "cut to the center",
+      "environment": "School / Public Address Zone",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Clever follows wires; Ash asks one short question.. Location: School / Public Address Zone. Camera: Medium. Emotion: cut to the center. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-004"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200612,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 6,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P06_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-004"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Clever stops mid-trace — the question lands harder than any reading.",
+      "expression": "struck",
+      "environment": "School / Public Address Zone",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Clever stops mid-trace — the question lands harder than any reading.. Location: School / Public Address Zone. Camera: Close. Emotion: struck. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-004"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200615,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 6,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P06_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-004"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Ash pushes off the lockers and walks on, fringe over one eye, having said exactly enough.",
+      "expression": "economy",
+      "environment": "School / Public Address Zone",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Ash pushes off the lockers and walks on, fringe over one eye, having said exactly enough.. Location: School / Public Address Zone. Camera: Medium. Emotion: economy. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-004"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200618,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 7,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P07_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "The analyzer screen at the hub resolves noise into six clean spikes; Clever leans in.",
+      "expression": "signal from noise",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop The analyzer screen at the hub resolves noise into six clean spikes; Clever leans in.. Location: Transit Announcement Hub. Camera: Medium. Emotion: signal from noise. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200703,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 7,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P07_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Clever isolates six distinct tones on the analyzer display.",
+      "expression": "vindication",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Clever isolates six distinct tones on the analyzer display.. Location: Transit Announcement Hub. Camera: Medium. Emotion: vindication. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200706,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 7,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P07_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static stares at the screen — the shapes he's been hearing for days, finally visible to everyone.",
+      "expression": "seen at last",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static stares at the screen — the shapes he's been hearing for days, finally visible to everyone.. Location: Transit Announcement Hub. Camera: Close. Emotion: seen at last. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200709,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 7,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P07_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Clever tilts the screen toward Static like handing over a mirror.",
+      "expression": "credit given",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Clever tilts the screen toward Static like handing over a mirror.. Location: Transit Announcement Hub. Camera: Medium. Emotion: credit given. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200712,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 7,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P07_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Clever cycles tones; the third one paints the hub screens faint cyan for half a beat.",
+      "expression": "recognition incoming",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Clever cycles tones; the third one paints the hub screens faint cyan for half a beat.. Location: Transit Announcement Hub. Camera: Medium. Emotion: recognition incoming. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200715,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 7,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P07_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "One tone matches August's cyan frequency; NeonBlue goes still.",
+      "expression": "ghost of summer",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop One tone matches August's cyan frequency; NeonBlue goes still.. Location: Transit Announcement Hub. Camera: Medium. Emotion: ghost of summer. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200718,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 8,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P08_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Close on NeonBlue — the spiky bravado drains; his hair's glow is the same cyan as the tone.",
+      "expression": "personally haunted",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Close on NeonBlue — the spiky bravado drains; his hair's glow is the same cyan as the tone.. Location: Transit Announcement Hub. Camera: Close. Emotion: personally haunted. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200803,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 8,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P08_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Nobody jokes. Scarline's hand lands on NeonBlue's shoulder without ceremony.",
+      "expression": "shared weight",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Nobody jokes. Scarline's hand lands on NeonBlue's shoulder without ceremony.. Location: Transit Announcement Hub. Camera: Medium. Emotion: shared weight. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200806,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 8,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P08_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Street corner worktable of scavenged parts; TwoTone lays tone-cards out in two columns.",
+      "expression": "order from chaos",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Street corner worktable of scavenged parts; TwoTone lays tone-cards out in two columns.. Location: Zoo City Streets. Camera: Medium. Emotion: order from chaos. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200809,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 8,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P08_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "TwoTone helps pair frequencies into readable couples.",
+      "expression": "practical genius",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop TwoTone helps pair frequencies into readable couples.. Location: Zoo City Streets. Camera: Medium. Emotion: practical genius. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200812,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 8,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P08_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Six tones become three pairs on the board; the pattern suddenly reads like a sentence.",
+      "expression": "legibility",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Six tones become three pairs on the board; the pattern suddenly reads like a sentence.. Location: Zoo City Streets. Camera: Close. Emotion: legibility. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200815,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 8,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P08_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "TwoTone allows himself half a smile on the white side of his face.",
+      "expression": "quiet pride",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop TwoTone allows himself half a smile on the white side of his face.. Location: Zoo City Streets. Camera: Medium. Emotion: quiet pride. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200818,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 9,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P09_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Storm street at night; Static stands very still in the rain-light, listening past the city.",
+      "expression": "the quiet before the thought",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Storm street at night; Static stands very still in the rain-light, listening past the city.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Wide. Emotion: the quiet before the thought. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200903,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 9,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P09_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static realizes the signal is searching for responses, not broadcasting out.",
+      "expression": "vertigo of insight",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static realizes the signal is searching for responses, not broadcasting out.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Medium. Emotion: vertigo of insight. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200906,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 9,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P09_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Clever freezes mid-note; the pen stops on the pad as the sentence rearranges everything.",
+      "expression": "paradigm flip",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Clever freezes mid-note; the pen stops on the pad as the sentence rearranges everything.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Close. Emotion: paradigm flip. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200909,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 9,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P09_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "The street's neon reflections ripple; every light suddenly reads like an eye that might blink back.",
+      "expression": "the city changes meaning",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop The street's neon reflections ripple; every light suddenly reads like an eye that might blink back.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Wide. Emotion: the city changes meaning. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200912,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 9,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P09_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "School hallway; an off-panel voice tells Static to 'just calm down' and Moodz steps between.",
+      "expression": "line being drawn",
+      "environment": "School / Public Address Zone",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop School hallway; an off-panel voice tells Static to 'just calm down' and Moodz steps between.. Location: School / Public Address Zone. Camera: Medium. Emotion: line being drawn. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200915,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 9,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P09_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Moodz blocks pressure for Static to 'just calm down.'",
+      "expression": "shield up",
+      "environment": "School / Public Address Zone",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Moodz blocks pressure for Static to 'just calm down.'. Location: School / Public Address Zone. Camera: Medium. Emotion: shield up. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 200918,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 10,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P10_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static behind Moodz's shoulder — startled that someone spent capital on him without being asked.",
+      "expression": "defended",
+      "environment": "School / Public Address Zone",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static behind Moodz's shoulder — startled that someone spent capital on him without being asked.. Location: School / Public Address Zone. Camera: Close. Emotion: defended. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201003,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 10,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P10_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Moodz doesn't even look back, beanie low, already done with the argument.",
+      "expression": "unbothered loyalty",
+      "environment": "School / Public Address Zone",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Moodz doesn't even look back, beanie low, already done with the argument.. Location: School / Public Address Zone. Camera: Medium. Emotion: unbothered loyalty. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201006,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 10,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P10_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Hub, quieter now; Scarline sits Static down across from her, eye level, no audience.",
+      "expression": "made safe to choose",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Hub, quieter now; Scarline sits Static down across from her, eye level, no audience.. Location: Transit Announcement Hub. Camera: Medium. Emotion: made safe to choose. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201009,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 10,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P10_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Scarline offers a clear choice: keep listening or stop.",
+      "expression": "respect as a question",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Scarline offers a clear choice: keep listening or stop.. Location: Transit Announcement Hub. Camera: Medium. Emotion: respect as a question. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201012,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 10,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P10_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static actually weighs it — the first time anyone made stopping a legitimate option.",
+      "expression": "agency returning",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static actually weighs it — the first time anyone made stopping a legitimate option.. Location: Transit Announcement Hub. Camera: Close. Emotion: agency returning. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201015,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 10,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P10_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static lifts his head; the exhaustion is still there but it has a spine in it now.",
+      "expression": "chosen burden",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static lifts his head; the exhaustion is still there but it has a spine in it now.. Location: Transit Announcement Hub. Camera: Close. Emotion: chosen burden. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201018,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 11,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P11_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "The storm peaks; emergency klaxons join the interference and the whole street strobes.",
+      "expression": "system overload",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop The storm peaks; emergency klaxons join the interference and the whole street strobes.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Wide. Emotion: system overload. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201103,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 11,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P11_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Interference spreads into emergency systems; Static begins repeating every danger at once.",
+      "expression": "breaking",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Interference spreads into emergency systems; Static begins repeating every danger at once.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Medium. Emotion: breaking. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201106,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 11,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P11_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static's hands over his ears, eyes squeezed shut, the words still forcing their way out.",
+      "expression": "overrun",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static's hands over his ears, eyes squeezed shut, the words still forcing their way out.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Close. Emotion: overrun. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201109,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 11,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P11_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "NeonBlue and TwoTone flank him without touching him, bodies making a wall against the noise.",
+      "expression": "instinctive protection",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop NeonBlue and TwoTone flank him without touching him, bodies making a wall against the noise.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Medium. Emotion: instinctive protection. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201112,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 11,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P11_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-006",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "The team spreads out across the street, deliberately opening distance around Static.",
+      "expression": "space as care",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop The team spreads out across the street, deliberately opening distance around Static.. Location: Zoo City Streets. Camera: Wide. Emotion: space as care. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-006",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201115,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 11,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P11_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-006",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Team gives Static space instead of ordering silence.",
+      "expression": "held at a distance",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Team gives Static space instead of ordering silence.. Location: Zoo City Streets. Camera: Medium. Emotion: held at a distance. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-006",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201118,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 12,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P12_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-006",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "In the gap they made, Static's breathing finds a rhythm; the repeating words slow to a trickle.",
+      "expression": "regulating",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop In the gap they made, Static's breathing finds a rhythm; the repeating words slow to a trickle.. Location: Zoo City Streets. Camera: Close. Emotion: regulating. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-006",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201203,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 12,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P12_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-006",
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Scarline nods once across the distance — the signal that the space is working.",
+      "expression": "quiet coordination",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Scarline nods once across the distance — the signal that the space is working.. Location: Zoo City Streets. Camera: Wide. Emotion: quiet coordination. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-006",
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201206,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 12,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P12_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Scarline closes half the distance, keeping her voice under the rain.",
+      "expression": "final check-in",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Scarline closes half the distance, keeping her voice under the rain.. Location: Zoo City Streets. Camera: Medium. Emotion: final check-in. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201209,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 12,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P12_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static answers Scarline: yes—on his terms.",
+      "expression": "ownership",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static answers Scarline: yes—on his terms.. Location: Zoo City Streets. Camera: Medium. Emotion: ownership. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201212,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 12,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P12_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Scarline's red stripe catches the neon as she nods — terms accepted, no negotiation.",
+      "expression": "sealed",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Scarline's red stripe catches the neon as she nods — terms accepted, no negotiation.. Location: Zoo City Streets. Camera: Close. Emotion: sealed. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201215,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 12,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P12_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "The team turns as one toward the west sector, rain parting around their small determined shapes.",
+      "expression": "mobilized",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop The team turns as one toward the west sector, rain parting around their small determined shapes.. Location: Zoo City Streets. Camera: Wide. Emotion: mobilized. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201218,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 13,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P13_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Hub, one last check; Static closes his eyes and lets everything through except one thing.",
+      "expression": "filtering",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Hub, one last check; Static closes his eyes and lets everything through except one thing.. Location: Transit Announcement Hub. Camera: Medium. Emotion: filtering. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201303,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 13,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P13_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static reduces the interference to one repeating element and states it cleanly.",
+      "expression": "distilled",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static reduces the interference to one repeating element and states it cleanly.. Location: Transit Announcement Hub. Camera: Medium. Emotion: distilled. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201306,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 13,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P13_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Clever's analyzer confirms a half-second later — the machine agreeing with the boy.",
+      "expression": "instrument parity",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Clever's analyzer confirms a half-second later — the machine agreeing with the boy.. Location: Transit Announcement Hub. Camera: Close. Emotion: instrument parity. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201309,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 13,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P13_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "A look passes between them: ear first, machine second, and both of them fine with the order.",
+      "expression": "mutual respect",
+      "environment": "Transit Announcement Hub",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop A look passes between them: ear first, machine second, and both of them fine with the order.. Location: Transit Announcement Hub. Camera: Medium. Emotion: mutual respect. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201312,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 13,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P13_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "The junction door gives; flashlight beams cross the dormant relay wall and its faint cyan veins.",
+      "expression": "arrival at the source",
+      "environment": "Old Relay Junction",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop The junction door gives; flashlight beams cross the dormant relay wall and its faint cyan veins.. Location: Old Relay Junction. Camera: Wide. Emotion: arrival at the source. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201315,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 13,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P13_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Team reaches the old relay junction before overload; cyan residual glow in dormant nodes.",
+      "expression": "urgency focused",
+      "environment": "Old Relay Junction",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Team reaches the old relay junction before overload; cyan residual glow in dormant nodes.. Location: Old Relay Junction. Camera: Medium. Emotion: urgency focused. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201318,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 14,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P14_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "TwoTone's hands work the breaker sequence while Clever counts the twelve-second window aloud.",
+      "expression": "precision under pressure",
+      "environment": "Old Relay Junction",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop TwoTone's hands work the breaker sequence while Clever counts the twelve-second window aloud.. Location: Old Relay Junction. Camera: Close. Emotion: precision under pressure. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201403,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 14,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P14_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-002"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static stands in the middle, ears wide open, conducting the room toward the tone only he can track.",
+      "expression": "his gift, weaponized gently",
+      "environment": "Old Relay Junction",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static stands in the middle, ears wide open, conducting the room toward the tone only he can track.. Location: Old Relay Junction. Camera: Medium. Emotion: his gift, weaponized gently. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-002"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201406,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 14,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P14_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-004"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "The junction's glow settles from strobe to steady; the klaxons outside die mid-howl.",
+      "expression": "release",
+      "environment": "Old Relay Junction",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop The junction's glow settles from strobe to steady; the klaxons outside die mid-howl.. Location: Old Relay Junction. Camera: Wide. Emotion: release. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-004"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201409,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 14,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P14_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-004"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Team acts on Static's warning; systems stabilize enough for a breath.",
+      "expression": "collective exhale",
+      "environment": "Old Relay Junction",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Team acts on Static's warning; systems stabilize enough for a breath.. Location: Old Relay Junction. Camera: Medium. Emotion: collective exhale. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-004"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201412,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 14,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P14_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-004"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static hears it land — not 'we fixed it,' but 'we heard YOU' — and has to look away for a second.",
+      "expression": "witnessed",
+      "environment": "Old Relay Junction",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static hears it land — not 'we fixed it,' but 'we heard YOU' — and has to look away for a second.. Location: Old Relay Junction. Camera: Close. Emotion: witnessed. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-004"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201415,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 14,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P14_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-004"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Ash, by the door the whole time, gives a single approving nod nobody else catches.",
+      "expression": "quiet witness",
+      "environment": "Old Relay Junction",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Ash, by the door the whole time, gives a single approving nod nobody else catches.. Location: Old Relay Junction. Camera: Wide. Emotion: quiet witness. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-004"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201418,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 15,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P15_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Morning after; Static crouches on the drying sidewalk with a marker and a scrap of board.",
+      "expression": "processing on paper",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Morning after; Static crouches on the drying sidewalk with a marker and a scrap of board.. Location: Zoo City Streets. Camera: Medium. Emotion: processing on paper. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201503,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 15,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P15_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static writes his method: sense / know / fear / check.",
+      "expression": "building a tool",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static writes his method: sense / know / fear / check.. Location: Zoo City Streets. Camera: Medium. Emotion: building a tool. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201506,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 15,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P15_PANEL03",
+      "character_tokens": [
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "The four lines on the board, marker-rough, rain-spotted — a framework made of a bad week.",
+      "expression": "hard-won clarity",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop The four lines on the board, marker-rough, rain-spotted — a framework made of a bad week.. Location: Zoo City Streets. Camera: Close. Emotion: hard-won clarity. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201509,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 15,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P15_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static caps the marker and reads it back once, testing whether it holds his weight.",
+      "expression": "self-trust, provisional",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static caps the marker and reads it back once, testing whether it holds his weight.. Location: Zoo City Streets. Camera: Medium. Emotion: self-trust, provisional. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201512,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 15,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P15_PANEL05",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Clever packs the analyzer beside him, cables coiled with surgical neatness.",
+      "expression": "work complete",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Clever packs the analyzer beside him, cables coiled with surgical neatness.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Medium. Emotion: work complete. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201515,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 15,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P15_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Clever packs the analyzer; respects Static's emotional reading as data of another kind.",
+      "expression": "peer recognition",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Clever packs the analyzer; respects Static's emotional reading as data of another kind.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Medium. Emotion: peer recognition. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201518,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 16,
+      "panel_number": 1,
+      "panel_id": "MZ-2026-09-02_P16_PANEL01",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static blinks at being called a mapmaker; the word fits better than anything anyone's tried.",
+      "expression": "reframed",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static blinks at being called a mapmaker; the word fits better than anything anyone's tried.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Close. Emotion: reframed. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201603,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 16,
+      "panel_number": 2,
+      "panel_id": "MZ-2026-09-02_P16_PANEL02",
+      "character_tokens": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "The two of them small against the recovering street, instruments packed, city humming normal.",
+      "expression": "partnership formed",
+      "environment": "Early-Fall Storm Streets and Routine Nodes",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop The two of them small against the recovering street, instruments packed, city humming normal.. Location: Early-Fall Storm Streets and Routine Nodes. Camera: Wide. Emotion: partnership formed. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201606,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 16,
+      "panel_number": 3,
+      "panel_id": "MZ-2026-09-02_P16_PANEL03",
+      "character_tokens": [],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Dusk again; the street where it started, boards ticking in perfect rhythm now.",
+      "expression": "restored surface",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Dusk again; the street where it started, boards ticking in perfect rhythm now.. Location: Zoo City Streets. Camera: Wide. Emotion: restored surface. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [],
+      "seed_strategy": "per_panel",
+      "seed": 201609,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 16,
+      "panel_number": 4,
+      "panel_id": "MZ-2026-09-02_P16_PANEL04",
+      "character_tokens": [
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static passes an old powered-off street radio on a stoop and pauses mid-step.",
+      "expression": "the ear never sleeps",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Medium",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static passes an old powered-off street radio on a stoop and pauses mid-step.. Location: Zoo City Streets. Camera: Medium. Emotion: the ear never sleeps. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201612,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 16,
+      "panel_number": 5,
+      "panel_id": "MZ-2026-09-02_P16_PANEL05",
+      "character_tokens": [],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Final image: powered-off radio still emits one soft final tone.",
+      "expression": "unfinished frequency",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Close",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Final image: powered-off radio still emits one soft final tone.. Location: Zoo City Streets. Camera: Close. Emotion: unfinished frequency. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [],
+      "seed_strategy": "per_panel",
+      "seed": 201615,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    },
+    {
+      "issue_id": "MZ-2026-09-02",
+      "page_number": 16,
+      "panel_number": 6,
+      "panel_id": "MZ-2026-09-02_P16_PANEL06",
+      "character_tokens": [
+        "MZ-CHAR-003"
+      ],
+      "character_design_reminders": [
+        "preserve approved identity markers",
+        "mitten hands only"
+      ],
+      "pose": "Static looks back over his shoulder at the dead radio, then walks on — listening, choosing when to answer.",
+      "expression": "changed, ready",
+      "environment": "Zoo City Streets",
+      "camera_angle": "Wide",
+      "lighting": "per scene_blocking calibration for this location",
+      "color_palette": "flat cel colors with one soft shade pass",
+      "style_lock_phrase_included": true,
+      "prompt": "MonkeyZoo house style: chibi cartoon monkey with oversized round head,\n> huge white oval eyes with tiny black dot pupils, two small dot nostrils,\n> thick uniform black outlines, flat color fills with soft cel shading,\n> simplified plush body with visible stitch seams, mitten hands, curled tail,\n> clean vector cartoon look, dark cartoon sci-fi cyberpunk backdrop Static looks back over his shoulder at the dead radio, then walks on — listening, choosing when to answer.. Location: Zoo City Streets. Camera: Wide. Emotion: changed, ready. Notes: MonkeyZoo house style; early-fall storm light; keep Static identity readable.",
+      "negative_prompt": "photorealistic, horror gore, extra limbs, fingers, watermark, logo text, speech balloons, low contrast mush, identity drift, unapproved costume changes",
+      "references_required": [
+        "MZ-CHAR-003"
+      ],
+      "seed_strategy": "per_panel",
+      "seed": 201618,
+      "controlnet": {
+        "required": false,
+        "type": "none",
+        "reference": ""
+      },
+      "identity_stack": {
+        "tier": "text-only",
+        "lora": [],
+        "ipadapter_refs": []
+      }
+    }
+  ]
+}

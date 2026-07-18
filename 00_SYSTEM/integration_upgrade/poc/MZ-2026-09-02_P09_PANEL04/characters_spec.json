@@ -1,0 +1,46 @@
+{
+  "panel_id": "MZ-2026-09-02_P09_PANEL04",
+  "source_script_line": "The street's neon reflections ripple; every light suddenly reads like an eye that might blink back.",
+  "foreground_rain": true,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "static",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_29_lookingup.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          430,
+          645
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "road_wet_sheet"
+      }
+    },
+    {
+      "character": "clever",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/clever/clever_29_lookingup.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          840,
+          565
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-right"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "road_wet_sheet"
+      }
+    }
+  ]
+}

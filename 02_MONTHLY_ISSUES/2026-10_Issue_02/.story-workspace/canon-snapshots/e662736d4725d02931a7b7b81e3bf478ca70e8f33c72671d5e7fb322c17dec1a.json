@@ -1,0 +1,483 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "MZ-2026-10-02",
+  "generation_type": "outline",
+  "created_at": "2026-07-16T15:37:25+00:00",
+  "canon_sources": [
+    {
+      "path": "character-bibles/MZ-CHAR-006/bible.yaml",
+      "sha256": "c9840368ea2745b3ef03fa3743a95ef354bfd62214b8dc96d4a4149887482702"
+    },
+    {
+      "path": "character-bibles/MZ-CHAR-ZOMBIE/bible.yaml",
+      "sha256": "733e879cca789a99da9afb36e9fbaafd18aeea914f5b98268702116764f96461"
+    },
+    {
+      "path": "00_SYSTEM/monkeyzoo_master_bible.md",
+      "sha256": "71363363c85b7e5e4981d354dd108c871d92bb0a9ab584cd531f3a300fe76410"
+    },
+    {
+      "path": "00_SYSTEM/world_bible.md",
+      "sha256": "8395aa9de8c58cdcd3f6d6e891c8b73a738ed0fd34a24d481d2d3c90427388f8"
+    },
+    {
+      "path": "00_SYSTEM/continuity_ledger.md",
+      "sha256": "748e9c7350795ab095e6011965e32109e58a66ffd5964f37cc04493a5213725c"
+    },
+    {
+      "path": "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md",
+      "sha256": "02bb73f2673d4734bbff047f47d15a50b9abaf8c394bf213b280fe66f7976a8a"
+    }
+  ],
+  "character_ids": [
+    "MZ-CHAR-006",
+    "MZ-CHAR-ZOMBIE"
+  ],
+  "characters": [
+    {
+      "character_id": "MZ-CHAR-006",
+      "display_name": "Scarline",
+      "personal_name": "Scarline",
+      "legacy_labels": [],
+      "nationality": null,
+      "origin": null,
+      "canon_status": "core_canon",
+      "role": "primary",
+      "source_annotation": "",
+      "voice": {
+        "speech_rhythm": [
+          {
+            "category": "speech_pattern",
+            "name": "one clear sentence",
+            "value": "Says one sentence once and lets it land.",
+            "status": "canon",
+            "strength": "strong",
+            "usage_frequency": "often",
+            "confidence": "confirmed canon",
+            "rationale": "Existing bible states one clear sentence, delivered once.",
+            "evidence": [
+              "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md"
+            ],
+            "compatible_contexts": [
+              "validation",
+              "warnings"
+            ],
+            "incompatible_contexts": [
+              "banter chains"
+            ],
+            "first_eligible_issue": "next owner-approved issue",
+            "last_used_issue": null,
+            "source_refs": [
+              "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md"
+            ],
+            "notes": null
+          }
+        ],
+        "vocabulary_level": [],
+        "sentence_length": [],
+        "humor_style": [
+          {
+            "category": "speech_pattern",
+            "name": "humor style",
+            "value": "minimal; lets others bounce off her seriousness",
+            "status": "experimental",
+            "strength": "subtle",
+            "usage_frequency": "sometimes",
+            "confidence": "strong inference",
+            "rationale": "Set by documented voice where available and conservative team differentiation elsewhere.",
+            "evidence": [
+              "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md",
+              "july/2026-07-monkeyzoo-july-edition-test.md"
+            ],
+            "compatible_contexts": [
+              "dialogue drafting"
+            ],
+            "incompatible_contexts": [
+              "flattening character into gag"
+            ],
+            "first_eligible_issue": "next owner-approved issue",
+            "last_used_issue": null,
+            "source_refs": [
+              "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md",
+              "july/2026-07-monkeyzoo-july-edition-test.md"
+            ],
+            "notes": null
+          }
+        ],
+        "catchphrase": [
+          {
+            "category": "catchphrase",
+            "name": "You stopped it in time.",
+            "value": "Validation line for earned restraint.",
+            "status": "canon",
+            "strength": "subtle",
+            "usage_frequency": "special circumstances only",
+            "confidence": "confirmed canon",
+            "rationale": "Edition 4 documents the line.",
+            "evidence": [
+              "Bible and other files/MonkeyZoo_Emo_Edition4_STILL_ME.md"
+            ],
+            "compatible_contexts": [
+              "earned abort/choice beat"
+            ],
+            "incompatible_contexts": [
+              "generic congratulations"
+            ],
+            "first_eligible_issue": "MZ-ED-04",
+            "last_used_issue": null,
+            "source_refs": [
+              "Bible and other files/MonkeyZoo_Emo_Edition4_STILL_ME.md"
+            ],
+            "notes": null
+          }
+        ],
+        "favorite_words": [],
+        "words_the_character_avoids": [],
+        "stress_speech": [],
+        "excited_speech": [],
+        "sad_speech": [],
+        "angry_speech": [],
+        "example_dialogue": [],
+        "dialogue_rules": [
+          {
+            "category": "writing_rule",
+            "name": "do not caricature voice",
+            "value": "Use the speech trait only when it supports the scene.",
+            "status": "established",
+            "strength": "strong",
+            "usage_frequency": "often",
+            "confidence": "strong inference",
+            "rationale": "Request requires rules preventing caricature.",
+            "evidence": [
+              "character-bibles/_inventory/character-inventory.json"
+            ],
+            "compatible_contexts": [
+              "dialogue polish"
+            ],
+            "incompatible_contexts": [
+              "filler quirks"
+            ],
+            "first_eligible_issue": "next owner-approved issue",
+            "last_used_issue": null,
+            "source_refs": [
+              "character-bibles/_inventory/character-inventory.json"
+            ],
+            "notes": null
+          }
+        ]
+      },
+      "relationships": [],
+      "constraints": {},
+      "visual_constraints": [
+        {
+          "category": "visual_feature",
+          "name": "scarlet-red hair streak on viewer-left",
+          "value": "scarlet-red hair streak on viewer-left",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        },
+        {
+          "category": "visual_feature",
+          "name": "palest lead",
+          "value": "palest lead",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        },
+        {
+          "category": "visual_feature",
+          "name": "half-lidded smirk",
+          "value": "half-lidded smirk",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        },
+        {
+          "category": "visual_feature",
+          "name": "no facial scar",
+          "value": "no facial scar",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "character_id": "MZ-CHAR-ZOMBIE",
+      "display_name": "Patch",
+      "personal_name": "Patch",
+      "legacy_labels": [],
+      "nationality": "American",
+      "origin": null,
+      "canon_status": "approved_canon",
+      "role": "guest",
+      "source_annotation": "",
+      "voice": {
+        "speech_rhythm": [],
+        "vocabulary_level": [],
+        "sentence_length": [],
+        "humor_style": [
+          {
+            "category": "speech_pattern",
+            "name": "humor style",
+            "value": "dry unease, not just decay jokes",
+            "status": "experimental",
+            "strength": "subtle",
+            "usage_frequency": "sometimes",
+            "confidence": "strong inference",
+            "rationale": "Set by documented voice where available and conservative team differentiation elsewhere.",
+            "evidence": [
+              "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md",
+              "july/2026-07-monkeyzoo-july-edition-test.md"
+            ],
+            "compatible_contexts": [
+              "dialogue drafting"
+            ],
+            "incompatible_contexts": [
+              "flattening character into gag"
+            ],
+            "first_eligible_issue": "next owner-approved issue",
+            "last_used_issue": null,
+            "source_refs": [
+              "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md",
+              "july/2026-07-monkeyzoo-july-edition-test.md"
+            ],
+            "notes": null
+          }
+        ],
+        "catchphrase": [],
+        "favorite_words": [],
+        "words_the_character_avoids": [],
+        "stress_speech": [],
+        "excited_speech": [],
+        "sad_speech": [],
+        "angry_speech": [],
+        "example_dialogue": [],
+        "dialogue_rules": [
+          {
+            "category": "writing_rule",
+            "name": "do not caricature voice",
+            "value": "Use the speech trait only when it supports the scene.",
+            "status": "established",
+            "strength": "strong",
+            "usage_frequency": "often",
+            "confidence": "strong inference",
+            "rationale": "Request requires rules preventing caricature.",
+            "evidence": [
+              "character-bibles/_inventory/character-inventory.json"
+            ],
+            "compatible_contexts": [
+              "dialogue polish"
+            ],
+            "incompatible_contexts": [
+              "filler quirks"
+            ],
+            "first_eligible_issue": "next owner-approved issue",
+            "last_used_issue": null,
+            "source_refs": [
+              "character-bibles/_inventory/character-inventory.json"
+            ],
+            "notes": null
+          }
+        ]
+      },
+      "relationships": [],
+      "constraints": {},
+      "visual_constraints": [
+        {
+          "category": "visual_feature",
+          "name": "pale-green skin",
+          "value": "pale-green skin",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        },
+        {
+          "category": "visual_feature",
+          "name": "exposed brain",
+          "value": "exposed brain",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        },
+        {
+          "category": "visual_feature",
+          "name": "rotten teeth",
+          "value": "rotten teeth",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        },
+        {
+          "category": "visual_feature",
+          "name": "ragged body/clothes",
+          "value": "ragged body/clothes",
+          "status": "canon",
+          "strength": "defining",
+          "usage_frequency": "almost always",
+          "confidence": "confirmed canon",
+          "rationale": "Taken from completed inventory and approved refs.",
+          "evidence": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "compatible_contexts": [
+            "all visual appearances"
+          ],
+          "incompatible_contexts": [
+            "redesigns without owner approval"
+          ],
+          "first_eligible_issue": null,
+          "last_used_issue": null,
+          "source_refs": [
+            "character-bibles/_inventory/character-inventory.json"
+          ],
+          "notes": null
+        }
+      ]
+    }
+  ],
+  "cast_references": [
+    {
+      "reference": "MZ-CHAR-006",
+      "role": "primary",
+      "annotation": "",
+      "source": "MZ-CHAR-006"
+    },
+    {
+      "reference": "MZ-CHAR-ZOMBIE",
+      "role": "guest",
+      "annotation": "",
+      "source": "MZ-CHAR-ZOMBIE"
+    }
+  ],
+  "alias_resolutions": {
+    "MZ-CHAR-006": "MZ-CHAR-006",
+    "MZ-CHAR-ZOMBIE": "MZ-CHAR-ZOMBIE"
+  },
+  "issue_brief_hash": "0d4cd8ab1bc1460fee092dff8d32d0e72414a0abda8a977fa212c32887becdbc",
+  "season_plan_hash": "02bb73f2673d4734bbff047f47d15a50b9abaf8c394bf213b280fe66f7976a8a",
+  "previous_issue_references": [],
+  "warnings": [],
+  "excluded": [],
+  "snapshot_hash": "e662736d4725d02931a7b7b81e3bf478ca70e8f33c72671d5e7fb322c17dec1a"
+}

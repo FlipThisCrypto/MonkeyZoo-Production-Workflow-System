@@ -1,0 +1,11 @@
+{
+  "panel_id": "MZ-2026-09-02_P07_PANEL05",
+  "type": "scene",
+  "location": "Transit Announcement Hub",
+  "action": "Clever cycles tones; the third one paints the hub screens faint cyan for half a beat.",
+  "foreground_rain": false,
+  "characters": [
+    {"character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_29_lookingup.png", "foot_anchor": [420, 485], "shadow": "down-right", "reflection_surface": "glossy_floor_full"},
+    {"character": "neonblue", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/neonblue/neonblue_16_worried.png", "foot_anchor": [820, 605], "shadow": "down-left", "reflection_surface": "glossy_floor_full"}
+  ]
+}

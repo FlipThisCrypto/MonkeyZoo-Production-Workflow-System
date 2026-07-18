@@ -26,6 +26,10 @@ Personalities were already locked from published Editions 1–5 and are unchange
   sanctioned soft shading: grey eye-bags and NeonBlue's cyan hair-root glow.
 - **Leads are differentiated primarily by HAIR.** In silhouette/back shots the
   hair does the identification work.
+- **Reference status (2026-07-07): ALL SIX LEADS ARE LoRA-READY** (32–33
+  approved refs each, incl. a standardized 13–14-variant set per lead
+  generated img2img from the minted canon cards — angles, expressions, poses
+  on canon card colors). Next identity-stack step: Kohya LoRA training.
 
 ---
 
@@ -68,9 +72,9 @@ Personalities were already locked from published Editions 1–5 and are unchange
 - **Prompt descriptor:** pale-faced brown monkey, black emo fringe with blue
   streak covering one eye, grey eye rings, open black studded jacket over
   stitched white chest, black studded pants and cuffs, grey platform boots
-- **LoRA name:** `MZ_Moodz_v1.safetensors` (train at 20+ approved refs)
+- **LoRA name:** `MZ_Moodz_v1.safetensors` — **LoRA-READY** (33 approved refs
+  as of 2026-07-07, incl. the 13-variant standardized set from minted #1136)
 - **Reference image folder:** `03_APPROVED_CANON/approved_characters/moodz/`
-  (webp #1136 staged as candidate; needs more refs)
 - **QA checklist:** Black fringe + blue accent · pale face · grey eye rings ·
   studded jacket/pants/cuffs · tread boots · stitch marks · no fingers
 
@@ -108,9 +112,9 @@ Personalities were already locked from published Editions 1–5 and are unchange
 - **Prompt descriptor:** pale-faced brown monkey with shaggy hair split
   vertically half jet-black half white with a clean center parting, grey eye
   rings, black studded vest and pants, level flat mouth
-- **LoRA name:** `MZ_TwoTone_v1.safetensors`
+- **LoRA name:** `MZ_TwoTone_v1.safetensors` — **LoRA-READY** (33 approved
+  refs as of 2026-07-07, incl. the 13-variant set from minted #1195)
 - **Reference image folder:** `03_APPROVED_CANON/approved_characters/twotone/`
-  (webp #1195 staged as candidate; needs more refs)
 - **QA checklist:** Hair split hard + centered · correct sides · standard body
   (NOT split) · no accents · level mouth · stitch marks · no fingers
 

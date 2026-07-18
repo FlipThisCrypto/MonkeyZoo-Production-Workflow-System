@@ -1,0 +1,16 @@
+{
+  "panel_id": "MZ-2026-09-02_P16_PANEL04",
+  "type": "scene",
+  "location": "Zoo City Streets",
+  "action": "Static passes an old powered-off street radio on a stoop and pauses mid-step.",
+  "foreground_rain": true,
+  "characters": [
+    {
+      "character": "static",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_24_thinking.png",
+      "foot_anchor": [385, 600],
+      "shadow": "down-right",
+      "reflection_surface": "sidewalk_sheet_left"
+    }
+  ]
+}

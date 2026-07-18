@@ -63,6 +63,28 @@ Ship evidence and plans:
 - **Optional:** Kohya SS for character LoRA training (20+ approved refs per
   character), Krita/CSP for print-final lettering polish.
 
+## Development & tests
+
+The local Studio, validators, and pipeline tooling are covered by a pytest
+suite. From the repo root:
+
+```
+pip install -r requirements-dev.txt  # Studio + validators + test suite
+python -m pytest                     # full suite (the same set CI runs)
+python -m pytest character-bibles/_review_app/tests -q   # just the Studio app
+```
+
+`pytest.ini` pins `norecursedirs` so a bare `pytest` from the root is
+deterministic regardless of local artifact trees (e.g. `06_BACKUPS/`
+snapshots hold full copies of the suite that would otherwise collide at
+collection). CI runs the same suite plus a static-asset check
+(`.github/workflows/validate.yml`).
+
+Read-only GitHub Pages data (`docs/static/*.json`) is regenerated from the
+live repo by `docs/sync_docs.ps1` (which runs the `docs/export_static_*.py`
+exporters — deterministic). Regenerate it at deploy time; it is expected to
+lag the working tree between deploys.
+
 ## Claude skills (`.claude/skills/`)
 
 | Skill | What it runs |
@@ -173,6 +195,7 @@ Do not paste full Character Bibles into script prompts.
 python 00_SYSTEM/scripts/new_issue.py 2026-08 6 "Title"      # scaffold next issue
 python 00_SYSTEM/scripts/validate_issue.py 2026-07_Issue_05  # schema + cross-checks
 python 00_SYSTEM/scripts/validate_issue.py 2026-07_Issue_05 --art  # + panel files exist
+python 00_SYSTEM/scripts/validate_issue.py 2026-09_Issue_02 --integration  # + pixel gate on staged integration previews
 python 00_SYSTEM/scripts/build_release.py 2026-07_Issue_05           # CBZ + export check
 python 00_SYSTEM/scripts/build_release.py 2026-07_Issue_05 --archive # archive released issue
 ```

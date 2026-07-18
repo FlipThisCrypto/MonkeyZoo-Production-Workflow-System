@@ -1,0 +1,11 @@
+{
+  "panel_id": "MZ-2026-09-02_P09_PANEL03",
+  "type": "closeup",
+  "location": "Early-Fall Storm Streets and Routine Nodes",
+  "closeup": {
+    "character": "clever",
+    "pose_file": "00_SYSTEM/integration_upgrade/character_layers/clever/clever_08_shocked.png",
+    "crop_box": [360, 150, 920, 620],
+    "char_x_frac": 0.5
+  }
+}

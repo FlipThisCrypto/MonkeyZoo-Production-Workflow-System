@@ -1,0 +1,16 @@
+{
+  "panel_id": "MZ-2026-09-02_P16_PANEL06",
+  "type": "scene",
+  "location": "Zoo City Streets",
+  "action": "Static looks back over his shoulder at the dead radio, then walks on — listening, choosing when to answer.",
+  "foreground_rain": true,
+  "characters": [
+    {
+      "character": "static",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_30_backview.png",
+      "foot_anchor": [410, 495],
+      "shadow": "down-right",
+      "reflection_surface": "sidewalk_sheet_left"
+    }
+  ]
+}

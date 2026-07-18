@@ -1,0 +1,11 @@
+{
+  "panel_id": "MZ-2026-09-02_P04_PANEL06",
+  "type": "closeup",
+  "location": "Transit Announcement Hub",
+  "closeup": {
+    "character": "static",
+    "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_27_defeated.png",
+    "crop_box": [430, 110, 900, 560],
+    "char_x_frac": 0.5
+  }
+}

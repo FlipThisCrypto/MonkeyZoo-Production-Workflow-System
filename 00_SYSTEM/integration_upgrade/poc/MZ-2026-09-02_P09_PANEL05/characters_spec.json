@@ -1,0 +1,42 @@
+{
+  "panel_id": "MZ-2026-09-02_P09_PANEL05",
+  "source_script_line": "School hallway; an off-panel voice tells Static to 'just calm down' and Moodz steps between.",
+  "foreground_rain": false,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "static",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_16_worried.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          770,
+          545
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-right"
+      }
+    },
+    {
+      "character": "moodz",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/moodz/moodz_19_determined.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          560,
+          665
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "hall_puddle_main"
+      }
+    }
+  ]
+}

@@ -180,17 +180,29 @@ def publish_archive(folder, root, replace=False):
   packages = [p for p in candidates if p.suffix.lower() in {".zip", ".cbz"} and _valid_package(p)]
   if not pdfs or not packages:
    raise ReleaseError("Archive publication requires a non-empty PDF and a valid CBZ/ZIP package", 409)
-  if archive.exists() and replace:
-   shutil.rmtree(archive)
-  archive.mkdir(parents=True, exist_ok=True)
+  # Build the new archive in a staging dir and swap it in only after every
+  # artifact copies successfully, so a failed/interrupted copy cannot destroy
+  # the previously published release archive (which rmtree'd before copying).
+  archive.parent.mkdir(parents=True, exist_ok=True)
+  staging = archive.with_name(f".{archive.name}.staging-{os.getpid()}")
+  if staging.exists():
+   shutil.rmtree(staging)
+  staging.mkdir(parents=True)
   copied = []
-  for path in candidates:
-   destination = archive / path.name
-   # Avoid collisions when multiple covers share basename by using relative stem path hash prefix.
-   if destination.exists() and path.parent != folder and path.parent != exports:
-    destination = archive / f"{path.parent.name}_{path.name}"
-   shutil.copy2(path, destination)
-   copied.append(destination.name)
+  try:
+   for path in candidates:
+    destination = staging / path.name
+    # Avoid collisions when multiple covers share basename by using relative stem path hash prefix.
+    if destination.exists() and path.parent != folder and path.parent != exports:
+     destination = staging / f"{path.parent.name}_{path.name}"
+    shutil.copy2(path, destination)
+    copied.append(destination.name)
+   if archive.exists():
+    shutil.rmtree(archive)
+   os.replace(staging, archive)
+  except BaseException:
+   shutil.rmtree(staging, ignore_errors=True)
+   raise
   # Provenance record inside issue workspace.
   record = {
    "published_at": _now(),

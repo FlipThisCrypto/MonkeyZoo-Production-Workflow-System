@@ -1,0 +1,11 @@
+{
+  "panel_id": "MZ-2026-09-02_P12_PANEL05",
+  "type": "closeup",
+  "location": "Zoo City Streets",
+  "closeup": {
+    "character": "scarline",
+    "pose_file": "00_SYSTEM/integration_upgrade/character_layers/scarline/scarline_19_determined.png",
+    "crop_box": [340, 130, 1020, 560],
+    "char_x_frac": 0.5
+  }
+}

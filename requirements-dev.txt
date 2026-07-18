@@ -1,0 +1,21 @@
+# Dependencies to run the Banana Lab Studio, the pipeline validators/tooling,
+# and the full pytest suite. This is the single source of truth shared by CI
+# (.github/workflows/validate.yml) and the README quickstart.
+#
+# Left unpinned to match the project's current behaviour (CI installs the
+# latest resolvable versions). Pin exact versions here if a reproducible
+# lockfile becomes necessary.
+#
+# Grouping (informational only):
+#   runtime  : flask, Pillow, pyyaml, jsonschema
+#   imaging  : numpy, scipy  (character-integration compositor + its tests)
+#   testing  : pytest, pytest-asyncio, anyio
+flask
+Pillow
+pyyaml
+jsonschema
+numpy
+scipy
+pytest
+pytest-asyncio
+anyio

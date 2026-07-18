@@ -1,0 +1,13 @@
+{
+  "panel_id": "MZ-2026-09-02_P08_PANEL04",
+  "type": "scene",
+  "location": "Zoo City Streets",
+  "action": "TwoTone helps pair frequencies into readable couples, gesturing to the layout.",
+  "foreground_rain": true,
+  "characters": [
+    {"character": "twotone", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/twotone/twotone_26_reaching.png",
+     "foot_anchor": [400, 620], "shadow": "down-right", "reflection_surface": "sidewalk_sheet_left"},
+    {"character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_19_determined.png",
+     "foot_anchor": [820, 515], "shadow": "down-left"}
+  ]
+}

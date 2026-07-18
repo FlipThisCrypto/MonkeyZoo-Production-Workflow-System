@@ -1,0 +1,11 @@
+{
+  "panel_id": "MZ-2026-09-02_P04_PANEL04",
+  "type": "scene",
+  "location": "Transit Announcement Hub",
+  "action": "Off-panel voices overlap him -- 'slow down' -- 'one thing at a time' -- the balloon tails crowd his head.",
+  "foreground_rain": false,
+  "characters": [
+    {"character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_16_worried.png", "foot_anchor": [560, 635], "shadow": "down-left", "reflection_surface": "glossy_floor_full"},
+    {"character": "scarline", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/scarline/scarline_19_determined.png", "foot_anchor": [880, 505], "shadow": "down-right", "reflection_surface": "glossy_floor_full"}
+  ]
+}

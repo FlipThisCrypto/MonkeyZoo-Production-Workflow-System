@@ -1,0 +1,19 @@
+[
+  {
+    "event_id": "outline-20260716T153725Z-4e01dd",
+    "issue_id": "MZ-2026-10-02",
+    "type": "outline_import",
+    "variant_id": "outline-20260716T153725Z-8716fb",
+    "provider": "season_bible_scaffold",
+    "model": "user supplied",
+    "execution_mode": "manual",
+    "start_time": "2026-07-16T15:37:25+00:00",
+    "end_time": "2026-07-16T15:37:25+00:00",
+    "success": true,
+    "prompt_hash": null,
+    "canon_snapshot_hash": "e662736d4725d02931a7b7b81e3bf478ca70e8f33c72671d5e7fb322c17dec1a",
+    "output_hash": "5dedceee7881620265718d553f3637599ab2a19f29dbdf11f0f6e07739c0d1f3",
+    "validation_status": "passed",
+    "error_summary": null
+  }
+]
