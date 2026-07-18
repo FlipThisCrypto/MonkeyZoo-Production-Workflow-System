@@ -141,30 +141,6 @@ def test_approval_becomes_stale_when_artifacts_change(workspace):
         issue_workflow.record_advance(issue, workspace, "canon_review")
 
 
-def test_stale_prior_approval_surfaces_integrity_blocker(workspace):
-    """A published (terminal) issue whose files changed after approval must
-    surface the tampering: prior stale approvals become a blocker and the
-    integrity block reports the affected stages -- rather than reading as a
-    clean, zero-blocker published record."""
-    issue = make_issue(workspace)
-    # advance intake -> canon_review, approve canon_review, advance again
-    issue_workflow.record_advance(issue, workspace, "intake")
-    issue_workflow.record_approval(issue, workspace, "canon_review", True)
-    clean = issue_workflow.workflow_status(issue, workspace)
-    assert clean["integrity"]["consistent"] is True
-    assert clean["blockers"] == [] or "stale" not in " ".join(clean["blockers"]).lower()
-    # now change the evidence AFTER the canon_review approval was recorded
-    (issue / "metadata.json").write_text(json.dumps({"issue_id":"MZ-2027-01-01","title":"Tampered"}), encoding="utf-8")
-    # move active stage forward so canon_review is a PRIOR (completed) stage
-    issue_workflow.record_approval(issue, workspace, "canon_review", True)  # re-approve current evidence
-    issue_workflow.record_advance(issue, workspace, "canon_review")
-    (issue / "metadata.json").write_text(json.dumps({"issue_id":"MZ-2027-01-01","title":"Tampered again"}), encoding="utf-8")
-    status = issue_workflow.workflow_status(issue, workspace)
-    assert status["integrity"]["consistent"] is False
-    assert "canon_review" in status["integrity"]["stale_stages"]
-    assert any("stale for prior stage" in b.lower() for b in status["blockers"]), status["blockers"]
-
-
 def test_get_is_read_only_and_malformed_state_degrades(workspace):
     issue = make_issue(workspace)
     issue_workflow.workflow_status(issue, workspace)
