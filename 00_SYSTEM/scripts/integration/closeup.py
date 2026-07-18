@@ -16,6 +16,20 @@ import numpy as np
 from PIL import Image, ImageFilter, ImageEnhance
 
 
+def dehalo_layer(layer: Image.Image) -> Image.Image:
+    """Remove the thin backdrop-colored fringe on a matted layer's alpha
+    edge (Cycle 32). Invisible full-body, but a close-up upscales the head
+    ~2x and MAGNIFIES the fringe into a visible colored halo (the QA agents
+    flagged this pink ring on 5 close-ups). Harden the edge (partial-alpha
+    fringe -> transparent), erode ~2px so the contaminated ring is gone,
+    then re-soften a hair. Only alpha changes; linework/colour untouched."""
+    r, g, b, a = layer.convert("RGBA").split()
+    a = a.point(lambda v: 255 if v > 160 else 0)     # harden: sub-160 fringe -> 0
+    a = a.filter(ImageFilter.MinFilter(5))            # erode ~2px
+    a = a.filter(ImageFilter.GaussianBlur(0.6))       # re-soften edge
+    return Image.merge("RGBA", (r, g, b, a))
+
+
 def closeup_panel(layer_path, plate_path, plate_crop_box,
                   out_size=(1280, 720), head_window=(0.05, 0.60),
                   char_height_frac=1.02, char_x_frac=0.56,
@@ -29,19 +43,7 @@ def closeup_panel(layer_path, plate_path, plate_crop_box,
     bg = plate.crop(plate_crop_box).resize(out_size, Image.LANCZOS)
     bg = ImageEnhance.Brightness(bg).enhance(bg_darken).filter(ImageFilter.GaussianBlur(bg_blur))
 
-    layer = Image.open(layer_path).convert("RGBA")
-
-    # De-halo (Cycle 32): the matte leaves a thin backdrop-colored fringe on
-    # the alpha edge that is invisible at full-body scale but MAGNIFIED into a
-    # visible colored halo when a close-up upscales the head ~2x (the
-    # independent QA agents flagged this pink ring on 5 close-ups). Erode the
-    # alpha a few px so the contaminated partial-alpha ring is removed and the
-    # new silhouette edge is clean fully-opaque interior.
-    r, g, b, a = layer.split()
-    a = a.point(lambda v: 255 if v > 160 else 0)   # harden the edge first
-    a = a.filter(ImageFilter.MinFilter(5))          # erode ~2px
-    a = a.filter(ImageFilter.GaussianBlur(0.6))     # re-soften by a hair
-    layer = Image.merge("RGBA", (r, g, b, a))
+    layer = dehalo_layer(Image.open(layer_path))
 
     bbox = layer.split()[-1].getbbox()
     char = layer.crop(bbox)

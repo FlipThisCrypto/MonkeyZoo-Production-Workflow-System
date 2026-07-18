@@ -186,6 +186,36 @@ def test_run_rejects_unknown_occluder(tmp_path):
 
 
 # ---------------------------------------------------------------------------
+# closeup de-halo (Cycle 32) -- synthetic, no heavy fixtures
+# ---------------------------------------------------------------------------
+
+def test_dehalo_layer_removes_partial_alpha_fringe_keeps_core():
+    """The de-halo must zero out the partial-alpha backdrop-colored fringe
+    ring (which magnifies into a close-up halo) while leaving the opaque
+    character core intact. Tested directly on the alpha transform, not the
+    end-to-end composite (whose crop/upscale geometry can hide the fringe
+    and make a naive test pass vacuously)."""
+    from closeup import dehalo_layer
+
+    W = 120
+    arr = np.zeros((W, W, 4), dtype=np.uint8)
+    arr[40:80, 40:80] = (255, 255, 255, 255)          # opaque white core
+    ring = np.zeros((W, W), dtype=bool)
+    ring[36:84, 36:84] = True
+    ring[40:80, 40:80] = False                         # ~4px fringe band
+    arr[ring] = (230, 40, 200, 110)                    # magenta, partial alpha (<160)
+
+    before = arr[..., 3]
+    assert (before[ring] > 0).all()                    # fringe is visible pre-de-halo
+
+    after = np.array(dehalo_layer(Image.fromarray(arr, "RGBA")))[..., 3]
+    # every fringe pixel is hardened/eroded to fully transparent
+    assert int((after[ring] > 0).sum()) == 0, "backdrop-colour fringe survived the de-halo"
+    # the opaque core stays opaque (erosion nibbles only the outer edge)
+    assert int((after[50:70, 50:70] > 250).all()) == 1, "de-halo erased the character core"
+
+
+# ---------------------------------------------------------------------------
 # haze
 # ---------------------------------------------------------------------------
 
