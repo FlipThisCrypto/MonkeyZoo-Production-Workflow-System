@@ -5,7 +5,7 @@
       "page": 1,
       "reader_side": "right",
       "panel_count": 4,
-      "layout_template": "grid4",
+      "layout_template": "band4",
       "hero_panel": "MZ-2026-09-02_P01_PANEL01",
       "location": "Zoo City Streets",
       "characters": [
@@ -46,7 +46,7 @@
       "page": 2,
       "reader_side": "left",
       "panel_count": 4,
-      "layout_template": "feature_left3",
+      "layout_template": "hero4",
       "hero_panel": "MZ-2026-09-02_P01_PANEL06",
       "location": "School / Public Address Zone",
       "characters": [
@@ -88,7 +88,7 @@
       "page": 3,
       "reader_side": "right",
       "panel_count": 4,
-      "layout_template": "grid4",
+      "layout_template": "band4",
       "hero_panel": "MZ-2026-09-02_P02_PANEL03",
       "location": "Zoo City Streets",
       "characters": [
@@ -130,7 +130,7 @@
       "page": 4,
       "reader_side": "left",
       "panel_count": 4,
-      "layout_template": "feature_top3",
+      "layout_template": "hero4",
       "hero_panel": "MZ-2026-09-02_P03_PANEL02",
       "location": "Early-Fall Storm Streets and Routine Nodes",
       "characters": [
@@ -173,7 +173,7 @@
       "page": 5,
       "reader_side": "right",
       "panel_count": 6,
-      "layout_template": "grid6",
+      "layout_template": "band6",
       "hero_panel": "MZ-2026-09-02_P03_PANEL05",
       "location": "Transit Announcement Hub",
       "characters": [
@@ -219,7 +219,7 @@
       "page": 6,
       "reader_side": "left",
       "panel_count": 4,
-      "layout_template": "feature_left3",
+      "layout_template": "hero4",
       "hero_panel": "MZ-2026-09-02_P04_PANEL06",
       "location": "Transit Announcement Hub",
       "characters": [
@@ -262,7 +262,7 @@
       "page": 7,
       "reader_side": "right",
       "panel_count": 6,
-      "layout_template": "grid6",
+      "layout_template": "band6",
       "hero_panel": "MZ-2026-09-02_P05_PANEL03",
       "location": "Transit Announcement Hub",
       "characters": [
@@ -307,7 +307,7 @@
       "page": 8,
       "reader_side": "left",
       "panel_count": 4,
-      "layout_template": "feature_top3",
+      "layout_template": "hero4",
       "hero_panel": "MZ-2026-09-02_P06_PANEL06",
       "location": "School / Public Address Zone",
       "characters": [
@@ -348,7 +348,7 @@
       "page": 9,
       "reader_side": "right",
       "panel_count": 6,
-      "layout_template": "grid6",
+      "layout_template": "band6",
       "hero_panel": "MZ-2026-09-02_P07_PANEL01",
       "location": "Transit Announcement Hub",
       "characters": [
@@ -394,7 +394,7 @@
       "page": 10,
       "reader_side": "left",
       "panel_count": 6,
-      "layout_template": "feature_top5",
+      "layout_template": "hero6",
       "hero_panel": "MZ-2026-09-02_P08_PANEL01",
       "location": "Transit Announcement Hub",
       "characters": [
@@ -439,7 +439,7 @@
       "page": 11,
       "reader_side": "right",
       "panel_count": 4,
-      "layout_template": "feature_left3",
+      "layout_template": "hero4",
       "hero_panel": "MZ-2026-09-02_P09_PANEL02",
       "location": "Early-Fall Storm Streets and Routine Nodes",
       "characters": [
@@ -480,7 +480,7 @@
       "page": 12,
       "reader_side": "left",
       "panel_count": 4,
-      "layout_template": "grid4",
+      "layout_template": "band4",
       "hero_panel": "MZ-2026-09-02_P09_PANEL05",
       "location": "School / Public Address Zone",
       "characters": [
@@ -520,7 +520,7 @@
       "page": 13,
       "reader_side": "right",
       "panel_count": 4,
-      "layout_template": "feature_top3",
+      "layout_template": "hero4",
       "hero_panel": "MZ-2026-09-02_P10_PANEL06",
       "location": "Transit Announcement Hub",
       "characters": [
@@ -560,7 +560,7 @@
       "page": 14,
       "reader_side": "left",
       "panel_count": 4,
-      "layout_template": "feature_left3",
+      "layout_template": "band4",
       "hero_panel": "MZ-2026-09-02_P11_PANEL01",
       "location": "Early-Fall Storm Streets and Routine Nodes",
       "characters": [
@@ -603,7 +603,7 @@
       "page": 15,
       "reader_side": "right",
       "panel_count": 3,
-      "layout_template": "feature_left2",
+      "layout_template": "band3",
       "hero_panel": "MZ-2026-09-02_P11_PANEL05",
       "location": "Zoo City Streets",
       "characters": [
@@ -643,7 +643,7 @@
       "page": 16,
       "reader_side": "left",
       "panel_count": 5,
-      "layout_template": "grid5",
+      "layout_template": "hero5",
       "hero_panel": "MZ-2026-09-02_P12_PANEL02",
       "location": "Zoo City Streets",
       "characters": [
@@ -687,7 +687,7 @@
       "page": 17,
       "reader_side": "right",
       "panel_count": 4,
-      "layout_template": "feature_left3",
+      "layout_template": "hero4",
       "hero_panel": "MZ-2026-09-02_P13_PANEL01",
       "location": "Transit Announcement Hub",
       "characters": [
@@ -728,7 +728,7 @@
       "page": 18,
       "reader_side": "left",
       "panel_count": 3,
-      "layout_template": "feature_left2",
+      "layout_template": "hero3",
       "hero_panel": "MZ-2026-09-02_P13_PANEL06",
       "location": "Old Relay Junction",
       "characters": [
@@ -769,7 +769,7 @@
       "page": 19,
       "reader_side": "right",
       "panel_count": 5,
-      "layout_template": "grid5",
+      "layout_template": "band5",
       "hero_panel": "MZ-2026-09-02_P14_PANEL02",
       "location": "Old Relay Junction",
       "characters": [
@@ -816,7 +816,7 @@
       "page": 20,
       "reader_side": "left",
       "panel_count": 4,
-      "layout_template": "feature_left3",
+      "layout_template": "band4",
       "hero_panel": "MZ-2026-09-02_P15_PANEL01",
       "location": "Zoo City Streets",
       "characters": [
@@ -856,7 +856,7 @@
       "page": 21,
       "reader_side": "right",
       "panel_count": 5,
-      "layout_template": "left_feature4",
+      "layout_template": "band5",
       "hero_panel": "MZ-2026-09-02_P15_PANEL05",
       "location": "Early-Fall Storm Streets and Routine Nodes",
       "characters": [
@@ -900,20 +900,20 @@
       "page": 22,
       "reader_side": "left",
       "panel_count": 3,
-      "layout_template": "feature_top2",
-      "hero_panel": "MZ-2026-09-02_P16_PANEL05",
+      "layout_template": "band3",
+      "hero_panel": "MZ-2026-09-02_P16_PANEL04",
       "location": "Zoo City Streets",
       "characters": [
         "MZ-CHAR-003"
       ],
       "shots": [
-        "close",
         "medium",
+        "close",
         "wide"
       ],
       "shot_mix": {
-        "close": 1,
         "medium": 1,
+        "close": 1,
         "wide": 1
       },
       "dialogue_words": 6,

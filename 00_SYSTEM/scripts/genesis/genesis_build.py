@@ -36,21 +36,24 @@ CONTENT_H = PAGE_H - 2 * MARGIN - 90          # leave a strip for footer / page 
 
 # Normalized slot rectangles (x, y, w, h) in [0,1] within the content box, per
 # template. Slot 0 is the emphasis/feature slot where the template has one.
+# LANDSCAPE-BAND templates. The source panels are 16:9, so every slot is a
+# full-width horizontal band (or, sparingly, a 2-up row) -- cover-cropping only
+# trims sky top/bottom and never clips the characters at the sides. Tall columns
+# and 3-across rows are deliberately absent; they were the accidental-crop cause.
+# "hero_*" templates put a taller feature band first (slot 0).
+_B = lambda ys: [(0, ys[i], 1, ys[i + 1] - ys[i]) for i in range(len(ys) - 1)]   # noqa: E731
 TEMPLATES: dict[str, list[tuple[float, float, float, float]]] = {
     "splash": [(0, 0, 1, 1)],
-    "stack2": [(0, 0, 1, 0.5), (0, 0.5, 1, 0.5)],
-    "feature_top1": [(0, 0, 1, 0.62), (0, 0.62, 1, 0.38)],
-    "feature_top2": [(0, 0, 1, 0.55), (0, 0.55, 0.5, 0.45), (0.5, 0.55, 0.5, 0.45)],
-    "row3": [(0, 0, 1, 1 / 3), (0, 1 / 3, 1, 1 / 3), (0, 2 / 3, 1, 1 / 3)],
-    "feature_left2": [(0, 0, 0.58, 1), (0.58, 0, 0.42, 0.5), (0.58, 0.5, 0.42, 0.5)],
-    "grid4": [(0, 0, 0.5, 0.5), (0.5, 0, 0.5, 0.5), (0, 0.5, 0.5, 0.5), (0.5, 0.5, 0.5, 0.5)],
-    "feature_top3": [(0, 0, 1, 0.5), (0, 0.5, 1 / 3, 0.5), (1 / 3, 0.5, 1 / 3, 0.5), (2 / 3, 0.5, 1 / 3, 0.5)],
-    "feature_left3": [(0, 0, 0.55, 1), (0.55, 0, 0.45, 1 / 3), (0.55, 1 / 3, 0.45, 1 / 3), (0.55, 2 / 3, 0.45, 1 / 3)],
-    "feature_top4": [(0, 0, 1, 0.4), (0, 0.4, 0.5, 0.3), (0.5, 0.4, 0.5, 0.3), (0, 0.7, 0.5, 0.3), (0.5, 0.7, 0.5, 0.3)],
-    "grid5": [(0, 0, 0.5, 0.5), (0.5, 0, 0.5, 0.5), (0, 0.5, 1 / 3, 0.5), (1 / 3, 0.5, 1 / 3, 0.5), (2 / 3, 0.5, 1 / 3, 0.5)],
-    "left_feature4": [(0, 0, 0.5, 1), (0.5, 0, 0.5, 0.25), (0.5, 0.25, 0.5, 0.25), (0.5, 0.5, 0.5, 0.25), (0.5, 0.75, 0.5, 0.25)],
-    "grid6": [(0, 0, 0.5, 1 / 3), (0.5, 0, 0.5, 1 / 3), (0, 1 / 3, 0.5, 1 / 3), (0.5, 1 / 3, 0.5, 1 / 3), (0, 2 / 3, 0.5, 1 / 3), (0.5, 2 / 3, 0.5, 1 / 3)],
-    "feature_top5": [(0, 0, 1, 0.38), (0, 0.38, 0.5, 0.31), (0.5, 0.38, 0.5, 0.31), (0, 0.69, 1 / 3, 0.31), (1 / 3, 0.69, 1 / 3, 0.31), (2 / 3, 0.69, 1 / 3, 0.31)],
+    "band2": _B([0, 0.5, 1.0]),
+    "hero2": _B([0, 0.6, 1.0]),
+    "band3": _B([0, 1 / 3, 2 / 3, 1.0]),
+    "hero3": _B([0, 0.46, 0.73, 1.0]),
+    "band4": _B([0, 0.25, 0.5, 0.75, 1.0]),
+    "hero4": _B([0, 0.4, 0.6, 0.8, 1.0]),
+    "band5": _B([0, 0.2, 0.4, 0.6, 0.8, 1.0]),
+    "hero5": _B([0, 0.32, 0.49, 0.66, 0.83, 1.0]),
+    "band6": _B([0, 1 / 6, 2 / 6, 3 / 6, 4 / 6, 5 / 6, 1.0]),
+    "hero6": _B([0, 0.30, 0.44, 0.58, 0.72, 0.86, 1.0]),
 }
 
 

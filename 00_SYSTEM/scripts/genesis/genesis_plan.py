@@ -204,25 +204,27 @@ def segment(panels: list[dict]) -> list[tuple[int, int]]:
 
 # --- layout template selection (variety without randomness) ---
 # template ids are interpreted geometrically by the assembler.
+# Landscape-band templates only (source art is 16:9). "hero_*" have a taller
+# feature band first; "band_*" are even bands. No tall columns / 3-across rows.
 TEMPLATES = {
-    2: ["stack2", "feature_top1"],
-    3: ["feature_top2", "row3", "feature_left2"],
-    4: ["grid4", "feature_top3", "feature_left3"],
-    5: ["feature_top4", "grid5", "left_feature4"],
-    6: ["grid6", "feature_top5"],
+    2: ["band2", "hero2"],
+    3: ["band3", "hero3"],
+    4: ["band4", "hero4"],
+    5: ["band5", "hero5"],
+    6: ["band6", "hero6"],
 }
 
 
+def _is_feature(t: str) -> bool:
+    return t.startswith("hero")
+
+
 def pick_template(size: int, page_idx: int, prev: str | None, has_strong_feature: bool) -> str:
-    opts = TEMPLATES.get(size, ["grid" + str(size)])
-    if size == 1:
-        return "splash"
-    # prefer a feature template when the page has a dominant panel; else a grid
-    ordered = opts[:]
-    if not has_strong_feature:
-        ordered.sort(key=lambda t: (0 if t.startswith("grid") or t.startswith("row") else 1))
-    else:
-        ordered.sort(key=lambda t: (0 if "feature" in t or "left" in t else 1))
+    opts = TEMPLATES.get(size)
+    if size == 1 or not opts:
+        return "splash" if size == 1 else f"band{size}"
+    # prefer a hero (feature) band when the page has a dominant panel; else even bands
+    ordered = sorted(opts, key=lambda t: (0 if _is_feature(t) == has_strong_feature else 1))
     # rotate to avoid repeating the previous page's template
     for off in range(len(ordered)):
         cand = ordered[(page_idx + off) % len(ordered)]
@@ -247,9 +249,9 @@ def build_plan() -> dict:
         strong = size >= 3 and (imps[0] - (imps[1] if len(imps) > 1 else 0)) >= 0.15
         template = pick_template(size, pi, prev_template, strong)
         prev_template = template
-        # feature templates put the feature panel first (slot 0)
+        # hero templates put the feature panel in the taller first band (slot 0)
         order = list(range(size))
-        if "feature" in template or template.startswith("left"):
+        if _is_feature(template):
             order = [fi] + [k for k in range(size) if k != fi]
         page_panels = []
         for slot, gi in enumerate(order):
@@ -257,7 +259,7 @@ def build_plan() -> dict:
             page_panels.append({
                 "slot": slot,
                 "source_panel_id": g["source_panel_id"],
-                "emphasis": (slot == 0 and ("feature" in template or template.startswith("left") or template == "splash")),
+                "emphasis": (slot == 0 and (_is_feature(template) or template == "splash")),
                 "shot": g["shot"],
                 "beat": g["beat"],
                 "characters": g["characters"],

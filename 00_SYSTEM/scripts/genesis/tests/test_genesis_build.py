@@ -43,9 +43,8 @@ def test_split_unattributed_line_keeps_text():
 # --- template geometry ---
 
 @pytest.mark.parametrize("template,count", [
-    ("grid4", 4), ("feature_top3", 4), ("feature_left3", 4), ("grid6", 6),
-    ("feature_top5", 6), ("grid5", 5), ("feature_top4", 5), ("left_feature4", 5),
-    ("feature_left2", 3), ("row3", 3), ("stack2", 2), ("splash", 1),
+    ("band2", 2), ("hero2", 2), ("band3", 3), ("hero3", 3), ("band4", 4), ("hero4", 4),
+    ("band5", 5), ("hero5", 5), ("band6", 6), ("hero6", 6), ("splash", 1),
 ])
 def test_template_yields_correct_count_within_bounds(template, count):
     rects = gb.template_rects(template, count)
@@ -56,10 +55,20 @@ def test_template_yields_correct_count_within_bounds(template, count):
         assert x + w <= gb.PAGE_W + 2 and y + h <= gb.PAGE_H + 2
 
 
-def test_feature_template_slot0_is_the_largest():
-    rects = gb.template_rects("feature_left3", 4)
+@pytest.mark.parametrize("template,count", [("band4", 4), ("band6", 6), ("band3", 3)])
+def test_band_templates_are_full_width_landscape(template, count):
+    # every band spans the full content width so 16:9 art is never side-clipped
+    rects = gb.template_rects(template, count)
+    widths = {w for (x, y, w, h) in rects}
+    assert len(widths) == 1, "all bands share the full content width"
+    for (x, y, w, h) in rects:
+        assert w > h, "a band must be landscape (wider than tall)"
+
+
+def test_hero_template_slot0_is_the_largest():
+    rects = gb.template_rects("hero4", 4)
     areas = [w * h for (x, y, w, h) in rects]
-    assert areas[0] == max(areas), "feature/emphasis slot 0 must be the largest panel"
+    assert areas[0] == max(areas), "the hero band (slot 0) must be the largest panel"
 
 
 def test_unknown_template_falls_back_to_even_stack():

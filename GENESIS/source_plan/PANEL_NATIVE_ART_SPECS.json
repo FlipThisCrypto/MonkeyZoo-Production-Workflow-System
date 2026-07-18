@@ -1,0 +1,2399 @@
+{
+  "issue": "MonkeyZoo: Genesis",
+  "panels": [
+    {
+      "page": 1,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P01_PANEL01",
+      "target_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Zoo City Streets",
+      "characters": [],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "tik",
+      "lettering_safe_region": "lower-left corner kept quiet for a small location caption",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 61.1,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 1,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P01_PANEL02",
+      "target_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "tik",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 59.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 1,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P01_PANEL03",
+      "target_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "STATIC: That click… it repeated.",
+      "sfx": "TIK-tik",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 59.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 1,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P01_PANEL04",
+      "target_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "STATIC (small): Nobody else stopped.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 61.1,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 2,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P01_PANEL06",
+      "target_px": [
+        2280,
+        1267
+      ],
+      "aspect_ratio": 1.8,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-001"
+      ],
+      "shot": "medium",
+      "emphasis": true,
+      "dialogue": "MOODZ: You heard it again.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "keep",
+      "retained_area_pct": 98.8,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 2,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P01_PANEL05",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-001"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "PA (jagged): …st-stud…ents…",
+      "sfx": "BZZT",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 2,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P02_PANEL01",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-001"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "STATIC: You're not saying I imagined it.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 2,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P02_PANEL02",
+      "target_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-001"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "MOODZ: I'm saying you heard it.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 48.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 3,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P02_PANEL03",
+      "target_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "NEONBLUE: Hey, hey — the city's old, it creaks!",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 61.1,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 3,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P02_PANEL04",
+      "target_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "NEONBLUE: Probably just old wires—",
+      "sfx": "bzz",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 59.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 3,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P02_PANEL05",
+      "target_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "orientation": "landscape",
+      "story_beat": "reaction",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "STATIC: …yeah. Probably.",
+      "sfx": "bzz",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 59.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 3,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P02_PANEL06",
+      "target_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "flk",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 61.1,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 4,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P03_PANEL02",
+      "target_px": [
+        2280,
+        1267
+      ],
+      "aspect_ratio": 1.8,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002",
+        "MZ-CHAR-005"
+      ],
+      "shot": "medium",
+      "emphasis": true,
+      "dialogue": "STATIC: It's the same burst!",
+      "sfx": "BZZT BZZT",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "keep",
+      "retained_area_pct": 98.8,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 4,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P03_PANEL01",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "rmmml",
+      "lettering_safe_region": "lower-left corner kept quiet for a small location caption",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 4,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P03_PANEL03",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002",
+        "MZ-CHAR-005"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "TWOTONE: …mine too.",
+      "sfx": "BZZT",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 4,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P03_PANEL04",
+      "target_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002",
+        "MZ-CHAR-005"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "NEONBLUE (small): Okay. Not old wires.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 48.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 5,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P03_PANEL05",
+      "target_px": [
+        2280,
+        516
+      ],
+      "aspect_ratio": 4.419,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "flk-flk",
+      "lettering_safe_region": "lower-left corner kept quiet for a small location caption",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 40.2,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 5,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P03_PANEL06",
+      "target_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "tik",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 38.7,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 5,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P04_PANEL01",
+      "target_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "STATIC: Before the sound finishes—danger is already here.",
+      "sfx": "BZZT",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 38.7,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 5,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P04_PANEL02",
+      "target_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 38.7,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 5,
+      "panel": 5,
+      "source_panel_id": "MZ-2026-09-02_P04_PANEL03",
+      "target_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "STATIC: It came from the north relay then the school then twice from—",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 38.7,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 5,
+      "panel": 6,
+      "source_panel_id": "MZ-2026-09-02_P04_PANEL04",
+      "target_px": [
+        2280,
+        516
+      ],
+      "aspect_ratio": 4.419,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "OFF: Slow down— / OFF: Which one—",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 40.2,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 6,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P04_PANEL06",
+      "target_px": [
+        2280,
+        1267
+      ],
+      "aspect_ratio": 1.8,
+      "orientation": "landscape",
+      "story_beat": "reaction",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shot": "close",
+      "emphasis": true,
+      "dialogue": "STATIC (small): …thanks.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "keep",
+      "retained_area_pct": 98.8,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 6,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P04_PANEL05",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "SCARLINE: Don't drown him out.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 6,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P05_PANEL01",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "CLEVER: Where's the loudest wall?",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 6,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P05_PANEL02",
+      "target_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "CLEVER: Hardware first. Pattern later.",
+      "sfx": "klk",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 48.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 7,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P05_PANEL03",
+      "target_px": [
+        2280,
+        516
+      ],
+      "aspect_ratio": 4.419,
+      "orientation": "landscape",
+      "story_beat": "reaction",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "CLEVER (small): Huh.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 40.2,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 7,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P05_PANEL04",
+      "target_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "CLEVER: Hardware's fine. Tell me what you heard.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 38.7,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 7,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P05_PANEL05",
+      "target_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "STATIC: Okay so—",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 38.7,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 7,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P05_PANEL06",
+      "target_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "STATIC: Six—no, three—no, listen—",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 38.7,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 7,
+      "panel": 5,
+      "source_panel_id": "MZ-2026-09-02_P06_PANEL01",
+      "target_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "rec",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 38.7,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 7,
+      "panel": 6,
+      "source_panel_id": "MZ-2026-09-02_P06_PANEL02",
+      "target_px": [
+        2280,
+        516
+      ],
+      "aspect_ratio": 4.419,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "CLEVER: Good. It's all in here.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 40.2,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 8,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P06_PANEL06",
+      "target_px": [
+        2280,
+        1267
+      ],
+      "aspect_ratio": 1.8,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-004"
+      ],
+      "shot": "medium",
+      "emphasis": true,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "keep",
+      "retained_area_pct": 98.8,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 8,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P06_PANEL03",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-004"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "lower-left corner kept quiet for a small location caption",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 8,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P06_PANEL04",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-004"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "ASH: Which part repeats?",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 8,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P06_PANEL05",
+      "target_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-004"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "CLEVER: …the part nobody's sending.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 48.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 9,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P07_PANEL01",
+      "target_px": [
+        2280,
+        516
+      ],
+      "aspect_ratio": 4.419,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "ping",
+      "lettering_safe_region": "lower-left corner kept quiet for a small location caption",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 40.2,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 9,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P07_PANEL02",
+      "target_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "CLEVER: Six tones. Structured. Not random.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 38.7,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 9,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P07_PANEL03",
+      "target_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "STATIC (small): That's them. That's exactly them.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 38.7,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 9,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P07_PANEL04",
+      "target_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "CLEVER: You counted them by ear.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 38.7,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 9,
+      "panel": 5,
+      "source_panel_id": "MZ-2026-09-02_P07_PANEL05",
+      "target_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "toooon",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 38.7,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 9,
+      "panel": 6,
+      "source_panel_id": "MZ-2026-09-02_P07_PANEL06",
+      "target_px": [
+        2280,
+        516
+      ],
+      "aspect_ratio": 4.419,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "STATIC: That's the cyan one… from summer.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 40.2,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 10,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P08_PANEL01",
+      "target_px": [
+        2280,
+        945
+      ],
+      "aspect_ratio": 2.413,
+      "orientation": "landscape",
+      "story_beat": "reaction",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "shot": "close",
+      "emphasis": true,
+      "dialogue": "NEONBLUE (small): …August.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 73.7,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 10,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P08_PANEL02",
+      "target_px": [
+        2280,
+        410
+      ],
+      "aspect_ratio": 5.561,
+      "orientation": "landscape",
+      "story_beat": "transition",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 32.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 10,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P08_PANEL03",
+      "target_px": [
+        2280,
+        410
+      ],
+      "aspect_ratio": 5.561,
+      "orientation": "landscape",
+      "story_beat": "transition",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 32.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 10,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P08_PANEL04",
+      "target_px": [
+        2280,
+        410
+      ],
+      "aspect_ratio": 5.561,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "TWOTONE: Pair them. Don't stack them.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 32.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 10,
+      "panel": 5,
+      "source_panel_id": "MZ-2026-09-02_P08_PANEL05",
+      "target_px": [
+        2280,
+        410
+      ],
+      "aspect_ratio": 5.561,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "STATIC: Call and answer. They're call and answer!",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 32.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 10,
+      "panel": 6,
+      "source_panel_id": "MZ-2026-09-02_P08_PANEL06",
+      "target_px": [
+        2280,
+        430
+      ],
+      "aspect_ratio": 5.302,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-002"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "TWOTONE: Now it's music.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 33.5,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 11,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P09_PANEL02",
+      "target_px": [
+        2280,
+        1267
+      ],
+      "aspect_ratio": 1.8,
+      "orientation": "landscape",
+      "story_beat": "reveal",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "medium",
+      "emphasis": true,
+      "dialogue": "STATIC: It's listening for us.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "keep",
+      "retained_area_pct": 98.8,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 11,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P09_PANEL01",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "lower-left corner kept quiet for a small location caption",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 11,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P09_PANEL03",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "CLEVER (small): …calls waiting for answers.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 11,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P09_PANEL04",
+      "target_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 48.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 12,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P09_PANEL05",
+      "target_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "OFF: Maybe if he just calmed d—",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 61.1,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 12,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P09_PANEL06",
+      "target_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "MOODZ: He doesn't have to be comfortable for you.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 59.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 12,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P10_PANEL01",
+      "target_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "orientation": "landscape",
+      "story_beat": "reaction",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 59.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 12,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P10_PANEL02",
+      "target_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "School / Public Address Zone",
+      "characters": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "MOODZ (small): Next question.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 61.1,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 13,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P10_PANEL06",
+      "target_px": [
+        2280,
+        1267
+      ],
+      "aspect_ratio": 1.8,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shot": "close",
+      "emphasis": true,
+      "dialogue": "STATIC: I want it to matter that I do.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "keep",
+      "retained_area_pct": 98.8,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 13,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P10_PANEL03",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "transition",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "lower-left corner kept quiet for a small location caption",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 13,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P10_PANEL04",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "SCARLINE: Do you want to keep listening?",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 13,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P10_PANEL05",
+      "target_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "orientation": "landscape",
+      "story_beat": "reaction",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 48.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 14,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P11_PANEL01",
+      "target_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-002"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "WRRRN",
+      "lettering_safe_region": "lower-left corner kept quiet for a small location caption",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 61.1,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 14,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P11_PANEL02",
+      "target_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-002"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "STATIC: Flood—fire—relay—stop—",
+      "sfx": "WRRRN",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 59.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 14,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P11_PANEL03",
+      "target_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "orientation": "landscape",
+      "story_beat": "reaction",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-002"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "STATIC: —west—twelve—flood—",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 59.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 14,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P11_PANEL04",
+      "target_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-002"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "NEONBLUE: We're here. Take the exit you need.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 61.1,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 15,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P11_PANEL05",
+      "target_px": [
+        2280,
+        1052
+      ],
+      "aspect_ratio": 2.167,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-006",
+        "MZ-CHAR-003"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "lower-left corner kept quiet for a small location caption",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 82.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 15,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P11_PANEL06",
+      "target_px": [
+        2280,
+        1032
+      ],
+      "aspect_ratio": 2.209,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-006",
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "MOODZ: Room. Not volume.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 80.5,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 15,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P12_PANEL01",
+      "target_px": [
+        2280,
+        1052
+      ],
+      "aspect_ratio": 2.167,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-006",
+        "MZ-CHAR-003"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "STATIC (small): …relay. West.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 82.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 16,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P12_PANEL02",
+      "target_px": [
+        2280,
+        1009
+      ],
+      "aspect_ratio": 2.26,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-001",
+        "MZ-CHAR-006",
+        "MZ-CHAR-003"
+      ],
+      "shot": "wide",
+      "emphasis": true,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 78.7,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 16,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P12_PANEL03",
+      "target_px": [
+        2280,
+        507
+      ],
+      "aspect_ratio": 4.497,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "SCARLINE: Still your call.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 39.5,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 16,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P12_PANEL04",
+      "target_px": [
+        2280,
+        507
+      ],
+      "aspect_ratio": 4.497,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "STATIC: Yes. But one line at a time.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 39.5,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 16,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P12_PANEL05",
+      "target_px": [
+        2280,
+        507
+      ],
+      "aspect_ratio": 4.497,
+      "orientation": "landscape",
+      "story_beat": "reaction",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "SCARLINE: One line.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 39.5,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 16,
+      "panel": 5,
+      "source_panel_id": "MZ-2026-09-02_P12_PANEL06",
+      "target_px": [
+        2280,
+        527
+      ],
+      "aspect_ratio": 4.326,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-006"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 41.1,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 17,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P13_PANEL01",
+      "target_px": [
+        2280,
+        1267
+      ],
+      "aspect_ratio": 1.8,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "medium",
+      "emphasis": true,
+      "dialogue": "",
+      "sfx": "toooon",
+      "lettering_safe_region": "lower-left corner kept quiet for a small location caption",
+      "crop_classification": "keep",
+      "retained_area_pct": 98.8,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 17,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P13_PANEL02",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "STATIC: The third tone. Every twelve seconds. West sector.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 17,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P13_PANEL03",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "CLEVER: Confirmed. Twelve point out.",
+      "sfx": "ping",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 17,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P13_PANEL04",
+      "target_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "orientation": "landscape",
+      "story_beat": "transition",
+      "location": "Transit Announcement Hub",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 48.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 18,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P13_PANEL06",
+      "target_px": [
+        2280,
+        1460
+      ],
+      "aspect_ratio": 1.562,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "Old Relay Junction",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-002"
+      ],
+      "shot": "medium",
+      "emphasis": true,
+      "dialogue": "CLEVER: Junction confirmed. Acting now.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "recompose_or_regenerate",
+      "retained_area_pct": 87.8,
+      "side_crop_pct": 6.1
+    },
+    {
+      "page": 18,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P13_PANEL05",
+      "target_px": [
+        2280,
+        828
+      ],
+      "aspect_ratio": 2.754,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Old Relay Junction",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-002"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "kreee",
+      "lettering_safe_region": "lower-left corner kept quiet for a small location caption",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 64.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 18,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P14_PANEL01",
+      "target_px": [
+        2280,
+        848
+      ],
+      "aspect_ratio": 2.689,
+      "orientation": "landscape",
+      "story_beat": "reaction",
+      "location": "Old Relay Junction",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-002"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "CLEVER: …nine… ten…",
+      "sfx": "klk klk",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 66.1,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 19,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P14_PANEL02",
+      "target_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Old Relay Junction",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER",
+        "MZ-CHAR-002"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "STATIC: Now.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 48.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 19,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P14_PANEL03",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Old Relay Junction",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-004"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "…",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 19,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P14_PANEL04",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Old Relay Junction",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-004"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "NEONBLUE: We heard you.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 19,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P14_PANEL05",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "reaction",
+      "location": "Old Relay Junction",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-004"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 19,
+      "panel": 5,
+      "source_panel_id": "MZ-2026-09-02_P14_PANEL06",
+      "target_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Old Relay Junction",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-005",
+        "MZ-CHAR-004"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 48.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 20,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P15_PANEL01",
+      "target_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "skrt",
+      "lettering_safe_region": "lower-left corner kept quiet for a small location caption",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 61.1,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 20,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P15_PANEL02",
+      "target_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "STATIC: What I sense. What I know. What I fear. What needs checking.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 59.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 20,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P15_PANEL03",
+      "target_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "orientation": "landscape",
+      "story_beat": "reaction",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 59.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 20,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P15_PANEL04",
+      "target_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "STATIC (small): Okay. That's the order.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 61.1,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 21,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P15_PANEL05",
+      "target_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "zzp",
+      "lettering_safe_region": "lower-left corner kept quiet for a small location caption",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 48.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 21,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P15_PANEL06",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "CLEVER: I can map the how. You map the why.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 21,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P16_PANEL01",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "reaction",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "STATIC: …deal.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 21,
+      "panel": 4,
+      "source_panel_id": "MZ-2026-09-02_P16_PANEL02",
+      "target_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [
+        "MZ-CHAR-003",
+        "MZ-CHAR-CLEVER"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 47.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 21,
+      "panel": 5,
+      "source_panel_id": "MZ-2026-09-02_P16_PANEL03",
+      "target_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "orientation": "landscape",
+      "story_beat": "establishing",
+      "location": "Early-Fall Storm Streets and Routine Nodes",
+      "characters": [],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "tik. tik.",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 48.6,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 22,
+      "panel": 1,
+      "source_panel_id": "MZ-2026-09-02_P16_PANEL04",
+      "target_px": [
+        2280,
+        1052
+      ],
+      "aspect_ratio": 2.167,
+      "orientation": "landscape",
+      "story_beat": "transition",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shot": "medium",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 82.0,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 22,
+      "panel": 2,
+      "source_panel_id": "MZ-2026-09-02_P16_PANEL05",
+      "target_px": [
+        2280,
+        1032
+      ],
+      "aspect_ratio": 2.209,
+      "orientation": "landscape",
+      "story_beat": "action",
+      "location": "Zoo City Streets",
+      "characters": [],
+      "shot": "close",
+      "emphasis": false,
+      "dialogue": "",
+      "sfx": "toooon…",
+      "lettering_safe_region": "no balloon required; keep the SFX region (upper-right) uncluttered",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 80.5,
+      "side_crop_pct": 0.0
+    },
+    {
+      "page": 22,
+      "panel": 3,
+      "source_panel_id": "MZ-2026-09-02_P16_PANEL06",
+      "target_px": [
+        2280,
+        1052
+      ],
+      "aspect_ratio": 2.167,
+      "orientation": "landscape",
+      "story_beat": "dialogue",
+      "location": "Zoo City Streets",
+      "characters": [
+        "MZ-CHAR-003"
+      ],
+      "shot": "wide",
+      "emphasis": false,
+      "dialogue": "CAPTION: Next: the signal answers back.",
+      "sfx": "",
+      "lettering_safe_region": "upper third kept visually quiet for one or two speech balloons",
+      "crop_classification": "minor_crop",
+      "retained_area_pct": 82.0,
+      "side_crop_pct": 0.0
+    }
+  ]
+}

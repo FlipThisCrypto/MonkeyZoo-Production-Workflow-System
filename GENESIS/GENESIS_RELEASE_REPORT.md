@@ -21,28 +21,28 @@
 ## Page-by-page
 | Pg | Side | Panels | Template | Location | Page-turn |
 |---|---|---|---|---|---|
-| 1 | right | 4 | `grid4` | Zoo City Streets | cold open — establish tone and the first anomaly |
-| 2 | left | 4 | `feature_left3` | School / Public Address Zone | carry momentum into the next beat |
-| 3 | right | 4 | `grid4` | Zoo City Streets | carry momentum into the next beat |
-| 4 | left | 4 | `feature_top3` | Early-Fall Storm Streets and Routine Nodes | carry momentum into the next beat |
-| 5 | right | 6 | `grid6` | Transit Announcement Hub | carry momentum into the next beat |
-| 6 | left | 4 | `feature_left3` | Transit Announcement Hub | carry momentum into the next beat |
-| 7 | right | 6 | `grid6` | Transit Announcement Hub | carry momentum into the next beat |
-| 8 | left | 4 | `feature_top3` | School / Public Address Zone | carry momentum into the next beat |
-| 9 | right | 6 | `grid6` | Transit Announcement Hub | carry momentum into the next beat |
-| 10 | left | 6 | `feature_top5` | Transit Announcement Hub | carry momentum into the next beat |
-| 11 | right | 4 | `feature_left3` | Early-Fall Storm Streets and Routine Nodes | carry momentum into the next beat |
-| 12 | left | 4 | `grid4` | School / Public Address Zone | carry momentum into the next beat |
-| 13 | right | 4 | `feature_top3` | Transit Announcement Hub | carry momentum into the next beat |
-| 14 | left | 4 | `feature_left3` | Early-Fall Storm Streets and Routine Nodes | carry momentum into the next beat |
-| 15 | right | 3 | `feature_left2` | Zoo City Streets | carry momentum into the next beat |
-| 16 | left | 5 | `grid5` | Zoo City Streets | carry momentum into the next beat |
-| 17 | right | 4 | `feature_left3` | Transit Announcement Hub | carry momentum into the next beat |
-| 18 | left | 3 | `feature_left2` | Old Relay Junction | hold on reaction before the turn |
-| 19 | right | 5 | `grid5` | Old Relay Junction | carry momentum into the next beat |
-| 20 | left | 4 | `feature_left3` | Zoo City Streets | carry momentum into the next beat |
-| 21 | right | 5 | `left_feature4` | Early-Fall Storm Streets and Routine Nodes | carry momentum into the next beat |
-| 22 | left | 3 | `feature_top2` | Zoo City Streets | final image / next-issue stinger |
+| 1 | right | 4 | `band4` | Zoo City Streets | cold open — establish tone and the first anomaly |
+| 2 | left | 4 | `hero4` | School / Public Address Zone | carry momentum into the next beat |
+| 3 | right | 4 | `band4` | Zoo City Streets | carry momentum into the next beat |
+| 4 | left | 4 | `hero4` | Early-Fall Storm Streets and Routine Nodes | carry momentum into the next beat |
+| 5 | right | 6 | `band6` | Transit Announcement Hub | carry momentum into the next beat |
+| 6 | left | 4 | `hero4` | Transit Announcement Hub | carry momentum into the next beat |
+| 7 | right | 6 | `band6` | Transit Announcement Hub | carry momentum into the next beat |
+| 8 | left | 4 | `hero4` | School / Public Address Zone | carry momentum into the next beat |
+| 9 | right | 6 | `band6` | Transit Announcement Hub | carry momentum into the next beat |
+| 10 | left | 6 | `hero6` | Transit Announcement Hub | carry momentum into the next beat |
+| 11 | right | 4 | `hero4` | Early-Fall Storm Streets and Routine Nodes | carry momentum into the next beat |
+| 12 | left | 4 | `band4` | School / Public Address Zone | carry momentum into the next beat |
+| 13 | right | 4 | `hero4` | Transit Announcement Hub | carry momentum into the next beat |
+| 14 | left | 4 | `band4` | Early-Fall Storm Streets and Routine Nodes | carry momentum into the next beat |
+| 15 | right | 3 | `band3` | Zoo City Streets | carry momentum into the next beat |
+| 16 | left | 5 | `hero5` | Zoo City Streets | carry momentum into the next beat |
+| 17 | right | 4 | `hero4` | Transit Announcement Hub | carry momentum into the next beat |
+| 18 | left | 3 | `hero3` | Old Relay Junction | hold on reaction before the turn |
+| 19 | right | 5 | `band5` | Old Relay Junction | carry momentum into the next beat |
+| 20 | left | 4 | `band4` | Zoo City Streets | carry momentum into the next beat |
+| 21 | right | 5 | `band5` | Early-Fall Storm Streets and Routine Nodes | carry momentum into the next beat |
+| 22 | left | 3 | `band3` | Zoo City Streets | final image / next-issue stinger |
 
 ## Deliverables (paths under GENESIS/)
 - `covers/01_FRONT_COVER.png`, `covers/24_BACK_COVER.png` (full-res masters)

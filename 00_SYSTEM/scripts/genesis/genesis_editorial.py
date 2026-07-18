@@ -178,6 +178,30 @@ def comparisons(genesis_dir: Path) -> list[str]:
         sheet.save(cdir / "before_after_repeated_backgrounds.png")
         made.append("before_after_repeated_backgrounds.png")
 
+    # crop problem: same panels in an OLD tall slot (side-clipped) vs a NEW band
+    plan2 = _load(genesis_dir / "GENESIS_LAYOUT_PLAN.json")
+    pdir = FACTORY / plan2["source_panel_dir"]
+    samples = [pa["source_panel_id"] for pg in plan2["pages"] for pa in pg["panels"]
+               if pa["shot"] in ("wide", "medium")][:4]
+    if samples:
+        tw, th = 300, 169         # band cell (16:9)
+        cw, ch = 150, 300         # old tall column cell
+        pad = 12
+        sheet = Image.new("RGB", (pad + len(samples) * (max(tw, cw) + pad), 120 + th + ch + 3 * pad), (24, 24, 28))
+        dd = ImageDraw.Draw(sheet)
+        f = ap._font("impact.ttf", 26)
+        dd.text((pad, 8), "BEFORE — 16:9 art forced into a TALL slot (characters side-clipped)", font=f, fill=(255, 130, 130))
+        dd.text((pad, 60 + ch), "AFTER — same art in a full-width BAND (characters intact, only sky trimmed)", font=f, fill=(150, 240, 150))
+        for c, pid in enumerate(samples):
+            src = Image.open(pdir / f"{pid}.png").convert("RGB")
+            old = ap.fit_cover(src, cw, ch, None)     # tall column -> side clip
+            new = ap.fit_cover(src, tw, th, None)     # wide band -> full width
+            xc = pad + c * (max(tw, cw) + pad)
+            sheet.paste(old, (xc, 50))
+            sheet.paste(new, (xc, 90 + ch))
+        sheet.save(cdir / "crop_problem_before_after.png")
+        made.append("crop_problem_before_after.png")
+
     return made
 
 
