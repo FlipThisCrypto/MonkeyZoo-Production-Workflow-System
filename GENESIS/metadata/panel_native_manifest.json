@@ -1,0 +1,54 @@
+{
+  "count": 8,
+  "method": "Z-Image Turbo text2img (identity: hair+card-colour) -> HSV matte -> composite onto location plate",
+  "regenerated": [
+    {
+      "panel": "MZ-2026-09-02_P01_PANEL02",
+      "page": 1,
+      "shot": "medium",
+      "character_id": "MZ-CHAR-003"
+    },
+    {
+      "panel": "MZ-2026-09-02_P01_PANEL03",
+      "page": 1,
+      "shot": "medium",
+      "character_id": "MZ-CHAR-003"
+    },
+    {
+      "panel": "MZ-2026-09-02_P01_PANEL04",
+      "page": 1,
+      "shot": "close",
+      "character_id": "MZ-CHAR-003"
+    },
+    {
+      "panel": "MZ-2026-09-02_P03_PANEL06",
+      "page": 5,
+      "shot": "close",
+      "character_id": "MZ-CHAR-003"
+    },
+    {
+      "panel": "MZ-2026-09-02_P04_PANEL01",
+      "page": 5,
+      "shot": "medium",
+      "character_id": "MZ-CHAR-003"
+    },
+    {
+      "panel": "MZ-2026-09-02_P15_PANEL01",
+      "page": 20,
+      "shot": "medium",
+      "character_id": "MZ-CHAR-003"
+    },
+    {
+      "panel": "MZ-2026-09-02_P15_PANEL02",
+      "page": 20,
+      "shot": "medium",
+      "character_id": "MZ-CHAR-003"
+    },
+    {
+      "panel": "MZ-2026-09-02_P15_PANEL03",
+      "page": 20,
+      "shot": "close",
+      "character_id": "MZ-CHAR-003"
+    }
+  ]
+}

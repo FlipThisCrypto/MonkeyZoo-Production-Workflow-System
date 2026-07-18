@@ -184,7 +184,8 @@ def _letter_panel(canvas: Image.Image, d: ImageDraw.ImageDraw, rect, panel: dict
     return warns
 
 
-def render_page(page: dict, panel_dir: Path, crops: dict | None = None) -> tuple[Image.Image, list[str]]:
+def render_page(page: dict, panel_dir: Path, crops: dict | None = None,
+                native_dir: Path | None = None) -> tuple[Image.Image, list[str]]:
     canvas = Image.new("RGB", (PAGE_W, PAGE_H), "white")
     d = ImageDraw.Draw(canvas)
     template = page["layout_template"]
@@ -196,8 +197,13 @@ def render_page(page: dict, panel_dir: Path, crops: dict | None = None) -> tuple
     for idx, (panel, rect) in enumerate(zip(page["panels"], rects)):
         sx, sy, sw, sh = rect
         pid = panel["source_panel_id"]
+        native = (native_dir / f"{pid}.png") if native_dir else None
         art_path = panel_dir / f"{pid}.png"
-        if art_path.exists():
+        if native and native.exists():
+            # bespoke panel-native art (already composed landscape) -- no crop variation
+            art = ap.fit_cover(Image.open(native).convert("RGB"), sw, sh, None)
+            canvas.paste(art, (sx, sy))
+        elif art_path.exists():
             crop = crops.get(pid)                        # crop-variation window (L,T,R,B) or None
             art = ap.fit_cover(Image.open(art_path).convert("RGB"), sw, sh, crop)
             canvas.paste(art, (sx, sy))
@@ -304,11 +310,13 @@ def build(genesis_dir: Path) -> dict:
     # crop-variation windows (from genesis_dupes) reframe reused backgrounds
     crops_file = genesis_dir / "metadata" / "panel_crops.json"
     crops = json.loads(crops_file.read_text(encoding="utf-8"))["crops"] if crops_file.exists() else {}
+    # bespoke panel-native art (from genesis_charart) overrides the source composite
+    native_dir = genesis_dir / "generated_art" / "panel_native"
 
     # story pages -> numbered 02..23 (01=front, 24=back)
     page_imgs = []
     for pg in plan["pages"]:
-        img, warns = render_page(pg, panel_dir, crops)
+        img, warns = render_page(pg, panel_dir, crops, native_dir)
         all_warns += warns
         seq = pg["page_number"] + 1                 # page 1 -> file index 02
         name = f"{seq:02d}_PAGE_{pg['page_number']:02d}.png"
