@@ -1,0 +1,2794 @@
+{
+  "total": 96,
+  "classification_counts": {
+    "KEEP": 21,
+    "CHARACTER_REGENERATED": 8,
+    "REGENERATE_CHARACTER": 67
+  },
+  "status_counts": {
+    "RESOLVED": 21,
+    "DONE": 8,
+    "CANDIDATE": 67
+  },
+  "unresolved": 67,
+  "panels": [
+    {
+      "page": 1,
+      "panel_id": "MZ-2026-09-02_P01_PANEL01",
+      "final_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 38.9,
+      "side_crop_pct": 0.0,
+      "character_count": 0,
+      "characters": [],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P01_PANEL01.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain establishing band (fits landscape slot)",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — environment establishing, fits its slot",
+      "owner_review_required": false
+    },
+    {
+      "page": 1,
+      "panel_id": "MZ-2026-09-02_P01_PANEL02",
+      "final_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "story_beat": "action",
+      "current_source": "bespoke_zimage",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 40.4,
+      "side_crop_pct": 0.0,
+      "character_count": 1,
+      "characters": [
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "GENESIS/generated_art/panel_native/MZ-2026-09-02_P01_PANEL02.png",
+      "provenance": "bespoke_panel_native_zimage",
+      "classification": "CHARACTER_REGENERATED",
+      "proposed_solution": "bespoke Z-Image pose composited to the panel",
+      "generation_method": "zimage_text2img+matte+composite",
+      "status": "DONE",
+      "visual_qa_result": "pass",
+      "defect": "(fixed) reused/tiny character on a character beat",
+      "owner_review_required": true
+    },
+    {
+      "page": 1,
+      "panel_id": "MZ-2026-09-02_P01_PANEL03",
+      "final_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "story_beat": "dialogue",
+      "current_source": "bespoke_zimage",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 40.4,
+      "side_crop_pct": 0.0,
+      "character_count": 1,
+      "characters": [
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "GENESIS/generated_art/panel_native/MZ-2026-09-02_P01_PANEL03.png",
+      "provenance": "bespoke_panel_native_zimage",
+      "classification": "CHARACTER_REGENERATED",
+      "proposed_solution": "bespoke Z-Image pose composited to the panel",
+      "generation_method": "zimage_text2img+matte+composite",
+      "status": "DONE",
+      "visual_qa_result": "pass",
+      "defect": "(fixed) reused/tiny character on a character beat",
+      "owner_review_required": true
+    },
+    {
+      "page": 1,
+      "panel_id": "MZ-2026-09-02_P01_PANEL04",
+      "final_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "story_beat": "dialogue",
+      "current_source": "bespoke_zimage",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 38.9,
+      "side_crop_pct": 0.0,
+      "character_count": 1,
+      "characters": [
+        "static"
+      ],
+      "shot_type": "close",
+      "final_source_path": "GENESIS/generated_art/panel_native/MZ-2026-09-02_P01_PANEL04.png",
+      "provenance": "bespoke_panel_native_zimage",
+      "classification": "CHARACTER_REGENERATED",
+      "proposed_solution": "bespoke Z-Image pose composited to the panel",
+      "generation_method": "zimage_text2img+matte+composite",
+      "status": "DONE",
+      "visual_qa_result": "pass",
+      "defect": "(fixed) reused/tiny character on a character beat",
+      "owner_review_required": true
+    },
+    {
+      "page": 2,
+      "panel_id": "MZ-2026-09-02_P01_PANEL06",
+      "final_px": [
+        2280,
+        1267
+      ],
+      "aspect_ratio": 1.8,
+      "story_beat": "action",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 1.2,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "moodz"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P01_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 2,
+      "panel_id": "MZ-2026-09-02_P01_PANEL05",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "moodz"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P01_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 2,
+      "panel_id": "MZ-2026-09-02_P02_PANEL01",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "moodz"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P02_PANEL01.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 2,
+      "panel_id": "MZ-2026-09-02_P02_PANEL02",
+      "final_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 51.4,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "moodz"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P02_PANEL02.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 3,
+      "panel_id": "MZ-2026-09-02_P02_PANEL03",
+      "final_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 38.9,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P02_PANEL03.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 3,
+      "panel_id": "MZ-2026-09-02_P02_PANEL04",
+      "final_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 40.4,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P02_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 3,
+      "panel_id": "MZ-2026-09-02_P02_PANEL05",
+      "final_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "story_beat": "reaction",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 40.4,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P02_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 3,
+      "panel_id": "MZ-2026-09-02_P02_PANEL06",
+      "final_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 38.9,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P02_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 4,
+      "panel_id": "MZ-2026-09-02_P03_PANEL02",
+      "final_px": [
+        2280,
+        1267
+      ],
+      "aspect_ratio": 1.8,
+      "story_beat": "action",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 1.2,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "twotone",
+        "neonblue"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P03_PANEL02.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 4,
+      "panel_id": "MZ-2026-09-02_P03_PANEL01",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 0,
+      "characters": [],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P03_PANEL01.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain establishing band (fits landscape slot)",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — environment establishing, fits its slot",
+      "owner_review_required": false
+    },
+    {
+      "page": 4,
+      "panel_id": "MZ-2026-09-02_P03_PANEL03",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "twotone",
+        "neonblue"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P03_PANEL03.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 4,
+      "panel_id": "MZ-2026-09-02_P03_PANEL04",
+      "final_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 51.4,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "twotone",
+        "neonblue"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P03_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 5,
+      "panel_id": "MZ-2026-09-02_P03_PANEL05",
+      "final_px": [
+        2280,
+        516
+      ],
+      "aspect_ratio": 4.419,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 59.8,
+      "side_crop_pct": 0.0,
+      "character_count": 1,
+      "characters": [
+        "static"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P03_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 5,
+      "panel_id": "MZ-2026-09-02_P03_PANEL06",
+      "final_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "story_beat": "action",
+      "current_source": "bespoke_zimage",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 61.3,
+      "side_crop_pct": 0.0,
+      "character_count": 1,
+      "characters": [
+        "static"
+      ],
+      "shot_type": "close",
+      "final_source_path": "GENESIS/generated_art/panel_native/MZ-2026-09-02_P03_PANEL06.png",
+      "provenance": "bespoke_panel_native_zimage",
+      "classification": "CHARACTER_REGENERATED",
+      "proposed_solution": "bespoke Z-Image pose composited to the panel",
+      "generation_method": "zimage_text2img+matte+composite",
+      "status": "DONE",
+      "visual_qa_result": "pass",
+      "defect": "(fixed) reused/tiny character on a character beat",
+      "owner_review_required": true
+    },
+    {
+      "page": 5,
+      "panel_id": "MZ-2026-09-02_P04_PANEL01",
+      "final_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "story_beat": "dialogue",
+      "current_source": "bespoke_zimage",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 61.3,
+      "side_crop_pct": 0.0,
+      "character_count": 1,
+      "characters": [
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "GENESIS/generated_art/panel_native/MZ-2026-09-02_P04_PANEL01.png",
+      "provenance": "bespoke_panel_native_zimage",
+      "classification": "CHARACTER_REGENERATED",
+      "proposed_solution": "bespoke Z-Image pose composited to the panel",
+      "generation_method": "zimage_text2img+matte+composite",
+      "status": "DONE",
+      "visual_qa_result": "pass",
+      "defect": "(fixed) reused/tiny character on a character beat",
+      "owner_review_required": true
+    },
+    {
+      "page": 5,
+      "panel_id": "MZ-2026-09-02_P04_PANEL02",
+      "final_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 61.3,
+      "side_crop_pct": 0.0,
+      "character_count": 1,
+      "characters": [
+        "static"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P04_PANEL02.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 5,
+      "panel_id": "MZ-2026-09-02_P04_PANEL03",
+      "final_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 61.3,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P04_PANEL03.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 5,
+      "panel_id": "MZ-2026-09-02_P04_PANEL04",
+      "final_px": [
+        2280,
+        516
+      ],
+      "aspect_ratio": 4.419,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 59.8,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P04_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 6,
+      "panel_id": "MZ-2026-09-02_P04_PANEL06",
+      "final_px": [
+        2280,
+        1267
+      ],
+      "aspect_ratio": 1.8,
+      "story_beat": "reaction",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 1.2,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P04_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 6,
+      "panel_id": "MZ-2026-09-02_P04_PANEL05",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P04_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 6,
+      "panel_id": "MZ-2026-09-02_P05_PANEL01",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P05_PANEL01.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 6,
+      "panel_id": "MZ-2026-09-02_P05_PANEL02",
+      "final_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 51.4,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P05_PANEL02.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 7,
+      "panel_id": "MZ-2026-09-02_P05_PANEL03",
+      "final_px": [
+        2280,
+        516
+      ],
+      "aspect_ratio": 4.419,
+      "story_beat": "reaction",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 59.8,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P05_PANEL03.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 7,
+      "panel_id": "MZ-2026-09-02_P05_PANEL04",
+      "final_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 61.3,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P05_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 7,
+      "panel_id": "MZ-2026-09-02_P05_PANEL05",
+      "final_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 61.3,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P05_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 7,
+      "panel_id": "MZ-2026-09-02_P05_PANEL06",
+      "final_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 61.3,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P05_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 7,
+      "panel_id": "MZ-2026-09-02_P06_PANEL01",
+      "final_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "story_beat": "action",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 61.3,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P06_PANEL01.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 7,
+      "panel_id": "MZ-2026-09-02_P06_PANEL02",
+      "final_px": [
+        2280,
+        516
+      ],
+      "aspect_ratio": 4.419,
+      "story_beat": "action",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 59.8,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P06_PANEL02.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 8,
+      "panel_id": "MZ-2026-09-02_P06_PANEL06",
+      "final_px": [
+        2280,
+        1267
+      ],
+      "aspect_ratio": 1.8,
+      "story_beat": "action",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 1.2,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "clever",
+        "ash"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P06_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 8,
+      "panel_id": "MZ-2026-09-02_P06_PANEL03",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "clever",
+        "ash"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P06_PANEL03.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 8,
+      "panel_id": "MZ-2026-09-02_P06_PANEL04",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "clever",
+        "ash"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P06_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 8,
+      "panel_id": "MZ-2026-09-02_P06_PANEL05",
+      "final_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 51.4,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "clever",
+        "ash"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P06_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 9,
+      "panel_id": "MZ-2026-09-02_P07_PANEL01",
+      "final_px": [
+        2280,
+        516
+      ],
+      "aspect_ratio": 4.419,
+      "story_beat": "action",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 59.8,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P07_PANEL01.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 9,
+      "panel_id": "MZ-2026-09-02_P07_PANEL02",
+      "final_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 61.3,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P07_PANEL02.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 9,
+      "panel_id": "MZ-2026-09-02_P07_PANEL03",
+      "final_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 61.3,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P07_PANEL03.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 9,
+      "panel_id": "MZ-2026-09-02_P07_PANEL04",
+      "final_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 61.3,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P07_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 9,
+      "panel_id": "MZ-2026-09-02_P07_PANEL05",
+      "final_px": [
+        2280,
+        496
+      ],
+      "aspect_ratio": 4.597,
+      "story_beat": "action",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 61.3,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P07_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 9,
+      "panel_id": "MZ-2026-09-02_P07_PANEL06",
+      "final_px": [
+        2280,
+        516
+      ],
+      "aspect_ratio": 4.419,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 59.8,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P07_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 10,
+      "panel_id": "MZ-2026-09-02_P08_PANEL01",
+      "final_px": [
+        2280,
+        945
+      ],
+      "aspect_ratio": 2.413,
+      "story_beat": "reaction",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 26.3,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P08_PANEL01.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 10,
+      "panel_id": "MZ-2026-09-02_P08_PANEL02",
+      "final_px": [
+        2280,
+        410
+      ],
+      "aspect_ratio": 5.561,
+      "story_beat": "transition",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 68.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P08_PANEL02.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 10,
+      "panel_id": "MZ-2026-09-02_P08_PANEL03",
+      "final_px": [
+        2280,
+        410
+      ],
+      "aspect_ratio": 5.561,
+      "story_beat": "transition",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 68.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "twotone"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P08_PANEL03.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 10,
+      "panel_id": "MZ-2026-09-02_P08_PANEL04",
+      "final_px": [
+        2280,
+        410
+      ],
+      "aspect_ratio": 5.561,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 68.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "twotone"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P08_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 10,
+      "panel_id": "MZ-2026-09-02_P08_PANEL05",
+      "final_px": [
+        2280,
+        410
+      ],
+      "aspect_ratio": 5.561,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 68.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "twotone"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P08_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 10,
+      "panel_id": "MZ-2026-09-02_P08_PANEL06",
+      "final_px": [
+        2280,
+        430
+      ],
+      "aspect_ratio": 5.302,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 66.5,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "twotone"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P08_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 11,
+      "panel_id": "MZ-2026-09-02_P09_PANEL02",
+      "final_px": [
+        2280,
+        1267
+      ],
+      "aspect_ratio": 1.8,
+      "story_beat": "reveal",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 1.2,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P09_PANEL02.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 11,
+      "panel_id": "MZ-2026-09-02_P09_PANEL01",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P09_PANEL01.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 11,
+      "panel_id": "MZ-2026-09-02_P09_PANEL03",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P09_PANEL03.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 11,
+      "panel_id": "MZ-2026-09-02_P09_PANEL04",
+      "final_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 51.4,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P09_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 12,
+      "panel_id": "MZ-2026-09-02_P09_PANEL05",
+      "final_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 38.9,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "moodz",
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P09_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 12,
+      "panel_id": "MZ-2026-09-02_P09_PANEL06",
+      "final_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 40.4,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "moodz",
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P09_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 12,
+      "panel_id": "MZ-2026-09-02_P10_PANEL01",
+      "final_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "story_beat": "reaction",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 40.4,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "moodz",
+        "static"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P10_PANEL01.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 12,
+      "panel_id": "MZ-2026-09-02_P10_PANEL02",
+      "final_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 38.9,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "moodz",
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P10_PANEL02.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 13,
+      "panel_id": "MZ-2026-09-02_P10_PANEL06",
+      "final_px": [
+        2280,
+        1267
+      ],
+      "aspect_ratio": 1.8,
+      "story_beat": "action",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 1.2,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P10_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 13,
+      "panel_id": "MZ-2026-09-02_P10_PANEL03",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "transition",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P10_PANEL03.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 13,
+      "panel_id": "MZ-2026-09-02_P10_PANEL04",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P10_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 13,
+      "panel_id": "MZ-2026-09-02_P10_PANEL05",
+      "final_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "story_beat": "reaction",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 51.4,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P10_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 14,
+      "panel_id": "MZ-2026-09-02_P11_PANEL01",
+      "final_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 38.9,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "neonblue",
+        "twotone"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P11_PANEL01.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 14,
+      "panel_id": "MZ-2026-09-02_P11_PANEL02",
+      "final_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 40.4,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "neonblue",
+        "twotone"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P11_PANEL02.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 14,
+      "panel_id": "MZ-2026-09-02_P11_PANEL03",
+      "final_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "story_beat": "reaction",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 40.4,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "neonblue",
+        "twotone"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P11_PANEL03.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 14,
+      "panel_id": "MZ-2026-09-02_P11_PANEL04",
+      "final_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 38.9,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "neonblue",
+        "twotone"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P11_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 15,
+      "panel_id": "MZ-2026-09-02_P11_PANEL05",
+      "final_px": [
+        2280,
+        1052
+      ],
+      "aspect_ratio": 2.167,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 18.0,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "moodz",
+        "scarline",
+        "static"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P11_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 15,
+      "panel_id": "MZ-2026-09-02_P11_PANEL06",
+      "final_px": [
+        2280,
+        1032
+      ],
+      "aspect_ratio": 2.209,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 19.5,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "moodz",
+        "scarline",
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P11_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 15,
+      "panel_id": "MZ-2026-09-02_P12_PANEL01",
+      "final_px": [
+        2280,
+        1052
+      ],
+      "aspect_ratio": 2.167,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 18.0,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "moodz",
+        "scarline",
+        "static"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P12_PANEL01.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 16,
+      "panel_id": "MZ-2026-09-02_P12_PANEL02",
+      "final_px": [
+        2280,
+        1009
+      ],
+      "aspect_ratio": 2.26,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 21.3,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "moodz",
+        "scarline",
+        "static"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P12_PANEL02.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 16,
+      "panel_id": "MZ-2026-09-02_P12_PANEL03",
+      "final_px": [
+        2280,
+        507
+      ],
+      "aspect_ratio": 4.497,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 60.5,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P12_PANEL03.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 16,
+      "panel_id": "MZ-2026-09-02_P12_PANEL04",
+      "final_px": [
+        2280,
+        507
+      ],
+      "aspect_ratio": 4.497,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 60.5,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P12_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 16,
+      "panel_id": "MZ-2026-09-02_P12_PANEL05",
+      "final_px": [
+        2280,
+        507
+      ],
+      "aspect_ratio": 4.497,
+      "story_beat": "reaction",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 60.5,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P12_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 16,
+      "panel_id": "MZ-2026-09-02_P12_PANEL06",
+      "final_px": [
+        2280,
+        527
+      ],
+      "aspect_ratio": 4.326,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 58.9,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P12_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 17,
+      "panel_id": "MZ-2026-09-02_P13_PANEL01",
+      "final_px": [
+        2280,
+        1267
+      ],
+      "aspect_ratio": 1.8,
+      "story_beat": "action",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 1.2,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P13_PANEL01.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 17,
+      "panel_id": "MZ-2026-09-02_P13_PANEL02",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P13_PANEL02.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 17,
+      "panel_id": "MZ-2026-09-02_P13_PANEL03",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P13_PANEL03.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 17,
+      "panel_id": "MZ-2026-09-02_P13_PANEL04",
+      "final_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "story_beat": "transition",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 51.4,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P13_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 18,
+      "panel_id": "MZ-2026-09-02_P13_PANEL06",
+      "final_px": [
+        2280,
+        1460
+      ],
+      "aspect_ratio": 1.562,
+      "story_beat": "action",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 12.2,
+      "side_crop_pct": 6.1,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "clever",
+        "twotone"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P13_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 18,
+      "panel_id": "MZ-2026-09-02_P13_PANEL05",
+      "final_px": [
+        2280,
+        828
+      ],
+      "aspect_ratio": 2.754,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 35.4,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "clever",
+        "twotone"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P13_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 18,
+      "panel_id": "MZ-2026-09-02_P14_PANEL01",
+      "final_px": [
+        2280,
+        848
+      ],
+      "aspect_ratio": 2.689,
+      "story_beat": "reaction",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 33.9,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "clever",
+        "twotone"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P14_PANEL01.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 19,
+      "panel_id": "MZ-2026-09-02_P14_PANEL02",
+      "final_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 51.4,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "clever",
+        "twotone"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P14_PANEL02.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 19,
+      "panel_id": "MZ-2026-09-02_P14_PANEL03",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "neonblue",
+        "ash"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P14_PANEL03.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 19,
+      "panel_id": "MZ-2026-09-02_P14_PANEL04",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "neonblue",
+        "ash"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P14_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 19,
+      "panel_id": "MZ-2026-09-02_P14_PANEL05",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "reaction",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "neonblue",
+        "ash"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P14_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 19,
+      "panel_id": "MZ-2026-09-02_P14_PANEL06",
+      "final_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 51.4,
+      "side_crop_pct": 0.0,
+      "character_count": 3,
+      "characters": [
+        "static",
+        "neonblue",
+        "ash"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P14_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 20,
+      "panel_id": "MZ-2026-09-02_P15_PANEL01",
+      "final_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "story_beat": "action",
+      "current_source": "bespoke_zimage",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 38.9,
+      "side_crop_pct": 0.0,
+      "character_count": 1,
+      "characters": [
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "GENESIS/generated_art/panel_native/MZ-2026-09-02_P15_PANEL01.png",
+      "provenance": "bespoke_panel_native_zimage",
+      "classification": "CHARACTER_REGENERATED",
+      "proposed_solution": "bespoke Z-Image pose composited to the panel",
+      "generation_method": "zimage_text2img+matte+composite",
+      "status": "DONE",
+      "visual_qa_result": "pass",
+      "defect": "(fixed) reused/tiny character on a character beat",
+      "owner_review_required": true
+    },
+    {
+      "page": 20,
+      "panel_id": "MZ-2026-09-02_P15_PANEL02",
+      "final_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "story_beat": "dialogue",
+      "current_source": "bespoke_zimage",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 40.4,
+      "side_crop_pct": 0.0,
+      "character_count": 1,
+      "characters": [
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "GENESIS/generated_art/panel_native/MZ-2026-09-02_P15_PANEL02.png",
+      "provenance": "bespoke_panel_native_zimage",
+      "classification": "CHARACTER_REGENERATED",
+      "proposed_solution": "bespoke Z-Image pose composited to the panel",
+      "generation_method": "zimage_text2img+matte+composite",
+      "status": "DONE",
+      "visual_qa_result": "pass",
+      "defect": "(fixed) reused/tiny character on a character beat",
+      "owner_review_required": true
+    },
+    {
+      "page": 20,
+      "panel_id": "MZ-2026-09-02_P15_PANEL03",
+      "final_px": [
+        2280,
+        764
+      ],
+      "aspect_ratio": 2.984,
+      "story_beat": "reaction",
+      "current_source": "bespoke_zimage",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 40.4,
+      "side_crop_pct": 0.0,
+      "character_count": 1,
+      "characters": [
+        "static"
+      ],
+      "shot_type": "close",
+      "final_source_path": "GENESIS/generated_art/panel_native/MZ-2026-09-02_P15_PANEL03.png",
+      "provenance": "bespoke_panel_native_zimage",
+      "classification": "CHARACTER_REGENERATED",
+      "proposed_solution": "bespoke Z-Image pose composited to the panel",
+      "generation_method": "zimage_text2img+matte+composite",
+      "status": "DONE",
+      "visual_qa_result": "pass",
+      "defect": "(fixed) reused/tiny character on a character beat",
+      "owner_review_required": true
+    },
+    {
+      "page": 20,
+      "panel_id": "MZ-2026-09-02_P15_PANEL04",
+      "final_px": [
+        2280,
+        784
+      ],
+      "aspect_ratio": 2.908,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 38.9,
+      "side_crop_pct": 0.0,
+      "character_count": 1,
+      "characters": [
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P15_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "bespoke single-character pose for this beat",
+      "generation_method": "zimage_text2img+matte+composite",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "reused composite; character small/generic for a solo close/medium beat",
+      "owner_review_required": true
+    },
+    {
+      "page": 21,
+      "panel_id": "MZ-2026-09-02_P15_PANEL05",
+      "final_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "story_beat": "action",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 51.4,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P15_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 21,
+      "panel_id": "MZ-2026-09-02_P15_PANEL06",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P15_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 21,
+      "panel_id": "MZ-2026-09-02_P16_PANEL01",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "reaction",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P16_PANEL01.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "multi-character staged composite (per-character poses on shared plate)",
+      "generation_method": "zimage_multichar_stage",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "multi-character beat reads as small figures; deserves staged bespoke art",
+      "owner_review_required": true
+    },
+    {
+      "page": 21,
+      "panel_id": "MZ-2026-09-02_P16_PANEL02",
+      "final_px": [
+        2280,
+        603
+      ],
+      "aspect_ratio": 3.781,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 53.0,
+      "side_crop_pct": 0.0,
+      "character_count": 2,
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P16_PANEL02.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    },
+    {
+      "page": 21,
+      "panel_id": "MZ-2026-09-02_P16_PANEL03",
+      "final_px": [
+        2280,
+        623
+      ],
+      "aspect_ratio": 3.66,
+      "story_beat": "establishing",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 51.4,
+      "side_crop_pct": 0.0,
+      "character_count": 0,
+      "characters": [],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P16_PANEL03.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain establishing band (fits landscape slot)",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — environment establishing, fits its slot",
+      "owner_review_required": false
+    },
+    {
+      "page": 22,
+      "panel_id": "MZ-2026-09-02_P16_PANEL04",
+      "final_px": [
+        2280,
+        1052
+      ],
+      "aspect_ratio": 2.167,
+      "story_beat": "transition",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 18.0,
+      "side_crop_pct": 0.0,
+      "character_count": 1,
+      "characters": [
+        "static"
+      ],
+      "shot_type": "medium",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P16_PANEL04.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "REGENERATE_CHARACTER",
+      "proposed_solution": "bespoke single-character pose for this beat",
+      "generation_method": "zimage_text2img+matte+composite",
+      "status": "CANDIDATE",
+      "visual_qa_result": "pending",
+      "defect": "reused composite; character small/generic for a solo close/medium beat",
+      "owner_review_required": true
+    },
+    {
+      "page": 22,
+      "panel_id": "MZ-2026-09-02_P16_PANEL05",
+      "final_px": [
+        2280,
+        1032
+      ],
+      "aspect_ratio": 2.209,
+      "story_beat": "action",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 19.5,
+      "side_crop_pct": 0.0,
+      "character_count": 0,
+      "characters": [],
+      "shot_type": "close",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P16_PANEL05.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain establishing band (fits landscape slot)",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — environment establishing, fits its slot",
+      "owner_review_required": false
+    },
+    {
+      "page": 22,
+      "panel_id": "MZ-2026-09-02_P16_PANEL06",
+      "final_px": [
+        2280,
+        1052
+      ],
+      "aspect_ratio": 2.167,
+      "story_beat": "dialogue",
+      "current_source": "integrated_composite",
+      "current_source_ratio": 1.778,
+      "current_crop_loss_pct": 18.0,
+      "side_crop_pct": 0.0,
+      "character_count": 1,
+      "characters": [
+        "static"
+      ],
+      "shot_type": "wide",
+      "final_source_path": "02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_P16_PANEL06.png",
+      "provenance": "issue02_integrated_composite",
+      "classification": "KEEP",
+      "proposed_solution": "retain widescreen establishing composite",
+      "generation_method": "n/a",
+      "status": "RESOLVED",
+      "visual_qa_result": "pass",
+      "defect": "none — wide establishing reads intentionally at band size",
+      "owner_review_required": false
+    }
+  ]
+}
