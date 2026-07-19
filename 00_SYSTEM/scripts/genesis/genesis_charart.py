@@ -82,17 +82,33 @@ def generate(name: str, pose: str, seed: int, prefix: str = "MZ-GEN") -> Path:
     req = urllib.request.Request(f"http://{HOST}/prompt",
                                  data=json.dumps({"prompt": g}).encode(),
                                  headers={"Content-Type": "application/json"})
+    file_prefix = f"{prefix}/{name}_seed{seed}"
     r = json.loads(urllib.request.urlopen(req, timeout=30).read())
     pid = r["prompt_id"]
     if r.get("node_errors"):
         raise RuntimeError(r["node_errors"])
+
+    def _by_prefix() -> Path | None:
+        hits = sorted((OUT_DIR / prefix).glob(f"{name}_seed{seed}_*.png"))
+        return hits[-1] if hits else None
+
     t0 = time.time()
     while time.time() - t0 < 300:
         h = json.loads(urllib.request.urlopen(f"http://{HOST}/history/{pid}", timeout=15).read())
         if pid in h and h[pid].get("status", {}).get("completed"):
-            im = h[pid]["outputs"]["10"]["images"][0]
-            return OUT_DIR / im["subfolder"] / im["filename"]
+            outs = h[pid].get("outputs", {})
+            if outs.get("10", {}).get("images"):
+                im = outs["10"]["images"][0]
+                return OUT_DIR / im["subfolder"] / im["filename"]
+            # execution_cached (identical prior prompt) -> outputs empty; find on disk
+            p = _by_prefix()
+            if p:
+                return p
+            raise RuntimeError(f"completed with no output image for {pid}")
         time.sleep(5)
+    p = _by_prefix()
+    if p:
+        return p
     raise TimeoutError(f"render {pid} timed out")
 
 
