@@ -156,23 +156,29 @@ def key_backdrop(src: Path) -> Image.Image:
         fg = lab == (int(np.argmax(sizes)) + 1)
     fg = ndimage.binary_fill_holes(fg)
     # Z-Image often paints a solid GROUND PLATFORM under a standing character; it is
-    # not the backdrop hue, so it survives the key and fuses to the feet as a
-    # near-full-width slab. Cut it -- but ONLY in the LOWER part of the figure: a
-    # character framed large can span ~0.9 width at the head/shoulders (mid-frame),
-    # and that must NOT be mistaken for floor and sliced off (it was, across the head).
+    # not the backdrop hue, so it survives the key and fuses to the feet. A REAL
+    # floor spans nearly the full width AND reaches the very bottom of the figure, so
+    # cut only the contiguous near-full-width band running UP from the bottom-most
+    # opaque row. Narrow feet stop the scan immediately (nothing cut); a wide
+    # elbows-out hip row mid-body is never reached -- that over-eager cut used to
+    # slice the legs off (Moodz/Neonblue) or the head (large framing).
     roww = fg.sum(1)
-    ys = np.where(roww > 40)[0]
+    ys = np.where(roww > 0)[0]
     if len(ys):
-        lower = ys[0] + 0.62 * (ys[-1] - ys[0])          # bottom ~38% of the figure only
-        floor = (roww > 0.90 * fg.shape[1]) & (np.arange(fg.shape[0]) > lower)
-        if floor.any():
-            fg[floor, :] = False
+        W = fg.shape[1]
+        r = int(ys[-1])
+        cut = False
+        while r >= 0 and roww[r] > 0.94 * W:
+            fg[r, :] = False; cut = True; r -= 1
+        if cut:
             lab, n = ndimage.label(fg)                    # keep the character blob
             if n:
                 sizes = ndimage.sum(np.ones_like(lab), lab, index=range(1, n + 1))
                 fg = lab == (int(np.argmax(sizes)) + 1)
-    fg = ndimage.binary_erosion(fg, iterations=2)
-    alpha = Image.fromarray((fg * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.8))
+    # erode enough that the soft alpha edge sits INSIDE the black toon outline, so no
+    # backdrop-tinted fringe survives to read as a cut-out halo; keep only a hair of blur.
+    fg = ndimage.binary_erosion(fg, iterations=3)
+    alpha = Image.fromarray((fg * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.5))
     return Image.fromarray(np.dstack([np.asarray(p), np.asarray(alpha)]), "RGBA")
 
 
@@ -214,8 +220,10 @@ def _place_char(bg: Image.Image, ch: Image.Image, cx: int, fy: int, H: int, scal
     # sample the scene brightness where the body sits and match the character to it
     ambient = sample_ambient_luma(bg.convert("RGB"), (cx, max(0, fy - c2.height // 2)))
     key_side = cx < bg.width / 2                 # neon key faces the frame centre
+    # a SUBTLE rim/tint reads as scene lighting; a strong all-around cyan rim reads as
+    # a cut-out halo (owner/QA flagged it as a matte edge), so keep both gentle.
     c2 = relight(c2, ambient_luma=ambient, key_color=key, fill_color=fill,
-                 key_on_high_side=key_side, tint_strength=0.30, rim_strength=0.55)
+                 key_on_high_side=key_side, tint_strength=0.20, rim_strength=0.16)
     bg = draw_contact_shadow(bg, foot_anchor_px=(cx, fy), character_width_px=c2.width)
     bg.alpha_composite(c2, (cx - c2.width // 2, fy - c2.height))
     return bg
@@ -259,7 +267,8 @@ def make_multi_panel(names: list[str], panel: dict, location: str, seed0: int, o
     staged, meta = [], []
     for i, name in enumerate(names):
         facing = "facing right" if xs[i] < 0.5 else "facing left"
-        pose = f"full body, {facing}, {action}, {emotion} expression, on a wet neon street at night"
+        pose = (f"full body head to feet, standing, {facing}, {action}, {emotion} expression, "
+                "isolated on a plain flat backdrop, no ground, no floor, no shadow")
         render = generate(name, pose, seed0 + i * 7)
         ch = key_backdrop(render)
         a = np.asarray(ch)[..., 3]
@@ -299,7 +308,10 @@ def derive_pose(panel: dict, shot: str) -> str:
         bits.append(action)
     if emotion:
         bits.append(f"{emotion} expression")
-    bits.append("on a wet neon-lit rainy street at night, dramatic rim light")
+    # NO scene/ground cue: a "street/floor" cue makes Z-Image paint a ground plane
+    # coplanar with the feet, which the matte then can't separate from the legs. Keep
+    # the figure isolated on a plain backdrop; scene lighting is added later by relight.
+    bits.append("isolated on a plain flat backdrop, no ground, no floor, no cast shadow")
     return ", ".join(bits)
 
 

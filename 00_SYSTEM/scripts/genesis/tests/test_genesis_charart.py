@@ -116,6 +116,21 @@ def test_matte_keeps_wide_head_when_character_framed_large(tmp_path):
     assert al[160, 100] > 200, "body kept"
 
 
+def test_matte_keeps_legs_below_a_wide_hip_row(tmp_path):
+    # elbows-out hip pose: a near-full-width row mid-lower-body, with narrow legs/feet
+    # reaching the bottom. The floor scan starts at the (narrow) feet and must cut
+    # nothing -- the bug sliced the legs off at the wide hip row (Moodz/Neonblue).
+    im = Image.new("RGB", (200, 260), (0, 200, 0))
+    a = np.array(im)
+    a[20:120, 60:140] = (120, 72, 48)        # head + torso
+    a[120:150, 6:194] = (120, 72, 48)        # WIDE hips/elbows (0.94 width)
+    a[150:250, 82:118] = (120, 72, 48)       # narrow legs + feet down to the bottom
+    Image.fromarray(a).save(tmp_path / "e.png")
+    al = np.asarray(ca.key_backdrop(tmp_path / "e.png"))[..., 3]
+    assert al[135, 100] > 200, "wide hips kept"
+    assert al[240, 100] > 200, "legs/feet kept (floor scan stopped at the narrow feet)"
+
+
 @pytest.mark.parametrize("bg", [(240, 90, 200), (250, 150, 40), (60, 200, 190), (90, 220, 90)])
 def test_hsv_matte_removes_flat_backdrop_keeps_subject(tmp_path, bg):
     # synthetic: saturated flat backdrop + a low-saturation grey subject blob
