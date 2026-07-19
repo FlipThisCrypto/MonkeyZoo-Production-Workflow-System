@@ -1,8 +1,8 @@
 # MonkeyZoo: Genesis — Panel-Native Completion Matrix
 
-- Panels: **96** · classifications: {'KEEP': 21, 'CHARACTER_REGENERATED': 8, 'REGENERATE_CHARACTER': 67}
-- Status: {'RESOLVED': 21, 'DONE': 8, 'CANDIDATE': 67}
-- **Unresolved (needs work): 67**
+- Panels: **96** · classifications: {'KEEP': 21, 'CHARACTER_REGENERATED': 9, 'REGENERATE_CHARACTER': 66}
+- Status: {'RESOLVED': 21, 'DONE': 9, 'CANDIDATE': 66}
+- **Unresolved (needs work): 66**
 
 | Pg | Panel | Ratio | Beat | Shot | Chars | Src | Side-crop | Classification | Status |
 |---|---|---|---|---|---|---|---|---|---|
@@ -31,7 +31,7 @@
 | 6 | P04_PANEL06 | 1.8 | reaction | close | 2 | comp | 0.0% | REGENERATE_CHARACTER | CANDIDATE |
 | 6 | P04_PANEL05 | 3.781 | dialogue | medium | 2 | comp | 0.0% | REGENERATE_CHARACTER | CANDIDATE |
 | 6 | P05_PANEL01 | 3.781 | dialogue | wide | 2 | comp | 0.0% | KEEP | RESOLVED |
-| 6 | P05_PANEL02 | 3.66 | dialogue | medium | 2 | comp | 0.0% | REGENERATE_CHARACTER | CANDIDATE |
+| 6 | P05_PANEL02 | 3.66 | dialogue | medium | 2 | bespoke | 0.0% | CHARACTER_REGENERATED | DONE |
 | 7 | P05_PANEL03 | 4.419 | reaction | close | 2 | comp | 0.0% | REGENERATE_CHARACTER | CANDIDATE |
 | 7 | P05_PANEL04 | 4.597 | dialogue | medium | 2 | comp | 0.0% | REGENERATE_CHARACTER | CANDIDATE |
 | 7 | P05_PANEL05 | 4.597 | dialogue | medium | 2 | comp | 0.0% | REGENERATE_CHARACTER | CANDIDATE |

@@ -39,10 +39,46 @@ PLATES = {
 }
 
 
+# Clever is a NON-standard design (olive face, glasses, ponytail, pi-tee) that
+# conflicts with the shared BASE (white face + punk studs), so he gets his own
+# full text2img prompt instead of BASE + hair. Identity pilot passed 2026-07-18.
+CLEVER_PROMPT = (
+    "cute chibi cartoon MONKEY character (not a human), oversized round head, "
+    "olive-tan khaki colored face and muzzle with two tiny nostrils and small mouth, "
+    "huge white oval eyes with black dot pupils behind BIG round thick black-rimmed nerd glasses, "
+    "brown hair swept to one side gathered into a high side ponytail tied with a pink hair-tie, "
+    "round brown monkey ears, brown furry arms with brown mitten fists, long curled brown monkey tail, "
+    "wearing a blue short-sleeve t-shirt with white raglan sleeves and a small red roundel on the chest, "
+    "red shorts, brown feet, very thick uniform black outlines, flat solid colors no gradients, "
+    "clean vector cartoon sticker look")
+CLEVER_BG = "flat solid turquoise cyan background"
+
+
+def _graph(prompt: str, seed: int, prefix: str) -> dict:
+    return {
+        "1": {"class_type": "UNETLoader", "inputs": {"unet_name": "z_image_turbo_bf16.safetensors", "weight_dtype": "default"}},
+        "2": {"class_type": "CLIPLoader", "inputs": {"clip_name": "qwen_3_4b.safetensors", "type": "lumina2", "device": "default"}},
+        "3": {"class_type": "VAELoader", "inputs": {"vae_name": "z_image_ae.safetensors"}},
+        "4": {"class_type": "CLIPTextEncode", "inputs": {"clip": ["2", 0], "text": prompt}},
+        "5": {"class_type": "ConditioningZeroOut", "inputs": {"conditioning": ["4", 0]}},
+        "7": {"class_type": "ModelSamplingAuraFlow", "inputs": {"model": ["1", 0], "shift": 3.0}},
+        "8": {"class_type": "KSampler", "inputs": {"model": ["7", 0], "positive": ["4", 0], "negative": ["5", 0],
+              "latent_image": ["6", 0], "seed": seed, "steps": 8, "cfg": 1.0,
+              "sampler_name": "res_multistep", "scheduler": "simple", "denoise": 1.0}},
+        "9": {"class_type": "VAEDecode", "inputs": {"samples": ["8", 0], "vae": ["3", 0]}},
+        "6": {"class_type": "EmptySD3LatentImage", "inputs": {"width": 832, "height": 1216, "batch_size": 1}},
+        "10": {"class_type": "SaveImage", "inputs": {"images": ["9", 0], "filename_prefix": prefix}},
+    }
+
+
 def generate(name: str, pose: str, seed: int, prefix: str = "MZ-GEN") -> Path:
     """Queue a text2img character render and return the output PNG path."""
-    g = build(name, CHARS[name], "gen", pose, seed, denoise=1.0, init=None)
-    g["10"]["inputs"]["filename_prefix"] = f"{prefix}/{name}_seed{seed}"
+    if name == "clever":
+        prompt = f"{CLEVER_PROMPT}, {pose}, {CLEVER_BG}, single character alone centered"
+        g = _graph(prompt, seed, f"{prefix}/{name}_seed{seed}")
+    else:
+        g = build(name, CHARS[name], "gen", pose, seed, denoise=1.0, init=None)
+        g["10"]["inputs"]["filename_prefix"] = f"{prefix}/{name}_seed{seed}"
     req = urllib.request.Request(f"http://{HOST}/prompt",
                                  data=json.dumps({"prompt": g}).encode(),
                                  headers={"Content-Type": "application/json"})
@@ -95,6 +131,49 @@ def composite(location: str, character: Image.Image, band_px=(1280, 540),
     bg = draw_contact_shadow(bg, foot_anchor_px=(cx, fy), character_width_px=ch.width)
     bg.alpha_composite(ch, (px, py))
     return bg.convert("RGB")
+
+
+def compose_multi(location: str, chars: list[tuple[Image.Image, float, float]],
+                  band_px=(1280, 540)) -> Image.Image:
+    """Stage several matted characters on one darkened plate sharing a common
+    ground line, back-to-front, each with a contact shadow. chars = list of
+    (rgba_character, cx_frac, scale_h)."""
+    W, H = band_px
+    plate = Image.open(FACTORY / PLATES[location]).convert("RGB").resize((1280, 720), Image.LANCZOS)
+    bg = ImageEnhance.Brightness(plate.crop((0, 90, 1280, 90 + H))).enhance(0.74).convert("RGBA")
+    fy = int(H * 0.99)
+    # farther (smaller) characters first so nearer ones overlap in front
+    for ch, cx_frac, scale_h in sorted(chars, key=lambda c: c[2]):
+        s = int(H * scale_h) / ch.height
+        c2 = ch.resize((max(1, int(ch.width * s)), int(H * scale_h)), Image.LANCZOS)
+        cx = int(W * cx_frac)
+        bg = draw_contact_shadow(bg, foot_anchor_px=(cx, fy), character_width_px=c2.width)
+        bg.alpha_composite(c2, (cx - c2.width // 2, fy - c2.height))
+    return bg.convert("RGB")
+
+
+def make_multi_panel(names: list[str], panel: dict, location: str, seed0: int, out: Path) -> dict:
+    """Regenerate a multi-character panel: one bespoke pose per character, matted,
+    staged on the shared plate with matched ground + shadows."""
+    action = str(panel.get("action", "")).strip()
+    emotion = str(panel.get("emotion", "")).strip()
+    n = len(names)
+    xs = {2: [0.27, 0.71], 3: [0.20, 0.50, 0.80]}.get(n, [(i + 1) / (n + 1) for i in range(n)])
+    scales = {2: [0.80, 0.74], 3: [0.74, 0.80, 0.70]}.get(n, [0.76] * n)
+    staged, meta = [], []
+    for i, name in enumerate(names):
+        facing = "facing right" if xs[i] < 0.5 else "facing left"
+        pose = f"full body, {facing}, {action}, {emotion} expression, on a wet neon street at night"
+        render = generate(name, pose, seed0 + i * 7)
+        ch = key_backdrop(render)
+        a = np.asarray(ch)[..., 3]
+        staged.append((ch, xs[i], scales[i]))
+        meta.append({"character": name, "corners_clear": bool((a[:8, :8] < 12).all() and (a[:8, -8:] < 12).all()),
+                     "render": str(render)})
+    panel_img = compose_multi(location, staged)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    panel_img.save(out)
+    return {"panel": panel["source_panel_id"], "characters": names, "n": n, "staged": meta, "out": str(out)}
 
 
 def make_panel(name: str, pose: str, location: str, seed: int, out: Path,
@@ -180,7 +259,49 @@ def run_batch(genesis_dir: Path, seed0: int = 55000) -> dict:
     return manifest
 
 
+def run_full_batch(genesis_dir: Path, seed0: int = 60000, limit: int | None = None) -> dict:
+    """Resumable: regenerate every character close/medium candidate panel (solo
+    and multi) that has recipe characters and isn't already in panel_native.
+    Wide/establishing panels are KEEP and skipped. Saves each panel as it goes."""
+    plan = json.loads((genesis_dir / "GENESIS_LAYOUT_PLAN.json").read_text(encoding="utf-8"))
+    native = genesis_dir / "generated_art" / "panel_native"
+    native.mkdir(parents=True, exist_ok=True)
+    done, skipped, i = [], [], 0
+    for pg in plan["pages"]:
+        for pa in pg["panels"]:
+            cs = pa.get("characters") or []
+            pid = pa["source_panel_id"]
+            out = native / f"{pid}.png"
+            if out.exists():
+                continue
+            if not cs or pa["shot"] == "wide" or pg["location"] not in PLATES:
+                continue
+            names = [ID_MAP[c] for c in cs if c in ID_MAP]
+            if len(names) != len(cs):
+                skipped.append({"panel": pid, "reason": "unmapped character"}); continue
+            try:
+                if len(names) == 1:
+                    r = make_panel_native(names[0], pa, pa["shot"], pg["location"], seed0 + i * 11, out)
+                else:
+                    r = make_multi_panel(names, pa, pg["location"], seed0 + i * 11, out)
+                r["page"] = pg["page_number"]; done.append(r)
+                print(f"  [{len(done)}] p{pg['page_number']:02d} {pid.split('_',1)[1]} {names} -> {out.name}", flush=True)
+                i += 1
+                if limit and len(done) >= limit:
+                    return {"regenerated": done, "skipped": skipped, "count": len(done), "partial": True}
+            except Exception as e:  # noqa: BLE001 - keep going; log the failure
+                skipped.append({"panel": pid, "reason": str(e)[:120]})
+                print(f"  FAIL {pid}: {e}", flush=True)
+    return {"regenerated": done, "skipped": skipped, "count": len(done), "partial": False}
+
+
 if __name__ == "__main__":
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--full", action="store_true", help="regenerate all candidate panels (resumable)")
+    ap.add_argument("--limit", type=int, default=None)
+    a = ap.parse_args()
     gd = FACTORY / "GENESIS"
-    m = run_batch(gd)
-    print(f"\nRegenerated {m['count']} bespoke hero panels; skipped {len(m['skipped'])}.")
+    m = run_full_batch(gd, limit=a.limit) if a.full else run_batch(gd)
+    (gd / "metadata" / "panel_native_batch_log.json").write_text(json.dumps(m, indent=2) + "\n", encoding="utf-8")
+    print(f"\nRegenerated {m['count']} panels this run; skipped {len(m['skipped'])}.")
