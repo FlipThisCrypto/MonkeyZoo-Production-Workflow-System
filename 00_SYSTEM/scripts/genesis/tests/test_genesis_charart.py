@@ -37,6 +37,22 @@ def test_derive_pose_includes_framing_and_emotion():
     assert "medium shot" in med and "listening" in med
 
 
+def test_clever_in_id_map_and_prompt_has_identity():
+    assert ca.ID_MAP["MZ-CHAR-CLEVER"] == "clever"
+    for token in ("glasses", "ponytail", "olive", "blue", "red shorts"):
+        assert token in ca.CLEVER_PROMPT.lower()
+
+
+def test_compose_multi_returns_band_size_with_two_characters(tmp_path):
+    loc = "Zoo City Streets"
+    if not (ca.FACTORY / ca.PLATES[loc]).exists():
+        pytest.skip("plate missing")
+    a = Image.new("RGBA", (200, 300), (0, 0, 0, 0)); a.paste((120, 120, 120, 255), (60, 120, 140, 300))
+    b = Image.new("RGBA", (200, 300), (0, 0, 0, 0)); b.paste((90, 90, 90, 255), (60, 140, 140, 300))
+    out = ca.compose_multi(loc, [(a, 0.27, 0.80), (b, 0.71, 0.74)], band_px=(1280, 540))
+    assert out.size == (1280, 540) and out.mode == "RGB"
+
+
 @pytest.mark.parametrize("bg", [(240, 90, 200), (250, 150, 40), (60, 200, 190), (90, 220, 90)])
 def test_hsv_matte_removes_flat_backdrop_keeps_subject(tmp_path, bg):
     # synthetic: saturated flat backdrop + a low-saturation grey subject blob

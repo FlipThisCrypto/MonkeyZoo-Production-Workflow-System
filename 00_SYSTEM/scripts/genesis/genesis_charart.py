@@ -189,6 +189,7 @@ def make_panel(name: str, pose: str, location: str, seed: int, out: Path,
 
 
 ID_MAP = {f"MZ-CHAR-{c['seed'] % 1000:03d}": n for n, c in CHARS.items()}
+ID_MAP["MZ-CHAR-CLEVER"] = "clever"   # Clever uses the dedicated CLEVER_PROMPT, not CHARS/BASE
 
 
 def derive_pose(panel: dict, shot: str) -> str:
