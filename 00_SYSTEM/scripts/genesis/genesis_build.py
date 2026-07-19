@@ -26,7 +26,10 @@ FACTORY = Path(__file__).resolve().parents[3]
 SCRIPTS = FACTORY / "00_SYSTEM" / "scripts"
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
+if str(Path(__file__).resolve().parent) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
 import assemble_pages as ap  # noqa: E402  (fonts, lettering helpers, page constants)
+from genesis_layout import synth_page_rects  # noqa: E402  scene/page-custom slot geometry
 
 PAGE_W, PAGE_H = ap.PAGE_W, ap.PAGE_H        # 2480 x 3508
 MARGIN, GUTTER, BORDER = ap.MARGIN, ap.GUTTER, ap.BORDER
@@ -189,8 +192,12 @@ def render_page(page: dict, panel_dir: Path, crops: dict | None = None,
     canvas = Image.new("RGB", (PAGE_W, PAGE_H), "white")
     d = ImageDraw.Draw(canvas)
     template = page["layout_template"]
-    count = page["panel_count"]
-    rects = template_rects(template, count)
+    # scene/page-custom geometry: bespoke character beats get varied slot shapes
+    # (2-up cells, asymmetric widths, feature bands); 16:9 KEEP panels stay full
+    # bands. Falls back to the band templates if the synth yields the wrong count.
+    rects = synth_page_rects(page["panels"], page["page_number"])
+    if len(rects) != len(page["panels"]):
+        rects = template_rects(template, page["panel_count"])
     warns = []
     splash = template == "splash"
     crops = crops or {}

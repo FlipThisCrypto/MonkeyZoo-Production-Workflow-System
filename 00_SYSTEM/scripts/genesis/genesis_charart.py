@@ -25,8 +25,12 @@ FACTORY = Path(__file__).resolve().parents[3]
 SCRIPTS = FACTORY / "00_SYSTEM" / "scripts"
 sys.path.insert(0, str(SCRIPTS))
 sys.path.insert(0, str(SCRIPTS / "integration"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from gen_char_refs import CHARS, build  # noqa: E402
 from shadow import draw_contact_shadow   # noqa: E402
+from relight import relight              # noqa: E402  natural scene integration
+from compositor import sample_ambient_luma  # noqa: E402
+import genesis_layout as gl              # noqa: E402  scene/page-custom slot geometry
 
 HOST = "127.0.0.1:8188"
 OUT_DIR = Path(r"I:\ai\nft\output")
@@ -53,6 +57,17 @@ CLEVER_PROMPT = (
     "clean vector cartoon sticker look")
 CLEVER_BG = "flat solid turquoise cyan background"
 
+# The matte keys the flat backdrop by HUE, so the backdrop must not share a hue
+# with any part of the character. Moodz's canon card colour is warm ORANGE -- the
+# same hue as brown monkey fur, so the key ate his body and left a floating head.
+# Scarline's card colour is light GREY (too low-saturation to hue-key at all). For
+# generation only, those two get a vivid chroma-green backdrop (no character wears
+# green); their locked identity (hair + fur) is unchanged. The other four cards
+# (pink/purple/teal/spring-green) are already hue-safe and keep their proven look.
+CHROMA_BG = ("flat solid vivid chroma-key green screen background, evenly lit, "
+             "no shadows, no gradient")
+GREEN_BG_CHARS = {"moodz", "scarline"}
+
 
 def _graph(prompt: str, seed: int, prefix: str) -> dict:
     return {
@@ -72,12 +87,21 @@ def _graph(prompt: str, seed: int, prefix: str) -> dict:
 
 
 def generate(name: str, pose: str, seed: int, prefix: str = "MZ-GEN") -> Path:
-    """Queue a text2img character render and return the output PNG path."""
+    """Queue a text2img character render and return the output PNG path. If a render
+    for this (name, seed) already exists on disk, reuse it -- so re-compositing an
+    existing panel at a new slot aspect is instant and never re-runs diffusion
+    (delete the render file to force a fresh render)."""
+    existing = sorted((OUT_DIR / prefix).glob(f"{name}_seed{seed}_*.png"))
+    if existing:
+        return existing[-1]
     if name == "clever":
         prompt = f"{CLEVER_PROMPT}, {pose}, {CLEVER_BG}, single character alone centered"
         g = _graph(prompt, seed, f"{prefix}/{name}_seed{seed}")
     else:
-        g = build(name, CHARS[name], "gen", pose, seed, denoise=1.0, init=None)
+        spec = CHARS[name]
+        if name in GREEN_BG_CHARS:                    # hue-safe backdrop for a clean matte
+            spec = {**spec, "bg": CHROMA_BG}
+        g = build(name, spec, "gen", pose, seed, denoise=1.0, init=None)
         g["10"]["inputs"]["filename_prefix"] = f"{prefix}/{name}_seed{seed}"
     req = urllib.request.Request(f"http://{HOST}/prompt",
                                  data=json.dumps({"prompt": g}).encode(),
@@ -122,55 +146,88 @@ def key_backdrop(src: Path) -> Image.Image:
     bh = int(np.median(corner[:, 0]))                       # backdrop hue (0-255)
     dh = np.minimum(np.abs(H - bh), 256 - np.abs(H - bh))   # circular hue distance
     bgmask = (dh < 20) & (S > 55)                           # same saturated hue = backdrop
-    # character = NOT backdrop; keep the largest connected blob, fill, erode
-    fg = ~bgmask
+    # character = NOT backdrop. Close first so any thin backdrop-hued sliver the key
+    # nicked out of the body (e.g. a shaded neck) is bridged before we pick a blob --
+    # otherwise the head can split off and "keep largest blob" leaves a floating head.
+    fg = ndimage.binary_closing(~bgmask, iterations=3)
     lab, n = ndimage.label(fg)
     if n:
         sizes = ndimage.sum(np.ones_like(lab), lab, index=range(1, n + 1))
         fg = lab == (int(np.argmax(sizes)) + 1)
     fg = ndimage.binary_fill_holes(fg)
+    # Z-Image often paints a solid GROUND PLATFORM under a standing character; it is
+    # not the backdrop hue, so it survives the key and fuses to the feet as a
+    # full-width slab. A chibi silhouette never spans ~90% of the frame width at any
+    # row, so any near-full-width row is a painted floor -> drop it.
+    floor = fg.sum(1) > 0.90 * fg.shape[1]
+    if floor.any():
+        fg[floor, :] = False
+        # keep the character blob (feet may now be a hair above the cut line)
+        lab, n = ndimage.label(fg)
+        if n:
+            sizes = ndimage.sum(np.ones_like(lab), lab, index=range(1, n + 1))
+            fg = lab == (int(np.argmax(sizes)) + 1)
     fg = ndimage.binary_erosion(fg, iterations=2)
     alpha = Image.fromarray((fg * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.8))
     return Image.fromarray(np.dstack([np.asarray(p), np.asarray(alpha)]), "RGBA")
 
 
+def _plate_band(location: str, band_px) -> Image.Image:
+    """Darkened location plate cover-cropped to the slot's aspect (any shape, not
+    just a wide band): keeps the street/ground low and trims symmetrically, so a
+    tall 2-up cell keeps full height while a wide band trims only sky."""
+    W, H = band_px
+    plate = Image.open(FACTORY / PLATES[location]).convert("RGB")
+    s = max(W / plate.width, H / plate.height)
+    rw, rh = max(W, round(plate.width * s)), max(H, round(plate.height * s))
+    plate = plate.resize((rw, rh), Image.LANCZOS)
+    x = (rw - W) // 2
+    y = int((rh - H) * 0.42)            # trim a little more sky than floor
+    crop = plate.crop((x, y, x + W, y + H))
+    return ImageEnhance.Brightness(crop).enhance(0.72).convert("RGBA")
+
+
+def _place_char(bg: Image.Image, ch: Image.Image, cx: int, fy: int, H: int, scale_h: float,
+                key=(150, 225, 255), fill=(225, 90, 190)) -> Image.Image:
+    """Scale, RELIGHT to the scene (exposure match + neon key/fill tint + rim),
+    contact-shadow, and composite -- so the character sits IN the scene, not on
+    it. This is what separates a naturally integrated panel from a paste."""
+    s = int(H * scale_h) / ch.height
+    c2 = ch.resize((max(1, int(ch.width * s)), int(H * scale_h)), Image.LANCZOS)
+    # sample the scene brightness where the body sits and match the character to it
+    ambient = sample_ambient_luma(bg.convert("RGB"), (cx, max(0, fy - c2.height // 2)))
+    key_side = cx < bg.width / 2                 # neon key faces the frame centre
+    c2 = relight(c2, ambient_luma=ambient, key_color=key, fill_color=fill,
+                 key_on_high_side=key_side, tint_strength=0.30, rim_strength=0.55)
+    bg = draw_contact_shadow(bg, foot_anchor_px=(cx, fy), character_width_px=c2.width)
+    bg.alpha_composite(c2, (cx - c2.width // 2, fy - c2.height))
+    return bg
+
+
 def composite(location: str, character: Image.Image, band_px=(1280, 540),
               scale_h=0.86, cx_frac=0.30) -> Image.Image:
     W, H = band_px
-    plate = Image.open(FACTORY / PLATES[location]).convert("RGB").resize((1280, 720), Image.LANCZOS)
-    top = int((720 - 720 * H / W * (W / 1280)) / 2) if False else 90
-    bg = ImageEnhance.Brightness(plate.crop((0, top, 1280, top + H))).enhance(0.74).convert("RGBA")
-    s = int(H * scale_h) / character.height
-    ch = character.resize((max(1, int(character.width * s)), int(H * scale_h)), Image.LANCZOS)
-    cx = int(W * cx_frac); fy = int(H * 0.99)
-    px, py = cx - ch.width // 2, fy - ch.height
-    bg = draw_contact_shadow(bg, foot_anchor_px=(cx, fy), character_width_px=ch.width)
-    bg.alpha_composite(ch, (px, py))
+    bg = _plate_band(location, band_px)
+    bg = _place_char(bg, character, int(W * cx_frac), int(H * 0.99), H, scale_h)
     return bg.convert("RGB")
 
 
 def compose_multi(location: str, chars: list[tuple[Image.Image, float, float]],
                   band_px=(1280, 540)) -> Image.Image:
-    """Stage several matted characters on one darkened plate sharing a common
-    ground line, back-to-front, each with a contact shadow. chars = list of
-    (rgba_character, cx_frac, scale_h)."""
+    """Stage several matted characters on one darkened plate: each relit to the
+    scene, sharing a common ground line, back-to-front so nearer ones overlap."""
     W, H = band_px
-    plate = Image.open(FACTORY / PLATES[location]).convert("RGB").resize((1280, 720), Image.LANCZOS)
-    bg = ImageEnhance.Brightness(plate.crop((0, 90, 1280, 90 + H))).enhance(0.74).convert("RGBA")
+    bg = _plate_band(location, band_px)
     fy = int(H * 0.99)
-    # farther (smaller) characters first so nearer ones overlap in front
-    for ch, cx_frac, scale_h in sorted(chars, key=lambda c: c[2]):
-        s = int(H * scale_h) / ch.height
-        c2 = ch.resize((max(1, int(ch.width * s)), int(H * scale_h)), Image.LANCZOS)
-        cx = int(W * cx_frac)
-        bg = draw_contact_shadow(bg, foot_anchor_px=(cx, fy), character_width_px=c2.width)
-        bg.alpha_composite(c2, (cx - c2.width // 2, fy - c2.height))
+    for ch, cx_frac, scale_h in sorted(chars, key=lambda c: c[2]):  # farther first
+        bg = _place_char(bg, ch, int(W * cx_frac), fy, H, scale_h)
     return bg.convert("RGB")
 
 
-def make_multi_panel(names: list[str], panel: dict, location: str, seed0: int, out: Path) -> dict:
+def make_multi_panel(names: list[str], panel: dict, location: str, seed0: int, out: Path,
+                     band_px=(1280, 540)) -> dict:
     """Regenerate a multi-character panel: one bespoke pose per character, matted,
-    staged on the shared plate with matched ground + shadows."""
+    staged on the shared plate (at the slot aspect) with matched ground + shadows."""
     action = str(panel.get("action", "")).strip()
     emotion = str(panel.get("emotion", "")).strip()
     n = len(names)
@@ -186,10 +243,11 @@ def make_multi_panel(names: list[str], panel: dict, location: str, seed0: int, o
         staged.append((ch, xs[i], scales[i]))
         meta.append({"character": name, "corners_clear": bool((a[:8, :8] < 12).all() and (a[:8, -8:] < 12).all()),
                      "render": str(render)})
-    panel_img = compose_multi(location, staged)
+    panel_img = compose_multi(location, staged, band_px=band_px)
     out.parent.mkdir(parents=True, exist_ok=True)
     panel_img.save(out)
-    return {"panel": panel["source_panel_id"], "characters": names, "n": n, "staged": meta, "out": str(out)}
+    return {"panel": panel["source_panel_id"], "characters": names, "n": n,
+            "band_px": list(band_px), "staged": meta, "out": str(out)}
 
 
 def make_panel(name: str, pose: str, location: str, seed: int, out: Path,
@@ -223,27 +281,34 @@ def derive_pose(panel: dict, shot: str) -> str:
 
 
 def composite_shot(location: str, character: Image.Image, shot: str, band_px=(1280, 540)) -> Image.Image:
-    """Shot-aware placement: close = big head-crop portrait; medium/other = grounded body."""
+    """Shot- and slot-aware placement. In a narrow/portrait slot the figure is
+    centred and fills more of the frame; in a wide band it is offset to leave
+    balloon room. Close beats keep head-through-torso (never an extreme face crop
+    -- owner note: 'closeups too much')."""
+    W, H = band_px
+    narrow = W / H < 1.15                             # 2-up / portrait cell
+    cx = 0.46 if narrow else 0.30
     if shot == "close":
         a = np.asarray(character)
         ys = np.where(a[..., 3].max(1) > 40)[0]
         if len(ys):
             top = ys[0]
-            head_h = int((ys[-1] - top) * 0.62)          # head + shoulders
-            character = character.crop((0, top, character.width, min(character.height, top + head_h)))
-        return composite(location, character, band_px, scale_h=1.02, cx_frac=0.26)
-    return composite(location, character, band_px, scale_h=0.86, cx_frac=0.28)
+            crop_h = int((ys[-1] - top) * 0.82)          # head + torso, not just face
+            character = character.crop((0, top, character.width, min(character.height, top + crop_h)))
+        return composite(location, character, band_px, scale_h=0.92 if narrow else 0.90, cx_frac=cx)
+    return composite(location, character, band_px, scale_h=0.88 if narrow else 0.82, cx_frac=cx)
 
 
-def make_panel_native(name: str, panel: dict, shot: str, location: str, seed: int, out: Path) -> dict:
+def make_panel_native(name: str, panel: dict, shot: str, location: str, seed: int, out: Path,
+                      band_px=(1280, 540)) -> dict:
     render = generate(name, derive_pose(panel, shot), seed)
     ch = key_backdrop(render)
     a = np.asarray(ch)[..., 3]
-    panel_img = composite_shot(location, ch, shot)
+    panel_img = composite_shot(location, ch, shot, band_px=band_px)
     out.parent.mkdir(parents=True, exist_ok=True)
     panel_img.save(out)
     return {"panel": panel["source_panel_id"], "character": name, "shot": shot,
-            "opaque_frac": round((a > 128).mean(), 3),
+            "band_px": list(band_px), "opaque_frac": round((a > 128).mean(), 3),
             "corners_clear": bool((a[:8, :8] < 12).all() and (a[:8, -8:] < 12).all()),
             "render": str(render), "out": str(out)}
 
@@ -278,14 +343,17 @@ def run_batch(genesis_dir: Path, seed0: int = 55000) -> dict:
 
 def run_full_batch(genesis_dir: Path, seed0: int = 60000, limit: int | None = None) -> dict:
     """Resumable: regenerate every character close/medium candidate panel (solo
-    and multi) that has recipe characters and isn't already in panel_native.
+    and multi) that has recipe characters and isn't already in panel_native. Each
+    panel is composited at ITS page-layout slot aspect (from genesis_layout), so
+    bespoke art is truly panel-native -- varied shapes, no re-crop at assembly.
     Wide/establishing panels are KEEP and skipped. Saves each panel as it goes."""
     plan = json.loads((genesis_dir / "GENESIS_LAYOUT_PLAN.json").read_text(encoding="utf-8"))
     native = genesis_dir / "generated_art" / "panel_native"
     native.mkdir(parents=True, exist_ok=True)
     done, skipped, i = [], [], 0
     for pg in plan["pages"]:
-        for pa in pg["panels"]:
+        rects = gl.synth_page_rects(pg["panels"], pg["page_number"])
+        for pa, rect in zip(pg["panels"], rects):
             cs = pa.get("characters") or []
             pid = pa["source_panel_id"]
             out = native / f"{pid}.png"
@@ -296,13 +364,15 @@ def run_full_batch(genesis_dir: Path, seed0: int = 60000, limit: int | None = No
             names = [ID_MAP[c] for c in cs if c in ID_MAP]
             if len(names) != len(cs):
                 skipped.append({"panel": pid, "reason": "unmapped character"}); continue
+            band_px = gl.slot_band_px(rect)
             try:
                 if len(names) == 1:
-                    r = make_panel_native(names[0], pa, pa["shot"], pg["location"], seed0 + i * 11, out)
+                    r = make_panel_native(names[0], pa, pa["shot"], pg["location"], seed0 + i * 11, out, band_px=band_px)
                 else:
-                    r = make_multi_panel(names, pa, pg["location"], seed0 + i * 11, out)
+                    r = make_multi_panel(names, pa, pg["location"], seed0 + i * 11, out, band_px=band_px)
                 r["page"] = pg["page_number"]; done.append(r)
-                print(f"  [{len(done)}] p{pg['page_number']:02d} {pid.split('_',1)[1]} {names} -> {out.name}", flush=True)
+                print(f"  [{len(done)}] p{pg['page_number']:02d} {pid.split('_',1)[1]} {names} "
+                      f"{band_px[0]}x{band_px[1]} -> {out.name}", flush=True)
                 i += 1
                 if limit and len(done) >= limit:
                     return {"regenerated": done, "skipped": skipped, "count": len(done), "partial": True}

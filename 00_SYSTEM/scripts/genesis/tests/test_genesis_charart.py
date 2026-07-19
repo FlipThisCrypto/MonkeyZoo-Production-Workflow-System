@@ -53,6 +53,42 @@ def test_compose_multi_returns_band_size_with_two_characters(tmp_path):
     assert out.size == (1280, 540) and out.mode == "RGB"
 
 
+def test_green_bg_override_targets_fur_conflict_chars_only():
+    # moodz (orange card = fur hue) and scarline (grey card = unkeyable) get a
+    # hue-safe green backdrop for generation; proven hue-safe cards are untouched
+    assert ca.GREEN_BG_CHARS == {"moodz", "scarline"}
+    assert "static" not in ca.GREEN_BG_CHARS and "twotone" not in ca.GREEN_BG_CHARS
+    assert "green" in ca.CHROMA_BG.lower()
+
+
+def test_matte_keeps_brown_fur_body_on_green_backdrop(tmp_path):
+    # the original bug: on an orange card the key ate brown fur and left a floating
+    # head. On the green backdrop the whole body (head + neck + torso) must survive.
+    im = Image.new("RGB", (160, 200), (0, 200, 0))       # chroma green
+    a = np.array(im)
+    a[30:80, 55:105] = (120, 72, 48)                     # brown head
+    a[80:95, 72:88] = (120, 72, 48)                      # slim brown neck
+    a[95:180, 45:115] = (120, 72, 48)                    # brown torso
+    Image.fromarray(a).save(tmp_path / "m.png")
+    al = np.asarray(ca.key_backdrop(tmp_path / "m.png"))[..., 3]
+    assert al[50, 80] > 200, "head kept"
+    assert al[140, 80] > 200, "torso kept (not a floating head)"
+    assert (al[:8, :8] < 12).all() and (al[:8, -8:] < 12).all(), "green backdrop removed"
+
+
+def test_matte_drops_painted_ground_platform(tmp_path):
+    # the model sometimes paints a solid floor slab under the feet; it must be cut
+    # so it doesn't composite as a pale rectangle beneath the character
+    im = Image.new("RGB", (160, 220), (0, 200, 0))
+    a = np.array(im)
+    a[30:150, 55:105] = (120, 72, 48)        # narrow character body
+    a[150:220, 0:160] = (95, 92, 98)         # full-width floor slab at the bottom
+    Image.fromarray(a).save(tmp_path / "f.png")
+    al = np.asarray(ca.key_backdrop(tmp_path / "f.png"))[..., 3]
+    assert al[90, 80] > 200, "character body kept"
+    assert (al[210, :] < 40).all(), "full-width floor slab removed"
+
+
 @pytest.mark.parametrize("bg", [(240, 90, 200), (250, 150, 40), (60, 200, 190), (90, 220, 90)])
 def test_hsv_matte_removes_flat_backdrop_keeps_subject(tmp_path, bg):
     # synthetic: saturated flat backdrop + a low-saturation grey subject blob
