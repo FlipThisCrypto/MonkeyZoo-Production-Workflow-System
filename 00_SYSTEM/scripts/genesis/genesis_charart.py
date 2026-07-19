@@ -219,6 +219,9 @@ def _place_char(bg: Image.Image, ch: Image.Image, cx: int, fy: int, H: int, scal
     c2 = ch.resize((tw, th), Image.LANCZOS)
     # sample the scene brightness where the body sits and match the character to it
     ambient = sample_ambient_luma(bg.convert("RGB"), (cx, max(0, fy - c2.height // 2)))
+    # floor the ambient so a very dark plate doesn't crush the porcelain-WHITE face to
+    # grey (an identity signal); still darkens enough to sit in the scene.
+    ambient = max(ambient, 78)
     key_side = cx < bg.width / 2                 # neon key faces the frame centre
     # a SUBTLE rim/tint reads as scene lighting; a strong all-around cyan rim reads as
     # a cut-out halo (owner/QA flagged it as a matte edge), so keep both gentle.
