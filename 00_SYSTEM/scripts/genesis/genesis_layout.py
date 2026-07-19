@@ -128,18 +128,43 @@ def _split(page_number: int, r: int) -> list[tuple[float, float]]:
             [(0.0, 0.42), (0.42, 0.58)]][(page_number * 3 + r) % 3]
 
 
+# A 2-up cell must stay LANDSCAPE: two characters are staged side by side, so the
+# cell needs width, not height. Cap a pair row's height so even the narrower split
+# cell (~0.42 of the content width) keeps a landscape ratio; hand the freed height
+# to the single/feature rows (which absorb it as bigger establishing/feature beats).
+PAIR_CELL_MIN_RATIO = 1.35
+PAIR_ROW_MAX_H = 0.42 * CONTENT_W / PAIR_CELL_MIN_RATIO
+
+
+def _row_heights(panels: list[dict], rows: list[list[int]], page_number: int) -> list[float]:
+    weights = _weights(panels, rows, page_number)
+    total = sum(weights) or 1.0
+    h = [CONTENT_H * w / total for w in weights]
+    # cap pair rows to stay landscape; redistribute the freed height to single rows
+    freed = 0.0
+    for r, row in enumerate(rows):
+        if len(row) == 2 and h[r] > PAIR_ROW_MAX_H:
+            freed += h[r] - PAIR_ROW_MAX_H
+            h[r] = PAIR_ROW_MAX_H
+    singles = [r for r, row in enumerate(rows) if len(row) == 1]
+    sw = sum(weights[r] for r in singles)
+    if freed > 0 and sw > 0:
+        for r in singles:
+            h[r] += freed * weights[r] / sw           # feature row absorbs the most
+    return h                                           # may sum < CONTENT_H (bottom margin) if all pairs
+
+
 def synth_page_rects(panels: list[dict], page_number: int) -> list[tuple[int, int, int, int]]:
     """Ordered pixel (x, y, w, h) per panel. Deterministic; reading-order safe."""
     n = len(panels)
     if n == 1:                                           # splash / single
         return [(MARGIN, MARGIN, CONTENT_W, CONTENT_H)]
     rows = _rows(panels)
-    weights = _weights(panels, rows, page_number)
-    total = sum(weights) or 1.0
+    heights = _row_heights(panels, rows, page_number)
     rects: list[tuple[int, int, int, int] | None] = [None] * n
     y = float(MARGIN)
     for r, row in enumerate(rows):
-        rh = CONTENT_H * weights[r] / total
+        rh = heights[r]
         xs = [(0.0, 1.0)] if len(row) == 1 else _split(page_number, r)
         for (nx, nw), idx in zip(xs, row):
             x = MARGIN + nx * CONTENT_W

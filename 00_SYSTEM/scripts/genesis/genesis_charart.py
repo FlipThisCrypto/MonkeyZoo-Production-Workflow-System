@@ -157,16 +157,20 @@ def key_backdrop(src: Path) -> Image.Image:
     fg = ndimage.binary_fill_holes(fg)
     # Z-Image often paints a solid GROUND PLATFORM under a standing character; it is
     # not the backdrop hue, so it survives the key and fuses to the feet as a
-    # full-width slab. A chibi silhouette never spans ~90% of the frame width at any
-    # row, so any near-full-width row is a painted floor -> drop it.
-    floor = fg.sum(1) > 0.90 * fg.shape[1]
-    if floor.any():
-        fg[floor, :] = False
-        # keep the character blob (feet may now be a hair above the cut line)
-        lab, n = ndimage.label(fg)
-        if n:
-            sizes = ndimage.sum(np.ones_like(lab), lab, index=range(1, n + 1))
-            fg = lab == (int(np.argmax(sizes)) + 1)
+    # near-full-width slab. Cut it -- but ONLY in the LOWER part of the figure: a
+    # character framed large can span ~0.9 width at the head/shoulders (mid-frame),
+    # and that must NOT be mistaken for floor and sliced off (it was, across the head).
+    roww = fg.sum(1)
+    ys = np.where(roww > 40)[0]
+    if len(ys):
+        lower = ys[0] + 0.62 * (ys[-1] - ys[0])          # bottom ~38% of the figure only
+        floor = (roww > 0.90 * fg.shape[1]) & (np.arange(fg.shape[0]) > lower)
+        if floor.any():
+            fg[floor, :] = False
+            lab, n = ndimage.label(fg)                    # keep the character blob
+            if n:
+                sizes = ndimage.sum(np.ones_like(lab), lab, index=range(1, n + 1))
+                fg = lab == (int(np.argmax(sizes)) + 1)
     fg = ndimage.binary_erosion(fg, iterations=2)
     alpha = Image.fromarray((fg * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.8))
     return Image.fromarray(np.dstack([np.asarray(p), np.asarray(alpha)]), "RGBA")
@@ -187,13 +191,26 @@ def _plate_band(location: str, band_px) -> Image.Image:
     return ImageEnhance.Brightness(crop).enhance(0.72).convert("RGBA")
 
 
+def _fit_char_size(cw: int, chh: int, H: int, scale_h: float, max_w: float | None = None) -> tuple[int, int]:
+    """Target (w, h) for a character: size by frame height (scale_h), but if that
+    would exceed max_w (its horizontal share when several are staged side by side),
+    clamp to max_w and keep aspect -- so characters never overlap or bloat to fill a
+    tall/narrow cell."""
+    th = max(1, int(H * scale_h))
+    tw = max(1, round(cw * th / chh))
+    if max_w and tw > max_w:
+        tw = max(1, int(max_w))
+        th = max(1, round(chh * tw / cw))
+    return tw, th
+
+
 def _place_char(bg: Image.Image, ch: Image.Image, cx: int, fy: int, H: int, scale_h: float,
-                key=(150, 225, 255), fill=(225, 90, 190)) -> Image.Image:
+                key=(150, 225, 255), fill=(225, 90, 190), max_w: float | None = None) -> Image.Image:
     """Scale, RELIGHT to the scene (exposure match + neon key/fill tint + rim),
     contact-shadow, and composite -- so the character sits IN the scene, not on
     it. This is what separates a naturally integrated panel from a paste."""
-    s = int(H * scale_h) / ch.height
-    c2 = ch.resize((max(1, int(ch.width * s)), int(H * scale_h)), Image.LANCZOS)
+    tw, th = _fit_char_size(ch.width, ch.height, H, scale_h, max_w)
+    c2 = ch.resize((tw, th), Image.LANCZOS)
     # sample the scene brightness where the body sits and match the character to it
     ambient = sample_ambient_luma(bg.convert("RGB"), (cx, max(0, fy - c2.height // 2)))
     key_side = cx < bg.width / 2                 # neon key faces the frame centre
@@ -208,19 +225,25 @@ def composite(location: str, character: Image.Image, band_px=(1280, 540),
               scale_h=0.86, cx_frac=0.30) -> Image.Image:
     W, H = band_px
     bg = _plate_band(location, band_px)
-    bg = _place_char(bg, character, int(W * cx_frac), int(H * 0.99), H, scale_h)
+    bg = _place_char(bg, character, int(W * cx_frac), int(H * 0.99), H, scale_h, max_w=W * 0.96)
     return bg.convert("RGB")
 
 
 def compose_multi(location: str, chars: list[tuple[Image.Image, float, float]],
                   band_px=(1280, 540)) -> Image.Image:
     """Stage several matted characters on one darkened plate: each relit to the
-    scene, sharing a common ground line, back-to-front so nearer ones overlap."""
+    scene, sharing a common ground line, back-to-front so nearer ones overlap.
+    Each character is width-limited to its horizontal share (the gap to its nearest
+    neighbour) so they read side by side and never overlap or bloat -- essential in
+    a narrow/portrait 2-up cell where sizing by height alone would collide them."""
     W, H = band_px
     bg = _plate_band(location, band_px)
     fy = int(H * 0.99)
+    xs = sorted(c[1] for c in chars)
+    gaps = [xs[i + 1] - xs[i] for i in range(len(xs) - 1)] or [1.0]
+    max_w = min(gaps) * W * 0.98                        # nearest-neighbour spacing
     for ch, cx_frac, scale_h in sorted(chars, key=lambda c: c[2]):  # farther first
-        bg = _place_char(bg, ch, int(W * cx_frac), fy, H, scale_h)
+        bg = _place_char(bg, ch, int(W * cx_frac), fy, H, scale_h, max_w=max_w)
     return bg.convert("RGB")
 
 

@@ -43,6 +43,19 @@ def test_clever_in_id_map_and_prompt_has_identity():
         assert token in ca.CLEVER_PROMPT.lower()
 
 
+def test_fit_char_size_clamps_to_max_width_and_keeps_aspect():
+    # in a tall/narrow cell, height-based sizing would be too wide -> clamp to max_w
+    tw, th = ca._fit_char_size(cw=800, chh=1000, H=1280, scale_h=0.8, max_w=500)
+    assert tw == 500
+    assert abs(th - round(1000 * 500 / 800)) <= 1     # aspect preserved
+
+
+def test_fit_char_size_uses_height_when_uncapped():
+    tw, th = ca._fit_char_size(cw=800, chh=1000, H=540, scale_h=0.8, max_w=None)
+    assert th == int(540 * 0.8)
+    assert tw == round(800 * th / 1000)
+
+
 def test_compose_multi_returns_band_size_with_two_characters(tmp_path):
     loc = "Zoo City Streets"
     if not (ca.FACTORY / ca.PLATES[loc]).exists():
@@ -87,6 +100,20 @@ def test_matte_drops_painted_ground_platform(tmp_path):
     al = np.asarray(ca.key_backdrop(tmp_path / "f.png"))[..., 3]
     assert al[90, 80] > 200, "character body kept"
     assert (al[210, :] < 40).all(), "full-width floor slab removed"
+
+
+def test_matte_keeps_wide_head_when_character_framed_large(tmp_path):
+    # a large-in-frame character can span ~0.9 width at the head; that mid-frame wide
+    # row must NOT be cut as floor (the bug that sliced a flat line across the head)
+    im = Image.new("RGB", (200, 240), (0, 200, 0))
+    a = np.array(im)
+    a[20:110, 10:190] = (120, 72, 48)        # very wide head near the top (mid-frame)
+    a[110:210, 70:130] = (120, 72, 48)       # narrower body/legs below
+    Image.fromarray(a).save(tmp_path / "h.png")
+    al = np.asarray(ca.key_backdrop(tmp_path / "h.png"))[..., 3]
+    assert al[60, 100] > 200, "wide head kept"
+    assert al[35, 100] > 200, "top of head intact (no horizontal slice)"
+    assert al[160, 100] > 200, "body kept"
 
 
 @pytest.mark.parametrize("bg", [(240, 90, 200), (250, 150, 40), (60, 200, 190), (90, 220, 90)])

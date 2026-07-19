@@ -19,7 +19,7 @@ FACTORY = Path(__file__).resolve().parents[3]
 GEN = Path(__file__).resolve().parent
 if str(GEN) not in sys.path:
     sys.path.insert(0, str(GEN))
-import genesis_build as gb  # noqa: E402
+import genesis_layout as gl  # noqa: E402  scene/page-custom slot geometry
 
 IDMAP = {"MZ-CHAR-001": "moodz", "MZ-CHAR-002": "twotone", "MZ-CHAR-003": "static",
          "MZ-CHAR-004": "ash", "MZ-CHAR-005": "neonblue", "MZ-CHAR-006": "scarline",
@@ -71,7 +71,7 @@ def build(genesis_dir: Path) -> dict:
     bespoke = {p.stem for p in native.glob("*.png")} if native.exists() else set()
     rows = []
     for pg in plan["pages"]:
-        rects = gb.template_rects(pg["layout_template"], pg["panel_count"])
+        rects = gl.synth_page_rects(pg["panels"], pg["page_number"])
         for pa, (x, y, w, h) in zip(pg["panels"], rects):
             pid = pa["source_panel_id"]
             cm = crop.get(pid, {})
