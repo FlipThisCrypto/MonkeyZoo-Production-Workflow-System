@@ -132,26 +132,40 @@ def _split(page_number: int, r: int) -> list[tuple[float, float]]:
 # cell needs width, not height. Cap a pair row's height so even the narrower split
 # cell (~0.42 of the content width) keeps a landscape ratio; hand the freed height
 # to the single/feature rows (which absorb it as bigger establishing/feature beats).
+_NARROW = 0.42 * CONTENT_W                              # narrower split-cell width
 PAIR_CELL_MIN_RATIO = 1.35
-PAIR_ROW_MAX_H = 0.42 * CONTENT_W / PAIR_CELL_MIN_RATIO
+PAIR_ROW_MAX_H = _NARROW / PAIR_CELL_MIN_RATIO          # landscape target
+PAIR_ROW_SQUARE_H = _NARROW                             # never taller than square (ratio 1.0)
 
 
 def _row_heights(panels: list[dict], rows: list[list[int]], page_number: int) -> list[float]:
     weights = _weights(panels, rows, page_number)
     total = sum(weights) or 1.0
     h = [CONTENT_H * w / total for w in weights]
-    # cap pair rows to stay landscape; redistribute the freed height to single rows
+    pair_rows = [r for r, row in enumerate(rows) if len(row) == 2]
+    singles = [r for r, row in enumerate(rows) if len(row) == 1]
+    # cap pair rows to stay landscape; collect the freed height
     freed = 0.0
-    for r, row in enumerate(rows):
-        if len(row) == 2 and h[r] > PAIR_ROW_MAX_H:
+    for r in pair_rows:
+        if h[r] > PAIR_ROW_MAX_H:
             freed += h[r] - PAIR_ROW_MAX_H
             h[r] = PAIR_ROW_MAX_H
-    singles = [r for r, row in enumerate(rows) if len(row) == 1]
+    # single/feature rows absorb the freed height first (bigger establishing beats)
     sw = sum(weights[r] for r in singles)
     if freed > 0 and sw > 0:
         for r in singles:
-            h[r] += freed * weights[r] / sw           # feature row absorbs the most
-    return h                                           # may sum < CONTENT_H (bottom margin) if all pairs
+            h[r] += freed * weights[r] / sw
+        freed = 0.0
+    # on an all-pair page there is nothing to absorb it, so grow the pair cells back
+    # toward SQUARE (never portrait) to fill the page; any remainder becomes even
+    # vertical gaps (handled by the caller) instead of a blank strip at the bottom.
+    if freed > 0 and pair_rows:
+        room = sum(PAIR_ROW_SQUARE_H - h[r] for r in pair_rows)
+        add = min(freed, room)
+        if room > 0:
+            for r in pair_rows:
+                h[r] += (PAIR_ROW_SQUARE_H - h[r]) / room * add
+    return h                                            # may sum < CONTENT_H -> caller centres with gaps
 
 
 def synth_page_rects(panels: list[dict], page_number: int) -> list[tuple[int, int, int, int]]:
@@ -161,8 +175,12 @@ def synth_page_rects(panels: list[dict], page_number: int) -> list[tuple[int, in
         return [(MARGIN, MARGIN, CONTENT_W, CONTENT_H)]
     rows = _rows(panels)
     heights = _row_heights(panels, rows, page_number)
+    # any height the rows could not use (a sparse all-pair page) becomes EVEN vertical
+    # gaps around/between the rows, so the page reads centred with breathing room
+    # instead of a blank strip at the bottom.
+    gap = max(0.0, CONTENT_H - sum(heights)) / (len(rows) + 1)
     rects: list[tuple[int, int, int, int] | None] = [None] * n
-    y = float(MARGIN)
+    y = float(MARGIN) + gap
     for r, row in enumerate(rows):
         rh = heights[r]
         xs = [(0.0, 1.0)] if len(row) == 1 else _split(page_number, r)
@@ -174,7 +192,7 @@ def synth_page_rects(panels: list[dict], page_number: int) -> list[tuple[int, in
             iy = y + (GUTTER / 2 if r > 0 else 0)
             ih = rh - (GUTTER / 2 if r > 0 else 0) - (GUTTER / 2 if r < len(rows) - 1 else 0)
             rects[idx] = (int(ix), int(iy), int(iw), int(ih))
-        y += rh
+        y += rh + gap
     return [rc for rc in rects if rc is not None]
 
 
