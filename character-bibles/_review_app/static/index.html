@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/static/banana-theme.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="studio-app-container">
     <!-- Left Navigation Sidebar -->
     <nav id="sidebarNav" class="studio-sidebar" aria-label="Studio Navigation">
@@ -162,7 +163,7 @@
       </header>
 
       <!-- Active Workspace Viewport -->
-      <main class="studio-content-viewport">
+      <main id="main-content" class="studio-content-viewport" tabindex="-1">
         
         <!-- 0. PROJECT MAP (direction + full task list) -->
         <div id="viewProjectMap" class="workspace-view hidden">
