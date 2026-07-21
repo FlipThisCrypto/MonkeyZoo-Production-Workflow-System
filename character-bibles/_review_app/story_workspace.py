@@ -144,6 +144,25 @@ def cast_references(folder: Path) -> list[dict[str, str]]:
     return result
 
 
+_FILE_HASH_CACHE: dict[str, tuple[float, int, str]] = {}
+
+
+def _cached_file_hash(path: Path) -> str:
+    key = str(path.resolve())
+    try:
+        st = path.stat()
+        mtime, size = st.st_mtime, st.st_size
+    except OSError:
+        return _hash_bytes(path.read_bytes())
+    if key in _FILE_HASH_CACHE:
+        cached_mtime, cached_size, cached_hash = _FILE_HASH_CACHE[key]
+        if cached_mtime == mtime and cached_size == size:
+            return cached_hash
+    digest = _hash_bytes(path.read_bytes())
+    _FILE_HASH_CACHE[key] = (mtime, size, digest)
+    return digest
+
+
 def canon_snapshot(folder: Path, root: Path, generation_type: str, persist: bool = False) -> dict[str, Any]:
     brief = _brief(folder)
     sources, characters, aliases, warnings, excluded = [], [], {}, [], []
@@ -158,21 +177,22 @@ def canon_snapshot(folder: Path, root: Path, generation_type: str, persist: bool
                 ident = data.get("identification", {})
                 path = root / "character-bibles" / canonical / "bible.yaml"
                 aliases[token] = canonical
-                sources.append({"path": str(path.relative_to(root)).replace("\\", "/"), "sha256": _hash_bytes(path.read_bytes())})
+                sources.append({"path": str(path.relative_to(root)).replace("\\", "/"), "sha256": _cached_file_hash(path)})
                 characters.append({"character_id": canonical, "display_name": ident.get("current_display_name"), "personal_name": ident.get("personal_name"), "legacy_labels": ident.get("legacy_labels") or [], "nationality": ident.get("nationality"), "origin": ident.get("origin"), "canon_status": ident.get("canon_status"), "role": reference["role"], "source_annotation": reference["annotation"], "voice": data.get("voice_and_dialogue", {}), "relationships": data.get("relationships", []), "constraints": data.get("personality_and_behavior", {}), "visual_constraints": data.get("visual_canon", {}).get("features_that_must_never_change", [])})
             except ValueError:
                 warnings.append(f"Unsupported character reference: {token}")
                 excluded.append({"source": reference["source"], "reference": token, "reason": "missing reliable approved identity"})
     for rel in ["00_SYSTEM/monkeyzoo_master_bible.md", "00_SYSTEM/world_bible.md", "00_SYSTEM/continuity_ledger.md"]:
         path = root / rel
-        if path.exists(): sources.append({"path": rel, "sha256": _hash_bytes(path.read_bytes())})
+        if path.exists(): sources.append({"path": rel, "sha256": _cached_file_hash(path)})
     season = next(iter(sorted((root / "story-bibles" / "seasons").glob("*/SEASON-BIBLE.md"))), None) if (root / "story-bibles" / "seasons").exists() else None
-    if season: sources.append({"path": str(season.relative_to(root)).replace("\\", "/"), "sha256": _hash_bytes(season.read_bytes())})
+    if season: sources.append({"path": str(season.relative_to(root)).replace("\\", "/"), "sha256": _cached_file_hash(season)})
     brief_path = folder / "issue_brief.md"
-    snapshot = {"schema_version":"1.0", "issue_id":brief["issue_id"], "generation_type":generation_type, "created_at":_now() if persist else None, "canon_sources":sources, "character_ids":[c["character_id"] for c in characters], "characters":characters, "cast_references":references, "alias_resolutions":aliases, "issue_brief_hash":_hash_bytes(brief_path.read_bytes()) if brief_path.exists() else None, "season_plan_hash": next((s["sha256"] for s in sources if "SEASON-BIBLE" in s["path"]), None), "previous_issue_references":[], "warnings":warnings, "excluded":excluded}
+    snapshot = {"schema_version":"1.0", "issue_id":brief["issue_id"], "generation_type":generation_type, "created_at":_now() if persist else None, "canon_sources":sources, "character_ids":[c["character_id"] for c in characters], "characters":characters, "cast_references":references, "alias_resolutions":aliases, "issue_brief_hash":_cached_file_hash(brief_path) if brief_path.exists() else None, "season_plan_hash": next((s["sha256"] for s in sources if "SEASON-BIBLE" in s["path"]), None), "previous_issue_references":[], "warnings":warnings, "excluded":excluded}
     snapshot["snapshot_hash"] = _hash_text(json.dumps({k:v for k,v in snapshot.items() if k not in {"created_at","snapshot_hash"}}, sort_keys=True))
     if persist: _write_json(_workspace(folder) / "canon-snapshots" / f"{snapshot['snapshot_hash']}.json", snapshot)
     return snapshot
+
 
 
 def _current_snapshot_hash(folder: Path, root: Path, kind: str) -> str:
