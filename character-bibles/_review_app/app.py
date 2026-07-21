@@ -395,6 +395,14 @@ def handle_error(exc):
         message = exc.description or exc.name
     else:
         status, message = 500, "Unexpected server error"
+    if status >= 500:
+        # The client response is deliberately sanitized ("Unexpected server error"),
+        # so without this the real cause of a failure on this WRITABLE service would
+        # be lost entirely. Log the exception + traceback server-side (operator-only)
+        # so genuine 5xx failures are diagnosable. 4xx are expected client errors and
+        # stay quiet to avoid log noise.
+        app.logger.error("Unhandled %s on %s %s", type(exc).__name__,
+                         request.method, request.path, exc_info=exc)
     return jsonify({"ok": False, "error": message}), status
 
 
