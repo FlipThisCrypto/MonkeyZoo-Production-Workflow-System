@@ -181,3 +181,23 @@ def test_normalize_missing_bible_store_import_becomes_clean_error(monkeypatch):
     monkeypatch.setitem(sys.modules, "bible_store", None)
     with pytest.raises(ni.IssueCreationError, match="Unknown character or missing bible"):
         ni.normalize_request(_req())
+
+
+def test_main_without_enough_args_prints_usage(monkeypatch):
+    monkeypatch.setattr(sys, "argv", ["new_issue.py"])
+    with pytest.raises(SystemExit, match="Usage: python new_issue.py"):
+        ni.main()
+
+
+def test_main_with_args_emits_deprecation_not_crash(monkeypatch):
+    monkeypatch.setattr(sys, "argv", ["new_issue.py", "2026-07", "5"])
+    with pytest.raises(SystemExit, match="guided intake payload"):
+        ni.main()
+
+
+def test_main_malformed_period_still_deprecates_cleanly(monkeypatch):
+    # Previously `map(int, "not-a-date".split("-"))` raised a ValueError traceback
+    # here; a malformed first argument must now yield the clean deprecation exit.
+    monkeypatch.setattr(sys, "argv", ["new_issue.py", "not-a-date", "5"])
+    with pytest.raises(SystemExit, match="guided intake payload"):
+        ni.main()

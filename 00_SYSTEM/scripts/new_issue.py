@@ -217,7 +217,9 @@ def create_issue(data: Any, factory: Path = FACTORY) -> dict[str, Any]:
 def main() -> None:
     if len(sys.argv) < 3:
         raise SystemExit("Usage: python new_issue.py YYYY-MM NUMBER [TITLE]")
-    year, month = map(int, sys.argv[1].split("-"))
+    # The positional CLI is retired in favour of the guided Studio intake. Emit a
+    # clear deprecation for any invocation — do not pre-parse argv[1], which used
+    # to crash with a ValueError traceback on a non-YYYY-MM argument.
     raise SystemExit("The CLI now requires the complete guided intake payload; use MonkeyZoo Studio.")
 
 
