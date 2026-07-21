@@ -235,3 +235,49 @@ def test_save_bible_is_atomic_original_intact_on_failure(bible_root, monkeypatch
     assert path.read_text(encoding="utf-8") == original          # canon untouched
     leftovers = [p.name for p in (bible_root / "MZ-CHAR-TEST").iterdir() if p.name.endswith(".tmp")]
     assert leftovers == []                                        # temp cleaned up
+
+
+# --- canon status-transition machine (normalize_trait_updates) ---
+
+@pytest.mark.parametrize("action,status,review", [
+    ("approve_canon", "canon", "approve_as_canon"),
+    ("approve_established", "established", "approve_as_established"),
+    ("keep_experimental", "experimental", "keep_experimental"),
+    ("mark_optional", "optional", "mark_optional"),
+    ("mark_dormant", "dormant", "mark_dormant"),
+    ("retire", "retired", "retire"),
+    ("reject", "retired", "reject"),
+])
+def test_review_action_maps_to_canon_status(action, status, review):
+    out = bible_store.normalize_trait_updates({"action": action})
+    assert out["status"] == status
+    assert out["_review_action"] == review
+    assert "action" not in out                       # the action key is consumed
+    assert out["status"] in bible_store.VALID_STATUSES
+
+
+def test_retire_and_reject_force_usage_never():
+    assert bible_store.normalize_trait_updates({"action": "retire"})["usage_frequency"] == "never"
+    assert bible_store.normalize_trait_updates({"action": "reject"})["usage_frequency"] == "never"
+
+
+def test_reject_prefixes_existing_notes():
+    out = bible_store.normalize_trait_updates({"action": "reject", "notes": "off model"})
+    assert out["notes"].startswith("REJECTED:") and "off model" in out["notes"]
+
+
+@pytest.mark.parametrize("updates", [{"action": "wobble"}, {"value": "x"}, {}])
+def test_unknown_or_missing_action_is_plain_edit(updates):
+    out = bible_store.normalize_trait_updates(updates)
+    assert out["_review_action"] == "edit_trait"
+    assert "status" not in out                        # a plain edit must not invent a status
+
+
+def test_invalid_status_is_rejected():
+    with pytest.raises(bible_store.BibleStoreError):
+        bible_store.normalize_trait_updates({"status": "not-a-real-status"})
+
+
+def test_invalid_strength_is_rejected():
+    with pytest.raises(bible_store.BibleStoreError):
+        bible_store.normalize_trait_updates({"strength": "ludicrous"})
