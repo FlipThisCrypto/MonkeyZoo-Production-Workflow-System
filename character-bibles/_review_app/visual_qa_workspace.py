@@ -97,11 +97,20 @@ def _load(folder,rid):
  data=_read_json(_workspace(folder)/"reviews"/f"{_safe(rid)}.json")
  if not isinstance(data,dict):raise VisualQAError("Unknown QA review")
  return data
-def decorate(record,folder):
- result=dict(record);result["evidence_stale"]=record.get("evidence_hash")!=evidence(folder)["evidence_hash"]
- result["approval_current"]=bool(record.get("approval") and record["approval"].get("evidence_hash")==record.get("evidence_hash") and not result["evidence_stale"]);return result
+def decorate(record, folder, current_ev=None):
+    result = dict(record)
+    ev = current_ev if current_ev is not None else evidence(folder)
+    result["evidence_stale"] = record.get("evidence_hash") != ev["evidence_hash"]
+    result["approval_current"] = bool(record.get("approval") and record["approval"].get("evidence_hash") == record.get("evidence_hash") and not result["evidence_stale"])
+    return result
+
 def reviews(folder):
- base=_workspace(folder)/"reviews";return [decorate(_read_json(p),folder) for p in sorted(base.glob("*.json"))] if base.exists() else []
+    base = _workspace(folder) / "reviews"
+    if not base.exists():
+        return []
+    ev = evidence(folder)
+    return [decorate(_read_json(p), folder, current_ev=ev) for p in sorted(base.glob("*.json"))]
+
 def finalize(folder,root,rid,verdict,notes="",continuity_checks=None):
  _stage(folder,root);record=decorate(_load(folder,rid),folder)
  if record.get("approval"):raise VisualQAError("QA review is already finalized and immutable",409)
