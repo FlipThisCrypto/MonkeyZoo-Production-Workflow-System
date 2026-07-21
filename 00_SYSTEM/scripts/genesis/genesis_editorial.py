@@ -48,7 +48,8 @@ def audit(genesis_dir: Path) -> dict:
         dwords = sum(pa["dialogue_words"] for pa in panels)
         balloons = sum(1 for pa in panels if pa["dialogue"])
         sfx = sum(1 for pa in panels if pa["sfx"])
-        hero = next((pa["source_panel_id"] for pa in panels if pa.get("emphasis")), panels[0]["source_panel_id"])
+        hero = next((pa["source_panel_id"] for pa in panels if pa.get("emphasis")),
+                    panels[0]["source_panel_id"] if panels else None)
         reframed = sum(1 for pa in panels if crops.get(pa["source_panel_id"], full) != full)
         prev_same = i > 0 and tmpls[i] == tmpls[i - 1]
         next_same = i < len(tmpls) - 1 and tmpls[i] == tmpls[i + 1]
@@ -89,8 +90,9 @@ def write_audit(genesis_dir: Path, data: dict) -> None:
           f"({data['summary']['total_panels_reframed']} panels)",
           f"- Adjacent identical templates: **{data['summary']['adjacent_same_template']}**", ""]
     for p in data["pages"]:
+        hero = p["hero_panel"].split("_", 1)[1] if p["hero_panel"] else "—"
         md += [f"## Page {p['page']:02d} ({p['reader_side']}) — {p['panel_count']} panels · `{p['layout_template']}`",
-               f"- Location: {p['location']}  ·  Hero panel: `{p['hero_panel'].split('_',1)[1]}`",
+               f"- Location: {p['location']}  ·  Hero panel: `{hero}`",
                f"- Shots: {p['shot_mix']}  ·  Dialogue: {p['dialogue_words']} words in {p['balloon_count']} balloons  ·  SFX: {p['sfx_count']}",
                f"- Beats: {', '.join(p['story_beats'])}",
                f"- Repetition: {p['close_background_repeats']} close background-repeat(s); "
