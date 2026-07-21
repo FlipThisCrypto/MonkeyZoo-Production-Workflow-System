@@ -70,6 +70,20 @@ def collect_character_ids(bibles):
     return ids
 
 
+def find_duplicate_character_ids(bibles):
+    """Map every character_id declared by more than one Bible to the files that
+    declare it. A duplicate ID is a canon-integrity violation: downstream
+    identity resolution (bible_store.resolve_character_id / _identity_index) is
+    last-write-wins, so two Bibles sharing an ID silently collapse two distinct
+    characters into one -- exactly the identity confusion this schema guards."""
+    by_id = {}
+    for path, data in bibles:
+        character_id = ((data or {}).get("identification") or {}).get("character_id")
+        if character_id:
+            by_id.setdefault(character_id, []).append(path)
+    return {character_id: paths for character_id, paths in by_id.items() if len(paths) > 1}
+
+
 def validate_bible(path, data, workspace_root, known_ids):
     errors = []
     warnings = []
@@ -173,6 +187,9 @@ def main():
             errors.append(f"{path}: failed to parse: {exc}")
 
     known_ids = collect_character_ids(loaded)
+    for character_id, paths in sorted(find_duplicate_character_ids(loaded).items()):
+        joined = ", ".join(str(p) for p in sorted(paths))
+        errors.append(f"duplicate character_id '{character_id}' declared by {len(paths)} Bibles: {joined}")
     for path, data in loaded:
         file_errors, file_warnings = validate_bible(path, data, workspace_root, known_ids)
         errors.extend(file_errors)
