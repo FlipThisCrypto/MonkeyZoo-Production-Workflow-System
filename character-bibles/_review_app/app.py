@@ -447,6 +447,18 @@ def handle_error(exc):
     return jsonify({"ok": False, "error": message}), status
 
 
+@app.after_request
+def _security_headers(response):
+    # Defense-in-depth for a writable local service that serves an HTML UI: block
+    # MIME-sniffing, block framing (clickjacking that could frame the studio and
+    # trick the owner into a mutation click), and don't leak the referrer. Same-origin
+    # assets are unaffected. setdefault preserves any header a route already set.
+    response.headers.setdefault("X-Content-Type-Options", "nosniff")
+    response.headers.setdefault("X-Frame-Options", "DENY")
+    response.headers.setdefault("Referrer-Policy", "no-referrer")
+    return response
+
+
 def _debug_enabled() -> bool:
     """Flask debug (Werkzeug's interactive debugger) is an in-browser RCE
     console. This is a WRITABLE local service that performs filesystem writes,

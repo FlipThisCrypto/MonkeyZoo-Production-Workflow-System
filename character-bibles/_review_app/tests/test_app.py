@@ -133,6 +133,14 @@ def test_write_endpoint_non_object_body_is_structured_400(client, route):
     assert body["ok"] is False and "JSON object" in body["error"]
 
 
+@pytest.mark.parametrize("route", ["/api/health", "/api/characters", "/"])
+def test_security_headers_on_all_responses(client, route):
+    res = client.get(route)
+    assert res.headers.get("X-Content-Type-Options") == "nosniff"
+    assert res.headers.get("X-Frame-Options") == "DENY"
+    assert res.headers.get("Referrer-Policy") == "no-referrer"
+
+
 def test_request_size_cap_is_configured():
     # legitimate art uploads are 25 MB; the cap keeps headroom for multipart overhead
     assert review_app.app.config["MAX_CONTENT_LENGTH"] == 32 * 1024 * 1024
