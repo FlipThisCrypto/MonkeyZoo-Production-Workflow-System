@@ -260,6 +260,22 @@ def validate_pack(pack: dict[str, Any], root: Path) -> dict[str, Any]:
     ids = [panel.get("panel_id") for panel in pack.get("panels", [])]
     if len(ids) != len(set(ids)):
         findings.append({"level": "error", "message": "Duplicate panel IDs in pack"})
+
+    # Canon lock (mirrors 00_SYSTEM/scripts/validate_issue.py): every panel prompt
+    # must lead with the pack's locked style phrase, and every negative prompt with
+    # the base negative. Without this, a hand-edited/custom art_prompt that drops
+    # the lock would still set style_lock_phrase_included=True and pass validation,
+    # letting a lock-violating pack be approved and promoted.
+    lock = str(pack.get("style_lock_phrase") or "")
+    base_negative = str(pack.get("base_negative_prompt") or "")
+    for panel in pack.get("panels", []):
+        pid = panel.get("panel_id")
+        if lock and not str(panel.get("prompt") or "").startswith(lock):
+            findings.append({"level": "error",
+                             "message": f"Panel {pid}: prompt does not start with the locked style phrase"})
+        if base_negative and not str(panel.get("negative_prompt") or "").startswith(base_negative):
+            findings.append({"level": "error",
+                             "message": f"Panel {pid}: negative_prompt does not start with the base negative prompt"})
     return {
         "status": "failed" if findings else "passed",
         "findings": findings,
