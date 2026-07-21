@@ -192,7 +192,11 @@ def fit_cover(img, w, h, crop=None):
 
 
 def find_art(issue_dir, pid):
-    ups = list((issue_dir / "generated_art" / "upscaled").glob(f"{pid}_print*.png"))
+    # sorted(): glob order is filesystem-dependent, so if a panel has more than
+    # one upscaled print (e.g. a re-run left "<pid>_print.png" and
+    # "<pid>_print_v2.png"), an unsorted [0] would pick a non-deterministic file
+    # and break reproducible page builds. Sort so the choice is stable.
+    ups = sorted((issue_dir / "generated_art" / "upscaled").glob(f"{pid}_print*.png"))
     if ups:
         return ups[0]
     sel = issue_dir / "generated_art" / "selected_panels" / f"{pid}.png"
