@@ -11,6 +11,8 @@ seeded filename_prefix, zeroed negative) are pinned too.
 from __future__ import annotations
 
 import sys
+import types
+import urllib.error
 from pathlib import Path
 
 SCRIPTS = Path(__file__).resolve().parents[1]  # 00_SYSTEM/scripts
@@ -81,3 +83,40 @@ def test_turbo_recipe_constants_are_locked():
     assert wf["8"]["inputs"]["steps"] == 8
     assert wf["8"]["inputs"]["cfg"] == 1.0
     assert wf["7"]["inputs"]["shift"] == 3.0
+
+
+# ---- queue + run_batch: connection resilience and submission accounting -------
+
+def _bargs(**over):
+    base = dict(dry_run=False, img2img=False, denoise=0.0, host="127.0.0.1:8188")
+    base.update(over)
+    return types.SimpleNamespace(**base)
+
+
+def test_queue_returns_node_errors_instead_of_crashing_on_connection_failure(monkeypatch):
+    def boom(req, timeout=None):
+        raise urllib.error.URLError("Connection refused")
+    monkeypatch.setattr(gcr.urllib.request, "urlopen", boom)
+    resp = gcr.queue("127.0.0.1:9", {"1": {}})
+    assert "node_errors" in resp                 # degrades to an error response, no traceback
+    assert "connection" in resp["node_errors"]
+
+
+def test_run_batch_counts_all_ok():
+    def q(host, wf): return {}
+    out = gcr.run_batch(["ash", "moodz"], ["01_neutral"], _bargs(), queue_fn=q)
+    assert out == {"ok": 2, "failed": 0}         # 2 characters x 1 selected variant
+
+
+def test_run_batch_counts_failures_separately():
+    def q(host, wf): return {"node_errors": {"connection": "refused"}}
+    out = gcr.run_batch(["ash"], ["01_neutral", "02_threeqtr"], _bargs(), queue_fn=q)
+    assert out == {"ok": 0, "failed": 2}
+
+
+def test_run_batch_dry_run_submits_nothing():
+    called = {"n": 0}
+    def q(host, wf): called["n"] += 1; return {}
+    out = gcr.run_batch(["ash"], ["01_neutral"], _bargs(dry_run=True), queue_fn=q)
+    assert out == {"ok": 0, "failed": 0}
+    assert called["n"] == 0
