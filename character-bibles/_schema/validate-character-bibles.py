@@ -127,6 +127,15 @@ def validate_bible(path, data, workspace_root, known_ids):
         if field not in identification:
             errors.append(f"{path}: missing identification.{field}")
 
+    # Referential integrity of alias_of: bible_store._identity_index resolves an
+    # alias Bible's handles to its alias_of target verbatim, so a dangling/typo'd
+    # target makes every reference to that alias unresolvable (resolve_character_id
+    # returns the missing id -> load_bible raises "Unknown character"). It must
+    # point at a real, loaded character_id.
+    alias_of = identification.get("alias_of")
+    if alias_of and alias_of not in known_ids:
+        errors.append(f"{path}: alias_of target does not exist among loaded Bibles: {alias_of}")
+
     character_id = identification.get("character_id")
     if not character_id:
         errors.append(f"{path}: every Bible must have a character ID")

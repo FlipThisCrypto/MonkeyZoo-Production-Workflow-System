@@ -106,6 +106,27 @@ def test_shared_series_name_archetype_is_allowed(tmp_path):
     assert "identity handle" not in result.stdout
 
 
+def test_dangling_alias_of_fails(tmp_path):
+    # alias_of points at a character_id that no Bible declares -> the alias is
+    # unresolvable; must be a hard error, not silently accepted.
+    _write_bible(tmp_path, "MZ-CHAR-002", "MZ-CHAR-002", current_display_name="TwoTone")
+    _write_bible(tmp_path, "MZ-CHAR-GHOST", "MZ-CHAR-GHOST", current_display_name="Ghost",
+                 alias_of="MZ-CHAR-TYPO")
+    result = _run(tmp_path)
+    assert result.returncode == 1, result.stdout + result.stderr
+    assert "alias_of target does not exist" in result.stdout
+    assert "MZ-CHAR-TYPO" in result.stdout
+
+
+def test_valid_alias_of_passes(tmp_path):
+    _write_bible(tmp_path, "MZ-CHAR-002", "MZ-CHAR-002", current_display_name="TwoTone")
+    _write_bible(tmp_path, "MZ-CHAR-TT", "MZ-CHAR-TT", current_display_name="TT",
+                 alias_of="MZ-CHAR-002")
+    result = _run(tmp_path)
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "alias_of target does not exist" not in result.stdout
+
+
 def test_alias_sharing_its_target_handle_is_not_a_collision(tmp_path):
     # an alias Bible resolves to its alias_of target, so a nickname it shares with
     # that same target maps to ONE character -> not a collision.
