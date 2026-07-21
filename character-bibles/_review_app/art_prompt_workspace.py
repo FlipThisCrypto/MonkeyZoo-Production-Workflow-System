@@ -232,14 +232,25 @@ def build_pack(folder: Path, root: Path) -> dict[str, Any]:
     }
 
 
+_PACK_SCHEMA_CACHE: dict[str, dict] = {}
+
+
+def _get_pack_schema(schema_path: Path) -> dict[str, Any]:
+    key = str(schema_path.resolve())
+    if key not in _PACK_SCHEMA_CACHE:
+        _PACK_SCHEMA_CACHE[key] = json.loads(schema_path.read_text(encoding="utf-8"))
+    return _PACK_SCHEMA_CACHE[key]
+
+
 def validate_pack(pack: dict[str, Any], root: Path) -> dict[str, Any]:
     findings: list[dict[str, str]] = []
     schema_path = root / "00_SYSTEM" / "art_prompt_pack_schema.json"
     if not schema_path.exists():
         raise ArtPromptError("art_prompt_pack_schema.json is missing", 500)
-    schema = json.loads(schema_path.read_text(encoding="utf-8"))
+    schema = _get_pack_schema(schema_path)
     for error in Draft202012Validator(schema).iter_errors(pack):
         findings.append({"level": "error", "message": error.message})
+
     if not pack.get("panels"):
         findings.append({"level": "error", "message": "Pack has no panels"})
     ids = [panel.get("panel_id") for panel in pack.get("panels", [])]
