@@ -518,7 +518,11 @@ def validate_script_text(script_text: str, packet: dict[str, Any]) -> list[str]:
     warnings = []
     for character in packet["selected_cast"]:
         name = character["display_name"]
-        if name and name.lower() not in text.lower():
+        # Whole-word match: a bare substring test masks a genuinely absent
+        # character whenever their name is embedded in another word (e.g. "Ash"
+        # inside "flash", "Other" inside "brother"), suppressing the very warning
+        # the operator needs.
+        if name and not re.search(rf"\b{re.escape(name)}\b", text, re.I):
             warnings.append(f"{name} is selected but not mentioned in the script.")
         for phrase in character.get("catchphrases_allowed", []):
             value = phrase.get("value") or phrase.get("name") or ""

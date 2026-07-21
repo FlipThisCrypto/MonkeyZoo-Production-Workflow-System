@@ -179,6 +179,19 @@ def test_generate_sample_issue_saves_script_and_proposed_update(story_root, tmp_
     assert script.count("Clever says go") <= 1
 
 
+def test_missing_character_not_masked_by_substring(story_root):
+    packet = story_context.build_context_packet(
+        story_context.normalize_setup(setup([{"character_id": "MZ-CHAR-OTHER", "role": "primary"}])),
+        story_root,
+    )
+    missing = "Other is selected but not mentioned in the script."
+    # "Other" appears only inside "brother" -> the character is genuinely absent
+    # and must still be flagged (a plain substring test would have masked it).
+    assert missing in story_context.validate_script_text("The brother waited in the dark.", packet)
+    # a real whole-word mention clears the warning
+    assert missing not in story_context.validate_script_text("Other waited in the dark.", packet)
+
+
 def test_glasses_validation_allows_explicit_no_glasses(story_root):
     packet = story_context.build_context_packet(
         story_context.normalize_setup(setup([{"character_id": "MZ-CHAR-OTHER", "role": "primary"}])),
