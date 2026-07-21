@@ -5,7 +5,6 @@ import json
 import shutil
 import sys
 from pathlib import Path
-from urllib.parse import quote
 
 from PIL import Image
 
@@ -16,18 +15,6 @@ import canon_catalog  # noqa: E402
 
 EXPR_MAX_EDGE = 512
 EXPR_QUALITY = 82
-
-
-def _encode_media_url(rel: str) -> str:
-    """Percent-encode each path segment of a relative media URL so expression
-    slugs / filenames containing spaces or unicode resolve on GitHub Pages, while
-    leaving "." / ".." navigation segments and the "/" structure intact. Getting
-    this wrong silently breaks image links on the public site, so it is isolated
-    here and unit-tested rather than inlined in the asset loop."""
-    return "/".join(
-        part if part in (".", "..") else quote(part, safe="._-")
-        for part in rel.replace("\\", "/").split("/")
-    )
 
 
 def _export_expression_assets() -> list[dict]:
@@ -68,9 +55,14 @@ def _export_expression_assets() -> list[dict]:
                 out_name = png.stem + ".jpg"
                 out_path = dest_dir / out_name
                 img.save(out_path, "JPEG", quality=EXPR_QUALITY, optimize=True)
-            # Relative URL from docs/index.html (segments percent-encoded for browsers)
-            rel_encoded = _encode_media_url(f"./media/expressions/{slug}/{out_name}")
-            images.append({"filename": out_name, "url": rel_encoded, "source_png": png.name})
+            # Relative URL from docs/index.html, emitted RAW (unencoded), matching
+            # the contract of canon_catalog.expression_media_url and the
+            # locations/props/character URLs: the single client-side mediaUrl()
+            # percent-encodes each segment exactly once. Pre-encoding here caused a
+            # double-encode (a spaced slug "lil devil" -> %20 -> client %2520) that
+            # 404s every such expression plate on GitHub Pages.
+            rel_url = f"./media/expressions/{slug}/{out_name}".replace("\\", "/")
+            images.append({"filename": out_name, "url": rel_url, "source_png": png.name})
 
         if not images:
             continue

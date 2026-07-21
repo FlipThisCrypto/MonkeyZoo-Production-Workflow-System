@@ -1,14 +1,20 @@
-"""Regression coverage for public-media URL encoding in the catalog exporter.
+"""Regression: the catalog exporter must emit RAW (unencoded) media URLs.
 
-Expression plates live in owner-named folders ("Neon Alley", unicode, etc.).
-Their URLs are baked into canon-catalog.json and resolved by the browser on
-GitHub Pages, so each path segment must be percent-encoded while the "./" prefix
-and "/" structure stay intact. A regression here breaks image links on the
-public site silently (the JSON still validates; the images just 404), so the
-encoding is isolated in _encode_media_url and pinned here.
+The public site's single client-side mediaUrl() (static/app.js) percent-encodes
+every path segment exactly once. Every canon media source (canon_catalog
+locations/props, character portraits) therefore stores RAW paths. The expression
+exporter must do the same: if it pre-encodes, a spaced slug like "lil devil"
+becomes %20 in the JSON and the client re-encodes it to %2520 -> a literal
+"lil%20devil" folder request that 404s on GitHub Pages. Pin the raw-URL contract.
 """
 import sys
+import urllib.parse
 from pathlib import Path
+
+import pytest
+
+pytest.importorskip("PIL")
+from PIL import Image  # noqa: E402
 
 DOCS = Path(__file__).resolve().parents[1]        # docs/
 if str(DOCS) not in sys.path:
@@ -17,41 +23,39 @@ if str(DOCS) not in sys.path:
 import export_static_catalog as cat  # noqa: E402
 
 
-def test_plain_ascii_path_is_unchanged():
-    rel = "./media/expressions/happy/page_00_clean_base.webp"
-    assert cat._encode_media_url(rel) == rel
+def _seed_expression(root: Path, slug: str, filename: str) -> None:
+    d = root / "03_APPROVED_CANON" / "approved_expressions" / slug
+    d.mkdir(parents=True)
+    Image.new("RGB", (8, 8), (200, 40, 190)).save(d / filename)
 
 
-def test_spaces_are_percent_encoded_per_segment():
-    out = cat._encode_media_url("./media/expressions/Neon Alley/base plate.webp")
-    assert out == "./media/expressions/Neon%20Alley/base%20plate.webp"
-    assert " " not in out
+def _client_media_url(url: str) -> str:
+    """Mirror of static/app.js mediaUrl(): encodeURIComponent each segment, then
+    restore the structural slashes."""
+    return "/".join(urllib.parse.quote(seg, safe="") for seg in url.split("/")).replace("%2F", "/")
 
 
-def test_dot_and_dotdot_segments_preserved():
-    # navigation segments must NOT be encoded or the relative URL breaks
-    assert cat._encode_media_url("../a/b.webp") == "../a/b.webp"
-    assert cat._encode_media_url("./x.webp").startswith("./")
+def test_exporter_emits_raw_unencoded_urls_for_spaced_slugs(tmp_path, monkeypatch):
+    monkeypatch.setattr(cat, "ROOT", tmp_path)
+    _seed_expression(tmp_path, "lil devil", "lildevil_00_clean_base.png")
+
+    exported = cat._export_expression_assets()
+
+    assert len(exported) == 1
+    item = exported[0]
+    assert item["slug"] == "lil devil"
+    for url in [item["base_image_url"], *[i["url"] for i in item["images"]]]:
+        assert url.startswith("./media/expressions/lil devil/"), url
+        assert "%" not in url, f"URL must be RAW (client encodes once), got: {url}"
+        assert " " in url                                   # the raw space is present
 
 
-def test_structural_slashes_survive_but_slashes_in_names_do_not_appear():
-    out = cat._encode_media_url("./media/expressions/set/img.webp")
-    assert out.count("/") == 4                       # 4 structural separators preserved
+def test_raw_url_survives_one_client_encode_but_a_preencoded_one_would_not(tmp_path, monkeypatch):
+    monkeypatch.setattr(cat, "ROOT", tmp_path)
+    _seed_expression(tmp_path, "lil devil", "lildevil_00_clean_base.png")
 
-
-def test_unicode_and_reserved_chars_are_encoded():
-    out = cat._encode_media_url("./media/expressions/café#1/a.webp")
-    assert "café" not in out and "#" not in out      # both encoded, none left raw
-    assert out.startswith("./media/expressions/")
-
-
-def test_safe_punctuation_in_filenames_is_kept_readable():
-    # '.', '_' and '-' are declared safe so filenames stay human-readable
-    rel = "./media/expressions/set/MZ_char-01_clean.base.webp"
-    assert cat._encode_media_url(rel) == rel
-
-
-def test_backslashes_are_normalised_to_forward_slashes():
-    out = cat._encode_media_url(".\\media\\expressions\\set\\a.webp")
-    assert "\\" not in out
-    assert out == "./media/expressions/set/a.webp"
+    raw = cat._export_expression_assets()[0]["base_image_url"]
+    once = _client_media_url(raw)
+    assert "%20" in once and "%2520" not in once           # single-encoded -> resolves
+    # a hypothetical pre-encoded URL would double-encode to the broken 404 form
+    assert "%2520" in _client_media_url(raw.replace(" ", "%20"))
