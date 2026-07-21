@@ -13,7 +13,11 @@ SAFE_FILENAME = re.compile(r"^[a-zA-Z0-9][a-zA-Z0-9._-]*$")
 PRIMARY_NAME = "primary-reference.png"
 
 
+__all__ = ["list_locations", "list_props", "get_location", "get_prop", "CanonCatalogError"]
+
+
 class CanonCatalogError(ValueError):
+
     def __init__(self, message: str, status: int = 400):
         super().__init__(message)
         self.status = status
