@@ -53,7 +53,12 @@ def build_cbz(files: list[Path], out: Path) -> None:
 
 def build_pdf(files: list[Path], out: Path) -> None:
     imgs = [Image.open(p).convert("RGB") for p in files]
-    imgs[0].save(out, "PDF", save_all=True, append_images=imgs[1:], resolution=150.0)
+    try:
+        imgs[0].save(out, "PDF", save_all=True, append_images=imgs[1:], resolution=150.0)
+    finally:
+        for img in imgs:
+            img.close()
+
 
 
 def package(genesis_dir: Path) -> dict:
