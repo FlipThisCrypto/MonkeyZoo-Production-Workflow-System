@@ -76,6 +76,22 @@ def test_character_api_lists_bibles(client):
     assert data[0]["character_id"] == "MZ-CHAR-API"
 
 
+def test_health_ok_when_data_root_present(client):
+    res = client.get("/api/health")
+    assert res.status_code == 200
+    body = res.get_json()
+    assert body["status"] == "ok" and body["bibles_root_ok"] is True
+    assert body["service"] == "monkeyzoo-banana-lab"
+
+
+def test_health_degraded_503_when_data_root_missing(client, monkeypatch, tmp_path):
+    # readiness must fail loudly (503) if the data root is missing/unmounted
+    monkeypatch.setattr(review_app, "BIBLES_ROOT", tmp_path / "does-not-exist")
+    res = client.get("/api/health")
+    assert res.status_code == 503
+    assert res.get_json()["status"] == "degraded"
+
+
 def test_runtime_capability_requires_exact_trusted_contract(client):
     res = client.get("/api/runtime-capabilities")
     assert res.status_code == 200

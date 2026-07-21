@@ -60,6 +60,22 @@ def index():
 
 
 
+@app.get("/api/health")
+def health():
+    """Liveness + basic readiness probe for monitors, the launcher, and deployers:
+    the process is up and its character-bible data root is reachable. Returns 503 so
+    a readiness check fails loudly if the data root is missing/unmounted rather than
+    the app silently serving empty results."""
+    bibles_ok = BIBLES_ROOT.is_dir()
+    payload = {
+        "status": "ok" if bibles_ok else "degraded",
+        "service": "monkeyzoo-banana-lab",
+        "writable": True,
+        "bibles_root_ok": bibles_ok,
+    }
+    return jsonify(payload), (200 if bibles_ok else 503)
+
+
 @app.get("/api/runtime-capabilities")
 def runtime_capabilities():
     """Explicit same-origin proof required before the UI enables mutations."""
