@@ -53,6 +53,16 @@ def test_sequence_check_rejects_missing_back_cover(tmp_path):
         gr._check_sequence(gr.ordered_pages(tmp_path))
 
 
+def test_sequence_check_aborts_cleanly_on_misnamed_file(tmp_path):
+    # A stray, non-page-numbered jpg landing in a render dir must trip the clean
+    # ABORT, not crash the packager with a ValueError from int('th').
+    _fake_web(tmp_path)
+    Image.new("RGB", (40, 60), "red").save(tmp_path / "web" / "story_pages" / "thumbnail.jpg")
+    with pytest.raises(SystemExit) as exc:
+        gr._check_sequence(gr.ordered_pages(tmp_path))
+    assert "two-digit page prefix" in str(exc.value)
+
+
 def test_cbz_orders_pages_front_to_back(tmp_path):
     _fake_web(tmp_path)
     files = gr.ordered_pages(tmp_path)

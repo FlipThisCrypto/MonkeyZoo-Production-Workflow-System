@@ -36,7 +36,15 @@ def ordered_pages(genesis_dir: Path) -> list[Path]:
 
 
 def _check_sequence(files: list[Path]) -> None:
-    nums = [int(p.name[:2]) for p in files]
+    # Every release file must start with a two-digit page number. A stray/misnamed
+    # jpg in the render dirs must trip the clean ABORT this packager promises, not
+    # crash it with a ValueError (int('th')) mid-package.
+    nums = []
+    for p in files:
+        prefix = p.name[:2]
+        if not prefix.isdigit():
+            raise SystemExit(f"ABORT: release file without a two-digit page prefix: {p.name}")
+        nums.append(int(prefix))
     expected = list(range(1, 25))
     if nums != expected:
         raise SystemExit(f"ABORT: page sequence is not 01..24 in reading order: got {nums}")
