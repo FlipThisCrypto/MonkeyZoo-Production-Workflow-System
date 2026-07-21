@@ -13,6 +13,7 @@ ComfyUI's output directory.
 """
 import argparse
 import json
+import sys
 import urllib.request
 from pathlib import Path
 
@@ -149,19 +150,34 @@ def main():
                                len(p.get("character_tokens", [])),
                                p["page_number"], p["panel_number"]))
 
-    queued = 0
+    result = run_batch(pack, panels, args)
+    print(f"{result['ok']} generations queued, {result['failed']} failed.")
+    # Exit non-zero when any submission failed (e.g. ComfyUI unreachable) so an
+    # agent or automated run can detect the failure instead of reading a
+    # success-looking "queued" tally.
+    if result["failed"]:
+        sys.exit(1)
+
+
+def run_batch(pack, panels, args, queue_fn=queue):
+    """Queue every panel/variant. Returns {'ok': n, 'failed': n}; a submission
+    whose response carries node_errors counts as failed, not as queued."""
+    ok = failed = 0
     for panel in panels:
         for v in range(args.variants):
             seed = panel["seed"] + v
             if args.dry_run:
                 print(f"DRY {panel['panel_id']} seed={seed} res={panel.get('resolution')}")
                 continue
-            resp = queue(args.host, build_workflow(panel, pack, args, seed))
+            resp = queue_fn(args.host, build_workflow(panel, pack, args, seed))
             err = resp.get("node_errors")
-            status = "ERR " + json.dumps(err) if err else "ok"
-            print(f"queued {panel['panel_id']} seed={seed} -> {status}")
-            queued += 1
-    print(f"{queued} generations queued.")
+            if err:
+                failed += 1
+                print(f"queued {panel['panel_id']} seed={seed} -> ERR {json.dumps(err)}")
+            else:
+                ok += 1
+                print(f"queued {panel['panel_id']} seed={seed} -> ok")
+    return {"ok": ok, "failed": failed}
 
 
 if __name__ == "__main__":

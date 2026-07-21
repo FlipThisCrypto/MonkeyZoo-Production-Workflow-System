@@ -33,7 +33,8 @@ LOCK = ("MonkeyZoo house style: chibi cartoon monkey, thick outlines, "
 
 def _args(**over):
     base = dict(plate_style="", style_prefix="", neg_suffix="", engine="sdxl",
-                steps=28, cfg=6.0, checkpoint="animagine-xl-4.0.safetensors")
+                steps=28, cfg=6.0, checkpoint="animagine-xl-4.0.safetensors",
+                variants=1, dry_run=False, host="127.0.0.1:8188")
     base.update(over)
     return types.SimpleNamespace(**base)
 
@@ -131,3 +132,41 @@ def test_zimage_characterless_panel_uses_plate_lock():
     text = wf["4"]["inputs"]["text"]
     assert "chibi cartoon monkey" not in text            # monkey-describing lock dropped
     assert "empty relay courtyard at dusk" in text        # scene body retained
+
+
+# ---- run_batch: submission accounting (observability / exit-code correctness) --
+
+def _panels(n):
+    return [_panel(panel_id=f"P{i:02d}", panel_number=i, seed=100 + i) for i in range(n)]
+
+
+def test_run_batch_counts_all_ok():
+    calls = []
+    def q(host, wf): calls.append(host); return {}          # empty response = accepted
+    out = rab.run_batch(_pack(), _panels(3), _args(variants=2), queue_fn=q)
+    assert out == {"ok": 6, "failed": 0}
+    assert len(calls) == 6
+
+
+def test_run_batch_counts_submission_failures_separately():
+    def q(host, wf): return {"node_errors": {"connection": "refused"}}
+    out = rab.run_batch(_pack(), _panels(2), _args(variants=1), queue_fn=q)
+    assert out == {"ok": 0, "failed": 2}                     # errors are NOT counted as queued
+
+
+def test_run_batch_mixed_ok_and_failed():
+    seen = {"n": 0}
+    def q(host, wf):
+        seen["n"] += 1
+        return {} if seen["n"] % 2 else {"node_errors": {"x": "y"}}
+    out = rab.run_batch(_pack(), _panels(2), _args(variants=2), queue_fn=q)  # 4 submissions
+    assert out["ok"] + out["failed"] == 4
+    assert out["failed"] == 2
+
+
+def test_run_batch_dry_run_submits_nothing():
+    called = {"n": 0}
+    def q(host, wf): called["n"] += 1; return {}
+    out = rab.run_batch(_pack(), _panels(3), _args(variants=2, dry_run=True), queue_fn=q)
+    assert out == {"ok": 0, "failed": 0}
+    assert called["n"] == 0                                  # dry-run never contacts ComfyUI
