@@ -341,3 +341,26 @@ def test_sample_ambient_luma_in_bounds_reads_the_plate():
     # a uniform mid-grey plate sampled well inside returns that grey (~80), not the neutral fallback
     val = compositor.sample_ambient_luma(Image.new("RGB", (200, 200), (80, 80, 80)), (100, 120))
     assert abs(val - 80.0) < 1.0
+
+
+# --- draw_contact_shadow must never crash on a degenerate width / edge anchor ---
+
+@pytest.mark.parametrize("anchor,width", [
+    ((50, 70), 40), ((50, 70), 0), ((50, 70), -30),
+    ((9999, 9999), 40), ((-100, -100), 40), ((0, 0), 40),
+])
+def test_draw_contact_shadow_handles_edge_inputs(anchor, width):
+    from shadow import draw_contact_shadow
+    from PIL import Image
+    out = draw_contact_shadow(Image.new("RGBA", (100, 80), (20, 20, 20, 255)), anchor, width)
+    assert out.size == (100, 80) and out.mode == "RGBA"
+
+
+def test_draw_contact_shadow_normal_darkens_under_the_foot():
+    from shadow import draw_contact_shadow
+    from PIL import Image
+    import numpy as np
+    canvas = Image.new("RGBA", (100, 80), (20, 20, 20, 255))
+    before = np.array(canvas.convert("L")).mean()
+    after = np.array(draw_contact_shadow(canvas, (50, 70), 40).convert("L")).mean()
+    assert after < before                                    # a shadow was actually drawn

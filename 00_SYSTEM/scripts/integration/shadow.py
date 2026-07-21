@@ -28,6 +28,8 @@ def draw_contact_shadow(
     existing content at foot_anchor_px. Caller pastes the character on top
     afterward so the shadow sits correctly beneath it."""
     canvas = canvas.convert("RGBA")
+    if character_width_px <= 0:                 # degenerate footprint -> nothing to draw
+        return canvas.copy()
     layer = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(layer)
 
@@ -49,10 +51,20 @@ def draw_contact_shadow(
     # ground; dark-scene output is unchanged (factor is 1.0 below
     # luma 90).
     import numpy as np
-    gx0, gy0 = max(0, int(cx - w / 2)), max(0, int(cy - h / 2))
-    gx1, gy1 = min(canvas.width, int(cx + w / 2)), min(canvas.height, int(cy + h / 2))
-    patch = np.array(canvas.convert("L").crop((gx0, gy0, gx1, gy1)), dtype=np.float32)
-    ground_luma = float(patch.mean()) if patch.size else 128.0
+    # Clamp the ground-sample box into the canvas and order it: a footprint whose
+    # anchor sits at/past a canvas edge would otherwise produce an inverted crop box
+    # and PIL raises "right < left". A degenerate box falls back to neutral luma.
+    gx0 = min(max(0, int(cx - w / 2)), canvas.width)
+    gx1 = min(max(0, int(cx + w / 2)), canvas.width)
+    gy0 = min(max(0, int(cy - h / 2)), canvas.height)
+    gy1 = min(max(0, int(cy + h / 2)), canvas.height)
+    gx0, gx1 = min(gx0, gx1), max(gx0, gx1)
+    gy0, gy1 = min(gy0, gy1), max(gy0, gy1)
+    if gx1 > gx0 and gy1 > gy0:
+        patch = np.array(canvas.convert("L").crop((gx0, gy0, gx1, gy1)), dtype=np.float32)
+        ground_luma = float(patch.mean()) if patch.size else 128.0
+    else:
+        ground_luma = 128.0
     effective = min(0.65, opacity * (1.0 + max(0.0, ground_luma - 90.0) / 255.0 * 1.2))
 
     alpha = int(255 * effective)
