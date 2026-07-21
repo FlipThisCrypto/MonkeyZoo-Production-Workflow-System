@@ -40,6 +40,11 @@ def add_puddle_reflection(
     canvas = canvas.convert("RGBA")
     x0, y0, x1, y1 = paste_box
     w, h = x1 - x0, y1 - y0
+    if w <= 0 or h <= 0 or not surface_polygon or len(surface_polygon) < 3:
+        # a degenerate paste box or a missing/too-small puddle surface (surface
+        # detection failed) -> skip the reflection rather than crash the composite
+        # (PIL's polygon fill needs >= 2 points; resize needs a positive size).
+        return canvas, {"reflection_visible_px": 0}
 
     # mirror + squash
     flipped = char_scaled.transpose(Image.FLIP_TOP_BOTTOM)

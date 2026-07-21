@@ -364,3 +364,30 @@ def test_draw_contact_shadow_normal_darkens_under_the_foot():
     before = np.array(canvas.convert("L")).mean()
     after = np.array(draw_contact_shadow(canvas, (50, 70), 40).convert("L")).mean()
     assert after < before                                    # a shadow was actually drawn
+
+
+# --- add_puddle_reflection must skip (not crash) a degenerate surface / paste box ---
+
+@pytest.mark.parametrize("polygon,box", [
+    ([], (40, 40, 70, 90)),                      # no surface polygon
+    ([(0, 0)], (40, 40, 70, 90)),                # < 3 points
+    ([(0, 80), (120, 80), (120, 90), (0, 90)], (70, 90, 40, 40)),   # inverted paste box
+    ([(0, 80), (120, 80), (120, 90), (0, 90)], (40, 40, 40, 40)),   # zero-area paste box
+])
+def test_puddle_reflection_skips_degenerate_geometry(polygon, box):
+    from PIL import Image
+    import reflection
+    canvas = Image.new("RGBA", (120, 90), (20, 20, 30, 255))
+    char = Image.new("RGBA", (30, 50), (120, 120, 120, 255))
+    out, meta = reflection.add_puddle_reflection(canvas, char, box, polygon)
+    assert out.size == (120, 90) and meta["reflection_visible_px"] == 0
+
+
+def test_puddle_reflection_valid_surface_renders():
+    from PIL import Image
+    import reflection
+    canvas = Image.new("RGBA", (120, 90), (20, 20, 30, 255))
+    char = Image.new("RGBA", (30, 50), (200, 200, 200, 255))
+    poly = [(0, 80), (120, 80), (120, 90), (0, 90)]
+    out, meta = reflection.add_puddle_reflection(canvas, char, (40, 40, 70, 90), poly)
+    assert out.size == (120, 90) and meta["reflection_visible_px"] >= 0
