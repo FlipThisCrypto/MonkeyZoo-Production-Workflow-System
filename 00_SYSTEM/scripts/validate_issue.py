@@ -22,7 +22,11 @@ import re
 import sys
 from pathlib import Path
 
+__all__ = ["schema_check", "load"]
+
+
 FACTORY = Path(__file__).resolve().parents[2]
+
 SYSTEM = FACTORY / "00_SYSTEM"
 ERRORS: list[str] = []
 
