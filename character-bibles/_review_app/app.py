@@ -27,6 +27,11 @@ BIBLES_ROOT = WORKSPACE_ROOT / "character-bibles"
 
 app = Flask(__name__, static_folder="static", static_url_path="/static")
 
+# Reject oversized request bodies early (413) instead of buffering them into memory
+# before the per-endpoint 25 MB art-attempt check. Headroom above 25 MB covers
+# multipart/form-data boundary overhead on a legitimate max-size image upload.
+app.config["MAX_CONTENT_LENGTH"] = 32 * 1024 * 1024
+
 def story_kind(value: str) -> str:
     kinds = {"outline": "outline", "outlines": "outline", "script": "script", "scripts": "script"}
     if value not in kinds:

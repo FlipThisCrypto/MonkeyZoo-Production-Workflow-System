@@ -133,6 +133,19 @@ def test_write_endpoint_non_object_body_is_structured_400(client, route):
     assert body["ok"] is False and "JSON object" in body["error"]
 
 
+def test_request_size_cap_is_configured():
+    # legitimate art uploads are 25 MB; the cap keeps headroom for multipart overhead
+    assert review_app.app.config["MAX_CONTENT_LENGTH"] == 32 * 1024 * 1024
+
+
+def test_oversized_request_body_is_413(client, monkeypatch):
+    # a body over the cap is rejected (413) before being buffered fully into memory
+    monkeypatch.setitem(review_app.app.config, "MAX_CONTENT_LENGTH", 50)
+    res = client.post("/api/compare", data=b"x" * 300, content_type="application/json")
+    assert res.status_code == 413
+    assert res.get_json()["ok"] is False
+
+
 def test_story_preview_api_uses_compact_context(client):
     res = client.post("/api/story/preview", json={
         "issue_id": "MZ-API-STORY",
