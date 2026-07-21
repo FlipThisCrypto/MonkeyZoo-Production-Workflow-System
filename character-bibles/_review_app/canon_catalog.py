@@ -23,14 +23,29 @@ def _canon_root(workspace: Path) -> Path:
     return workspace / "03_APPROVED_CANON"
 
 
+_JSON_CACHE: dict[str, tuple[float, int, dict[str, Any]]] = {}
+
+
 def _read_json(path: Path) -> dict[str, Any]:
+    key = str(path.resolve())
+    try:
+        st = path.stat()
+        mtime, size = st.st_mtime, st.st_size
+    except OSError:
+        mtime, size = 0.0, 0
+    if key in _JSON_CACHE:
+        cached_mtime, cached_size, cached_data = _JSON_CACHE[key]
+        if cached_mtime == mtime and cached_size == size:
+            return cached_data
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
         raise CanonCatalogError(f"Malformed catalog inventory: {path.name}", 500) from exc
     if not isinstance(data, dict):
         raise CanonCatalogError(f"Catalog inventory must be an object: {path.name}", 500)
+    _JSON_CACHE[key] = (mtime, size, data)
     return data
+
 
 
 def _slug_for_location(item: dict[str, Any]) -> str:
