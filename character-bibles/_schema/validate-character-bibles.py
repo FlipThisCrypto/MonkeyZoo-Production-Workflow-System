@@ -70,6 +70,34 @@ def collect_character_ids(bibles):
     return ids
 
 
+# The identity handles bible_store._identity_index resolves a script's character
+# reference through. series_name is intentionally EXCLUDED: it holds a shared
+# archetype descriptor ("Emo Monkey / Fusion Squad lead" is on every lead), so a
+# shared value there is by design, not an identity collision. nicknames + the
+# folder name are added separately in find_handle_collisions.
+IDENTITY_HANDLE_FIELDS = ("character_id", "current_display_name", "personal_name", "legacy_label")
+
+
+def find_handle_collisions(bibles):
+    """Map each casefolded identity HANDLE to the distinct characters that claim it.
+    bible_store.resolve_character_id resolves a script's character reference through
+    exactly these handles (folder name, character_id, display/personal/legacy names,
+    and nicknames) via a last-write-wins index, so a handle claimed by two different
+    characters silently loads the WRONG character -- wrong HAIR and card colour, the
+    LOCKED identity this schema exists to protect. Alias Bibles resolve to their
+    alias_of target, so a handle shared with that same target is not a collision."""
+    by_handle = {}
+    for path, data in bibles:
+        ident = (data or {}).get("identification") or {}
+        target = ident.get("alias_of") or path.parent.name
+        handles = [path.parent.name, *(ident.get(f) for f in IDENTITY_HANDLE_FIELDS), *(ident.get("nicknames") or [])]
+        for handle in handles:
+            token = str(handle or "").strip().casefold()
+            if token:
+                by_handle.setdefault(token, {}).setdefault(target, set()).add(str(path))
+    return {token: targets for token, targets in by_handle.items() if len(targets) > 1}
+
+
 def find_duplicate_character_ids(bibles):
     """Map every character_id declared by more than one Bible to the files that
     declare it. A duplicate ID is a canon-integrity violation: downstream
@@ -190,6 +218,9 @@ def main():
     for character_id, paths in sorted(find_duplicate_character_ids(loaded).items()):
         joined = ", ".join(str(p) for p in sorted(paths))
         errors.append(f"duplicate character_id '{character_id}' declared by {len(paths)} Bibles: {joined}")
+    for token, targets in sorted(find_handle_collisions(loaded).items()):
+        who = "; ".join(f"{t} ({', '.join(sorted(paths))})" for t, paths in sorted(targets.items()))
+        errors.append(f"identity handle '{token}' resolves to {len(targets)} different characters: {who}")
     for path, data in loaded:
         file_errors, file_warnings = validate_bible(path, data, workspace_root, known_ids)
         errors.extend(file_errors)
