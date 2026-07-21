@@ -17,9 +17,12 @@ art-prompt validator (iterations 36/37) now guarantees.
 """
 from __future__ import annotations
 
+import json
 import sys
 import types
 from pathlib import Path
+
+import pytest
 
 SCRIPTS = Path(__file__).resolve().parents[1]  # 00_SYSTEM/scripts
 if str(SCRIPTS) not in sys.path:
@@ -170,3 +173,42 @@ def test_run_batch_dry_run_submits_nothing():
     out = rab.run_batch(_pack(), _panels(3), _args(variants=2, dry_run=True), queue_fn=q)
     assert out == {"ok": 0, "failed": 0}
     assert called["n"] == 0                                  # dry-run never contacts ComfyUI
+
+
+# ---- load_pack: clean operator-facing errors instead of tracebacks ------------
+
+def _issue_with_pack(tmp_path, content):
+    d = tmp_path / "02_MONTHLY_ISSUES" / "2026-08_Issue_06"
+    d.mkdir(parents=True)
+    if content is not None:
+        (d / "art_prompt_pack.json").write_text(content, encoding="utf-8")
+    return tmp_path
+
+
+def test_load_pack_missing_pack_is_actionable(tmp_path):
+    factory = _issue_with_pack(tmp_path, None)  # folder exists, pack does not
+    with pytest.raises(SystemExit, match="No art_prompt_pack.json"):
+        rab.load_pack("2026-08_Issue_06", factory)
+
+
+def test_load_pack_missing_issue_folder_is_clean(tmp_path):
+    with pytest.raises(SystemExit, match="No art_prompt_pack.json"):
+        rab.load_pack("2099-01_Issue_99", tmp_path)
+
+
+def test_load_pack_malformed_json_is_clean(tmp_path):
+    factory = _issue_with_pack(tmp_path, "{not valid json")
+    with pytest.raises(SystemExit, match="Malformed art_prompt_pack.json"):
+        rab.load_pack("2026-08_Issue_06", factory)
+
+
+def test_load_pack_no_panels_is_clean(tmp_path):
+    factory = _issue_with_pack(tmp_path, json.dumps({"issue_id": "x", "panels": []}))
+    with pytest.raises(SystemExit, match="no panels"):
+        rab.load_pack("2026-08_Issue_06", factory)
+
+
+def test_load_pack_valid_returns_pack(tmp_path):
+    factory = _issue_with_pack(tmp_path, json.dumps({"issue_id": "x", "panels": [{"panel_id": "P1"}]}))
+    pack = rab.load_pack("2026-08_Issue_06", factory)
+    assert pack["panels"][0]["panel_id"] == "P1"

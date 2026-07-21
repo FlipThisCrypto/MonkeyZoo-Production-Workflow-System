@@ -121,6 +121,22 @@ def queue(host, workflow):
 
 
 
+def load_pack(issue, factory=FACTORY):
+    """Load a promoted art_prompt_pack.json, failing with a clear, actionable
+    message (not a raw traceback) when it is absent, malformed, or empty."""
+    pack_file = factory / "02_MONTHLY_ISSUES" / issue / "art_prompt_pack.json"
+    if not pack_file.is_file():
+        raise SystemExit(f"No art_prompt_pack.json for {issue} at {pack_file} — "
+                         "promote the art prompt pack first (Stage 5).")
+    try:
+        pack = json.loads(pack_file.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise SystemExit(f"Malformed art_prompt_pack.json for {issue}: {exc}") from exc
+    if not isinstance(pack, dict) or not pack.get("panels"):
+        raise SystemExit(f"art_prompt_pack.json for {issue} has no panels to queue.")
+    return pack
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("issue")
@@ -137,9 +153,7 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    pack_file = FACTORY / "02_MONTHLY_ISSUES" / args.issue / "art_prompt_pack.json"
-    pack = json.loads(pack_file.read_text(encoding="utf-8"))
-
+    pack = load_pack(args.issue)
     panels = pack["panels"]
     only = [p.strip() for p in args.only.split(",") if p.strip()]
     if only:
