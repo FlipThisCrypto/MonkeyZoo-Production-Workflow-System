@@ -60,14 +60,32 @@ def _resolve_archive(folder,root):
  if primary.exists(): return primary
  legacy=_legacy_archive(folder,root)
  return legacy if legacy.exists() else primary
-def _valid_package(path):
- try:
-  with zipfile.ZipFile(path) as archive:
-   members=[item for item in archive.infolist() if not item.is_dir()]
-   if not members:return False
-   if archive.testzip() is not None:return False
-  return True
- except (OSError,EOFError,RuntimeError,zipfile.BadZipFile,zipfile.LargeZipFile):return False
+_VALID_PACKAGE_CACHE: dict[str, tuple[float, int, bool]] = {}
+
+
+def _valid_package(path: Path) -> bool:
+    key = str(path.resolve())
+    try:
+        st = path.stat()
+        mtime, size = st.st_mtime, st.st_size
+    except OSError:
+        return False
+    if key in _VALID_PACKAGE_CACHE:
+        cached_mtime, cached_size, cached_valid = _VALID_PACKAGE_CACHE[key]
+        if cached_mtime == mtime and cached_size == size:
+            return cached_valid
+    try:
+        with zipfile.ZipFile(path) as archive:
+            members = [item for item in archive.infolist() if not item.is_dir()]
+            if not members:
+                valid = False
+            else:
+                valid = archive.testzip() is None
+    except (OSError, EOFError, RuntimeError, zipfile.BadZipFile, zipfile.LargeZipFile):
+        valid = False
+    _VALID_PACKAGE_CACHE[key] = (mtime, size, valid)
+    return valid
+
 def evidence(folder,root):
  metadata=issue_workflow._json(folder/"metadata.json") or {};exports=folder/"exports";pdfs=sorted(exports.glob("*.pdf")) if exports.exists() else [];package_candidates=sorted([*exports.glob("*.zip"),*exports.glob("*.cbz")]) if exports.exists() else [];packages=[path for path in package_candidates if _valid_package(path)];invalid_packages=[path.name for path in package_candidates if path not in packages];covers=sorted((folder/"generated_art").rglob("*cover*.png")) if (folder/"generated_art").exists() else []
  qa=issue_workflow._qa_verdict(folder);qa_report=(folder/"qa_report.md").read_text(encoding="utf-8",errors="replace") if (folder/"qa_report.md").exists() else "";reported_hashes=re.findall(r"(?m)^Evidence hash:\s*([0-9a-f]{64})\s*$",qa_report);current_qa_hash=None
