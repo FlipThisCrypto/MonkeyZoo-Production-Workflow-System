@@ -18,8 +18,9 @@ Turn a rough idea into a complete, canon-safe, generation-ready issue package.
    `00_SYSTEM/nft_fusion_reference.md` — never invent tech behavior.
 
 ## Steps
-1. **Scaffold:** `python 00_SYSTEM/scripts/new_issue.py YYYY-MM <n> "Title"`
-   (aborts if the folder exists — that's your month-collision check).
+1. **Scaffold:** create the edition in MonkeyZoo Studio (guided intake; the
+   positional `new_issue.py` CLI is retired). Studio aborts if the edition
+   folder or issue ID already exists — that's your month-collision check.
 2. **Stage 1 Intake** (`00_SYSTEM/agents/stage_01_intake.md`): idea →
    `issue_brief.md`. Never ask questions; infer and mark `(inferred)`.
    Map informal character names to canon leads (e.g. "Emo" → Moodz).

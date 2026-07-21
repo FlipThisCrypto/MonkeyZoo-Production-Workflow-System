@@ -167,7 +167,7 @@ turn every Zombie/Stayed image into Patch.
 
 | # | Stage | Agent file | In → Out |
 |---|---|---|---|
-| 0 | You | — | rough idea → `01_IDEAS_INBOX/YYYY-MM-idea.md`; run `scripts/new_issue.py YYYY-MM ## "Title"` |
+| 0 | You | — | rough idea → `01_IDEAS_INBOX/YYYY-MM-idea.md`; scaffold the edition in MonkeyZoo Studio (guided intake) |
 | 1 | Intake | `agents/stage_01_intake.md` | idea → `issue_brief.md` |
 | 2 | Continuity | `agents/stage_02_continuity.md` | brief + bibles → canon-safe brief + verdict |
 | 3 | Showrunner | `agents/stage_03_showrunner.md` | brief → `issue_outline.md` (title, logline, arcs, page map, teaser) |
@@ -194,7 +194,7 @@ Do not paste full Character Bibles into script prompts.
 ## Scripts
 
 ```
-python 00_SYSTEM/scripts/new_issue.py 2026-08 6 "Title"      # scaffold next issue
+# scaffold the next edition in MonkeyZoo Studio (guided intake) — the positional new_issue.py CLI is retired
 python 00_SYSTEM/scripts/validate_issue.py 2026-07_Issue_05  # schema + cross-checks
 python 00_SYSTEM/scripts/validate_issue.py 2026-07_Issue_05 --art  # + panel files exist
 python 00_SYSTEM/scripts/validate_issue.py 2026-09_Issue_02 --integration  # + pixel gate on staged integration previews
