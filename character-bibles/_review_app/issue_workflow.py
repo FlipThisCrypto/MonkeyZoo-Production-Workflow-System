@@ -49,14 +49,24 @@ def _safe_issue_id(value: str) -> str:
     return value
 
 
+_ISSUE_PATH_CACHE: dict[tuple[str, str], Path] = {}
+
+
 def find_issue(issue_id: str, root: Path) -> Path:
     issue_id = _safe_issue_id(issue_id)
+    cache_key = (issue_id, str(root.resolve()))
+    if cache_key in _ISSUE_PATH_CACHE:
+        cached_path = _ISSUE_PATH_CACHE[cache_key]
+        if cached_path.is_dir():
+            return cached_path
     for folder in (root / "02_MONTHLY_ISSUES").iterdir():
         if not folder.is_dir() or folder.name.startswith("."):
             continue
         if _read_issue_id(folder) == issue_id:
+            _ISSUE_PATH_CACHE[cache_key] = folder
             return folder
     raise IssueWorkflowError(f"Unknown issue: {issue_id}")
+
 
 
 def _read_issue_id(folder: Path) -> str | None:
