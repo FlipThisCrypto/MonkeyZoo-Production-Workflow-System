@@ -192,6 +192,17 @@ def test_missing_character_not_masked_by_substring(story_root):
     assert missing not in story_context.validate_script_text("Other waited in the dark.", packet)
 
 
+def test_experimental_trait_advisory_uses_whole_word_match():
+    packet = {"selected_cast": [{
+        "character_id": "MZ-CHAR-X", "display_name": "Zed",
+        "catchphrases_allowed": [], "experimental_review_required": [{"name": "sad"}]}]}
+    advisory = "Zed uses experimental trait 'sad'; keep as review item."
+    # "sad" only appears inside "saddled" -> the trait is not actually used
+    assert advisory not in story_context.validate_script_text("Zed saddled the horse.", packet)
+    # a genuine whole-word use is still flagged for owner review
+    assert advisory in story_context.validate_script_text("Zed looked sad today.", packet)
+
+
 def test_glasses_validation_allows_explicit_no_glasses(story_root):
     packet = story_context.build_context_packet(
         story_context.normalize_setup(setup([{"character_id": "MZ-CHAR-OTHER", "role": "primary"}])),

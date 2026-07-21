@@ -545,7 +545,10 @@ def validate_script_text(script_text: str, packet: dict[str, Any]) -> list[str]:
                     warnings.append(f"{character['display_name']} may have incorrect glasses.")
     for character in packet["selected_cast"]:
         for trait in character.get("experimental_review_required", []):
-            if (trait.get("name") or "").lower() in text.lower():
+            trait_name = trait.get("name") or ""
+            # Whole-word match: a bare substring test raises a false advisory when
+            # a short trait name is embedded in another word ("sad" in "saddled").
+            if trait_name and re.search(rf"\b{re.escape(trait_name)}\b", text, re.I):
                 warnings.append(f"{character['display_name']} uses experimental trait '{trait['name']}'; keep as review item.")
     return warnings
 
