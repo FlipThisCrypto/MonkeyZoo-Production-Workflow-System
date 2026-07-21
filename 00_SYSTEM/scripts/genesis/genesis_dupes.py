@@ -53,9 +53,10 @@ def analyze(genesis_dir: Path) -> dict:
             order.append((pg["page_number"], pa["source_panel_id"]))
     hashes, bgs = {}, {}
     for _, pid in order:
-        im = Image.open(panel_dir / f"{pid}.png")
-        hashes[pid] = dhash(im)
-        bgs[pid] = bg_hash(im)
+        with Image.open(panel_dir / f"{pid}.png") as im:
+            hashes[pid] = dhash(im)
+            bgs[pid] = bg_hash(im)
+
 
     ids = [pid for _, pid in order]
     # exact + near-duplicate pairs (full frame)
