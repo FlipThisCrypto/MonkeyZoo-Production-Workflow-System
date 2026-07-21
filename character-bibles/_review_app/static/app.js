@@ -766,16 +766,18 @@ function toggleStoryBuilder(forceOpen = null) {
   const open = forceOpen === null ? $("viewStoryBuilder").classList.contains("hidden") : forceOpen;
   
   // Clear active states on navigation items
-  document.querySelectorAll(".nav-item").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll(".nav-item").forEach(b => { b.classList.remove("active"); b.removeAttribute("aria-current"); });
   
   if (open) {
     document.querySelector('[data-view="storyBuilder"]').classList.add("active");
+    document.querySelector('[data-view="storyBuilder"]').setAttribute("aria-current", "page");
     $("activeViewLabel").textContent = "Story Builder";
     document.querySelectorAll(".workspace-view").forEach(el => el.classList.add("hidden"));
     $("viewStoryBuilder").classList.remove("hidden");
     showWizardStep(1); // Reset to step 1
   } else {
     document.querySelector('[data-view="characters"]').classList.add("active");
+    document.querySelector('[data-view="characters"]').setAttribute("aria-current", "page");
     $("activeViewLabel").textContent = "Characters";
     document.querySelectorAll(".workspace-view").forEach(el => el.classList.add("hidden"));
     $("viewCharacters").classList.remove("hidden");
@@ -835,8 +837,9 @@ document.querySelectorAll(".nav-item").forEach(btn => {
     if (!viewName) return;
     
     // Update active nav button
-    document.querySelectorAll(".nav-item").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".nav-item").forEach(b => { b.classList.remove("active"); b.removeAttribute("aria-current"); });
     btn.classList.add("active");
+    btn.setAttribute("aria-current", "page");
     
     // Update breadcrumb
     const label = btn.innerText.replace(/Soon$/, "").trim();
