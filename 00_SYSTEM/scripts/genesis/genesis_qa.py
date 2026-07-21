@@ -40,7 +40,19 @@ def structural(plan: dict, genesis_dir: Path) -> dict:
     # rendered file sequence 01..24
     covers = sorted((genesis_dir / "web" / "covers").glob("*.jpg"))
     story = sorted((genesis_dir / "web" / "story_pages").glob("*.jpg"))
-    seq = [int(p.name[:2]) for p in sorted(covers + story, key=lambda p: p.name)]
+    # Filenames are expected to start with a two-digit page number (01..24). A
+    # stray file without that prefix must be reported as a QA problem, not crash
+    # the gate with a ValueError (int('co')) — the gate's job is to emit a verdict.
+    seq = []
+    malformed = []
+    for p in sorted(covers + story, key=lambda p: p.name):
+        prefix = p.name[:2]
+        if prefix.isdigit():
+            seq.append(int(prefix))
+        else:
+            malformed.append(p.name)
+    if malformed:
+        problems.append(f"render file(s) without a two-digit page prefix: {malformed[:5]}")
     if seq != list(range(1, 25)):
         problems.append(f"page file sequence not 01..24: {seq}")
     if len(story) != 22:
@@ -100,9 +112,10 @@ def shots(plan: dict) -> dict:
                 adjacent_close.append(pg["page_number"])
             prev = pa["shot"]
     n = sum(dist.values())
+    close_fraction = round((dist["close"] + dist["extreme_close"]) / n, 3) if n else 0.0
     return {
         "by_shot": dict(dist),
-        "close_fraction": round((dist["close"] + dist["extreme_close"]) / n, 3),
+        "close_fraction": close_fraction,
         "adjacent_closeups_same_page": sorted(set(adjacent_close)),
         "distinct_shot_types": len(dist),
     }
