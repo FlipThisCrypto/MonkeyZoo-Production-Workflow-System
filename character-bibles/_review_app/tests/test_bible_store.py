@@ -281,3 +281,18 @@ def test_invalid_status_is_rejected():
 def test_invalid_strength_is_rejected():
     with pytest.raises(bible_store.BibleStoreError):
         bible_store.normalize_trait_updates({"strength": "ludicrous"})
+
+
+def test_identity_index_invalidated_on_rename(bible_root):
+    # The identity index (name/alias -> id) is memoized per root. save_bible must
+    # invalidate it, or renaming a character's display name would leave the new name
+    # unresolvable until a server restart. Guard that invalidation explicitly.
+    root = bible_root
+    assert bible_store.resolve_character_id("Test", root) == "MZ-CHAR-TEST"     # builds+caches index
+    data = bible_store.load_bible("MZ-CHAR-TEST", root)
+    data["identification"]["current_display_name"] = "Renamed Hero"
+    bible_store.save_bible("MZ-CHAR-TEST", data, root)                          # must invalidate cache
+    assert bible_store.resolve_character_id("Renamed Hero", root) == "MZ-CHAR-TEST"
+    assert bible_store.resolve_character_id("MZ-CHAR-TEST", root) == "MZ-CHAR-TEST"
+    with pytest.raises(bible_store.BibleStoreError):
+        bible_store.resolve_character_id("Test", root)                          # old name is gone
