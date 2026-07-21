@@ -18,6 +18,11 @@ import issue_workflow
 
 VARIANT_ID = re.compile(r"^pack-\d{8}T\d{6}Z-[0-9a-f]{6}$")
 
+# Canonical prefix every valid style lock must lead with (matches Rule 3 in
+# 00_SYSTEM/scripts/validate_issue.py). A lock phrase not starting with this is
+# altered/non-canonical and must never reach a promoted pack.
+STYLE_LOCK_PREFIX = "MonkeyZoo house style"
+
 DEFAULT_STYLE_LOCK = (
     "MonkeyZoo house style: chibi cartoon monkey with oversized round head, "
     "huge white oval eyes with tiny black dot pupils, two small dot nostrils, "
@@ -150,8 +155,13 @@ def _style_lock(root: Path) -> str:
     if path.exists():
         text = path.read_text(encoding="utf-8", errors="replace")
         match = re.search(r">\s*\*\*\"([^\"]+)\"\*\*", text)
-        if match and len(match.group(1).strip()) >= 20:
-            return match.group(1).strip()
+        if match:
+            phrase = match.group(1).strip()
+            # Only accept an extracted phrase that is substantial AND canonical; a
+            # malformed style bible must not push a non-canonical lock into a pack
+            # (validate_issue.py Rule 3 would reject it downstream).
+            if len(phrase) >= 20 and phrase.startswith(STYLE_LOCK_PREFIX):
+                return phrase
     return DEFAULT_STYLE_LOCK
 
 
@@ -268,6 +278,9 @@ def validate_pack(pack: dict[str, Any], root: Path) -> dict[str, Any]:
     # letting a lock-violating pack be approved and promoted.
     lock = str(pack.get("style_lock_phrase") or "")
     base_negative = str(pack.get("base_negative_prompt") or "")
+    if lock and not lock.startswith(STYLE_LOCK_PREFIX):
+        findings.append({"level": "error",
+                         "message": f"style_lock_phrase is missing or altered; it must lead with '{STYLE_LOCK_PREFIX}'"})
     for panel in pack.get("panels", []):
         pid = panel.get("panel_id")
         if lock and not str(panel.get("prompt") or "").startswith(lock):
