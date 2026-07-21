@@ -28,17 +28,20 @@ def export(root: Path = ROOT) -> list[dict]:
         # docs/media tree: sibling subtrees like docs/media/expressions/ are
         # git-tracked and owned by export_static_catalog.py, and wiping them
         # here deletes 372 tracked files this script never regenerates.
-        if target_dir.exists():
-            shutil.rmtree(target_dir)
         if source and source.is_file():
-            target_dir.mkdir(parents=True)
             target = target_dir / f"portrait{source.suffix.lower()}"
-            shutil.copy2(source, target)
+            if not target_dir.exists():
+                target_dir.mkdir(parents=True)
+            if not target.exists() or target.stat().st_size != source.stat().st_size:
+                shutil.copy2(source, target)
             summary["primary_image"] = f"./media/{character_id}/{target.name}"
             summary["image_status"] = "approved"
         else:
+            if target_dir.exists():
+                shutil.rmtree(target_dir)
             summary["primary_image"] = None
             summary["image_status"] = "unavailable"
+
         records.append(summary)
     # Prune portrait folders for characters no longer in canon, without touching
     # sibling subtrees (expressions/, locations/, props/, ...).

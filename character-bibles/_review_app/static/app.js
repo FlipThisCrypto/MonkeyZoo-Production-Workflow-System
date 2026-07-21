@@ -70,11 +70,14 @@ function badge(text, cls = "") {
   return `<span class="badge ${cls}">${escapeHtml(text)}</span>`;
 }
 
+const HTML_ESCAPE_MAP = {
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+};
+
 function escapeHtml(value) {
-  return String(value ?? "").replace(/[&<>"']/g, (ch) => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-  }[ch]));
+  return String(value ?? "").replace(/[&<>"']/g, (ch) => HTML_ESCAPE_MAP[ch]);
 }
+
 
 async function api(path, options = {}) {
   const method = String(options.method || "GET").toUpperCase();

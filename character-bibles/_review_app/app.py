@@ -36,7 +36,10 @@ def story_kind(value: str) -> str:
 
 @app.get("/")
 def index():
-    return send_from_directory(APP_DIR / "static", "index.html")
+    response = send_from_directory(APP_DIR / "static", "index.html")
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    return response
+
 
 
 @app.get("/api/runtime-capabilities")
@@ -398,4 +401,6 @@ def _debug_enabled() -> bool:
 
 if __name__ == "__main__":
     debug = _debug_enabled()
-    app.run(host="127.0.0.1", port=8765, debug=debug, use_reloader=debug)
+    port = int(os.environ.get("PORT", "8765"))
+    app.run(host="127.0.0.1", port=port, debug=debug, use_reloader=debug)
+

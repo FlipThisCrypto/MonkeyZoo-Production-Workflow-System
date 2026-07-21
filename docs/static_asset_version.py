@@ -17,8 +17,14 @@ def versioned_script_url(path: Path, prefix: str = "/static/app.js") -> str:
 
 def replace_script_version(html: str, token: str, script_path: str = "./static/app.js") -> str:
     """Replace one or more existing query tokens with exactly one deployed hash."""
-    pattern = re.escape(script_path) + r"(?:\?v=[^\"'<>\s]*)?"
-    return re.sub(pattern, f"{script_path}?v={token}", html)
+    return replace_asset_version(html, token, script_path)
+
+
+def replace_asset_version(html: str, token: str, asset_path: str) -> str:
+    """Replace existing query tokens for any asset path with deployed SHA256 hash."""
+    pattern = re.escape(asset_path) + r"(?:\?v=[^\"'<>\s]*)?"
+    return re.sub(pattern, f"{asset_path}?v={token}", html)
+
 
 
 def update_html_for_deployed_bundle(html_path: Path, bundle_path: Path) -> str:

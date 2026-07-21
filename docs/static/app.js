@@ -71,11 +71,14 @@ function badge(text, cls = "") {
   return `<span class="badge ${cls}">${escapeHtml(text)}</span>`;
 }
 
+const HTML_ESCAPE_MAP = {
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+};
+
 function escapeHtml(value) {
-  return String(value ?? "").replace(/[&<>"']/g, (ch) => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-  }[ch]));
+  return String(value ?? "").replace(/[&<>"']/g, (ch) => HTML_ESCAPE_MAP[ch]);
 }
+
 
 // Intercept API calls for static GitHub Pages preview
 async function api(path, options = {}) {

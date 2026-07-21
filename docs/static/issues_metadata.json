@@ -84,6 +84,18 @@
         "pages":  2
     },
     {
+        "panels":  24,
+        "release_log":  "Draft Outline",
+        "is_demo":  false,
+        "qa_status":  "Pending",
+        "completion":  "40%",
+        "owner":  "Art Director",
+        "issue_id":  "MZ-2026-10-02",
+        "title":  "The House That Remembers",
+        "stage":  "4. Script",
+        "pages":  8
+    },
+    {
         "panels":  30,
         "release_log":  "Progress demonstration only",
         "is_demo":  true,

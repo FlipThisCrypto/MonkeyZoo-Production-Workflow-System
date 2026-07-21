@@ -34,7 +34,12 @@ $BannerStyle = @"
   flex-shrink: 0;
 }
 "@
-Add-Content -Path "$DocsDir/static/styles.css" -Value $BannerStyle
+$stylesContent = Get-Content -Path "$DocsDir/static/styles.css" -Raw
+if ($stylesContent -notmatch "demo-preview-banner") {
+    Add-Content -Path "$DocsDir/static/styles.css" -Value $BannerStyle
+}
+
+
 
 # 3. Generate issues_metadata.json from 02_MONTHLY_ISSUES
 $Issues = @()

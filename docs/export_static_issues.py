@@ -19,28 +19,35 @@ if __name__ == "__main__":
         if issue.get("degraded"): continue
         try:
             folder = issue_workflow.find_issue(issue["issue_id"], ROOT)
-            issue["story"] = story_workspace.summary(folder, ROOT)
         except Exception as exc:
-            issue["story"] = {"degraded": True, "error": str(exc), "outlines": [], "scripts": []}
-        try:
-            folder = issue_workflow.find_issue(issue["issue_id"], ROOT)
-            issue["layout"] = page_panel_workspace.summary(folder, ROOT)
-        except Exception as exc:
-            issue["layout"] = {"degraded": True, "error": str(exc), "variants": []}
-        try:
-            issue["art_prompts"] = art_prompt_workspace.summary(issue_workflow.find_issue(issue["issue_id"], ROOT), ROOT)
-        except Exception as exc:
-            issue["art_prompts"] = {"degraded": True, "error": str(exc), "variants": [], "canonical_pack_exists": False}
-        try:
-            issue["art_queue"] = art_queue_workspace.summary(issue_workflow.find_issue(issue["issue_id"], ROOT), ROOT)
-        except Exception as exc:
-            issue["art_queue"] = {"degraded": True, "error": str(exc), "queue": {"items": []}}
-        try:
-            issue["qa"] = visual_qa_workspace.summary(issue_workflow.find_issue(issue["issue_id"], ROOT), ROOT)
-        except Exception as exc:
-            issue["qa"] = {"degraded": True, "error": str(exc), "evidence": {"panels": [], "blockers": [str(exc)]}, "reviews": []}
-        try:
-            issue["release"] = release_workspace.readiness(issue_workflow.find_issue(issue["issue_id"], ROOT), ROOT)
-        except Exception as exc:
-            issue["release"] = {"degraded": True, "error": str(exc), "evidence": {"files": [], "blockers": [str(exc)]}}
+            folder = None
+            issue["degraded"] = True
+            issue["error"] = str(exc)
+
+        if folder is not None:
+            try:
+                issue["story"] = story_workspace.summary(folder, ROOT)
+            except Exception as exc:
+                issue["story"] = {"degraded": True, "error": str(exc), "outlines": [], "scripts": []}
+            try:
+                issue["layout"] = page_panel_workspace.summary(folder, ROOT)
+            except Exception as exc:
+                issue["layout"] = {"degraded": True, "error": str(exc), "variants": []}
+            try:
+                issue["art_prompts"] = art_prompt_workspace.summary(folder, ROOT)
+            except Exception as exc:
+                issue["art_prompts"] = {"degraded": True, "error": str(exc), "variants": [], "canonical_pack_exists": False}
+            try:
+                issue["art_queue"] = art_queue_workspace.summary(folder, ROOT)
+            except Exception as exc:
+                issue["art_queue"] = {"degraded": True, "error": str(exc), "queue": {"items": []}}
+            try:
+                issue["qa"] = visual_qa_workspace.summary(folder, ROOT)
+            except Exception as exc:
+                issue["qa"] = {"degraded": True, "error": str(exc), "evidence": {"panels": [], "blockers": [str(exc)]}, "reviews": []}
+            try:
+                issue["release"] = release_workspace.readiness(folder, ROOT)
+            except Exception as exc:
+                issue["release"] = {"degraded": True, "error": str(exc), "evidence": {"files": [], "blockers": [str(exc)]}}
+
     (ROOT / "docs" / "static" / "issue-workflows.json").write_text(json.dumps(issues, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

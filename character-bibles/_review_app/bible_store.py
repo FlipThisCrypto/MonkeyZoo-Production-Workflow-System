@@ -130,6 +130,8 @@ def save_bible(character_id: str, data: dict[str, Any], root: Path = BIBLES_ROOT
     if not path.exists():
         raise BibleStoreError(f"Unknown character: {character_id}")
     _atomic_write_text(path, yaml.safe_dump(data, sort_keys=False, allow_unicode=True, width=110))
+    _IDENTITY_INDEXES.pop(str(root.resolve()), None)
+
 
 
 def load_all(root: Path = BIBLES_ROOT) -> list[tuple[str, dict[str, Any]]]:

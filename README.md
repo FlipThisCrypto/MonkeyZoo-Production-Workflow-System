@@ -15,10 +15,12 @@ Open source at
 The local writable production app lives at `character-bibles/_review_app/`.
 
 ```powershell
-.\Start-BananaLab.ps1
+.\Start-BananaLab.ps1             # Defaults to port 8765
+.\Start-BananaLab.ps1 -Port 9000   # Custom local port
 ```
 
-Opens `http://127.0.0.1:8765` (loopback only). GitHub Pages remains a public **read-only** preview — not a writable production host.
+Opens `http://127.0.0.1:8765` (loopback only, configurable via `-Port` or `$env:PORT`). GitHub Pages remains a public **read-only** preview — not a writable production host.
+
 
 | Doc | Contents |
 |---|---|
