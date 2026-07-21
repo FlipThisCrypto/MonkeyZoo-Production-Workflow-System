@@ -39,6 +39,15 @@ jobs:
       run: |
         pytest
 
+    - name: Validate character bibles (canon integrity)
+      # Enforce the character-bible schema on every push/PR: required identity
+      # fields, trait vocabulary, development-level rules, referenced images, and
+      # duplicate character_id collisions. Exits non-zero on any schema error, so
+      # a malformed bible or an identity collision can no longer reach main with
+      # CI green. Mirrors the manual step run by scripts/workflow_engine.py.
+      run: |
+        python character-bibles/_schema/validate-character-bibles.py --root character-bibles --workspace-root .
+
     - name: Validate static pages assets
       run: |
         python -c '
