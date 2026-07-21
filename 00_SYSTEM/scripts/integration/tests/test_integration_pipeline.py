@@ -321,3 +321,23 @@ def test_build_panel_rejects_uncalibrated_location(tmp_path):
     spec_path.write_text(_json.dumps(spec), encoding="utf-8")
     with pytest.raises(ValueError, match="unknown location"):
         build_panel.main(str(spec_path))
+
+
+# --- sample_ambient_luma must never crash on an edge / out-of-bounds anchor ---
+
+@pytest.mark.parametrize("anchor", [
+    (0, 0), (49, 39), (999, 999), (-500, -500), (25, 0), (0, 25),
+])
+def test_sample_ambient_luma_handles_any_anchor(anchor):
+    import compositor
+    from PIL import Image
+    val = compositor.sample_ambient_luma(Image.new("RGB", (50, 40), (80, 80, 80)), anchor)
+    assert isinstance(val, float) and 0.0 <= val <= 255.0
+
+
+def test_sample_ambient_luma_in_bounds_reads_the_plate():
+    import compositor
+    from PIL import Image
+    # a uniform mid-grey plate sampled well inside returns that grey (~80), not the neutral fallback
+    val = compositor.sample_ambient_luma(Image.new("RGB", (200, 200), (80, 80, 80)), (100, 120))
+    assert abs(val - 80.0) < 1.0

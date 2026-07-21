@@ -63,11 +63,17 @@ def _shadow_angle(direction_text: str) -> float:
 
 
 def sample_ambient_luma(plate: Image.Image, anchor_px: tuple[float, float], radius: int = 60) -> float:
-    x, y = anchor_px
     w, h = plate.size
-    box = (max(0, int(x - radius)), max(0, int(y - radius * 1.4)),
-           min(w, int(x + radius)), min(h, int(y)))
-    patch = np.array(plate.convert("RGB").crop(box), dtype=np.float32)
+    # Clamp the anchor into the plate first: an anchor at/past an edge (a character
+    # placed near the frame border) otherwise produces an inverted crop box and PIL
+    # raises "right < left". Order the box and fall back to neutral for a degenerate one.
+    x = min(max(int(anchor_px[0]), 0), w)
+    y = min(max(int(anchor_px[1]), 0), h)
+    left, right = max(0, x - radius), min(w, x + radius)
+    top, bottom = max(0, y - int(radius * 1.4)), min(h, y)
+    if right <= left or bottom <= top:
+        return 128.0
+    patch = np.array(plate.convert("RGB").crop((left, top, right, bottom)), dtype=np.float32)
     return float(patch.mean()) if patch.size else 128.0
 
 
