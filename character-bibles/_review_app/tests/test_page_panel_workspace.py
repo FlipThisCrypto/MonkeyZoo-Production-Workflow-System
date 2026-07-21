@@ -50,6 +50,37 @@ def test_parser_builds_schema_valid_plan_and_resolves_alias(factory):
     assert result["status"]=="passed"; assert plan["pages"][0]["panels"][0]["characters"]==["MZ-CHAR-001","MZ-CHAR-ZOMBIE"]
     assert plan["pages"][0]["panels"][0]["_props"]==["signal console"]
 
+UNKNOWN_SCRIPT="""# MZ-2027-03-01 — Script
+### Page 1 — Opening
+**Panel 1.1 (Full)**
+- Location: Signal Lab
+- Characters: MZ-CHAR-001, MZ-CHAR-DOESNOTEXIST
+- Camera: Wide
+- Action: A stranger appears.
+- Emotion: Alert
+- Dialogue: ASH: Who are you?
+- Caption: —
+- SFX: —
+- Visual notes: —
+- Continuity notes: —
+"""
+
+def test_unknown_character_is_flagged_not_fatal(factory):
+    # A script naming an unknown character must DEGRADE (surface the name in
+    # _unknown_characters), never crash the whole parse. This relies on
+    # bible_store.BibleStoreError subclassing ValueError so parse_script's
+    # `except ValueError` catches the unresolved name. Lock both the observable
+    # behaviour and the underlying type contract, so a future reparent of
+    # BibleStoreError (or a narrowed except) can't silently turn one bad name in
+    # a user-authored script into a hard failure of the entire layout stage.
+    assert issubclass(layout.bible_store.BibleStoreError, ValueError)
+    root,issue=factory; (issue/"issue_script.md").write_text(UNKNOWN_SCRIPT,encoding="utf-8")
+    plan=layout.parse_script(issue,root)                     # must not raise
+    panel=plan["pages"][0]["panels"][0]
+    assert panel["characters"]==["MZ-CHAR-001"]             # the resolvable name still resolves
+    assert panel["_unknown_characters"]==["MZ-CHAR-DOESNOTEXIST"]  # the unknown is flagged, not fatal
+    assert "MZ-CHAR-DOESNOTEXIST" not in panel["references_required"]
+
 def test_variant_requires_page_plan_stage(factory):
     root,issue=factory; state=json.loads((issue/".workflow-status.json").read_text()); state["active_stage"]="script"; layout._write_json(issue/".workflow-status.json",state)
     with pytest.raises(layout.PagePanelError,match="current stage is script"): layout.create_variant(issue,root)
