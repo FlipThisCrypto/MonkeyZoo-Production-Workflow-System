@@ -30,7 +30,10 @@ def classify(pa, pg, crop, bespoke: set) -> dict:
     pid = pa["source_panel_id"]
     cs = pa.get("characters") or []
     shot = pa["shot"]
-    side = crop.get(pid, {}).get("crop_left_pct", 0)
+    # crop_left_pct may be absent OR explicitly null (the auditor emits null when a
+    # panel's side-crop is unmeasured). Keep it as None so the wide-shot verdict can
+    # fall back to "review" instead of crashing on `None < 10`.
+    side = crop.get(pid, {}).get("crop_left_pct")
     ncc = len(cs)
     if pid in bespoke:
         return dict(classification="CHARACTER_REGENERATED", proposed_solution="bespoke Z-Image pose composited to the panel",
@@ -44,7 +47,7 @@ def classify(pa, pg, crop, bespoke: set) -> dict:
     if shot == "wide":
         return dict(classification="KEEP", proposed_solution="retain widescreen establishing composite",
                     generation_method="n/a", status="RESOLVED",
-                    visual_qa_result="pass" if side < 10 else "review",
+                    visual_qa_result="pass" if (side is not None and side < 10) else "review",
                     defect="none — wide establishing reads intentionally at band size",
                     owner_review_required=False)
     # close / medium character beats -> bespoke would read better
