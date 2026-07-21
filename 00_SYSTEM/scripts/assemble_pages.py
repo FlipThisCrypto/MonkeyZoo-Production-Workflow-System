@@ -21,7 +21,11 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
+__all__ = ["draw_bubble", "draw_caption", "draw_sfx", "assemble_issue", "PAGE_W", "PAGE_H", "MARGIN", "GUTTER", "BORDER"]
+
+
 FACTORY = Path(__file__).resolve().parents[2]
+
 PAGE_W, PAGE_H = 2480, 3508
 MARGIN, GUTTER, BORDER = 100, 40, 12
 FONTS = Path(r"C:\Windows\Fonts")
