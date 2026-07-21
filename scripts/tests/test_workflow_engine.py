@@ -88,3 +88,99 @@ def test_full_workflow_writes_improvement_and_reproducibility(tmp_path: Path) ->
     assert (run_dir / "improvement" / "improvement-report.md").exists()
     assert (run_dir / "reproducibility" / "capture.json").exists()
 
+
+
+# --- canon-integrity gates in the orchestrator (validate_* helpers) ---
+
+def _bible(*, naming_status="codename_only", personal_name=None, ref=None, glasses=None):
+    return {"identification": {"naming_status": naming_status, "personal_name": personal_name},
+            "visual_canon": {"primary_reference_image": ref, "glasses_status": glasses}}
+
+
+def _artifacts(tmp_path: Path) -> Path:
+    run_dir = tmp_path / "run"
+    (run_dir / "artifacts").mkdir(parents=True)
+    return run_dir
+
+
+def test_character_rules_flags_non_clever_confirmed_glasses(tmp_path, monkeypatch):
+    monkeypatch.setattr(engine, "load_selected_bibles",
+                        lambda config: [("MZ-CHAR-999", _bible(glasses="confirmed_glasses", ref=None))])
+    cfg = sample_config(); cfg["validation"]["require_reference_images"] = False
+    issues = engine.validate_character_rules(cfg, tmp_path)
+    glasses = [i for i in issues if "confirmed glasses" in i["message"]]
+    assert glasses and glasses[0]["severity"] == "high"
+
+
+def test_character_rules_allows_clever_glasses(tmp_path, monkeypatch):
+    monkeypatch.setattr(engine, "load_selected_bibles",
+                        lambda config: [("MZ-CHAR-CLEVER", _bible(glasses="confirmed_glasses", ref=None))])
+    cfg = sample_config(); cfg["validation"]["require_reference_images"] = False
+    assert not any("glasses" in i["message"] for i in engine.validate_character_rules(cfg, tmp_path))
+
+
+def test_character_rules_flags_uncanonized_personal_name(tmp_path, monkeypatch):
+    monkeypatch.setattr(engine, "load_selected_bibles",
+                        lambda config: [("MZ-CHAR-X", _bible(naming_status="codename_only",
+                                                             personal_name="Bartholomew", ref=None))])
+    cfg = sample_config(); cfg["validation"]["require_reference_images"] = False
+    assert any("Personal name exists without" in i["message"]
+               for i in engine.validate_character_rules(cfg, tmp_path))
+
+
+def test_character_rules_flags_missing_reference_when_required(tmp_path, monkeypatch):
+    monkeypatch.setattr(engine, "load_selected_bibles",
+                        lambda config: [("MZ-CHAR-X", _bible(ref=None))])
+    cfg = sample_config()  # require_reference_images defaults True
+    assert any("Primary reference image is missing" in i["message"]
+               for i in engine.validate_character_rules(cfg, tmp_path))
+
+
+def test_script_outputs_flags_overlong_dialogue(tmp_path):
+    run_dir = _artifacts(tmp_path)
+    (run_dir / "artifacts" / "generated-script.md").write_text(
+        '- Dialogue: "' + " ".join(["word"] * 20) + '"\n', encoding="utf-8")
+    assert any("exceeds lettering word limit" in i["message"]
+               for i in engine.validate_script_outputs(sample_config(), run_dir))
+
+
+def test_script_outputs_flags_continuity_not_owner_gated(tmp_path):
+    run_dir = _artifacts(tmp_path)
+    (run_dir / "artifacts" / "generated-script.md").write_text('- Dialogue: "hi"\n', encoding="utf-8")
+    (run_dir / "artifacts" / "proposed-continuity-update.json").write_text(
+        json.dumps({"status": "canon"}), encoding="utf-8")
+    flagged = [i for i in engine.validate_script_outputs(sample_config(), run_dir)
+               if "not marked for owner approval" in i["message"]]
+    assert flagged and flagged[0]["severity"] == "high"
+
+
+def test_script_outputs_accepts_owner_gated_continuity(tmp_path):
+    run_dir = _artifacts(tmp_path)
+    (run_dir / "artifacts" / "generated-script.md").write_text('- Dialogue: "hi"\n', encoding="utf-8")
+    (run_dir / "artifacts" / "proposed-continuity-update.json").write_text(
+        json.dumps({"status": "proposed_owner_review_required"}), encoding="utf-8")
+    assert not any("not marked for owner approval" in i["message"]
+                   for i in engine.validate_script_outputs(sample_config(), run_dir))
+
+
+def test_counts_12page_front_cover_must_be_single_panel(tmp_path):
+    run_dir = _artifacts(tmp_path)
+    pages = ([{"page": 1, "panel_count": 3}]
+             + [{"page": i, "panel_count": 4} for i in range(2, 12)]
+             + [{"page": 12, "panel_count": 1}])
+    engine.json_write(run_dir / "artifacts" / "page-plan.json",
+                      {"page_count": 12, "total_panels": 44, "pages": pages})
+    cfg = sample_config(); cfg["page_count"] = 12; cfg["panel_count"] = 44
+    assert any("Front Cover" in i["message"] for i in engine.validate_counts(cfg, run_dir))
+
+
+def test_counts_12page_interior_panel_range_enforced(tmp_path):
+    run_dir = _artifacts(tmp_path)
+    pages = ([{"page": 1, "panel_count": 1}]
+             + [{"page": i, "panel_count": 4} for i in range(2, 11)]
+             + [{"page": 11, "panel_count": 9}]      # over the 2-6 interior range
+             + [{"page": 12, "panel_count": 1}])
+    engine.json_write(run_dir / "artifacts" / "page-plan.json",
+                      {"page_count": 12, "total_panels": 50, "pages": pages})
+    cfg = sample_config(); cfg["page_count"] = 12; cfg["panel_count"] = 50
+    assert any("expected between 2 and 6" in i["message"] for i in engine.validate_counts(cfg, run_dir))
