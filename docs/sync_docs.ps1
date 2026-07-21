@@ -663,4 +663,12 @@ Set-Content -Path "$DocsDir/index.html" -Value $HtmlContent -NoNewline
 $DeployedAppHash = (python "$DocsDir/static_asset_version.py" --update-html "$DocsDir/index.html" "$DocsDir/static/app.js").Trim()
 if ($LASTEXITCODE -ne 0 -or $DeployedAppHash -notmatch '^[0-9a-f]{64}$') { throw "Deployed static app.js version generation failed" }
 
+# Cache-bust the stylesheets too, versioned from their DEPLOYED bytes (styles.css
+# has the runtime banner appended above, so its deployed content differs from the
+# source). Without this, returning visitors keep stale CSS after a style change.
+foreach ($css in @('styles.css', 'banana-theme.css')) {
+    $DeployedCssHash = (python "$DocsDir/static_asset_version.py" --update-asset "$DocsDir/index.html" "./static/$css" "$DocsDir/static/$css").Trim()
+    if ($LASTEXITCODE -ne 0 -or $DeployedCssHash -notmatch '^[0-9a-f]{64}$') { throw "Deployed static $css version generation failed" }
+}
+
 Write-Output "MonkeyZoo Studio Pages Sync Complete!"
