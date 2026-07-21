@@ -11,7 +11,11 @@ import uuid
 from pathlib import Path
 from typing import Any
 
+__all__ = ["create_issue", "IssueCreationError"]
+
+
 FACTORY = Path(__file__).resolve().parents[2]
+
 ISSUE_ID_RE = re.compile(r"^MZ-\d{4}-\d{2}-\d{2}$")
 CHARACTER_ID_RE = re.compile(r"^MZ-CHAR-[A-Z0-9-]+$")
 OUTPUT_REQUIREMENTS = {"cover", "metadata", "social copy", "QA"}
