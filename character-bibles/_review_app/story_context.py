@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import os
 import re
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -10,6 +12,25 @@ __all__ = ["StoryContextError", "ADVENTURE_STYLES"]
 
 
 import bible_store as store
+
+
+def _atomic_write_text(path: Path, text: str) -> None:
+    """Write via a temp file + fsync + os.replace so a crash or full disk mid-write
+    can't leave a truncated preview/sample file that then fails to parse on read.
+    Matches the atomic writes used by bible_store / release_workspace / story_workspace."""
+    fd, temporary = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=str(path.parent))
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as stream:
+            stream.write(text)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+    except BaseException:
+        try:
+            os.unlink(temporary)
+        except OSError:
+            pass
+        raise
 
 
 ADVENTURE_STYLES = [
@@ -126,7 +147,7 @@ def save_preview(body: dict[str, Any], bibles_root: Path, workspace_root: Path) 
     written = []
     for name, text in files.items():
         path = out_dir / name
-        path.write_text(text, encoding="utf-8")
+        _atomic_write_text(path, text)
         written.append(str(path))
     return {**preview, "written_files": written}
 
@@ -160,7 +181,7 @@ def generate_sample_issue(body: dict[str, Any], bibles_root: Path, workspace_roo
         written = []
         for name, text in files.items():
             path = out_dir / name
-            path.write_text(text, encoding="utf-8")
+            _atomic_write_text(path, text)
             written.append(str(path))
         result["written_files"] = written
     return result

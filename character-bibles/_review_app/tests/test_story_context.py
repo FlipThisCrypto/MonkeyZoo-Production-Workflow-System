@@ -190,3 +190,14 @@ def test_glasses_validation_allows_explicit_no_glasses(story_root):
     assert "Other may have incorrect glasses." not in warnings
     warnings = story_context.validate_script_text("Other adjusts the glasses in this panel.", packet)
     assert "Other may have incorrect glasses." in warnings
+
+
+def test_atomic_write_text_overwrites_and_leaves_no_temp(tmp_path):
+    # story_context previews are now written atomically (temp + fsync + os.replace)
+    # like its siblings, so a crash mid-write can't leave a truncated file.
+    p = tmp_path / "preview.json"
+    story_context._atomic_write_text(p, '{"a": 1}')
+    assert p.read_text(encoding="utf-8") == '{"a": 1}'
+    story_context._atomic_write_text(p, "replaced")
+    assert p.read_text(encoding="utf-8") == "replaced"
+    assert sorted(f.name for f in tmp_path.iterdir()) == ["preview.json"]   # no .tmp leftovers
