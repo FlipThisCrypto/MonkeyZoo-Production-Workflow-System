@@ -139,7 +139,9 @@ def generate(name: str, pose: str, seed: int, prefix: str = "MZ-GEN") -> Path:
 def key_backdrop(src: Path) -> Image.Image:
     """Remove the flat card-colour backdrop by hue (border-connected), robust to
     the vignette. Returns an RGBA character with a clean alpha."""
-    p = Image.open(src).convert("RGB")
+    with Image.open(src) as img:
+        p = img.convert("RGB")
+
     hsv = np.asarray(p.convert("HSV")).astype(np.int16)
     H, S = hsv[..., 0], hsv[..., 1]
     corner = np.concatenate([hsv[:20, :20].reshape(-1, 3), hsv[:20, -20:].reshape(-1, 3)])
