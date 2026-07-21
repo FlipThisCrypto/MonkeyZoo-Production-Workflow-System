@@ -92,6 +92,31 @@ def test_trait_api_updates_bible(client):
     assert res.get_json()["trait"]["status"] == "established"
 
 
+@pytest.mark.parametrize("route", [
+    "/api/characters/MZ-CHAR-API/trait",
+    "/api/characters/MZ-CHAR-API/field",
+])
+def test_write_endpoint_missing_path_is_structured_400(client, route):
+    # a valid JSON body without the required "path" used to raise KeyError -> 500
+    res = client.post(route, json={"note": "no path given"})
+    assert res.status_code == 400
+    body = res.get_json()
+    assert body["ok"] is False and "path" in body["error"]
+
+
+@pytest.mark.parametrize("route", [
+    "/api/characters/MZ-CHAR-API/trait",
+    "/api/characters/MZ-CHAR-API/field",
+    "/api/compare",
+])
+def test_write_endpoint_non_object_body_is_structured_400(client, route):
+    # a non-object JSON body (list/string) used to raise TypeError/AttributeError -> 500
+    res = client.post(route, json=["not", "an", "object"])
+    assert res.status_code == 400
+    body = res.get_json()
+    assert body["ok"] is False and "JSON object" in body["error"]
+
+
 def test_story_preview_api_uses_compact_context(client):
     res = client.post("/api/story/preview", json={
         "issue_id": "MZ-API-STORY",

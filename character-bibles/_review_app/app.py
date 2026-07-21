@@ -34,6 +34,24 @@ def story_kind(value: str) -> str:
     return kinds[value]
 
 
+def _json_object() -> dict:
+    """Parse the request body as a JSON object or 400. Malformed JSON already 400s
+    via get_json(force=True); this additionally rejects a valid-but-non-object body
+    (list/string/number) that would otherwise blow up deep in a handler as a 500."""
+    body = request.get_json(force=True)
+    if not isinstance(body, dict):
+        raise BadRequest("Request body must be a JSON object")
+    return body
+
+
+def _require_str(body: dict, key: str) -> str:
+    """A required, non-empty string field, or a structured 400 (never a 500)."""
+    value = body.get(key)
+    if not isinstance(value, str) or not value.strip():
+        raise BadRequest(f"Missing or invalid required field: {key}")
+    return value
+
+
 @app.get("/")
 def index():
     response = send_from_directory(APP_DIR / "static", "index.html")
@@ -111,15 +129,17 @@ def character_detail(character_id):
 
 @app.post("/api/characters/<character_id>/trait")
 def update_trait(character_id):
-    body = request.get_json(force=True)
-    trait = store.update_trait(character_id, body["path"], body.get("updates", {}), body.get("note"), BIBLES_ROOT)
+    body = _json_object()
+    path = _require_str(body, "path")
+    trait = store.update_trait(character_id, path, body.get("updates", {}), body.get("note"), BIBLES_ROOT)
     return jsonify({"ok": True, "trait": trait})
 
 
 @app.post("/api/characters/<character_id>/field")
 def update_field(character_id):
-    body = request.get_json(force=True)
-    value = store.update_field(character_id, body["path"], body.get("value"), body.get("action", "edit_field"), body.get("note"), BIBLES_ROOT)
+    body = _json_object()
+    path = _require_str(body, "path")
+    value = store.update_field(character_id, path, body.get("value"), body.get("action", "edit_field"), body.get("note"), BIBLES_ROOT)
     return jsonify({"ok": True, "value": value})
 
 
@@ -130,7 +150,7 @@ def undo(character_id):
 
 @app.post("/api/compare")
 def compare():
-    body = request.get_json(force=True)
+    body = _json_object()
     return jsonify(store.comparison(body.get("character_ids", []), BIBLES_ROOT))
 
 
