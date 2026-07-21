@@ -100,3 +100,26 @@ def test_compute_slots_grid_partitions_page_within_margins():
     tops = [s[1] for s in slots]
     assert tops == sorted(tops)
     assert slots[1][1] >= slots[0][1] + slots[0][3]
+
+
+# --- fit_cover robustness: a bad crop window must never crash the page build ---
+
+@pytest.mark.parametrize("crop", [
+    None,
+    (0.1, 0.1, 0.9, 0.9),          # normal
+    (0.5, 0.5, 0.5, 0.5),          # degenerate (zero area) -> used to ZeroDivisionError
+    (0.9, 0.1, 0.1, 0.9),          # inverted L>R -> used to raise "right < left"
+    (-0.5, 0.0, 1.5, 1.0),         # out of [0,1]
+    (0.0, 0.9, 1.0, 0.1),          # inverted T>B
+])
+def test_fit_cover_never_crashes_and_returns_slot_size(crop):
+    from PIL import Image
+    out = ap.fit_cover(Image.new("RGB", (200, 200), "white"), 128, 96, crop)
+    assert out.size == (128, 96)
+
+
+def test_fit_cover_normal_crop_matches_previous_behaviour():
+    # a valid window still crops then covers to the slot (regression guard)
+    from PIL import Image
+    src = Image.new("RGB", (400, 300), "white")
+    assert ap.fit_cover(src, 160, 90, (0.25, 0.25, 0.75, 0.75)).size == (160, 90)

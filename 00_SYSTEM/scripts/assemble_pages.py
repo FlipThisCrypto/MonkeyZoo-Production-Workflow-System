@@ -173,10 +173,19 @@ def parse_dialogue(s):
 def fit_cover(img, w, h, crop=None):
     if crop:
         L, T, R, B = crop
-        img = img.crop((int(L * img.width), int(T * img.height),
-                        int(R * img.width), int(B * img.height)))
+        # A malformed crop window (inverted L>R / T>B, out of [0,1], or zero-area) must
+        # not crash the whole page build: clamp, order, and skip a degenerate window.
+        L, R = sorted((min(max(L, 0.0), 1.0), min(max(R, 0.0), 1.0)))
+        T, B = sorted((min(max(T, 0.0), 1.0), min(max(B, 0.0), 1.0)))
+        x0, x1 = int(L * img.width), int(R * img.width)
+        y0, y1 = int(T * img.height), int(B * img.height)
+        if x1 > x0 and y1 > y0:
+            img = img.crop((x0, y0, x1, y1))
+    w, h = max(1, int(w)), max(1, int(h))
+    if img.width == 0 or img.height == 0:
+        return Image.new("RGB", (w, h))
     s = max(w / img.width, h / img.height)
-    img = img.resize((round(img.width * s), round(img.height * s)), Image.LANCZOS)
+    img = img.resize((max(1, round(img.width * s)), max(1, round(img.height * s))), Image.LANCZOS)
     x = (img.width - w) // 2
     y = (img.height - h) // 2
     return img.crop((x, y, x + w, y + h))
