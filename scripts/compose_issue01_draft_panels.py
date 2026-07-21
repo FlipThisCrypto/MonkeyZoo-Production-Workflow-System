@@ -6,9 +6,7 @@ These are production *drafts* (composites), not final lettered comic art.
 """
 from __future__ import annotations
 
-import io
 import json
-import sys
 import urllib.error
 import urllib.request
 from pathlib import Path

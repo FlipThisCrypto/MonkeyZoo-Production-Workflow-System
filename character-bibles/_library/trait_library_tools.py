@@ -143,6 +143,7 @@ def harvested_project_options(bibles_root: Path = BIBLES_ROOT) -> dict[str, list
     for bible_path in sorted(bibles_root.glob("MZ-CHAR-*/bible.yaml")):
         data = load_bible(bible_path)
         ident = data.get("identification", {})
+        character_id = bible_path.parent.name          # e.g. "MZ-CHAR-001"
         for trait in walk_traits(data):
 
             key = (trait["category"], str(trait.get("name")), str(trait.get("value")))

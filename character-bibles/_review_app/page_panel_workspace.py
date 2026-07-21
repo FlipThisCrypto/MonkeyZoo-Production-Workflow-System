@@ -23,7 +23,7 @@ PANEL = re.compile(r"^\*\*Panel\s+(\d+)\.(\d+)\s*\(([^)]*)\)\*\*\s*$", re.I | re
 FIELDS = {"location":"location", "characters":"characters", "camera":"camera_angle", "action":"action", "emotion":"emotion", "dialogue":"dialogue", "caption":"caption", "sfx":"sfx", "visual notes":"visual_notes", "continuity notes":"continuity_notes", "props":"props"}
 
 
-__all__ = ["validate_plan", "parse_script", "build_plan", "PagePanelError"]
+__all__ = ["validate_plan", "parse_script", "PagePanelError"]
 
 
 class PagePanelError(ValueError):

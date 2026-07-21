@@ -218,7 +218,6 @@ def main() -> None:
     if len(sys.argv) < 3:
         raise SystemExit("Usage: python new_issue.py YYYY-MM NUMBER [TITLE]")
     year, month = map(int, sys.argv[1].split("-"))
-    number = int(sys.argv[2])
     raise SystemExit("The CLI now requires the complete guided intake payload; use MonkeyZoo Studio.")
 
 

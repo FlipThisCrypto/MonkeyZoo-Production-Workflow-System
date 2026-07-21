@@ -23,11 +23,9 @@ def _load(p: Path, default=None):
 def generate(genesis_dir: Path) -> None:
     plan = _load(genesis_dir / "GENESIS_LAYOUT_PLAN.json")
     qa = _load(genesis_dir / "qa" / "genesis_qa.json", {})
-    rel = _load(genesis_dir / "release" / "release_manifest.json", {})
     shot = _load(genesis_dir / "metadata" / "shot_distribution.json", {})
     dlg = _load(genesis_dir / "metadata" / "dialogue_metrics.json", {})
     pages = plan["pages"]
-    counts = [p["panel_count"] for p in pages]
 
     manifest = {
         "series": plan["series"], "issue_title": plan["issue_title"],
@@ -122,7 +120,7 @@ def generate(genesis_dir: Path) -> None:
           "## Issue identity",
           f"- Series **{plan['series']}** · Issue **{plan['issue_title']}** · Story *{plan['story_subtitle']}*",
           f"- Production Issue **{plan['production_issue']}** · Published Issue **{plan['published_issue']}** · seed `{plan['seed']}`",
-          f"- Output root: `GENESIS/`",
+          "- Output root: `GENESIS/`",
           "",
           "## Final metrics",
           f"- Covers: 2 (independent)  ·  Story pages: **{plan['story_page_count']}**  ·  Total images: {plan['story_page_count']+2}",
@@ -193,7 +191,7 @@ def generate(genesis_dir: Path) -> None:
               "- 5 background plates exist, so wide shots reuse locations; bespoke ComfyUI re-renders are the",
               "  (owner-gated) quality upgrade path.", ""]
     (genesis_dir / "README.md").write_text("\n".join(readme), encoding="utf-8")
-    print(f"Genesis docs generated: README, MANIFEST, RELEASE_REPORT, CREDITS, CHARACTER, LETTERING, VISUAL_QA")
+    print("Genesis docs generated: README, MANIFEST, RELEASE_REPORT, CREDITS, CHARACTER, LETTERING, VISUAL_QA")
 
 
 def main() -> None:

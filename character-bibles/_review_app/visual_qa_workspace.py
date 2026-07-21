@@ -1,8 +1,6 @@
 """Evidence-backed visual QA reviews and canonical report promotion."""
 from __future__ import annotations
 import datetime as dt, hashlib, json, os, re, tempfile, time
-from pathlib import Path
-from typing import Any
 from PIL import Image
 import issue_workflow
 from contextlib import contextmanager

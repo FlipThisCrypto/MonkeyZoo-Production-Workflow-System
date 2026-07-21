@@ -117,7 +117,6 @@ def _label(img: Image.Image, text: str) -> Image.Image:
 
 
 def _side_by_side(a: Image.Image, b: Image.Image, la: str, lb: str, gap: int = 24) -> Image.Image:
-    h = max(a.height, b.height)
     a2 = _label(a, la)
     b2 = _label(b, lb)
     H = max(a2.height, b2.height)
@@ -128,7 +127,6 @@ def _side_by_side(a: Image.Image, b: Image.Image, la: str, lb: str, gap: int = 2
 
 
 def comparisons(genesis_dir: Path) -> list[str]:
-    import genesis_build as gb
     cdir = genesis_dir / "previews" / "comparison"
     cdir.mkdir(parents=True, exist_ok=True)
     made = []

@@ -8,7 +8,6 @@ structural failure (missing page, dropped panel, broken sequence).
 from __future__ import annotations
 
 import json
-import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -127,7 +126,7 @@ def report(genesis_dir: Path) -> dict:
     qdir.mkdir(parents=True, exist_ok=True)
     (qdir / "genesis_qa.json").write_text(json.dumps(qa, indent=2) + "\n", encoding="utf-8")
 
-    md = [f"# MonkeyZoo: Genesis — Technical QA Report", "",
+    md = ["# MonkeyZoo: Genesis — Technical QA Report", "",
           f"**Overall: {'PASS' if qa['overall_pass'] else 'FAIL'}**", "",
           "## Structural",
           f"- {'PASS' if s['pass'] else 'FAIL'} — {len(s['problems'])} problem(s)",

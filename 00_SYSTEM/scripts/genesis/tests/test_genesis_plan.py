@@ -49,8 +49,6 @@ def test_every_source_panel_used_exactly_once(plan):
 
 def test_reading_order_preserved(plan):
     # panels must remain in source story order across the whole issue
-    ids = [pa["source_panel_id"] for pg in plan["pages"] for pa in pg["panels"]
-           if not (pg["layout_template"].startswith("feature") or pg["layout_template"].startswith("left"))]
     # within grid pages the slot order equals source order; globally the first
     # panel of each page must not precede the last panel of a prior page
     firsts = []

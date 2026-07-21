@@ -18,7 +18,7 @@ from pathlib import Path
 
 # reuse the canonical identity descriptors instead of duplicating them
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from gen_char_refs import BASE, CHARS, TAIL, build  # noqa: E402
+from gen_char_refs import CHARS, build  # noqa: E402
 
 OUT_DIR = Path(r"I:\ai\nft\output")
 

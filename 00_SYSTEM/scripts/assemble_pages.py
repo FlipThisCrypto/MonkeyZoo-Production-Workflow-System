@@ -21,7 +21,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
-__all__ = ["draw_bubble", "draw_caption", "draw_sfx", "assemble_issue", "PAGE_W", "PAGE_H", "MARGIN", "GUTTER", "BORDER"]
+__all__ = ["draw_bubble", "draw_caption", "draw_sfx", "PAGE_W", "PAGE_H", "MARGIN", "GUTTER", "BORDER"]
 
 
 FACTORY = Path(__file__).resolve().parents[2]

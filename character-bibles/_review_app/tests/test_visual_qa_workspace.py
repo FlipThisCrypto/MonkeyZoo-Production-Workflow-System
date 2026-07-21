@@ -1,4 +1,4 @@
-import io,json,sys
+import json,sys
 from pathlib import Path
 import pytest
 from PIL import Image
@@ -40,7 +40,7 @@ def test_invalid_review_id_and_wrong_stage(factory):
  state=json.loads((issue/".workflow-status.json").read_text());state["active_stage"]="art_production";qa._write_json(issue/".workflow-status.json",state)
  with pytest.raises(qa.VisualQAError,match="current stage"):qa.create_review(issue,root)
 def test_cover_change_stales_review_and_promotion_lock_blocks(factory):
- root,issue,pid=factory;cover=issue/"generated_art/covers";cover.mkdir(parents=True);Image.new("RGB",(40,30),"green").save(cover/"main_cover.png");review=qa.create_review(issue,root);Image.new("RGB",(40,30),"red").save(cover/"main_cover.png");assert qa.reviews(issue)[0]["evidence_stale"]
+ root,issue,pid=factory;cover=issue/"generated_art/covers";cover.mkdir(parents=True);Image.new("RGB",(40,30),"green").save(cover/"main_cover.png");qa.create_review(issue,root);Image.new("RGB",(40,30),"red").save(cover/"main_cover.png");assert qa.reviews(issue)[0]["evidence_stale"]
  review2=qa.create_review(issue,root);qa.finalize(issue,root,review2["review_id"],"pass");lock=issue/".qa-workspace/.promotion.lock";lock.write_text("busy")
  with pytest.raises(qa.VisualQAError,match="already in progress") as error:qa.promote(issue,root,review2["review_id"])
  assert error.value.status==409

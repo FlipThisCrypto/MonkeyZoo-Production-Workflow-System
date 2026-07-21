@@ -106,7 +106,6 @@ def generate(name: str, pose: str, seed: int, prefix: str = "MZ-GEN") -> Path:
     req = urllib.request.Request(f"http://{HOST}/prompt",
                                  data=json.dumps({"prompt": g}).encode(),
                                  headers={"Content-Type": "application/json"})
-    file_prefix = f"{prefix}/{name}_seed{seed}"
     r = json.loads(urllib.request.urlopen(req, timeout=30).read())
     pid = r["prompt_id"]
     if r.get("node_errors"):

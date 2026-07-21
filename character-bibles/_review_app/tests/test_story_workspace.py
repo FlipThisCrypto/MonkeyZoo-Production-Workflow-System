@@ -147,7 +147,7 @@ def test_script_requires_approved_outline_and_script_stage(factory):
     with pytest.raises(story.StoryWorkspaceError, match="active workflow stage script"): story.import_variant(issue, root, "script", {"content":script()})
     outline_variant=story.import_variant(issue, root, "outline", {"content":outline()}); story.approve(issue, root, "outline", outline_variant["variant_id"])
     state=json.loads((issue/".workflow-status.json").read_text()); state["active_stage"]="script"; story._write_json(issue/".workflow-status.json",state)
-    first=story.import_variant(issue, root, "script", {"content":script()}); second=story.import_variant(issue, root, "script", {"content":script()+"\n### Page 2 — End\n"})
+    first=story.import_variant(issue, root, "script", {"content":script()}); story.import_variant(issue, root, "script", {"content":script()+"\n### Page 2 — End\n"})
     assert len(story.variants(issue, root, "script")) == 2
     approved=story.approve(issue, root, "script", first["variant_id"]); assert approved["approval_current"]
 

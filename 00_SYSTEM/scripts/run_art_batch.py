@@ -13,7 +13,6 @@ ComfyUI's output directory.
 """
 import argparse
 import json
-import sys
 import urllib.request
 from pathlib import Path
 

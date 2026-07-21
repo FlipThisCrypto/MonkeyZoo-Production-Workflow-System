@@ -103,7 +103,7 @@ def main() -> None:
     print(f"Genesis release: {r['pages']} images ({m['story_pages']} pages + 2 covers)")
     print(f"  CBZ: {m['artifacts']['cbz']['file']}  {m['artifacts']['cbz']['bytes']//1024} KB")
     print(f"  PDF: {m['artifacts']['pdf']['file']}  {m['artifacts']['pdf']['bytes']//1024} KB")
-    print(f"  reading order verified 01..24; manifest + SHA256SUMS written")
+    print("  reading order verified 01..24; manifest + SHA256SUMS written")
 
 
 if __name__ == "__main__":

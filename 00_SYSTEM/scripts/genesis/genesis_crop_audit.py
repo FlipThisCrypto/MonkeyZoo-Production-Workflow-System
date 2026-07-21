@@ -67,6 +67,7 @@ def audit(genesis_dir: Path) -> dict:
     for pg in plan["pages"]:
         rects = gb.template_rects(pg["layout_template"], pg["panel_count"])
         for panel, (x, y, w, h) in zip(pg["panels"], rects):
+            pid = panel["source_panel_id"]
             with Image.open(panel_dir / f"{pid}.png") as im:
                 m = cover_metrics(im.width, im.height, w, h)
 

@@ -20,7 +20,7 @@ import json
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 
 FACTORY = Path(__file__).resolve().parents[3]
 SCRIPTS = FACTORY / "00_SYSTEM" / "scripts"

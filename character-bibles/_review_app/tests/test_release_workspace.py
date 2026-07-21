@@ -21,7 +21,7 @@ def test_release_requires_exact_pass_and_current_qa_evidence(factory):
 def test_manifest_hashes_every_release_file_and_is_deterministic(factory):
  root,issue=factory;one=release.manifest(issue,root);two=release.manifest(issue,root);assert one["manifest_hash"]==two["manifest_hash"];assert all(len(x["sha256"])==64 for x in one["files"])
 def test_approval_explicit_stales_on_evidence_change(factory):
- root,issue=factory;approved=release.approve(issue,root,"Owner approved");assert release.readiness(issue,root)["approval_current"];(issue/"social_posts.md").write_text("changed");status=release.readiness(issue,root);assert not status["approval_current"];assert not status["release_ready"]
+ root,issue=factory;release.approve(issue,root,"Owner approved");assert release.readiness(issue,root)["approval_current"];(issue/"social_posts.md").write_text("changed");status=release.readiness(issue,root);assert not status["approval_current"];assert not status["release_ready"]
 def test_blockers_prevent_approval(factory):
  root,issue=factory;(issue/"exports/issue.cbz").unlink()
  with pytest.raises(release.ReleaseError,match="approval blocked"):release.approve(issue,root)

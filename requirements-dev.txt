@@ -10,6 +10,7 @@
 #   runtime  : flask, Pillow, pyyaml, jsonschema
 #   imaging  : numpy, scipy  (character-integration compositor + its tests)
 #   testing  : pytest, pytest-asyncio, anyio
+#   linting  : ruff  (static analysis gate, config in ruff.toml)
 flask
 Pillow
 pyyaml
@@ -19,3 +20,4 @@ scipy
 pytest
 pytest-asyncio
 anyio
+ruff

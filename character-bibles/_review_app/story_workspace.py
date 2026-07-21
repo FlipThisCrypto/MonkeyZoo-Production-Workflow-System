@@ -13,7 +13,6 @@ from typing import Any
 
 import bible_store
 import issue_workflow
-import story_context
 
 VARIANT_ID = re.compile(r"^(outline|script)-\d{8}T\d{6}Z-[0-9a-f]{6}$")
 OUTLINE_SECTIONS = ["Logline:", "Theme:", "Page count:", "Emotional arc:", "Conflict:", "Ending:", "## Page map"]

@@ -2,7 +2,6 @@
 from __future__ import annotations
 import contextlib, datetime as dt, hashlib, io, json, os, re, tempfile, time
 from pathlib import Path
-from typing import Any
 from PIL import Image
 import bible_store, canon_catalog, issue_workflow
 
@@ -83,12 +82,12 @@ def all_attempts(folder):
     return result
 
 def build_queue(folder,root,persist=False):
-    _stage(folder,root,{"art_prompts","art_production"}); plan=_plan(folder); plan_hash=_plan_hash(folder); existing=_read_json(_workspace(folder)/"queue.json",{}) or {}; old={x["panel_id"]:x for x in existing.get("items",[])}
+    _stage(folder,root,{"art_prompts","art_production"}); plan=_plan(folder); plan_hash=_plan_hash(folder); existing=_read_json(_workspace(folder)/"queue.json",{}) or {}
     attempts_map = all_attempts(folder)
     items=[]
     for page in plan.get("pages",[]):
         for panel in page.get("panels",[]):
-            pid=panel["panel_id"]; prior=old.get(pid,{})
+            pid=panel["panel_id"]
             panel_attempts=list(attempts_map.get(pid, []))
             for attempt in panel_attempts: attempt["plan_stale"]=attempt.get("plan_hash")!=plan_hash
             preferred=next((a["attempt_id"] for a in panel_attempts if a.get("status")=="preferred" and not a["plan_stale"]),None)

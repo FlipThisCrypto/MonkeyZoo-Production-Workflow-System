@@ -1,11 +1,9 @@
 from __future__ import annotations
 
 import argparse
-import csv
 import datetime as dt
 import hashlib
 import json
-import os
 import platform
 import subprocess
 import sys
@@ -293,7 +291,7 @@ def render_kv_markdown(title: str, data: dict[str, Any]) -> str:
 
 
 def render_panel_plan(plan: dict[str, Any]) -> str:
-    lines = [f"# Page Plan", "", f"- Pages: {plan['page_count']}", f"- Total panels: {plan['total_panels']}"]
+    lines = ["# Page Plan", "", f"- Pages: {plan['page_count']}", f"- Total panels: {plan['total_panels']}"]
     for page in plan["pages"]:
         lines.append(f"- Page {page['page']}: {page['panel_count']} panel(s)")
     return "\n".join(lines) + "\n"

@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-__all__ = ["build_story_context", "StoryContextError", "ADVENTURE_STYLES"]
+__all__ = ["StoryContextError", "ADVENTURE_STYLES"]
 
 
 import bible_store as store
@@ -599,14 +599,14 @@ def build_sample_script(packet: dict[str, Any]) -> str:
                 f"### Panel {panel_index}",
                 f"- Location: {setup.get('location') or 'MonkeyZoo test setting'}",
                 f"- Characters present: {', '.join(character['display_name'] for character in present)}",
-                f"- Camera angle: medium readable panel",
+                "- Camera angle: medium readable panel",
                 f"- Action: {sample_action(speaker, action_trait, global_panel, setup)}",
                 f"- Emotion: {sample_emotion(global_panel, setup)}",
                 f"- Dialogue: {dialogue}",
                 f"- Caption text: {'A proposed growth beat appears here.' if is_growth_panel(global_panel, packet) else '-'}",
-                f"- SFX: -",
+                "- SFX: -",
                 f"- Visual notes: {visual_note(present)}",
-                f"- Continuity notes: Uses selected context only; any new facts remain proposed.",
+                "- Continuity notes: Uses selected context only; any new facts remain proposed.",
                 "",
             ])
             global_panel += 1

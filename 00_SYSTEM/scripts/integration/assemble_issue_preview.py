@@ -21,7 +21,7 @@ OUT = PREVIEW / "pages_preview"
 
 
 def font(size, bold=False):
-    for n in ([f"arialbd.ttf"] if bold else []) + ["arial.ttf"]:
+    for n in (["arialbd.ttf"] if bold else []) + ["arial.ttf"]:
         try:
             return ImageFont.truetype(f"C:/Windows/Fonts/{n}", size)
         except OSError:
