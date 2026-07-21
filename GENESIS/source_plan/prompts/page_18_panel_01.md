@@ -1,5 +1,5 @@
 PANEL: page 18, panel 01  (replaces MZ-2026-09-02_P13_PANEL06)
-TARGET: landscape panel, 2280x1460 px, aspect ratio 1.562
+TARGET: landscape panel, 2280x739 px, aspect ratio 3.085
 SHOT: medium — action beat, Old Relay Junction
 CAST: MZ-CHAR-003, MZ-CHAR-CLEVER, MZ-CHAR-002 (stage at intentional scale, feet grounded, full silhouette unless an intentional close-up)
 DIALOGUE (for lettering room, do not draw text): CLEVER: Junction confirmed. Acting now.

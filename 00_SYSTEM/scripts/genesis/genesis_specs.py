@@ -44,7 +44,16 @@ def build(genesis_dir: Path) -> dict:
     crop = {r["panel_id"] + f"@{r['page']}": r for r in _load(genesis_dir / "qa" / "PANEL_CROP_AUDIT.json", {"panels": []})["panels"]}
     specs, provenance, regen = [], [], []
     for pg in plan["pages"]:
-        rects = gb.template_rects(pg["layout_template"], pg["panel_count"])
+        # Use the renderer's ACTUAL slot geometry so every spec's target_px/aspect
+        # matches the slot the panel is composited into. genesis_build.render_page
+        # lays panels out with synth_page_rects (scene/page-custom slots) and only
+        # falls back to the band templates on a count mismatch -- mirror that exact
+        # pattern here so specs, matrix, and render agree. Using template_rects
+        # alone reported the wrong size/aspect for every panel and mislead the
+        # owner-gated regen prompts into a ratio fit_cover would then crop.
+        rects = gb.synth_page_rects(pg["panels"], pg["page_number"])
+        if len(rects) != len(pg["panels"]):
+            rects = gb.template_rects(pg["layout_template"], pg["panel_count"])
         for i, (panel, (x, y, w, h)) in enumerate(zip(pg["panels"], rects), 1):
             pid = panel["source_panel_id"]
             cm = crop.get(f"{pid}@{pg['page_number']}", {})

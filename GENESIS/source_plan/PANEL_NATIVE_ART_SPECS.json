@@ -7,9 +7,9 @@
       "source_panel_id": "MZ-2026-09-02_P01_PANEL01",
       "target_px": [
         2280,
-        784
+        1564
       ],
-      "aspect_ratio": 2.908,
+      "aspect_ratio": 1.458,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Zoo City Streets",
@@ -28,10 +28,10 @@
       "panel": 2,
       "source_panel_id": "MZ-2026-09-02_P01_PANEL02",
       "target_px": [
-        2280,
-        764
+        1302,
+        669
       ],
-      "aspect_ratio": 2.984,
+      "aspect_ratio": 1.946,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "Zoo City Streets",
@@ -52,10 +52,10 @@
       "panel": 3,
       "source_panel_id": "MZ-2026-09-02_P01_PANEL03",
       "target_px": [
-        2280,
-        764
+        937,
+        669
       ],
-      "aspect_ratio": 2.984,
+      "aspect_ratio": 1.401,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Zoo City Streets",
@@ -77,9 +77,9 @@
       "source_panel_id": "MZ-2026-09-02_P01_PANEL04",
       "target_px": [
         2280,
-        784
+        904
       ],
-      "aspect_ratio": 2.908,
+      "aspect_ratio": 2.522,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Zoo City Streets",
@@ -101,9 +101,9 @@
       "source_panel_id": "MZ-2026-09-02_P01_PANEL06",
       "target_px": [
         2280,
-        1267
+        861
       ],
-      "aspect_ratio": 1.8,
+      "aspect_ratio": 2.648,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "School / Public Address Zone",
@@ -126,9 +126,9 @@
       "source_panel_id": "MZ-2026-09-02_P01_PANEL05",
       "target_px": [
         2280,
-        603
+        1587
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 1.437,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "School / Public Address Zone",
@@ -150,10 +150,10 @@
       "panel": 3,
       "source_panel_id": "MZ-2026-09-02_P02_PANEL01",
       "target_px": [
-        2280,
-        603
+        937,
+        689
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 1.36,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "School / Public Address Zone",
@@ -175,10 +175,10 @@
       "panel": 4,
       "source_panel_id": "MZ-2026-09-02_P02_PANEL02",
       "target_px": [
-        2280,
-        623
+        1302,
+        689
       ],
-      "aspect_ratio": 3.66,
+      "aspect_ratio": 1.89,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "School / Public Address Zone",
@@ -200,10 +200,10 @@
       "panel": 1,
       "source_panel_id": "MZ-2026-09-02_P02_PANEL03",
       "target_px": [
-        2280,
-        784
+        1120,
+        689
       ],
-      "aspect_ratio": 2.908,
+      "aspect_ratio": 1.626,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Zoo City Streets",
@@ -225,10 +225,10 @@
       "panel": 2,
       "source_panel_id": "MZ-2026-09-02_P02_PANEL04",
       "target_px": [
-        2280,
-        764
+        1120,
+        689
       ],
-      "aspect_ratio": 2.984,
+      "aspect_ratio": 1.626,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Zoo City Streets",
@@ -251,9 +251,9 @@
       "source_panel_id": "MZ-2026-09-02_P02_PANEL05",
       "target_px": [
         2280,
-        764
+        918
       ],
-      "aspect_ratio": 2.984,
+      "aspect_ratio": 2.484,
       "orientation": "landscape",
       "story_beat": "reaction",
       "location": "Zoo City Streets",
@@ -276,9 +276,9 @@
       "source_panel_id": "MZ-2026-09-02_P02_PANEL06",
       "target_px": [
         2280,
-        784
+        1530
       ],
-      "aspect_ratio": 2.908,
+      "aspect_ratio": 1.49,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Zoo City Streets",
@@ -301,9 +301,9 @@
       "source_panel_id": "MZ-2026-09-02_P03_PANEL02",
       "target_px": [
         2280,
-        1267
+        666
       ],
-      "aspect_ratio": 1.8,
+      "aspect_ratio": 3.423,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -327,9 +327,9 @@
       "source_panel_id": "MZ-2026-09-02_P03_PANEL01",
       "target_px": [
         2280,
-        603
+        1071
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 2.129,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -349,9 +349,9 @@
       "source_panel_id": "MZ-2026-09-02_P03_PANEL03",
       "target_px": [
         2280,
-        603
+        596
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 3.826,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -375,9 +375,9 @@
       "source_panel_id": "MZ-2026-09-02_P03_PANEL04",
       "target_px": [
         2280,
-        623
+        763
       ],
-      "aspect_ratio": 3.66,
+      "aspect_ratio": 2.988,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -401,9 +401,9 @@
       "source_panel_id": "MZ-2026-09-02_P03_PANEL05",
       "target_px": [
         2280,
-        516
+        1193
       ],
-      "aspect_ratio": 4.419,
+      "aspect_ratio": 1.911,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Transit Announcement Hub",
@@ -424,10 +424,10 @@
       "panel": 2,
       "source_panel_id": "MZ-2026-09-02_P03_PANEL06",
       "target_px": [
-        2280,
-        496
+        1302,
+        630
       ],
-      "aspect_ratio": 4.597,
+      "aspect_ratio": 2.067,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "Transit Announcement Hub",
@@ -448,10 +448,10 @@
       "panel": 3,
       "source_panel_id": "MZ-2026-09-02_P04_PANEL01",
       "target_px": [
-        2280,
-        496
+        937,
+        630
       ],
-      "aspect_ratio": 4.597,
+      "aspect_ratio": 1.487,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -473,9 +473,9 @@
       "source_panel_id": "MZ-2026-09-02_P04_PANEL02",
       "target_px": [
         2280,
-        496
+        673
       ],
-      "aspect_ratio": 4.597,
+      "aspect_ratio": 3.388,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Transit Announcement Hub",
@@ -496,10 +496,10 @@
       "panel": 5,
       "source_panel_id": "MZ-2026-09-02_P04_PANEL03",
       "target_px": [
-        2280,
-        496
+        1120,
+        600
       ],
-      "aspect_ratio": 4.597,
+      "aspect_ratio": 1.867,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -521,10 +521,10 @@
       "panel": 6,
       "source_panel_id": "MZ-2026-09-02_P04_PANEL04",
       "target_px": [
-        2280,
-        516
+        1120,
+        600
       ],
-      "aspect_ratio": 4.419,
+      "aspect_ratio": 1.867,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -546,10 +546,10 @@
       "panel": 1,
       "source_panel_id": "MZ-2026-09-02_P04_PANEL06",
       "target_px": [
-        2280,
-        1267
+        1120,
+        689
       ],
-      "aspect_ratio": 1.8,
+      "aspect_ratio": 1.626,
       "orientation": "landscape",
       "story_beat": "reaction",
       "location": "Transit Announcement Hub",
@@ -571,10 +571,10 @@
       "panel": 2,
       "source_panel_id": "MZ-2026-09-02_P04_PANEL05",
       "target_px": [
-        2280,
-        603
+        1120,
+        689
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 1.626,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -597,9 +597,9 @@
       "source_panel_id": "MZ-2026-09-02_P05_PANEL01",
       "target_px": [
         2280,
-        603
+        1542
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 1.479,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -622,9 +622,9 @@
       "source_panel_id": "MZ-2026-09-02_P05_PANEL02",
       "target_px": [
         2280,
-        623
+        906
       ],
-      "aspect_ratio": 3.66,
+      "aspect_ratio": 2.517,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -646,10 +646,10 @@
       "panel": 1,
       "source_panel_id": "MZ-2026-09-02_P05_PANEL03",
       "target_px": [
-        2280,
-        516
+        1120,
+        937
       ],
-      "aspect_ratio": 4.419,
+      "aspect_ratio": 1.195,
       "orientation": "landscape",
       "story_beat": "reaction",
       "location": "Transit Announcement Hub",
@@ -671,10 +671,10 @@
       "panel": 2,
       "source_panel_id": "MZ-2026-09-02_P05_PANEL04",
       "target_px": [
-        2280,
-        496
+        1120,
+        937
       ],
-      "aspect_ratio": 4.597,
+      "aspect_ratio": 1.195,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -696,10 +696,10 @@
       "panel": 3,
       "source_panel_id": "MZ-2026-09-02_P05_PANEL05",
       "target_px": [
-        2280,
-        496
+        1302,
+        917
       ],
-      "aspect_ratio": 4.597,
+      "aspect_ratio": 1.42,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -721,10 +721,10 @@
       "panel": 4,
       "source_panel_id": "MZ-2026-09-02_P05_PANEL06",
       "target_px": [
-        2280,
-        496
+        937,
+        917
       ],
-      "aspect_ratio": 4.597,
+      "aspect_ratio": 1.022,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -746,10 +746,10 @@
       "panel": 5,
       "source_panel_id": "MZ-2026-09-02_P06_PANEL01",
       "target_px": [
-        2280,
-        496
+        937,
+        937
       ],
-      "aspect_ratio": 4.597,
+      "aspect_ratio": 1.0,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "Transit Announcement Hub",
@@ -771,10 +771,10 @@
       "panel": 6,
       "source_panel_id": "MZ-2026-09-02_P06_PANEL02",
       "target_px": [
-        2280,
-        516
+        1302,
+        937
       ],
-      "aspect_ratio": 4.419,
+      "aspect_ratio": 1.39,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "Transit Announcement Hub",
@@ -797,9 +797,9 @@
       "source_panel_id": "MZ-2026-09-02_P06_PANEL06",
       "target_px": [
         2280,
-        1267
+        861
       ],
-      "aspect_ratio": 1.8,
+      "aspect_ratio": 2.648,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "School / Public Address Zone",
@@ -822,9 +822,9 @@
       "source_panel_id": "MZ-2026-09-02_P06_PANEL03",
       "target_px": [
         2280,
-        603
+        1587
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 1.437,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "School / Public Address Zone",
@@ -846,10 +846,10 @@
       "panel": 3,
       "source_panel_id": "MZ-2026-09-02_P06_PANEL04",
       "target_px": [
-        2280,
-        603
+        937,
+        689
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 1.36,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "School / Public Address Zone",
@@ -871,10 +871,10 @@
       "panel": 4,
       "source_panel_id": "MZ-2026-09-02_P06_PANEL05",
       "target_px": [
-        2280,
-        623
+        1302,
+        689
       ],
-      "aspect_ratio": 3.66,
+      "aspect_ratio": 1.89,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "School / Public Address Zone",
@@ -896,10 +896,10 @@
       "panel": 1,
       "source_panel_id": "MZ-2026-09-02_P07_PANEL01",
       "target_px": [
-        2280,
-        516
+        1120,
+        937
       ],
-      "aspect_ratio": 4.419,
+      "aspect_ratio": 1.195,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "Transit Announcement Hub",
@@ -921,10 +921,10 @@
       "panel": 2,
       "source_panel_id": "MZ-2026-09-02_P07_PANEL02",
       "target_px": [
-        2280,
-        496
+        1120,
+        937
       ],
-      "aspect_ratio": 4.597,
+      "aspect_ratio": 1.195,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -946,10 +946,10 @@
       "panel": 3,
       "source_panel_id": "MZ-2026-09-02_P07_PANEL03",
       "target_px": [
-        2280,
-        496
+        1302,
+        917
       ],
-      "aspect_ratio": 4.597,
+      "aspect_ratio": 1.42,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -971,10 +971,10 @@
       "panel": 4,
       "source_panel_id": "MZ-2026-09-02_P07_PANEL04",
       "target_px": [
-        2280,
-        496
+        937,
+        917
       ],
-      "aspect_ratio": 4.597,
+      "aspect_ratio": 1.022,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -996,10 +996,10 @@
       "panel": 5,
       "source_panel_id": "MZ-2026-09-02_P07_PANEL05",
       "target_px": [
-        2280,
-        496
+        937,
+        937
       ],
-      "aspect_ratio": 4.597,
+      "aspect_ratio": 1.0,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "Transit Announcement Hub",
@@ -1021,10 +1021,10 @@
       "panel": 6,
       "source_panel_id": "MZ-2026-09-02_P07_PANEL06",
       "target_px": [
-        2280,
-        516
+        1302,
+        937
       ],
-      "aspect_ratio": 4.419,
+      "aspect_ratio": 1.39,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -1046,10 +1046,10 @@
       "panel": 1,
       "source_panel_id": "MZ-2026-09-02_P08_PANEL01",
       "target_px": [
-        2280,
-        945
+        1120,
+        937
       ],
-      "aspect_ratio": 2.413,
+      "aspect_ratio": 1.195,
       "orientation": "landscape",
       "story_beat": "reaction",
       "location": "Transit Announcement Hub",
@@ -1071,10 +1071,10 @@
       "panel": 2,
       "source_panel_id": "MZ-2026-09-02_P08_PANEL02",
       "target_px": [
-        2280,
-        410
+        1120,
+        937
       ],
-      "aspect_ratio": 5.561,
+      "aspect_ratio": 1.195,
       "orientation": "landscape",
       "story_beat": "transition",
       "location": "Transit Announcement Hub",
@@ -1096,10 +1096,10 @@
       "panel": 3,
       "source_panel_id": "MZ-2026-09-02_P08_PANEL03",
       "target_px": [
-        2280,
-        410
+        1302,
+        917
       ],
-      "aspect_ratio": 5.561,
+      "aspect_ratio": 1.42,
       "orientation": "landscape",
       "story_beat": "transition",
       "location": "Transit Announcement Hub",
@@ -1121,10 +1121,10 @@
       "panel": 4,
       "source_panel_id": "MZ-2026-09-02_P08_PANEL04",
       "target_px": [
-        2280,
-        410
+        937,
+        917
       ],
-      "aspect_ratio": 5.561,
+      "aspect_ratio": 1.022,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -1146,10 +1146,10 @@
       "panel": 5,
       "source_panel_id": "MZ-2026-09-02_P08_PANEL05",
       "target_px": [
-        2280,
-        410
+        937,
+        937
       ],
-      "aspect_ratio": 5.561,
+      "aspect_ratio": 1.0,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -1171,10 +1171,10 @@
       "panel": 6,
       "source_panel_id": "MZ-2026-09-02_P08_PANEL06",
       "target_px": [
-        2280,
-        430
+        1302,
+        937
       ],
-      "aspect_ratio": 5.302,
+      "aspect_ratio": 1.39,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -1197,9 +1197,9 @@
       "source_panel_id": "MZ-2026-09-02_P09_PANEL02",
       "target_px": [
         2280,
-        1267
+        605
       ],
-      "aspect_ratio": 1.8,
+      "aspect_ratio": 3.769,
       "orientation": "landscape",
       "story_beat": "reveal",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -1222,9 +1222,9 @@
       "source_panel_id": "MZ-2026-09-02_P09_PANEL01",
       "target_px": [
         2280,
-        603
+        1114
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 2.047,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -1247,9 +1247,9 @@
       "source_panel_id": "MZ-2026-09-02_P09_PANEL03",
       "target_px": [
         2280,
-        603
+        616
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 3.701,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -1272,9 +1272,9 @@
       "source_panel_id": "MZ-2026-09-02_P09_PANEL04",
       "target_px": [
         2280,
-        623
+        761
       ],
-      "aspect_ratio": 3.66,
+      "aspect_ratio": 2.996,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -1296,10 +1296,10 @@
       "panel": 1,
       "source_panel_id": "MZ-2026-09-02_P09_PANEL05",
       "target_px": [
-        2280,
-        784
+        1120,
+        937
       ],
-      "aspect_ratio": 2.908,
+      "aspect_ratio": 1.195,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "School / Public Address Zone",
@@ -1321,10 +1321,10 @@
       "panel": 2,
       "source_panel_id": "MZ-2026-09-02_P09_PANEL06",
       "target_px": [
-        2280,
-        764
+        1120,
+        937
       ],
-      "aspect_ratio": 2.984,
+      "aspect_ratio": 1.195,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "School / Public Address Zone",
@@ -1346,10 +1346,10 @@
       "panel": 3,
       "source_panel_id": "MZ-2026-09-02_P10_PANEL01",
       "target_px": [
-        2280,
-        764
+        1302,
+        937
       ],
-      "aspect_ratio": 2.984,
+      "aspect_ratio": 1.39,
       "orientation": "landscape",
       "story_beat": "reaction",
       "location": "School / Public Address Zone",
@@ -1371,10 +1371,10 @@
       "panel": 4,
       "source_panel_id": "MZ-2026-09-02_P10_PANEL02",
       "target_px": [
-        2280,
-        784
+        937,
+        937
       ],
-      "aspect_ratio": 2.908,
+      "aspect_ratio": 1.0,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "School / Public Address Zone",
@@ -1396,10 +1396,10 @@
       "panel": 1,
       "source_panel_id": "MZ-2026-09-02_P10_PANEL06",
       "target_px": [
-        2280,
-        1267
+        1120,
+        937
       ],
-      "aspect_ratio": 1.8,
+      "aspect_ratio": 1.195,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "Transit Announcement Hub",
@@ -1421,10 +1421,10 @@
       "panel": 2,
       "source_panel_id": "MZ-2026-09-02_P10_PANEL03",
       "target_px": [
-        2280,
-        603
+        1120,
+        937
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 1.195,
       "orientation": "landscape",
       "story_beat": "transition",
       "location": "Transit Announcement Hub",
@@ -1446,10 +1446,10 @@
       "panel": 3,
       "source_panel_id": "MZ-2026-09-02_P10_PANEL04",
       "target_px": [
-        2280,
-        603
+        1302,
+        937
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 1.39,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -1471,10 +1471,10 @@
       "panel": 4,
       "source_panel_id": "MZ-2026-09-02_P10_PANEL05",
       "target_px": [
-        2280,
-        623
+        937,
+        937
       ],
-      "aspect_ratio": 3.66,
+      "aspect_ratio": 1.0,
       "orientation": "landscape",
       "story_beat": "reaction",
       "location": "Transit Announcement Hub",
@@ -1497,9 +1497,9 @@
       "source_panel_id": "MZ-2026-09-02_P11_PANEL01",
       "target_px": [
         2280,
-        784
+        1132
       ],
-      "aspect_ratio": 2.908,
+      "aspect_ratio": 2.014,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -1523,9 +1523,9 @@
       "source_panel_id": "MZ-2026-09-02_P11_PANEL02",
       "target_px": [
         2280,
-        764
+        672
       ],
-      "aspect_ratio": 2.984,
+      "aspect_ratio": 3.393,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -1549,9 +1549,9 @@
       "source_panel_id": "MZ-2026-09-02_P11_PANEL03",
       "target_px": [
         2280,
-        764
+        652
       ],
-      "aspect_ratio": 2.984,
+      "aspect_ratio": 3.497,
       "orientation": "landscape",
       "story_beat": "reaction",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -1575,9 +1575,9 @@
       "source_panel_id": "MZ-2026-09-02_P11_PANEL04",
       "target_px": [
         2280,
-        784
+        639
       ],
-      "aspect_ratio": 2.908,
+      "aspect_ratio": 3.568,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -1601,9 +1601,9 @@
       "source_panel_id": "MZ-2026-09-02_P11_PANEL05",
       "target_px": [
         2280,
-        1052
+        1392
       ],
-      "aspect_ratio": 2.167,
+      "aspect_ratio": 1.638,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Zoo City Streets",
@@ -1627,9 +1627,9 @@
       "source_panel_id": "MZ-2026-09-02_P11_PANEL06",
       "target_px": [
         2280,
-        1032
+        768
       ],
-      "aspect_ratio": 2.209,
+      "aspect_ratio": 2.969,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Zoo City Streets",
@@ -1653,9 +1653,9 @@
       "source_panel_id": "MZ-2026-09-02_P12_PANEL01",
       "target_px": [
         2280,
-        1052
+        976
       ],
-      "aspect_ratio": 2.167,
+      "aspect_ratio": 2.336,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Zoo City Streets",
@@ -1679,9 +1679,9 @@
       "source_panel_id": "MZ-2026-09-02_P12_PANEL02",
       "target_px": [
         2280,
-        1009
+        1121
       ],
-      "aspect_ratio": 2.26,
+      "aspect_ratio": 2.034,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Zoo City Streets",
@@ -1704,10 +1704,10 @@
       "panel": 2,
       "source_panel_id": "MZ-2026-09-02_P12_PANEL03",
       "target_px": [
-        2280,
-        507
+        1302,
+        496
       ],
-      "aspect_ratio": 4.497,
+      "aspect_ratio": 2.625,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Zoo City Streets",
@@ -1729,10 +1729,10 @@
       "panel": 3,
       "source_panel_id": "MZ-2026-09-02_P12_PANEL04",
       "target_px": [
-        2280,
-        507
+        937,
+        496
       ],
-      "aspect_ratio": 4.497,
+      "aspect_ratio": 1.889,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Zoo City Streets",
@@ -1755,9 +1755,9 @@
       "source_panel_id": "MZ-2026-09-02_P12_PANEL05",
       "target_px": [
         2280,
-        507
+        665
       ],
-      "aspect_ratio": 4.497,
+      "aspect_ratio": 3.429,
       "orientation": "landscape",
       "story_beat": "reaction",
       "location": "Zoo City Streets",
@@ -1780,9 +1780,9 @@
       "source_panel_id": "MZ-2026-09-02_P12_PANEL06",
       "target_px": [
         2280,
-        527
+        814
       ],
-      "aspect_ratio": 4.326,
+      "aspect_ratio": 2.801,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Zoo City Streets",
@@ -1804,10 +1804,10 @@
       "panel": 1,
       "source_panel_id": "MZ-2026-09-02_P13_PANEL01",
       "target_px": [
-        2280,
-        1267
+        1120,
+        937
       ],
-      "aspect_ratio": 1.8,
+      "aspect_ratio": 1.195,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "Transit Announcement Hub",
@@ -1829,10 +1829,10 @@
       "panel": 2,
       "source_panel_id": "MZ-2026-09-02_P13_PANEL02",
       "target_px": [
-        2280,
-        603
+        1120,
+        937
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 1.195,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -1854,10 +1854,10 @@
       "panel": 3,
       "source_panel_id": "MZ-2026-09-02_P13_PANEL03",
       "target_px": [
-        2280,
-        603
+        1302,
+        937
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 1.39,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Transit Announcement Hub",
@@ -1879,10 +1879,10 @@
       "panel": 4,
       "source_panel_id": "MZ-2026-09-02_P13_PANEL04",
       "target_px": [
-        2280,
-        623
+        937,
+        937
       ],
-      "aspect_ratio": 3.66,
+      "aspect_ratio": 1.0,
       "orientation": "landscape",
       "story_beat": "transition",
       "location": "Transit Announcement Hub",
@@ -1905,9 +1905,9 @@
       "source_panel_id": "MZ-2026-09-02_P13_PANEL06",
       "target_px": [
         2280,
-        1460
+        739
       ],
-      "aspect_ratio": 1.562,
+      "aspect_ratio": 3.085,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "Old Relay Junction",
@@ -1931,9 +1931,9 @@
       "source_panel_id": "MZ-2026-09-02_P13_PANEL05",
       "target_px": [
         2280,
-        828
+        1401
       ],
-      "aspect_ratio": 2.754,
+      "aspect_ratio": 1.627,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Old Relay Junction",
@@ -1957,9 +1957,9 @@
       "source_panel_id": "MZ-2026-09-02_P14_PANEL01",
       "target_px": [
         2280,
-        848
+        997
       ],
-      "aspect_ratio": 2.689,
+      "aspect_ratio": 2.287,
       "orientation": "landscape",
       "story_beat": "reaction",
       "location": "Old Relay Junction",
@@ -1983,9 +1983,9 @@
       "source_panel_id": "MZ-2026-09-02_P14_PANEL02",
       "target_px": [
         2280,
-        623
+        539
       ],
-      "aspect_ratio": 3.66,
+      "aspect_ratio": 4.23,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Old Relay Junction",
@@ -2009,9 +2009,9 @@
       "source_panel_id": "MZ-2026-09-02_P14_PANEL03",
       "target_px": [
         2280,
-        603
+        865
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 2.636,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Old Relay Junction",
@@ -2035,9 +2035,9 @@
       "source_panel_id": "MZ-2026-09-02_P14_PANEL04",
       "target_px": [
         2280,
-        603
+        478
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 4.77,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Old Relay Junction",
@@ -2061,9 +2061,9 @@
       "source_panel_id": "MZ-2026-09-02_P14_PANEL05",
       "target_px": [
         2280,
-        603
+        598
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 3.813,
       "orientation": "landscape",
       "story_beat": "reaction",
       "location": "Old Relay Junction",
@@ -2087,9 +2087,9 @@
       "source_panel_id": "MZ-2026-09-02_P14_PANEL06",
       "target_px": [
         2280,
-        623
+        575
       ],
-      "aspect_ratio": 3.66,
+      "aspect_ratio": 3.965,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Old Relay Junction",
@@ -2112,10 +2112,10 @@
       "panel": 1,
       "source_panel_id": "MZ-2026-09-02_P15_PANEL01",
       "target_px": [
-        2280,
-        784
+        1120,
+        937
       ],
-      "aspect_ratio": 2.908,
+      "aspect_ratio": 1.195,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "Zoo City Streets",
@@ -2136,10 +2136,10 @@
       "panel": 2,
       "source_panel_id": "MZ-2026-09-02_P15_PANEL02",
       "target_px": [
-        2280,
-        764
+        1120,
+        937
       ],
-      "aspect_ratio": 2.984,
+      "aspect_ratio": 1.195,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Zoo City Streets",
@@ -2160,10 +2160,10 @@
       "panel": 3,
       "source_panel_id": "MZ-2026-09-02_P15_PANEL03",
       "target_px": [
-        2280,
-        764
+        1302,
+        937
       ],
-      "aspect_ratio": 2.984,
+      "aspect_ratio": 1.39,
       "orientation": "landscape",
       "story_beat": "reaction",
       "location": "Zoo City Streets",
@@ -2184,10 +2184,10 @@
       "panel": 4,
       "source_panel_id": "MZ-2026-09-02_P15_PANEL04",
       "target_px": [
-        2280,
-        784
+        937,
+        937
       ],
-      "aspect_ratio": 2.908,
+      "aspect_ratio": 1.0,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Zoo City Streets",
@@ -2208,10 +2208,10 @@
       "panel": 1,
       "source_panel_id": "MZ-2026-09-02_P15_PANEL05",
       "target_px": [
-        2280,
-        623
+        1120,
+        545
       ],
-      "aspect_ratio": 3.66,
+      "aspect_ratio": 2.055,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -2233,10 +2233,10 @@
       "panel": 2,
       "source_panel_id": "MZ-2026-09-02_P15_PANEL06",
       "target_px": [
-        2280,
-        603
+        1120,
+        545
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 2.055,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -2259,9 +2259,9 @@
       "source_panel_id": "MZ-2026-09-02_P16_PANEL01",
       "target_px": [
         2280,
-        603
+        703
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 3.243,
       "orientation": "landscape",
       "story_beat": "reaction",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -2284,9 +2284,9 @@
       "source_panel_id": "MZ-2026-09-02_P16_PANEL02",
       "target_px": [
         2280,
-        603
+        1162
       ],
-      "aspect_ratio": 3.781,
+      "aspect_ratio": 1.962,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -2309,9 +2309,9 @@
       "source_panel_id": "MZ-2026-09-02_P16_PANEL03",
       "target_px": [
         2280,
-        623
+        686
       ],
-      "aspect_ratio": 3.66,
+      "aspect_ratio": 3.324,
       "orientation": "landscape",
       "story_beat": "establishing",
       "location": "Early-Fall Storm Streets and Routine Nodes",
@@ -2331,9 +2331,9 @@
       "source_panel_id": "MZ-2026-09-02_P16_PANEL04",
       "target_px": [
         2280,
-        1052
+        830
       ],
-      "aspect_ratio": 2.167,
+      "aspect_ratio": 2.747,
       "orientation": "landscape",
       "story_beat": "transition",
       "location": "Zoo City Streets",
@@ -2355,9 +2355,9 @@
       "source_panel_id": "MZ-2026-09-02_P16_PANEL05",
       "target_px": [
         2280,
-        1032
+        786
       ],
-      "aspect_ratio": 2.209,
+      "aspect_ratio": 2.901,
       "orientation": "landscape",
       "story_beat": "action",
       "location": "Zoo City Streets",
@@ -2377,9 +2377,9 @@
       "source_panel_id": "MZ-2026-09-02_P16_PANEL06",
       "target_px": [
         2280,
-        1052
+        1520
       ],
-      "aspect_ratio": 2.167,
+      "aspect_ratio": 1.5,
       "orientation": "landscape",
       "story_beat": "dialogue",
       "location": "Zoo City Streets",
