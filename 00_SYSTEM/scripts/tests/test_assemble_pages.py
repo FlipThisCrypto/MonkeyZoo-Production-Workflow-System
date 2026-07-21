@@ -27,6 +27,33 @@ def test_none_markers_are_blank_and_draw_nothing(marker):
     assert ap.parse_dialogue(marker) == []
 
 
+def _draw():
+    from PIL import Image, ImageDraw
+    return ImageDraw.Draw(Image.new("RGB", (10, 10)))
+
+
+def test_wrap_normal_text_stays_within_width():
+    d = _draw()
+    for line in ap.wrap(d, "the city creaks and the signal repeats twice", ap.F_BUBBLE, 300):
+        assert d.textbbox((0, 0), line, font=ap.F_BUBBLE)[2] <= 300
+
+
+def test_wrap_hard_breaks_an_unbreakable_token():
+    # a token longer than the balloon must be split so no line overflows the panel
+    d = _draw()
+    lines = ap.wrap(d, "A" * 60, ap.F_BUBBLE, 300)
+    assert len(lines) > 1
+    assert "".join(lines) == "A" * 60                       # no characters lost
+    assert all(d.textbbox((0, 0), line, font=ap.F_BUBBLE)[2] <= 300 for line in lines)
+
+
+def test_wrap_mixes_words_and_a_long_token_without_overflow():
+    d = _draw()
+    lines = ap.wrap(d, "look at this " + "Z" * 50 + " now", ap.F_BUBBLE, 300)
+    assert all(d.textbbox((0, 0), line, font=ap.F_BUBBLE)[2] <= 300 for line in lines)
+    assert "".join(lines).replace(" ", "").count("Z") == 50  # the token survives intact
+
+
 def test_real_dialogue_is_not_blank():
     assert ap._is_blank("STATIC: hello") is False
     assert ap._is_blank("BZZT") is False

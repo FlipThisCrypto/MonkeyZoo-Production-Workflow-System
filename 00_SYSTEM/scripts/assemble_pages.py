@@ -58,14 +58,33 @@ F_TITLE = _font("impact.ttf", 170)
 
 
 def wrap(draw, text, font, max_w):
-    words, lines, cur = text.split(), [], ""
-    for w in words:
-        t = (cur + " " + w).strip()
-        if draw.textbbox((0, 0), t, font=font)[2] <= max_w or not cur:
-            cur = t
-        else:
-            lines.append(cur)
-            cur = w
+    def _w(s):
+        return draw.textbbox((0, 0), s, font=font)[2]
+
+    def _hard_break(word):
+        # A single token wider than the balloon (a long onomatopoeia "AAAAAAH", a
+        # URL, a #hashtag) would otherwise be placed whole and grow the balloon past
+        # the panel edge. Split it into <= max_w chunks at character boundaries.
+        chunks, cur = [], ""
+        for ch in word:
+            if not cur or _w(cur + ch) <= max_w:
+                cur += ch
+            else:
+                chunks.append(cur)
+                cur = ch
+        if cur:
+            chunks.append(cur)
+        return chunks
+
+    lines, cur = [], ""
+    for word in text.split():
+        for piece in ([word] if _w(word) <= max_w else _hard_break(word)):
+            t = (cur + " " + piece).strip()
+            if not cur or _w(t) <= max_w:
+                cur = t
+            else:
+                lines.append(cur)
+                cur = piece
     lines.append(cur)
     return lines
 
