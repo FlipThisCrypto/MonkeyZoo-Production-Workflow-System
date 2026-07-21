@@ -113,8 +113,12 @@ def queue(host, workflow):
     body = json.dumps({"prompt": workflow}).encode()
     req = urllib.request.Request(f"http://{host}/prompt", data=body,
                                  headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read())
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return json.loads(r.read())
+    except urllib.error.URLError as exc:
+        return {"node_errors": {"connection": f"Failed to connect to http://{host}/prompt: {exc.reason}"}}
+
 
 
 def main():
