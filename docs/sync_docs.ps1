@@ -657,6 +657,20 @@ $JsContent = $JsContent -replace '/media/', './media/'
 $JsContent = $JsContent -replace "`r`n", "`n"
 Set-Content -Path "$DocsDir/static/app.js" -Value $JsContent -NoNewline
 
+# Cache-bust the read-only data JSON the static app fetches. Stamp ?v=<hash-of-
+# each-file> onto its ./static/*.json references INSIDE the deployed app.js, from
+# the files' deployed bytes, and do it BEFORE app.js is hashed for index.html
+# below so the modified bundle is the one index.html versions. Because index.html
+# cache-busts app.js, the new app.js reliably reaches returning visitors and its
+# versioned fetch URLs then bust the data JSON. Without this a browser keeps
+# serving a stale catalog (e.g. corrected media URLs that would otherwise 404).
+foreach ($dataJson in @('canon-catalog.json', 'characters.json', 'issue-workflows.json', 'project-direction.json')) {
+    if (Test-Path "$DocsDir/static/$dataJson") {
+        $DataHash = (python "$DocsDir/static_asset_version.py" --update-asset "$DocsDir/static/app.js" "./static/$dataJson" "$DocsDir/static/$dataJson").Trim()
+        if ($LASTEXITCODE -ne 0 -or $DataHash -notmatch '^[0-9a-f]{64}$') { throw "Deployed data JSON version generation failed for $dataJson" }
+    }
+}
+
 # Finalize HTML only after every static JavaScript transform has been written.
 # The deployed bundle never contains its own token, avoiding circular hashing.
 Set-Content -Path "$DocsDir/index.html" -Value $HtmlContent -NoNewline

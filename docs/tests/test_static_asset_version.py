@@ -83,6 +83,29 @@ def test_update_html_for_deployed_asset_round_trip(tmp_path):
     assert "\r\n" not in written
 
 
+def test_versions_data_json_fetched_from_js_fetch_calls(tmp_path):
+    # The deploy stamps ?v onto ./static/*.json references *inside app.js* so the
+    # static app's fetch() URLs bust the browser cache after a data change. The
+    # reference is inside a JS string literal (followed by a closing quote), so the
+    # same right-anchored replace used for HTML attributes must handle it, and every
+    # occurrence of a repeatedly-fetched catalog must be updated to the same token.
+    js = ('const a = await fetch("./static/canon-catalog.json");\n'
+          'const b = await fetch("./static/canon-catalog.json");\n'
+          'const c = await fetch("./static/characters.json");\n')
+    out = sav.replace_asset_version(js, "CAT", "./static/canon-catalog.json")
+    out = sav.replace_asset_version(out, "CHR", "./static/characters.json")
+    assert out.count('./static/canon-catalog.json?v=CAT"') == 2
+    assert './static/characters.json?v=CHR"' in out
+    assert './static/canon-catalog.json"' not in out  # no bare reference left
+
+
+def test_data_json_reversion_replaces_prior_token(tmp_path):
+    js = 'fetch("./static/canon-catalog.json?v=OLD")'
+    out = sav.replace_asset_version(js, "NEW", "./static/canon-catalog.json")
+    assert out == 'fetch("./static/canon-catalog.json?v=NEW")'
+    assert "OLD" not in out
+
+
 def test_update_html_for_deployed_bundle_targets_app_js(tmp_path):
     bundle = tmp_path / "app.js"
     bundle.write_bytes(b"console.log(1)")
