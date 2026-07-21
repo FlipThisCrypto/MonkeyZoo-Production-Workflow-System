@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 
 from flask import Flask, jsonify, request, send_from_directory
-from werkzeug.exceptions import BadRequest, UnsupportedMediaType
+from werkzeug.exceptions import BadRequest, HTTPException, UnsupportedMediaType
 
 import bible_store as store
 import story_context
@@ -386,6 +386,13 @@ def handle_error(exc):
         status, message = exc.status, str(exc)
     elif isinstance(exc, (store.BibleStoreError, story_context.StoryContextError, new_issue.IssueCreationError, issue_workflow.IssueWorkflowError)):
         status, message = 400, str(exc)
+    elif isinstance(exc, HTTPException):
+        # A genuine HTTP error -- unknown URL (404), wrong method (405), malformed
+        # JSON body / bad request (400), payload too large (413), etc. Preserve its
+        # real status instead of masking it as a 500; use the standard reason phrase
+        # (never the internals) so the JSON error shape stays consistent.
+        status = exc.code or 500
+        message = exc.description or exc.name
     else:
         status, message = 500, "Unexpected server error"
     return jsonify({"ok": False, "error": message}), status
