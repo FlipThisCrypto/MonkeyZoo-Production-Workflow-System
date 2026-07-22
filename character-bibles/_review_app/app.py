@@ -5,6 +5,7 @@ import json
 import logging
 import os
 import time
+import uuid
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 import sys
@@ -451,15 +452,19 @@ def handle_error(exc):
         message = exc.description or exc.name
     else:
         status, message = 500, "Unexpected server error"
+    request_id = getattr(g, "request_id", None)
     if status >= 500:
         # The client response is deliberately sanitized ("Unexpected server error"),
         # so without this the real cause of a failure on this WRITABLE service would
         # be lost entirely. Log the exception + traceback server-side (operator-only)
-        # so genuine 5xx failures are diagnosable. 4xx are expected client errors and
-        # stay quiet to avoid log noise.
-        app.logger.error("Unhandled %s on %s %s", type(exc).__name__,
-                         request.method, request.path, exc_info=exc)
-    return jsonify({"ok": False, "error": message}), status
+        # so genuine 5xx failures are diagnosable, tagged with the request id the
+        # client also sees, so a reported failure maps straight to its traceback.
+        # 4xx are expected client errors and stay quiet to avoid log noise.
+        app.logger.error("Unhandled %s on %s %s [request_id=%s]", type(exc).__name__,
+                         request.method, request.path, request_id, exc_info=exc)
+    # Echo the correlation id in the body so the UI/operator can reference the exact
+    # failed request when reporting or grepping the logs.
+    return jsonify({"ok": False, "error": message, "request_id": request_id}), status
 
 
 _SAFE_METHODS = {"GET", "HEAD", "OPTIONS", "TRACE"}
@@ -506,16 +511,22 @@ _configure_operations_log()
 @app.before_request
 def _start_request_timer():
     # Registered before the CSRF check so even a blocked (403) mutation is timed
-    # and logged -- useful when investigating cross-site attempts.
+    # and logged -- useful when investigating cross-site attempts. Stamp a short
+    # correlation id so the operations log, the 5xx traceback, the error response
+    # body and the X-Request-ID header all reference the SAME request -- turning
+    # separate log streams into one traceable request.
     g._mz_start = time.monotonic()
+    g.request_id = uuid.uuid4().hex[:12]
 
 
 @app.after_request
 def _log_operation(response):
+    response.headers.setdefault("X-Request-ID", getattr(g, "request_id", ""))
     if request.method not in _SAFE_METHODS and _OPS_LOG.handlers:
         start = getattr(g, "_mz_start", None)
         record = {
             "ts": dt.datetime.now(dt.timezone.utc).isoformat(timespec="milliseconds"),
+            "request_id": getattr(g, "request_id", None),
             "method": request.method,
             "path": request.path,
             "status": response.status_code,

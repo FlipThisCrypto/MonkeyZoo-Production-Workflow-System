@@ -365,3 +365,48 @@ def test_operations_log_writes_to_configured_dir(tmp_path, monkeypatch):
     finally:
         review_app._OPS_LOG.handlers.clear()
         review_app._configure_operations_log()     # restore default config
+
+
+# --- request correlation id: trace a request across header, ops log, error ------
+
+def test_every_response_carries_a_request_id_header(client):
+    res = client.get("/api/characters")
+    rid = res.headers.get("X-Request-ID")
+    assert rid and len(rid) == 12
+
+
+def test_request_id_is_unique_per_request(client):
+    a = client.get("/api/health").headers.get("X-Request-ID")
+    b = client.get("/api/health").headers.get("X-Request-ID")
+    assert a and b and a != b
+
+
+def test_error_response_body_echoes_the_request_id(client):
+    # a 400 must carry the same id the header does, so a reported failure is findable
+    res = client.post("/api/characters/MZ-CHAR-API/field", json={"note": "no path key"})
+    assert res.status_code == 400
+    assert res.get_json()["request_id"] == res.headers.get("X-Request-ID")
+
+
+def test_ops_log_request_id_matches_response_header(client, monkeypatch):
+    records, handler = _capture_ops(monkeypatch)
+    try:
+        res = client.post("/api/compare", json={"character_ids": []},
+                          headers={"Origin": "http://localhost"})
+    finally:
+        review_app._OPS_LOG.removeHandler(handler)
+    entry = next(r for r in records if r["path"] == "/api/compare")
+    assert entry["request_id"] == res.headers.get("X-Request-ID")  # ops log <-> client correlated
+
+
+def test_server_error_is_traceable_via_request_id(client, monkeypatch):
+    # force an unexpected 500 and confirm the same id appears in header + body,
+    # so the operator can map a reported error to its server-side traceback.
+    def _raise(*args, **kwargs):
+        raise RuntimeError("boom")
+    monkeypatch.setattr(review_app.store, "load_all", _raise)
+    res = client.get("/api/characters")
+    assert res.status_code == 500
+    body = res.get_json()
+    assert body["error"] == "Unexpected server error"  # internals stay sanitized
+    assert body["request_id"] and body["request_id"] == res.headers.get("X-Request-ID")
