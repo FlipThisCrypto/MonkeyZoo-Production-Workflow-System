@@ -80,3 +80,11 @@ jobs:
         else:
             print("Warning: docs/ directory not found in workspace.")
         '
+
+    - name: Verify deployed static-site consistency
+      # Fail before publishing a broken GitHub Pages build: every media URL the
+      # exported catalog references must resolve to a real file in docs/, and each
+      # data JSON must parse. Catches dangling/unexported media (e.g. the
+      # locations/props galleries that once shipped 51 missing images).
+      run: |
+        python docs/verify_static_site.py docs

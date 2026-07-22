@@ -59,3 +59,40 @@ def test_raw_url_survives_one_client_encode_but_a_preencoded_one_would_not(tmp_p
     assert "%20" in once and "%2520" not in once           # single-encoded -> resolves
     # a hypothetical pre-encoded URL would double-encode to the broken 404 form
     assert "%2520" in _client_media_url(raw.replace(" ", "%20"))
+
+
+# --- location/prop primary-image export: relative raw webp URLs, files present -
+
+def test_export_primary_media_copies_and_rewrites_to_relative_webp(tmp_path, monkeypatch):
+    import export_static_catalog as esc
+    monkeypatch.setattr(esc, "ROOT", tmp_path)
+    src = tmp_path / "03_APPROVED_CANON" / "approved_locations" / "l1"
+    src.mkdir(parents=True)
+    Image.new("RGB", (1000, 800), "white").save(src / "primary-reference.png")
+    items = [{
+        "location_id": "L1",
+        "folder": "03_APPROVED_CANON/approved_locations/l1",
+        "has_primary_image": True,
+        # the live app's absolute URL that 404s on Pages -- must be rewritten
+        "primary_image_url": "/media/locations/l1/primary-reference.png",
+    }]
+    exported = esc._export_primary_media(items, "locations")
+    assert exported == 1
+    assert items[0]["primary_image_url"] == "./media/locations/l1/primary-reference.webp"
+    out = tmp_path / "docs" / "media" / "locations" / "l1" / "primary-reference.webp"
+    assert out.is_file()
+
+
+def test_export_primary_media_missing_source_marks_no_image(tmp_path, monkeypatch):
+    import export_static_catalog as esc
+    monkeypatch.setattr(esc, "ROOT", tmp_path)
+    items = [{
+        "location_id": "L1",
+        "folder": "03_APPROVED_CANON/approved_locations/l1",  # no file on disk
+        "has_primary_image": True,
+        "primary_image_url": "/media/locations/l1/primary-reference.png",
+    }]
+    exported = esc._export_primary_media(items, "locations")
+    assert exported == 0
+    assert items[0]["has_primary_image"] is False
+    assert items[0]["primary_image_url"] is None
