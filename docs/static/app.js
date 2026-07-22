@@ -102,7 +102,7 @@ async function api(path, options = {}) {
   
   // Mock read data mapping
   if (cleanPath === "/api/characters") {
-    const response = await fetch("./static/characters.json");
+    const response = await fetch("./static/characters.json?v=e52498ad1181bbd5ff46ded4ebbfe61962c756f4b5d22e5a3de2df775bf138a3");
     return response.json();
     return [
       {
@@ -169,12 +169,12 @@ async function api(path, options = {}) {
   }
 
   if (cleanPath === "/api/issues") {
-    const response = await fetch("./static/issue-workflows.json");
+    const response = await fetch("./static/issue-workflows.json?v=54dbb5c7102814a31dcf93be65411d795d13effa685d8894d77baaed844b4199");
     return response.json();
   }
 
   if (cleanPath === "/api/locations" || cleanPath === "/api/props" || cleanPath === "/api/canon-catalog/summary") {
-    const response = await fetch("./static/canon-catalog.json");
+    const response = await fetch("./static/canon-catalog.json?v=f94f70aabceac4fd01040141e6f66324408e354bf77e5e47457f21a842a97ee8");
     const catalog = await response.json();
     if (cleanPath === "/api/locations") return catalog.locations || [];
     if (cleanPath === "/api/props") return catalog.props || [];
@@ -182,19 +182,19 @@ async function api(path, options = {}) {
   }
 
   if (cleanPath === "/api/project-direction") {
-    const response = await fetch("./static/project-direction.json");
+    const response = await fetch("./static/project-direction.json?v=62380a45bb68223c41568948e9326776a373be3d887009d3a1dcbe30da51f431");
     return response.json();
   }
 
   if (cleanPath === "/api/expressions") {
-    const response = await fetch("./static/canon-catalog.json");
+    const response = await fetch("./static/canon-catalog.json?v=f94f70aabceac4fd01040141e6f66324408e354bf77e5e47457f21a842a97ee8");
     const catalog = await response.json();
     return catalog.expressions || [];
   }
 
   if (cleanPath.startsWith("/api/expressions/")) {
     const slug = decodeURIComponent(cleanPath.slice("/api/expressions/".length));
-    const response = await fetch("./static/canon-catalog.json");
+    const response = await fetch("./static/canon-catalog.json?v=f94f70aabceac4fd01040141e6f66324408e354bf77e5e47457f21a842a97ee8");
     const catalog = await response.json();
     const item = (catalog.expressions || []).find(e => e.slug === slug);
     if (!item) return { error: "Expression set unavailable", slug };
@@ -203,7 +203,7 @@ async function api(path, options = {}) {
 
   if (cleanPath.startsWith("/api/locations/")) {
     const id = decodeURIComponent(cleanPath.split("/")[3] || "");
-    const response = await fetch("./static/canon-catalog.json");
+    const response = await fetch("./static/canon-catalog.json?v=f94f70aabceac4fd01040141e6f66324408e354bf77e5e47457f21a842a97ee8");
     const catalog = await response.json();
     const summary = (catalog.locations || []).find(item => item.location_id === id);
     if (!summary) return {error:"Location unavailable"};
@@ -212,7 +212,7 @@ async function api(path, options = {}) {
 
   if (cleanPath.startsWith("/api/props/")) {
     const id = decodeURIComponent(cleanPath.split("/")[3] || "");
-    const response = await fetch("./static/canon-catalog.json");
+    const response = await fetch("./static/canon-catalog.json?v=f94f70aabceac4fd01040141e6f66324408e354bf77e5e47457f21a842a97ee8");
     const catalog = await response.json();
     const summary = (catalog.props || []).find(item => item.prop_id === id);
     if (!summary) return {error:"Prop unavailable"};
@@ -222,7 +222,7 @@ async function api(path, options = {}) {
   if (cleanPath.startsWith("/api/issues/")) {
     const parts = cleanPath.split("/");
     const issueId = decodeURIComponent(parts[3] || "");
-    const response = await fetch("./static/issue-workflows.json");
+    const response = await fetch("./static/issue-workflows.json?v=54dbb5c7102814a31dcf93be65411d795d13effa685d8894d77baaed844b4199");
     const issue = (await response.json()).find(item => item.issue_id === issueId);
     if ((options.method || "GET").toUpperCase() !== "GET") {
       alert("This production action requires the local Banana Lab backend.");
@@ -242,7 +242,7 @@ async function api(path, options = {}) {
   
   if (cleanPath.startsWith("/api/characters/")) {
     const cid = cleanPath.split("/")[3];
-    const response = await fetch("./static/characters.json");
+    const response = await fetch("./static/characters.json?v=e52498ad1181bbd5ff46ded4ebbfe61962c756f4b5d22e5a3de2df775bf138a3");
     const summary = (await response.json()).find(item => item.character_id === cid);
     if (!summary) return { error: "Character unavailable" };
     return {summary, detail: {identification: {
@@ -1027,16 +1027,18 @@ function toggleStoryBuilder(forceOpen = null) {
   const open = forceOpen === null ? $("viewStoryBuilder").classList.contains("hidden") : forceOpen;
   
   // Clear active states on navigation items
-  document.querySelectorAll(".nav-item").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll(".nav-item").forEach(b => { b.classList.remove("active"); b.removeAttribute("aria-current"); });
   
   if (open) {
     document.querySelector('[data-view="storyBuilder"]').classList.add("active");
+    document.querySelector('[data-view="storyBuilder"]').setAttribute("aria-current", "page");
     $("activeViewLabel").textContent = "Story Builder";
     document.querySelectorAll(".workspace-view").forEach(el => el.classList.add("hidden"));
     $("viewStoryBuilder").classList.remove("hidden");
     showWizardStep(1); // Reset to step 1
   } else {
     document.querySelector('[data-view="characters"]').classList.add("active");
+    document.querySelector('[data-view="characters"]').setAttribute("aria-current", "page");
     $("activeViewLabel").textContent = "Characters";
     document.querySelectorAll(".workspace-view").forEach(el => el.classList.add("hidden"));
     $("viewCharacters").classList.remove("hidden");
@@ -1096,8 +1098,9 @@ document.querySelectorAll(".nav-item").forEach(btn => {
     if (!viewName) return;
     
     // Update active nav button
-    document.querySelectorAll(".nav-item").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".nav-item").forEach(b => { b.classList.remove("active"); b.removeAttribute("aria-current"); });
     btn.classList.add("active");
+    btn.setAttribute("aria-current", "page");
     
     // Update breadcrumb
     const label = btn.innerText.replace(/Soon$/, "").trim();

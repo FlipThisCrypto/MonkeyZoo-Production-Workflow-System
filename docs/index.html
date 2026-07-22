@@ -7,10 +7,11 @@
   <meta name="description" content="The Banana Lab by Fiend Studios — Local production studio and character bible review system for MonkeyZoo monthly comic strips.">
   <meta name="theme-color" content="#05070c">
   <link rel="icon" href="./static/banana-lab-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./static/styles.css">
-  <link rel="stylesheet" href="./static/banana-theme.css">
+  <link rel="stylesheet" href="./static/styles.css?v=c6a3280862659133af7ff6cfa845a9f16aa526071ce131c58b7f414085a3d5c1">
+  <link rel="stylesheet" href="./static/banana-theme.css?v=e4951928c91b61a2b6c5ff1df68ea20443c56b1c1513946d77baba5313cbe4c6">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="studio-app-container">
     <!-- Left Navigation Sidebar -->
     <nav id="sidebarNav" class="studio-sidebar" aria-label="Studio Navigation">
@@ -24,7 +25,7 @@
       
       <ul class="nav-list">
         <li>
-          <button class="nav-item active" data-view="dashboard">
+          <button class="nav-item active" data-view="dashboard" aria-current="page">
             <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
             Dashboard
           </button>
@@ -141,7 +142,7 @@
         <div class="header-center">
           <div class="global-search-container">
             <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input id="globalSearchInput" type="text" placeholder="Global Search (Issues, Characters, Logs)...">
+            <input id="globalSearchInput" type="text" aria-label="Global search: issues, characters, and logs" placeholder="Global Search (Issues, Characters, Logs)...">
           </div>
         </div>
         
@@ -166,7 +167,7 @@
       </header>
 
       <!-- Active Workspace Viewport -->
-      <main class="studio-content-viewport">
+      <main id="main-content" class="studio-content-viewport" tabindex="-1">
         
         <!-- 0. PROJECT MAP (direction + full task list) -->
         <div id="viewProjectMap" class="workspace-view hidden">
@@ -383,10 +384,10 @@
 
         <!-- 2. CHARACTERS REVIEW VIEW MODULE -->
         <div id="viewCharacters" class="workspace-view hidden">
-          <main class="layout">
+          <div class="layout">
             <aside class="browser">
               <div class="toolbar">
-                <input id="searchBox" type="search" placeholder="Search characters">
+                <input id="searchBox" type="search" aria-label="Search characters" placeholder="Search characters">
                 <button id="compareBtn">Compare</button>
               </div>
               <div id="characterList" class="character-list"></div>
@@ -432,7 +433,7 @@
                 <section id="tab-compare" class="tab-panel hidden"></section>
               </div>
             </section>
-          </main>
+          </div>
         </div>
 
         <!-- 3. STORY BUILDER WIZARD VIEW MODULE -->
@@ -633,7 +634,7 @@
             <h4>Panel queue</h4>
             <button id="buildArtQueue" class="primary" type="button" disabled>Build or refresh queue</button>
             <div id="artQueueItems"></div>
-            <input id="artAttemptFile" type="file" accept="image/png,image/jpeg,image/webp" class="hidden" disabled>
+            <input id="artAttemptFile" type="file" accept="image/png,image/jpeg,image/webp" aria-label="Upload art attempt image (PNG, JPEG, or WebP)" class="hidden" disabled>
           </section>
         </div>
         <div id="viewQA" class="workspace-view hidden"><section class="qa-workspace" aria-labelledby="qaTitle"><header><div><span class="eyebrow">EVIDENCE REVIEW</span><h3 id="qaTitle">Visual Production QA</h3><p>Inventory selected panels, review blocking evidence, finalize Pass/Hold/Fail, and promote an auditable report.</p></div><label>Issue<select id="qaIssueSelect" aria-label="Select issue for QA"><option value="">Choose an issue</option></select></label></header><div id="qaStatus" role="status"></div><div id="qaSummary" class="production-summary"></div><button id="createQAReview" class="primary" type="button" disabled>Create evidence review</button><div class="qa-owner-inputs"><label>Owner review notes<textarea id="qaOwnerNotes" rows="3"></textarea></label><label>Continuity check note<input id="qaContinuityNote" type="text"></label></div><div id="qaPanels"></div><div id="qaReviews"></div></section></div>
@@ -961,6 +962,6 @@
   <dialog id="storyImportDialog"><form method="dialog"><header><h3 id="storyImportTitle">Import variant</h3><button value="cancel" type="submit">Close</button></header><label>Provider/model label (optional)<input id="storyImportProvider"></label><label>Markdown<textarea id="storyImportContent" rows="20" required></textarea></label><button id="storyImportSubmit" type="button" class="primary" disabled>Import safely</button></form></dialog>
   <dialog id="variantDialog"><header><h3 id="variantDialogTitle">Variant</h3><button id="closeVariantDialog" type="button">Close</button></header><pre id="variantDialogContent"></pre></dialog>
 
-  <script src="./static/app.js?v=09f3a8096101c4cb3da9842e6245df3c74363d17409dbdcee34f6d8200347ed3"></script>
+  <script src="./static/app.js?v=cc4348bcfdc4492033007455c43c676fd2168f08e98a1eaeadab88c667acca75"></script>
 </body>
 </html>
