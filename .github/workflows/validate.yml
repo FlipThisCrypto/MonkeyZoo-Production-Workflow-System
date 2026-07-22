@@ -48,6 +48,14 @@ jobs:
       run: |
         python character-bibles/_schema/validate-character-bibles.py --root character-bibles --workspace-root .
 
+    - name: Validate continuity ledger (canon integrity)
+      # The continuity ledger is the append-only canon source-of-truth. Enforce
+      # its per-entry structure (required sections), entry-ID format, and
+      # duplicate-ID collisions so a malformed append cannot reach main with CI
+      # green. Companion to the character-bible gate above.
+      run: |
+        python 00_SYSTEM/scripts/validate_ledger.py 00_SYSTEM/continuity_ledger.md
+
     - name: Validate static pages assets
       run: |
         python -c '
