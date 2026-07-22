@@ -381,11 +381,13 @@ def test_request_id_is_unique_per_request(client):
     assert a and b and a != b
 
 
-def test_error_response_body_echoes_the_request_id(client):
-    # a 400 must carry the same id the header does, so a reported failure is findable
+def test_error_response_carries_request_id_header(client):
+    # errors keep the stable {"ok","error"} body; the correlation id rides the
+    # X-Request-ID header so a reported failure is still findable in the logs.
     res = client.post("/api/characters/MZ-CHAR-API/field", json={"note": "no path key"})
     assert res.status_code == 400
-    assert res.get_json()["request_id"] == res.headers.get("X-Request-ID")
+    assert set(res.get_json()) == {"ok", "error"}       # body contract unchanged
+    assert res.headers.get("X-Request-ID")              # but traceable via the header
 
 
 def test_ops_log_request_id_matches_response_header(client, monkeypatch):
@@ -407,6 +409,5 @@ def test_server_error_is_traceable_via_request_id(client, monkeypatch):
     monkeypatch.setattr(review_app.store, "load_all", _raise)
     res = client.get("/api/characters")
     assert res.status_code == 500
-    body = res.get_json()
-    assert body["error"] == "Unexpected server error"  # internals stay sanitized
-    assert body["request_id"] and body["request_id"] == res.headers.get("X-Request-ID")
+    assert res.get_json() == {"ok": False, "error": "Unexpected server error"}  # sanitized body
+    assert res.headers.get("X-Request-ID")             # traceable to the server-side traceback

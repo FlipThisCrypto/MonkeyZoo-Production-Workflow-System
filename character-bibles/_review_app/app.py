@@ -452,19 +452,18 @@ def handle_error(exc):
         message = exc.description or exc.name
     else:
         status, message = 500, "Unexpected server error"
-    request_id = getattr(g, "request_id", None)
     if status >= 500:
         # The client response is deliberately sanitized ("Unexpected server error"),
         # so without this the real cause of a failure on this WRITABLE service would
         # be lost entirely. Log the exception + traceback server-side (operator-only)
         # so genuine 5xx failures are diagnosable, tagged with the request id the
-        # client also sees, so a reported failure maps straight to its traceback.
-        # 4xx are expected client errors and stay quiet to avoid log noise.
+        # client also sees on the X-Request-ID header, so a reported failure maps
+        # straight to its traceback. 4xx are expected client errors and stay quiet.
         app.logger.error("Unhandled %s on %s %s [request_id=%s]", type(exc).__name__,
-                         request.method, request.path, request_id, exc_info=exc)
-    # Echo the correlation id in the body so the UI/operator can reference the exact
-    # failed request when reporting or grepping the logs.
-    return jsonify({"ok": False, "error": message, "request_id": request_id}), status
+                         request.method, request.path, getattr(g, "request_id", None), exc_info=exc)
+    # The correlation id travels on the X-Request-ID header (set for every response),
+    # not in the body -- the {"ok", "error"} error shape is a stable client contract.
+    return jsonify({"ok": False, "error": message}), status
 
 
 _SAFE_METHODS = {"GET", "HEAD", "OPTIONS", "TRACE"}
