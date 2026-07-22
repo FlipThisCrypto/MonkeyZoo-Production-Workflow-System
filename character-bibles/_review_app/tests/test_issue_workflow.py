@@ -57,6 +57,26 @@ def test_invalid_issue_ids_are_rejected(workspace, value):
         issue_workflow.find_issue(value, workspace)
 
 
+def test_list_degrades_issue_whose_id_is_not_operable(workspace):
+    # An issue whose id is not a safe MZ-YYYY-MM-NN (e.g. a codename like
+    # MZ-2026-07-MANGO) lists fine but every per-issue endpoint 400s it via
+    # find_issue -> _safe_issue_id. The list must flag it degraded, not present a
+    # normal, clickable issue that breaks the instant it is opened.
+    make_issue(workspace)  # valid MZ-2027-01-01
+    make_issue(workspace, folder="2026-07_Issue_MANGO", issue_id="MZ-2026-07-MANGO")
+    by_id = {item.get("issue_id"): item for item in issue_workflow.list_issues(workspace)}
+    assert not by_id["MZ-2027-01-01"].get("degraded")
+    mango = by_id["MZ-2026-07-MANGO"]
+    assert mango.get("degraded") is True
+    assert "MZ-YYYY-MM-NN" in mango.get("error", "")
+
+
+def test_workflow_status_rejects_unoperable_id(workspace):
+    issue = make_issue(workspace, folder="2026-07_Issue_MANGO", issue_id="MZ-2026-07-MANGO")
+    with pytest.raises(issue_workflow.IssueWorkflowError, match="MZ-YYYY-MM-NN"):
+        issue_workflow.workflow_status(issue, workspace)
+
+
 def test_unknown_issue_rejected(workspace):
     with pytest.raises(issue_workflow.IssueWorkflowError, match="Unknown issue"):
         issue_workflow.find_issue("MZ-2027-01-01", workspace)

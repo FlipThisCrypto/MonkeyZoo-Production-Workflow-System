@@ -210,6 +210,13 @@ def workflow_status(folder: Path, root: Path) -> dict[str, Any]:
     issue_id = _read_issue_id(folder)
     if not issue_id:
         raise IssueWorkflowError("Issue has no valid issue ID")
+    # The issue list and the per-issue endpoints must agree on what is operable.
+    # Every per-issue route resolves via find_issue -> _safe_issue_id (strict
+    # MZ-YYYY-MM-NN), so an issue whose id fails that check can be listed yet never
+    # opened or advanced (400). Validate the format here so list_issues flags such
+    # an issue as degraded (with a clear reason) instead of presenting a normal,
+    # clickable issue that breaks the moment it is touched.
+    _safe_issue_id(issue_id)
     state, inferred = _load_state(folder)
     active_index = next(i for i, stage in enumerate(STAGES) if stage[0] == state["active_stage"])
     artifact_hash = _issue_hash(folder)
