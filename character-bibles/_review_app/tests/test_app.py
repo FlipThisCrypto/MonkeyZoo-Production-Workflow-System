@@ -92,6 +92,27 @@ def test_health_degraded_503_when_data_root_missing(client, monkeypatch, tmp_pat
     assert res.get_json()["status"] == "degraded"
 
 
+def test_health_probes_all_critical_roots(client):
+    body = client.get("/api/health").get_json()
+    assert body["approved_canon_ok"] is True     # 03_APPROVED_CANON present
+    assert body["monthly_issues_ok"] is True      # 02_MONTHLY_ISSUES present
+    assert body["degraded_roots"] == []
+
+
+def test_health_degraded_503_when_canon_or_issues_root_missing(client, monkeypatch, tmp_path):
+    # bibles root present (fixture) but the canon-catalog / issue-workflow roots
+    # are unmounted -> readiness must fail and name them, not report healthy while
+    # /api/locations, /api/props and /api/issues would break.
+    monkeypatch.setattr(review_app, "WORKSPACE_ROOT", tmp_path / "unmounted-workspace")
+    res = client.get("/api/health")
+    assert res.status_code == 503
+    body = res.get_json()
+    assert body["status"] == "degraded"
+    assert "approved_canon_ok" in body["degraded_roots"]
+    assert "monthly_issues_ok" in body["degraded_roots"]
+    assert body["bibles_root_ok"] is True         # this root is still fine
+
+
 def test_runtime_capability_requires_exact_trusted_contract(client):
     res = client.get("/api/runtime-capabilities")
     assert res.status_code == 200

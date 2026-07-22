@@ -68,18 +68,27 @@ def index():
 
 @app.get("/api/health")
 def health():
-    """Liveness + basic readiness probe for monitors, the launcher, and deployers:
-    the process is up and its character-bible data root is reachable. Returns 503 so
-    a readiness check fails loudly if the data root is missing/unmounted rather than
-    the app silently serving empty results."""
-    bibles_ok = BIBLES_ROOT.is_dir()
+    """Liveness + readiness probe for monitors, the launcher, and deployers. The
+    Studio serves data from several roots, not just character-bibles: the canon
+    catalog reads 03_APPROVED_CANON and issue workflows read 02_MONTHLY_ISSUES.
+    Probe ALL of them and return 503 if ANY is missing/unmounted, so a readiness
+    check cannot report healthy while /api/locations, /api/props, /api/expressions
+    or /api/issues would silently fail. Names the specific degraded roots to make
+    the failure diagnosable."""
+    roots = {
+        "bibles_root_ok": BIBLES_ROOT.is_dir(),
+        "approved_canon_ok": (WORKSPACE_ROOT / "03_APPROVED_CANON").is_dir(),
+        "monthly_issues_ok": (WORKSPACE_ROOT / "02_MONTHLY_ISSUES").is_dir(),
+    }
+    ready = all(roots.values())
     payload = {
-        "status": "ok" if bibles_ok else "degraded",
+        "status": "ok" if ready else "degraded",
         "service": "monkeyzoo-banana-lab",
         "writable": True,
-        "bibles_root_ok": bibles_ok,
+        **roots,
+        "degraded_roots": [name for name, ok in roots.items() if not ok],
     }
-    return jsonify(payload), (200 if bibles_ok else 503)
+    return jsonify(payload), (200 if ready else 503)
 
 
 @app.get("/api/runtime-capabilities")
