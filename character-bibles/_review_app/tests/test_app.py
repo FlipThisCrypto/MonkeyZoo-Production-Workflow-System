@@ -290,3 +290,78 @@ def test_body_less_mutation_endpoint_is_csrf_protected(client):
     res = client.post("/api/characters/MZ-CHAR-API/undo",
                       headers={"Origin": "http://evil.example"})
     assert res.status_code == 403
+
+
+# --- structured operations log: durable audit of every mutation ----------------
+
+import json as _json          # noqa: E402
+import logging as _logging     # noqa: E402
+
+
+def _capture_ops(monkeypatch):
+    """Attach an in-memory handler to the operations logger and return the list
+    of emitted JSON records."""
+    records = []
+
+    class _Capture(_logging.Handler):
+        def emit(self, record):
+            records.append(_json.loads(record.getMessage()))
+
+    handler = _Capture()
+    review_app._OPS_LOG.addHandler(handler)
+    # ensure the guard in _log_operation sees a handler even if file setup was skipped
+    monkeypatch.setattr(review_app._OPS_LOG, "level", _logging.INFO, raising=False)
+    return records, handler
+
+
+def test_mutation_is_recorded_in_operations_log(client, monkeypatch):
+    records, handler = _capture_ops(monkeypatch)
+    try:
+        client.post("/api/compare", json={"character_ids": []}, headers={"Origin": "http://localhost"})
+    finally:
+        review_app._OPS_LOG.removeHandler(handler)
+    entry = next((r for r in records if r["path"] == "/api/compare"), None)
+    assert entry is not None
+    assert entry["method"] == "POST"
+    assert entry["status"] == 200
+    assert isinstance(entry["duration_ms"], float)
+    assert entry["ts"].endswith("+00:00") or "T" in entry["ts"]
+
+
+def test_safe_get_is_not_logged_as_operation(client, monkeypatch):
+    records, handler = _capture_ops(monkeypatch)
+    try:
+        client.get("/api/characters")
+    finally:
+        review_app._OPS_LOG.removeHandler(handler)
+    assert all(r["path"] != "/api/characters" for r in records)
+
+
+def test_blocked_cross_site_mutation_is_logged_with_403(client, monkeypatch):
+    # a rejected CSRF attempt must still be auditable (status 403 recorded)
+    records, handler = _capture_ops(monkeypatch)
+    try:
+        client.post("/api/compare", json={"character_ids": []}, headers={"Origin": "http://evil.example"})
+    finally:
+        review_app._OPS_LOG.removeHandler(handler)
+    entry = next((r for r in records if r["path"] == "/api/compare"), None)
+    assert entry is not None and entry["status"] == 403
+
+
+def test_operations_log_writes_to_configured_dir(tmp_path, monkeypatch):
+    # end-to-end: the file handler actually persists a JSON line to disk
+    monkeypatch.setenv("MZ_STUDIO_LOG_DIR", str(tmp_path / "opslogs"))
+    review_app._OPS_LOG.handlers.clear()          # force reconfigure with the env dir
+    review_app._configure_operations_log()
+    try:
+        with review_app.app.test_client() as c:
+            c.post("/api/compare", json={"character_ids": []}, headers={"Origin": "http://localhost"})
+        for h in review_app._OPS_LOG.handlers:
+            h.flush()
+        log_file = tmp_path / "opslogs" / "operations.log"
+        assert log_file.is_file()
+        lines = [l for l in log_file.read_text(encoding="utf-8").splitlines() if l.strip()]
+        assert any(_json.loads(l)["path"] == "/api/compare" for l in lines)
+    finally:
+        review_app._OPS_LOG.handlers.clear()
+        review_app._configure_operations_log()     # restore default config

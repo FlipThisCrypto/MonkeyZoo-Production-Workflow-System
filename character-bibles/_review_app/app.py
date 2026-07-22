@@ -1,11 +1,16 @@
 from __future__ import annotations
 
+import datetime as dt
+import json
+import logging
 import os
+import time
+from logging.handlers import RotatingFileHandler
 from pathlib import Path
 import sys
 from urllib.parse import urlsplit
 
-from flask import Flask, abort, jsonify, request, send_from_directory
+from flask import Flask, abort, g, jsonify, request, send_from_directory
 from werkzeug.exceptions import BadRequest, HTTPException, UnsupportedMediaType
 
 import bible_store as store
@@ -468,6 +473,56 @@ def _request_origin(referer_or_origin: str | None) -> str | None:
         return "null"
     parts = urlsplit(referer_or_origin)
     return f"{parts.scheme}://{parts.netloc}" if parts.scheme and parts.netloc else None
+
+
+_OPS_LOG = logging.getLogger("mz.operations")
+
+
+def _configure_operations_log() -> None:
+    """Durable, rotating audit of every state-changing request. The app previously
+    logged only 5xx errors, so consequential mutations (issue advance, pack/QA/
+    release promotion, canon edits) left no chronological cross-cutting record for
+    incident investigation. This writes one structured JSON line per mutation to
+    logs/operations.log (dir overridable via MZ_STUDIO_LOG_DIR). Never let logging
+    setup break the app."""
+    if _OPS_LOG.handlers:
+        return
+    log_dir = Path(os.environ.get("MZ_STUDIO_LOG_DIR", str(APP_DIR / "logs")))
+    try:
+        log_dir.mkdir(parents=True, exist_ok=True)
+        handler = RotatingFileHandler(log_dir / "operations.log", maxBytes=1_000_000,
+                                      backupCount=5, encoding="utf-8")
+        handler.setFormatter(logging.Formatter("%(message)s"))
+        _OPS_LOG.addHandler(handler)
+        _OPS_LOG.setLevel(logging.INFO)
+        _OPS_LOG.propagate = False
+    except OSError:
+        pass
+
+
+_configure_operations_log()
+
+
+@app.before_request
+def _start_request_timer():
+    # Registered before the CSRF check so even a blocked (403) mutation is timed
+    # and logged -- useful when investigating cross-site attempts.
+    g._mz_start = time.monotonic()
+
+
+@app.after_request
+def _log_operation(response):
+    if request.method not in _SAFE_METHODS and _OPS_LOG.handlers:
+        start = getattr(g, "_mz_start", None)
+        record = {
+            "ts": dt.datetime.now(dt.timezone.utc).isoformat(timespec="milliseconds"),
+            "method": request.method,
+            "path": request.path,
+            "status": response.status_code,
+            "duration_ms": round((time.monotonic() - start) * 1000, 1) if start else None,
+        }
+        _OPS_LOG.info(json.dumps(record))
+    return response
 
 
 @app.before_request
