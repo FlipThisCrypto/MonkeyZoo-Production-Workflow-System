@@ -1,5 +1,6 @@
 import json
 import sys
+import threading
 from pathlib import Path
 
 import pytest
@@ -296,3 +297,67 @@ def test_identity_index_invalidated_on_rename(bible_root):
     assert bible_store.resolve_character_id("MZ-CHAR-TEST", root) == "MZ-CHAR-TEST"
     with pytest.raises(bible_store.BibleStoreError):
         bible_store.resolve_character_id("Test", root)                          # old name is gone
+
+
+# --- concurrency: per-character write serialization (no lost updates/audit) ----
+
+def test_character_lock_is_per_character_and_stable():
+    a1 = bible_store._character_lock("MZ-CHAR-A")
+    a2 = bible_store._character_lock("MZ-CHAR-A")
+    b = bible_store._character_lock("MZ-CHAR-B")
+    assert a1 is a2          # same character -> one lock -> edits serialize
+    assert a1 is not b       # different characters -> independent locks -> parallel
+
+
+def test_concurrent_edits_record_every_audit_entry(bible_root):
+    # High-contention: all threads enter the edit at once. Without per-character
+    # serialization the racing append_history() calls drop entries; with the lock
+    # every edit is durably audited.
+    n = 40
+    barrier = threading.Barrier(n)
+    errors: list[Exception] = []
+
+    def edit(i: int) -> None:
+        try:
+            barrier.wait()
+            bible_store.update_field(
+                "MZ-CHAR-TEST", "identification.current_display_name",
+                f"Name {i}", root=bible_root,
+            )
+        except Exception as exc:  # noqa: BLE001 - surface any thread failure to the assert
+            errors.append(exc)
+
+    threads = [threading.Thread(target=edit, args=(i,)) for i in range(n)]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+
+    assert errors == []
+    history = bible_store.load_history("MZ-CHAR-TEST", bible_root)
+    assert len(history) == n, f"expected {n} audit entries, got {len(history)} (lost under concurrency)"
+    # the bible survived concurrent writes intact and readable
+    data = bible_store.load_bible("MZ-CHAR-TEST", bible_root)
+    assert data["identification"]["current_display_name"].startswith("Name ")
+
+
+def test_concurrent_trait_edits_keep_history_and_bible_consistent(bible_root):
+    n = 25
+    barrier = threading.Barrier(n)
+
+    def edit() -> None:
+        barrier.wait()
+        bible_store.update_trait(
+            "MZ-CHAR-TEST", "character_core.dominant_traits.0",
+            {"action": "keep_experimental"}, root=bible_root,
+        )
+
+    threads = [threading.Thread(target=edit) for _ in range(n)]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+
+    assert len(bible_store.load_history("MZ-CHAR-TEST", bible_root)) == n
+    data = bible_store.load_bible("MZ-CHAR-TEST", bible_root)
+    assert data["character_core"]["dominant_traits"][0]["status"] == "experimental"

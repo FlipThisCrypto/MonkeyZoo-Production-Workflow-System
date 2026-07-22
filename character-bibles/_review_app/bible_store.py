@@ -5,6 +5,7 @@ import datetime as dt
 import json
 import os
 import tempfile
+import threading
 from pathlib import Path
 from typing import Any
 
@@ -14,6 +15,28 @@ __all__ = ["load_bible", "save_bible", "resolve_character_id", "character_summar
 
 
 WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
+
+# The Studio dev server is threaded (Flask app.run defaults threaded=True), and a
+# trait/field edit or undo is a read-modify-write over BOTH the bible and its
+# append-only audit history. Without serialization, two concurrent edits to the
+# same character race: last-write-wins can drop an edit, and -- worse -- two
+# concurrent append_history() calls can silently lose an audit entry (each reads
+# the history, appends, and overwrites). A per-character lock (keyed by the
+# RESOLVED id, so an alias and its target share one lock) serializes the whole
+# critical section; distinct characters still edit in parallel. In-process is the
+# right scope for the current single-process server; a future multi-worker
+# (wsgi) deployment would additionally need a cross-process file lock.
+_CHARACTER_LOCKS: dict[str, threading.Lock] = {}
+_CHARACTER_LOCKS_GUARD = threading.Lock()
+
+
+def _character_lock(character_id: str) -> threading.Lock:
+    with _CHARACTER_LOCKS_GUARD:
+        lock = _CHARACTER_LOCKS.get(character_id)
+        if lock is None:
+            lock = threading.Lock()
+            _CHARACTER_LOCKS[character_id] = lock
+        return lock
 
 BIBLES_ROOT = WORKSPACE_ROOT / "character-bibles"
 VALID_STATUSES = {
@@ -318,17 +341,19 @@ def audit_entry(action: str, field_path: str, previous: Any, new: Any, note: str
 
 def update_trait(character_id: str, trait_path: str, updates: dict[str, Any], note: str | None = None,
                  root: Path = BIBLES_ROOT) -> dict[str, Any]:
-    data = load_bible(character_id, root)
-    trait = get_path(data, trait_path)
-    if not isinstance(trait, dict) or "status" not in trait:
-        raise BibleStoreError("Selected path is not a trait")
-    previous = copy.deepcopy(trait)
-    normalized = normalize_trait_updates(updates)
-    review_action = normalized.pop("_review_action", "edit_trait")
-    trait.update(normalized)
-    save_bible(character_id, data, root)
-    append_history(character_id, audit_entry(review_action, trait_path, previous, copy.deepcopy(trait), note), root)
-    return trait
+    cid = resolve_character_id(character_id, root)
+    with _character_lock(cid):
+        data = load_bible(cid, root)
+        trait = get_path(data, trait_path)
+        if not isinstance(trait, dict) or "status" not in trait:
+            raise BibleStoreError("Selected path is not a trait")
+        previous = copy.deepcopy(trait)
+        normalized = normalize_trait_updates(updates)
+        review_action = normalized.pop("_review_action", "edit_trait")
+        trait.update(normalized)
+        save_bible(cid, data, root)
+        append_history(cid, audit_entry(review_action, trait_path, previous, copy.deepcopy(trait), note), root)
+        return trait
 
 
 def normalize_trait_updates(updates: dict[str, Any]) -> dict[str, Any]:
@@ -371,24 +396,28 @@ def normalize_trait_updates(updates: dict[str, Any]) -> dict[str, Any]:
 
 def update_field(character_id: str, field_path: str, value: Any, action: str = "edit_field",
                  note: str | None = None, root: Path = BIBLES_ROOT) -> Any:
-    data = load_bible(character_id, root)
-    previous = copy.deepcopy(get_path(data, field_path))
-    set_path(data, field_path, value)
-    save_bible(character_id, data, root)
-    append_history(character_id, audit_entry(action, field_path, previous, value, note), root)
-    return value
+    cid = resolve_character_id(character_id, root)
+    with _character_lock(cid):
+        data = load_bible(cid, root)
+        previous = copy.deepcopy(get_path(data, field_path))
+        set_path(data, field_path, value)
+        save_bible(cid, data, root)
+        append_history(cid, audit_entry(action, field_path, previous, value, note), root)
+        return value
 
 
 def undo_last(character_id: str, root: Path = BIBLES_ROOT) -> dict[str, Any]:
-    history = load_history(character_id, root)
-    if not history:
-        raise BibleStoreError("No history to undo")
-    last = history.pop()
-    data = load_bible(character_id, root)
-    set_path(data, last["field_path"], last["previous_value"])
-    save_bible(character_id, data, root)
-    _atomic_write_text(history_path(character_id, root), json.dumps(history, indent=2, ensure_ascii=False))
-    return last
+    cid = resolve_character_id(character_id, root)
+    with _character_lock(cid):
+        history = load_history(cid, root)
+        if not history:
+            raise BibleStoreError("No history to undo")
+        last = history.pop()
+        data = load_bible(cid, root)
+        set_path(data, last["field_path"], last["previous_value"])
+        save_bible(cid, data, root)
+        _atomic_write_text(history_path(cid, root), json.dumps(history, indent=2, ensure_ascii=False))
+        return last
 
 
 def load_source_map(character_id: str | None, root: Path = BIBLES_ROOT) -> dict[str, Any]:
