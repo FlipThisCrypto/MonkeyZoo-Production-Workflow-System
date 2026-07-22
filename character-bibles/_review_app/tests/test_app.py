@@ -221,3 +221,51 @@ def test_debug_stays_off_for_non_truthy_values(monkeypatch, value):
 def test_debug_opt_in_only_via_explicit_flag(monkeypatch, value):
     monkeypatch.setenv("MZ_STUDIO_DEBUG", value)
     assert review_app._debug_enabled() is True
+
+
+# --- CSRF / cross-origin request-trust boundary on the writable service --------
+
+def test_cross_site_mutation_blocked_by_origin(client):
+    res = client.post("/api/compare", json={"character_ids": []},
+                      headers={"Origin": "http://evil.example"})
+    assert res.status_code == 403
+    assert "Cross-site" in res.get_json()["error"]
+
+
+def test_cross_site_mutation_blocked_by_referer(client):
+    # a cross-site form POST that carries only a Referer must also be rejected
+    res = client.post("/api/compare", json={"character_ids": []},
+                      headers={"Referer": "http://evil.example/attack.html"})
+    assert res.status_code == 403
+
+
+def test_null_origin_mutation_blocked(client):
+    res = client.post("/api/compare", json={"character_ids": []},
+                      headers={"Origin": "null"})
+    assert res.status_code == 403
+
+
+def test_same_origin_mutation_allowed(client):
+    res = client.post("/api/compare", json={"character_ids": []},
+                      headers={"Origin": "http://localhost"})
+    assert res.status_code == 200
+
+
+def test_mutation_without_origin_or_referer_allowed(client):
+    # non-browser clients (CLI / the test suite) send neither header; a body-less
+    # cross-site attack cannot avoid sending an Origin, so this is safe to allow.
+    res = client.post("/api/compare", json={"character_ids": []})
+    assert res.status_code == 200
+
+
+def test_safe_method_ignores_cross_origin(client):
+    res = client.get("/api/characters", headers={"Origin": "http://evil.example"})
+    assert res.status_code == 200
+
+
+def test_body_less_mutation_endpoint_is_csrf_protected(client):
+    # /undo takes no body: proves the boundary intercepts BEFORE the handler runs
+    # (evil origin -> 403, not the handler's 400 "no history").
+    res = client.post("/api/characters/MZ-CHAR-API/undo",
+                      headers={"Origin": "http://evil.example"})
+    assert res.status_code == 403

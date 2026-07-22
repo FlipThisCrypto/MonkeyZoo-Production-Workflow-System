@@ -3,8 +3,9 @@ from __future__ import annotations
 import os
 from pathlib import Path
 import sys
+from urllib.parse import urlsplit
 
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, abort, jsonify, request, send_from_directory
 from werkzeug.exceptions import BadRequest, HTTPException, UnsupportedMediaType
 
 import bible_store as store
@@ -445,6 +446,39 @@ def handle_error(exc):
         app.logger.error("Unhandled %s on %s %s", type(exc).__name__,
                          request.method, request.path, exc_info=exc)
     return jsonify({"ok": False, "error": message}), status
+
+
+_SAFE_METHODS = {"GET", "HEAD", "OPTIONS", "TRACE"}
+
+
+def _request_origin(referer_or_origin: str | None) -> str | None:
+    """Return the scheme://host[:port] of a header value, or None if unparseable."""
+    if not referer_or_origin:
+        return None
+    if referer_or_origin == "null":
+        return "null"
+    parts = urlsplit(referer_or_origin)
+    return f"{parts.scheme}://{parts.netloc}" if parts.scheme and parts.netloc else None
+
+
+@app.before_request
+def _block_cross_site_mutations():
+    # CSRF boundary for a WRITABLE localhost service. localhost is not origin
+    # isolated: any page in the operator's browser can POST a body-less form to
+    # 127.0.0.1 and trigger a mutation (undo/approve/promote). The app sends no
+    # permissive CORS headers, so cross-origin fetch() is already blocked by the
+    # browser; the remaining vector is a cross-site <form> POST, which a browser
+    # always tags with an Origin (and usually a Referer). So: on a state-changing
+    # method, if an Origin/Referer is present it MUST match this service's own
+    # origin. Non-browser clients (CLI, the test suite) send neither and are
+    # unaffected, preserving legitimate scripted/local use.
+    if request.method in _SAFE_METHODS:
+        return
+    own = f"{request.scheme}://{request.host}"
+    stated = request.headers.get("Origin") or request.headers.get("Referer")
+    stated_origin = _request_origin(stated)
+    if stated_origin is not None and stated_origin != own:
+        abort(403, description="Cross-site request blocked: request origin does not match this service.")
 
 
 @app.after_request
