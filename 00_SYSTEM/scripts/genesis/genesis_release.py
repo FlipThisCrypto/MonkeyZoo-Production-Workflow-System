@@ -104,8 +104,70 @@ def package(genesis_dir: Path) -> dict:
     return {"cbz": str(cbz), "pdf": str(pdf), "pages": len(files), "manifest": manifest}
 
 
+def verify(genesis_dir: Path) -> dict:
+    """Re-verify a packaged release before distribution/minting. Every file listed
+    in SHA256SUMS.txt must exist and match its recorded hash (detects post-package
+    corruption or a swapped file), and the release manifest's per-artifact sha256
+    and byte size -- the provenance the CBZ/PDF are distributed and CHIP-0015
+    minted with -- must match the actual files (detects manifest/file drift).
+    Returns {'verified', 'problems'}; problems is empty for an intact release."""
+    rel = genesis_dir / "release"
+    sums_path = rel / "SHA256SUMS.txt"
+    if not sums_path.is_file():
+        raise SystemExit(f"No SHA256SUMS.txt found in {rel} (nothing to verify).")
+
+    problems: list[str] = []
+    verified = 0
+    for line in sums_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        parts = line.split("  ", 1)  # sha256sum format: "<64-hex>  <path>"
+        if len(parts) != 2 or len(parts[0]) != 64:
+            problems.append(f"malformed SHA256SUMS entry: {line[:70]}")
+            continue
+        expected, relpath = parts[0].strip(), parts[1].strip()
+        target = genesis_dir / relpath
+        if not target.is_file():
+            problems.append(f"MISSING: {relpath}")
+        elif _sha256(target) != expected:
+            problems.append(f"HASH MISMATCH (corrupted): {relpath}")
+        else:
+            verified += 1
+
+    manifest_path = rel / "release_manifest.json"
+    if manifest_path.is_file():
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except ValueError as exc:
+            problems.append(f"unreadable release_manifest.json: {exc}")
+            manifest = {}
+        for kind, art in (manifest.get("artifacts") or {}).items():
+            fname = art.get("file", "")
+            target = rel / fname
+            if not target.is_file():
+                problems.append(f"manifest artifact missing: {fname}")
+                continue
+            if _sha256(target) != art.get("sha256"):
+                problems.append(f"manifest {kind} sha256 mismatch for {fname} (provenance drift)")
+            if target.stat().st_size != art.get("bytes"):
+                problems.append(f"manifest {kind} byte size mismatch for {fname}")
+    return {"release": str(rel), "verified": verified, "problems": problems}
+
+
 def main() -> None:
-    genesis_dir = Path(sys.argv[1]) if len(sys.argv) > 1 else FACTORY / "GENESIS"
+    positional = [a for a in sys.argv[1:] if not a.startswith("--")]
+    genesis_dir = Path(positional[0]) if positional else FACTORY / "GENESIS"
+
+    if "--verify" in sys.argv:
+        result = verify(genesis_dir)
+        for problem in result["problems"]:
+            print(f"  FAIL {problem}")
+        status = "FAILED" if result["problems"] else "OK"
+        print(f"Release verify {status}: {result['verified']} checksummed file(s) intact, "
+              f"{len(result['problems'])} problem(s) in {result['release']}")
+        raise SystemExit(1 if result["problems"] else 0)
+
     r = package(genesis_dir)
     m = r["manifest"]
     print(f"Genesis release: {r['pages']} images ({m['story_pages']} pages + 2 covers)")

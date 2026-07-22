@@ -1,6 +1,7 @@
 """Tests for the Genesis release packager: reading-order enforcement + CBZ."""
 from __future__ import annotations
 
+import json
 import sys
 import zipfile
 from pathlib import Path
@@ -86,3 +87,74 @@ def test_package_writes_manifest_and_checksums(tmp_path):
     sums = (rel / "SHA256SUMS.txt").read_text(encoding="utf-8").strip().splitlines()
     assert len(sums) == 26  # cbz + pdf + 24 images
     assert result["manifest"]["story_pages"] == 22
+
+
+# --- verify(): release integrity + provenance before distribution/minting ------
+
+def _packaged_release(tmp_path):
+    _fake_web(tmp_path)
+    (tmp_path / "GENESIS_LAYOUT_PLAN.json").write_text("{}", encoding="utf-8")
+    gr.package(tmp_path)
+    return tmp_path
+
+
+def test_verify_passes_a_fresh_release(tmp_path):
+    result = gr.verify(_packaged_release(tmp_path))
+    assert result["problems"] == []
+    assert result["verified"] == 24 + 2  # 22 pages + 2 covers + cbz + pdf listed; all intact
+
+
+def test_verify_detects_corrupted_web_page(tmp_path):
+    genesis = _packaged_release(tmp_path)
+    page = genesis / "web" / "story_pages" / "02_PAGE_01.jpg"
+    page.write_bytes(page.read_bytes() + b"corruption")
+    problems = gr.verify(genesis)["problems"]
+    assert any(p.startswith("HASH MISMATCH") and "02_PAGE_01.jpg" in p for p in problems)
+
+
+def test_verify_detects_missing_file(tmp_path):
+    genesis = _packaged_release(tmp_path)
+    (genesis / "web" / "covers" / "24_BACK_COVER.jpg").unlink()
+    problems = gr.verify(genesis)["problems"]
+    assert any(p.startswith("MISSING") and "24_BACK_COVER.jpg" in p for p in problems)
+
+
+def test_verify_detects_manifest_provenance_drift(tmp_path):
+    genesis = _packaged_release(tmp_path)
+    manifest_path = genesis / "release" / "release_manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["artifacts"]["cbz"]["sha256"] = "0" * 64  # claim a hash the file doesn't have
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    problems = gr.verify(genesis)["problems"]
+    assert any("manifest cbz sha256 mismatch" in p for p in problems)
+
+
+def test_verify_detects_manifest_byte_drift(tmp_path):
+    genesis = _packaged_release(tmp_path)
+    manifest_path = genesis / "release" / "release_manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["artifacts"]["pdf"]["bytes"] = 1  # wrong recorded size
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    problems = gr.verify(genesis)["problems"]
+    assert any("manifest pdf byte size mismatch" in p for p in problems)
+
+
+def test_verify_missing_sums_raises(tmp_path):
+    (tmp_path / "release").mkdir()
+    with pytest.raises(SystemExit):
+        gr.verify(tmp_path)
+
+
+def test_verify_cli_exit_codes(tmp_path, monkeypatch, capsys):
+    genesis = _packaged_release(tmp_path)
+    monkeypatch.setattr(sys, "argv", ["genesis_release.py", str(genesis), "--verify"])
+    with pytest.raises(SystemExit) as ok:
+        gr.main()
+    assert ok.value.code == 0
+    assert "verify OK" in capsys.readouterr().out
+    (genesis / "web" / "story_pages" / "02_PAGE_01.jpg").write_bytes(b"tampered")
+    monkeypatch.setattr(sys, "argv", ["genesis_release.py", str(genesis), "--verify"])
+    with pytest.raises(SystemExit) as bad:
+        gr.main()
+    assert bad.value.code == 1
+    assert "verify FAILED" in capsys.readouterr().out
