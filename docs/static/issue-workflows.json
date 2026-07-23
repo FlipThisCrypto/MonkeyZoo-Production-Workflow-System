@@ -7,7 +7,7 @@
     "primary_character": "Moodz",
     "guest_character": "NeonBlue (co-lead), TwoTone, Static, Ash, Scarline, Patch (NEW — zombie, NeonBlue's old friend)",
     "location": "02_MONTHLY_ISSUES\\2026-07_Issue_05",
-    "last_updated": "2026-07-02T20:52:51",
+    "last_updated": "2026-07-16T18:08:58",
     "validation_state": "passed",
     "blocker_count": 0,
     "workflow": {
@@ -270,21 +270,21 @@
         "group": "Script",
         "name": "issue_script.md",
         "exists": true,
-        "modified": "2026-07-02T15:41:08",
+        "modified": "2026-07-16T12:59:01",
         "viewable": true
       },
       {
         "group": "Plans",
         "name": "page_panel_plan.json",
         "exists": true,
-        "modified": "2026-07-02T20:46:59",
+        "modified": "2026-07-16T12:59:01",
         "viewable": true
       },
       {
         "group": "Prompts",
         "name": "art_prompt_pack.json",
         "exists": true,
-        "modified": "2026-07-02T20:51:02",
+        "modified": "2026-07-16T13:00:13",
         "viewable": true
       },
       {
@@ -609,11 +609,11 @@
           },
           {
             "path": "00_SYSTEM/world_bible.md",
-            "sha256": "8395aa9de8c58cdcd3f6d6e891c8b73a738ed0fd34a24d481d2d3c90427388f8"
+            "sha256": "9996224fa3c11516a972462b1524f469b243f65eb86e14e4c8c7443107190788"
           },
           {
             "path": "00_SYSTEM/continuity_ledger.md",
-            "sha256": "365c8532b7b1565bb02d7877ac9d36927c0320ac23a583747c8c6e94f2d62870"
+            "sha256": "748e9c7350795ab095e6011965e32109e58a66ffd5964f37cc04493a5213725c"
           },
           {
             "path": "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md",
@@ -2268,7 +2268,7 @@
         "previous_issue_references": [],
         "warnings": [],
         "excluded": [],
-        "snapshot_hash": "182c81023f8a9f6e0c0c3deb6f78fef357464ae1a02c17b276a7c1ae63af01eb"
+        "snapshot_hash": "5eaaf37631b7a78e2334b2c02a72b07ce5b19abc44687e213fd0796cf2d71183"
       },
       "outlines": [],
       "scripts": [],
@@ -2521,7 +2521,7 @@
       },
       "script": {
         "exists": true,
-        "sha256": "affb549b9c2d108ff88344978f77d23a10ac2558131d09014c8c546b4cf16d82"
+        "sha256": "b926887cc8cefd72b6c05588a8821f49bb42dbb73ec7a69f6423b389edc29fce"
       },
       "variants": [],
       "canonical_plan_exists": true
@@ -2764,7 +2764,7 @@
       },
       "plan": {
         "exists": true,
-        "sha256": "438fa78b2ca7cdb6d41d43138719eaec0704a18a801f3259691ca3a76739ada0"
+        "sha256": "404f7a4d4314d9874692e7fd7f6f2026b6128a4ff953e324da82b00cfad52a92"
       },
       "variants": [],
       "canonical_pack_exists": true
@@ -3252,7 +3252,7 @@
         "state_notice": "Inferred from repository evidence; active stage defaults to Intake and no approval is inferred."
       },
       "evidence": {
-        "evidence_hash": "ff45d782cb80b6f75ce1e1802a0b49e313945b86a3ef87d27fd2f672857a28f9",
+        "evidence_hash": "b95c211f56c064a71d011907244c49b5b6ed8c16ee25563903143902ab2be4ad",
         "panels": [
           {
             "panel_id": "MZ-2026-07-05_P01_PANEL01",
@@ -3268,11 +3268,11 @@
             "caption": "FusionZoo never calls to say hi.",
             "continuity_notes": "Street matches Emo ref #973 backdrop; billboard = Ed.4 signage",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P01_PANEL01.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "9ed51502e4b50defc374335aef084bff3cb2009fb82e5a1bf1dc372da5e4fe44",
             "error": null
           },
           {
@@ -3286,11 +3286,11 @@
             "caption": "",
             "continuity_notes": "STARTS running joke: Static's danger meter",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P01_PANEL02.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "7e452ea76f1da76e2e8bc3a12fc508fcb0cc794a55628ad6c5012503afaed1f4",
             "error": null
           },
           {
@@ -3302,11 +3302,11 @@
             "caption": "The Annex is where the truth lives. The marketing lives out front.",
             "continuity_notes": "Annex established Ed.2; deliberate Ed.4 corridor-reflection echo",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P02_PANEL01.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "34e53d7243183fb2f94ac3745334ed17e2811cacdd32f35ad7ed682cce5c353e",
             "error": null
           },
           {
@@ -3319,11 +3319,11 @@
             "caption": "",
             "continuity_notes": "Ad-copy joke continues; Ash <=4 words rule",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P02_PANEL02.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "c4ddfa8a0426627efeedddff4a4b343cff71e812e9db7ab1db80c00b040d7b18",
             "error": null
           },
           {
@@ -3335,11 +3335,11 @@
             "caption": "",
             "continuity_notes": "Arc positioning: Ed.4 he hesitated at a door, now he leads",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P02_PANEL03.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "8268fd6f36b843ffc70c4d9226f320fa5659cc5163fc9c4ba2967867afb4dee7",
             "error": null
           },
           {
@@ -3352,11 +3352,11 @@
             "caption": "",
             "continuity_notes": "Corridor = Ed.4 facility design, aged/disused variant",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P03_PANEL01.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "7513803cfd8a092b462821c5b25acf9439638638ce7e213b8c4fdf711c8cbe41",
             "error": null
           },
           {
@@ -3368,11 +3368,11 @@
             "caption": "",
             "continuity_notes": "ZOMBIE FACTION ON-PAGE DEBUT — resolves Ed.4 teaser",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P03_PANEL02.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "83416786cc71e243c141b622929d93728574e450ca632c7123e0819ade0d14f9",
             "error": null
           },
           {
@@ -3384,11 +3384,11 @@
             "caption": "Not everyone walks away. Some monkeys just… stayed.",
             "continuity_notes": "Caption pays off Ed.4 rear-cover line verbatim",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P03_PANEL03.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1024,
+            "height": 1024,
+            "sha256": "8531c29959a6779d80a4fc8778368e6c9e94758f3b3c90c3ed58b859645c9ebc",
             "error": null
           },
           {
@@ -3406,11 +3406,11 @@
             "caption": "They never stopped fusing. There was always one more upgrade.",
             "continuity_notes": "Cracked chamber = Ed.4 teaser image, now located: Chamber 0",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P04_PANEL01.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 832,
+            "height": 1216,
+            "sha256": "8c263b17f85c04410808d97675408353a5b54e7ea4bb4797634591976f0a49fa",
             "error": null
           },
           {
@@ -3423,11 +3423,11 @@
             "caption": "",
             "continuity_notes": "NEW CHARACTER Patch; smile-drop wind-up, not the drop",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P05_PANEL01.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "1d22ce4a6e09ec39ea5e633fed6abc5b4dacf0b6f2d2dce7eeb078b1452f5621",
             "error": null
           },
           {
@@ -3439,11 +3439,11 @@
             "caption": "Patch went in with NeonBlue, years ago. Only one of them came back out.",
             "continuity_notes": "Backstory consistent with Ed.4 insecurity; logged as new lore",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P05_PANEL02.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1024,
+            "height": 1024,
+            "sha256": "5751d2749526027b3b84b4d6674c4ecb034beb2ac7e20d5c5c2e3c8f13ce18ca",
             "error": null
           },
           {
@@ -3456,11 +3456,11 @@
             "caption": "",
             "continuity_notes": "Running joke bent into pathos",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P05_PANEL03.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "1ee5a8663e303ec66d45450b165a68a01b5bf1c81018c39d605a6abbac60efa3",
             "error": null
           },
           {
@@ -3478,11 +3478,11 @@
             "caption": "",
             "continuity_notes": "Auto-protocol is PRESSURE not physics — nobody on platform, cannot commit (world bible rule 1)",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P06_PANEL01.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "306e603f51eae519fac14db1b9e398a27a01d5578bf8a55ddfdcfb79e22e0762",
             "error": null
           },
           {
@@ -3494,11 +3494,11 @@
             "caption": "Last time, he screamed. This time he just knew where the button was.",
             "continuity_notes": "Direct arc payoff of Ed.4; abort-during-sync canon since Ed.4",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P06_PANEL02.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "002d365b077912d94ee25f96892b900f186a958986dec3c8b57b48c9da8e0bf1",
             "error": null
           },
           {
@@ -3511,11 +3511,11 @@
             "caption": "",
             "continuity_notes": "Scarline speech law: one clear sentence, once",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P07_PANEL01.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "9fc42a0596f09e66a9cbc52f4d30fef0d8839245a20010b32b379027e47dc849",
             "error": null
           },
           {
@@ -3528,11 +3528,11 @@
             "caption": "",
             "continuity_notes": "Ed.4 closing exchange inverted; door-open = new open thread",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P07_PANEL02.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "ef67a10614e759620f17a54665e0091090b9046d1d24749f4ff6c196f8f50d5a",
             "error": null
           },
           {
@@ -3544,11 +3544,11 @@
             "caption": "Choice is the upgrade.",
             "continuity_notes": "Caption = Ed.4 closing thesis paid forward; PATCH AT THRESHOLD = open thread",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P07_PANEL03.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "fb437d0a453dc577df01c99dff6a1c1daa48b875b08709569841c8ad7a233a82",
             "error": null
           },
           {
@@ -3565,11 +3565,11 @@
             "caption": "",
             "continuity_notes": "Squad exits unchanged and by choice — franchise voice",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P08_PANEL01.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "34a425163fbb3281748a0ce259434461edc2cee2da3173b5e8eb9f8f499c2e59",
             "error": null
           },
           {
@@ -3581,39 +3581,23 @@
             "caption": "Someone else got the recall notice too.",
             "continuity_notes": "NEW OPEN THREAD -> next issue: Super faction",
             "path": "generated_art/selected_panels/MZ-2026-07-05_P08_PANEL02.png",
-            "exists": false,
-            "format": null,
-            "width": null,
-            "height": null,
-            "sha256": null,
+            "exists": true,
+            "format": "PNG",
+            "width": 1216,
+            "height": 832,
+            "sha256": "6a3390ed6e59a02b06d51f7ec661445dc8a20d3b0344bdc8b9e99d728e25a4f3",
             "error": null
           }
         ],
         "checks": {
-          "missing_panels": [
-            "MZ-2026-07-05_P01_PANEL01",
-            "MZ-2026-07-05_P01_PANEL02",
-            "MZ-2026-07-05_P02_PANEL01",
-            "MZ-2026-07-05_P02_PANEL02",
-            "MZ-2026-07-05_P02_PANEL03",
-            "MZ-2026-07-05_P03_PANEL01",
-            "MZ-2026-07-05_P03_PANEL02",
-            "MZ-2026-07-05_P03_PANEL03",
-            "MZ-2026-07-05_P04_PANEL01",
-            "MZ-2026-07-05_P05_PANEL01",
-            "MZ-2026-07-05_P05_PANEL02",
-            "MZ-2026-07-05_P05_PANEL03",
-            "MZ-2026-07-05_P06_PANEL01",
-            "MZ-2026-07-05_P06_PANEL02",
-            "MZ-2026-07-05_P07_PANEL01",
-            "MZ-2026-07-05_P07_PANEL02",
-            "MZ-2026-07-05_P07_PANEL03",
-            "MZ-2026-07-05_P08_PANEL01",
-            "MZ-2026-07-05_P08_PANEL02"
-          ],
+          "missing_panels": [],
           "duplicate_art": [],
           "invalid_images": [],
-          "dimension_mismatches": [],
+          "dimension_mismatches": [
+            "MZ-2026-07-05_P03_PANEL03",
+            "MZ-2026-07-05_P04_PANEL01",
+            "MZ-2026-07-05_P05_PANEL02"
+          ],
           "identity_missing": [],
           "unmapped_images": [],
           "dialogue_or_caption_panels": [
@@ -3647,14 +3631,14 @@
           "checklist_exists": true
         },
         "blockers": [
-          "missing panels: ['MZ-2026-07-05_P01_PANEL01', 'MZ-2026-07-05_P01_PANEL02', 'MZ-2026-07-05_P02_PANEL01', 'MZ-2026-07-05_P02_PANEL02', 'MZ-2026-07-05_P02_PANEL03', 'MZ-2026-07-05_P03_PANEL01', 'MZ-2026-07-05_P03_PANEL02', 'MZ-2026-07-05_P03_PANEL03', 'MZ-2026-07-05_P04_PANEL01', 'MZ-2026-07-05_P05_PANEL01', 'MZ-2026-07-05_P05_PANEL02', 'MZ-2026-07-05_P05_PANEL03', 'MZ-2026-07-05_P06_PANEL01', 'MZ-2026-07-05_P06_PANEL02', 'MZ-2026-07-05_P07_PANEL01', 'MZ-2026-07-05_P07_PANEL02', 'MZ-2026-07-05_P07_PANEL03', 'MZ-2026-07-05_P08_PANEL01', 'MZ-2026-07-05_P08_PANEL02']",
+          "dimension mismatches: ['MZ-2026-07-05_P03_PANEL03', 'MZ-2026-07-05_P04_PANEL01', 'MZ-2026-07-05_P05_PANEL02']",
           "metadata missing: ['issue_id', 'title']"
         ],
         "advisories": [
           "cover image is absent; Release owns the blocking cover-deliverable requirement"
         ],
         "planned_panel_count": 19,
-        "selected_panel_count": 0
+        "selected_panel_count": 19
       },
       "reviews": []
     },
@@ -3895,7 +3879,7 @@
         "state_notice": "Inferred from repository evidence; active stage defaults to Intake and no approval is inferred."
       },
       "evidence": {
-        "evidence_hash": "17c544da8d76900494ece33243284eebbc9463f33b6837cdaae09457b144ded8",
+        "evidence_hash": "e29a383a6cac50121adfe3ac9fff55d6d7fb7b615183ad115833dc0355d67357",
         "files": [
           {
             "path": "metadata.json",
@@ -3921,21 +3905,39 @@
             "path": "qa_report.md",
             "size": 2098,
             "sha256": "02e439a7c005825e73fd085ef73c1422fea867de67cd0986b96a2b7edcfbfce5"
+          },
+          {
+            "path": "exports/MonkeyZoo_Issue_05_Print.pdf",
+            "size": 140998958,
+            "sha256": "663fbc3b047bd5ee4dedbb7111a846b1822b728689094c18ce964f2801d418fd"
+          },
+          {
+            "path": "exports/MonkeyZoo_Issue_05_Web.pdf",
+            "size": 58692481,
+            "sha256": "a3c80c515046f44cfda8be5defc7d96b3950f34d70cc15cf982937333ce43e9a"
+          },
+          {
+            "path": "exports/MonkeyZoo_Issue_05_CBZ.zip",
+            "size": 26056791,
+            "sha256": "0e0174dbb4ed3e4ad9ca357f2bd39b42a15014688147e013a9ce5924363c4fa1"
           }
         ],
         "blockers": [
           "QA verdict is pending; exact PASS is required",
           "No final cover image found",
-          "Final PDF is missing or empty",
-          "A readable, non-empty CBZ or ZIP package is required",
           "metadata contains unresolved TODO placeholders"
         ],
         "qa_verdict": "pending",
         "qa_evidence_hash": null,
         "qa_evidence_current": false,
         "covers": [],
-        "pdfs": [],
-        "packages": [],
+        "pdfs": [
+          "MonkeyZoo_Issue_05_Print.pdf",
+          "MonkeyZoo_Issue_05_Web.pdf"
+        ],
+        "packages": [
+          "MonkeyZoo_Issue_05_CBZ.zip"
+        ],
         "invalid_packages": [],
         "metadata": {
           "format": "CHIP-0015",
@@ -4277,52 +4279,8 @@
         "viewable": true
       }
     ],
-    "degraded": false,
-    "story": {
-      "degraded": true,
-      "error": "Issue ID must match MZ-YYYY-MM-NN",
-      "outlines": [],
-      "scripts": []
-    },
-    "layout": {
-      "degraded": true,
-      "error": "Issue ID must match MZ-YYYY-MM-NN",
-      "variants": []
-    },
-    "art_prompts": {
-      "degraded": true,
-      "error": "Issue ID must match MZ-YYYY-MM-NN",
-      "variants": [],
-      "canonical_pack_exists": false
-    },
-    "art_queue": {
-      "degraded": true,
-      "error": "Issue ID must match MZ-YYYY-MM-NN",
-      "queue": {
-        "items": []
-      }
-    },
-    "qa": {
-      "degraded": true,
-      "error": "Issue ID must match MZ-YYYY-MM-NN",
-      "evidence": {
-        "panels": [],
-        "blockers": [
-          "Issue ID must match MZ-YYYY-MM-NN"
-        ]
-      },
-      "reviews": []
-    },
-    "release": {
-      "degraded": true,
-      "error": "Issue ID must match MZ-YYYY-MM-NN",
-      "evidence": {
-        "files": [],
-        "blockers": [
-          "Issue ID must match MZ-YYYY-MM-NN"
-        ]
-      }
-    }
+    "degraded": true,
+    "error": "Issue ID must match MZ-YYYY-MM-NN"
   },
   {
     "issue_id": "MZ-2026-08-01",
@@ -4984,11 +4942,11 @@
           },
           {
             "path": "00_SYSTEM/world_bible.md",
-            "sha256": "8395aa9de8c58cdcd3f6d6e891c8b73a738ed0fd34a24d481d2d3c90427388f8"
+            "sha256": "9996224fa3c11516a972462b1524f469b243f65eb86e14e4c8c7443107190788"
           },
           {
             "path": "00_SYSTEM/continuity_ledger.md",
-            "sha256": "365c8532b7b1565bb02d7877ac9d36927c0320ac23a583747c8c6e94f2d62870"
+            "sha256": "748e9c7350795ab095e6011965e32109e58a66ffd5964f37cc04493a5213725c"
           },
           {
             "path": "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md",
@@ -5444,7 +5402,7 @@
         "previous_issue_references": [],
         "warnings": [],
         "excluded": [],
-        "snapshot_hash": "3bab04e1ff8dfdf0351a316066c94aa81d278eb90b03e6cab15c4271020bcd55"
+        "snapshot_hash": "3f85a33c520bb7e419104492e44376ff0e037a92c3c7540b8d6214e3cefadaf6"
       },
       "outlines": [
         {
@@ -11217,7 +11175,7 @@
     "primary_character": "Moodz",
     "guest_character": "Patch (co-lead), NeonBlue, Static, TwoTone, Ash, Scarline, The Pending (NEW — group), The Keeper (NEW — unseen, evidence only)",
     "location": "02_MONTHLY_ISSUES\\2026-08_Issue_06",
-    "last_updated": "2026-07-06T15:31:09",
+    "last_updated": "2026-07-16T18:09:42",
     "validation_state": "passed",
     "blocker_count": 0,
     "workflow": {
@@ -11501,7 +11459,7 @@
         "group": "QA",
         "name": "qa_report.md",
         "exists": true,
-        "modified": "2026-07-06T15:31:09",
+        "modified": "2026-07-16T18:09:42",
         "viewable": true
       },
       {
@@ -11819,11 +11777,11 @@
           },
           {
             "path": "00_SYSTEM/world_bible.md",
-            "sha256": "8395aa9de8c58cdcd3f6d6e891c8b73a738ed0fd34a24d481d2d3c90427388f8"
+            "sha256": "9996224fa3c11516a972462b1524f469b243f65eb86e14e4c8c7443107190788"
           },
           {
             "path": "00_SYSTEM/continuity_ledger.md",
-            "sha256": "365c8532b7b1565bb02d7877ac9d36927c0320ac23a583747c8c6e94f2d62870"
+            "sha256": "748e9c7350795ab095e6011965e32109e58a66ffd5964f37cc04493a5213725c"
           },
           {
             "path": "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md",
@@ -13504,7 +13462,7 @@
             "reason": "missing reliable approved identity"
           }
         ],
-        "snapshot_hash": "48e7026025a14bfe7f509b7b75ef07a1ebd546dc5fad2bd96536e40d76fafdab"
+        "snapshot_hash": "b1b95365574a82cb5400b9293124c8efefed211a4c0065b07fd5699c5e3923c5"
       },
       "outlines": [],
       "scripts": [],
@@ -14488,7 +14446,7 @@
         "state_notice": "Inferred from repository evidence; active stage defaults to Intake and no approval is inferred."
       },
       "evidence": {
-        "evidence_hash": "db9cdb6e7b8842f04dce46c7e9e58813799f249ae9475a29cf4c660b45a28f3f",
+        "evidence_hash": "dfe3de4e37d6562329b5acb0d3d0c2db9f247f6d8b7a47fe3f1592a1b3ee46f3",
         "panels": [
           {
             "panel_id": "MZ-2026-08-06_P01_PANEL01",
@@ -14784,7 +14742,7 @@
             "format": "PNG",
             "width": 1216,
             "height": 832,
-            "sha256": "88fe49edd08bb99a6fc562c05c3805ec87363c6ee237838601eec962f1f23bff",
+            "sha256": "439955ef8ae249fa6184d6725245624fea76ed480023c4ffa174a8226e35802d",
             "error": null
           },
           {
@@ -15139,7 +15097,7 @@
         "state_notice": "Inferred from repository evidence; active stage defaults to Intake and no approval is inferred."
       },
       "evidence": {
-        "evidence_hash": "fb733566c7b9dfd105343563cbac7c9e8243b88572618c4f9000d573b5475f5f",
+        "evidence_hash": "7b11f4d3cfda5a1c2ca568523818c7743afb620bdb274d634c24951c4448294d",
         "files": [
           {
             "path": "metadata.json",
@@ -15163,31 +15121,31 @@
           },
           {
             "path": "qa_report.md",
-            "size": 12021,
-            "sha256": "50c461f81044f69b95182c11b3105209c81f6701eae00a40bca3276512550499"
+            "size": 13195,
+            "sha256": "f3842b06b9a5f014fd2c2960d526ec1960becb79c868617c7309c9670855ba7d"
           },
           {
             "path": "exports/MonkeyZoo_Issue_06_Print.pdf",
             "size": 140998958,
-            "sha256": "a67095ac1574c26d196380f6fbdca68dd079866746e5c144d66f149873937c9d"
+            "sha256": "1e804445faf74c5a5e7b04c9682ee13718e42269e0ac6e5afc59077912c57c1d"
           },
           {
             "path": "exports/MonkeyZoo_Issue_06_Web.pdf",
             "size": 58692481,
-            "sha256": "b61fabfc23d44f7549fd103b03a0dc3f85bac573e684b290310124627d7c531f"
+            "sha256": "edee5fb5f1b4e51f5f0cd5d9d482b024927c87cbc010fc005be01127969ed0f3"
           },
           {
             "path": "exports/MonkeyZoo_Issue_06_CBZ.zip",
-            "size": 23286383,
-            "sha256": "68b4e1f9910d9c0e6639dc13f2980f5d1ade74b1b0c5b5234e4f60ff91bfbf88"
+            "size": 23286774,
+            "sha256": "d983e811ad198fc373a250bf68ba87be34216855da39733ab9e5750168b6888d"
           }
         ],
         "blockers": [
-          "QA verdict is pending; exact PASS is required",
+          "QA verdict is failed; exact PASS is required",
           "No final cover image found",
           "metadata contains unresolved TODO placeholders"
         ],
-        "qa_verdict": "pending",
+        "qa_verdict": "failed",
         "qa_evidence_hash": null,
         "qa_evidence_current": false,
         "covers": [],
@@ -15882,11 +15840,11 @@
           },
           {
             "path": "00_SYSTEM/world_bible.md",
-            "sha256": "8395aa9de8c58cdcd3f6d6e891c8b73a738ed0fd34a24d481d2d3c90427388f8"
+            "sha256": "9996224fa3c11516a972462b1524f469b243f65eb86e14e4c8c7443107190788"
           },
           {
             "path": "00_SYSTEM/continuity_ledger.md",
-            "sha256": "365c8532b7b1565bb02d7877ac9d36927c0320ac23a583747c8c6e94f2d62870"
+            "sha256": "748e9c7350795ab095e6011965e32109e58a66ffd5964f37cc04493a5213725c"
           },
           {
             "path": "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md",
@@ -16371,7 +16329,7 @@
         "previous_issue_references": [],
         "warnings": [],
         "excluded": [],
-        "snapshot_hash": "c2d62c2375efb6ff345f7408cb2c224dfd6a741494abcf0c8c3421afbafd1328"
+        "snapshot_hash": "260f7d4d4e50a63d27c1c89664b1053749c1a3a094b7680dfe2d3efc5289ba1a"
       },
       "outlines": [
         {
@@ -18273,7 +18231,7 @@
     "primary_character": "MZ-CHAR-003",
     "guest_character": "MZ-CHAR-CLEVER",
     "location": "02_MONTHLY_ISSUES\\2026-09_Issue_02",
-    "last_updated": "2026-07-16T11:34:01",
+    "last_updated": "2026-07-17T22:14:49",
     "validation_state": "passed",
     "blocker_count": 0,
     "workflow": {
@@ -18498,8 +18456,8 @@
           },
           "approval": {
             "required": true,
-            "approved": true,
-            "stale": false,
+            "approved": false,
+            "stale": true,
             "record": {
               "stage": "release",
               "approved": true,
@@ -18571,21 +18529,21 @@
         "group": "Script",
         "name": "issue_script.md",
         "exists": true,
-        "modified": "2026-07-15T21:05:20",
+        "modified": "2026-07-17T09:39:39",
         "viewable": true
       },
       {
         "group": "Plans",
         "name": "page_panel_plan.json",
         "exists": true,
-        "modified": "2026-07-16T11:31:17",
+        "modified": "2026-07-17T09:40:08",
         "viewable": true
       },
       {
         "group": "Prompts",
         "name": "art_prompt_pack.json",
         "exists": true,
-        "modified": "2026-07-16T11:31:21",
+        "modified": "2026-07-17T09:39:39",
         "viewable": true
       },
       {
@@ -18852,8 +18810,8 @@
             },
             "approval": {
               "required": true,
-              "approved": true,
-              "stale": false,
+              "approved": false,
+              "stale": true,
               "record": {
                 "stage": "release",
                 "approved": true,
@@ -18925,11 +18883,11 @@
           },
           {
             "path": "00_SYSTEM/world_bible.md",
-            "sha256": "8395aa9de8c58cdcd3f6d6e891c8b73a738ed0fd34a24d481d2d3c90427388f8"
+            "sha256": "9996224fa3c11516a972462b1524f469b243f65eb86e14e4c8c7443107190788"
           },
           {
             "path": "00_SYSTEM/continuity_ledger.md",
-            "sha256": "365c8532b7b1565bb02d7877ac9d36927c0320ac23a583747c8c6e94f2d62870"
+            "sha256": "748e9c7350795ab095e6011965e32109e58a66ffd5964f37cc04493a5213725c"
           },
           {
             "path": "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md",
@@ -19361,7 +19319,7 @@
         "previous_issue_references": [],
         "warnings": [],
         "excluded": [],
-        "snapshot_hash": "5a9ba80ccb1069600225c653f63eb49714b5e49329fadb8614c5f2952591e41a"
+        "snapshot_hash": "531021247a759aa419ac7c770b01e20cac65e716b063dc2b74f7e966fea70e30"
       },
       "outlines": [
         {
@@ -19700,8 +19658,8 @@
             },
             "approval": {
               "required": true,
-              "approved": true,
-              "stale": false,
+              "approved": false,
+              "stale": true,
               "record": {
                 "stage": "release",
                 "approved": true,
@@ -19749,7 +19707,7 @@
       },
       "script": {
         "exists": true,
-        "sha256": "e384e74f6961786b5b0cec3e6dd3258a9f2bdf4af93acf2e5ef037bb3c6ca0c4"
+        "sha256": "0a3182307f882287c299518deaadf7c74d6b5fa0a91fd1e9ef2c1eef7396834c"
       },
       "variants": [
         {
@@ -20588,8 +20546,8 @@
             "note": "Issue 02 Static page plan"
           },
           "superseded": false,
-          "script_stale": false,
-          "approval_current": true
+          "script_stale": true,
+          "approval_current": false
         }
       ],
       "canonical_plan_exists": true
@@ -20818,8 +20776,8 @@
             },
             "approval": {
               "required": true,
-              "approved": true,
-              "stale": false,
+              "approved": false,
+              "stale": true,
               "record": {
                 "stage": "release",
                 "approved": true,
@@ -20867,7 +20825,7 @@
       },
       "plan": {
         "exists": true,
-        "sha256": "b1cf3f0634563dfa1581ef0f184d06ebb4f1c30d01e36335d389dec7e45933b3"
+        "sha256": "4b4bed6b0200d5dca240b04afc1463f663febb8d2acd4d51b61d91f37bc095a0"
       },
       "variants": [
         {
@@ -21837,8 +21795,8 @@
             "note": "Issue 02 Static art pack"
           },
           "superseded": false,
-          "plan_stale": false,
-          "approval_current": true
+          "plan_stale": true,
+          "approval_current": false
         }
       ],
       "canonical_pack_exists": true
@@ -22067,8 +22025,8 @@
             },
             "approval": {
               "required": true,
-              "approved": true,
-              "stale": false,
+              "approved": false,
+              "stale": true,
               "record": {
                 "stage": "release",
                 "approved": true,
@@ -22348,8 +22306,8 @@
             },
             "approval": {
               "required": true,
-              "approved": true,
-              "stale": false,
+              "approved": false,
+              "stale": true,
               "record": {
                 "stage": "release",
                 "approved": true,
@@ -22396,16 +22354,14 @@
         "state_notice": null
       },
       "evidence": {
-        "evidence_hash": "b61a1dfa96b8377a39413812cd4fca839d165e5d2eb7515368eb23e18908cbe6",
+        "evidence_hash": "5aa0f00cc510c2b32ebd03152d3deaf581eb02305c78c60cfc37bdf0993a8f2f",
         "panels": [
           {
             "panel_id": "MZ-2026-09-02_P01_PANEL01",
-            "characters": [
-              "MZ-CHAR-003"
-            ],
-            "dialogue": "STATIC: That click… it repeated.",
-            "caption": "Tiny disruption",
-            "continuity_notes": "Others ignore it",
+            "characters": [],
+            "dialogue": "—",
+            "caption": "Zoo City. Early fall.",
+            "continuity_notes": "acting support for locked beat P01_PANEL01",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P01_PANEL01.png",
             "exists": true,
             "format": "PNG",
@@ -22417,12 +22373,11 @@
           {
             "panel_id": "MZ-2026-09-02_P01_PANEL02",
             "characters": [
-              "MZ-CHAR-003",
-              "MZ-CHAR-001"
+              "MZ-CHAR-003"
             ],
-            "dialogue": "MOODZ: You heard it again.",
-            "caption": "School speaker glitch",
-            "continuity_notes": "Moodz believes without pressure",
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P01_PANEL01",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P01_PANEL02.png",
             "exists": true,
             "format": "PNG",
@@ -22434,12 +22389,11 @@
           {
             "panel_id": "MZ-2026-09-02_P01_PANEL03",
             "characters": [
-              "MZ-CHAR-003",
-              "MZ-CHAR-005"
+              "MZ-CHAR-003"
             ],
-            "dialogue": "NEONBLUE: Probably just old wires—",
-            "caption": "Quick reassurance risk",
-            "continuity_notes": "NeonBlue believes but soothes too fast",
+            "dialogue": "STATIC: That click… it repeated.",
+            "caption": "Tiny disruption",
+            "continuity_notes": "Others ignore it",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P01_PANEL03.png",
             "exists": true,
             "format": "PNG",
@@ -22449,15 +22403,64 @@
             "error": null
           },
           {
+            "panel_id": "MZ-2026-09-02_P01_PANEL04",
+            "characters": [
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "STATIC (small): Nobody else stopped.",
+            "caption": "Others ignore it",
+            "continuity_notes": "acting support for locked beat P01_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P01_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P01_PANEL05",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-001"
+            ],
+            "dialogue": "PA (jagged): …st-stud…ents…",
+            "caption": "School speaker glitch",
+            "continuity_notes": "acting support for locked beat P01_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P01_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P01_PANEL06",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-001"
+            ],
+            "dialogue": "MOODZ: You heard it again.",
+            "caption": "—",
+            "continuity_notes": "Moodz believes without pressure",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P01_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
             "panel_id": "MZ-2026-09-02_P02_PANEL01",
             "characters": [
               "MZ-CHAR-003",
-              "MZ-CHAR-002",
-              "MZ-CHAR-005"
+              "MZ-CHAR-001"
             ],
-            "dialogue": "STATIC: It’s the same burst!",
-            "caption": "Storm burst",
-            "continuity_notes": "Citywide pattern",
+            "dialogue": "STATIC: You're not saying I imagined it.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P01_PANEL02",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P02_PANEL01.png",
             "exists": true,
             "format": "PNG",
@@ -22469,11 +22472,12 @@
           {
             "panel_id": "MZ-2026-09-02_P02_PANEL02",
             "characters": [
-              "MZ-CHAR-003"
+              "MZ-CHAR-003",
+              "MZ-CHAR-001"
             ],
-            "dialogue": "STATIC: Before the sound finishes—danger is already here.",
-            "caption": "First reaction",
-            "continuity_notes": "Static first",
+            "dialogue": "MOODZ: I'm saying you heard it.",
+            "caption": "Moodz believes without pressure",
+            "continuity_notes": "acting support for locked beat P01_PANEL02",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P02_PANEL02.png",
             "exists": true,
             "format": "PNG",
@@ -22486,11 +22490,11 @@
             "panel_id": "MZ-2026-09-02_P02_PANEL03",
             "characters": [
               "MZ-CHAR-003",
-              "MZ-CHAR-006"
+              "MZ-CHAR-005"
             ],
-            "dialogue": "SCARLINE: Don’t drown him out.",
-            "caption": "Space to listen",
-            "continuity_notes": "Scarline protects signal space",
+            "dialogue": "NEONBLUE: Hey, hey — the city's old, it creaks!",
+            "caption": "Quick reassurance risk",
+            "continuity_notes": "acting support for locked beat P01_PANEL03",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P02_PANEL03.png",
             "exists": true,
             "format": "PNG",
@@ -22500,14 +22504,62 @@
             "error": null
           },
           {
-            "panel_id": "MZ-2026-09-02_P03_PANEL01",
+            "panel_id": "MZ-2026-09-02_P02_PANEL04",
             "characters": [
-              "MZ-CHAR-CLEVER",
-              "MZ-CHAR-003"
+              "MZ-CHAR-003",
+              "MZ-CHAR-005"
             ],
-            "dialogue": "CLEVER: Hardware first. Pattern later.",
-            "caption": "Clever inspects",
-            "continuity_notes": "Maps mechanism",
+            "dialogue": "NEONBLUE: Probably just old wires—",
+            "caption": "—",
+            "continuity_notes": "NeonBlue believes but soothes too fast",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P02_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P02_PANEL05",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-005"
+            ],
+            "dialogue": "STATIC: …yeah. Probably.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P01_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P02_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P02_PANEL06",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-005"
+            ],
+            "dialogue": "—",
+            "caption": "NeonBlue believes but soothes too fast",
+            "continuity_notes": "acting support for locked beat P01_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P02_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P03_PANEL01",
+            "characters": [],
+            "dialogue": "—",
+            "caption": "Storm rolls in",
+            "continuity_notes": "acting support for locked beat P02_PANEL01",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P03_PANEL01.png",
             "exists": true,
             "format": "PNG",
@@ -22520,11 +22572,12 @@
             "panel_id": "MZ-2026-09-02_P03_PANEL02",
             "characters": [
               "MZ-CHAR-003",
-              "MZ-CHAR-CLEVER"
+              "MZ-CHAR-002",
+              "MZ-CHAR-005"
             ],
-            "dialogue": "STATIC: Six—no, three—no, listen—",
-            "caption": "Overload speech",
-            "continuity_notes": "Correct but unusable delivery",
+            "dialogue": "STATIC: It's the same burst!",
+            "caption": "Citywide pattern",
+            "continuity_notes": "Citywide pattern",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P03_PANEL02.png",
             "exists": true,
             "format": "PNG",
@@ -22536,12 +22589,13 @@
           {
             "panel_id": "MZ-2026-09-02_P03_PANEL03",
             "characters": [
-              "MZ-CHAR-CLEVER",
-              "MZ-CHAR-004"
+              "MZ-CHAR-003",
+              "MZ-CHAR-002",
+              "MZ-CHAR-005"
             ],
-            "dialogue": "ASH: Which part repeats?",
-            "caption": "Ash cuts noise",
-            "continuity_notes": "Proposed Ash line",
+            "dialogue": "TWOTONE: …mine too.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P02_PANEL01",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P03_PANEL03.png",
             "exists": true,
             "format": "PNG",
@@ -22551,14 +22605,63 @@
             "error": null
           },
           {
-            "panel_id": "MZ-2026-09-02_P04_PANEL01",
+            "panel_id": "MZ-2026-09-02_P03_PANEL04",
             "characters": [
-              "MZ-CHAR-CLEVER",
+              "MZ-CHAR-003",
+              "MZ-CHAR-002",
+              "MZ-CHAR-005"
+            ],
+            "dialogue": "NEONBLUE (small): Okay. Not old wires.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P02_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P03_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P03_PANEL05",
+            "characters": [
               "MZ-CHAR-003"
             ],
-            "dialogue": "CLEVER: Six tones. Structured. Not random.",
-            "caption": "Six tones proven",
-            "continuity_notes": "Clever proves structure",
+            "dialogue": "—",
+            "caption": "Transit hub",
+            "continuity_notes": "acting support for locked beat P02_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P03_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P03_PANEL06",
+            "characters": [
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "—",
+            "caption": "Static first",
+            "continuity_notes": "acting support for locked beat P02_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P03_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P04_PANEL01",
+            "characters": [
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "STATIC: Before the sound finishes—danger is already here.",
+            "caption": "First reaction",
+            "continuity_notes": "Static first",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P04_PANEL01.png",
             "exists": true,
             "format": "PNG",
@@ -22570,12 +22673,11 @@
           {
             "panel_id": "MZ-2026-09-02_P04_PANEL02",
             "characters": [
-              "MZ-CHAR-003",
-              "MZ-CHAR-005"
+              "MZ-CHAR-003"
             ],
-            "dialogue": "STATIC: That’s the cyan one… from summer.",
-            "caption": "August frequency match",
-            "continuity_notes": "Continuity with Issue 01",
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P02_PANEL02",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P04_PANEL02.png",
             "exists": true,
             "format": "PNG",
@@ -22588,11 +22690,11 @@
             "panel_id": "MZ-2026-09-02_P04_PANEL03",
             "characters": [
               "MZ-CHAR-003",
-              "MZ-CHAR-002"
+              "MZ-CHAR-006"
             ],
-            "dialogue": "TWOTONE: Pair them. Don’t stack them.",
-            "caption": "Paired frequencies",
-            "continuity_notes": "TwoTone support",
+            "dialogue": "STATIC: It came from the north relay then the school then twice from—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P02_PANEL03",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P04_PANEL03.png",
             "exists": true,
             "format": "PNG",
@@ -22602,14 +22704,65 @@
             "error": null
           },
           {
-            "panel_id": "MZ-2026-09-02_P05_PANEL01",
+            "panel_id": "MZ-2026-09-02_P04_PANEL04",
             "characters": [
               "MZ-CHAR-003",
-              "MZ-CHAR-CLEVER"
+              "MZ-CHAR-006"
             ],
-            "dialogue": "STATIC: It’s listening for us.",
-            "caption": "Searching not broadcasting",
-            "continuity_notes": "Key midpoint insight",
+            "dialogue": "OFF: Slow down— / OFF: Which one—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P02_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P04_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P04_PANEL05",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-006"
+            ],
+            "dialogue": "SCARLINE: Don't drown him out.",
+            "caption": "Scarline steadies",
+            "continuity_notes": "Scarline protects signal space",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P04_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P04_PANEL06",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-006"
+            ],
+            "dialogue": "STATIC (small): …thanks.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P02_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P04_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P05_PANEL01",
+            "characters": [
+              "MZ-CHAR-CLEVER",
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "CLEVER: Where's the loudest wall?",
+            "caption": "Clever arrives",
+            "continuity_notes": "acting support for locked beat P03_PANEL01",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P05_PANEL01.png",
             "exists": true,
             "format": "PNG",
@@ -22621,12 +22774,12 @@
           {
             "panel_id": "MZ-2026-09-02_P05_PANEL02",
             "characters": [
-              "MZ-CHAR-001",
+              "MZ-CHAR-CLEVER",
               "MZ-CHAR-003"
             ],
-            "dialogue": "MOODZ: He doesn’t have to be comfortable for you.",
-            "caption": "Protection from pressure",
-            "continuity_notes": "Moodz function",
+            "dialogue": "CLEVER: Hardware first. Pattern later.",
+            "caption": "—",
+            "continuity_notes": "Maps mechanism",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P05_PANEL02.png",
             "exists": true,
             "format": "PNG",
@@ -22638,12 +22791,12 @@
           {
             "panel_id": "MZ-2026-09-02_P05_PANEL03",
             "characters": [
-              "MZ-CHAR-003",
-              "MZ-CHAR-006"
+              "MZ-CHAR-CLEVER",
+              "MZ-CHAR-003"
             ],
-            "dialogue": "SCARLINE: Do you want to keep listening?",
-            "caption": "Clear choice",
-            "continuity_notes": "Agency for Static",
+            "dialogue": "CLEVER (small): Huh.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P03_PANEL01",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P05_PANEL03.png",
             "exists": true,
             "format": "PNG",
@@ -22653,15 +22806,65 @@
             "error": null
           },
           {
+            "panel_id": "MZ-2026-09-02_P05_PANEL04",
+            "characters": [
+              "MZ-CHAR-CLEVER",
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "CLEVER: Hardware's fine. Tell me what you heard.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P03_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P05_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P05_PANEL05",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
+            ],
+            "dialogue": "STATIC: Okay so—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P03_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P05_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P05_PANEL06",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
+            ],
+            "dialogue": "STATIC: Six—no, three—no, listen—",
+            "caption": "Too many at once",
+            "continuity_notes": "Correct but unusable delivery",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P05_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
             "panel_id": "MZ-2026-09-02_P06_PANEL01",
             "characters": [
               "MZ-CHAR-003",
-              "MZ-CHAR-005",
-              "MZ-CHAR-002"
+              "MZ-CHAR-CLEVER"
             ],
-            "dialogue": "STATIC: Flood—fire—relay—stop—",
-            "caption": "Overload crisis",
-            "continuity_notes": "Confusion risk",
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P03_PANEL02",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P06_PANEL01.png",
             "exists": true,
             "format": "PNG",
@@ -22673,13 +22876,12 @@
           {
             "panel_id": "MZ-2026-09-02_P06_PANEL02",
             "characters": [
-              "MZ-CHAR-001",
-              "MZ-CHAR-006",
-              "MZ-CHAR-003"
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
             ],
-            "dialogue": "MOODZ: Room. Not volume.",
-            "caption": "Space not order",
-            "continuity_notes": "Team growth",
+            "dialogue": "CLEVER: Good. It's all in here.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P03_PANEL02",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P06_PANEL02.png",
             "exists": true,
             "format": "PNG",
@@ -22691,12 +22893,12 @@
           {
             "panel_id": "MZ-2026-09-02_P06_PANEL03",
             "characters": [
-              "MZ-CHAR-003",
-              "MZ-CHAR-006"
+              "MZ-CHAR-CLEVER",
+              "MZ-CHAR-004"
             ],
-            "dialogue": "STATIC: Yes. But one line at a time.",
-            "caption": "Choice yes",
-            "continuity_notes": "On his terms",
+            "dialogue": "—",
+            "caption": "Following wires",
+            "continuity_notes": "acting support for locked beat P03_PANEL03",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P06_PANEL03.png",
             "exists": true,
             "format": "PNG",
@@ -22706,14 +22908,65 @@
             "error": null
           },
           {
+            "panel_id": "MZ-2026-09-02_P06_PANEL04",
+            "characters": [
+              "MZ-CHAR-CLEVER",
+              "MZ-CHAR-004"
+            ],
+            "dialogue": "ASH: Which part repeats?",
+            "caption": "Ash's question",
+            "continuity_notes": "Proposed Ash line",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P06_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P06_PANEL05",
+            "characters": [
+              "MZ-CHAR-CLEVER",
+              "MZ-CHAR-004"
+            ],
+            "dialogue": "CLEVER: …the part nobody's sending.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P03_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P06_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P06_PANEL06",
+            "characters": [
+              "MZ-CHAR-CLEVER",
+              "MZ-CHAR-004"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P03_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P06_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
             "panel_id": "MZ-2026-09-02_P07_PANEL01",
             "characters": [
-              "MZ-CHAR-003",
-              "MZ-CHAR-CLEVER"
+              "MZ-CHAR-CLEVER",
+              "MZ-CHAR-003"
             ],
-            "dialogue": "STATIC: The third tone. Every twelve seconds. West sector.",
-            "caption": "One clear warning",
-            "continuity_notes": "Usable communication",
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P04_PANEL01",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P07_PANEL01.png",
             "exists": true,
             "format": "PNG",
@@ -22725,13 +22978,12 @@
           {
             "panel_id": "MZ-2026-09-02_P07_PANEL02",
             "characters": [
-              "MZ-CHAR-003",
               "MZ-CHAR-CLEVER",
-              "MZ-CHAR-002"
+              "MZ-CHAR-003"
             ],
-            "dialogue": "CLEVER: Junction confirmed. Acting now.",
-            "caption": "Relay located",
-            "continuity_notes": "Physical Echo node",
+            "dialogue": "CLEVER: Six tones. Structured. Not random.",
+            "caption": "Six tones",
+            "continuity_notes": "Clever proves structure",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P07_PANEL02.png",
             "exists": true,
             "format": "PNG",
@@ -22743,13 +22995,12 @@
           {
             "panel_id": "MZ-2026-09-02_P07_PANEL03",
             "characters": [
-              "MZ-CHAR-003",
-              "MZ-CHAR-005",
-              "MZ-CHAR-004"
+              "MZ-CHAR-CLEVER",
+              "MZ-CHAR-003"
             ],
-            "dialogue": "NEONBLUE: We heard you.",
-            "caption": "Warning used",
-            "continuity_notes": "Belief becomes action",
+            "dialogue": "STATIC (small): That's them. That's exactly them.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P04_PANEL01",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P07_PANEL03.png",
             "exists": true,
             "format": "PNG",
@@ -22759,13 +23010,65 @@
             "error": null
           },
           {
-            "panel_id": "MZ-2026-09-02_P08_PANEL01",
+            "panel_id": "MZ-2026-09-02_P07_PANEL04",
             "characters": [
+              "MZ-CHAR-CLEVER",
               "MZ-CHAR-003"
             ],
-            "dialogue": "STATIC: What I sense. What I know. What I fear. What needs checking.",
-            "caption": "Method established",
-            "continuity_notes": "Growth not cure",
+            "dialogue": "CLEVER: You counted them by ear.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P04_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P07_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P07_PANEL05",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-005"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P04_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P07_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P07_PANEL06",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-005"
+            ],
+            "dialogue": "STATIC: That's the cyan one… from summer.",
+            "caption": "Cyan frequency",
+            "continuity_notes": "Continuity with Issue 01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P07_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P08_PANEL01",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-005"
+            ],
+            "dialogue": "NEONBLUE (small): …August.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P04_PANEL02",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P08_PANEL01.png",
             "exists": true,
             "format": "PNG",
@@ -22778,11 +23081,11 @@
             "panel_id": "MZ-2026-09-02_P08_PANEL02",
             "characters": [
               "MZ-CHAR-003",
-              "MZ-CHAR-CLEVER"
+              "MZ-CHAR-005"
             ],
-            "dialogue": "CLEVER: I can map the how. You map the why.",
-            "caption": "Guest resolution",
-            "continuity_notes": "Complement not overwrite",
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P04_PANEL02",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P08_PANEL02.png",
             "exists": true,
             "format": "PNG",
@@ -22794,11 +23097,12 @@
           {
             "panel_id": "MZ-2026-09-02_P08_PANEL03",
             "characters": [
-              "MZ-CHAR-003"
+              "MZ-CHAR-003",
+              "MZ-CHAR-002"
             ],
             "dialogue": "—",
-            "caption": "Final soft tone",
-            "continuity_notes": "Issue 02 final image prop",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P04_PANEL03",
             "path": "generated_art/selected_panels/MZ-2026-09-02_P08_PANEL03.png",
             "exists": true,
             "format": "PNG",
@@ -22806,50 +23110,1074 @@
             "height": 960,
             "sha256": "902c7cac76b6cff53ddd863e14d4d57c260b0838ed50307d0c36cc08359a8af5",
             "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P08_PANEL04",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-002"
+            ],
+            "dialogue": "TWOTONE: Pair them. Don't stack them.",
+            "caption": "Pairs, not piles",
+            "continuity_notes": "TwoTone support",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P08_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P08_PANEL05",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-002"
+            ],
+            "dialogue": "STATIC: Call and answer. They're call and answer!",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P04_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P08_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P08_PANEL06",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-002"
+            ],
+            "dialogue": "TWOTONE: Now it's music.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P04_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P08_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P09_PANEL01",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P05_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P09_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P09_PANEL02",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
+            ],
+            "dialogue": "STATIC: It's listening for us.",
+            "caption": "The turn",
+            "continuity_notes": "Key midpoint insight",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P09_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P09_PANEL03",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
+            ],
+            "dialogue": "CLEVER (small): …calls waiting for answers.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P05_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P09_PANEL03.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P09_PANEL04",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
+            ],
+            "dialogue": "—",
+            "caption": "Searching, not broadcasting",
+            "continuity_notes": "acting support for locked beat P05_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P09_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P09_PANEL05",
+            "characters": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "OFF: Maybe if he just calmed d—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P05_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P09_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P09_PANEL06",
+            "characters": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "MOODZ: He doesn't have to be comfortable for you.",
+            "caption": "Moodz blocks",
+            "continuity_notes": "Moodz function",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P09_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P10_PANEL01",
+            "characters": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P05_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P10_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P10_PANEL02",
+            "characters": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "MOODZ (small): Next question.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P05_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P10_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P10_PANEL03",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-006"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P05_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P10_PANEL03.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P10_PANEL04",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-006"
+            ],
+            "dialogue": "SCARLINE: Do you want to keep listening?",
+            "caption": "A real choice",
+            "continuity_notes": "Agency for Static",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P10_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P10_PANEL05",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-006"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P05_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P10_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P10_PANEL06",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-006"
+            ],
+            "dialogue": "STATIC: I want it to matter that I do.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P05_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P10_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P11_PANEL01",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-005",
+              "MZ-CHAR-002"
+            ],
+            "dialogue": "—",
+            "caption": "Interference spreads",
+            "continuity_notes": "acting support for locked beat P06_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P11_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P11_PANEL02",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-005",
+              "MZ-CHAR-002"
+            ],
+            "dialogue": "STATIC: Flood—fire—relay—stop—",
+            "caption": "Every danger at once",
+            "continuity_notes": "Confusion risk",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P11_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P11_PANEL03",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-005",
+              "MZ-CHAR-002"
+            ],
+            "dialogue": "STATIC: —west—twelve—flood—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P06_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P11_PANEL03.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P11_PANEL04",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-005",
+              "MZ-CHAR-002"
+            ],
+            "dialogue": "NEONBLUE: We're here. Take the exit you need.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P06_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P11_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P11_PANEL05",
+            "characters": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-006",
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "—",
+            "caption": "Room, not volume",
+            "continuity_notes": "acting support for locked beat P06_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P11_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P11_PANEL06",
+            "characters": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-006",
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "MOODZ: Room. Not volume.",
+            "caption": "—",
+            "continuity_notes": "Team growth",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P11_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P12_PANEL01",
+            "characters": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-006",
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "STATIC (small): …relay. West.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P06_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P12_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P12_PANEL02",
+            "characters": [
+              "MZ-CHAR-001",
+              "MZ-CHAR-006",
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P06_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P12_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P12_PANEL03",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-006"
+            ],
+            "dialogue": "SCARLINE: Still your call.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P06_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P12_PANEL03.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P12_PANEL04",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-006"
+            ],
+            "dialogue": "STATIC: Yes. But one line at a time.",
+            "caption": "On his terms",
+            "continuity_notes": "On his terms",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P12_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P12_PANEL05",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-006"
+            ],
+            "dialogue": "SCARLINE: One line.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P06_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P12_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P12_PANEL06",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-006"
+            ],
+            "dialogue": "—",
+            "caption": "West",
+            "continuity_notes": "acting support for locked beat P06_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P12_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P13_PANEL01",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P07_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P13_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P13_PANEL02",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
+            ],
+            "dialogue": "STATIC: The third tone. Every twelve seconds. West sector.",
+            "caption": "One clean line",
+            "continuity_notes": "Usable communication",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P13_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P13_PANEL03",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
+            ],
+            "dialogue": "CLEVER: Confirmed. Twelve point out.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P07_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P13_PANEL03.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P13_PANEL04",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P07_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P13_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P13_PANEL05",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER",
+              "MZ-CHAR-002"
+            ],
+            "dialogue": "—",
+            "caption": "Old relay junction",
+            "continuity_notes": "acting support for locked beat P07_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P13_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P13_PANEL06",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER",
+              "MZ-CHAR-002"
+            ],
+            "dialogue": "CLEVER: Junction confirmed. Acting now.",
+            "caption": "Before overload",
+            "continuity_notes": "Physical Echo node",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P13_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P14_PANEL01",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER",
+              "MZ-CHAR-002"
+            ],
+            "dialogue": "CLEVER: …nine… ten…",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P07_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P14_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P14_PANEL02",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER",
+              "MZ-CHAR-002"
+            ],
+            "dialogue": "STATIC: Now.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P07_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P14_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P14_PANEL03",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-005",
+              "MZ-CHAR-004"
+            ],
+            "dialogue": "—",
+            "caption": "Stabilized",
+            "continuity_notes": "acting support for locked beat P07_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P14_PANEL03.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P14_PANEL04",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-005",
+              "MZ-CHAR-004"
+            ],
+            "dialogue": "NEONBLUE: We heard you.",
+            "caption": "—",
+            "continuity_notes": "Belief becomes action",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P14_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P14_PANEL05",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-005",
+              "MZ-CHAR-004"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P07_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P14_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P14_PANEL06",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-005",
+              "MZ-CHAR-004"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P07_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P14_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P15_PANEL01",
+            "characters": [
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "—",
+            "caption": "Morning after",
+            "continuity_notes": "acting support for locked beat P08_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P15_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P15_PANEL02",
+            "characters": [
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "STATIC: What I sense. What I know. What I fear. What needs checking.",
+            "caption": "The method",
+            "continuity_notes": "Growth not cure",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P15_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P15_PANEL03",
+            "characters": [
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P08_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P15_PANEL03.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P15_PANEL04",
+            "characters": [
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "STATIC (small): Okay. That's the order.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P08_PANEL01",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P15_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P15_PANEL05",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P08_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P15_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P15_PANEL06",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
+            ],
+            "dialogue": "CLEVER: I can map the how. You map the why.",
+            "caption": "Data of another kind",
+            "continuity_notes": "Complement not overwrite",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P15_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P16_PANEL01",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
+            ],
+            "dialogue": "STATIC: …deal.",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P08_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P16_PANEL01.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P16_PANEL02",
+            "characters": [
+              "MZ-CHAR-003",
+              "MZ-CHAR-CLEVER"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P08_PANEL02",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P16_PANEL02.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P16_PANEL03",
+            "characters": [],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P08_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P16_PANEL03.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P16_PANEL04",
+            "characters": [
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "—",
+            "caption": "—",
+            "continuity_notes": "acting support for locked beat P08_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P16_PANEL04.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P16_PANEL05",
+            "characters": [],
+            "dialogue": "—",
+            "caption": "One soft final tone",
+            "continuity_notes": "Issue 02 final image prop",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P16_PANEL05.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
+          },
+          {
+            "panel_id": "MZ-2026-09-02_P16_PANEL06",
+            "characters": [
+              "MZ-CHAR-003"
+            ],
+            "dialogue": "CAPTION: Next: the signal answers back.",
+            "caption": "End of Issue 02",
+            "continuity_notes": "acting support for locked beat P08_PANEL03",
+            "path": "generated_art/selected_panels/MZ-2026-09-02_P16_PANEL06.png",
+            "exists": false,
+            "format": null,
+            "width": null,
+            "height": null,
+            "sha256": null,
+            "error": null
           }
         ],
         "checks": {
-          "missing_panels": [],
+          "missing_panels": [
+            "MZ-2026-09-02_P01_PANEL04",
+            "MZ-2026-09-02_P01_PANEL05",
+            "MZ-2026-09-02_P01_PANEL06",
+            "MZ-2026-09-02_P02_PANEL04",
+            "MZ-2026-09-02_P02_PANEL05",
+            "MZ-2026-09-02_P02_PANEL06",
+            "MZ-2026-09-02_P03_PANEL04",
+            "MZ-2026-09-02_P03_PANEL05",
+            "MZ-2026-09-02_P03_PANEL06",
+            "MZ-2026-09-02_P04_PANEL04",
+            "MZ-2026-09-02_P04_PANEL05",
+            "MZ-2026-09-02_P04_PANEL06",
+            "MZ-2026-09-02_P05_PANEL04",
+            "MZ-2026-09-02_P05_PANEL05",
+            "MZ-2026-09-02_P05_PANEL06",
+            "MZ-2026-09-02_P06_PANEL04",
+            "MZ-2026-09-02_P06_PANEL05",
+            "MZ-2026-09-02_P06_PANEL06",
+            "MZ-2026-09-02_P07_PANEL04",
+            "MZ-2026-09-02_P07_PANEL05",
+            "MZ-2026-09-02_P07_PANEL06",
+            "MZ-2026-09-02_P08_PANEL04",
+            "MZ-2026-09-02_P08_PANEL05",
+            "MZ-2026-09-02_P08_PANEL06",
+            "MZ-2026-09-02_P09_PANEL01",
+            "MZ-2026-09-02_P09_PANEL02",
+            "MZ-2026-09-02_P09_PANEL03",
+            "MZ-2026-09-02_P09_PANEL04",
+            "MZ-2026-09-02_P09_PANEL05",
+            "MZ-2026-09-02_P09_PANEL06",
+            "MZ-2026-09-02_P10_PANEL01",
+            "MZ-2026-09-02_P10_PANEL02",
+            "MZ-2026-09-02_P10_PANEL03",
+            "MZ-2026-09-02_P10_PANEL04",
+            "MZ-2026-09-02_P10_PANEL05",
+            "MZ-2026-09-02_P10_PANEL06",
+            "MZ-2026-09-02_P11_PANEL01",
+            "MZ-2026-09-02_P11_PANEL02",
+            "MZ-2026-09-02_P11_PANEL03",
+            "MZ-2026-09-02_P11_PANEL04",
+            "MZ-2026-09-02_P11_PANEL05",
+            "MZ-2026-09-02_P11_PANEL06",
+            "MZ-2026-09-02_P12_PANEL01",
+            "MZ-2026-09-02_P12_PANEL02",
+            "MZ-2026-09-02_P12_PANEL03",
+            "MZ-2026-09-02_P12_PANEL04",
+            "MZ-2026-09-02_P12_PANEL05",
+            "MZ-2026-09-02_P12_PANEL06",
+            "MZ-2026-09-02_P13_PANEL01",
+            "MZ-2026-09-02_P13_PANEL02",
+            "MZ-2026-09-02_P13_PANEL03",
+            "MZ-2026-09-02_P13_PANEL04",
+            "MZ-2026-09-02_P13_PANEL05",
+            "MZ-2026-09-02_P13_PANEL06",
+            "MZ-2026-09-02_P14_PANEL01",
+            "MZ-2026-09-02_P14_PANEL02",
+            "MZ-2026-09-02_P14_PANEL03",
+            "MZ-2026-09-02_P14_PANEL04",
+            "MZ-2026-09-02_P14_PANEL05",
+            "MZ-2026-09-02_P14_PANEL06",
+            "MZ-2026-09-02_P15_PANEL01",
+            "MZ-2026-09-02_P15_PANEL02",
+            "MZ-2026-09-02_P15_PANEL03",
+            "MZ-2026-09-02_P15_PANEL04",
+            "MZ-2026-09-02_P15_PANEL05",
+            "MZ-2026-09-02_P15_PANEL06",
+            "MZ-2026-09-02_P16_PANEL01",
+            "MZ-2026-09-02_P16_PANEL02",
+            "MZ-2026-09-02_P16_PANEL03",
+            "MZ-2026-09-02_P16_PANEL04",
+            "MZ-2026-09-02_P16_PANEL05",
+            "MZ-2026-09-02_P16_PANEL06"
+          ],
           "duplicate_art": [],
           "invalid_images": [],
           "dimension_mismatches": [],
-          "identity_missing": [],
+          "identity_missing": [
+            "MZ-2026-09-02_P01_PANEL01",
+            "MZ-2026-09-02_P03_PANEL01",
+            "MZ-2026-09-02_P16_PANEL03",
+            "MZ-2026-09-02_P16_PANEL05"
+          ],
           "unmapped_images": [],
           "dialogue_or_caption_panels": [
             "MZ-2026-09-02_P01_PANEL01",
             "MZ-2026-09-02_P01_PANEL02",
             "MZ-2026-09-02_P01_PANEL03",
+            "MZ-2026-09-02_P01_PANEL04",
+            "MZ-2026-09-02_P01_PANEL05",
+            "MZ-2026-09-02_P01_PANEL06",
             "MZ-2026-09-02_P02_PANEL01",
             "MZ-2026-09-02_P02_PANEL02",
             "MZ-2026-09-02_P02_PANEL03",
+            "MZ-2026-09-02_P02_PANEL04",
+            "MZ-2026-09-02_P02_PANEL05",
+            "MZ-2026-09-02_P02_PANEL06",
             "MZ-2026-09-02_P03_PANEL01",
             "MZ-2026-09-02_P03_PANEL02",
             "MZ-2026-09-02_P03_PANEL03",
+            "MZ-2026-09-02_P03_PANEL04",
+            "MZ-2026-09-02_P03_PANEL05",
+            "MZ-2026-09-02_P03_PANEL06",
             "MZ-2026-09-02_P04_PANEL01",
             "MZ-2026-09-02_P04_PANEL02",
             "MZ-2026-09-02_P04_PANEL03",
+            "MZ-2026-09-02_P04_PANEL04",
+            "MZ-2026-09-02_P04_PANEL05",
+            "MZ-2026-09-02_P04_PANEL06",
             "MZ-2026-09-02_P05_PANEL01",
             "MZ-2026-09-02_P05_PANEL02",
             "MZ-2026-09-02_P05_PANEL03",
+            "MZ-2026-09-02_P05_PANEL04",
+            "MZ-2026-09-02_P05_PANEL05",
+            "MZ-2026-09-02_P05_PANEL06",
             "MZ-2026-09-02_P06_PANEL01",
             "MZ-2026-09-02_P06_PANEL02",
             "MZ-2026-09-02_P06_PANEL03",
+            "MZ-2026-09-02_P06_PANEL04",
+            "MZ-2026-09-02_P06_PANEL05",
+            "MZ-2026-09-02_P06_PANEL06",
             "MZ-2026-09-02_P07_PANEL01",
             "MZ-2026-09-02_P07_PANEL02",
             "MZ-2026-09-02_P07_PANEL03",
+            "MZ-2026-09-02_P07_PANEL04",
+            "MZ-2026-09-02_P07_PANEL05",
+            "MZ-2026-09-02_P07_PANEL06",
             "MZ-2026-09-02_P08_PANEL01",
             "MZ-2026-09-02_P08_PANEL02",
-            "MZ-2026-09-02_P08_PANEL03"
+            "MZ-2026-09-02_P08_PANEL03",
+            "MZ-2026-09-02_P08_PANEL04",
+            "MZ-2026-09-02_P08_PANEL05",
+            "MZ-2026-09-02_P08_PANEL06",
+            "MZ-2026-09-02_P09_PANEL01",
+            "MZ-2026-09-02_P09_PANEL02",
+            "MZ-2026-09-02_P09_PANEL03",
+            "MZ-2026-09-02_P09_PANEL04",
+            "MZ-2026-09-02_P09_PANEL05",
+            "MZ-2026-09-02_P09_PANEL06",
+            "MZ-2026-09-02_P10_PANEL01",
+            "MZ-2026-09-02_P10_PANEL02",
+            "MZ-2026-09-02_P10_PANEL03",
+            "MZ-2026-09-02_P10_PANEL04",
+            "MZ-2026-09-02_P10_PANEL05",
+            "MZ-2026-09-02_P10_PANEL06",
+            "MZ-2026-09-02_P11_PANEL01",
+            "MZ-2026-09-02_P11_PANEL02",
+            "MZ-2026-09-02_P11_PANEL03",
+            "MZ-2026-09-02_P11_PANEL04",
+            "MZ-2026-09-02_P11_PANEL05",
+            "MZ-2026-09-02_P11_PANEL06",
+            "MZ-2026-09-02_P12_PANEL01",
+            "MZ-2026-09-02_P12_PANEL02",
+            "MZ-2026-09-02_P12_PANEL03",
+            "MZ-2026-09-02_P12_PANEL04",
+            "MZ-2026-09-02_P12_PANEL05",
+            "MZ-2026-09-02_P12_PANEL06",
+            "MZ-2026-09-02_P13_PANEL01",
+            "MZ-2026-09-02_P13_PANEL02",
+            "MZ-2026-09-02_P13_PANEL03",
+            "MZ-2026-09-02_P13_PANEL04",
+            "MZ-2026-09-02_P13_PANEL05",
+            "MZ-2026-09-02_P13_PANEL06",
+            "MZ-2026-09-02_P14_PANEL01",
+            "MZ-2026-09-02_P14_PANEL02",
+            "MZ-2026-09-02_P14_PANEL03",
+            "MZ-2026-09-02_P14_PANEL04",
+            "MZ-2026-09-02_P14_PANEL05",
+            "MZ-2026-09-02_P14_PANEL06",
+            "MZ-2026-09-02_P15_PANEL01",
+            "MZ-2026-09-02_P15_PANEL02",
+            "MZ-2026-09-02_P15_PANEL03",
+            "MZ-2026-09-02_P15_PANEL04",
+            "MZ-2026-09-02_P15_PANEL05",
+            "MZ-2026-09-02_P15_PANEL06",
+            "MZ-2026-09-02_P16_PANEL01",
+            "MZ-2026-09-02_P16_PANEL02",
+            "MZ-2026-09-02_P16_PANEL03",
+            "MZ-2026-09-02_P16_PANEL04",
+            "MZ-2026-09-02_P16_PANEL05",
+            "MZ-2026-09-02_P16_PANEL06"
           ],
           "continuity_missing": [],
           "cover_prompt_exists": true,
-          "cover_images": 1,
+          "cover_images": 4,
           "metadata_missing": [],
           "checklist_exists": true
         },
-        "blockers": [],
+        "blockers": [
+          "missing panels: ['MZ-2026-09-02_P01_PANEL04', 'MZ-2026-09-02_P01_PANEL05', 'MZ-2026-09-02_P01_PANEL06', 'MZ-2026-09-02_P02_PANEL04', 'MZ-2026-09-02_P02_PANEL05', 'MZ-2026-09-02_P02_PANEL06', 'MZ-2026-09-02_P03_PANEL04', 'MZ-2026-09-02_P03_PANEL05', 'MZ-2026-09-02_P03_PANEL06', 'MZ-2026-09-02_P04_PANEL04', 'MZ-2026-09-02_P04_PANEL05', 'MZ-2026-09-02_P04_PANEL06', 'MZ-2026-09-02_P05_PANEL04', 'MZ-2026-09-02_P05_PANEL05', 'MZ-2026-09-02_P05_PANEL06', 'MZ-2026-09-02_P06_PANEL04', 'MZ-2026-09-02_P06_PANEL05', 'MZ-2026-09-02_P06_PANEL06', 'MZ-2026-09-02_P07_PANEL04', 'MZ-2026-09-02_P07_PANEL05', 'MZ-2026-09-02_P07_PANEL06', 'MZ-2026-09-02_P08_PANEL04', 'MZ-2026-09-02_P08_PANEL05', 'MZ-2026-09-02_P08_PANEL06', 'MZ-2026-09-02_P09_PANEL01', 'MZ-2026-09-02_P09_PANEL02', 'MZ-2026-09-02_P09_PANEL03', 'MZ-2026-09-02_P09_PANEL04', 'MZ-2026-09-02_P09_PANEL05', 'MZ-2026-09-02_P09_PANEL06', 'MZ-2026-09-02_P10_PANEL01', 'MZ-2026-09-02_P10_PANEL02', 'MZ-2026-09-02_P10_PANEL03', 'MZ-2026-09-02_P10_PANEL04', 'MZ-2026-09-02_P10_PANEL05', 'MZ-2026-09-02_P10_PANEL06', 'MZ-2026-09-02_P11_PANEL01', 'MZ-2026-09-02_P11_PANEL02', 'MZ-2026-09-02_P11_PANEL03', 'MZ-2026-09-02_P11_PANEL04', 'MZ-2026-09-02_P11_PANEL05', 'MZ-2026-09-02_P11_PANEL06', 'MZ-2026-09-02_P12_PANEL01', 'MZ-2026-09-02_P12_PANEL02', 'MZ-2026-09-02_P12_PANEL03', 'MZ-2026-09-02_P12_PANEL04', 'MZ-2026-09-02_P12_PANEL05', 'MZ-2026-09-02_P12_PANEL06', 'MZ-2026-09-02_P13_PANEL01', 'MZ-2026-09-02_P13_PANEL02', 'MZ-2026-09-02_P13_PANEL03', 'MZ-2026-09-02_P13_PANEL04', 'MZ-2026-09-02_P13_PANEL05', 'MZ-2026-09-02_P13_PANEL06', 'MZ-2026-09-02_P14_PANEL01', 'MZ-2026-09-02_P14_PANEL02', 'MZ-2026-09-02_P14_PANEL03', 'MZ-2026-09-02_P14_PANEL04', 'MZ-2026-09-02_P14_PANEL05', 'MZ-2026-09-02_P14_PANEL06', 'MZ-2026-09-02_P15_PANEL01', 'MZ-2026-09-02_P15_PANEL02', 'MZ-2026-09-02_P15_PANEL03', 'MZ-2026-09-02_P15_PANEL04', 'MZ-2026-09-02_P15_PANEL05', 'MZ-2026-09-02_P15_PANEL06', 'MZ-2026-09-02_P16_PANEL01', 'MZ-2026-09-02_P16_PANEL02', 'MZ-2026-09-02_P16_PANEL03', 'MZ-2026-09-02_P16_PANEL04', 'MZ-2026-09-02_P16_PANEL05', 'MZ-2026-09-02_P16_PANEL06']",
+          "identity missing: ['MZ-2026-09-02_P01_PANEL01', 'MZ-2026-09-02_P03_PANEL01', 'MZ-2026-09-02_P16_PANEL03', 'MZ-2026-09-02_P16_PANEL05']"
+        ],
         "advisories": [],
-        "planned_panel_count": 24,
+        "planned_panel_count": 96,
         "selected_panel_count": 24
       },
       "reviews": [
@@ -23810,8 +25138,8 @@
             "evidence_hash": "b61a1dfa96b8377a39413812cd4fca839d165e5d2eb7515368eb23e18908cbe6",
             "actor": "project_owner"
           },
-          "evidence_stale": false,
-          "approval_current": true
+          "evidence_stale": true,
+          "approval_current": false
         }
       ]
     },
@@ -24039,8 +25367,8 @@
             },
             "approval": {
               "required": true,
-              "approved": true,
-              "stale": false,
+              "approved": false,
+              "stale": true,
               "record": {
                 "stage": "release",
                 "approved": true,
@@ -24087,7 +25415,7 @@
         "state_notice": null
       },
       "evidence": {
-        "evidence_hash": "bcadd5e3219bbe49dcae98cf0c00b5a7d25e6e5f2024da0ebe49e15b09c8a1c3",
+        "evidence_hash": "479e3f5b63960dbef6952ca617e0c878f63af0ccf2a3b9631fd9166dc465a3b6",
         "files": [
           {
             "path": "metadata.json",
@@ -24120,6 +25448,21 @@
             "sha256": "1cf9b1c013459882c9cd7577ea8a34248801f05fb4dd9eff8cbdb02920b9eebd"
           },
           {
+            "path": "generated_art/integration_preview/COVER_BACK.png",
+            "size": 1358636,
+            "sha256": "4879b15c403eabaf217badb468b378db33af71814a8b9f5a6accc2399c60294d"
+          },
+          {
+            "path": "generated_art/integration_preview/COVER_FRONT.png",
+            "size": 1175432,
+            "sha256": "b1394cd4c2d5bc04acafd74284df31228e28e662d8b840fd933ffc1dcd7cb24c"
+          },
+          {
+            "path": "generated_art/integration_preview/pages_preview/covers_preview.png",
+            "size": 1328352,
+            "sha256": "ca0dcb7f2a699299ddcdb005a54c468f425e354a0264b159912fcbe9824a6c4f"
+          },
+          {
             "path": "exports/MonkeyZoo_MZ-2026-09-02_Web.pdf",
             "size": 25924099,
             "sha256": "8e5c5c58f6852eca7bd4ff7860bfde37f73d138c30ab990246c1e98c365d2bf6"
@@ -24130,12 +25473,17 @@
             "sha256": "44c641c7d341529d0e6a1448023500ee5b92015f4df27c7a2b21757065d67134"
           }
         ],
-        "blockers": [],
+        "blockers": [
+          "Canonical QA evidence is missing or stale"
+        ],
         "qa_verdict": "passed",
         "qa_evidence_hash": "b61a1dfa96b8377a39413812cd4fca839d165e5d2eb7515368eb23e18908cbe6",
-        "qa_evidence_current": true,
+        "qa_evidence_current": false,
         "covers": [
-          "generated_art/covers/main_cover.png"
+          "generated_art/covers/main_cover.png",
+          "generated_art/integration_preview/COVER_BACK.png",
+          "generated_art/integration_preview/COVER_FRONT.png",
+          "generated_art/integration_preview/pages_preview/covers_preview.png"
         ],
         "pdfs": [
           "MonkeyZoo_MZ-2026-09-02_Web.pdf"
@@ -24173,7 +25521,7 @@
         "schema_version": "1.0",
         "issue_id": "MZ-2026-09-02",
         "created_at": null,
-        "evidence_hash": "bcadd5e3219bbe49dcae98cf0c00b5a7d25e6e5f2024da0ebe49e15b09c8a1c3",
+        "evidence_hash": "479e3f5b63960dbef6952ca617e0c878f63af0ccf2a3b9631fd9166dc465a3b6",
         "files": [
           {
             "path": "metadata.json",
@@ -24206,6 +25554,21 @@
             "sha256": "1cf9b1c013459882c9cd7577ea8a34248801f05fb4dd9eff8cbdb02920b9eebd"
           },
           {
+            "path": "generated_art/integration_preview/COVER_BACK.png",
+            "size": 1358636,
+            "sha256": "4879b15c403eabaf217badb468b378db33af71814a8b9f5a6accc2399c60294d"
+          },
+          {
+            "path": "generated_art/integration_preview/COVER_FRONT.png",
+            "size": 1175432,
+            "sha256": "b1394cd4c2d5bc04acafd74284df31228e28e662d8b840fd933ffc1dcd7cb24c"
+          },
+          {
+            "path": "generated_art/integration_preview/pages_preview/covers_preview.png",
+            "size": 1328352,
+            "sha256": "ca0dcb7f2a699299ddcdb005a54c468f425e354a0264b159912fcbe9824a6c4f"
+          },
+          {
             "path": "exports/MonkeyZoo_MZ-2026-09-02_Web.pdf",
             "size": 25924099,
             "sha256": "8e5c5c58f6852eca7bd4ff7860bfde37f73d138c30ab990246c1e98c365d2bf6"
@@ -24216,7 +25579,7 @@
             "sha256": "44c641c7d341529d0e6a1448023500ee5b92015f4df27c7a2b21757065d67134"
           }
         ],
-        "manifest_hash": "f6e4310e957f87e6df10ab88f12906bb9e82733a6f64362dca1f0ec5adbea3b0"
+        "manifest_hash": "3239ed040cbc7411a33c9fa90a8608bdba314e608f227344c0b6ebb0c42cfbc8"
       },
       "approval": {
         "approved_at": "2026-07-16T15:33:57+00:00",
@@ -24226,9 +25589,9 @@
         "note": "Issue 02 draft pipeline release — Static six-tone package",
         "actor": "project_owner"
       },
-      "approval_current": true,
-      "release_ready": true,
-      "publication_ready": true
+      "approval_current": false,
+      "release_ready": false,
+      "publication_ready": false
     }
   },
   {
@@ -24891,11 +26254,11 @@
           },
           {
             "path": "00_SYSTEM/world_bible.md",
-            "sha256": "8395aa9de8c58cdcd3f6d6e891c8b73a738ed0fd34a24d481d2d3c90427388f8"
+            "sha256": "9996224fa3c11516a972462b1524f469b243f65eb86e14e4c8c7443107190788"
           },
           {
             "path": "00_SYSTEM/continuity_ledger.md",
-            "sha256": "365c8532b7b1565bb02d7877ac9d36927c0320ac23a583747c8c6e94f2d62870"
+            "sha256": "748e9c7350795ab095e6011965e32109e58a66ffd5964f37cc04493a5213725c"
           },
           {
             "path": "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md",
@@ -25380,7 +26743,7 @@
         "previous_issue_references": [],
         "warnings": [],
         "excluded": [],
-        "snapshot_hash": "ca616c9b06cccea59dc53a7321f96b4f4fc40eb781d62bff80325f7b23a64074"
+        "snapshot_hash": "3f867f0286aa5a62594a8f0925a2b76e248a7af0e188898e2fdd00e2735478e9"
       },
       "outlines": [
         {
@@ -27374,6 +28737,2466 @@
         "note": "live release",
         "actor": "project_owner"
       },
+      "approval_current": false,
+      "release_ready": false,
+      "publication_ready": false
+    }
+  },
+  {
+    "issue_id": "MZ-2026-10-02",
+    "title": "The House That Remembers",
+    "edition_number": 2,
+    "period": "2026-10",
+    "primary_character": "MZ-CHAR-006",
+    "guest_character": "MZ-CHAR-ZOMBIE",
+    "location": "02_MONTHLY_ISSUES\\2026-10_Issue_02",
+    "last_updated": "2026-07-16T17:52:06",
+    "validation_state": "blocked",
+    "blocker_count": 1,
+    "workflow": {
+      "issue_id": "MZ-2026-10-02",
+      "active_stage": "script",
+      "current_stage": {
+        "id": "script",
+        "number": 4,
+        "label": "Script",
+        "state": "awaiting_approval"
+      },
+      "stages": [
+        {
+          "id": "intake",
+          "number": 1,
+          "label": "Intake",
+          "state": "complete",
+          "required_files": [
+            "issue_brief.md",
+            "metadata.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": false,
+            "approved": false,
+            "stale": false,
+            "record": null
+          }
+        },
+        {
+          "id": "canon_review",
+          "number": 2,
+          "label": "Canon Review",
+          "state": "complete",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": true,
+            "approved": false,
+            "stale": true,
+            "record": {
+              "stage": "canon_review",
+              "approved": true,
+              "timestamp": "2026-07-16T15:37:25+00:00",
+              "artifact_hash": "69c67bc86eaedc94077bbd3a202a8619f9e1ae247f9ccfcdc578305983b8d0a4",
+              "note": "Scarline + Zombie resolve to approved bibles; season Issue 03 scaffold",
+              "actor": "project_owner"
+            }
+          }
+        },
+        {
+          "id": "outline",
+          "number": 3,
+          "label": "Outline",
+          "state": "complete",
+          "required_files": [
+            "issue_outline.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": false,
+            "approved": false,
+            "stale": false,
+            "record": null
+          }
+        },
+        {
+          "id": "script",
+          "number": 4,
+          "label": "Script",
+          "state": "awaiting_approval",
+          "required_files": [
+            "issue_script.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "passed",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": true,
+            "approved": false,
+            "stale": false,
+            "record": null
+          }
+        },
+        {
+          "id": "page_plan",
+          "number": 5,
+          "label": "Page & Panel Plan",
+          "state": "not_started",
+          "required_files": [
+            "page_panel_plan.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": false,
+            "approved": false,
+            "stale": false,
+            "record": null
+          }
+        },
+        {
+          "id": "art_prompts",
+          "number": 6,
+          "label": "Art Prompt Pack",
+          "state": "not_started",
+          "required_files": [
+            "art_prompt_pack.json"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": false,
+            "approved": false,
+            "stale": false,
+            "record": null
+          }
+        },
+        {
+          "id": "art_production",
+          "number": 7,
+          "label": "Art Production",
+          "state": "not_started",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": true,
+            "approved": false,
+            "stale": false,
+            "record": null
+          }
+        },
+        {
+          "id": "qa",
+          "number": 8,
+          "label": "Quality Assurance",
+          "state": "not_started",
+          "required_files": [
+            "qa_report.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": true,
+            "approved": false,
+            "stale": false,
+            "record": null
+          }
+        },
+        {
+          "id": "release",
+          "number": 9,
+          "label": "Release Package",
+          "state": "not_started",
+          "required_files": [
+            "cover_prompt.md",
+            "metadata.json",
+            "social_posts.md",
+            "final_export_checklist.md"
+          ],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": true,
+            "approved": false,
+            "stale": false,
+            "record": null
+          }
+        },
+        {
+          "id": "published",
+          "number": 10,
+          "label": "Published",
+          "state": "not_started",
+          "required_files": [],
+          "missing_files": [],
+          "validation": {
+            "status": "not_run",
+            "messages": [],
+            "missing_files": []
+          },
+          "approval": {
+            "required": false,
+            "approved": false,
+            "stale": false,
+            "record": null
+          }
+        }
+      ],
+      "blockers": [
+        "Owner approval is required"
+      ],
+      "next_action": {
+        "id": "advance",
+        "label": "Advance Script"
+      },
+      "owner_approval_required": true,
+      "approval": {
+        "required": true,
+        "approved": false,
+        "stale": false,
+        "record": null
+      },
+      "state_source": "recorded",
+      "state_notice": null
+    },
+    "artifacts": [
+      {
+        "group": "Intake",
+        "name": "issue_brief.md",
+        "exists": true,
+        "modified": "2026-07-16T11:37:25",
+        "viewable": true
+      },
+      {
+        "group": "Intake",
+        "name": "metadata.json",
+        "exists": true,
+        "modified": "2026-07-16T11:36:57",
+        "viewable": true
+      },
+      {
+        "group": "Outline",
+        "name": "issue_outline.md",
+        "exists": true,
+        "modified": "2026-07-16T11:37:26",
+        "viewable": true
+      },
+      {
+        "group": "Script",
+        "name": "issue_script.md",
+        "exists": true,
+        "modified": "2026-07-16T17:52:06",
+        "viewable": true
+      },
+      {
+        "group": "Plans",
+        "name": "page_panel_plan.json",
+        "exists": false,
+        "modified": null,
+        "viewable": true
+      },
+      {
+        "group": "Prompts",
+        "name": "art_prompt_pack.json",
+        "exists": false,
+        "modified": null,
+        "viewable": true
+      },
+      {
+        "group": "QA",
+        "name": "qa_report.md",
+        "exists": true,
+        "modified": "2026-07-16T11:36:57",
+        "viewable": true
+      },
+      {
+        "group": "Covers",
+        "name": "cover_prompt.md",
+        "exists": true,
+        "modified": "2026-07-16T11:36:57",
+        "viewable": true
+      },
+      {
+        "group": "Social",
+        "name": "social_posts.md",
+        "exists": true,
+        "modified": "2026-07-16T11:36:57",
+        "viewable": true
+      },
+      {
+        "group": "Release",
+        "name": "final_export_checklist.md",
+        "exists": true,
+        "modified": "2026-07-16T11:36:57",
+        "viewable": true
+      }
+    ],
+    "degraded": false,
+    "story": {
+      "issue": {
+        "issue_id": "MZ-2026-10-02",
+        "title": "The House That Remembers",
+        "page_count": 8,
+        "panel_count": 24,
+        "primary_character": "MZ-CHAR-006",
+        "guest_character": "MZ-CHAR-ZOMBIE",
+        "month": "2026-10",
+        "required_canon": "Scarline MZ-CHAR-006; Zombie MZ-CHAR-ZOMBIE; Issue 02 old-relay continuity",
+        "prohibited": null
+      },
+      "workflow": {
+        "issue_id": "MZ-2026-10-02",
+        "active_stage": "script",
+        "current_stage": {
+          "id": "script",
+          "number": 4,
+          "label": "Script",
+          "state": "awaiting_approval"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "complete",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "canon_review",
+                "approved": true,
+                "timestamp": "2026-07-16T15:37:25+00:00",
+                "artifact_hash": "69c67bc86eaedc94077bbd3a202a8619f9e1ae247f9ccfcdc578305983b8d0a4",
+                "note": "Scarline + Zombie resolve to approved bibles; season Issue 03 scaffold",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "complete",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "awaiting_approval",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "not_started",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "not_started",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "not_started",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "not_started",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [
+          "Owner approval is required"
+        ],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Script"
+        },
+        "owner_approval_required": true,
+        "approval": {
+          "required": true,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "recorded",
+        "state_notice": null
+      },
+      "provider": {
+        "available": true,
+        "type": "manual_prompt",
+        "model_label": "External/manual",
+        "execution_mode": "manual"
+      },
+      "canon": {
+        "schema_version": "1.0",
+        "issue_id": "MZ-2026-10-02",
+        "generation_type": "outline",
+        "created_at": null,
+        "canon_sources": [
+          {
+            "path": "character-bibles/MZ-CHAR-006/bible.yaml",
+            "sha256": "c9840368ea2745b3ef03fa3743a95ef354bfd62214b8dc96d4a4149887482702"
+          },
+          {
+            "path": "character-bibles/MZ-CHAR-ZOMBIE/bible.yaml",
+            "sha256": "733e879cca789a99da9afb36e9fbaafd18aeea914f5b98268702116764f96461"
+          },
+          {
+            "path": "00_SYSTEM/monkeyzoo_master_bible.md",
+            "sha256": "71363363c85b7e5e4981d354dd108c871d92bb0a9ab584cd531f3a300fe76410"
+          },
+          {
+            "path": "00_SYSTEM/world_bible.md",
+            "sha256": "9996224fa3c11516a972462b1524f469b243f65eb86e14e4c8c7443107190788"
+          },
+          {
+            "path": "00_SYSTEM/continuity_ledger.md",
+            "sha256": "748e9c7350795ab095e6011965e32109e58a66ffd5964f37cc04493a5213725c"
+          },
+          {
+            "path": "story-bibles/seasons/2026-emo-monkeys-the-signal-between-us/SEASON-BIBLE.md",
+            "sha256": "02bb73f2673d4734bbff047f47d15a50b9abaf8c394bf213b280fe66f7976a8a"
+          }
+        ],
+        "character_ids": [
+          "MZ-CHAR-006",
+          "MZ-CHAR-ZOMBIE"
+        ],
+        "characters": [
+          {
+            "character_id": "MZ-CHAR-006",
+            "display_name": "Scarline",
+            "personal_name": "Scarline",
+            "legacy_labels": [],
+            "nationality": null,
+            "origin": null,
+            "canon_status": "core_canon",
+            "role": "primary",
+            "source_annotation": "",
+            "voice": {
+              "speech_rhythm": [
+                {
+                  "category": "speech_pattern",
+                  "name": "one clear sentence",
+                  "value": "Says one sentence once and lets it land.",
+                  "status": "canon",
+                  "strength": "strong",
+                  "usage_frequency": "often",
+                  "confidence": "confirmed canon",
+                  "rationale": "Existing bible states one clear sentence, delivered once.",
+                  "evidence": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md"
+                  ],
+                  "compatible_contexts": [
+                    "validation",
+                    "warnings"
+                  ],
+                  "incompatible_contexts": [
+                    "banter chains"
+                  ],
+                  "first_eligible_issue": "next owner-approved issue",
+                  "last_used_issue": null,
+                  "source_refs": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md"
+                  ],
+                  "notes": null
+                }
+              ],
+              "vocabulary_level": [],
+              "sentence_length": [],
+              "humor_style": [
+                {
+                  "category": "speech_pattern",
+                  "name": "humor style",
+                  "value": "minimal; lets others bounce off her seriousness",
+                  "status": "experimental",
+                  "strength": "subtle",
+                  "usage_frequency": "sometimes",
+                  "confidence": "strong inference",
+                  "rationale": "Set by documented voice where available and conservative team differentiation elsewhere.",
+                  "evidence": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md",
+                    "july/2026-07-monkeyzoo-july-edition-test.md"
+                  ],
+                  "compatible_contexts": [
+                    "dialogue drafting"
+                  ],
+                  "incompatible_contexts": [
+                    "flattening character into gag"
+                  ],
+                  "first_eligible_issue": "next owner-approved issue",
+                  "last_used_issue": null,
+                  "source_refs": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md",
+                    "july/2026-07-monkeyzoo-july-edition-test.md"
+                  ],
+                  "notes": null
+                }
+              ],
+              "catchphrase": [
+                {
+                  "category": "catchphrase",
+                  "name": "You stopped it in time.",
+                  "value": "Validation line for earned restraint.",
+                  "status": "canon",
+                  "strength": "subtle",
+                  "usage_frequency": "special circumstances only",
+                  "confidence": "confirmed canon",
+                  "rationale": "Edition 4 documents the line.",
+                  "evidence": [
+                    "Bible and other files/MonkeyZoo_Emo_Edition4_STILL_ME.md"
+                  ],
+                  "compatible_contexts": [
+                    "earned abort/choice beat"
+                  ],
+                  "incompatible_contexts": [
+                    "generic congratulations"
+                  ],
+                  "first_eligible_issue": "MZ-ED-04",
+                  "last_used_issue": null,
+                  "source_refs": [
+                    "Bible and other files/MonkeyZoo_Emo_Edition4_STILL_ME.md"
+                  ],
+                  "notes": null
+                }
+              ],
+              "favorite_words": [],
+              "words_the_character_avoids": [],
+              "stress_speech": [],
+              "excited_speech": [],
+              "sad_speech": [],
+              "angry_speech": [],
+              "example_dialogue": [],
+              "dialogue_rules": [
+                {
+                  "category": "writing_rule",
+                  "name": "do not caricature voice",
+                  "value": "Use the speech trait only when it supports the scene.",
+                  "status": "established",
+                  "strength": "strong",
+                  "usage_frequency": "often",
+                  "confidence": "strong inference",
+                  "rationale": "Request requires rules preventing caricature.",
+                  "evidence": [
+                    "character-bibles/_inventory/character-inventory.json"
+                  ],
+                  "compatible_contexts": [
+                    "dialogue polish"
+                  ],
+                  "incompatible_contexts": [
+                    "filler quirks"
+                  ],
+                  "first_eligible_issue": "next owner-approved issue",
+                  "last_used_issue": null,
+                  "source_refs": [
+                    "character-bibles/_inventory/character-inventory.json"
+                  ],
+                  "notes": null
+                }
+              ]
+            },
+            "relationships": [],
+            "constraints": {},
+            "visual_constraints": [
+              {
+                "category": "visual_feature",
+                "name": "scarlet-red hair streak on viewer-left",
+                "value": "scarlet-red hair streak on viewer-left",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              },
+              {
+                "category": "visual_feature",
+                "name": "palest lead",
+                "value": "palest lead",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              },
+              {
+                "category": "visual_feature",
+                "name": "half-lidded smirk",
+                "value": "half-lidded smirk",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              },
+              {
+                "category": "visual_feature",
+                "name": "no facial scar",
+                "value": "no facial scar",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              }
+            ]
+          },
+          {
+            "character_id": "MZ-CHAR-ZOMBIE",
+            "display_name": "Patch",
+            "personal_name": "Patch",
+            "legacy_labels": [],
+            "nationality": "American",
+            "origin": null,
+            "canon_status": "approved_canon",
+            "role": "guest",
+            "source_annotation": "",
+            "voice": {
+              "speech_rhythm": [],
+              "vocabulary_level": [],
+              "sentence_length": [],
+              "humor_style": [
+                {
+                  "category": "speech_pattern",
+                  "name": "humor style",
+                  "value": "dry unease, not just decay jokes",
+                  "status": "experimental",
+                  "strength": "subtle",
+                  "usage_frequency": "sometimes",
+                  "confidence": "strong inference",
+                  "rationale": "Set by documented voice where available and conservative team differentiation elsewhere.",
+                  "evidence": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md",
+                    "july/2026-07-monkeyzoo-july-edition-test.md"
+                  ],
+                  "compatible_contexts": [
+                    "dialogue drafting"
+                  ],
+                  "incompatible_contexts": [
+                    "flattening character into gag"
+                  ],
+                  "first_eligible_issue": "next owner-approved issue",
+                  "last_used_issue": null,
+                  "source_refs": [
+                    "MonkeyZoo_Comic_Factory/00_SYSTEM/character_bible.md",
+                    "july/2026-07-monkeyzoo-july-edition-test.md"
+                  ],
+                  "notes": null
+                }
+              ],
+              "catchphrase": [],
+              "favorite_words": [],
+              "words_the_character_avoids": [],
+              "stress_speech": [],
+              "excited_speech": [],
+              "sad_speech": [],
+              "angry_speech": [],
+              "example_dialogue": [],
+              "dialogue_rules": [
+                {
+                  "category": "writing_rule",
+                  "name": "do not caricature voice",
+                  "value": "Use the speech trait only when it supports the scene.",
+                  "status": "established",
+                  "strength": "strong",
+                  "usage_frequency": "often",
+                  "confidence": "strong inference",
+                  "rationale": "Request requires rules preventing caricature.",
+                  "evidence": [
+                    "character-bibles/_inventory/character-inventory.json"
+                  ],
+                  "compatible_contexts": [
+                    "dialogue polish"
+                  ],
+                  "incompatible_contexts": [
+                    "filler quirks"
+                  ],
+                  "first_eligible_issue": "next owner-approved issue",
+                  "last_used_issue": null,
+                  "source_refs": [
+                    "character-bibles/_inventory/character-inventory.json"
+                  ],
+                  "notes": null
+                }
+              ]
+            },
+            "relationships": [],
+            "constraints": {},
+            "visual_constraints": [
+              {
+                "category": "visual_feature",
+                "name": "pale-green skin",
+                "value": "pale-green skin",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              },
+              {
+                "category": "visual_feature",
+                "name": "exposed brain",
+                "value": "exposed brain",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              },
+              {
+                "category": "visual_feature",
+                "name": "rotten teeth",
+                "value": "rotten teeth",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              },
+              {
+                "category": "visual_feature",
+                "name": "ragged body/clothes",
+                "value": "ragged body/clothes",
+                "status": "canon",
+                "strength": "defining",
+                "usage_frequency": "almost always",
+                "confidence": "confirmed canon",
+                "rationale": "Taken from completed inventory and approved refs.",
+                "evidence": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "compatible_contexts": [
+                  "all visual appearances"
+                ],
+                "incompatible_contexts": [
+                  "redesigns without owner approval"
+                ],
+                "first_eligible_issue": null,
+                "last_used_issue": null,
+                "source_refs": [
+                  "character-bibles/_inventory/character-inventory.json"
+                ],
+                "notes": null
+              }
+            ]
+          }
+        ],
+        "cast_references": [
+          {
+            "reference": "MZ-CHAR-006",
+            "role": "primary",
+            "annotation": "",
+            "source": "MZ-CHAR-006"
+          },
+          {
+            "reference": "MZ-CHAR-ZOMBIE",
+            "role": "guest",
+            "annotation": "",
+            "source": "MZ-CHAR-ZOMBIE"
+          }
+        ],
+        "alias_resolutions": {
+          "MZ-CHAR-006": "MZ-CHAR-006",
+          "MZ-CHAR-ZOMBIE": "MZ-CHAR-ZOMBIE"
+        },
+        "issue_brief_hash": "0d4cd8ab1bc1460fee092dff8d32d0e72414a0abda8a977fa212c32887becdbc",
+        "season_plan_hash": "02bb73f2673d4734bbff047f47d15a50b9abaf8c394bf213b280fe66f7976a8a",
+        "previous_issue_references": [],
+        "warnings": [],
+        "excluded": [],
+        "snapshot_hash": "377f1ae142c5136e5677efcbc318180f9b9d0ddfab58cf3fe26ae73161bc2ea8"
+      },
+      "outlines": [
+        {
+          "schema_version": "1.0",
+          "variant_id": "outline-20260716T153725Z-8716fb",
+          "issue_id": "MZ-2026-10-02",
+          "kind": "outline",
+          "created_at": "2026-07-16T15:37:25+00:00",
+          "source_type": "manual_import",
+          "provider": "season_bible_scaffold",
+          "model": "user supplied",
+          "execution_mode": "manual",
+          "content": "# MZ-2026-10-02 — The House That Remembers\n\nLogline: MonkeyZoo reopens a haunted attraction over old FusionZoo infrastructure; Scarline recognizes danger others treat as theater while Zombie confirms residual past systems, and Scarline must guide without controlling.\nTheme: Experience can guide without controlling\nPage count: 8\nEmotional arc: Detached calm read as secrecy → shared risk → informed choice → belief in validation over rescue\nConflict: Misdirect exits and fear-responsive rooms; one door must stay closed\nEnding: Group chooses with eyes open; Scarline's origin is a real choice she was given, not a scar; partial season signal continues\n\n## Page map\nPage 1 — Playful attraction scares; Scarline unimpressed\nPage 2 — Zombie recognizes old-system residue / smell\nPage 3 — Room changes; exit signs disagree\nPage 4 — Scarline names the one door that must not open\nPage 5 — Midpoint: Scarline admits she has been here before\nPage 6 — False rescue choices; Zombie past vs Scarline present\nPage 7 — Crisis: guided choice, not orders\nPage 8 — Land; residual wall mark; season signal thread warm\n\n## Cast\n- Featured: Scarline (MZ-CHAR-006)\n- Guest: Zombie Monkey (MZ-CHAR-ZOMBIE)\n- Supporting: Static, Moodz, TwoTone, NeonBlue, Ash\n\n## Locations (approved / proposed)\n- haunted-attraction (proposed if not yet filed), abandoned FusionZoo path residue, exit corridors\n\n## Props\n- misdirect-exit-sign, wall-marking-residue, theatrical scare props vs real residue\n\n## Continuity notes\n- Signal belongs to older FusionZoo system (Echo mystery tracker Issue 03)\n- No facial scar; green glow only if zombie/cracked-chamber intentional\n- Do not complete Echo emblem\n",
+          "content_hash": "5dedceee7881620265718d553f3637599ab2a19f29dbdf11f0f6e07739c0d1f3",
+          "canon_snapshot_hash": "e662736d4725d02931a7b7b81e3bf478ca70e8f33c72671d5e7fb322c17dec1a",
+          "issue_brief_hash": "0d4cd8ab1bc1460fee092dff8d32d0e72414a0abda8a977fa212c32887becdbc",
+          "approved_outline": null,
+          "prompt_hash": null,
+          "validation": {
+            "status": "passed",
+            "errors": 0,
+            "findings": [],
+            "heuristic": true
+          },
+          "approval": {
+            "variant_id": "outline-20260716T153725Z-8716fb",
+            "issue_id": "MZ-2026-10-02",
+            "timestamp": "2026-07-16T15:37:25+00:00",
+            "content_hash": "5dedceee7881620265718d553f3637599ab2a19f29dbdf11f0f6e07739c0d1f3",
+            "canon_snapshot_hash": "e662736d4725d02931a7b7b81e3bf478ca70e8f33c72671d5e7fb322c17dec1a",
+            "owner_note": "Issue 03 Scarline season outline",
+            "actor": "project_owner"
+          },
+          "superseded": false,
+          "owner_note": null,
+          "canon_stale": true,
+          "outline_approval_current": true,
+          "approval_current": false
+        }
+      ],
+      "scripts": [],
+      "outline_approval": {
+        "variant_id": "outline-20260716T153725Z-8716fb",
+        "issue_id": "MZ-2026-10-02",
+        "timestamp": "2026-07-16T15:37:25+00:00",
+        "content_hash": "5dedceee7881620265718d553f3637599ab2a19f29dbdf11f0f6e07739c0d1f3",
+        "canon_snapshot_hash": "e662736d4725d02931a7b7b81e3bf478ca70e8f33c72671d5e7fb322c17dec1a",
+        "owner_note": "Issue 03 Scarline season outline",
+        "actor": "project_owner"
+      },
+      "script_approval": null,
+      "existing_files": {
+        "issue_outline.md": true,
+        "issue_script.md": true
+      },
+      "draft_counts": {
+        "outlines": 1,
+        "scripts": 0
+      }
+    },
+    "layout": {
+      "issue_id": "MZ-2026-10-02",
+      "workflow": {
+        "issue_id": "MZ-2026-10-02",
+        "active_stage": "script",
+        "current_stage": {
+          "id": "script",
+          "number": 4,
+          "label": "Script",
+          "state": "awaiting_approval"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "complete",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "canon_review",
+                "approved": true,
+                "timestamp": "2026-07-16T15:37:25+00:00",
+                "artifact_hash": "69c67bc86eaedc94077bbd3a202a8619f9e1ae247f9ccfcdc578305983b8d0a4",
+                "note": "Scarline + Zombie resolve to approved bibles; season Issue 03 scaffold",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "complete",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "awaiting_approval",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "not_started",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "not_started",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "not_started",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "not_started",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [
+          "Owner approval is required"
+        ],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Script"
+        },
+        "owner_approval_required": true,
+        "approval": {
+          "required": true,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "recorded",
+        "state_notice": null
+      },
+      "script": {
+        "exists": true,
+        "sha256": "81f5a0d719573fd281d154b37fb3b2ef2a2da668f8d30a6cf045397fe5538a86"
+      },
+      "variants": [],
+      "canonical_plan_exists": false
+    },
+    "art_prompts": {
+      "issue_id": "MZ-2026-10-02",
+      "workflow": {
+        "issue_id": "MZ-2026-10-02",
+        "active_stage": "script",
+        "current_stage": {
+          "id": "script",
+          "number": 4,
+          "label": "Script",
+          "state": "awaiting_approval"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "complete",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "canon_review",
+                "approved": true,
+                "timestamp": "2026-07-16T15:37:25+00:00",
+                "artifact_hash": "69c67bc86eaedc94077bbd3a202a8619f9e1ae247f9ccfcdc578305983b8d0a4",
+                "note": "Scarline + Zombie resolve to approved bibles; season Issue 03 scaffold",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "complete",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "awaiting_approval",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "not_started",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "not_started",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "not_started",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "not_started",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [
+          "Owner approval is required"
+        ],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Script"
+        },
+        "owner_approval_required": true,
+        "approval": {
+          "required": true,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "recorded",
+        "state_notice": null
+      },
+      "plan": {
+        "exists": false,
+        "sha256": null
+      },
+      "variants": [],
+      "canonical_pack_exists": false
+    },
+    "art_queue": {
+      "issue_id": "MZ-2026-10-02",
+      "workflow": {
+        "issue_id": "MZ-2026-10-02",
+        "active_stage": "script",
+        "current_stage": {
+          "id": "script",
+          "number": 4,
+          "label": "Script",
+          "state": "awaiting_approval"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "complete",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "canon_review",
+                "approved": true,
+                "timestamp": "2026-07-16T15:37:25+00:00",
+                "artifact_hash": "69c67bc86eaedc94077bbd3a202a8619f9e1ae247f9ccfcdc578305983b8d0a4",
+                "note": "Scarline + Zombie resolve to approved bibles; season Issue 03 scaffold",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "complete",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "awaiting_approval",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "not_started",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "not_started",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "not_started",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "not_started",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [
+          "Owner approval is required"
+        ],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Script"
+        },
+        "owner_approval_required": true,
+        "approval": {
+          "required": true,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "recorded",
+        "state_notice": null
+      },
+      "queue": {
+        "items": [],
+        "error": "Art Queue requires workflow stage art_production or art_prompts; current stage is script"
+      },
+      "provider": {
+        "type": "manual_prompt",
+        "execution_mode": "manual",
+        "available": true
+      }
+    },
+    "qa": {
+      "issue_id": "MZ-2026-10-02",
+      "workflow": {
+        "issue_id": "MZ-2026-10-02",
+        "active_stage": "script",
+        "current_stage": {
+          "id": "script",
+          "number": 4,
+          "label": "Script",
+          "state": "awaiting_approval"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "complete",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "canon_review",
+                "approved": true,
+                "timestamp": "2026-07-16T15:37:25+00:00",
+                "artifact_hash": "69c67bc86eaedc94077bbd3a202a8619f9e1ae247f9ccfcdc578305983b8d0a4",
+                "note": "Scarline + Zombie resolve to approved bibles; season Issue 03 scaffold",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "complete",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "awaiting_approval",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "not_started",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "not_started",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "not_started",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "not_started",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [
+          "Owner approval is required"
+        ],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Script"
+        },
+        "owner_approval_required": true,
+        "approval": {
+          "required": true,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "recorded",
+        "state_notice": null
+      },
+      "evidence": {
+        "panels": [],
+        "checks": {},
+        "blockers": [
+          "Canonical page_panel_plan.json is missing or malformed"
+        ]
+      },
+      "reviews": []
+    },
+    "release": {
+      "issue_id": "MZ-2026-10-02",
+      "workflow": {
+        "issue_id": "MZ-2026-10-02",
+        "active_stage": "script",
+        "current_stage": {
+          "id": "script",
+          "number": 4,
+          "label": "Script",
+          "state": "awaiting_approval"
+        },
+        "stages": [
+          {
+            "id": "intake",
+            "number": 1,
+            "label": "Intake",
+            "state": "complete",
+            "required_files": [
+              "issue_brief.md",
+              "metadata.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "canon_review",
+            "number": 2,
+            "label": "Canon Review",
+            "state": "complete",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": true,
+              "record": {
+                "stage": "canon_review",
+                "approved": true,
+                "timestamp": "2026-07-16T15:37:25+00:00",
+                "artifact_hash": "69c67bc86eaedc94077bbd3a202a8619f9e1ae247f9ccfcdc578305983b8d0a4",
+                "note": "Scarline + Zombie resolve to approved bibles; season Issue 03 scaffold",
+                "actor": "project_owner"
+              }
+            }
+          },
+          {
+            "id": "outline",
+            "number": 3,
+            "label": "Outline",
+            "state": "complete",
+            "required_files": [
+              "issue_outline.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "script",
+            "number": 4,
+            "label": "Script",
+            "state": "awaiting_approval",
+            "required_files": [
+              "issue_script.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "passed",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "page_plan",
+            "number": 5,
+            "label": "Page & Panel Plan",
+            "state": "not_started",
+            "required_files": [
+              "page_panel_plan.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_prompts",
+            "number": 6,
+            "label": "Art Prompt Pack",
+            "state": "not_started",
+            "required_files": [
+              "art_prompt_pack.json"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "art_production",
+            "number": 7,
+            "label": "Art Production",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "qa",
+            "number": 8,
+            "label": "Quality Assurance",
+            "state": "not_started",
+            "required_files": [
+              "qa_report.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "release",
+            "number": 9,
+            "label": "Release Package",
+            "state": "not_started",
+            "required_files": [
+              "cover_prompt.md",
+              "metadata.json",
+              "social_posts.md",
+              "final_export_checklist.md"
+            ],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": true,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          },
+          {
+            "id": "published",
+            "number": 10,
+            "label": "Published",
+            "state": "not_started",
+            "required_files": [],
+            "missing_files": [],
+            "validation": {
+              "status": "not_run",
+              "messages": [],
+              "missing_files": []
+            },
+            "approval": {
+              "required": false,
+              "approved": false,
+              "stale": false,
+              "record": null
+            }
+          }
+        ],
+        "blockers": [
+          "Owner approval is required"
+        ],
+        "next_action": {
+          "id": "advance",
+          "label": "Advance Script"
+        },
+        "owner_approval_required": true,
+        "approval": {
+          "required": true,
+          "approved": false,
+          "stale": false,
+          "record": null
+        },
+        "state_source": "recorded",
+        "state_notice": null
+      },
+      "evidence": {
+        "evidence_hash": "641dd08fae486d8b35bcfd086cf4fd3ad74524abd9e153eba4477233b49bbb2a",
+        "files": [
+          {
+            "path": "metadata.json",
+            "size": 358,
+            "sha256": "8e29cd835ebff8d4dd48b5d71b67ba6856d112983431a4947cfbb11704e1ee9e"
+          },
+          {
+            "path": "social_posts.md",
+            "size": 137,
+            "sha256": "0624cd5c17cfce86dd572437d14c225c8995c927e7c778232157b9dd786cf59c"
+          },
+          {
+            "path": "final_export_checklist.md",
+            "size": 60,
+            "sha256": "b3907eb7f057a114d03d9cb09e9c0841e2a64ac034ce115c8ca05eb000fd6e6d"
+          },
+          {
+            "path": "cover_prompt.md",
+            "size": 33,
+            "sha256": "58c90c4fde99f75416778220d91b0c3b06fc778d24ee5fb180a3e5b086dcd7e9"
+          },
+          {
+            "path": "qa_report.md",
+            "size": 73,
+            "sha256": "bbc25b185ee2a5829eb2a32956679f61176adc8418f579a93b8cc385eac6e0d2"
+          }
+        ],
+        "blockers": [
+          "QA verdict is pending; exact PASS is required",
+          "No final cover image found",
+          "Final PDF is missing or empty",
+          "A readable, non-empty CBZ or ZIP package is required",
+          "Metadata missing fields: format, description, attributes, data",
+          "metadata format must be CHIP-0015"
+        ],
+        "qa_verdict": "pending",
+        "qa_evidence_hash": null,
+        "qa_evidence_current": false,
+        "covers": [],
+        "pdfs": [],
+        "packages": [],
+        "invalid_packages": [],
+        "metadata": {
+          "format": null,
+          "missing_fields": [
+            "format",
+            "description",
+            "attributes",
+            "data"
+          ],
+          "placeholders": [
+            "metadata format must be CHIP-0015"
+          ]
+        },
+        "social_copy_exists": true,
+        "checklist_exists": true,
+        "archive": {
+          "path": "05_RELEASE_ARCHIVE/2026/2026-10_Issue_02",
+          "exists": false,
+          "publication_files": [],
+          "publication_artifacts": []
+        }
+      },
+      "manifest": null,
+      "approval": null,
       "approval_current": false,
       "release_ready": false,
       "publication_ready": false

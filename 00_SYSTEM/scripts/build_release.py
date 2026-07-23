@@ -15,7 +15,11 @@ import sys
 import zipfile
 from pathlib import Path
 
+__all__ = ["build_cbz", "check_exports", "archive"]
+
+
 FACTORY = Path(__file__).resolve().parents[2]
+
 
 
 def _find_cover(issue_dir: Path) -> Path | None:

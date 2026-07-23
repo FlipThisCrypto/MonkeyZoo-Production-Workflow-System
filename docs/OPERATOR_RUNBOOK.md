@@ -8,7 +8,8 @@ Local writable runtime for MonkeyZoo production. GitHub Pages is public **read-o
 .\Start-BananaLab.ps1
 ```
 
-Opens `http://127.0.0.1:8765`.
+Opens `http://127.0.0.1:8765` (or custom port via `-Port <port>` or `$env:PORT`).
+
 
 Manual fallback:
 

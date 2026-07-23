@@ -76,6 +76,43 @@ def test_character_api_lists_bibles(client):
     assert data[0]["character_id"] == "MZ-CHAR-API"
 
 
+def test_health_ok_when_data_root_present(client):
+    res = client.get("/api/health")
+    assert res.status_code == 200
+    body = res.get_json()
+    assert body["status"] == "ok" and body["bibles_root_ok"] is True
+    assert body["service"] == "monkeyzoo-banana-lab"
+
+
+def test_health_degraded_503_when_data_root_missing(client, monkeypatch, tmp_path):
+    # readiness must fail loudly (503) if the data root is missing/unmounted
+    monkeypatch.setattr(review_app, "BIBLES_ROOT", tmp_path / "does-not-exist")
+    res = client.get("/api/health")
+    assert res.status_code == 503
+    assert res.get_json()["status"] == "degraded"
+
+
+def test_health_probes_all_critical_roots(client):
+    body = client.get("/api/health").get_json()
+    assert body["approved_canon_ok"] is True     # 03_APPROVED_CANON present
+    assert body["monthly_issues_ok"] is True      # 02_MONTHLY_ISSUES present
+    assert body["degraded_roots"] == []
+
+
+def test_health_degraded_503_when_canon_or_issues_root_missing(client, monkeypatch, tmp_path):
+    # bibles root present (fixture) but the canon-catalog / issue-workflow roots
+    # are unmounted -> readiness must fail and name them, not report healthy while
+    # /api/locations, /api/props and /api/issues would break.
+    monkeypatch.setattr(review_app, "WORKSPACE_ROOT", tmp_path / "unmounted-workspace")
+    res = client.get("/api/health")
+    assert res.status_code == 503
+    body = res.get_json()
+    assert body["status"] == "degraded"
+    assert "approved_canon_ok" in body["degraded_roots"]
+    assert "monthly_issues_ok" in body["degraded_roots"]
+    assert body["bibles_root_ok"] is True         # this root is still fine
+
+
 def test_runtime_capability_requires_exact_trusted_contract(client):
     res = client.get("/api/runtime-capabilities")
     assert res.status_code == 200
@@ -90,6 +127,52 @@ def test_trait_api_updates_bible(client):
     })
     assert res.status_code == 200
     assert res.get_json()["trait"]["status"] == "established"
+
+
+@pytest.mark.parametrize("route", [
+    "/api/characters/MZ-CHAR-API/trait",
+    "/api/characters/MZ-CHAR-API/field",
+])
+def test_write_endpoint_missing_path_is_structured_400(client, route):
+    # a valid JSON body without the required "path" used to raise KeyError -> 500
+    res = client.post(route, json={"note": "no path given"})
+    assert res.status_code == 400
+    body = res.get_json()
+    assert body["ok"] is False and "path" in body["error"]
+
+
+@pytest.mark.parametrize("route", [
+    "/api/characters/MZ-CHAR-API/trait",
+    "/api/characters/MZ-CHAR-API/field",
+    "/api/compare",
+])
+def test_write_endpoint_non_object_body_is_structured_400(client, route):
+    # a non-object JSON body (list/string) used to raise TypeError/AttributeError -> 500
+    res = client.post(route, json=["not", "an", "object"])
+    assert res.status_code == 400
+    body = res.get_json()
+    assert body["ok"] is False and "JSON object" in body["error"]
+
+
+@pytest.mark.parametrize("route", ["/api/health", "/api/characters", "/"])
+def test_security_headers_on_all_responses(client, route):
+    res = client.get(route)
+    assert res.headers.get("X-Content-Type-Options") == "nosniff"
+    assert res.headers.get("X-Frame-Options") == "DENY"
+    assert res.headers.get("Referrer-Policy") == "no-referrer"
+
+
+def test_request_size_cap_is_configured():
+    # legitimate art uploads are 25 MB; the cap keeps headroom for multipart overhead
+    assert review_app.app.config["MAX_CONTENT_LENGTH"] == 32 * 1024 * 1024
+
+
+def test_oversized_request_body_is_413(client, monkeypatch):
+    # a body over the cap is rejected (413) before being buffered fully into memory
+    monkeypatch.setitem(review_app.app.config, "MAX_CONTENT_LENGTH", 50)
+    res = client.post("/api/compare", data=b"x" * 300, content_type="application/json")
+    assert res.status_code == 413
+    assert res.get_json()["ok"] is False
 
 
 def test_story_preview_api_uses_compact_context(client):
@@ -159,3 +242,239 @@ def test_debug_stays_off_for_non_truthy_values(monkeypatch, value):
 def test_debug_opt_in_only_via_explicit_flag(monkeypatch, value):
     monkeypatch.setenv("MZ_STUDIO_DEBUG", value)
     assert review_app._debug_enabled() is True
+
+
+# --- CSRF / cross-origin request-trust boundary on the writable service --------
+
+def test_cross_site_mutation_blocked_by_origin(client):
+    res = client.post("/api/compare", json={"character_ids": []},
+                      headers={"Origin": "http://evil.example"})
+    assert res.status_code == 403
+    assert "Cross-site" in res.get_json()["error"]
+
+
+def test_cross_site_mutation_blocked_by_referer(client):
+    # a cross-site form POST that carries only a Referer must also be rejected
+    res = client.post("/api/compare", json={"character_ids": []},
+                      headers={"Referer": "http://evil.example/attack.html"})
+    assert res.status_code == 403
+
+
+def test_null_origin_mutation_blocked(client):
+    res = client.post("/api/compare", json={"character_ids": []},
+                      headers={"Origin": "null"})
+    assert res.status_code == 403
+
+
+def test_same_origin_mutation_allowed(client):
+    res = client.post("/api/compare", json={"character_ids": []},
+                      headers={"Origin": "http://localhost"})
+    assert res.status_code == 200
+
+
+def test_mutation_without_origin_or_referer_allowed(client):
+    # non-browser clients (CLI / the test suite) send neither header; a body-less
+    # cross-site attack cannot avoid sending an Origin, so this is safe to allow.
+    res = client.post("/api/compare", json={"character_ids": []})
+    assert res.status_code == 200
+
+
+def test_safe_method_ignores_cross_origin(client):
+    res = client.get("/api/characters", headers={"Origin": "http://evil.example"})
+    assert res.status_code == 200
+
+
+def test_body_less_mutation_endpoint_is_csrf_protected(client):
+    # /undo takes no body: proves the boundary intercepts BEFORE the handler runs
+    # (evil origin -> 403, not the handler's 400 "no history").
+    res = client.post("/api/characters/MZ-CHAR-API/undo",
+                      headers={"Origin": "http://evil.example"})
+    assert res.status_code == 403
+
+
+# --- structured operations log: durable audit of every mutation ----------------
+
+import json as _json          # noqa: E402
+import logging as _logging     # noqa: E402
+
+
+def _capture_ops(monkeypatch):
+    """Attach an in-memory handler to the operations logger and return the list
+    of emitted JSON records."""
+    records = []
+
+    class _Capture(_logging.Handler):
+        def emit(self, record):
+            records.append(_json.loads(record.getMessage()))
+
+    handler = _Capture()
+    review_app._OPS_LOG.addHandler(handler)
+    # ensure the guard in _log_operation sees a handler even if file setup was skipped
+    monkeypatch.setattr(review_app._OPS_LOG, "level", _logging.INFO, raising=False)
+    return records, handler
+
+
+def test_mutation_is_recorded_in_operations_log(client, monkeypatch):
+    records, handler = _capture_ops(monkeypatch)
+    try:
+        client.post("/api/compare", json={"character_ids": []}, headers={"Origin": "http://localhost"})
+    finally:
+        review_app._OPS_LOG.removeHandler(handler)
+    entry = next((r for r in records if r["path"] == "/api/compare"), None)
+    assert entry is not None
+    assert entry["method"] == "POST"
+    assert entry["status"] == 200
+    assert isinstance(entry["duration_ms"], float)
+    assert entry["ts"].endswith("+00:00") or "T" in entry["ts"]
+
+
+def test_safe_get_is_not_logged_as_operation(client, monkeypatch):
+    records, handler = _capture_ops(monkeypatch)
+    try:
+        client.get("/api/characters")
+    finally:
+        review_app._OPS_LOG.removeHandler(handler)
+    assert all(r["path"] != "/api/characters" for r in records)
+
+
+def test_blocked_cross_site_mutation_is_logged_with_403(client, monkeypatch):
+    # a rejected CSRF attempt must still be auditable (status 403 recorded)
+    records, handler = _capture_ops(monkeypatch)
+    try:
+        client.post("/api/compare", json={"character_ids": []}, headers={"Origin": "http://evil.example"})
+    finally:
+        review_app._OPS_LOG.removeHandler(handler)
+    entry = next((r for r in records if r["path"] == "/api/compare"), None)
+    assert entry is not None and entry["status"] == 403
+
+
+def test_operations_log_writes_to_configured_dir(tmp_path, monkeypatch):
+    # end-to-end: the file handler actually persists a JSON line to disk
+    monkeypatch.setenv("MZ_STUDIO_LOG_DIR", str(tmp_path / "opslogs"))
+    review_app._OPS_LOG.handlers.clear()          # force reconfigure with the env dir
+    review_app._configure_operations_log()
+    try:
+        with review_app.app.test_client() as c:
+            c.post("/api/compare", json={"character_ids": []}, headers={"Origin": "http://localhost"})
+        for h in review_app._OPS_LOG.handlers:
+            h.flush()
+        log_file = tmp_path / "opslogs" / "operations.log"
+        assert log_file.is_file()
+        lines = [l for l in log_file.read_text(encoding="utf-8").splitlines() if l.strip()]
+        assert any(_json.loads(l)["path"] == "/api/compare" for l in lines)
+    finally:
+        review_app._OPS_LOG.handlers.clear()
+        review_app._configure_operations_log()     # restore default config
+
+
+# --- request correlation id: trace a request across header, ops log, error ------
+
+def test_every_response_carries_a_request_id_header(client):
+    res = client.get("/api/characters")
+    rid = res.headers.get("X-Request-ID")
+    assert rid and len(rid) == 12
+
+
+def test_request_id_is_unique_per_request(client):
+    a = client.get("/api/health").headers.get("X-Request-ID")
+    b = client.get("/api/health").headers.get("X-Request-ID")
+    assert a and b and a != b
+
+
+def test_error_response_carries_request_id_header(client):
+    # errors keep the stable {"ok","error"} body; the correlation id rides the
+    # X-Request-ID header so a reported failure is still findable in the logs.
+    res = client.post("/api/characters/MZ-CHAR-API/field", json={"note": "no path key"})
+    assert res.status_code == 400
+    assert set(res.get_json()) == {"ok", "error"}       # body contract unchanged
+    assert res.headers.get("X-Request-ID")              # but traceable via the header
+
+
+def test_ops_log_request_id_matches_response_header(client, monkeypatch):
+    records, handler = _capture_ops(monkeypatch)
+    try:
+        res = client.post("/api/compare", json={"character_ids": []},
+                          headers={"Origin": "http://localhost"})
+    finally:
+        review_app._OPS_LOG.removeHandler(handler)
+    entry = next(r for r in records if r["path"] == "/api/compare")
+    assert entry["request_id"] == res.headers.get("X-Request-ID")  # ops log <-> client correlated
+
+
+def test_server_error_is_traceable_via_request_id(client, monkeypatch):
+    # force an unexpected 500 and confirm the same id appears in header + body,
+    # so the operator can map a reported error to its server-side traceback.
+    def _raise(*args, **kwargs):
+        raise RuntimeError("boom")
+    monkeypatch.setattr(review_app.store, "load_all", _raise)
+    res = client.get("/api/characters")
+    assert res.status_code == 500
+    assert res.get_json() == {"ok": False, "error": "Unexpected server error"}  # sanitized body
+    assert res.headers.get("X-Request-ID")             # traceable to the server-side traceback
+
+
+# --- /api/operations/recent: make the audit log queryable for the operator -----
+
+@pytest.fixture()
+def ops_log_dir(tmp_path, monkeypatch):
+    """Point the operations log at an isolated temp dir and restore the default
+    configuration afterwards (the logger is a module global)."""
+    d = tmp_path / "ops"
+    monkeypatch.setenv("MZ_STUDIO_LOG_DIR", str(d))
+    review_app._OPS_LOG.handlers.clear()
+    review_app._configure_operations_log()
+    yield d
+    review_app._OPS_LOG.handlers.clear()
+    review_app._configure_operations_log()
+
+
+def _flush_ops():
+    for handler in review_app._OPS_LOG.handlers:
+        handler.flush()
+
+
+def test_operations_recent_lists_mutations_newest_first(client, ops_log_dir):
+    client.post("/api/compare", json={"character_ids": []}, headers={"Origin": "http://localhost"})
+    client.post("/api/characters/MZ-CHAR-API/field", json={"note": "missing path"})  # -> 400
+    _flush_ops()
+    body = client.get("/api/operations/recent").get_json()
+    assert body["count"] >= 2
+    # newest first: the /field 400 was logged after /api/compare
+    assert body["operations"][0]["path"].endswith("/field")
+    assert any(o["path"] == "/api/compare" for o in body["operations"])
+    assert all("request_id" in o for o in body["operations"])  # correlation id present
+
+
+def test_operations_recent_failed_filter(client, ops_log_dir):
+    client.post("/api/compare", json={"character_ids": []}, headers={"Origin": "http://localhost"})  # 200
+    client.post("/api/characters/MZ-CHAR-API/field", json={"note": "x"})  # 400
+    _flush_ops()
+    body = client.get("/api/operations/recent?failed=1").get_json()
+    assert body["failed_only"] is True
+    assert body["operations"] and all(o["status"] >= 400 for o in body["operations"])
+
+
+def test_operations_recent_limit_caps_results(client, ops_log_dir):
+    for _ in range(5):
+        client.post("/api/compare", json={"character_ids": []}, headers={"Origin": "http://localhost"})
+    _flush_ops()
+    assert client.get("/api/operations/recent?limit=2").get_json()["count"] == 2
+
+
+def test_operations_recent_empty_when_no_activity(client, ops_log_dir):
+    body = client.get("/api/operations/recent").get_json()
+    assert body == {"operations": [], "count": 0, "failed_only": False, "skipped_unparseable": 0}
+
+
+def test_operations_recent_bad_limit_falls_back(client, ops_log_dir):
+    client.post("/api/compare", json={"character_ids": []}, headers={"Origin": "http://localhost"})
+    _flush_ops()
+    assert client.get("/api/operations/recent?limit=notanumber").status_code == 200
+
+
+def test_operations_recent_is_a_safe_read(client, ops_log_dir):
+    # GET is not itself recorded as a mutation, and it is not CSRF-gated
+    client.get("/api/operations/recent", headers={"Origin": "http://evil.example"})
+    _flush_ops()
+    body = client.get("/api/operations/recent").get_json()
+    assert all(o["path"] != "/api/operations/recent" for o in body["operations"])

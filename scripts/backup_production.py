@@ -11,7 +11,6 @@ import argparse
 import hashlib
 import json
 import shutil
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -102,8 +101,59 @@ def backup(destination_root: Path, targets: list[str], dry_run: bool = False) ->
     return destination
 
 
+def verify(backup_dir: Path) -> dict:
+    """Prove a produced backup is intact and restorable by re-hashing every file
+    its manifest recorded. Detects missing files, size drift, and silent SHA-256
+    corruption (bit-rot) -- the failures that otherwise surface only during a real
+    restore. Extra files not in the manifest are reported but do not fail
+    verification (they do not threaten restorability of the recorded set)."""
+    manifest_path = backup_dir / "BACKUP_MANIFEST.json"
+    if not manifest_path.is_file():
+        raise SystemExit(f"No BACKUP_MANIFEST.json found in {backup_dir}")
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        raise SystemExit(f"Unreadable backup manifest {manifest_path}: {exc}") from exc
+
+    recorded = manifest.get("files", []) if isinstance(manifest, dict) else []
+    problems: list[str] = []
+    verified = 0
+    for entry in recorded:
+        rel = entry.get("path", "")
+        target = backup_dir / rel
+        if not target.is_file():
+            problems.append(f"MISSING: {rel}")
+            continue
+        actual_size = target.stat().st_size
+        if actual_size != entry.get("size"):
+            problems.append(f"SIZE MISMATCH: {rel} (manifest {entry.get('size')}, disk {actual_size})")
+            continue
+        if _hash_file(target) != entry.get("sha256"):
+            problems.append(f"HASH MISMATCH (corrupted): {rel}")
+            continue
+        verified += 1
+
+    recorded_paths = {e.get("path") for e in recorded}
+    ignore = {"BACKUP_MANIFEST.json", "BACKUP_README.md"}
+    untracked = sorted(
+        str(path.relative_to(backup_dir)).replace("\\", "/")
+        for path in backup_dir.rglob("*")
+        if path.is_file()
+        and str(path.relative_to(backup_dir)).replace("\\", "/") not in ignore
+        and str(path.relative_to(backup_dir)).replace("\\", "/") not in recorded_paths
+    )
+    return {"backup": str(backup_dir), "expected": len(recorded), "verified": verified,
+            "problems": problems, "untracked": untracked}
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--verify",
+        metavar="BACKUP_DIR",
+        help="Verify an existing backup folder against its manifest (re-hash every "
+             "file) instead of creating a new backup. Exits non-zero on any mismatch.",
+    )
     parser.add_argument(
         "--dest",
         default=str(ROOT / "06_BACKUPS"),
@@ -117,6 +167,18 @@ def main() -> int:
     )
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
+
+    if args.verify:
+        result = verify(Path(args.verify))
+        for problem in result["problems"]:
+            print(f"  FAIL {problem}")
+        for extra in result["untracked"]:
+            print(f"  WARN untracked (not in manifest): {extra}")
+        status = "FAILED" if result["problems"] else "OK"
+        print(f"Backup verify {status}: {result['verified']}/{result['expected']} files intact, "
+              f"{len(result['problems'])} problem(s), {len(result['untracked'])} untracked.")
+        return 1 if result["problems"] else 0
+
     destination_root = Path(args.dest)
     if not args.dry_run:
         destination_root.mkdir(parents=True, exist_ok=True)

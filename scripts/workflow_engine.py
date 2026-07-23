@@ -1,11 +1,9 @@
 from __future__ import annotations
 
 import argparse
-import csv
 import datetime as dt
 import hashlib
 import json
-import os
 import platform
 import subprocess
 import sys
@@ -38,13 +36,28 @@ class WorkflowError(ValueError):
     pass
 
 
+_CONFIG_CACHE: dict[str, tuple[float, int, dict[str, Any]]] = {}
+
+
 def load_config(path: Path) -> dict[str, Any]:
+    key = str(path.resolve())
+    try:
+        st = path.stat()
+        mtime, size = st.st_mtime, st.st_size
+    except OSError:
+        mtime, size = 0.0, 0
+    if key in _CONFIG_CACHE:
+        cached_mtime, cached_size, cached_data = _CONFIG_CACHE[key]
+        if cached_mtime == mtime and cached_size == size:
+            return dict(cached_data)
     data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     if "page_count" not in data and "pages" in data:
         data["page_count"] = data["pages"]
     if "characters" not in data and "character_selection" in data:
         data["characters"] = [{"character_id": item, "role": "supporting"} for item in data["character_selection"]]
+    _CONFIG_CACHE[key] = (mtime, size, dict(data))
     return data
+
 
 
 def issue_dir(config: dict[str, Any], output_root: Path) -> Path:
@@ -278,7 +291,7 @@ def render_kv_markdown(title: str, data: dict[str, Any]) -> str:
 
 
 def render_panel_plan(plan: dict[str, Any]) -> str:
-    lines = [f"# Page Plan", "", f"- Pages: {plan['page_count']}", f"- Total panels: {plan['total_panels']}"]
+    lines = ["# Page Plan", "", f"- Pages: {plan['page_count']}", f"- Total panels: {plan['total_panels']}"]
     for page in plan["pages"]:
         lines.append(f"- Page {page['page']}: {page['panel_count']} panel(s)")
     return "\n".join(lines) + "\n"

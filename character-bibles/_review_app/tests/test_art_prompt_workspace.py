@@ -109,6 +109,76 @@ def test_plan_change_stales_and_blocks_promotion(factory):
         pack.promote(issue, root, variant["variant_id"])
 
 
+def test_lockless_prompt_fails_validation(factory):
+    # A prompt that does not lead with the locked style phrase must be an error,
+    # mirroring the CLI gate (validate_issue.py) — otherwise the canon lock can be
+    # dropped by a hand-edited pack.
+    root, issue = factory
+    built = pack.build_pack(issue, root)
+    built["panels"][0]["prompt"] = "a custom prompt with no style lock at all, quite long indeed"
+    result = pack.validate_pack(built, root)
+    assert result["status"] == "failed"
+    assert any("does not start with the locked style phrase" in f["message"] for f in result["findings"])
+
+
+def test_lockless_negative_prompt_fails_validation(factory):
+    root, issue = factory
+    built = pack.build_pack(issue, root)
+    built["panels"][0]["negative_prompt"] = "something that is not the base negative prompt at all"
+    result = pack.validate_pack(built, root)
+    assert result["status"] == "failed"
+    assert any("negative_prompt does not start with the base negative prompt" in f["message"]
+               for f in result["findings"])
+
+
+def test_lockless_custom_art_prompt_is_blocked_at_approval(factory):
+    # End-to-end: a canonical plan whose panel supplies a custom art_prompt that
+    # drops the style lock must produce a failing variant that approval refuses,
+    # closing the bypass at the gate a human actually uses.
+    root, issue = factory
+    plan = json.loads((issue / "page_panel_plan.json").read_text(encoding="utf-8"))
+    plan["pages"][0]["panels"][0]["art_prompt"] = (
+        "Bespoke unlocked prompt that intentionally omits the MonkeyZoo house style phrase entirely"
+    )
+    (issue / "page_panel_plan.json").write_text(json.dumps(plan), encoding="utf-8")
+    variant = pack.create_variant(issue, root)
+    assert variant["validation"]["status"] == "failed"
+    with pytest.raises(pack.ArtPromptError, match="validation errors"):
+        pack.approve(issue, root, variant["variant_id"])
+
+
+def test_style_lock_falls_back_when_bible_phrase_is_non_canonical(factory):
+    # A style bible whose quoted phrase does not lead with the canonical prefix
+    # must not leak into the pack; _style_lock falls back to the default.
+    root, _ = factory
+    (root / "00_SYSTEM" / "visual_style_bible.md").write_text(
+        '> **"Totally different house look with more than twenty characters here"**\n',
+        encoding="utf-8",
+    )
+    assert pack._style_lock(root) == pack.DEFAULT_STYLE_LOCK
+
+
+def test_style_lock_uses_canonical_bible_phrase(factory):
+    root, _ = factory
+    phrase = pack.STYLE_LOCK_PREFIX + ": bespoke canonical variant phrase, plenty long enough"
+    (root / "00_SYSTEM" / "visual_style_bible.md").write_text(
+        f'> **"{phrase}"**\n', encoding="utf-8")
+    assert pack._style_lock(root) == phrase
+
+
+def test_non_canonical_pack_lock_fails_validation(factory):
+    root, issue = factory
+    built = pack.build_pack(issue, root)
+    built["style_lock_phrase"] = "Altered non-canonical style phrase of adequate length here"
+    # keep panel prompts leading with the (now altered) lock so ONLY the pack-level
+    # canonical-prefix rule is exercised
+    for panel in built["panels"]:
+        panel["prompt"] = built["style_lock_phrase"] + ". " + panel["prompt"]
+    result = pack.validate_pack(built, root)
+    assert result["status"] == "failed"
+    assert any("must lead with" in f["message"] for f in result["findings"])
+
+
 def test_wrong_stage_and_existing_pack_require_replace(factory):
     root, issue = factory
     state = json.loads((issue / ".workflow-status.json").read_text(encoding="utf-8"))

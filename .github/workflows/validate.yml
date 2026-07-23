@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ main ]
 
+# Only one run per ref matters; cancel superseded runs so rapid pushes don't pile up.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -18,15 +23,38 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.12'
+        cache: 'pip'
+        cache-dependency-path: requirements-dev.txt
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements-dev.txt
 
+    - name: Lint (ruff static analysis)
+      run: |
+        ruff check .
+
     - name: Run pytest suite
       run: |
         pytest
+
+    - name: Validate character bibles (canon integrity)
+      # Enforce the character-bible schema on every push/PR: required identity
+      # fields, trait vocabulary, development-level rules, referenced images, and
+      # duplicate character_id collisions. Exits non-zero on any schema error, so
+      # a malformed bible or an identity collision can no longer reach main with
+      # CI green. Mirrors the manual step run by scripts/workflow_engine.py.
+      run: |
+        python character-bibles/_schema/validate-character-bibles.py --root character-bibles --workspace-root .
+
+    - name: Validate continuity ledger (canon integrity)
+      # The continuity ledger is the append-only canon source-of-truth. Enforce
+      # its per-entry structure (required sections), entry-ID format, and
+      # duplicate-ID collisions so a malformed append cannot reach main with CI
+      # green. Companion to the character-bible gate above.
+      run: |
+        python 00_SYSTEM/scripts/validate_ledger.py 00_SYSTEM/continuity_ledger.md
 
     - name: Validate static pages assets
       run: |
@@ -52,3 +80,11 @@ jobs:
         else:
             print("Warning: docs/ directory not found in workspace.")
         '
+
+    - name: Verify deployed static-site consistency
+      # Fail before publishing a broken GitHub Pages build: every media URL the
+      # exported catalog references must resolve to a real file in docs/, and each
+      # data JSON must parse. Catches dangling/unexported media (e.g. the
+      # locations/props galleries that once shipped 51 missing images).
+      run: |
+        python docs/verify_static_site.py docs

@@ -1,6 +1,7 @@
 """Export the canonical Studio character inventory and primary portraits only."""
 from __future__ import annotations
 
+import filecmp
 import json
 import shutil
 import sys
@@ -28,17 +29,24 @@ def export(root: Path = ROOT) -> list[dict]:
         # docs/media tree: sibling subtrees like docs/media/expressions/ are
         # git-tracked and owned by export_static_catalog.py, and wiping them
         # here deletes 372 tracked files this script never regenerates.
-        if target_dir.exists():
-            shutil.rmtree(target_dir)
         if source and source.is_file():
-            target_dir.mkdir(parents=True)
             target = target_dir / f"portrait{source.suffix.lower()}"
-            shutil.copy2(source, target)
+            if not target_dir.exists():
+                target_dir.mkdir(parents=True)
+            # Compare CONTENT, not just size: a re-approved portrait can change
+            # while keeping an identical byte length, and a size-only check would
+            # then serve (and commit) the stale image. filecmp short-circuits on
+            # size, so identical files are still cheap and cause no churn.
+            if not target.exists() or not filecmp.cmp(source, target, shallow=False):
+                shutil.copy2(source, target)
             summary["primary_image"] = f"./media/{character_id}/{target.name}"
             summary["image_status"] = "approved"
         else:
+            if target_dir.exists():
+                shutil.rmtree(target_dir)
             summary["primary_image"] = None
             summary["image_status"] = "unavailable"
+
         records.append(summary)
     # Prune portrait folders for characters no longer in canon, without touching
     # sibling subtrees (expressions/, locations/, props/, ...).

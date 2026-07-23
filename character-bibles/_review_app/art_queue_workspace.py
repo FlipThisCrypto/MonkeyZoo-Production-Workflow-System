@@ -2,7 +2,6 @@
 from __future__ import annotations
 import contextlib, datetime as dt, hashlib, io, json, os, re, tempfile, time
 from pathlib import Path
-from typing import Any
 from PIL import Image
 import bible_store, canon_catalog, issue_workflow
 
@@ -70,13 +69,26 @@ def _scene_refs(root,panel):
     location_ref=canon_catalog.resolve_location_ref(root,panel.get("location"))
     prop_refs=canon_catalog.resolve_prop_refs(root,panel.get("props",[]))
     return location_ref,prop_refs
+def all_attempts(folder):
+    base = _workspace(folder) / "attempts"
+    result = {}
+    if base.exists():
+        for json_path in base.glob("*/attempt-*.json"):
+            record = _read_json(json_path)
+            if record and "panel_id" in record:
+                result.setdefault(record["panel_id"], []).append(record)
+    for items in result.values():
+        items.sort(key=lambda x: x.get("attempt_id", ""))
+    return result
+
 def build_queue(folder,root,persist=False):
-    _stage(folder,root,{"art_prompts","art_production"}); plan=_plan(folder); plan_hash=_plan_hash(folder); existing=_read_json(_workspace(folder)/"queue.json",{}) or {}; old={x["panel_id"]:x for x in existing.get("items",[])}
+    _stage(folder,root,{"art_prompts","art_production"}); plan=_plan(folder); plan_hash=_plan_hash(folder); existing=_read_json(_workspace(folder)/"queue.json",{}) or {}
+    attempts_map = all_attempts(folder)
     items=[]
     for page in plan.get("pages",[]):
         for panel in page.get("panels",[]):
-            pid=panel["panel_id"]; prior=old.get(pid,{})
-            panel_attempts=attempts(folder,pid)
+            pid=panel["panel_id"]
+            panel_attempts=list(attempts_map.get(pid, []))
             for attempt in panel_attempts: attempt["plan_stale"]=attempt.get("plan_hash")!=plan_hash
             preferred=next((a["attempt_id"] for a in panel_attempts if a.get("status")=="preferred" and not a["plan_stale"]),None)
             location_ref,prop_refs=_scene_refs(root,panel)
@@ -84,6 +96,7 @@ def build_queue(folder,root,persist=False):
     queue={"schema_version":"1.0","issue_id":plan.get("issue_id"),"plan_hash":plan_hash,"created_at":existing.get("created_at") or _now(),"updated_at":_now() if persist else existing.get("updated_at"),"items":items}
     if persist:_write_json(_workspace(folder)/"queue.json",queue)
     return queue
+
 def prompt_package(folder,root,panel_id):
     _stage(folder,root,{"art_prompts","art_production"}); plan=_plan(folder); panel=_panel(plan,panel_id); refs=_refs(root,panel.get("characters",[]))
     if any(r.get("error") for r in refs):raise ArtQueueError("Panel has a character without an approved individual reference",409)

@@ -3,6 +3,8 @@
 
 Append-only record of everything that is now true in the MonkeyZoo universe.
 Every issue MUST append its entry before Final QA can pass (Rules 4 & 9).
+Check completeness against produced issues:
+`python 00_SYSTEM/scripts/validate_ledger.py --reconcile`
 Never edit past entries â€” append corrections as new entries referencing them.
 
 Format per entry:

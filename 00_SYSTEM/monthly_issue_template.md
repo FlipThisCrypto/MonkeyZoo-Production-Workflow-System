@@ -1,6 +1,6 @@
 # Monthly Issue Template
 Copy this checklist into each new issue folder's workflow. File templates below
-are the canonical formats — `scripts/new_issue.py` scaffolds them automatically.
+are the canonical formats — MonkeyZoo Studio's guided intake scaffolds them automatically.
 
 ## Issue Folder Contents (all required before Final QA)
 

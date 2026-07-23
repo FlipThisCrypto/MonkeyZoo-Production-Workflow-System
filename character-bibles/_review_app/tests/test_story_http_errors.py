@@ -60,3 +60,56 @@ def test_unexpected_exception_is_sanitized(client):
     test_client, monkeypatch = client
     monkeypatch.setattr(review_app.story_workspace, "summary", lambda *args: (_ for _ in ()).throw(RuntimeError("secret at I:\\private\\token.txt")))
     assert_error(test_client.get("/api/issues/MZ-2027-01-01/story"), 500, "Unexpected server error")
+
+
+def _assert_http_error(response, status):
+    # the catch-all error handler used to mask every werkzeug HTTPException as a
+    # generic 500; real HTTP errors must keep their status and stay JSON + leak-free.
+    assert response.status_code == status
+    body = response.get_json()
+    assert body is not None and body["ok"] is False and body["error"]
+    text = response.get_data(as_text=True)
+    assert "Traceback" not in text and "I:\\" not in text
+
+
+def test_unknown_url_is_404_not_500(client):
+    test_client, _ = client
+    _assert_http_error(test_client.get("/api/does-not-exist"), 404)
+
+
+def test_wrong_method_is_405_not_500(client):
+    test_client, _ = client
+    _assert_http_error(test_client.post("/api/characters"), 405)   # GET-only route
+
+
+def test_malformed_json_body_is_400_not_500(client):
+    test_client, _ = client
+    _assert_http_error(
+        test_client.post("/api/compare", data="{bad json", content_type="application/json"), 400)
+
+
+def test_unexpected_error_is_logged_server_side(client, caplog):
+    # the client response is sanitized, so the real cause must be logged (with
+    # traceback + request context) or a genuine 5xx is undiagnosable for the operator.
+    import logging
+    test_client, monkeypatch = client
+    monkeypatch.setattr(review_app.story_workspace, "summary",
+                        lambda *args: (_ for _ in ()).throw(RuntimeError("boom at I:\\private\\token.txt")))
+    with caplog.at_level(logging.ERROR):
+        response = test_client.get("/api/issues/MZ-2027-01-01/story")
+    # client still sanitized (no leak)
+    assert_error(response, 500, "Unexpected server error")
+    # but the server log carries the real cause: level, exception type, request path, traceback
+    assert any(rec.levelno >= logging.ERROR for rec in caplog.records)
+    assert "RuntimeError" in caplog.text
+    assert "/api/issues/MZ-2027-01-01/story" in caplog.text
+    assert "Traceback (most recent call last)" in caplog.text
+
+
+def test_client_errors_are_not_logged_as_server_errors(client, caplog):
+    # a 404 is an expected client error -- it must not be logged at ERROR (noise)
+    import logging
+    test_client, _ = client
+    with caplog.at_level(logging.ERROR):
+        test_client.get("/api/does-not-exist")
+    assert [rec for rec in caplog.records if rec.levelno >= logging.ERROR] == []

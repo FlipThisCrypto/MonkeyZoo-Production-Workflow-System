@@ -22,7 +22,11 @@ import re
 import sys
 from pathlib import Path
 
+__all__ = ["schema_check", "load"]
+
+
 FACTORY = Path(__file__).resolve().parents[2]
+
 SYSTEM = FACTORY / "00_SYSTEM"
 ERRORS: list[str] = []
 
@@ -41,15 +45,21 @@ def load(path: Path):
     return None
 
 
+_SCHEMA_CACHE: dict[str, dict] = {}
+
+
 def schema_check(instance, schema_file: str, label: str) -> None:
     try:
         import jsonschema  # type: ignore
     except ImportError:
         return  # fallback checks below still run
-    schema = json.loads((SYSTEM / schema_file).read_text(encoding="utf-8"))
+    if schema_file not in _SCHEMA_CACHE:
+        _SCHEMA_CACHE[schema_file] = json.loads((SYSTEM / schema_file).read_text(encoding="utf-8"))
+    schema = _SCHEMA_CACHE[schema_file]
     validator = jsonschema.Draft202012Validator(schema)
     for e in validator.iter_errors(instance):
         err(f"{label}: {'/'.join(map(str, e.path)) or '<root>'}: {e.message}")
+
 
 
 def main() -> None:

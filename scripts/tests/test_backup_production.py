@@ -92,3 +92,66 @@ class _FixedDatetime:
     def now(self, tz=None): return self
     def strftime(self, _fmt): return self._stamp
     def isoformat(self, timespec="seconds"): return "2027-01-01T00:00:00+00:00"
+
+
+# --- verify(): disaster-recovery integrity check of a produced backup ---------
+
+def _fresh_backup(source, tmp_path):
+    dest_root = tmp_path / "backups"; dest_root.mkdir()
+    return bp.backup(dest_root, _targets())
+
+
+def test_verify_passes_a_fresh_backup(source, tmp_path):
+    dest = _fresh_backup(source, tmp_path)
+    result = bp.verify(dest)
+    assert result["problems"] == []
+    assert result["untracked"] == []
+    assert result["verified"] == result["expected"] > 0
+
+
+def test_verify_detects_silent_hash_corruption(source, tmp_path):
+    dest = _fresh_backup(source, tmp_path)
+    canon = dest / "03_APPROVED_CANON" / "canon.txt"
+    canon.write_text("hacked", encoding="utf-8")  # same 6-byte length, different content
+    result = bp.verify(dest)
+    assert any(p.startswith("HASH MISMATCH") and "canon.txt" in p for p in result["problems"])
+
+
+def test_verify_detects_missing_file(source, tmp_path):
+    dest = _fresh_backup(source, tmp_path)
+    (dest / "03_APPROVED_CANON" / "canon.txt").unlink()
+    result = bp.verify(dest)
+    assert any(p.startswith("MISSING") and "canon.txt" in p for p in result["problems"])
+
+
+def test_verify_detects_size_drift(source, tmp_path):
+    dest = _fresh_backup(source, tmp_path)
+    canon = dest / "03_APPROVED_CANON" / "canon.txt"
+    canon.write_text(canon.read_text(encoding="utf-8") + " extra", encoding="utf-8")
+    result = bp.verify(dest)
+    assert any(p.startswith("SIZE MISMATCH") and "canon.txt" in p for p in result["problems"])
+
+
+def test_verify_reports_untracked_without_failing(source, tmp_path):
+    dest = _fresh_backup(source, tmp_path)
+    (dest / "03_APPROVED_CANON" / "sneaked_in.txt").write_text("added later", encoding="utf-8")
+    result = bp.verify(dest)
+    assert result["problems"] == []                       # untracked is not a failure
+    assert any(u.endswith("sneaked_in.txt") for u in result["untracked"])
+
+
+def test_verify_missing_manifest_raises(tmp_path):
+    empty = tmp_path / "not-a-backup"; empty.mkdir()
+    with pytest.raises(SystemExit):
+        bp.verify(empty)
+
+
+def test_verify_cli_exit_codes(source, tmp_path, monkeypatch, capsys):
+    dest = _fresh_backup(source, tmp_path)
+    monkeypatch.setattr(sys, "argv", ["backup_production.py", "--verify", str(dest)])
+    assert bp.main() == 0
+    assert "verify OK" in capsys.readouterr().out
+    (dest / "03_APPROVED_CANON" / "canon.txt").write_text("tamper", encoding="utf-8")
+    monkeypatch.setattr(sys, "argv", ["backup_production.py", "--verify", str(dest)])
+    assert bp.main() == 1
+    assert "verify FAILED" in capsys.readouterr().out

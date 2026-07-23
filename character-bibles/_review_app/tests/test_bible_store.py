@@ -1,5 +1,6 @@
 import json
 import sys
+import threading
 from pathlib import Path
 
 import pytest
@@ -235,3 +236,128 @@ def test_save_bible_is_atomic_original_intact_on_failure(bible_root, monkeypatch
     assert path.read_text(encoding="utf-8") == original          # canon untouched
     leftovers = [p.name for p in (bible_root / "MZ-CHAR-TEST").iterdir() if p.name.endswith(".tmp")]
     assert leftovers == []                                        # temp cleaned up
+
+
+# --- canon status-transition machine (normalize_trait_updates) ---
+
+@pytest.mark.parametrize("action,status,review", [
+    ("approve_canon", "canon", "approve_as_canon"),
+    ("approve_established", "established", "approve_as_established"),
+    ("keep_experimental", "experimental", "keep_experimental"),
+    ("mark_optional", "optional", "mark_optional"),
+    ("mark_dormant", "dormant", "mark_dormant"),
+    ("retire", "retired", "retire"),
+    ("reject", "retired", "reject"),
+])
+def test_review_action_maps_to_canon_status(action, status, review):
+    out = bible_store.normalize_trait_updates({"action": action})
+    assert out["status"] == status
+    assert out["_review_action"] == review
+    assert "action" not in out                       # the action key is consumed
+    assert out["status"] in bible_store.VALID_STATUSES
+
+
+def test_retire_and_reject_force_usage_never():
+    assert bible_store.normalize_trait_updates({"action": "retire"})["usage_frequency"] == "never"
+    assert bible_store.normalize_trait_updates({"action": "reject"})["usage_frequency"] == "never"
+
+
+def test_reject_prefixes_existing_notes():
+    out = bible_store.normalize_trait_updates({"action": "reject", "notes": "off model"})
+    assert out["notes"].startswith("REJECTED:") and "off model" in out["notes"]
+
+
+@pytest.mark.parametrize("updates", [{"action": "wobble"}, {"value": "x"}, {}])
+def test_unknown_or_missing_action_is_plain_edit(updates):
+    out = bible_store.normalize_trait_updates(updates)
+    assert out["_review_action"] == "edit_trait"
+    assert "status" not in out                        # a plain edit must not invent a status
+
+
+def test_invalid_status_is_rejected():
+    with pytest.raises(bible_store.BibleStoreError):
+        bible_store.normalize_trait_updates({"status": "not-a-real-status"})
+
+
+def test_invalid_strength_is_rejected():
+    with pytest.raises(bible_store.BibleStoreError):
+        bible_store.normalize_trait_updates({"strength": "ludicrous"})
+
+
+def test_identity_index_invalidated_on_rename(bible_root):
+    # The identity index (name/alias -> id) is memoized per root. save_bible must
+    # invalidate it, or renaming a character's display name would leave the new name
+    # unresolvable until a server restart. Guard that invalidation explicitly.
+    root = bible_root
+    assert bible_store.resolve_character_id("Test", root) == "MZ-CHAR-TEST"     # builds+caches index
+    data = bible_store.load_bible("MZ-CHAR-TEST", root)
+    data["identification"]["current_display_name"] = "Renamed Hero"
+    bible_store.save_bible("MZ-CHAR-TEST", data, root)                          # must invalidate cache
+    assert bible_store.resolve_character_id("Renamed Hero", root) == "MZ-CHAR-TEST"
+    assert bible_store.resolve_character_id("MZ-CHAR-TEST", root) == "MZ-CHAR-TEST"
+    with pytest.raises(bible_store.BibleStoreError):
+        bible_store.resolve_character_id("Test", root)                          # old name is gone
+
+
+# --- concurrency: per-character write serialization (no lost updates/audit) ----
+
+def test_character_lock_is_per_character_and_stable():
+    a1 = bible_store._character_lock("MZ-CHAR-A")
+    a2 = bible_store._character_lock("MZ-CHAR-A")
+    b = bible_store._character_lock("MZ-CHAR-B")
+    assert a1 is a2          # same character -> one lock -> edits serialize
+    assert a1 is not b       # different characters -> independent locks -> parallel
+
+
+def test_concurrent_edits_record_every_audit_entry(bible_root):
+    # High-contention: all threads enter the edit at once. Without per-character
+    # serialization the racing append_history() calls drop entries; with the lock
+    # every edit is durably audited.
+    n = 40
+    barrier = threading.Barrier(n)
+    errors: list[Exception] = []
+
+    def edit(i: int) -> None:
+        try:
+            barrier.wait()
+            bible_store.update_field(
+                "MZ-CHAR-TEST", "identification.current_display_name",
+                f"Name {i}", root=bible_root,
+            )
+        except Exception as exc:  # noqa: BLE001 - surface any thread failure to the assert
+            errors.append(exc)
+
+    threads = [threading.Thread(target=edit, args=(i,)) for i in range(n)]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+
+    assert errors == []
+    history = bible_store.load_history("MZ-CHAR-TEST", bible_root)
+    assert len(history) == n, f"expected {n} audit entries, got {len(history)} (lost under concurrency)"
+    # the bible survived concurrent writes intact and readable
+    data = bible_store.load_bible("MZ-CHAR-TEST", bible_root)
+    assert data["identification"]["current_display_name"].startswith("Name ")
+
+
+def test_concurrent_trait_edits_keep_history_and_bible_consistent(bible_root):
+    n = 25
+    barrier = threading.Barrier(n)
+
+    def edit() -> None:
+        barrier.wait()
+        bible_store.update_trait(
+            "MZ-CHAR-TEST", "character_core.dominant_traits.0",
+            {"action": "keep_experimental"}, root=bible_root,
+        )
+
+    threads = [threading.Thread(target=edit) for _ in range(n)]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+
+    assert len(bible_store.load_history("MZ-CHAR-TEST", bible_root)) == n
+    data = bible_store.load_bible("MZ-CHAR-TEST", bible_root)
+    assert data["character_core"]["dominant_traits"][0]["status"] == "experimental"

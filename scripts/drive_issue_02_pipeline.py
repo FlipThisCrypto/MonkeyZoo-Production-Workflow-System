@@ -348,7 +348,6 @@ def simple_pdf_from_images(paths: list[Path], out: Path) -> None:
         next_id += 3
         content_ids.append((page_id, content_id, img_id, w, h, raw))
 
-    stream_parts = []
     # rebuild with correct numbers: page, content, xobject per page
     objects = [objects[0], objects[1]]
     oid = 3

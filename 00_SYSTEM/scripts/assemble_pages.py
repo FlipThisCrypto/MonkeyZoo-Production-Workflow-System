@@ -21,7 +21,11 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
+__all__ = ["draw_bubble", "draw_caption", "draw_sfx", "PAGE_W", "PAGE_H", "MARGIN", "GUTTER", "BORDER"]
+
+
 FACTORY = Path(__file__).resolve().parents[2]
+
 PAGE_W, PAGE_H = 2480, 3508
 MARGIN, GUTTER, BORDER = 100, 40, 12
 FONTS = Path(r"C:\Windows\Fonts")
@@ -54,14 +58,33 @@ F_TITLE = _font("impact.ttf", 170)
 
 
 def wrap(draw, text, font, max_w):
-    words, lines, cur = text.split(), [], ""
-    for w in words:
-        t = (cur + " " + w).strip()
-        if draw.textbbox((0, 0), t, font=font)[2] <= max_w or not cur:
-            cur = t
-        else:
-            lines.append(cur)
-            cur = w
+    def _w(s):
+        return draw.textbbox((0, 0), s, font=font)[2]
+
+    def _hard_break(word):
+        # A single token wider than the balloon (a long onomatopoeia "AAAAAAH", a
+        # URL, a #hashtag) would otherwise be placed whole and grow the balloon past
+        # the panel edge. Split it into <= max_w chunks at character boundaries.
+        chunks, cur = [], ""
+        for ch in word:
+            if not cur or _w(cur + ch) <= max_w:
+                cur += ch
+            else:
+                chunks.append(cur)
+                cur = ch
+        if cur:
+            chunks.append(cur)
+        return chunks
+
+    lines, cur = [], ""
+    for word in text.split():
+        for piece in ([word] if _w(word) <= max_w else _hard_break(word)):
+            t = (cur + " " + piece).strip()
+            if not cur or _w(t) <= max_w:
+                cur = t
+            else:
+                lines.append(cur)
+                cur = piece
     lines.append(cur)
     return lines
 
@@ -150,17 +173,30 @@ def parse_dialogue(s):
 def fit_cover(img, w, h, crop=None):
     if crop:
         L, T, R, B = crop
-        img = img.crop((int(L * img.width), int(T * img.height),
-                        int(R * img.width), int(B * img.height)))
+        # A malformed crop window (inverted L>R / T>B, out of [0,1], or zero-area) must
+        # not crash the whole page build: clamp, order, and skip a degenerate window.
+        L, R = sorted((min(max(L, 0.0), 1.0), min(max(R, 0.0), 1.0)))
+        T, B = sorted((min(max(T, 0.0), 1.0), min(max(B, 0.0), 1.0)))
+        x0, x1 = int(L * img.width), int(R * img.width)
+        y0, y1 = int(T * img.height), int(B * img.height)
+        if x1 > x0 and y1 > y0:
+            img = img.crop((x0, y0, x1, y1))
+    w, h = max(1, int(w)), max(1, int(h))
+    if img.width == 0 or img.height == 0:
+        return Image.new("RGB", (w, h))
     s = max(w / img.width, h / img.height)
-    img = img.resize((round(img.width * s), round(img.height * s)), Image.LANCZOS)
+    img = img.resize((max(1, round(img.width * s)), max(1, round(img.height * s))), Image.LANCZOS)
     x = (img.width - w) // 2
     y = (img.height - h) // 2
     return img.crop((x, y, x + w, y + h))
 
 
 def find_art(issue_dir, pid):
-    ups = list((issue_dir / "generated_art" / "upscaled").glob(f"{pid}_print*.png"))
+    # sorted(): glob order is filesystem-dependent, so if a panel has more than
+    # one upscaled print (e.g. a re-run left "<pid>_print.png" and
+    # "<pid>_print_v2.png"), an unsorted [0] would pick a non-deterministic file
+    # and break reproducible page builds. Sort so the choice is stable.
+    ups = sorted((issue_dir / "generated_art" / "upscaled").glob(f"{pid}_print*.png"))
     if ups:
         return ups[0]
     sel = issue_dir / "generated_art" / "selected_panels" / f"{pid}.png"

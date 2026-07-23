@@ -113,8 +113,28 @@ def queue(host, workflow):
     body = json.dumps({"prompt": workflow}).encode()
     req = urllib.request.Request(f"http://{host}/prompt", data=body,
                                  headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read())
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return json.loads(r.read())
+    except urllib.error.URLError as exc:
+        return {"node_errors": {"connection": f"Failed to connect to http://{host}/prompt: {exc.reason}"}}
+
+
+
+def load_pack(issue, factory=FACTORY):
+    """Load a promoted art_prompt_pack.json, failing with a clear, actionable
+    message (not a raw traceback) when it is absent, malformed, or empty."""
+    pack_file = factory / "02_MONTHLY_ISSUES" / issue / "art_prompt_pack.json"
+    if not pack_file.is_file():
+        raise SystemExit(f"No art_prompt_pack.json for {issue} at {pack_file} — "
+                         "promote the art prompt pack first (Stage 5).")
+    try:
+        pack = json.loads(pack_file.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise SystemExit(f"Malformed art_prompt_pack.json for {issue}: {exc}") from exc
+    if not isinstance(pack, dict) or not pack.get("panels"):
+        raise SystemExit(f"art_prompt_pack.json for {issue} has no panels to queue.")
+    return pack
 
 
 def main():
@@ -133,9 +153,7 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    pack_file = FACTORY / "02_MONTHLY_ISSUES" / args.issue / "art_prompt_pack.json"
-    pack = json.loads(pack_file.read_text(encoding="utf-8"))
-
+    pack = load_pack(args.issue)
     panels = pack["panels"]
     only = [p.strip() for p in args.only.split(",") if p.strip()]
     if only:
@@ -146,19 +164,34 @@ def main():
                                len(p.get("character_tokens", [])),
                                p["page_number"], p["panel_number"]))
 
-    queued = 0
+    result = run_batch(pack, panels, args)
+    print(f"{result['ok']} generations queued, {result['failed']} failed.")
+    # Exit non-zero when any submission failed (e.g. ComfyUI unreachable) so an
+    # agent or automated run can detect the failure instead of reading a
+    # success-looking "queued" tally.
+    if result["failed"]:
+        sys.exit(1)
+
+
+def run_batch(pack, panels, args, queue_fn=queue):
+    """Queue every panel/variant. Returns {'ok': n, 'failed': n}; a submission
+    whose response carries node_errors counts as failed, not as queued."""
+    ok = failed = 0
     for panel in panels:
         for v in range(args.variants):
             seed = panel["seed"] + v
             if args.dry_run:
                 print(f"DRY {panel['panel_id']} seed={seed} res={panel.get('resolution')}")
                 continue
-            resp = queue(args.host, build_workflow(panel, pack, args, seed))
+            resp = queue_fn(args.host, build_workflow(panel, pack, args, seed))
             err = resp.get("node_errors")
-            status = "ERR " + json.dumps(err) if err else "ok"
-            print(f"queued {panel['panel_id']} seed={seed} -> {status}")
-            queued += 1
-    print(f"{queued} generations queued.")
+            if err:
+                failed += 1
+                print(f"queued {panel['panel_id']} seed={seed} -> ERR {json.dumps(err)}")
+            else:
+                ok += 1
+                print(f"queued {panel['panel_id']} seed={seed} -> ok")
+    return {"ok": ok, "failed": failed}
 
 
 if __name__ == "__main__":

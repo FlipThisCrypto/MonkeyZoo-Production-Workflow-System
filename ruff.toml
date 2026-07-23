@@ -1,0 +1,20 @@
+# Static analysis for the MonkeyZoo production pipeline.
+#
+# Scope is deliberately the real-error classes -- pyflakes (`F`: undefined names,
+# unused imports, broken `__all__`, f-strings without placeholders) plus syntax
+# errors (`E9`). Purely stylistic rules are out of scope for now so the gate stays
+# high-signal (a failure means a probable bug, not a whitespace nit).
+#
+# The excludes mirror pytest.ini's `norecursedirs`: the backup / archive / output
+# trees hold FULL COPIES of the source (some intentionally broken snapshots), which
+# would otherwise double-report and fail the gate on frozen history.
+target-version = "py312"
+extend-exclude = [
+    "06_BACKUPS",
+    "05_RELEASE_ARCHIVE",
+    "04_REJECTED_OUTPUTS",
+    "04_APPROVED_FOR_PUSH",
+]
+
+[lint]
+select = ["E9", "F"]

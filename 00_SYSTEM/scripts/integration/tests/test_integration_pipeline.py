@@ -321,3 +321,73 @@ def test_build_panel_rejects_uncalibrated_location(tmp_path):
     spec_path.write_text(_json.dumps(spec), encoding="utf-8")
     with pytest.raises(ValueError, match="unknown location"):
         build_panel.main(str(spec_path))
+
+
+# --- sample_ambient_luma must never crash on an edge / out-of-bounds anchor ---
+
+@pytest.mark.parametrize("anchor", [
+    (0, 0), (49, 39), (999, 999), (-500, -500), (25, 0), (0, 25),
+])
+def test_sample_ambient_luma_handles_any_anchor(anchor):
+    import compositor
+    from PIL import Image
+    val = compositor.sample_ambient_luma(Image.new("RGB", (50, 40), (80, 80, 80)), anchor)
+    assert isinstance(val, float) and 0.0 <= val <= 255.0
+
+
+def test_sample_ambient_luma_in_bounds_reads_the_plate():
+    import compositor
+    from PIL import Image
+    # a uniform mid-grey plate sampled well inside returns that grey (~80), not the neutral fallback
+    val = compositor.sample_ambient_luma(Image.new("RGB", (200, 200), (80, 80, 80)), (100, 120))
+    assert abs(val - 80.0) < 1.0
+
+
+# --- draw_contact_shadow must never crash on a degenerate width / edge anchor ---
+
+@pytest.mark.parametrize("anchor,width", [
+    ((50, 70), 40), ((50, 70), 0), ((50, 70), -30),
+    ((9999, 9999), 40), ((-100, -100), 40), ((0, 0), 40),
+])
+def test_draw_contact_shadow_handles_edge_inputs(anchor, width):
+    from shadow import draw_contact_shadow
+    from PIL import Image
+    out = draw_contact_shadow(Image.new("RGBA", (100, 80), (20, 20, 20, 255)), anchor, width)
+    assert out.size == (100, 80) and out.mode == "RGBA"
+
+
+def test_draw_contact_shadow_normal_darkens_under_the_foot():
+    from shadow import draw_contact_shadow
+    from PIL import Image
+    import numpy as np
+    canvas = Image.new("RGBA", (100, 80), (20, 20, 20, 255))
+    before = np.array(canvas.convert("L")).mean()
+    after = np.array(draw_contact_shadow(canvas, (50, 70), 40).convert("L")).mean()
+    assert after < before                                    # a shadow was actually drawn
+
+
+# --- add_puddle_reflection must skip (not crash) a degenerate surface / paste box ---
+
+@pytest.mark.parametrize("polygon,box", [
+    ([], (40, 40, 70, 90)),                      # no surface polygon
+    ([(0, 0)], (40, 40, 70, 90)),                # < 3 points
+    ([(0, 80), (120, 80), (120, 90), (0, 90)], (70, 90, 40, 40)),   # inverted paste box
+    ([(0, 80), (120, 80), (120, 90), (0, 90)], (40, 40, 40, 40)),   # zero-area paste box
+])
+def test_puddle_reflection_skips_degenerate_geometry(polygon, box):
+    from PIL import Image
+    import reflection
+    canvas = Image.new("RGBA", (120, 90), (20, 20, 30, 255))
+    char = Image.new("RGBA", (30, 50), (120, 120, 120, 255))
+    out, meta = reflection.add_puddle_reflection(canvas, char, box, polygon)
+    assert out.size == (120, 90) and meta["reflection_visible_px"] == 0
+
+
+def test_puddle_reflection_valid_surface_renders():
+    from PIL import Image
+    import reflection
+    canvas = Image.new("RGBA", (120, 90), (20, 20, 30, 255))
+    char = Image.new("RGBA", (30, 50), (200, 200, 200, 255))
+    poly = [(0, 80), (120, 80), (120, 90), (0, 90)]
+    out, meta = reflection.add_puddle_reflection(canvas, char, (40, 40, 70, 90), poly)
+    assert out.size == (120, 90) and meta["reflection_visible_px"] >= 0

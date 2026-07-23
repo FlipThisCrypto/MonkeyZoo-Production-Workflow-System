@@ -179,6 +179,30 @@ def test_generate_sample_issue_saves_script_and_proposed_update(story_root, tmp_
     assert script.count("Clever says go") <= 1
 
 
+def test_missing_character_not_masked_by_substring(story_root):
+    packet = story_context.build_context_packet(
+        story_context.normalize_setup(setup([{"character_id": "MZ-CHAR-OTHER", "role": "primary"}])),
+        story_root,
+    )
+    missing = "Other is selected but not mentioned in the script."
+    # "Other" appears only inside "brother" -> the character is genuinely absent
+    # and must still be flagged (a plain substring test would have masked it).
+    assert missing in story_context.validate_script_text("The brother waited in the dark.", packet)
+    # a real whole-word mention clears the warning
+    assert missing not in story_context.validate_script_text("Other waited in the dark.", packet)
+
+
+def test_experimental_trait_advisory_uses_whole_word_match():
+    packet = {"selected_cast": [{
+        "character_id": "MZ-CHAR-X", "display_name": "Zed",
+        "catchphrases_allowed": [], "experimental_review_required": [{"name": "sad"}]}]}
+    advisory = "Zed uses experimental trait 'sad'; keep as review item."
+    # "sad" only appears inside "saddled" -> the trait is not actually used
+    assert advisory not in story_context.validate_script_text("Zed saddled the horse.", packet)
+    # a genuine whole-word use is still flagged for owner review
+    assert advisory in story_context.validate_script_text("Zed looked sad today.", packet)
+
+
 def test_glasses_validation_allows_explicit_no_glasses(story_root):
     packet = story_context.build_context_packet(
         story_context.normalize_setup(setup([{"character_id": "MZ-CHAR-OTHER", "role": "primary"}])),
@@ -190,3 +214,14 @@ def test_glasses_validation_allows_explicit_no_glasses(story_root):
     assert "Other may have incorrect glasses." not in warnings
     warnings = story_context.validate_script_text("Other adjusts the glasses in this panel.", packet)
     assert "Other may have incorrect glasses." in warnings
+
+
+def test_atomic_write_text_overwrites_and_leaves_no_temp(tmp_path):
+    # story_context previews are now written atomically (temp + fsync + os.replace)
+    # like its siblings, so a crash mid-write can't leave a truncated file.
+    p = tmp_path / "preview.json"
+    story_context._atomic_write_text(p, '{"a": 1}')
+    assert p.read_text(encoding="utf-8") == '{"a": 1}'
+    story_context._atomic_write_text(p, "replaced")
+    assert p.read_text(encoding="utf-8") == "replaced"
+    assert sorted(f.name for f in tmp_path.iterdir()) == ["preview.json"]   # no .tmp leftovers

@@ -18,6 +18,11 @@ import issue_workflow
 
 VARIANT_ID = re.compile(r"^pack-\d{8}T\d{6}Z-[0-9a-f]{6}$")
 
+# Canonical prefix every valid style lock must lead with (matches Rule 3 in
+# 00_SYSTEM/scripts/validate_issue.py). A lock phrase not starting with this is
+# altered/non-canonical and must never reach a promoted pack.
+STYLE_LOCK_PREFIX = "MonkeyZoo house style"
+
 DEFAULT_STYLE_LOCK = (
     "MonkeyZoo house style: chibi cartoon monkey with oversized round head, "
     "huge white oval eyes with tiny black dot pupils, two small dot nostrils, "
@@ -32,7 +37,11 @@ DEFAULT_NEGATIVE = (
 )
 
 
+__all__ = ["build_pack", "validate_pack", "create_variant", "ArtPromptError"]
+
+
 class ArtPromptError(ValueError):
+
     def __init__(self, message: str, status: int = 400):
         super().__init__(message)
         self.status = status
@@ -146,8 +155,13 @@ def _style_lock(root: Path) -> str:
     if path.exists():
         text = path.read_text(encoding="utf-8", errors="replace")
         match = re.search(r">\s*\*\*\"([^\"]+)\"\*\*", text)
-        if match and len(match.group(1).strip()) >= 20:
-            return match.group(1).strip()
+        if match:
+            phrase = match.group(1).strip()
+            # Only accept an extracted phrase that is substantial AND canonical; a
+            # malformed style bible must not push a non-canonical lock into a pack
+            # (validate_issue.py Rule 3 would reject it downstream).
+            if len(phrase) >= 20 and phrase.startswith(STYLE_LOCK_PREFIX):
+                return phrase
     return DEFAULT_STYLE_LOCK
 
 
@@ -232,19 +246,49 @@ def build_pack(folder: Path, root: Path) -> dict[str, Any]:
     }
 
 
+_PACK_SCHEMA_CACHE: dict[str, dict] = {}
+
+
+def _get_pack_schema(schema_path: Path) -> dict[str, Any]:
+    key = str(schema_path.resolve())
+    if key not in _PACK_SCHEMA_CACHE:
+        _PACK_SCHEMA_CACHE[key] = json.loads(schema_path.read_text(encoding="utf-8"))
+    return _PACK_SCHEMA_CACHE[key]
+
+
 def validate_pack(pack: dict[str, Any], root: Path) -> dict[str, Any]:
     findings: list[dict[str, str]] = []
     schema_path = root / "00_SYSTEM" / "art_prompt_pack_schema.json"
     if not schema_path.exists():
         raise ArtPromptError("art_prompt_pack_schema.json is missing", 500)
-    schema = json.loads(schema_path.read_text(encoding="utf-8"))
+    schema = _get_pack_schema(schema_path)
     for error in Draft202012Validator(schema).iter_errors(pack):
         findings.append({"level": "error", "message": error.message})
+
     if not pack.get("panels"):
         findings.append({"level": "error", "message": "Pack has no panels"})
     ids = [panel.get("panel_id") for panel in pack.get("panels", [])]
     if len(ids) != len(set(ids)):
         findings.append({"level": "error", "message": "Duplicate panel IDs in pack"})
+
+    # Canon lock (mirrors 00_SYSTEM/scripts/validate_issue.py): every panel prompt
+    # must lead with the pack's locked style phrase, and every negative prompt with
+    # the base negative. Without this, a hand-edited/custom art_prompt that drops
+    # the lock would still set style_lock_phrase_included=True and pass validation,
+    # letting a lock-violating pack be approved and promoted.
+    lock = str(pack.get("style_lock_phrase") or "")
+    base_negative = str(pack.get("base_negative_prompt") or "")
+    if lock and not lock.startswith(STYLE_LOCK_PREFIX):
+        findings.append({"level": "error",
+                         "message": f"style_lock_phrase is missing or altered; it must lead with '{STYLE_LOCK_PREFIX}'"})
+    for panel in pack.get("panels", []):
+        pid = panel.get("panel_id")
+        if lock and not str(panel.get("prompt") or "").startswith(lock):
+            findings.append({"level": "error",
+                             "message": f"Panel {pid}: prompt does not start with the locked style phrase"})
+        if base_negative and not str(panel.get("negative_prompt") or "").startswith(base_negative):
+            findings.append({"level": "error",
+                             "message": f"Panel {pid}: negative_prompt does not start with the base negative prompt"})
     return {
         "status": "failed" if findings else "passed",
         "findings": findings,

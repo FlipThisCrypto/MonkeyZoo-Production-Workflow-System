@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -59,8 +60,10 @@ def test_local_and_static_load_each_stylesheet_once():
     static = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
     assert source.count('href="/static/styles.css"') == 1
     assert source.count('href="/static/banana-theme.css"') == 1
-    assert static.count('href="./static/styles.css"') == 1
-    assert static.count('href="./static/banana-theme.css"') == 1
+    # The deployed copy cache-busts each stylesheet with an optional ?v=<hash>
+    # (added by sync_docs); it must still be referenced exactly once.
+    assert len(re.findall(r'href="\./static/styles\.css(?:\?v=[0-9a-f]+)?"', static)) == 1
+    assert len(re.findall(r'href="\./static/banana-theme\.css(?:\?v=[0-9a-f]+)?"', static)) == 1
 
 
 def test_static_preview_brand_matches_and_remains_read_only():

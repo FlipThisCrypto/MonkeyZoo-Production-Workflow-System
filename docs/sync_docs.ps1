@@ -34,7 +34,12 @@ $BannerStyle = @"
   flex-shrink: 0;
 }
 "@
-Add-Content -Path "$DocsDir/static/styles.css" -Value $BannerStyle
+$stylesContent = Get-Content -Path "$DocsDir/static/styles.css" -Raw
+if ($stylesContent -notmatch "demo-preview-banner") {
+    Add-Content -Path "$DocsDir/static/styles.css" -Value $BannerStyle
+}
+
+
 
 # 3. Generate issues_metadata.json from 02_MONTHLY_ISSUES
 $Issues = @()
@@ -652,10 +657,32 @@ $JsContent = $JsContent -replace '/media/', './media/'
 $JsContent = $JsContent -replace "`r`n", "`n"
 Set-Content -Path "$DocsDir/static/app.js" -Value $JsContent -NoNewline
 
+# Cache-bust the read-only data JSON the static app fetches. Stamp ?v=<hash-of-
+# each-file> onto its ./static/*.json references INSIDE the deployed app.js, from
+# the files' deployed bytes, and do it BEFORE app.js is hashed for index.html
+# below so the modified bundle is the one index.html versions. Because index.html
+# cache-busts app.js, the new app.js reliably reaches returning visitors and its
+# versioned fetch URLs then bust the data JSON. Without this a browser keeps
+# serving a stale catalog (e.g. corrected media URLs that would otherwise 404).
+foreach ($dataJson in @('canon-catalog.json', 'characters.json', 'issue-workflows.json', 'project-direction.json')) {
+    if (Test-Path "$DocsDir/static/$dataJson") {
+        $DataHash = (python "$DocsDir/static_asset_version.py" --update-asset "$DocsDir/static/app.js" "./static/$dataJson" "$DocsDir/static/$dataJson").Trim()
+        if ($LASTEXITCODE -ne 0 -or $DataHash -notmatch '^[0-9a-f]{64}$') { throw "Deployed data JSON version generation failed for $dataJson" }
+    }
+}
+
 # Finalize HTML only after every static JavaScript transform has been written.
 # The deployed bundle never contains its own token, avoiding circular hashing.
 Set-Content -Path "$DocsDir/index.html" -Value $HtmlContent -NoNewline
 $DeployedAppHash = (python "$DocsDir/static_asset_version.py" --update-html "$DocsDir/index.html" "$DocsDir/static/app.js").Trim()
 if ($LASTEXITCODE -ne 0 -or $DeployedAppHash -notmatch '^[0-9a-f]{64}$') { throw "Deployed static app.js version generation failed" }
+
+# Cache-bust the stylesheets too, versioned from their DEPLOYED bytes (styles.css
+# has the runtime banner appended above, so its deployed content differs from the
+# source). Without this, returning visitors keep stale CSS after a style change.
+foreach ($css in @('styles.css', 'banana-theme.css')) {
+    $DeployedCssHash = (python "$DocsDir/static_asset_version.py" --update-asset "$DocsDir/index.html" "./static/$css" "$DocsDir/static/$css").Trim()
+    if ($LASTEXITCODE -ne 0 -or $DeployedCssHash -notmatch '^[0-9a-f]{64}$') { throw "Deployed static $css version generation failed" }
+}
 
 Write-Output "MonkeyZoo Studio Pages Sync Complete!"

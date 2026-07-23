@@ -17,6 +17,12 @@ description: Run MonkeyZoo layout, lettering, exports, and release gates (Stages
    seed family, card-mode variant), letter title/stamps with Pillow, save
    `exports/cover.png` + `promo_images/variant_cover.png`.
 4. CBZ + export check: `python 00_SYSTEM/scripts/build_release.py <issue-folder>`.
+   For a Genesis-style packaged release, verify its integrity + provenance
+   BEFORE distributing or minting:
+   `python 00_SYSTEM/scripts/genesis/genesis_release.py --verify <genesis-dir>`
+   — re-hashes every SHA256SUMS.txt file and cross-checks the release manifest's
+   per-artifact sha256/bytes (the values CHIP-0015 mints with). Exit 1 lists any
+   corruption or manifest/file provenance drift; never mint a release that fails.
 5. Lanczos scaling is fine for flat-color art; ESRGAN upscale on ZLUDA is
    ~5min/panel — skip unless making print masters.
 6. Programmatic lettering is DRAFT tier: recommend a Krita/CSP polish pass

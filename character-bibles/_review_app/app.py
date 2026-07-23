@@ -1,11 +1,18 @@
 from __future__ import annotations
 
+import datetime as dt
+import json
+import logging
 import os
+import time
+import uuid
+from logging.handlers import RotatingFileHandler
 from pathlib import Path
 import sys
+from urllib.parse import urlsplit
 
-from flask import Flask, jsonify, request, send_from_directory
-from werkzeug.exceptions import BadRequest, UnsupportedMediaType
+from flask import Flask, abort, g, jsonify, request, send_from_directory
+from werkzeug.exceptions import BadRequest, HTTPException, UnsupportedMediaType
 
 import bible_store as store
 import story_context
@@ -27,6 +34,11 @@ BIBLES_ROOT = WORKSPACE_ROOT / "character-bibles"
 
 app = Flask(__name__, static_folder="static", static_url_path="/static")
 
+# Reject oversized request bodies early (413) instead of buffering them into memory
+# before the per-endpoint 25 MB art-attempt check. Headroom above 25 MB covers
+# multipart/form-data boundary overhead on a legitimate max-size image upload.
+app.config["MAX_CONTENT_LENGTH"] = 32 * 1024 * 1024
+
 def story_kind(value: str) -> str:
     kinds = {"outline": "outline", "outlines": "outline", "script": "script", "scripts": "script"}
     if value not in kinds:
@@ -34,9 +46,93 @@ def story_kind(value: str) -> str:
     return kinds[value]
 
 
+def _json_object() -> dict:
+    """Parse the request body as a JSON object or 400. Malformed JSON already 400s
+    via get_json(force=True); this additionally rejects a valid-but-non-object body
+    (list/string/number) that would otherwise blow up deep in a handler as a 500."""
+    body = request.get_json(force=True)
+    if not isinstance(body, dict):
+        raise BadRequest("Request body must be a JSON object")
+    return body
+
+
+def _require_str(body: dict, key: str) -> str:
+    """A required, non-empty string field, or a structured 400 (never a 500)."""
+    value = body.get(key)
+    if not isinstance(value, str) or not value.strip():
+        raise BadRequest(f"Missing or invalid required field: {key}")
+    return value
+
+
 @app.get("/")
 def index():
-    return send_from_directory(APP_DIR / "static", "index.html")
+    response = send_from_directory(APP_DIR / "static", "index.html")
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    return response
+
+
+
+@app.get("/api/health")
+def health():
+    """Liveness + readiness probe for monitors, the launcher, and deployers. The
+    Studio serves data from several roots, not just character-bibles: the canon
+    catalog reads 03_APPROVED_CANON and issue workflows read 02_MONTHLY_ISSUES.
+    Probe ALL of them and return 503 if ANY is missing/unmounted, so a readiness
+    check cannot report healthy while /api/locations, /api/props, /api/expressions
+    or /api/issues would silently fail. Names the specific degraded roots to make
+    the failure diagnosable."""
+    roots = {
+        "bibles_root_ok": BIBLES_ROOT.is_dir(),
+        "approved_canon_ok": (WORKSPACE_ROOT / "03_APPROVED_CANON").is_dir(),
+        "monthly_issues_ok": (WORKSPACE_ROOT / "02_MONTHLY_ISSUES").is_dir(),
+    }
+    ready = all(roots.values())
+    payload = {
+        "status": "ok" if ready else "degraded",
+        "service": "monkeyzoo-banana-lab",
+        "writable": True,
+        **roots,
+        "degraded_roots": [name for name, ok in roots.items() if not ok],
+    }
+    return jsonify(payload), (200 if ready else 503)
+
+
+@app.get("/api/operations/recent")
+def operations_recent():
+    """Recent mutation audit, newest first, so the operator/UI can see recent
+    activity and isolate failures without shell access to logs/operations.log.
+    Query: ?limit=N (default 50, max 500), ?failed=1 to show only status >= 400.
+    Each entry carries the X-Request-ID correlation id, mapping a listed op to
+    its server-side traceback."""
+    try:
+        limit = max(1, min(int(request.args.get("limit", "50")), 500))
+    except (TypeError, ValueError):
+        limit = 50
+    failed_only = str(request.args.get("failed", "")).lower() in {"1", "true", "yes", "on"}
+    path = _operations_log_path()
+    operations: list[dict] = []
+    truncated_lines = 0
+    if path.is_file():
+        try:
+            lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+        except OSError:
+            lines = []
+        for line in reversed(lines):  # newest first
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                record = json.loads(line)
+            except ValueError:
+                truncated_lines += 1  # a partially-written/rotated line; skip it
+                continue
+            if failed_only and int(record.get("status", 0) or 0) < 400:
+                continue
+            operations.append(record)
+            if len(operations) >= limit:
+                break
+    return jsonify({"operations": operations, "count": len(operations),
+                    "failed_only": failed_only, "skipped_unparseable": truncated_lines})
 
 
 @app.get("/api/runtime-capabilities")
@@ -108,15 +204,17 @@ def character_detail(character_id):
 
 @app.post("/api/characters/<character_id>/trait")
 def update_trait(character_id):
-    body = request.get_json(force=True)
-    trait = store.update_trait(character_id, body["path"], body.get("updates", {}), body.get("note"), BIBLES_ROOT)
+    body = _json_object()
+    path = _require_str(body, "path")
+    trait = store.update_trait(character_id, path, body.get("updates", {}), body.get("note"), BIBLES_ROOT)
     return jsonify({"ok": True, "trait": trait})
 
 
 @app.post("/api/characters/<character_id>/field")
 def update_field(character_id):
-    body = request.get_json(force=True)
-    value = store.update_field(character_id, body["path"], body.get("value"), body.get("action", "edit_field"), body.get("note"), BIBLES_ROOT)
+    body = _json_object()
+    path = _require_str(body, "path")
+    value = store.update_field(character_id, path, body.get("value"), body.get("action", "edit_field"), body.get("note"), BIBLES_ROOT)
     return jsonify({"ok": True, "value": value})
 
 
@@ -127,7 +225,7 @@ def undo(character_id):
 
 @app.post("/api/compare")
 def compare():
-    body = request.get_json(force=True)
+    body = _json_object()
     return jsonify(store.comparison(body.get("character_ids", []), BIBLES_ROOT))
 
 
@@ -383,9 +481,135 @@ def handle_error(exc):
         status, message = exc.status, str(exc)
     elif isinstance(exc, (store.BibleStoreError, story_context.StoryContextError, new_issue.IssueCreationError, issue_workflow.IssueWorkflowError)):
         status, message = 400, str(exc)
+    elif isinstance(exc, HTTPException):
+        # A genuine HTTP error -- unknown URL (404), wrong method (405), malformed
+        # JSON body / bad request (400), payload too large (413), etc. Preserve its
+        # real status instead of masking it as a 500; use the standard reason phrase
+        # (never the internals) so the JSON error shape stays consistent.
+        status = exc.code or 500
+        message = exc.description or exc.name
     else:
         status, message = 500, "Unexpected server error"
+    if status >= 500:
+        # The client response is deliberately sanitized ("Unexpected server error"),
+        # so without this the real cause of a failure on this WRITABLE service would
+        # be lost entirely. Log the exception + traceback server-side (operator-only)
+        # so genuine 5xx failures are diagnosable, tagged with the request id the
+        # client also sees on the X-Request-ID header, so a reported failure maps
+        # straight to its traceback. 4xx are expected client errors and stay quiet.
+        app.logger.error("Unhandled %s on %s %s [request_id=%s]", type(exc).__name__,
+                         request.method, request.path, getattr(g, "request_id", None), exc_info=exc)
+    # The correlation id travels on the X-Request-ID header (set for every response),
+    # not in the body -- the {"ok", "error"} error shape is a stable client contract.
     return jsonify({"ok": False, "error": message}), status
+
+
+_SAFE_METHODS = {"GET", "HEAD", "OPTIONS", "TRACE"}
+
+
+def _request_origin(referer_or_origin: str | None) -> str | None:
+    """Return the scheme://host[:port] of a header value, or None if unparseable."""
+    if not referer_or_origin:
+        return None
+    if referer_or_origin == "null":
+        return "null"
+    parts = urlsplit(referer_or_origin)
+    return f"{parts.scheme}://{parts.netloc}" if parts.scheme and parts.netloc else None
+
+
+_OPS_LOG = logging.getLogger("mz.operations")
+
+
+def _operations_log_path() -> Path:
+    """The operations log file (dir overridable via MZ_STUDIO_LOG_DIR). Single
+    source of truth shared by the writer (below) and the /api/operations/recent
+    reader, so they never disagree about where the log lives."""
+    return Path(os.environ.get("MZ_STUDIO_LOG_DIR", str(APP_DIR / "logs"))) / "operations.log"
+
+
+def _configure_operations_log() -> None:
+    """Durable, rotating audit of every state-changing request. The app previously
+    logged only 5xx errors, so consequential mutations (issue advance, pack/QA/
+    release promotion, canon edits) left no chronological cross-cutting record for
+    incident investigation. This writes one structured JSON line per mutation to
+    logs/operations.log (dir overridable via MZ_STUDIO_LOG_DIR). Never let logging
+    setup break the app."""
+    if _OPS_LOG.handlers:
+        return
+    log_dir = _operations_log_path().parent
+    try:
+        log_dir.mkdir(parents=True, exist_ok=True)
+        handler = RotatingFileHandler(log_dir / "operations.log", maxBytes=1_000_000,
+                                      backupCount=5, encoding="utf-8")
+        handler.setFormatter(logging.Formatter("%(message)s"))
+        _OPS_LOG.addHandler(handler)
+        _OPS_LOG.setLevel(logging.INFO)
+        _OPS_LOG.propagate = False
+    except OSError:
+        pass
+
+
+_configure_operations_log()
+
+
+@app.before_request
+def _start_request_timer():
+    # Registered before the CSRF check so even a blocked (403) mutation is timed
+    # and logged -- useful when investigating cross-site attempts. Stamp a short
+    # correlation id so the operations log, the 5xx traceback, the error response
+    # body and the X-Request-ID header all reference the SAME request -- turning
+    # separate log streams into one traceable request.
+    g._mz_start = time.monotonic()
+    g.request_id = uuid.uuid4().hex[:12]
+
+
+@app.after_request
+def _log_operation(response):
+    response.headers.setdefault("X-Request-ID", getattr(g, "request_id", ""))
+    if request.method not in _SAFE_METHODS and _OPS_LOG.handlers:
+        start = getattr(g, "_mz_start", None)
+        record = {
+            "ts": dt.datetime.now(dt.timezone.utc).isoformat(timespec="milliseconds"),
+            "request_id": getattr(g, "request_id", None),
+            "method": request.method,
+            "path": request.path,
+            "status": response.status_code,
+            "duration_ms": round((time.monotonic() - start) * 1000, 1) if start else None,
+        }
+        _OPS_LOG.info(json.dumps(record))
+    return response
+
+
+@app.before_request
+def _block_cross_site_mutations():
+    # CSRF boundary for a WRITABLE localhost service. localhost is not origin
+    # isolated: any page in the operator's browser can POST a body-less form to
+    # 127.0.0.1 and trigger a mutation (undo/approve/promote). The app sends no
+    # permissive CORS headers, so cross-origin fetch() is already blocked by the
+    # browser; the remaining vector is a cross-site <form> POST, which a browser
+    # always tags with an Origin (and usually a Referer). So: on a state-changing
+    # method, if an Origin/Referer is present it MUST match this service's own
+    # origin. Non-browser clients (CLI, the test suite) send neither and are
+    # unaffected, preserving legitimate scripted/local use.
+    if request.method in _SAFE_METHODS:
+        return
+    own = f"{request.scheme}://{request.host}"
+    stated = request.headers.get("Origin") or request.headers.get("Referer")
+    stated_origin = _request_origin(stated)
+    if stated_origin is not None and stated_origin != own:
+        abort(403, description="Cross-site request blocked: request origin does not match this service.")
+
+
+@app.after_request
+def _security_headers(response):
+    # Defense-in-depth for a writable local service that serves an HTML UI: block
+    # MIME-sniffing, block framing (clickjacking that could frame the studio and
+    # trick the owner into a mutation click), and don't leak the referrer. Same-origin
+    # assets are unaffected. setdefault preserves any header a route already set.
+    response.headers.setdefault("X-Content-Type-Options", "nosniff")
+    response.headers.setdefault("X-Frame-Options", "DENY")
+    response.headers.setdefault("Referrer-Policy", "no-referrer")
+    return response
 
 
 def _debug_enabled() -> bool:
@@ -398,4 +622,6 @@ def _debug_enabled() -> bool:
 
 if __name__ == "__main__":
     debug = _debug_enabled()
-    app.run(host="127.0.0.1", port=8765, debug=debug, use_reloader=debug)
+    port = int(os.environ.get("PORT", "8765"))
+    app.run(host="127.0.0.1", port=port, debug=debug, use_reloader=debug)
+

@@ -3,7 +3,6 @@ import json
 import sys
 from pathlib import Path
 
-import pytest
 
 ROOT = Path(__file__).resolve().parents[3]
 APP = ROOT / "character-bibles" / "_review_app"
