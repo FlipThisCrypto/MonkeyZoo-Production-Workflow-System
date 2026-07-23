@@ -411,3 +411,70 @@ def test_server_error_is_traceable_via_request_id(client, monkeypatch):
     assert res.status_code == 500
     assert res.get_json() == {"ok": False, "error": "Unexpected server error"}  # sanitized body
     assert res.headers.get("X-Request-ID")             # traceable to the server-side traceback
+
+
+# --- /api/operations/recent: make the audit log queryable for the operator -----
+
+@pytest.fixture()
+def ops_log_dir(tmp_path, monkeypatch):
+    """Point the operations log at an isolated temp dir and restore the default
+    configuration afterwards (the logger is a module global)."""
+    d = tmp_path / "ops"
+    monkeypatch.setenv("MZ_STUDIO_LOG_DIR", str(d))
+    review_app._OPS_LOG.handlers.clear()
+    review_app._configure_operations_log()
+    yield d
+    review_app._OPS_LOG.handlers.clear()
+    review_app._configure_operations_log()
+
+
+def _flush_ops():
+    for handler in review_app._OPS_LOG.handlers:
+        handler.flush()
+
+
+def test_operations_recent_lists_mutations_newest_first(client, ops_log_dir):
+    client.post("/api/compare", json={"character_ids": []}, headers={"Origin": "http://localhost"})
+    client.post("/api/characters/MZ-CHAR-API/field", json={"note": "missing path"})  # -> 400
+    _flush_ops()
+    body = client.get("/api/operations/recent").get_json()
+    assert body["count"] >= 2
+    # newest first: the /field 400 was logged after /api/compare
+    assert body["operations"][0]["path"].endswith("/field")
+    assert any(o["path"] == "/api/compare" for o in body["operations"])
+    assert all("request_id" in o for o in body["operations"])  # correlation id present
+
+
+def test_operations_recent_failed_filter(client, ops_log_dir):
+    client.post("/api/compare", json={"character_ids": []}, headers={"Origin": "http://localhost"})  # 200
+    client.post("/api/characters/MZ-CHAR-API/field", json={"note": "x"})  # 400
+    _flush_ops()
+    body = client.get("/api/operations/recent?failed=1").get_json()
+    assert body["failed_only"] is True
+    assert body["operations"] and all(o["status"] >= 400 for o in body["operations"])
+
+
+def test_operations_recent_limit_caps_results(client, ops_log_dir):
+    for _ in range(5):
+        client.post("/api/compare", json={"character_ids": []}, headers={"Origin": "http://localhost"})
+    _flush_ops()
+    assert client.get("/api/operations/recent?limit=2").get_json()["count"] == 2
+
+
+def test_operations_recent_empty_when_no_activity(client, ops_log_dir):
+    body = client.get("/api/operations/recent").get_json()
+    assert body == {"operations": [], "count": 0, "failed_only": False, "skipped_unparseable": 0}
+
+
+def test_operations_recent_bad_limit_falls_back(client, ops_log_dir):
+    client.post("/api/compare", json={"character_ids": []}, headers={"Origin": "http://localhost"})
+    _flush_ops()
+    assert client.get("/api/operations/recent?limit=notanumber").status_code == 200
+
+
+def test_operations_recent_is_a_safe_read(client, ops_log_dir):
+    # GET is not itself recorded as a mutation, and it is not CSRF-gated
+    client.get("/api/operations/recent", headers={"Origin": "http://evil.example"})
+    _flush_ops()
+    body = client.get("/api/operations/recent").get_json()
+    assert all(o["path"] != "/api/operations/recent" for o in body["operations"])

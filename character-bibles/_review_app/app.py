@@ -97,6 +97,44 @@ def health():
     return jsonify(payload), (200 if ready else 503)
 
 
+@app.get("/api/operations/recent")
+def operations_recent():
+    """Recent mutation audit, newest first, so the operator/UI can see recent
+    activity and isolate failures without shell access to logs/operations.log.
+    Query: ?limit=N (default 50, max 500), ?failed=1 to show only status >= 400.
+    Each entry carries the X-Request-ID correlation id, mapping a listed op to
+    its server-side traceback."""
+    try:
+        limit = max(1, min(int(request.args.get("limit", "50")), 500))
+    except (TypeError, ValueError):
+        limit = 50
+    failed_only = str(request.args.get("failed", "")).lower() in {"1", "true", "yes", "on"}
+    path = _operations_log_path()
+    operations: list[dict] = []
+    truncated_lines = 0
+    if path.is_file():
+        try:
+            lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+        except OSError:
+            lines = []
+        for line in reversed(lines):  # newest first
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                record = json.loads(line)
+            except ValueError:
+                truncated_lines += 1  # a partially-written/rotated line; skip it
+                continue
+            if failed_only and int(record.get("status", 0) or 0) < 400:
+                continue
+            operations.append(record)
+            if len(operations) >= limit:
+                break
+    return jsonify({"operations": operations, "count": len(operations),
+                    "failed_only": failed_only, "skipped_unparseable": truncated_lines})
+
+
 @app.get("/api/runtime-capabilities")
 def runtime_capabilities():
     """Explicit same-origin proof required before the UI enables mutations."""
@@ -482,6 +520,13 @@ def _request_origin(referer_or_origin: str | None) -> str | None:
 _OPS_LOG = logging.getLogger("mz.operations")
 
 
+def _operations_log_path() -> Path:
+    """The operations log file (dir overridable via MZ_STUDIO_LOG_DIR). Single
+    source of truth shared by the writer (below) and the /api/operations/recent
+    reader, so they never disagree about where the log lives."""
+    return Path(os.environ.get("MZ_STUDIO_LOG_DIR", str(APP_DIR / "logs"))) / "operations.log"
+
+
 def _configure_operations_log() -> None:
     """Durable, rotating audit of every state-changing request. The app previously
     logged only 5xx errors, so consequential mutations (issue advance, pack/QA/
@@ -491,7 +536,7 @@ def _configure_operations_log() -> None:
     setup break the app."""
     if _OPS_LOG.handlers:
         return
-    log_dir = Path(os.environ.get("MZ_STUDIO_LOG_DIR", str(APP_DIR / "logs")))
+    log_dir = _operations_log_path().parent
     try:
         log_dir.mkdir(parents=True, exist_ok=True)
         handler = RotatingFileHandler(log_dir / "operations.log", maxBytes=1_000_000,
