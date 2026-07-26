@@ -195,3 +195,55 @@ def test_wrong_stage_and_existing_pack_require_replace(factory):
         pack.promote(issue, root, variant["variant_id"])
     pack.promote(issue, root, variant["variant_id"], True)
     assert "owner" not in (issue / "art_prompt_pack.json").read_text(encoding="utf-8")
+
+
+# ---------------------------------------------------------------------------
+# Rule 3 style lock: the canonical phrase must survive extraction intact.
+#
+# The lock lives in visual_style_bible.md as a five-line markdown blockquote,
+# and the extractor captured it raw -- so the `\n> ` gutter of every
+# continuation line ended up INSIDE the phrase:
+#
+#     'MonkeyZoo house style: ... round head,\n> huge white oval eyes ...'
+#
+# That string became `style_lock_phrase` in the pack, and Rule 3 makes every
+# panel prompt start with it, so literal `>` characters and newlines were sent
+# to the image model inside the very phrase that defines house style.
+#
+# The Rule 3 gate could not catch it. validate_issue.py checks
+# `style_lock_phrase.startswith("MonkeyZoo house style")`, which the polluted
+# phrase does, and the per-panel check compares each prompt against that same
+# polluted value -- both sides agreed, so the gate passed.
+#
+# Found in 3 of 7 shipped issue packs (2026-08_Issue_01, 2026-09_Issue_02,
+# 2026-10_Issue_01), two of them already published. Those packs are canon and
+# are deliberately NOT rewritten here: they are the reproducibility record for
+# art that has already been generated and human-QA'd.
+# ---------------------------------------------------------------------------
+def test_style_lock_extracted_from_the_real_bible_has_no_markdown_gutter():
+    phrase = pack._style_lock(ROOT)
+    assert "\n" not in phrase, f"newline survived extraction: {phrase!r}"
+    assert ">" not in phrase, f"blockquote gutter survived extraction: {phrase!r}"
+
+
+def test_extracted_style_lock_equals_the_hardcoded_default():
+    """The two independent constructions of the canonical phrase must agree.
+
+    If they ever diverge, one of them is wrong and every prompt built from the
+    losing one is off-canon.
+    """
+    assert pack._style_lock(ROOT) == pack.DEFAULT_STYLE_LOCK
+
+
+def test_unwrap_blockquote_collapses_gutters_and_whitespace():
+    raw = 'first line,\n> second line,\n>   third line'
+    assert pack._unwrap_blockquote(raw) == "first line, second line, third line"
+
+
+def test_style_lock_is_clean_when_read_from_a_workspace_copy(factory):
+    """The fixture copies the real bible into a tmp factory -- same result there."""
+    root, _issue = factory
+    phrase = pack._style_lock(root)
+    assert "\n" not in phrase and ">" not in phrase
+    assert phrase.startswith(pack.STYLE_LOCK_PREFIX)
+    assert phrase == pack.DEFAULT_STYLE_LOCK

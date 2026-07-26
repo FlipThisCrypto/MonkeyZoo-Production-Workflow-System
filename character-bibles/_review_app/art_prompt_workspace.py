@@ -150,13 +150,35 @@ def _plan_hash(folder: Path) -> str:
     return _hash_bytes((folder / "page_panel_plan.json").read_bytes())
 
 
+def _unwrap_blockquote(raw: str) -> str:
+    """Collapse a multi-line markdown blockquote into one clean line.
+
+    The canonical style lock is written in visual_style_bible.md as a five-line
+    blockquote, so a raw regex capture carries the `\\n> ` gutter of every
+    continuation line into the middle of the phrase:
+
+        'MonkeyZoo house style: ... round head,\\n> huge white oval eyes ...'
+
+    That string became `style_lock_phrase` in the pack, and Rule 3 makes every
+    panel prompt start with it -- so literal `>` characters and newlines were
+    being sent to the image model inside the prompt that defines house style.
+
+    The Rule 3 gate could not catch it: validate_issue.py checks
+    `style_lock_phrase.startswith("MonkeyZoo house style")`, which the polluted
+    phrase does, and the per-panel check compares each prompt against that same
+    polluted value, so both sides agreed and passed.
+    """
+    lines = [re.sub(r"^\s*>\s?", "", line).strip() for line in raw.splitlines()]
+    return re.sub(r"\s+", " ", " ".join(part for part in lines if part)).strip()
+
+
 def _style_lock(root: Path) -> str:
     path = root / "00_SYSTEM" / "visual_style_bible.md"
     if path.exists():
         text = path.read_text(encoding="utf-8", errors="replace")
-        match = re.search(r">\s*\*\*\"([^\"]+)\"\*\*", text)
+        match = re.search(r">\s*\*\*\"([^\"]+)\"\*\*", text, re.S)
         if match:
-            phrase = match.group(1).strip()
+            phrase = _unwrap_blockquote(match.group(1))
             # Only accept an extracted phrase that is substantial AND canonical; a
             # malformed style bible must not push a non-canonical lock into a pack
             # (validate_issue.py Rule 3 would reject it downstream).
