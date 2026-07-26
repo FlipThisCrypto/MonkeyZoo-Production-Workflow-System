@@ -460,3 +460,131 @@ class TestSourceEnumeration:
         text = output.read_text(encoding="utf-8")
         assert "Warning" in text
         assert "more than\nonce" in text or "more than once" in text.replace("\n", " ")
+
+
+# ---------------------------------------------------------------------------
+# The "reported" classification.
+#
+# The first real run flagged 14 handlers; an independent review rejected 11 of
+# them (79%) as false positives, and every rejection came down to two idioms the
+# heuristic did not know. This repo imports no logging framework anywhere, so
+# failures are surfaced by (a) a reporter function -- err()/log()/print() -- or
+# (b) an accumulator whose contents are returned to the caller. Neither is an
+# ast.Assign, so both read as "no raise, no logging, no fallback".
+#
+# An audit tool with a 79% false-positive rate gets ignored, which is worse than
+# no tool: the real findings are indistinguishable from the noise.
+#
+# The opposite failure matters just as much -- see TestStillCatchesRealSwallows.
+# ---------------------------------------------------------------------------
+class TestReportedClassification:
+    def test_accumulator_append_is_reported(self):
+        h = _handler_from("""
+            try:
+                pass
+            except ValueError as exc:
+                problems.append(f"invalid JSON: {exc}")
+        """)
+        assert sfa.classify_handler(h)[0] == "reported"
+
+    def test_accumulator_append_of_a_constant_is_reported(self):
+        """The stored value reaches the caller even if it names no cause."""
+        h = _handler_from("""
+            try:
+                pass
+            except FileNotFoundError:
+                skipped.append("missing")
+        """)
+        assert sfa.classify_handler(h)[0] == "reported"
+
+    def test_reporter_function_with_context_is_reported(self):
+        """validate_issue's `err(f"MISSING FILE: {path.name}")` drives sys.exit(1)."""
+        h = _handler_from("""
+            try:
+                pass
+            except FileNotFoundError:
+                err(f"MISSING FILE: {path.name}")
+        """)
+        assert sfa.classify_handler(h)[0] == "reported"
+
+    def test_exception_passed_to_any_call_is_reported(self):
+        h = _handler_from("""
+            try:
+                pass
+            except Exception as exc:
+                record_failure(exc)
+        """)
+        assert sfa.classify_handler(h)[0] == "reported"
+
+    def test_nested_try_returning_a_substitute_is_a_fallback(self):
+        """assemble_pages._font's three-rung font ladder -- fallback one level down."""
+        h = _handler_from("""
+            try:
+                pass
+            except OSError:
+                try:
+                    return load_by_name(name)
+                except OSError:
+                    return load_default()
+        """)
+        assert sfa.classify_handler(h)[0] == "intentional-fallback"
+
+
+class TestStillCatchesRealSwallows:
+    """Guard the other direction: a permissive classifier is its own silent failure.
+
+    "0 actionable" must mean the code is clean, not that the tool stopped
+    looking. Each of these is a genuine swallow and must stay actionable.
+    """
+
+    def test_bare_pass_is_still_empty_broad(self):
+        h = _handler_from("""
+            try:
+                pass
+            except Exception:
+                pass
+        """)
+        assert sfa.classify_handler(h)[0] == "empty-broad"
+
+    def test_report_with_no_context_is_still_swallowed(self):
+        """`print("failed")` names no file, no reason, no exception."""
+        h = _handler_from("""
+            try:
+                pass
+            except Exception:
+                print("failed")
+        """)
+        assert sfa.classify_handler(h)[0] == "likely-swallowed"
+
+    def test_unrelated_call_is_still_swallowed(self):
+        h = _handler_from("""
+            try:
+                pass
+            except Exception:
+                cleanup_unrelated_thing()
+        """)
+        assert sfa.classify_handler(h)[0] == "likely-swallowed"
+
+    def test_return_inside_a_nested_function_does_not_count_as_a_fallback(self):
+        """A `def` in the handler defines later behaviour; it is not this handler's."""
+        h = _handler_from("""
+            try:
+                pass
+            except Exception:
+                def later():
+                    return 1
+        """)
+        assert sfa.classify_handler(h)[0] == "likely-swallowed"
+
+    def test_a_swallowing_handler_in_a_repo_still_exits_1(self):
+        """End-to-end: the tool must still fail a repo that swallows."""
+        import tempfile
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            (root / "bad.py").write_text(textwrap.dedent("""\
+                try:
+                    x = 1
+                except Exception:
+                    print("failed")
+            """), encoding="utf-8")
+            assert sfa.main(["--repo-root", str(root), "--output", str(root / "r.md")]) == 1

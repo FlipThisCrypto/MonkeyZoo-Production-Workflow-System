@@ -78,6 +78,29 @@ LOGGING_METHODS: frozenset[str] = frozenset({
     "exception", "fatal", "log",
 })
 
+# This repo imports no logging framework anywhere. Failures are surfaced two
+# other ways, and a scanner that does not know them reports almost nothing but
+# noise -- the first run flagged 14 handlers of which an independent review
+# rejected 11 (79%) as false positives, all on these two idioms.
+#
+# 1. A reporter function: `err(...)` accumulating into a module-global ERRORS
+#    that drives sys.exit(1) (validate_issue.py), `log(...)` writing a FAIL row
+#    into a report (live_app_test_issue.py), or plain `print(...)`, which is the
+#    only status channel most of these modules have.
+REPORTING_FUNCTIONS: frozenset[str] = frozenset({
+    "print", "err", "error", "warn", "warning", "fail", "log",
+    "report", "abort", "die", "emit",
+})
+
+# 2. An accumulator: the failure is appended to a list/set/dict that the
+#    function returns, and the caller acts on it -- `skipped.append({...})`,
+#    `problems.append(f"invalid JSON: {exc}")`, `errors.append(exc)`. The value
+#    is carried out in the return contract, so nothing is swallowed. The old
+#    heuristic missed all of these because a method call is not an ast.Assign.
+ACCUMULATOR_METHODS: frozenset[str] = frozenset({
+    "append", "add", "extend", "insert", "update", "setdefault",
+})
+
 
 # ---------------------------------------------------------------------------
 # Data types
@@ -200,21 +223,94 @@ def _body_has_logging_with_context(body: list[ast.stmt], exc_name: str | None) -
     return False
 
 
+def _walk_same_scope(body: list[ast.stmt]):
+    """Yield nodes in *body*, without descending into a nested function/class.
+
+    A `def` or `lambda` inside a handler defines behaviour for later, elsewhere;
+    a `return` in there says nothing about whether THIS handler swallows.
+    """
+    scopes = (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef, ast.Lambda)
+    stack = list(body)
+    while stack:
+        node = stack.pop()
+        yield node
+        # Yield the `def` itself (it is a statement in this handler) but do not
+        # walk into it -- the check must be on the node being descended FROM,
+        # not on each child, or the body of a nested function leaks through.
+        if isinstance(node, scopes):
+            continue
+        stack.extend(ast.iter_child_nodes(node))
+
+
+def _call_mentions(call: ast.Call, exc_name: Optional[str]) -> bool:
+    """True if *exc_name* appears anywhere in the call's arguments."""
+    if not exc_name:
+        return False
+    for node in [*call.args, *(kw.value for kw in call.keywords)]:
+        for sub in ast.walk(node):
+            if isinstance(sub, ast.Name) and sub.id == exc_name:
+                return True
+    return False
+
+
+def _body_reports_failure(body: list[ast.stmt], exc_name: Optional[str]) -> bool:
+    """True if the handler hands the failure to something that surfaces it.
+
+    Covers the two idioms this repo actually uses in place of a logging
+    framework (see REPORTING_FUNCTIONS / ACCUMULATOR_METHODS), plus the general
+    case of passing the caught exception into any call at all -- if the
+    exception value is given to a function, it is not being discarded.
+
+    This cannot prove the report reaches a human. It draws the line between
+    "the failure is handed somewhere" and "the failure is dropped on the
+    floor", which is the distinction the report is actually claiming.
+    """
+    for node in _walk_same_scope(body):
+        if not isinstance(node, ast.Call):
+            continue
+        if _call_mentions(node, exc_name):
+            return True
+        func = node.func
+        # An accumulator stores something into a structure the function returns,
+        # so the caller can act on it. That is a data path regardless of what is
+        # stored, including a constant message.
+        if isinstance(func, ast.Attribute) and func.attr in ACCUMULATOR_METHODS:
+            return True
+        # A reporter call only counts if it carries some context. The same bar
+        # the logging check already applies: `print("failed")` names no file, no
+        # reason, and no exception, so it cannot tell an operator what broke --
+        # that is a swallow with a message on top, not a report.
+        is_reporter = (
+            (isinstance(func, ast.Name) and func.id in REPORTING_FUNCTIONS)
+            or (isinstance(func, ast.Attribute) and func.attr in REPORTING_FUNCTIONS)
+        )
+        if is_reporter and _call_carries_context(node):
+            return True
+    return False
+
+
+def _call_carries_context(call: ast.Call) -> bool:
+    """True if any argument is more than a bare literal (an f-string, a name, ...)."""
+    for node in [*call.args, *(kw.value for kw in call.keywords)]:
+        if isinstance(node, ast.Constant):
+            continue
+        return True
+    return False
+
+
 def _body_has_fallback(body: list[ast.stmt]) -> bool:
-    """Check for deliberate fallback: return, continue, break, or assignment."""
-    for stmt in body:
-        if isinstance(stmt, ast.Return):
+    """Check for deliberate fallback: return, continue, break, or assignment.
+
+    Walks nested statements rather than only the top level. A handler whose body
+    is itself a `try/except` where both arms `return` a substitute value is a
+    fallback -- just one level deeper than the old top-level-only check could
+    see. That misread `assemble_pages._font`, whose three-rung font-resolution
+    ladder is the clearest intentional fallback in the repo.
+    """
+    for node in _walk_same_scope(body):
+        if isinstance(node, (ast.Return, ast.Continue, ast.Break, ast.Assign, ast.AugAssign)):
             return True
-        if isinstance(stmt, ast.Continue):
-            return True
-        if isinstance(stmt, ast.Break):
-            return True
-        if isinstance(stmt, ast.Assign):
-            return True
-        if isinstance(stmt, ast.AugAssign):
-            return True
-        # dict/list subscription assignment: e.g. d["key"] = value
-        # handled by ast.Assign above (subscript as target)
+        # dict/list subscript assignment (d["key"] = value) is an ast.Assign.
     return False
 
 
@@ -252,6 +348,11 @@ def classify_handler(handler: ast.ExceptHandler) -> Tuple[str, str]:
     # Logged with context
     if _body_has_logging_with_context(body, exc_name):
         return "logged", "Exception is logged with context."
+
+    # Reported through this repo's actual channels (reporter fn / accumulator /
+    # the exception value being passed into any call).
+    if _body_reports_failure(body, exc_name):
+        return "reported", "Failure is reported (reporter call, accumulator, or exception passed to a call)."
 
     # Fallback
     if _body_has_fallback(body):
@@ -462,7 +563,29 @@ def generate_report(
             for finding in sorted(actionable):
                 f.write(f"- **{finding.file}:{finding.line}** `{finding.handler_type}` — {finding.detail}\n")
         else:
-            f.write("## Result\n\nNo likely-swallowed or empty-broad handlers detected.\n")
+            suppressed = sum(1 for x in findings if x.classification == "cleanup-suppression")
+            f.write("## Result\n\nNo likely-swallowed or empty-broad handlers detected.\n\n")
+            # A clean result is itself a claim, and an unqualified all-clear from
+            # a static heuristic is the same "empty result presented as valid
+            # data" this audit hunts. State the limits with the verdict.
+            f.write("### What this does and does not prove\n\n")
+            f.write(
+                "**Does:** every handler either re-raises, logs with exception context, hands the\n"
+                "failure to a reporter or accumulator, or takes a deliberate fallback path. None\n"
+                "drops a failure on the floor.\n\n"
+            )
+            f.write(
+                "**Does not:** this is static analysis of handler *shape*. It cannot prove a report\n"
+                "reaches a human, that a fallback value is the right one, or that a caller acts on\n"
+                "an accumulated error. Those need the caller-level review this report cannot do.\n\n"
+            )
+            if suppressed:
+                f.write(
+                    f"**Unreviewed by design:** {suppressed} handlers are classified\n"
+                    "`cleanup-suppression` — a narrow exception type with an empty body\n"
+                    "(`except FileNotFoundError: pass`). Treating those as intentional is a\n"
+                    "judgement, not a finding. If one of them is wrong it will not appear here.\n"
+                )
 
         if errors:
             f.write(f"\n> **Warning:** {len(errors)} file(s) could not be scanned. "
