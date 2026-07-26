@@ -7,6 +7,7 @@ before touching anything.
 
 - **Branch:** `claude/genesis-production-loop`
 - **Loop position on resume:** round 2, iteration 12 committed (`8d259a7`)
+- **Loop position now:** round 2, iteration 17 committed (`6da44d3`)
 - **Session started:** 2026-07-26
 
 ---
@@ -17,7 +18,8 @@ before touching anything.
    format `round 2 iteration NN: <what>`.
 2. Read the **Iteration Log** below for what is done and what is next.
 3. Re-establish the baseline: `python -m pytest -q` from the repo root.
-   Expected: **747 tests, all passing** (see Baseline below).
+   Expected: **786 tests, all passing**, and `python -m ruff check .` clean.
+   (It was 747 at session start and bare `pytest` was broken — see F-001.)
 4. Pick the top unchecked item from **Open Findings**.
 
 ---
@@ -28,9 +30,11 @@ before touching anything.
 |---|---|---|---|
 | Tests collected (bare `pytest` from root) | 747 | `python -m pytest --collect-only -q` | 2026-07-26 |
 | Bare `pytest` from root, as committed | **BROKEN — 52 collection errors** | see F-001 | 2026-07-26 |
-| Tests passing (with `--ignore=artifacts`) | see Iteration Log | `python -m pytest -q --ignore=artifacts` | 2026-07-26 |
-| `try/except` handlers in repo-owned code | 167 | `python scripts/silent_failure_audit.py` | 2026-07-26 |
-| — of which `likely-swallowed` | 14 | same | 2026-07-26 |
+| Tests passing, after iteration 13 | **751** | `python -m pytest -q` | 2026-07-26 |
+| Tests passing, after iteration 17 | **786** (+39 this session) | `python -m pytest -q` | 2026-07-26 |
+| `ruff check .` | clean (was 3 errors) | `python -m ruff check .` | 2026-07-26 |
+| `try/except` handlers in repo-owned code | 170 | `python scripts/silent_failure_audit.py` | 2026-07-26 |
+| — of which actionable, after iteration 17 | **0** (was 14, all false positives) | same | 2026-07-26 |
 
 ### Live test roots (all tracked test dirs — coverage must never silently drop)
 
@@ -58,19 +62,19 @@ output is recorded in this file.
 
 | Category | % | Evidence | Issues found | Resolved | Confidence |
 |---|---|---|---|---|---|
-| Repository mapped | 60% | Root tree + test roots + script inventory enumerated | — | — | Medium |
+| Repository mapped | 70% | Root tree, 8 test roots, script inventory, CI steps, all 8 issue folders swept | — | — | Medium |
 | Features inventoried | 20% | Truth matrix not yet built | — | — | Low |
 | User workflows tested | 15% | `scripts/live_app_test_issue.py` exists; not re-run this round | — | — | Low |
-| Silent failures audited | 45% | 167 handlers scanned, 14 actionable triaged in-flight | 14 | 0 | Medium |
+| Silent failures audited | 85% | 170 handlers scanned; all 14 flagged triaged by 13 agents; scanner FP rate 79%->0 | 14 flagged + 3 real | 3 | High |
 | Dead code reviewed | 10% | `scripts/audit_user_paths.py` identified as stray (F-002) | 1 | 0 | Low |
 | Redundancy reviewed | 5% | not started | — | — | Low |
 | Dependencies reviewed | 5% | not started | — | — | Low |
 | Performance measured | 10% | `artifacts/verification/benchmark_perf.py` exists from a prior session, unreviewed | — | — | Low |
 | Security reviewed | 30% | CSRF boundary landed r2-i1; no fresh pass this round | — | — | Low |
-| Data integrity reviewed | 35% | ledger integrity gate r2-i2, backup verify r2-i3, reconcile r2-i10 | — | — | Medium |
-| Tests audited (meaningfulness) | 15% | collection integrity fixed (F-001); assertion-quality pass not started | 1 | 1 | Low |
+| Data integrity reviewed | 50% | r2-i2/i3/i10 + atomic panel publishing (i16) + gate false-PASS closed (i15) | 2 | 2 | Medium |
+| Tests audited (meaningfulness) | 30% | collection integrity fixed + every new fix mutation-tested; broad assertion-quality pass not started | 1 | 1 | Medium |
 | Repairs completed | — | see Iteration Log | — | — | — |
-| Regression testing completed | 20% | per-iteration only | — | — | Low |
+| Regression testing completed | 45% | 39 new tests this session; each fix mutation-verified to fail pre-fix | — | — | Medium |
 | Documentation reconciled | 10% | not started this round | — | — | Low |
 | Production readiness reviewed | 0% | not started | — | — | None |
 
@@ -84,7 +88,7 @@ Severity per the prompt's scale: Critical / High / Medium / Low / Informational.
 |---|---|---|---|
 | F-001 | High | Bare `pytest` from repo root dies with 52 collection errors — `artifacts/release_staging/` is a full repo copy with duplicate test basenames | **FIXED** (iteration 13) |
 | F-002 | Low | `scripts/audit_user_paths.py` is a stray script from another toolchain (writes to `$ANTIGRAVITY_BRAIN_DIR`, swallows all parse errors) | Open — see below |
-| F-003 | Medium | 14 `likely-swallowed` exception handlers pending triage | **IN PROGRESS** (workflow) |
+| F-003 | Medium | 14 `likely-swallowed` exception handlers pending triage | **DONE** — all 14 false positives; 3 real defects found nearby (F-003a/b/c) |
 | F-004 | Low | `.coverage` (binary, machine-specific) is tracked in git and shows as modified every run | **FIXED** (iteration 13) |
 | F-005 | Medium | `artifacts/` untracked and un-ignored — `git add -A` would commit a second full copy of the repo | **FIXED** (iteration 13) |
 | F-006 | Medium | `ruff check .` fails locally with 3 errors, all inside `artifacts/` — the lint gate had the same local-vs-CI divergence as F-001 | **FIXED** (iteration 13) |
@@ -92,7 +96,7 @@ Severity per the prompt's scale: Critical / High / Medium / Low / Informational.
 | F-003b | Medium | `genesis_charart.py` non-atomic PNG save + existence-based resume: a truncated/zero-byte panel counts as DONE and QA-passed | **FIXED** (iteration 16) |
 | F-003c | Low | `validate_issue.py` schema-blind PASS indistinguishable from a validated one when `jsonschema` is absent | **FIXED** (iteration 15) |
 | F-007 | Informational | 2 of 8 real issue folders fail the gate: `2026-10_Issue_02` (empty scaffold, both files missing) and `2026-07_Mango_Pier` (issue_id `MZ-2026-07-MANGO` violates the `MZ-\d{4}-\d{2}-\d{2}` pattern). Both **pre-existing**, neither caused by iteration 15. Likely intentional WIP/experimental folders — flagged for the operator, not auto-"fixed", since changing canon data is human-only per CLAUDE.md | Open — operator decision |
-| F-008 | Medium | `silent_failure_audit.py` false-positive rate was 11/14 (79%). Its heuristic does not recognise two idioms this repo uses everywhere: a fallback via `list.append(...)` (a method call, not `ast.Assign`) and status via `print()` (no logging framework is imported anywhere). An audit tool that cries wolf gets ignored | Open — next |
+| F-008 | Medium | `silent_failure_audit.py` false-positive rate 11/14 (79%) — heuristic blind to `list.append(...)` fallbacks and `print()`/`err()` reporting | **FIXED** (iteration 17) |
 
 ### F-002 detail — `scripts/audit_user_paths.py` (untracked, NOT deleted)
 
@@ -313,6 +317,54 @@ writing the tests before trusting the fix.
 - Over-correction guarded: the happy path still publishes to `<pid>.png`, and a
   real written panel still classifies DONE/pass.
 - `776 passed` / `ruff All checks passed!`
+
+### Round 2, iteration 17 — the audit tool stops crying wolf
+
+**Problem (F-008, Medium).** The scanner's first real run flagged 14 handlers;
+independent triage rejected **11 of 14 (79%)** as false positives. Every
+rejection came down to two idioms the heuristic did not know, both used
+constantly here because the repo imports no logging framework anywhere:
+
+- a **reporter function** — `err(...)` accumulating into a module-global that
+  drives `sys.exit(1)`, `log(...)` writing a FAIL row, or plain `print(...)`;
+- an **accumulator** — `skipped.append({...})`, `problems.append(f"...{exc}")`,
+  whose contents are returned to the caller.
+
+Neither is an `ast.Assign`, so both read as "no raise, no logging, no fallback".
+A tool with a 79% false-positive rate gets ignored, which is worse than no tool.
+
+**Fix.** New `reported` classification; `_body_has_fallback` now walks nested
+statements (catching the `assemble_pages._font` three-rung ladder); the walk
+stops at a nested `def`/`lambda`/`class`.
+
+**Deliberately not more permissive than that.** A reporter call counts only if it
+carries context — the same bar the logging check already applied. `print("failed")`
+stays `likely-swallowed`: a swallow with a message on top is still a swallow.
+
+**Guarded in both directions.** `TestStillCatchesRealSwallows` pins that a bare
+`pass`, a contextless report, an unrelated call, and a `return` inside a nested
+`def` all remain actionable, and that a repo containing a swallow still exits 1.
+A permissive classifier is its own silent failure — "0 actionable" must mean the
+code is clean, not that the tool stopped looking.
+
+**Result.** 170 handlers, **0 actionable**: 54 re-raised, 55 intentional-fallback,
+31 reported, 30 cleanup-suppression. Four reclassifications spot-checked against
+the triage evidence; all match.
+
+Because a clean verdict is itself a claim, the report now publishes its own
+limits next to it — what shape analysis proves, what it cannot (that a report
+reaches a human, that a fallback value is correct, that a caller acts on an
+accumulated error), and that the 30 `cleanup-suppression` handlers are
+unreviewed by design.
+
+`786 passed` / `ruff All checks passed!`
+
+**Honest note on the 3 "confirmed" findings.** None of them was actually one of
+the 14 flagged handlers. The agents found them by reasoning *around* the flagged
+sites — `load()`'s falsy return (F-003a), the resume guard above the handler
+(F-003b), the `ImportError` arm classified `intentional-fallback` (F-003c). So
+of the handlers the scanner flagged, **all 14 were false positives**. The value
+came from directing careful attention at that code, not from the flags.
 
 ---
 
