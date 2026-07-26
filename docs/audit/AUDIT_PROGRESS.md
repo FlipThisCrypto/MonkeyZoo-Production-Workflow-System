@@ -89,7 +89,7 @@ Severity per the prompt's scale: Critical / High / Medium / Low / Informational.
 | F-005 | Medium | `artifacts/` untracked and un-ignored — `git add -A` would commit a second full copy of the repo | **FIXED** (iteration 13) |
 | F-006 | Medium | `ruff check .` fails locally with 3 errors, all inside `artifacts/` — the lint gate had the same local-vs-CI divergence as F-001 | **FIXED** (iteration 13) |
 | F-003a | High | `validate_issue.py` prints PASS/exit 0 on a plan+pack of `{}` or `null` — dangerous false success in the Stage 4/5/8/9 gate | **FIXED** (iteration 15) |
-| F-003b | Low | `genesis_charart.py` non-atomic PNG save + existence-based resume: a truncated/zero-byte panel counts as DONE and QA-passed | Open — next |
+| F-003b | Medium | `genesis_charart.py` non-atomic PNG save + existence-based resume: a truncated/zero-byte panel counts as DONE and QA-passed | **FIXED** (iteration 16) |
 | F-003c | Low | `validate_issue.py` schema-blind PASS indistinguishable from a validated one when `jsonschema` is absent | **FIXED** (iteration 15) |
 | F-007 | Informational | 2 of 8 real issue folders fail the gate: `2026-10_Issue_02` (empty scaffold, both files missing) and `2026-07_Mango_Pier` (issue_id `MZ-2026-07-MANGO` violates the `MZ-\d{4}-\d{2}-\d{2}` pattern). Both **pre-existing**, neither caused by iteration 15. Likely intentional WIP/experimental folders — flagged for the operator, not auto-"fixed", since changing canon data is human-only per CLAUDE.md | Open — operator decision |
 | F-008 | Medium | `silent_failure_audit.py` false-positive rate was 11/14 (79%). Its heuristic does not recognise two idioms this repo uses everywhere: a fallback via `list.append(...)` (a method call, not `ast.Assign`) and status via `print()` (no logging framework is imported anywhere). An audit tool that cries wolf gets ignored | Open — next |
@@ -259,6 +259,60 @@ heuristic misses two idioms this repo uses constantly — a fallback expressed a
 `list.append(...)` (a method call, not `ast.Assign`) and status reported via
 `print()` (the repo imports no logging framework) — which is where nearly all
 the noise came from. See F-008.
+
+### Round 2, iteration 16 — a panel file stops being a false completion record
+
+**Problem (F-003b, Medium — data integrity / false success).** In the Genesis art
+pipeline the panel file at its final path is not just an image, it *is* the
+completion record, read by two independent consumers:
+- `genesis_charart.run_full_batch` resumes on `out.exists()`;
+- `genesis_matrix.build` derives its bespoke set from `native.glob("*.png")`,
+  and `classify()` turns membership into `status="DONE"`,
+  `visual_qa_result="pass"`.
+
+All three writers (`make_panel_native`, `make_multi_panel`, `make_panel`) wrote
+with `img.save(out)` straight onto that path. A save interrupted part-way left a
+truncated file that permanently claims success: the resume guard skips it
+forever and the matrix reports the panel finished and QA-passed. That
+contradicts the CLAUDE.md rule that nothing generated is canon until it passes
+QA.
+
+Not an exotic path: these are multi-hour 96-panel ComfyUI batches and killing
+the process is the documented ZLUDA hang recovery (`mz-art-run`), so an
+interrupted save is an expected event.
+
+**Fix — placed at the root, not at the symptom.** The first attempt wrapped only
+`run_full_batch`'s call site, which left the sibling `run_batch` still exposed.
+Atomicity now lives in one helper, `_save_atomic(img, out)`, used by all three
+writers, so every caller present and future is covered: render to
+`<name>.png.part`, rename onto the final path only on a complete write, delete
+the scratch file on failure. The scratch name is invisible to both readers — the
+resume guard looks for `<name>.png`, and `glob("*.png")` does not match a name
+ending `.part`.
+
+Two supporting guards for files left by earlier runs:
+- `run_full_batch` resume guard now requires `st_size > 0`, so an empty leftover
+  is regenerated rather than masking a missing panel forever.
+- `genesis_matrix.build` counts a panel as bespoke only if its file has bytes,
+  so a leftover cannot be reported DONE/QA-passed.
+
+**A real bug the new tests caught in the fix itself.** Pillow infers its encoder
+from the filename extension, and `.part` is not a known extension — the first
+version of `_save_atomic` raised `unknown file extension: .part` on every save,
+which would have broken the entire art pipeline. The format is now taken from
+the final name via `Image.registered_extensions()`. This is the argument for
+writing the tests before trusting the fix.
+
+**Evidence.**
+- 8 new tests (5 in `test_genesis_charart.py`, 3 in `test_genesis_matrix.py`).
+- Mutation-verified twice. Reverting `_save_atomic` to a direct save fails
+  `test_save_atomic_leaves_no_file_at_the_final_path_when_the_write_fails` and
+  `test_save_atomic_does_not_destroy_an_existing_panel_when_a_rewrite_fails`.
+  Reverting the matrix guard to existence-only fails
+  `test_zero_byte_panel_is_not_reported_done_and_qa_passed`.
+- Over-correction guarded: the happy path still publishes to `<pid>.png`, and a
+  real written panel still classifies DONE/pass.
+- `776 passed` / `ruff All checks passed!`
 
 ---
 

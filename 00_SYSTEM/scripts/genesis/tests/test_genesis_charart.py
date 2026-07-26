@@ -143,3 +143,99 @@ def test_hsv_matte_removes_flat_backdrop_keeps_subject(tmp_path, bg):
     assert (al[:8, :8] < 12).all() and (al[:8, -8:] < 12).all(), "corners must be transparent"
     assert al[120, 80] > 200, "the subject blob must stay opaque"
     assert (al > 128).mean() < 0.5, "most of the flat backdrop is removed"
+
+
+# ---------------------------------------------------------------------------
+# Atomic panel publishing.
+#
+# A panel file at its final path is not merely an image here -- it IS the
+# completion record. run_full_batch resumes on `out.exists()`, and
+# genesis_matrix.build turns the same filenames into status="DONE",
+# visual_qa_result="pass". So a half-written file at that path is a false claim
+# that a failed panel finished and passed QA, contradicting the CLAUDE.md rule
+# that nothing generated is canon until it passes QA.
+#
+# The writers used to `img.save(out)` straight onto the final path. That is
+# reachable in normal operation, not exotic: these are multi-hour 96-panel
+# ComfyUI batches and killing the process is the documented ZLUDA hang recovery
+# (mz-art-run), so an interrupted save is an expected event.
+# ---------------------------------------------------------------------------
+import json  # noqa: E402
+
+
+class _ExplodingImage:
+    """Stands in for a PIL image whose encode fails part-way through."""
+
+    def __init__(self, partial=b"\x89PNG\r\n\x1a\npartial"):
+        self._partial = partial
+
+    def save(self, path, format=None):  # noqa: A002 - mirrors PIL's signature
+        Path(path).write_bytes(self._partial)   # bytes hit the disk...
+        raise OSError("no space left on device")  # ...then the write dies
+
+
+def test_save_atomic_publishes_a_complete_panel(tmp_path):
+    out = tmp_path / "P01_PANEL01.png"
+    ca._save_atomic(Image.new("RGB", (4, 4), "red"), out)
+
+    assert out.is_file() and out.stat().st_size > 0
+    assert not (tmp_path / "P01_PANEL01.png.part").exists(), "scratch file left behind"
+
+
+def test_save_atomic_leaves_no_file_at_the_final_path_when_the_write_fails(tmp_path):
+    out = tmp_path / "P01_PANEL01.png"
+
+    with pytest.raises(OSError):
+        ca._save_atomic(_ExplodingImage(), out)
+
+    assert not out.exists(), (
+        "a failed write published a file at the final path; the resume guard and "
+        "the completion matrix would both read it as a finished, QA-passed panel"
+    )
+    assert not (tmp_path / "P01_PANEL01.png.part").exists(), "scratch file not cleaned up"
+
+
+def test_save_atomic_does_not_destroy_an_existing_panel_when_a_rewrite_fails(tmp_path):
+    """A failed regeneration must not corrupt the good panel already on disk."""
+    out = tmp_path / "P01_PANEL01.png"
+    ca._save_atomic(Image.new("RGB", (8, 8), "blue"), out)
+    good = out.read_bytes()
+
+    with pytest.raises(OSError):
+        ca._save_atomic(_ExplodingImage(), out)
+
+    assert out.read_bytes() == good, "a failed rewrite truncated the existing panel"
+
+
+def test_scratch_files_are_invisible_to_the_completion_readers(tmp_path):
+    """`.part` must not match the glob the completion matrix uses."""
+    (tmp_path / "P01_PANEL01.png.part").write_bytes(b"x")
+    assert [p.name for p in tmp_path.glob("*.png")] == []
+
+
+# --- resume accounting: an empty leftover must not mask a missing panel ------
+
+
+def test_zero_byte_leftover_is_regenerated_not_treated_as_done(tmp_path, monkeypatch):
+    """Pre-fix runs could leave an empty file; nothing ever revisits a path that exists."""
+    location = next(iter(ca.PLATES))
+    plan = {"pages": [{
+        "page_number": 1, "location": location,
+        "panels": [{"source_panel_id": "P01_PANEL01", "shot": "close",
+                    "characters": ["MZ-CHAR-001"], "beat": "rising"}],
+    }]}
+    (tmp_path / "GENESIS_LAYOUT_PLAN.json").write_text(json.dumps(plan), encoding="utf-8")
+    native = tmp_path / "generated_art" / "panel_native"
+    native.mkdir(parents=True, exist_ok=True)
+    (native / "P01_PANEL01.png").write_bytes(b"")
+
+    def _writes_ok(name, panel, shot, loc, seed, out, band_px=(1280, 540)):
+        ca._save_atomic(Image.new("RGB", (4, 4), "green"), out)
+        return {"panel": panel["source_panel_id"], "out": str(out)}
+
+    monkeypatch.setattr(ca, "make_panel_native", _writes_ok)
+
+    result = ca.run_full_batch(tmp_path)
+
+    assert result["count"] == 1, "an empty leftover was treated as a finished panel"
+    assert (native / "P01_PANEL01.png").stat().st_size > 0

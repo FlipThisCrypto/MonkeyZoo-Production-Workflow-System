@@ -280,8 +280,7 @@ def make_multi_panel(names: list[str], panel: dict, location: str, seed0: int, o
         meta.append({"character": name, "corners_clear": bool((a[:8, :8] < 12).all() and (a[:8, -8:] < 12).all()),
                      "render": str(render)})
     panel_img = compose_multi(location, staged, band_px=band_px)
-    out.parent.mkdir(parents=True, exist_ok=True)
-    panel_img.save(out)
+    _save_atomic(panel_img, out)
     return {"panel": panel["source_panel_id"], "characters": names, "n": n,
             "band_px": list(band_px), "staged": meta, "out": str(out)}
 
@@ -293,9 +292,41 @@ def make_panel(name: str, pose: str, location: str, seed: int, out: Path,
     opaque = round((np.asarray(ch)[..., 3] > 128).mean(), 3)
     corners_clear = bool((np.asarray(ch)[:8, :8, 3] < 12).all() and (np.asarray(ch)[:8, -8:, 3] < 12).all())
     panel = composite(location, ch, band_px, scale_h, cx_frac)
-    out.parent.mkdir(parents=True, exist_ok=True)
-    panel.save(out)
+    _save_atomic(panel, out)
     return {"render": str(render), "opaque_frac": opaque, "corners_clear": corners_clear, "panel": str(out)}
+
+
+def _save_atomic(img: Image.Image, out: Path) -> None:
+    """Write *img* to *out* so the final path never holds a partial image.
+
+    A panel file at its final path is not just an image here -- it IS the
+    completion record. ``run_full_batch`` resumes on the path existing, and
+    ``genesis_matrix.build`` turns the same filenames into
+    ``status="DONE", visual_qa_result="pass"``. So a half-written file at that
+    path is a false claim that a failed panel finished and passed QA, against
+    the CLAUDE.md rule that nothing is canon until it passes QA.
+
+    Reachable in normal operation: these are multi-hour 96-panel ComfyUI
+    batches, and killing the process is the documented ZLUDA hang recovery
+    (see mz-art-run), so an interrupted save is expected, not exotic.
+
+    Rendering to ``<name>.png.part`` and renaming on success means an interrupt
+    leaves only the scratch file. That is invisible to both readers: the resume
+    guard looks for ``<name>.png``, and ``glob("*.png")`` does not match a name
+    ending ``.png.part``. The panel is simply regenerated on the next pass.
+    """
+    out.parent.mkdir(parents=True, exist_ok=True)
+    tmp = out.with_suffix(out.suffix + ".part")
+    # Pillow infers the encoder from the filename extension, and the scratch
+    # file ends in `.part`, which it does not recognise ("unknown file
+    # extension: .part"). The format therefore has to come from the FINAL name.
+    fmt = Image.registered_extensions().get(out.suffix.lower())
+    try:
+        img.save(tmp, format=fmt)
+        tmp.replace(out)
+    except BaseException:
+        tmp.unlink(missing_ok=True)
+        raise
 
 
 ID_MAP = {f"MZ-CHAR-{c['seed'] % 1000:03d}": n for n, c in CHARS.items()}
@@ -344,8 +375,7 @@ def make_panel_native(name: str, panel: dict, shot: str, location: str, seed: in
     ch = key_backdrop(render)
     a = np.asarray(ch)[..., 3]
     panel_img = composite_shot(location, ch, shot, band_px=band_px)
-    out.parent.mkdir(parents=True, exist_ok=True)
-    panel_img.save(out)
+    _save_atomic(panel_img, out)
     return {"panel": panel["source_panel_id"], "character": name, "shot": shot,
             "band_px": list(band_px), "opaque_frac": round((a > 128).mean(), 3),
             "corners_clear": bool((a[:8, :8] < 12).all() and (a[:8, -8:] < 12).all()),
@@ -385,7 +415,21 @@ def run_full_batch(genesis_dir: Path, seed0: int = 60000, limit: int | None = No
     and multi) that has recipe characters and isn't already in panel_native. Each
     panel is composited at ITS page-layout slot aspect (from genesis_layout), so
     bespoke art is truly panel-native -- varied shapes, no re-crop at assembly.
-    Wide/establishing panels are KEEP and skipped. Saves each panel as it goes."""
+    Wide/establishing panels are KEEP and skipped. Saves each panel as it goes.
+
+    Panels are written atomically (render to ``<pid>.png.part``, rename on
+    success). The final path is the completion record for this batch AND for the
+    completion matrix -- ``run_full_batch`` resumes on ``out.exists()`` and
+    ``genesis_matrix.build`` derives its bespoke set from ``native.glob("*.png")``
+    -- so a half-written file at that path is not merely a bad image, it is a
+    false claim that the panel is DONE and QA-passed. Saving straight to ``out``
+    made that reachable: these are multi-hour 96-panel ComfyUI batches, and
+    killing the process is the documented ZLUDA hang recovery (see mz-art-run),
+    so an interrupted save is an expected event, not a rare one. It also
+    contradicts the CLAUDE.md rule that nothing is canon until it passes QA.
+    Renaming onto the final path only after a complete write means an interrupted
+    run leaves a ``.part`` file that the resume guard ignores, and the panel is
+    simply regenerated next pass."""
     plan = json.loads((genesis_dir / "GENESIS_LAYOUT_PLAN.json").read_text(encoding="utf-8"))
     native = genesis_dir / "generated_art" / "panel_native"
     native.mkdir(parents=True, exist_ok=True)
@@ -396,7 +440,10 @@ def run_full_batch(genesis_dir: Path, seed0: int = 60000, limit: int | None = No
             cs = pa.get("characters") or []
             pid = pa["source_panel_id"]
             out = native / f"{pid}.png"
-            if out.exists():
+            # Size guard as well as existence: a zero-byte file left behind by a
+            # pre-atomic-write run would otherwise be treated as a finished panel
+            # forever, since nothing ever revisits a path that exists.
+            if out.exists() and out.stat().st_size > 0:
                 continue
             if not cs or pa["shot"] == "wide" or pg["location"] not in PLATES:
                 continue
@@ -405,6 +452,8 @@ def run_full_batch(genesis_dir: Path, seed0: int = 60000, limit: int | None = No
                 skipped.append({"panel": pid, "reason": "unmapped character"}); continue
             band_px = gl.slot_band_px(rect)
             try:
+                # Both writers publish through _save_atomic, so `out` either
+                # holds a complete panel or does not exist at all.
                 if len(names) == 1:
                     r = make_panel_native(names[0], pa, pa["shot"], pg["location"], seed0 + i * 11, out, band_px=band_px)
                 else:

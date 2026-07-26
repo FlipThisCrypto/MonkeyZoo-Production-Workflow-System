@@ -71,7 +71,12 @@ def build(genesis_dir: Path) -> dict:
     plan = json.loads((genesis_dir / "GENESIS_LAYOUT_PLAN.json").read_text(encoding="utf-8"))
     crop = {r["panel_id"]: r for r in json.loads((genesis_dir / "qa" / "PANEL_CROP_AUDIT.json").read_text(encoding="utf-8"))["panels"]}
     native = genesis_dir / "generated_art" / "panel_native"
-    bespoke = {p.stem for p in native.glob("*.png")} if native.exists() else set()
+    # A panel counts as bespoke only if its file actually holds bytes. classify()
+    # turns membership here into status=DONE / visual_qa_result="pass", so an
+    # empty file would report a failed panel as finished and QA-passed -- against
+    # the CLAUDE.md rule that nothing is canon until it passes QA. genesis_charart
+    # now writes atomically, so this guards leftovers from earlier runs.
+    bespoke = {p.stem for p in native.glob("*.png") if p.stat().st_size > 0} if native.exists() else set()
     rows = []
     for pg in plan["pages"]:
         rects = gl.synth_page_rects(pg["panels"], pg["page_number"])
