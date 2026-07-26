@@ -88,6 +88,11 @@ Severity per the prompt's scale: Critical / High / Medium / Low / Informational.
 | F-004 | Low | `.coverage` (binary, machine-specific) is tracked in git and shows as modified every run | **FIXED** (iteration 13) |
 | F-005 | Medium | `artifacts/` untracked and un-ignored — `git add -A` would commit a second full copy of the repo | **FIXED** (iteration 13) |
 | F-006 | Medium | `ruff check .` fails locally with 3 errors, all inside `artifacts/` — the lint gate had the same local-vs-CI divergence as F-001 | **FIXED** (iteration 13) |
+| F-003a | High | `validate_issue.py` prints PASS/exit 0 on a plan+pack of `{}` or `null` — dangerous false success in the Stage 4/5/8/9 gate | **FIXED** (iteration 15) |
+| F-003b | Low | `genesis_charart.py` non-atomic PNG save + existence-based resume: a truncated/zero-byte panel counts as DONE and QA-passed | Open — next |
+| F-003c | Low | `validate_issue.py` schema-blind PASS indistinguishable from a validated one when `jsonschema` is absent | **FIXED** (iteration 15) |
+| F-007 | Informational | 2 of 8 real issue folders fail the gate: `2026-10_Issue_02` (empty scaffold, both files missing) and `2026-07_Mango_Pier` (issue_id `MZ-2026-07-MANGO` violates the `MZ-\d{4}-\d{2}-\d{2}` pattern). Both **pre-existing**, neither caused by iteration 15. Likely intentional WIP/experimental folders — flagged for the operator, not auto-"fixed", since changing canon data is human-only per CLAUDE.md | Open — operator decision |
+| F-008 | Medium | `silent_failure_audit.py` false-positive rate was 11/14 (79%). Its heuristic does not recognise two idioms this repo uses everywhere: a fallback via `list.append(...)` (a method call, not `ast.Assign`) and status via `print()` (no logging framework is imported anywhere). An audit tool that cries wolf gets ignored | Open — next |
 
 ### F-002 detail — `scripts/audit_user_paths.py` (untracked, NOT deleted)
 
@@ -195,6 +200,65 @@ denylist, so it recurred.
 matches a naive `*test_*.py` glob but is a driver script, not a pytest module
 (pytest requires the basename to *start* with `test_`). The enumeration was
 tightened to pytest's real `python_files` rule rather than widening the allowlist.
+
+---
+
+### Round 2, iteration 15 — validate_issue gate cannot report PASS without checking
+
+**Problem (F-003a, High — dangerous false success).** `validate_issue.py` is the
+CLI gate the `mz-new-issue` / `mz-art-run` / `mz-package` skills require to PASS
+at Stages 4/5/8/9. `load()` returned whatever `json.loads` produced, and `main()`
+guarded each block with truthiness (`if plan:` / `if pack:`). Any document that
+*parses* but is falsy — `{}`, `null`, `[]`, `""` — skipped its entire check block
+while recording no error, so the gate printed **"PASS — issue package is
+structurally valid."** and exited 0.
+
+**Reproduced by execution** (not inferred), via a tmp issue root:
+
+| Input | Before | After |
+|---|---|---|
+| plan valid, pack `{}` | exit 1 *(only because the plan itself failed schema)* | exit 1 (pack reported) |
+| plan valid, pack `null` | exit 1 *(same reason)* | exit 1 (pack reported) |
+| plan `{}`, pack `{}`, `--art`, no art on disk | **exit 0, "PASS"** | exit 1 |
+| plan `null`, pack `null`, `--art` | **exit 0, "PASS"** | exit 1 |
+| plan `[]`, pack `{}` | **exit 0, "PASS"** | exit 1 |
+
+`null` was the sharpest edge: `json.loads("null")` raises nothing, so `load()`
+recorded no error and its `None` was indistinguishable from the missing-file
+sentinel. The app-side sibling (`issue_workflow._json`) already got this right,
+so the two implementations of the same gate disagreed.
+
+**Fixes.**
+1. `load()` rejects a parsed payload that is not a non-empty object; every falsy
+   return now carries a recorded error, so `main()` always reaches `sys.exit(1)`.
+2. `--art` with zero planned panels is now reported instead of silently
+   skipped (`if check_art and plan_ids:` → `if check_art:` + explicit error).
+   A plan with `pages: []` is a well-formed object, so fix 1 does not catch it.
+3. **F-003c (Low).** `schema_check()` returned silently when `jsonschema` was
+   absent, so a schema-blind run printed the same unqualified PASS as a fully
+   validated one. The verdict now discloses it: *"PASS — built-in checks only
+   (jsonschema not installed: JSON Schema validation SKIPPED)."* Fallback-only
+   mode stays intended behaviour per the module docstring; the defect was that
+   it was invisible.
+
+**Evidence.**
+- 9 new tests in `00_SYSTEM/scripts/tests/test_validate_issue.py`, written red
+  first: all 8 behavioural ones failed before the fix, all pass after.
+- Over-correction guarded two ways: a scoped check that the new errors do not
+  fire on a populated package, and `test_real_committed_issue_still_passes`,
+  which runs the gate against real committed canon (`2026-07_Issue_05 --art`).
+- Swept all 8 real issue folders. 6 PASS. The 2 failures (`2026-07_Mango_Pier`,
+  `2026-10_Issue_02`) are **pre-existing and unrelated** — verified by grepping
+  their output for the new error strings: 0 occurrences in both. See F-007.
+- `768 passed` / `ruff All checks passed!`
+
+**Triage provenance.** 14 scanner-flagged handlers were triaged by 12 independent
+agents plus an adversarial synthesis pass. **11 of 14 were rejected as false
+positives** with quoted code and named callers. Only 3 survived. The scanner's
+heuristic misses two idioms this repo uses constantly — a fallback expressed as
+`list.append(...)` (a method call, not `ast.Assign`) and status reported via
+`print()` (the repo imports no logging framework) — which is where nearly all
+the noise came from. See F-008.
 
 ---
 

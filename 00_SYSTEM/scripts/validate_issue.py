@@ -36,22 +36,48 @@ def err(msg: str) -> None:
 
 
 def load(path: Path):
+    """Return the parsed JSON object, or None with an error recorded.
+
+    Every falsy return MUST carry a recorded error. main() guards each check
+    block with `if plan:` / `if pack:`, so a document that parses to a falsy
+    value -- {}, null, [], "" -- would otherwise skip that block's entire set of
+    checks while recording nothing, and the gate would print
+    "PASS - issue package is structurally valid." and exit 0.
+
+    `null` was the sharpest edge: json.loads("null") raises nothing, so the None
+    it produced was indistinguishable from this function's own failure sentinel.
+    """
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        data = json.loads(path.read_text(encoding="utf-8"))
     except FileNotFoundError:
         err(f"MISSING FILE: {path.name}")
+        return None
     except json.JSONDecodeError as e:
         err(f"INVALID JSON in {path.name}: {e}")
-    return None
+        return None
+    if not isinstance(data, dict) or not data:
+        err(f"EMPTY OR NON-OBJECT JSON in {path.name}: expected a non-empty JSON object, got {type(data).__name__}")
+        return None
+    return data
 
 
 _SCHEMA_CACHE: dict[str, dict] = {}
 
+# Set when jsonschema is unavailable, so the final verdict can say that JSON
+# Schema validation did not run. Falling back to the built-in checks is intended
+# behaviour (see module docstring); the defect was that the fallback was
+# invisible, and a schema-blind PASS read exactly like a fully validated one.
+# The built-in checks are genuinely narrower: no types, no enums, and none of
+# the schema-required fields main() never inspects.
+SCHEMA_CHECKS_SKIPPED = False
+
 
 def schema_check(instance, schema_file: str, label: str) -> None:
+    global SCHEMA_CHECKS_SKIPPED
     try:
         import jsonschema  # type: ignore
     except ImportError:
+        SCHEMA_CHECKS_SKIPPED = True
         return  # fallback checks below still run
     if schema_file not in _SCHEMA_CACHE:
         _SCHEMA_CACHE[schema_file] = json.loads((SYSTEM / schema_file).read_text(encoding="utf-8"))
@@ -126,7 +152,12 @@ def main() -> None:
             if extra:
                 err(f"pack: unknown panels {sorted(extra)}")
 
-    if check_art and plan_ids:
+    if check_art:
+        if not plan_ids:
+            # --art that checks nothing must say so. Previously guarded by
+            # `and plan_ids`, so a plan with no panels passed the art gate
+            # while verifying no art at all.
+            err("art: --art requested but the plan contains no panels to check")
         sel = issue_dir / "generated_art" / "selected_panels"
         for pid in plan_ids:
             if not (sel / f"{pid}.png").exists():
@@ -182,7 +213,11 @@ def main() -> None:
         for e in ERRORS:
             print(f"  - {e}")
         sys.exit(1)
-    print("PASS — issue package is structurally valid.")
+    if SCHEMA_CHECKS_SKIPPED:
+        print("PASS — built-in checks only "
+              "(jsonschema not installed: JSON Schema validation SKIPPED).")
+    else:
+        print("PASS — issue package is structurally valid.")
 
 
 if __name__ == "__main__":
