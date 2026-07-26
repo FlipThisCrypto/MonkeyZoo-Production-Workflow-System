@@ -155,8 +155,42 @@ def verify(genesis_dir: Path) -> dict:
     return {"release": str(rel), "verified": verified, "problems": problems}
 
 
+USAGE = """\
+Usage: genesis_release.py [GENESIS_DIR] [--verify]
+
+  (no flags)  Package the release: build CBZ + PDF, write manifest and
+              SHA256SUMS. THIS REWRITES THE RELEASE ARTIFACTS.
+  --verify    Check the existing release against its manifest. Read-only.
+              Exits 1 if any checksum or byte size has drifted.
+
+GENESIS_DIR defaults to <factory>/GENESIS.
+"""
+
+
 def main() -> None:
-    positional = [a for a in sys.argv[1:] if not a.startswith("--")]
+    flags = [a for a in sys.argv[1:] if a.startswith("-")]
+    positional = [a for a in sys.argv[1:] if not a.startswith("-")]
+
+    # Unknown flags used to be silently discarded by the "not a positional"
+    # filter, which then fell through to package() -- the DESTRUCTIVE path. So
+    # `--help` rebuilt the release instead of printing help, and, far worse, a
+    # typo'd `--verfiy` rebuilt it instead of verifying it: the one invocation an
+    # operator reaches for to confirm a release is intact would have overwritten
+    # it. Unknown flags now abort before anything is written.
+    if {"-h", "--help"} & set(flags):
+        print(USAGE, end="")
+        raise SystemExit(0)
+    unknown = [f for f in flags if f != "--verify"]
+    if unknown:
+        print(f"genesis_release.py: unknown option(s): {' '.join(unknown)}\n", file=sys.stderr)
+        print(USAGE, end="", file=sys.stderr)
+        raise SystemExit(2)
+    if len(positional) > 1:
+        print(f"genesis_release.py: expected at most one GENESIS_DIR, got {len(positional)}\n",
+              file=sys.stderr)
+        print(USAGE, end="", file=sys.stderr)
+        raise SystemExit(2)
+
     genesis_dir = Path(positional[0]) if positional else FACTORY / "GENESIS"
 
     if "--verify" in sys.argv:

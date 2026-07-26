@@ -158,3 +158,62 @@ def test_verify_cli_exit_codes(tmp_path, monkeypatch, capsys):
         gr.main()
     assert bad.value.code == 1
     assert "verify FAILED" in capsys.readouterr().out
+
+
+# ---------------------------------------------------------------------------
+# CLI safety: an unrecognised flag must never reach the destructive path.
+#
+# main() split argv with `[a for a in sys.argv[1:] if not a.startswith("--")]`,
+# so any flag it did not know was silently discarded and execution fell through
+# to package() -- which rewrites the CBZ, PDF, manifest and SHA256SUMS.
+#
+# `--help` therefore rebuilt the release instead of printing help. Worse, a
+# typo'd `--verfiy` rebuilt it instead of verifying it: the single invocation an
+# operator reaches for to confirm a release is intact was the one most likely to
+# destroy it, and it reported success while doing so.
+# ---------------------------------------------------------------------------
+def _run_main(monkeypatch, argv, gr_module):
+    import sys as _sys
+    monkeypatch.setattr(_sys, "argv", ["genesis_release.py", *argv])
+    with pytest.raises(SystemExit) as excinfo:
+        gr_module.main()
+    return excinfo.value.code
+
+
+def test_help_prints_usage_and_does_not_package(monkeypatch, capsys):
+    def _explode(*a, **k):
+        raise AssertionError("package() ran for --help; the release was rewritten")
+
+    monkeypatch.setattr(gr, "package", _explode)
+    assert _run_main(monkeypatch, ["--help"], gr) == 0
+    assert "Usage:" in capsys.readouterr().out
+
+
+def test_typo_of_verify_aborts_instead_of_repackaging(monkeypatch, capsys):
+    """The critical case: --verfiy must not silently become "rebuild"."""
+    def _explode(*a, **k):
+        raise AssertionError("a typo'd --verify rewrote the release")
+
+    monkeypatch.setattr(gr, "package", _explode)
+    code = _run_main(monkeypatch, ["--verfiy"], gr)
+    assert code == 2
+    assert "unknown option" in capsys.readouterr().err
+
+
+def test_unknown_flag_aborts(monkeypatch, capsys):
+    monkeypatch.setattr(gr, "package", lambda *a, **k: pytest.fail("packaged on unknown flag"))
+    assert _run_main(monkeypatch, ["--dry-run"], gr) == 2
+    assert "unknown option" in capsys.readouterr().err
+
+
+def test_too_many_positionals_aborts(monkeypatch, capsys):
+    monkeypatch.setattr(gr, "package", lambda *a, **k: pytest.fail("packaged on bad usage"))
+    assert _run_main(monkeypatch, ["dir_a", "dir_b"], gr) == 2
+    assert "at most one" in capsys.readouterr().err
+
+
+def test_verify_flag_still_routes_to_verify_not_package(monkeypatch, tmp_path):
+    """Over-correction guard: the real flag must keep working, read-only."""
+    monkeypatch.setattr(gr, "package", lambda *a, **k: pytest.fail("--verify reached package()"))
+    monkeypatch.setattr(gr, "verify", lambda d: {"release": str(d), "verified": 3, "problems": []})
+    assert _run_main(monkeypatch, [str(tmp_path), "--verify"], gr) == 0

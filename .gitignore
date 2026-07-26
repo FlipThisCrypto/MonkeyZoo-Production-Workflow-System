@@ -29,6 +29,11 @@
 artifacts/
 
 # ── OS / tooling noise ──────────────────────────────────────────────
+# Virtualenv. Both documented launchers (Start-BananaLab.ps1,
+# start-banana-lab.sh) create .venv at the repo root, so without this a
+# `git add -A` would commit an entire interpreter tree.
+.venv/
+venv/
 __pycache__/
 *.pyc
 # coverage.py's SQLite data file: machine-specific, rewritten by every test
