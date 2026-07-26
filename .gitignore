@@ -20,9 +20,23 @@
 05_RELEASE_ARCHIVE/
 06_BACKUPS/
 
+# Scratch/staging trees produced by release verification and audit runs.
+# These contain FULL COPIES of the repo (artifacts/release_staging/), so leaving
+# them untracked-but-unignored risks committing a second copy of the whole
+# project via `git add -A`, and their duplicate test/source files break bare
+# `pytest` and `ruff check .` locally while CI (fresh checkout, no such dir)
+# stays green. Also excluded in pytest.ini and ruff.toml.
+artifacts/
+
 # ── OS / tooling noise ──────────────────────────────────────────────
 __pycache__/
 *.pyc
+# coverage.py's SQLite data file: machine-specific, rewritten by every test
+# run. It was committed by accident; a permanently-dirty working tree hides
+# real changes in `git status`.
+.coverage
+.coverage.*
+htmlcov/
 .DS_Store
 Thumbs.db
 desktop.ini

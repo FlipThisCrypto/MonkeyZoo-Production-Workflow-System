@@ -10,6 +10,7 @@
 # would otherwise double-report and fail the gate on frozen history.
 target-version = "py312"
 extend-exclude = [
+    "artifacts",
     "06_BACKUPS",
     "05_RELEASE_ARCHIVE",
     "04_REJECTED_OUTPUTS",
