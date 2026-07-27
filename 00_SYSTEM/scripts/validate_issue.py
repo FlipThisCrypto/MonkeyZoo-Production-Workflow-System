@@ -2,13 +2,16 @@
 """Validate a MonkeyZoo issue package (gate checks for Stages 4/5/9).
 
 Usage:
-    python validate_issue.py 2026-07_Issue_05 [--art] [--integration]
+    python validate_issue.py 2026-07_Issue_05 [--art] [--cover] [--integration]
 
 Checks:
   - page_panel_plan.json / art_prompt_pack.json parse and match the schemas'
     required fields, ID patterns, and cross-references
   - panel ids are unique, sequential per page, and consistent between files
   - with --art: every planned panel has a file in generated_art/selected_panels
+  - with --cover: the final cover resolves through the shared contract
+    (00_SYSTEM/scripts/issue_cover.py), the same one the Studio release
+    gate uses. Stage 8+ only -- no cover exists at Stages 4/5.
   - with --integration: every staged panel in generated_art/
     integration_preview runs through the pixel-level integration QA gate
     (00_SYSTEM/scripts/integration/validate_integration.py) with
@@ -21,6 +24,10 @@ import json
 import re
 import sys
 from pathlib import Path
+
+if str(Path(__file__).resolve().parent) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+import issue_cover  # noqa: E402  the one canonical cover-location contract
 
 __all__ = ["schema_check", "load"]
 
@@ -151,6 +158,23 @@ def main() -> None:
                 err(f"pack: missing panels {sorted(missing)}")
             if extra:
                 err(f"pack: unknown panels {sorted(extra)}")
+
+    if "--cover" in sys.argv:
+        # Cover location comes from the one shared contract (issue_cover), so
+        # this agrees with the Studio release gate by construction rather than
+        # by two hand-written searches happening to match.
+        #
+        # Behind a flag on purpose: validate_issue also runs at Stages 4/5,
+        # where no cover exists yet, so making it unconditional would fail every
+        # early-stage run. Stage ownership is unchanged -- Release remains the
+        # blocking authority (visual_qa_workspace: "Release owns the blocking
+        # cover-deliverable requirement"); this makes the CLI able to answer the
+        # same question with the same answer.
+        resolved = issue_cover.resolve_final_cover(issue_dir)
+        if resolved.blocker:
+            err(f"cover: {resolved.blocker}")
+        elif resolved.warning:
+            print(f"  WARN {resolved.warning}")
 
     if check_art:
         if not plan_ids:

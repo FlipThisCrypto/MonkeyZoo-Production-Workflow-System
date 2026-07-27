@@ -79,7 +79,9 @@ with one-line reason in qa_report.md. 10 rejects on same panel → escalate
 - [ ] Next-issue teaser present on rear outside cover
 
 ### Package (HARD)
-- [ ] Exports exist: Print PDF, Web PDF, CBZ, cover.png, promo images
+- [ ] Exports exist: Print PDF, Web PDF, CBZ, promo images
+- [ ] Final cover at `generated_art/covers/main_cover.png` (canonical; verify with
+      `python 00_SYSTEM/scripts/validate_issue.py <folder> --cover`)
 - [ ] Lettering pass done: no bubble covers a face, margins ≥ safe area
 - [ ] Page order verified in both PDFs and CBZ
 - [ ] Social posts ready (all 8 sections of template)

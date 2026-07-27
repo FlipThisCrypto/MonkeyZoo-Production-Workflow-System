@@ -1,9 +1,17 @@
 """Evidence-backed visual QA reviews and canonical report promotion."""
 from __future__ import annotations
-import datetime as dt, hashlib, json, os, re, tempfile, time
+import datetime as dt, hashlib, json, os, re, sys, tempfile, time
+from pathlib import Path
 from PIL import Image
 import issue_workflow
 from contextlib import contextmanager
+
+# Same shared cover contract as release_workspace -- these two evidence sets are
+# a deliberately synchronised pair and must not drift apart again.
+_SYSTEM_SCRIPTS = Path(__file__).resolve().parents[2] / "00_SYSTEM" / "scripts"
+if str(_SYSTEM_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SYSTEM_SCRIPTS))
+import issue_cover  # noqa: E402
 
 REVIEW_ID=re.compile(r"^qa-\d{8}T\d{6}Z-[0-9a-f]{6}$")
 VERDICTS={"pass":"PASS","hold":"HOLD","fail":"FAIL"}
@@ -68,7 +76,7 @@ def evidence(folder):
    inventory.append(entry)
  duplicates=[ids for ids in hashes.values() if len(ids)>1]
  metadata=issue_workflow._json(folder/"metadata.json") or {};metadata_missing=[k for k in ("issue_id","title") if not metadata.get(k)]
- covers=sorted((folder/"generated_art").rglob("*cover*.png")) if (folder/"generated_art").exists() else []  # sorted: evidence hash must be order-stable across platforms/restores (matches release_workspace)
+ covers=issue_cover.cover_evidence_images(folder)  # shared contract: sorted + case-insensitive on every platform, so the evidence hash reproduces across Windows dev and Linux CI (matches release_workspace)
  files=[folder/"page_panel_plan.json",folder/"metadata.json",folder/"cover_prompt.md",folder/"final_export_checklist.md",*sorted(p for p in selected.glob("*.png")),*covers] if selected.exists() else [folder/"page_panel_plan.json",folder/"metadata.json",folder/"cover_prompt.md",folder/"final_export_checklist.md",*covers]
  digest=hashlib.sha256()
  for path in files:

@@ -1,9 +1,17 @@
 """Evidence-backed release readiness, approval, and hash manifests."""
 from __future__ import annotations
-import datetime as dt, hashlib, json, os, re, tempfile, zipfile
+import datetime as dt, hashlib, json, os, re, sys, tempfile, zipfile
 from contextlib import contextmanager
 from pathlib import Path
 import issue_workflow, visual_qa_workspace
+
+# The cover-location contract is owned by 00_SYSTEM (the source of truth per
+# CLAUDE.md), not duplicated here. app.py already puts this directory on the
+# path; the insert makes the module importable standalone, as the tests do.
+_SYSTEM_SCRIPTS = Path(__file__).resolve().parents[2] / "00_SYSTEM" / "scripts"
+if str(_SYSTEM_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SYSTEM_SCRIPTS))
+import issue_cover  # noqa: E402
 
 class ReleaseError(ValueError):
  def __init__(self,message,status=400):super().__init__(message);self.status=status
@@ -87,7 +95,7 @@ def _valid_package(path: Path) -> bool:
     return valid
 
 def evidence(folder,root):
- metadata=issue_workflow._json(folder/"metadata.json") or {};exports=folder/"exports";pdfs=sorted(exports.glob("*.pdf")) if exports.exists() else [];package_candidates=sorted([*exports.glob("*.zip"),*exports.glob("*.cbz")]) if exports.exists() else [];packages=[path for path in package_candidates if _valid_package(path)];invalid_packages=[path.name for path in package_candidates if path not in packages];covers=sorted((folder/"generated_art").rglob("*cover*.png")) if (folder/"generated_art").exists() else []
+ metadata=issue_workflow._json(folder/"metadata.json") or {};exports=folder/"exports";pdfs=sorted(exports.glob("*.pdf")) if exports.exists() else [];package_candidates=sorted([*exports.glob("*.zip"),*exports.glob("*.cbz")]) if exports.exists() else [];packages=[path for path in package_candidates if _valid_package(path)];invalid_packages=[path.name for path in package_candidates if path not in packages];covers=issue_cover.cover_evidence_images(folder);final_cover=issue_cover.resolve_final_cover(folder)
  qa=issue_workflow._qa_verdict(folder);qa_report=(folder/"qa_report.md").read_text(encoding="utf-8",errors="replace") if (folder/"qa_report.md").exists() else "";reported_hashes=re.findall(r"(?m)^Evidence hash:\s*([0-9a-f]{64})\s*$",qa_report);current_qa_hash=None
  try:current_qa_hash=visual_qa_workspace.evidence(folder)["evidence_hash"]
  except visual_qa_workspace.VisualQAError:pass
@@ -100,7 +108,7 @@ def evidence(folder,root):
  blockers=[]
  if qa!="passed":blockers.append(f"QA verdict is {qa}; exact PASS is required")
  elif len(reported_hashes)!=1 or not current_qa_hash or reported_hashes[0]!=current_qa_hash:blockers.append("Canonical QA evidence is missing or stale")
- if not covers:blockers.append("No final cover image found")
+ if not final_cover.found:blockers.append(final_cover.blocker)
  if not pdfs or not any(p.stat().st_size for p in pdfs):blockers.append("Final PDF is missing or empty")
  if invalid_packages:blockers.append(f"Invalid CBZ or ZIP packages: {', '.join(invalid_packages)}")
  if not packages:blockers.append("A readable, non-empty CBZ or ZIP package is required")
@@ -114,7 +122,7 @@ def evidence(folder,root):
  digest=hashlib.sha256()
  for entry in entries:digest.update(entry["path"].encode());digest.update(entry["sha256"].encode())
  digest.update((current_qa_hash or "").encode())
- return {"evidence_hash":digest.hexdigest(),"files":entries,"blockers":blockers,"qa_verdict":qa,"qa_evidence_hash":reported_hashes[0] if len(reported_hashes)==1 else None,"qa_evidence_current":bool(current_qa_hash and len(reported_hashes)==1 and reported_hashes[0]==current_qa_hash),"covers":[str(p.relative_to(folder)).replace("\\","/") for p in covers],"pdfs":[p.name for p in pdfs],"packages":[p.name for p in packages],"invalid_packages":invalid_packages,"metadata":{"format":metadata.get("format"),"missing_fields":missing_meta,"placeholders":placeholders},"social_copy_exists":(folder/"social_posts.md").exists(),"checklist_exists":(folder/"final_export_checklist.md").exists(),"archive":{"path":str(archive.relative_to(root)).replace("\\","/"),"exists":archive.exists(),"publication_files":[p.name for p in publication_files],"publication_artifacts":[p.name for p in publication_artifacts]}}
+ return {"evidence_hash":digest.hexdigest(),"files":entries,"blockers":blockers,"qa_verdict":qa,"qa_evidence_hash":reported_hashes[0] if len(reported_hashes)==1 else None,"qa_evidence_current":bool(current_qa_hash and len(reported_hashes)==1 and reported_hashes[0]==current_qa_hash),"covers":[str(p.relative_to(folder)).replace("\\","/") for p in covers],"final_cover":{"path":str(final_cover.path.relative_to(folder)).replace("\\","/") if final_cover.path else None,"source":final_cover.source},"advisories":[final_cover.warning] if final_cover.warning else [],"pdfs":[p.name for p in pdfs],"packages":[p.name for p in packages],"invalid_packages":invalid_packages,"metadata":{"format":metadata.get("format"),"missing_fields":missing_meta,"placeholders":placeholders},"social_copy_exists":(folder/"social_posts.md").exists(),"checklist_exists":(folder/"final_export_checklist.md").exists(),"archive":{"path":str(archive.relative_to(root)).replace("\\","/"),"exists":archive.exists(),"publication_files":[p.name for p in publication_files],"publication_artifacts":[p.name for p in publication_artifacts]}}
 def manifest(folder,root,persist=False):
  _stage(folder,root);ev=evidence(folder,root);data={"schema_version":"1.0","issue_id":issue_workflow._read_issue_id(folder),"created_at":_now() if persist else None,"evidence_hash":ev["evidence_hash"],"files":ev["files"]};data["manifest_hash"]=_hash(json.dumps({k:v for k,v in data.items() if k!="created_at"},sort_keys=True).encode())
  if persist:

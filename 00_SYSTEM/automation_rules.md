@@ -40,7 +40,8 @@ Who does what, and what may run without a human.
   original story beat becomes a 4-panel acting sequence (establish →
   action → reaction → button) so published events and dialogue stay
   locked while page count doubles. Covers live outside page_panel_plan
-  (cover_prompt.md + exports), same as before; Gate B's "next-issue
+  (cover_prompt.md; the final cover deliverable at generated_art/covers/main_cover.png,
+  resolved by 00_SYSTEM/scripts/issue_cover.py); Gate B's "next-issue
   teaser on rear cover" item is now satisfied by the back-cover panel.
 - Issue folder: `YYYY-MM_Issue_##` · Issue ID: `MZ-YYYY-MM-##`
 - Panel ID: `MZ-YYYY-MM-##_P<page 2-digit>_PANEL<2-digit>`

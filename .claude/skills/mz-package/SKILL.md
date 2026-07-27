@@ -15,7 +15,8 @@ description: Run MonkeyZoo layout, lettering, exports, and release gates (Stages
    (palette-mode: this Pillow lacks JPEG), social crops per `_social` spec.
 3. Covers: generate via Z-Image using `cover_prompt.md` (scene cover ~69001
    seed family, card-mode variant), letter title/stamps with Pillow, save
-   `exports/cover.png` + `promo_images/variant_cover.png`.
+   `generated_art/covers/main_cover.png` (the canonical final cover -- see
+   `00_SYSTEM/scripts/issue_cover.py`) + `exports/promo_images/variant_cover.png`.
 4. CBZ + export check: `python 00_SYSTEM/scripts/build_release.py <issue-folder>`.
    For a Genesis-style packaged release, verify its integrity + provenance
    BEFORE distributing or minting:
