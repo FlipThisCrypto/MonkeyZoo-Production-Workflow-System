@@ -7,7 +7,7 @@ before touching anything.
 
 - **Branch:** `claude/genesis-production-loop`
 - **Loop position on resume:** round 2, iteration 12 committed (`8d259a7`)
-- **Loop position now:** round 2, iteration 20 committed; PR #30 retargeted to `main`, CI green; PR #29 closed as superseded
+- **Loop position now:** round 2, iteration 21 committed; U05 + U06 both closed; PR #30 retargeted to `main` with CI green; PR #29 closed as superseded
 - **Session started:** 2026-07-26
 
 ---
@@ -18,7 +18,7 @@ before touching anything.
    format `round 2 iteration NN: <what>`.
 2. Read the **Iteration Log** below for what is done and what is next.
 3. Re-establish the baseline: `python -m pytest -q` from the repo root.
-   Expected: **807 tests, all passing**, and `python -m ruff check .` clean.
+   Expected: **825 tests, all passing**, and `python -m ruff check .` clean.
    (It was 747 at session start and bare `pytest` was broken — see F-001.)
 4. Pick the top unchecked item from **Open Findings**.
 
@@ -33,7 +33,8 @@ before touching anything.
 | Tests passing, after iteration 13 | **751** | `python -m pytest -q` | 2026-07-26 |
 | Tests passing, after iteration 17 | **786** | `python -m pytest -q` | 2026-07-26 |
 | Tests passing, after iteration 19 | **795** | `python -m pytest -q` | 2026-07-26 |
-| Tests passing, after iteration 20 | **807** (+60 this session) | `python -m pytest -q` | 2026-07-26 |
+| Tests passing, after iteration 20 | **807** | `python -m pytest -q` | 2026-07-26 |
+| Tests passing, after iteration 21 | **825** (+78 this session) | `python -m pytest -q` | 2026-07-26 |
 | CI `validate` on PR #30 | **pass** (first run ever on this branch) | `gh pr checks 30` | 2026-07-26 |
 | Clean-clone run (tracked files only) | **795 passed, 0 skipped** | `git clone` + `pytest -q -rs` | 2026-07-26 |
 | `ruff check .` | clean (was 3 errors) | `python -m ruff check .` | 2026-07-26 |
@@ -100,6 +101,7 @@ Severity per the prompt's scale: Critical / High / Medium / Low / Informational.
 | F-003b | Medium | `genesis_charart.py` non-atomic PNG save + existence-based resume: a truncated/zero-byte panel counts as DONE and QA-passed | **FIXED** (iteration 16) |
 | F-003c | Low | `validate_issue.py` schema-blind PASS indistinguishable from a validated one when `jsonschema` is absent | **FIXED** (iteration 15) |
 | F-007 | Informational | 2 of 8 real issue folders fail the gate: `2026-10_Issue_02` (empty scaffold, both files missing) and `2026-07_Mango_Pier` (issue_id `MZ-2026-07-MANGO` violates the `MZ-\d{4}-\d{2}-\d{2}` pattern). Both **pre-existing**, neither caused by iteration 15. Likely intentional WIP/experimental folders — flagged for the operator, not auto-"fixed", since changing canon data is human-only per CLAUDE.md | Open — operator decision |
+| F-011 | Informational | Three issues still hold their cover at the deprecated `exports/cover.png` (`2026-07_Issue_05`, `2026-08_Issue_06`, `2026-07_Mango_Pier`). The fallback accepts them and every surface prints the migration; `issue_cover.py --audit` tracks it. Moving the files is canon-touching, so it is the operator's call | Open - operator migration |
 | F-009 | Medium | 3 of 7 shipped art packs contain a `style_lock_phrase` polluted with markdown blockquote gutters (`2026-08_Issue_01`, `2026-09_Issue_02`, `2026-10_Issue_01`; two published). Extractor fixed in i19; the shipped packs are canon + reproducibility records and were **not** rewritten | Open - operator decision |
 | F-010 | Informational | `genesis_release.py --verfiy` (typo) used to rebuild the release instead of verifying it. If a release was ever "verified" that way before iteration 18, its artifacts were silently rebuilt - and the manifest sha256s would still match, since both were written together, so it is not detectable after the fact | Open - operator awareness |
 | F-008 | Medium | `silent_failure_audit.py` false-positive rate 11/14 (79%) — heuristic blind to `list.append(...)` fallbacks and `print()`/`err()` reporting | **FIXED** (iteration 17) |
@@ -572,6 +574,85 @@ lives, so 3 of 7 issues have a cover the Studio cannot see. This is the second
 half of the CLI/Studio divergence named as the readiness blocker; only U06 is
 closed. Until U05 is resolved the readiness decision stands at **approved for
 controlled testing only**.
+
+### Round 2, iteration 21 - one canonical cover-location contract (U05)
+
+**Problem.** Two independently written resolvers disagreed about where an
+issue's final cover lives, and production data was split across both:
+
+| Surface | Where it looked |
+|---|---|
+| Studio release gate | `generated_art/` only, via `rglob("*cover*.png")` -> blocker `"No final cover image found"`, naming no path |
+| CLI packager | `exports/cover.png` **first**, then `generated_art/covers/`, then a fuzzy `*cover*.png` sweep |
+
+The trap was reachable straight from the designated instructions: the
+`mz-package` skill (CLAUDE.md assigns it Stages 8-10) and three 00_SYSTEM docs
+said to save `exports/cover.png`; only `docs/OPERATOR_RUNBOOK.md` named the
+other. The runbook contradicted itself ten lines apart.
+
+**Impact was live, not prospective.** Three issues held a real cover at
+`exports/cover.png` while the release gate reported no cover found:
+`2026-07_Issue_05`, `2026-08_Issue_06`, `2026-07_Mango_Pier`.
+
+**Fix.** One module, `00_SYSTEM/scripts/issue_cover.py`, used by all five
+surfaces: Studio release gate, Studio visual-QA evidence set, `validate_issue.py
+--cover`, `build_release.py` CBZ/PDF assembly, and archive publishing.
+`package_issue.py` inherits it by delegating to `build_release.py`.
+
+`generated_art/covers/main_cover.png` is **canonical** - it is what the live
+pipeline writes and what all four issues that reached release already use, so
+making it canonical migrates nothing that shipped. `exports/cover.png` is a
+**deprecated fallback, not a second permanent source**: accepted so the three
+issues on it are not stranded, but every surface that accepts it warns and
+prints the exact `git mv`, and `issue_cover.py --audit` reports who still relies
+on it plus the removal criterion.
+
+**Two questions kept apart** that the old code conflated: *which single file IS
+the cover* (`resolve_final_cover`, drives the blocker and the CBZ/PDF builders)
+versus *which cover-ish images enter the evidence hash and published archive*
+(`cover_evidence_images`, a LIST). Collapsing the second into the first would
+have dropped `COVER_FRONT`/`COVER_BACK` from published archives and changed
+every release evidence hash.
+
+**Latent cross-platform bug fixed in the same code.** `rglob("*cover*.png")` is
+case-insensitive on Windows and case-sensitive on POSIX, so `2026-09_Issue_02`
+contributed 4 covers on the dev rig and 2 on Linux CI - its release evidence
+hash, which gates approval and is written into `release_hash_manifest.json`, did
+not reproduce across the two machines that both compute it. Matching
+case-insensitively everywhere converges CI onto what the operator has always
+seen, so no approved hash moves.
+
+**The eight requested proofs**
+
+| # | Case | Result |
+|---|---|---|
+| 1 | Canonical cover recognised by Studio and CLI | both `source=canonical`, neither blocks |
+| 2 | Legacy-only cover migrated or rejected clearly | accepted as an explicitly temporary fallback; warning names the canonical path and carries the `git mv`; `--audit` tracks removal |
+| 3 | No cover fails both surfaces consistently | parametrised cross-surface test asserts `studio_blocked == cli_blocked` for canonical / legacy / missing |
+| 4 | Existing covers detected without altering canon or archives | all 4 canonical issues' evidence sets **UNCHANGED**; 0 files modified under `02_MONTHLY_ISSUES`, `03_APPROVED_CANON`, `05_RELEASE_ARCHIVE`, `GENESIS` |
+| 5 | Packaging uses the cover Studio displayed | test asserts `build_release._find_cover(...) == evidence()["final_cover"]["path"]` for canonical and legacy |
+| 6 | Regression test fails pre-fix | restoring both resolvers reproduces the original symptom exactly: `studio_blocked=True cli_blocked=False`; reverting the contract module fails 4 more |
+| 7 | Suite / ruff / clean-clone / 8-issue sweep stable | 825 passed, ruff clean, clean-clone 825 passed 0 skipped + all 4 gates, sweep unchanged |
+| 8 | PR #30 CI passes again | **pass**, `mergeStateStatus: CLEAN` |
+
+**CI caught a bug the dev rig could not.** The first version of the
+published-evidence guard used the pre-fix `rglob` expression as its baseline -
+which is itself platform-dependent - so it asserted a different thing on each
+platform, passing locally and failing in Linux CI on exactly the issue whose
+uppercase covers exposed the split. Comparing against a platform-dependent
+expression means comparing against the bug. The baseline is now the
+operator-observed (case-insensitive) set, plus a second guard that whatever the
+old search found on the running platform must still be present.
+
+Docs reconciled to one location: `mz-package/SKILL.md`, `automation_rules.md`,
+`qa_checklist.md`, `monthly_issue_template.md`, `OPERATOR_RUNBOOK.md`,
+`PACKAGE_EXPORTS.md`.
+
+18 new tests, mutation-verified twice.
+
+**Migration still owed (operator, canon-touching):** three issues remain on the
+deprecated location. `python 00_SYSTEM/scripts/issue_cover.py --audit` prints
+the exact `git mv` for each. The fallback is removed once that audit is empty.
 
 ---
 
