@@ -217,13 +217,21 @@ def test_evidence_set_includes_a_legacy_cover(tmp_path):
 def test_published_issues_keep_the_exact_evidence_set_they_had(tmp_path):
     """Real-data guard: widening discovery must not disturb what already shipped.
 
-    The evidence set feeds the release evidence hash and is copied wholesale
-    into the published archive, so a changed set for an already-released issue
-    would invalidate its approval and alter what was published.
+    The evidence set feeds the release evidence hash and is copied wholesale into
+    the published archive, so a changed set for an already-released issue would
+    invalidate its approval and alter what was published.
 
-    Compares against the literal pre-fix expression. Issues that resolve via the
-    legacy fallback are expected to change -- gaining the cover is the fix -- and
-    none of them has a release manifest.
+    The baseline is the set the OPERATOR has always observed -- every cover-ish
+    PNG under ``generated_art/``, matched case-insensitively. It is deliberately
+    NOT the literal pre-fix expression ``rglob("*cover*.png")``: that expression
+    is case-insensitive on Windows and case-sensitive on POSIX, so using it as
+    the baseline makes this guard assert a different thing on each platform. An
+    earlier version of this test did exactly that and passed on the Windows dev
+    rig while failing in Linux CI on 2026-09_Issue_02 -- the very issue whose
+    uppercase COVER_FRONT/COVER_BACK exposed the platform split.
+
+    Issues resolving via the legacy fallback are expected to change -- gaining
+    their cover is the fix -- and none of them has a release manifest.
     """
     issues_root = FACTORY / "02_MONTHLY_ISSUES"
     if not issues_root.is_dir():
@@ -234,13 +242,38 @@ def test_published_issues_keep_the_exact_evidence_set_they_had(tmp_path):
         if issue_cover.resolve_final_cover(folder).source == "legacy":
             continue
         generated = folder / "generated_art"
-        before = sorted(generated.rglob("*cover*.png")) if generated.exists() else []
+        observed = sorted(
+            (p for p in generated.rglob("*.png") if p.is_file() and "cover" in p.name.lower()),
+        ) if generated.exists() else []
         after = issue_cover.cover_evidence_images(folder)
-        assert [p.name for p in before] == [p.name for p in after], (
+        assert [p.name for p in observed] == [p.name for p in after], (
             f"{folder.name}: evidence set changed for an issue that did not need "
             f"migrating; this would alter a published archive")
         checked += 1
     assert checked, "guard checked nothing -- it is not actually protecting anything"
+
+
+def test_evidence_set_never_drops_a_file_the_old_search_would_have_found():
+    """Whatever the old resolver found on THIS platform must still be present.
+
+    Complements the guard above from the other direction, and is meaningful on
+    both platforms: on POSIX the pre-fix search found a subset, on Windows the
+    same set, and in neither case may the new contract lose a file that was
+    previously being hashed and archived.
+    """
+    issues_root = FACTORY / "02_MONTHLY_ISSUES"
+    if not issues_root.is_dir():
+        pytest.skip("no issue folders in this checkout")
+
+    for folder in sorted(p for p in issues_root.iterdir() if p.is_dir()):
+        generated = folder / "generated_art"
+        if not generated.exists():
+            continue
+        pre_fix = set(generated.rglob("*cover*.png"))          # platform-dependent, as it was
+        after = set(issue_cover.cover_evidence_images(folder))
+        assert pre_fix <= after, (
+            f"{folder.name}: the new contract dropped {sorted(p.name for p in pre_fix - after)}, "
+            "which the previous resolver was including in the evidence hash and archive")
 
 
 def test_the_three_known_legacy_issues_are_no_longer_blocked_on_cover():
