@@ -7,7 +7,7 @@ before touching anything.
 
 - **Branch:** `claude/genesis-production-loop`
 - **Loop position on resume:** round 2, iteration 12 committed (`8d259a7`)
-- **Loop position now:** round 2, iteration 19 committed
+- **Loop position now:** round 2, iteration 20 committed; PR #30 retargeted to `main`, CI green; PR #29 closed as superseded
 - **Session started:** 2026-07-26
 
 ---
@@ -18,7 +18,7 @@ before touching anything.
    format `round 2 iteration NN: <what>`.
 2. Read the **Iteration Log** below for what is done and what is next.
 3. Re-establish the baseline: `python -m pytest -q` from the repo root.
-   Expected: **795 tests, all passing**, and `python -m ruff check .` clean.
+   Expected: **807 tests, all passing**, and `python -m ruff check .` clean.
    (It was 747 at session start and bare `pytest` was broken — see F-001.)
 4. Pick the top unchecked item from **Open Findings**.
 
@@ -32,7 +32,9 @@ before touching anything.
 | Bare `pytest` from root, as committed | **BROKEN — 52 collection errors** | see F-001 | 2026-07-26 |
 | Tests passing, after iteration 13 | **751** | `python -m pytest -q` | 2026-07-26 |
 | Tests passing, after iteration 17 | **786** | `python -m pytest -q` | 2026-07-26 |
-| Tests passing, after iteration 19 | **795** (+48 this session) | `python -m pytest -q` | 2026-07-26 |
+| Tests passing, after iteration 19 | **795** | `python -m pytest -q` | 2026-07-26 |
+| Tests passing, after iteration 20 | **807** (+60 this session) | `python -m pytest -q` | 2026-07-26 |
+| CI `validate` on PR #30 | **pass** (first run ever on this branch) | `gh pr checks 30` | 2026-07-26 |
 | Clean-clone run (tracked files only) | **795 passed, 0 skipped** | `git clone` + `pytest -q -rs` | 2026-07-26 |
 | `ruff check .` | clean (was 3 errors) | `python -m ruff check .` | 2026-07-26 |
 | `try/except` handlers in repo-owned code | 170 | `python scripts/silent_failure_audit.py` | 2026-07-26 |
@@ -462,6 +464,114 @@ failed checkout with `Filename too long`. That was my scratch destination
 260-char limit - **not** a repo defect. Any clone destination deeper than
 ~120 chars needs `git clone -c core.longpaths=true` on Windows. Linux CI is
 unaffected.
+
+### Round 2, iteration 20 - Studio and CLI agree on whether a page plan is complete
+
+**Problem (U06, Medium).** The Stage 4/5/9 CLI gate required four non-empty panel
+fields (`action`, `emotion`, `location`, `camera_angle`); both Studio validators
+checked only `location` and `action`, and the schema declared the other two as
+bare `{"type": "string"}`, so `""` satisfied it. A plan with an empty
+`camera_angle` or `emotion` **passed the Studio promote gate and then hard-failed
+the CLI gate** - after art had been generated from it against fabricated defaults
+("medium shot" / "neutral").
+
+Reachable without anyone doing anything unusual: the Studio's own script
+generator emits the label `- Camera angle:` while the parser keys on `camera`, so
+that panel parses to `camera_angle: ""`.
+
+**Fix - in the one place all four validators already read: the schema.** Verified
+by reading, not assumed: both Studio validators run `Draft202012Validator`
+against it (`page_panel_workspace.py:180` and `:206`),
+`issue_workflow._schema_errors` is schema-only, and `validate_issue.schema_check`
+loads the same file. `minLength: 1` + `pattern: \S` on exactly those four fields.
+The pattern also closes a second gap the sweep found: the Studio used a falsy
+check while the CLI used `.strip()`, so a whitespace-only value passed one and
+failed the other.
+
+Deliberately scoped. `art_prompt` / `negative_prompt` / `controlnet_required` are
+legitimately `""` until Stage 5 fills them (stage_04_script.md rule 8); a blanket
+tightening would block every promotion. A test pins that they stay loose.
+
+**Verified end to end - all three validators now reject the same input:**
+
+| Validator | Before | After |
+|---|---|---|
+| Studio `validate_plan` | passed | **failed** (4 errors) |
+| Studio `validate_canonical_payload` | passed | **failed** (5 errors) |
+| CLI `validate_issue` field check | failed (2) | **failed** (2 errors) |
+
+Real-data guard: all 7 tracked page plans re-validated, 6 clean.
+`2026-07_Mango_Pier` fails on its pre-existing issue-id naming violation - **0 of
+its 21 errors are on these four fields**. The 8-issue CLI sweep is unchanged at
+6 PASS / 2 pre-existing FAIL.
+
+12 new tests, mutation-verified (reverting the schema tightening fails 9).
+`807 passed` / ruff clean.
+
+---
+
+## PR reconciliation and merge sequencing (2026-07-26)
+
+### What the branch topology actually was
+
+| PR | Head | Base | State |
+|---|---|---|---|
+| #29 | `character-integration-upgrade-20260716` | `main` | **closed as superseded** |
+| #30 | `claude/genesis-production-loop` | ~~`character-integration-upgrade-20260716`~~ -> **`main`** | open |
+
+The audit commits were **never on #29** - they are all on #30's branch
+(`git branch --contains` on any audit commit returns that branch only). #30 was
+*stacked* on #29, and contains **all 59** of #29's commits (`git log #30..#29`
+returns 0).
+
+### Why #29 was closed rather than merged first
+
+The repo allows **squash-merge only** (merge commits and rebase are disabled).
+Squashing #29 into `main` would create a commit absent from #30's history, so
+#30's merge base would fall back to pre-#29 `main` and all 59 commits would be
+re-applied. Measured, not assumed:
+
+```
+git merge-tree --write-tree <simulated-squashed-main> origin/claude/genesis-production-loop
+-> 27 conflicted files
+```
+
+including `.github/workflows/validate.yml`, `.gitignore` and
+`00_SYSTEM/continuity_ledger.md` - several of them files this audit had just
+repaired, so hand-resolving those conflicts risked silently dropping a fix.
+
+Merging #30 alone is conflict-free: `origin/main` is an ancestor of its tip.
+#29's branch is **not** deleted (`delete_branch_on_merge` is false), so the
+close is fully reversible.
+
+### The CI gap this exposed
+
+`validate.yml` triggers on `pull_request: branches: [main]`. Because #30's base
+was `character-integration-upgrade-20260716`, **CI had never run on it** -
+`gh pr checks 30` reported no checks at all, while `main` requires the `validate`
+check with `enforce_admins: true`. Retargeting alone did not fix it either: a
+base change fires `pull_request: edited`, which is not in the workflow's default
+trigger set. CI only started on the next push (`synchronize`).
+
+**Every "795 passed" claim made before that point was local-only evidence.**
+
+### Recorded results
+
+| Check | Result |
+|---|---|
+| CI `validate` on #30 (first ever run) | **pass** (1m43s) |
+| #30 mergeable / state | MERGEABLE / **CLEAN** |
+| Local full suite | 807 passed, ruff clean |
+| Clean-clone, all 4 gates | 807 passed **0 skipped**; ruff clean; 12 bibles 0 warnings; ledger 9 entries 0 errors |
+| 8-issue CLI sweep | 6 PASS / 2 pre-existing FAIL (unchanged) |
+
+### Still open before #30 should merge
+
+**U05** - the release gate and the CLI packager disagree on where the final cover
+lives, so 3 of 7 issues have a cover the Studio cannot see. This is the second
+half of the CLI/Studio divergence named as the readiness blocker; only U06 is
+closed. Until U05 is resolved the readiness decision stands at **approved for
+controlled testing only**.
 
 ---
 
