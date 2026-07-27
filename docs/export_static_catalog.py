@@ -15,6 +15,55 @@ import canon_catalog  # noqa: E402
 
 EXPR_MAX_EDGE = 512
 EXPR_QUALITY = 82
+PRIMARY_MAX_EDGE = 768
+PRIMARY_QUALITY = 82
+
+
+def _export_primary_media(items: list[dict], kind: str) -> int:
+    """Export each location/prop primary reference into docs/media/<kind> and
+    rewrite its URL to a RAW RELATIVE path.
+
+    canon_catalog emits the live app's absolute "/media/<kind>/<slug>/..." URL and
+    never copies the file into docs/, so on GitHub Pages (served under a repo
+    subpath) every locations/props thumbnail 404s. Mirror the expression export:
+    resize the source primary-reference.png to a web-tier webp under
+    docs/media/<kind>/<slug>/ and point the catalog at "./media/<kind>/<slug>/...".
+    An item whose source image is missing/unreadable is marked has_primary_image
+    False so the site never links a file that isn't there.
+    """
+    src_root = ROOT / "03_APPROVED_CANON" / f"approved_{kind}"
+    dest_root = ROOT / "docs" / "media" / kind
+    if dest_root.exists():
+        shutil.rmtree(dest_root)
+    exported = 0
+    for entry in items:
+        slug = (entry.get("folder") or "").rsplit("/", 1)[-1]
+        source = src_root / slug / "primary-reference.png"
+        if not (entry.get("has_primary_image") and slug and source.is_file()):
+            entry["has_primary_image"] = False
+            entry["primary_image_url"] = None
+            continue
+        try:
+            img = Image.open(source).convert("RGB")
+        except OSError:
+            entry["has_primary_image"] = False
+            entry["primary_image_url"] = None
+            continue
+        w, h = img.size
+        scale = min(1.0, PRIMARY_MAX_EDGE / max(w, h))
+        if scale < 1.0:
+            img = img.resize((max(1, int(w * scale)), max(1, int(h * scale))), Image.Resampling.LANCZOS)
+        dest_dir = dest_root / slug
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        out_path = dest_dir / "primary-reference.webp"
+        try:
+            img.save(out_path, "WEBP", quality=PRIMARY_QUALITY, method=4)
+        except Exception:
+            out_path = dest_dir / "primary-reference.jpg"
+            img.save(out_path, "JPEG", quality=PRIMARY_QUALITY, optimize=True)
+        entry["primary_image_url"] = f"./media/{kind}/{slug}/{out_path.name}".replace("\\", "/")
+        exported += 1
+    return exported
 
 
 def _export_expression_assets() -> list[dict]:
@@ -55,14 +104,14 @@ def _export_expression_assets() -> list[dict]:
                 out_name = png.stem + ".jpg"
                 out_path = dest_dir / out_name
                 img.save(out_path, "JPEG", quality=EXPR_QUALITY, optimize=True)
-            # Relative URL from docs/index.html
-            rel = f"./media/expressions/{slug}/{out_name}".replace("\\", "/")
-            # Encode spaces in slug for browsers
-            rel_encoded = "/".join(
-                part if part in (".", "..") else __import__("urllib.parse").parse.quote(part, safe="._-")
-                for part in rel.split("/")
-            )
-            images.append({"filename": out_name, "url": rel_encoded, "source_png": png.name})
+            # Relative URL from docs/index.html, emitted RAW (unencoded), matching
+            # the contract of canon_catalog.expression_media_url and the
+            # locations/props/character URLs: the single client-side mediaUrl()
+            # percent-encodes each segment exactly once. Pre-encoding here caused a
+            # double-encode (a spaced slug "lil devil" -> %20 -> client %2520) that
+            # 404s every such expression plate on GitHub Pages.
+            rel_url = f"./media/expressions/{slug}/{out_name}".replace("\\", "/")
+            images.append({"filename": out_name, "url": rel_url, "source_png": png.name})
 
         if not images:
             continue
@@ -125,10 +174,15 @@ if __name__ == "__main__":
         summary["expression_sets_count"] = len(expressions)
         summary["expression_images_count"] = sum(int(x.get("image_count") or 0) for x in expressions)
 
+    locations = canon_catalog.list_locations(ROOT)
+    props = canon_catalog.list_props(ROOT)
+    loc_media = _export_primary_media(locations, "locations")
+    prop_media = _export_primary_media(props, "props")
+    print(f"Exported {loc_media} location + {prop_media} prop primary images to docs/media")
     payload = {
         "summary": summary,
-        "locations": canon_catalog.list_locations(ROOT),
-        "props": canon_catalog.list_props(ROOT),
+        "locations": locations,
+        "props": props,
         "expressions": expressions,
     }
     (out / "canon-catalog.json").write_text(

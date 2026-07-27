@@ -1,0 +1,13 @@
+{
+  "panel_id": "MZ-2026-09-02_P08_PANEL06",
+  "type": "scene",
+  "location": "Zoo City Streets",
+  "action": "TwoTone allows himself half a smile on the white side of his face.",
+  "foreground_rain": true,
+  "characters": [
+    {"character": "twotone", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/twotone/twotone_19_determined.png",
+     "foot_anchor": [385, 630], "shadow": "down-right", "reflection_surface": "sidewalk_sheet_left"},
+    {"character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_00_clean_base.png",
+     "foot_anchor": [830, 505], "shadow": "down-left"}
+  ]
+}

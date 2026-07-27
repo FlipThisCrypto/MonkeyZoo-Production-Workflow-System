@@ -1,0 +1,38 @@
+{
+  "panel_id": "MZ-2026-09-02_P06_PANEL04",
+  "source_script_line": "Clever follows wires; Ash asks one short question.",
+  "foreground_rain": false,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "clever",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/clever/clever_26_reaching.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          400,
+          590
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-right"
+      }
+    },
+    {
+      "character": "ash",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/ash/ash_13_pointing.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          860,
+          665
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      }
+    }
+  ]
+}

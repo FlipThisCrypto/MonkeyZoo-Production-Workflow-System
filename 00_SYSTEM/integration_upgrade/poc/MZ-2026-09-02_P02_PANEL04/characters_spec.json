@@ -1,0 +1,42 @@
+{
+  "panel_id": "MZ-2026-09-02_P02_PANEL04",
+  "source_script_line": "CORE: NeonBlue tries to reassure; Static's ears still track a buzz.",
+  "foreground_rain": true,
+  "rain_density": 80,
+  "characters": [
+    {
+      "character": "static",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_16_worried.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          350,
+          635
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "sidewalk_sheet_left"
+      }
+    },
+    {
+      "character": "neonblue",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/neonblue/neonblue_23_waving.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          500,
+          600
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      }
+    }
+  ]
+}

@@ -21,7 +21,7 @@ def test_release_requires_exact_pass_and_current_qa_evidence(factory):
 def test_manifest_hashes_every_release_file_and_is_deterministic(factory):
  root,issue=factory;one=release.manifest(issue,root);two=release.manifest(issue,root);assert one["manifest_hash"]==two["manifest_hash"];assert all(len(x["sha256"])==64 for x in one["files"])
 def test_approval_explicit_stales_on_evidence_change(factory):
- root,issue=factory;approved=release.approve(issue,root,"Owner approved");assert release.readiness(issue,root)["approval_current"];(issue/"social_posts.md").write_text("changed");status=release.readiness(issue,root);assert not status["approval_current"];assert not status["release_ready"]
+ root,issue=factory;release.approve(issue,root,"Owner approved");assert release.readiness(issue,root)["approval_current"];(issue/"social_posts.md").write_text("changed");status=release.readiness(issue,root);assert not status["approval_current"];assert not status["release_ready"]
 def test_blockers_prevent_approval(factory):
  root,issue=factory;(issue/"exports/issue.cbz").unlink()
  with pytest.raises(release.ReleaseError,match="approval blocked"):release.approve(issue,root)
@@ -115,4 +115,28 @@ def test_archive_path_is_unique_per_issue_folder_not_edition_only(factory):
  legacy.mkdir(parents=True)
  (legacy / "issue.pdf").write_bytes(b"pdf")
  assert release._resolve_archive(issue, root) == legacy
+
+
+def test_publish_archive_survives_failed_recopy(factory, monkeypatch):
+ # A re-publish (replace) whose copy fails partway must NOT destroy the
+ # previously published release archive -- it is built in staging and swapped
+ # in only on success.
+ root, issue = factory
+ release.approve(issue, root); release.promote_manifest(issue, root); release.publish_archive(issue, root)
+ archive = root / "05_RELEASE_ARCHIVE/2027" / issue.name
+ before = sorted(p.name for p in archive.iterdir()); assert before
+ state = json.loads((issue / ".workflow-status.json").read_text()); state["active_stage"] = "published"; release._write_json(issue / ".workflow-status.json", state)
+ import shutil as _sh
+ real = _sh.copy2; calls = {"n": 0}
+ def flaky(src, dst, *a, **k):
+  calls["n"] += 1
+  if calls["n"] == 2:
+   raise OSError("disk full mid-publish")
+  return real(src, dst, *a, **k)
+ monkeypatch.setattr(_sh, "copy2", flaky)
+ with pytest.raises(OSError):
+  release.publish_archive(issue, root, True)
+ monkeypatch.setattr(_sh, "copy2", real)
+ assert archive.exists(); assert sorted(p.name for p in archive.iterdir()) == before   # old archive intact
+ assert [p.name for p in archive.parent.iterdir() if ".staging" in p.name] == []        # no staging litter
 

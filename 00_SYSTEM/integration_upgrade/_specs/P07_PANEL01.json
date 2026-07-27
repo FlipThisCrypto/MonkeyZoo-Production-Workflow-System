@@ -1,0 +1,11 @@
+{
+  "panel_id": "MZ-2026-09-02_P07_PANEL01",
+  "type": "scene",
+  "location": "Transit Announcement Hub",
+  "action": "The analyzer screen at the hub resolves noise into six clean spikes; Clever leans in.",
+  "foreground_rain": false,
+  "characters": [
+    {"character": "clever", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/clever/clever_26_reaching.png", "foot_anchor": [730, 585], "shadow": "down-left", "reflection_surface": "glossy_floor_full"},
+    {"character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_24_thinking.png", "foot_anchor": [390, 470], "shadow": "down-right", "reflection_surface": "glossy_floor_full"}
+  ]
+}

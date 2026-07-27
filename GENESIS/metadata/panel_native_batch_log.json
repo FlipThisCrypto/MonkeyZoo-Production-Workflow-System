@@ -1,0 +1,1915 @@
+{
+  "regenerated": [
+    {
+      "panel": "MZ-2026-09-02_P01_PANEL02",
+      "character": "static",
+      "shot": "medium",
+      "band_px": [
+        1280,
+        658
+      ],
+      "opaque_frac": 0.579,
+      "corners_clear": true,
+      "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60000_00002_.png",
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P01_PANEL02.png",
+      "page": 1
+    },
+    {
+      "panel": "MZ-2026-09-02_P01_PANEL03",
+      "character": "static",
+      "shot": "medium",
+      "band_px": [
+        1280,
+        914
+      ],
+      "opaque_frac": 0.573,
+      "corners_clear": true,
+      "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60011_00001_.png",
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P01_PANEL03.png",
+      "page": 1
+    },
+    {
+      "panel": "MZ-2026-09-02_P01_PANEL04",
+      "character": "static",
+      "shot": "close",
+      "band_px": [
+        1280,
+        508
+      ],
+      "opaque_frac": 0.569,
+      "corners_clear": true,
+      "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60022_00001_.png",
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P01_PANEL04.png",
+      "page": 1
+    },
+    {
+      "panel": "MZ-2026-09-02_P01_PANEL06",
+      "characters": [
+        "static",
+        "moodz"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        482
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60033_00001_.png"
+        },
+        {
+          "character": "moodz",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\moodz_seed60040_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P01_PANEL06.png",
+      "page": 2
+    },
+    {
+      "panel": "MZ-2026-09-02_P02_PANEL01",
+      "characters": [
+        "static",
+        "moodz"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        940
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60044_00001_.png"
+        },
+        {
+          "character": "moodz",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\moodz_seed60051_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P02_PANEL01.png",
+      "page": 2
+    },
+    {
+      "panel": "MZ-2026-09-02_P02_PANEL02",
+      "characters": [
+        "static",
+        "moodz"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        676
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60055_00001_.png"
+        },
+        {
+          "character": "moodz",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\moodz_seed60062_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P02_PANEL02.png",
+      "page": 2
+    },
+    {
+      "panel": "MZ-2026-09-02_P02_PANEL03",
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        786
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60066_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60073_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P02_PANEL03.png",
+      "page": 3
+    },
+    {
+      "panel": "MZ-2026-09-02_P02_PANEL04",
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        786
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60077_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60084_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P02_PANEL04.png",
+      "page": 3
+    },
+    {
+      "panel": "MZ-2026-09-02_P02_PANEL05",
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        514
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60088_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60095_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P02_PANEL05.png",
+      "page": 3
+    },
+    {
+      "panel": "MZ-2026-09-02_P03_PANEL02",
+      "characters": [
+        "static",
+        "twotone",
+        "neonblue"
+      ],
+      "n": 3,
+      "band_px": [
+        1280,
+        374
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60099_00001_.png"
+        },
+        {
+          "character": "twotone",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\twotone_seed60106_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60113_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P03_PANEL02.png",
+      "page": 4
+    },
+    {
+      "panel": "MZ-2026-09-02_P03_PANEL03",
+      "characters": [
+        "static",
+        "twotone",
+        "neonblue"
+      ],
+      "n": 3,
+      "band_px": [
+        1280,
+        334
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60110_00001_.png"
+        },
+        {
+          "character": "twotone",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\twotone_seed60117_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60124_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P03_PANEL03.png",
+      "page": 4
+    },
+    {
+      "panel": "MZ-2026-09-02_P03_PANEL04",
+      "characters": [
+        "static",
+        "twotone",
+        "neonblue"
+      ],
+      "n": 3,
+      "band_px": [
+        1280,
+        428
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60121_00001_.png"
+        },
+        {
+          "character": "twotone",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\twotone_seed60128_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60135_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P03_PANEL04.png",
+      "page": 4
+    },
+    {
+      "panel": "MZ-2026-09-02_P03_PANEL06",
+      "character": "static",
+      "shot": "close",
+      "band_px": [
+        1280,
+        618
+      ],
+      "opaque_frac": 0.539,
+      "corners_clear": true,
+      "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60132_00001_.png",
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P03_PANEL06.png",
+      "page": 5
+    },
+    {
+      "panel": "MZ-2026-09-02_P04_PANEL01",
+      "character": "static",
+      "shot": "medium",
+      "band_px": [
+        1280,
+        860
+      ],
+      "opaque_frac": 0.544,
+      "corners_clear": true,
+      "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60143_00001_.png",
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P04_PANEL01.png",
+      "page": 5
+    },
+    {
+      "panel": "MZ-2026-09-02_P04_PANEL03",
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        686
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60154_00001_.png"
+        },
+        {
+          "character": "scarline",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\scarline_seed60161_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P04_PANEL03.png",
+      "page": 5
+    },
+    {
+      "panel": "MZ-2026-09-02_P04_PANEL04",
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        686
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60165_00001_.png"
+        },
+        {
+          "character": "scarline",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\scarline_seed60172_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P04_PANEL04.png",
+      "page": 5
+    },
+    {
+      "panel": "MZ-2026-09-02_P04_PANEL06",
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        786
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60176_00001_.png"
+        },
+        {
+          "character": "scarline",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\scarline_seed60183_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P04_PANEL06.png",
+      "page": 6
+    },
+    {
+      "panel": "MZ-2026-09-02_P04_PANEL05",
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        786
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60187_00001_.png"
+        },
+        {
+          "character": "scarline",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\scarline_seed60194_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P04_PANEL05.png",
+      "page": 6
+    },
+    {
+      "panel": "MZ-2026-09-02_P05_PANEL02",
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        508
+      ],
+      "staged": [
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60198_00001_.png"
+        },
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60205_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P05_PANEL02.png",
+      "page": 6
+    },
+    {
+      "panel": "MZ-2026-09-02_P05_PANEL03",
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1070
+      ],
+      "staged": [
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60209_00001_.png"
+        },
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60216_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P05_PANEL03.png",
+      "page": 7
+    },
+    {
+      "panel": "MZ-2026-09-02_P05_PANEL04",
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1070
+      ],
+      "staged": [
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60220_00001_.png"
+        },
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60227_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P05_PANEL04.png",
+      "page": 7
+    },
+    {
+      "panel": "MZ-2026-09-02_P05_PANEL05",
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        902
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60231_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60238_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P05_PANEL05.png",
+      "page": 7
+    },
+    {
+      "panel": "MZ-2026-09-02_P05_PANEL06",
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1252
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60242_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60249_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P05_PANEL06.png",
+      "page": 7
+    },
+    {
+      "panel": "MZ-2026-09-02_P06_PANEL01",
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1280
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60253_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60260_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P06_PANEL01.png",
+      "page": 7
+    },
+    {
+      "panel": "MZ-2026-09-02_P06_PANEL02",
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        920
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60264_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60271_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P06_PANEL02.png",
+      "page": 7
+    },
+    {
+      "panel": "MZ-2026-09-02_P06_PANEL06",
+      "characters": [
+        "clever",
+        "ash"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        482
+      ],
+      "staged": [
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60275_00001_.png"
+        },
+        {
+          "character": "ash",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\ash_seed60282_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P06_PANEL06.png",
+      "page": 8
+    },
+    {
+      "panel": "MZ-2026-09-02_P06_PANEL04",
+      "characters": [
+        "clever",
+        "ash"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        940
+      ],
+      "staged": [
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60286_00001_.png"
+        },
+        {
+          "character": "ash",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\ash_seed60293_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P06_PANEL04.png",
+      "page": 8
+    },
+    {
+      "panel": "MZ-2026-09-02_P06_PANEL05",
+      "characters": [
+        "clever",
+        "ash"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        676
+      ],
+      "staged": [
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60297_00001_.png"
+        },
+        {
+          "character": "ash",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\ash_seed60304_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P06_PANEL05.png",
+      "page": 8
+    },
+    {
+      "panel": "MZ-2026-09-02_P07_PANEL01",
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1070
+      ],
+      "staged": [
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60308_00001_.png"
+        },
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60315_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P07_PANEL01.png",
+      "page": 9
+    },
+    {
+      "panel": "MZ-2026-09-02_P07_PANEL02",
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1070
+      ],
+      "staged": [
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60319_00001_.png"
+        },
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60326_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P07_PANEL02.png",
+      "page": 9
+    },
+    {
+      "panel": "MZ-2026-09-02_P07_PANEL03",
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        902
+      ],
+      "staged": [
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60330_00001_.png"
+        },
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60337_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P07_PANEL03.png",
+      "page": 9
+    },
+    {
+      "panel": "MZ-2026-09-02_P07_PANEL04",
+      "characters": [
+        "clever",
+        "static"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1252
+      ],
+      "staged": [
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60341_00001_.png"
+        },
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60348_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P07_PANEL04.png",
+      "page": 9
+    },
+    {
+      "panel": "MZ-2026-09-02_P07_PANEL05",
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1280
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60352_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60359_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P07_PANEL05.png",
+      "page": 9
+    },
+    {
+      "panel": "MZ-2026-09-02_P07_PANEL06",
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        920
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60363_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60370_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P07_PANEL06.png",
+      "page": 9
+    },
+    {
+      "panel": "MZ-2026-09-02_P08_PANEL01",
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1070
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60374_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60381_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P08_PANEL01.png",
+      "page": 10
+    },
+    {
+      "panel": "MZ-2026-09-02_P08_PANEL02",
+      "characters": [
+        "static",
+        "neonblue"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1070
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60385_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60392_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P08_PANEL02.png",
+      "page": 10
+    },
+    {
+      "panel": "MZ-2026-09-02_P08_PANEL03",
+      "characters": [
+        "static",
+        "twotone"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        902
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60396_00001_.png"
+        },
+        {
+          "character": "twotone",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\twotone_seed60403_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P08_PANEL03.png",
+      "page": 10
+    },
+    {
+      "panel": "MZ-2026-09-02_P08_PANEL04",
+      "characters": [
+        "static",
+        "twotone"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1252
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60407_00001_.png"
+        },
+        {
+          "character": "twotone",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\twotone_seed60414_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P08_PANEL04.png",
+      "page": 10
+    },
+    {
+      "panel": "MZ-2026-09-02_P08_PANEL05",
+      "characters": [
+        "static",
+        "twotone"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1280
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60418_00001_.png"
+        },
+        {
+          "character": "twotone",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\twotone_seed60425_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P08_PANEL05.png",
+      "page": 10
+    },
+    {
+      "panel": "MZ-2026-09-02_P08_PANEL06",
+      "characters": [
+        "static",
+        "twotone"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        920
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60429_00001_.png"
+        },
+        {
+          "character": "twotone",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\twotone_seed60436_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P08_PANEL06.png",
+      "page": 10
+    },
+    {
+      "panel": "MZ-2026-09-02_P09_PANEL02",
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        340
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60440_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60447_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P09_PANEL02.png",
+      "page": 11
+    },
+    {
+      "panel": "MZ-2026-09-02_P09_PANEL03",
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        346
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60451_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60458_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P09_PANEL03.png",
+      "page": 11
+    },
+    {
+      "panel": "MZ-2026-09-02_P09_PANEL05",
+      "characters": [
+        "moodz",
+        "static"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1070
+      ],
+      "staged": [
+        {
+          "character": "moodz",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\moodz_seed60462_00001_.png"
+        },
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60469_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P09_PANEL05.png",
+      "page": 12
+    },
+    {
+      "panel": "MZ-2026-09-02_P09_PANEL06",
+      "characters": [
+        "moodz",
+        "static"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1070
+      ],
+      "staged": [
+        {
+          "character": "moodz",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\moodz_seed60473_00001_.png"
+        },
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60480_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P09_PANEL06.png",
+      "page": 12
+    },
+    {
+      "panel": "MZ-2026-09-02_P10_PANEL01",
+      "characters": [
+        "moodz",
+        "static"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        920
+      ],
+      "staged": [
+        {
+          "character": "moodz",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\moodz_seed60484_00001_.png"
+        },
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60491_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P10_PANEL01.png",
+      "page": 12
+    },
+    {
+      "panel": "MZ-2026-09-02_P10_PANEL02",
+      "characters": [
+        "moodz",
+        "static"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1280
+      ],
+      "staged": [
+        {
+          "character": "moodz",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\moodz_seed60495_00001_.png"
+        },
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60502_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P10_PANEL02.png",
+      "page": 12
+    },
+    {
+      "panel": "MZ-2026-09-02_P10_PANEL06",
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1070
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60506_00001_.png"
+        },
+        {
+          "character": "scarline",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\scarline_seed60513_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P10_PANEL06.png",
+      "page": 13
+    },
+    {
+      "panel": "MZ-2026-09-02_P10_PANEL03",
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1070
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60517_00001_.png"
+        },
+        {
+          "character": "scarline",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\scarline_seed60524_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P10_PANEL03.png",
+      "page": 13
+    },
+    {
+      "panel": "MZ-2026-09-02_P10_PANEL04",
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        920
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60528_00001_.png"
+        },
+        {
+          "character": "scarline",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\scarline_seed60535_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P10_PANEL04.png",
+      "page": 13
+    },
+    {
+      "panel": "MZ-2026-09-02_P10_PANEL05",
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1280
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60539_00001_.png"
+        },
+        {
+          "character": "scarline",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\scarline_seed60546_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P10_PANEL05.png",
+      "page": 13
+    },
+    {
+      "panel": "MZ-2026-09-02_P11_PANEL02",
+      "characters": [
+        "static",
+        "neonblue",
+        "twotone"
+      ],
+      "n": 3,
+      "band_px": [
+        1280,
+        376
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60550_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60557_00001_.png"
+        },
+        {
+          "character": "twotone",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\twotone_seed60564_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P11_PANEL02.png",
+      "page": 14
+    },
+    {
+      "panel": "MZ-2026-09-02_P11_PANEL03",
+      "characters": [
+        "static",
+        "neonblue",
+        "twotone"
+      ],
+      "n": 3,
+      "band_px": [
+        1280,
+        366
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60561_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60568_00002_.png"
+        },
+        {
+          "character": "twotone",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\twotone_seed60575_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P11_PANEL03.png",
+      "page": 14
+    },
+    {
+      "panel": "MZ-2026-09-02_P11_PANEL04",
+      "characters": [
+        "static",
+        "neonblue",
+        "twotone"
+      ],
+      "n": 3,
+      "band_px": [
+        1280,
+        358
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60572_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60579_00001_.png"
+        },
+        {
+          "character": "twotone",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\twotone_seed60586_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P11_PANEL04.png",
+      "page": 14
+    },
+    {
+      "panel": "MZ-2026-09-02_P11_PANEL06",
+      "characters": [
+        "moodz",
+        "scarline",
+        "static"
+      ],
+      "n": 3,
+      "band_px": [
+        1280,
+        430
+      ],
+      "staged": [
+        {
+          "character": "moodz",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\moodz_seed60583_00001_.png"
+        },
+        {
+          "character": "scarline",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\scarline_seed60590_00001_.png"
+        },
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60597_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P11_PANEL06.png",
+      "page": 15
+    },
+    {
+      "panel": "MZ-2026-09-02_P12_PANEL01",
+      "characters": [
+        "moodz",
+        "scarline",
+        "static"
+      ],
+      "n": 3,
+      "band_px": [
+        1280,
+        548
+      ],
+      "staged": [
+        {
+          "character": "moodz",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\moodz_seed60594_00001_.png"
+        },
+        {
+          "character": "scarline",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\scarline_seed60601_00001_.png"
+        },
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60608_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P12_PANEL01.png",
+      "page": 15
+    },
+    {
+      "panel": "MZ-2026-09-02_P12_PANEL03",
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        488
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60605_00001_.png"
+        },
+        {
+          "character": "scarline",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\scarline_seed60612_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P12_PANEL03.png",
+      "page": 16
+    },
+    {
+      "panel": "MZ-2026-09-02_P12_PANEL04",
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        678
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60616_00001_.png"
+        },
+        {
+          "character": "scarline",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\scarline_seed60623_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P12_PANEL04.png",
+      "page": 16
+    },
+    {
+      "panel": "MZ-2026-09-02_P12_PANEL05",
+      "characters": [
+        "static",
+        "scarline"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        372
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60627_00001_.png"
+        },
+        {
+          "character": "scarline",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\scarline_seed60634_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P12_PANEL05.png",
+      "page": 16
+    },
+    {
+      "panel": "MZ-2026-09-02_P13_PANEL01",
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1070
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60638_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60645_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P13_PANEL01.png",
+      "page": 17
+    },
+    {
+      "panel": "MZ-2026-09-02_P13_PANEL02",
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1070
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60649_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60656_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P13_PANEL02.png",
+      "page": 17
+    },
+    {
+      "panel": "MZ-2026-09-02_P13_PANEL03",
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        920
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60660_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60667_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P13_PANEL03.png",
+      "page": 17
+    },
+    {
+      "panel": "MZ-2026-09-02_P13_PANEL04",
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        1280
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60671_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60678_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P13_PANEL04.png",
+      "page": 17
+    },
+    {
+      "panel": "MZ-2026-09-02_P13_PANEL06",
+      "characters": [
+        "static",
+        "clever",
+        "twotone"
+      ],
+      "n": 3,
+      "band_px": [
+        1280,
+        414
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60682_00002_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60689_00001_.png"
+        },
+        {
+          "character": "twotone",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\twotone_seed60696_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P13_PANEL06.png",
+      "page": 18
+    },
+    {
+      "panel": "MZ-2026-09-02_P14_PANEL01",
+      "characters": [
+        "static",
+        "clever",
+        "twotone"
+      ],
+      "n": 3,
+      "band_px": [
+        1280,
+        560
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60693_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60700_00001_.png"
+        },
+        {
+          "character": "twotone",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\twotone_seed60707_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P14_PANEL01.png",
+      "page": 18
+    },
+    {
+      "panel": "MZ-2026-09-02_P14_PANEL02",
+      "characters": [
+        "static",
+        "clever",
+        "twotone"
+      ],
+      "n": 3,
+      "band_px": [
+        1280,
+        302
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60704_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60711_00001_.png"
+        },
+        {
+          "character": "twotone",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\twotone_seed60718_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P14_PANEL02.png",
+      "page": 19
+    },
+    {
+      "panel": "MZ-2026-09-02_P14_PANEL04",
+      "characters": [
+        "static",
+        "neonblue",
+        "ash"
+      ],
+      "n": 3,
+      "band_px": [
+        1280,
+        268
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60715_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60722_00001_.png"
+        },
+        {
+          "character": "ash",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\ash_seed60729_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P14_PANEL04.png",
+      "page": 19
+    },
+    {
+      "panel": "MZ-2026-09-02_P14_PANEL05",
+      "characters": [
+        "static",
+        "neonblue",
+        "ash"
+      ],
+      "n": 3,
+      "band_px": [
+        1280,
+        336
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60726_00001_.png"
+        },
+        {
+          "character": "neonblue",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\neonblue_seed60733_00001_.png"
+        },
+        {
+          "character": "ash",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\ash_seed60740_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P14_PANEL05.png",
+      "page": 19
+    },
+    {
+      "panel": "MZ-2026-09-02_P15_PANEL01",
+      "character": "static",
+      "shot": "medium",
+      "band_px": [
+        1280,
+        1070
+      ],
+      "opaque_frac": 0.568,
+      "corners_clear": true,
+      "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60737_00001_.png",
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P15_PANEL01.png",
+      "page": 20
+    },
+    {
+      "panel": "MZ-2026-09-02_P15_PANEL02",
+      "character": "static",
+      "shot": "medium",
+      "band_px": [
+        1280,
+        1070
+      ],
+      "opaque_frac": 0.522,
+      "corners_clear": true,
+      "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60748_00001_.png",
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P15_PANEL02.png",
+      "page": 20
+    },
+    {
+      "panel": "MZ-2026-09-02_P15_PANEL03",
+      "character": "static",
+      "shot": "close",
+      "band_px": [
+        1280,
+        920
+      ],
+      "opaque_frac": 0.576,
+      "corners_clear": true,
+      "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60759_00001_.png",
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P15_PANEL03.png",
+      "page": 20
+    },
+    {
+      "panel": "MZ-2026-09-02_P15_PANEL04",
+      "character": "static",
+      "shot": "medium",
+      "band_px": [
+        1280,
+        1280
+      ],
+      "opaque_frac": 0.61,
+      "corners_clear": true,
+      "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60770_00001_.png",
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P15_PANEL04.png",
+      "page": 20
+    },
+    {
+      "panel": "MZ-2026-09-02_P15_PANEL05",
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        622
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60781_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60788_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P15_PANEL05.png",
+      "page": 21
+    },
+    {
+      "panel": "MZ-2026-09-02_P15_PANEL06",
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        622
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60792_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60799_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P15_PANEL06.png",
+      "page": 21
+    },
+    {
+      "panel": "MZ-2026-09-02_P16_PANEL01",
+      "characters": [
+        "static",
+        "clever"
+      ],
+      "n": 2,
+      "band_px": [
+        1280,
+        394
+      ],
+      "staged": [
+        {
+          "character": "static",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60803_00001_.png"
+        },
+        {
+          "character": "clever",
+          "corners_clear": true,
+          "render": "I:\\ai\\nft\\output\\MZ-GEN\\clever_seed60810_00001_.png"
+        }
+      ],
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P16_PANEL01.png",
+      "page": 21
+    },
+    {
+      "panel": "MZ-2026-09-02_P16_PANEL04",
+      "character": "static",
+      "shot": "medium",
+      "band_px": [
+        1280,
+        466
+      ],
+      "opaque_frac": 0.53,
+      "corners_clear": true,
+      "render": "I:\\ai\\nft\\output\\MZ-GEN\\static_seed60814_00001_.png",
+      "out": "I:\\MonkeyZoo Comic Strip\\Fusion Squad\\MonkeyZoo_Comic_Factory\\GENESIS\\generated_art\\panel_native\\MZ-2026-09-02_P16_PANEL04.png",
+      "page": 22
+    }
+  ],
+  "skipped": [],
+  "count": 75,
+  "partial": false
+}

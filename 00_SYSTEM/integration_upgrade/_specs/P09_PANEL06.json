@@ -1,0 +1,11 @@
+{
+  "panel_id": "MZ-2026-09-02_P09_PANEL06",
+  "type": "scene",
+  "location": "School / Public Address Zone",
+  "action": "Moodz blocks pressure for Static to 'just calm down.'",
+  "foreground_rain": false,
+  "characters": [
+    { "character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_00_clean_base.png", "foot_anchor": [740, 555], "shadow": "down-right" },
+    { "character": "moodz", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/moodz/moodz_19_determined.png", "foot_anchor": [520, 675], "shadow": "down-left", "reflection_surface": "hall_puddle_main" }
+  ]
+}

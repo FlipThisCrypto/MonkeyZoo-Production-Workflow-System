@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "active_stage": "script",
+  "transitions": [
+    {
+      "completed_stage": "intake",
+      "from_stage": "intake",
+      "to_stage": "canon_review",
+      "validated_at": "2026-07-16T15:36:57+00:00",
+      "artifact_hash": "27b02a13c47a1e83d49b8630e502d07928cab14b03416954db84093028c3b829",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "canon_review",
+      "from_stage": "canon_review",
+      "to_stage": "outline",
+      "validated_at": "2026-07-16T15:37:25+00:00",
+      "artifact_hash": "69c67bc86eaedc94077bbd3a202a8619f9e1ae247f9ccfcdc578305983b8d0a4",
+      "approval": {
+        "required": true,
+        "record_stage": "canon_review"
+      }
+    },
+    {
+      "completed_stage": "outline",
+      "from_stage": "outline",
+      "to_stage": "script",
+      "validated_at": "2026-07-16T15:37:26+00:00",
+      "artifact_hash": "94be1b30d43ccc07568a0287c4df0e80bdd94d395061dabe466c750dc4434084",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    }
+  ],
+  "approvals": {
+    "canon_review": {
+      "stage": "canon_review",
+      "approved": true,
+      "timestamp": "2026-07-16T15:37:25+00:00",
+      "artifact_hash": "69c67bc86eaedc94077bbd3a202a8619f9e1ae247f9ccfcdc578305983b8d0a4",
+      "note": "Scarline + Zombie resolve to approved bibles; season Issue 03 scaffold",
+      "actor": "project_owner"
+    }
+  }
+}

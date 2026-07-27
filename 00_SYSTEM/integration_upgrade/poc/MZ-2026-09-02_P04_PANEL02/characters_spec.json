@@ -1,0 +1,27 @@
+{
+  "panel_id": "MZ-2026-09-02_P04_PANEL02",
+  "source_script_line": "The boards settle; Static stands alone in the empty hall.",
+  "foreground_rain": false,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "static",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_16_worried.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          560,
+          560
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "glossy_floor_full"
+      }
+    }
+  ]
+}

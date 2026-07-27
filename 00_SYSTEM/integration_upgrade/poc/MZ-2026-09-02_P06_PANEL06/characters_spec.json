@@ -1,0 +1,38 @@
+{
+  "panel_id": "MZ-2026-09-02_P06_PANEL06",
+  "source_script_line": "Ash pushes off the lockers and walks on, having said exactly enough.",
+  "foreground_rain": false,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "clever",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/clever/clever_24_thinking.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          330,
+          560
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-right"
+      }
+    },
+    {
+      "character": "ash",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/ash/ash_30_backview.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          720,
+          650
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down"
+      }
+    }
+  ]
+}

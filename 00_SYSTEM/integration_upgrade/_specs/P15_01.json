@@ -1,0 +1,15 @@
+{
+  "panel_id": "MZ-2026-09-02_P15_PANEL01",
+  "type": "scene",
+  "location": "Zoo City Streets",
+  "action": "Morning after; Static crouches on the drying sidewalk with a marker and a scrap of board.",
+  "foreground_rain": false,
+  "characters": [
+    {
+      "character": "static",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_25_crouching.png",
+      "foot_anchor": [590, 590],
+      "shadow": "down-left"
+    }
+  ]
+}

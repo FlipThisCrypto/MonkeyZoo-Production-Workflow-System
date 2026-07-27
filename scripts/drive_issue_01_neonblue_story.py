@@ -10,7 +10,6 @@ Does not invent art or force full-issue publish — stops at page_plan stage.
 from __future__ import annotations
 
 import json
-import sys
 import time
 import urllib.error
 import urllib.request
@@ -362,7 +361,7 @@ def main() -> int:
 
     print("\n=== DONE: Issue 01 story package ready for page plan ===")
     print(f"Folder: {folder.relative_to(ROOT)}")
-    print(f"Stage: page_plan")
+    print("Stage: page_plan")
     print("Next ONE THING (later): promote page_panel_plan from this script")
     return 0
 

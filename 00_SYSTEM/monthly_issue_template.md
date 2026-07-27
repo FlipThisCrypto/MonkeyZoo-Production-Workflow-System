@@ -1,6 +1,6 @@
 # Monthly Issue Template
 Copy this checklist into each new issue folder's workflow. File templates below
-are the canonical formats — `scripts/new_issue.py` scaffolds them automatically.
+are the canonical formats — MonkeyZoo Studio's guided intake scaffolds them automatically.
 
 ## Issue Folder Contents (all required before Final QA)
 
@@ -19,7 +19,8 @@ are the canonical formats — `scripts/new_issue.py` scaffolds them automaticall
   /references/{character_refs,background_refs,pose_refs,previous_issue_refs}
   /generated_art/{raw_panels,selected_panels,upscaled,edited}
   /layout/{print_layout,web_layout,social_crops}
-  /exports/  → MonkeyZoo_Issue_##_Print.pdf · _Web.pdf · _CBZ.zip · cover.png · promo_images/
+  /exports/  → MonkeyZoo_Issue_##_Print.pdf · _Web.pdf · _CBZ.zip · promo_images/
+  /generated_art/covers/main_cover.png   ← canonical final cover (issue_cover.py)
 ```
 
 ---

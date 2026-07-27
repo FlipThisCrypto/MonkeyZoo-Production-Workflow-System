@@ -9,7 +9,6 @@ from __future__ import annotations
 import hashlib
 import io
 import json
-import struct
 import urllib.error
 import urllib.request
 import zipfile
@@ -113,9 +112,6 @@ def simple_pdf_from_images(images: list[Path], dest: Path) -> None:
     # 2 Pages
     # For each page i: 3+i*3 Page, 4+i*3 Content, 5+i*3 Image
 
-    n = len(pages_jpeg)
-    page_ids = []
-    obj_parts: list[bytes] = [b""]  # 1-indexed later
 
     # We'll rebuild with proper offsets
     body_parts: list[bytes] = []
@@ -124,7 +120,7 @@ def simple_pdf_from_images(images: list[Path], dest: Path) -> None:
         body_parts.append(content)
         return len(body_parts)
 
-    catalog_i = add_obj(b"<< /Type /Catalog /Pages 2 0 R >>")
+    add_obj(b"<< /Type /Catalog /Pages 2 0 R >>")
     # placeholder for pages - fill later
     pages_i = add_obj(b"PLACEHOLDER_PAGES")
 
@@ -345,7 +341,6 @@ def main() -> int:
 
     code, pub = req("POST", f"/api/issues/{ISSUE}/release/publish-archive", {"replace": True})
     must(code in (200, 201), "publish_archive", pub)
-    archive_path = ((pub or {}).get("publication") or {}).get("archive_path") or ((pub or {}).get("publication") or {})
     print("publication", json.dumps(pub, indent=2)[:800] if isinstance(pub, dict) else pub)
 
     code, gate = req("POST", f"/api/issues/{ISSUE}/workflow/approve", {

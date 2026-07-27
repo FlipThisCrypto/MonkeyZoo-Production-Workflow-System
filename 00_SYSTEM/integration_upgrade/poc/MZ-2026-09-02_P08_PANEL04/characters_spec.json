@@ -1,0 +1,42 @@
+{
+  "panel_id": "MZ-2026-09-02_P08_PANEL04",
+  "source_script_line": "TwoTone helps pair frequencies into readable couples, gesturing to the layout.",
+  "foreground_rain": true,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "twotone",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/twotone/twotone_26_reaching.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          400,
+          620
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-right"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "sidewalk_sheet_left"
+      }
+    },
+    {
+      "character": "static",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_19_determined.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          820,
+          515
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      }
+    }
+  ]
+}

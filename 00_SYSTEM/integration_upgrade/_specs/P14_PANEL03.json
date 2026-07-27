@@ -1,0 +1,12 @@
+{
+  "panel_id": "MZ-2026-09-02_P14_PANEL03",
+  "type": "scene",
+  "location": "Old Relay Junction",
+  "action": "The junction's glow settles from strobe to steady; the klaxons outside die mid-howl.",
+  "foreground_rain": false,
+  "characters": [
+    {"character": "neonblue", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/neonblue/neonblue_29_lookingup.png", "foot_anchor": [300, 590], "shadow": "down-right"},
+    {"character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_29_lookingup.png", "foot_anchor": [620, 655], "shadow": "down"},
+    {"character": "ash", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/ash/ash_00_clean_base.png", "foot_anchor": [1010, 555], "shadow": "down-left"}
+  ]
+}

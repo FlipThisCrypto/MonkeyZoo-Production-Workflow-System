@@ -1,0 +1,6 @@
+{
+ "panel_id":"MZ-2026-09-02_P11_PANEL03",
+ "type":"closeup",
+ "location":"Early-Fall Storm Streets and Routine Nodes",
+ "closeup":{"character":"static","pose_file":"00_SYSTEM/integration_upgrade/character_layers/static/static_16_worried.png","crop_box":[360,70,920,630],"char_x_frac":0.5}
+}

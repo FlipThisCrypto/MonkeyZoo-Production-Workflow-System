@@ -35,11 +35,21 @@ python scripts/package_issue.py 2026-08_Issue_06
 
 ## Cover discovery
 
-`build_release.py` looks for a cover in this order:
+Every surface resolves the cover through one shared contract,
+`00_SYSTEM/scripts/issue_cover.py` -- the Studio release gate, the Studio
+visual-QA evidence set, `validate_issue.py --cover`, `build_release.py`
+(and therefore `package_issue.py`), and archive publishing.
 
-1. `exports/cover.png`
-2. `generated_art/covers/main_cover.png`
-3. first non-empty `generated_art/**/*cover*.png`
+1. `generated_art/covers/main_cover.png` -- **canonical**
+2. `exports/cover.png` -- **DEPRECATED** compatibility fallback. Accepted so
+   issues already using it are not stranded; every surface that accepts it warns
+   and prints the migration command. Scheduled for removal once no issue relies
+   on it -- check with `python 00_SYSTEM/scripts/issue_cover.py --audit`.
+
+The former third step, "first non-empty `generated_art/**/*cover*.png`", is
+**gone**. It let a preview render stand in for the deliverable, and because the
+glob is case-insensitive on Windows and case-sensitive on POSIX it made the
+release evidence hash differ between the dev rig and CI.
 
 ## Quality bar
 

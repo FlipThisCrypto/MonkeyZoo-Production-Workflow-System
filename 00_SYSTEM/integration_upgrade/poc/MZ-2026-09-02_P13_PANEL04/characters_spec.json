@@ -1,0 +1,46 @@
+{
+  "panel_id": "MZ-2026-09-02_P13_PANEL04",
+  "source_script_line": "A look passes between them: ear first, machine second, and both of them fine with the order.",
+  "foreground_rain": false,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "static",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_00_clean_base.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          500,
+          600
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-right"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "glossy_floor_full"
+      }
+    },
+    {
+      "character": "clever",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/clever/clever_09_smile.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          830,
+          540
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "glossy_floor_full"
+      }
+    }
+  ]
+}

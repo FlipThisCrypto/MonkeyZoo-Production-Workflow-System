@@ -1,0 +1,23 @@
+{
+  "panel_id": "MZ-2026-09-02_P13_PANEL02",
+  "type": "scene",
+  "location": "Transit Announcement Hub",
+  "action": "Static reduces the interference to one repeating element and states it cleanly.",
+  "foreground_rain": false,
+  "characters": [
+    {
+      "character": "static",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_19_determined.png",
+      "foot_anchor": [560, 610],
+      "shadow": "down-right",
+      "reflection_surface": "glossy_floor_full"
+    },
+    {
+      "character": "clever",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/clever/clever_24_thinking.png",
+      "foot_anchor": [900, 500],
+      "shadow": "down-left",
+      "reflection_surface": "glossy_floor_full"
+    }
+  ]
+}

@@ -1,11 +1,17 @@
 """Evidence-backed visual QA reviews and canonical report promotion."""
 from __future__ import annotations
-import datetime as dt, hashlib, json, os, re, tempfile, time
+import datetime as dt, hashlib, json, os, re, sys, tempfile, time
 from pathlib import Path
-from typing import Any
 from PIL import Image
 import issue_workflow
 from contextlib import contextmanager
+
+# Same shared cover contract as release_workspace -- these two evidence sets are
+# a deliberately synchronised pair and must not drift apart again.
+_SYSTEM_SCRIPTS = Path(__file__).resolve().parents[2] / "00_SYSTEM" / "scripts"
+if str(_SYSTEM_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SYSTEM_SCRIPTS))
+import issue_cover  # noqa: E402
 
 REVIEW_ID=re.compile(r"^qa-\d{8}T\d{6}Z-[0-9a-f]{6}$")
 VERDICTS={"pass":"PASS","hold":"HOLD","fail":"FAIL"}
@@ -70,7 +76,7 @@ def evidence(folder):
    inventory.append(entry)
  duplicates=[ids for ids in hashes.values() if len(ids)>1]
  metadata=issue_workflow._json(folder/"metadata.json") or {};metadata_missing=[k for k in ("issue_id","title") if not metadata.get(k)]
- covers=list((folder/"generated_art").rglob("*cover*.png")) if (folder/"generated_art").exists() else []
+ covers=issue_cover.cover_evidence_images(folder)  # shared contract: sorted + case-insensitive on every platform, so the evidence hash reproduces across Windows dev and Linux CI (matches release_workspace)
  files=[folder/"page_panel_plan.json",folder/"metadata.json",folder/"cover_prompt.md",folder/"final_export_checklist.md",*sorted(p for p in selected.glob("*.png")),*covers] if selected.exists() else [folder/"page_panel_plan.json",folder/"metadata.json",folder/"cover_prompt.md",folder/"final_export_checklist.md",*covers]
  digest=hashlib.sha256()
  for path in files:
@@ -97,11 +103,20 @@ def _load(folder,rid):
  data=_read_json(_workspace(folder)/"reviews"/f"{_safe(rid)}.json")
  if not isinstance(data,dict):raise VisualQAError("Unknown QA review")
  return data
-def decorate(record,folder):
- result=dict(record);result["evidence_stale"]=record.get("evidence_hash")!=evidence(folder)["evidence_hash"]
- result["approval_current"]=bool(record.get("approval") and record["approval"].get("evidence_hash")==record.get("evidence_hash") and not result["evidence_stale"]);return result
+def decorate(record, folder, current_ev=None):
+    result = dict(record)
+    ev = current_ev if current_ev is not None else evidence(folder)
+    result["evidence_stale"] = record.get("evidence_hash") != ev["evidence_hash"]
+    result["approval_current"] = bool(record.get("approval") and record["approval"].get("evidence_hash") == record.get("evidence_hash") and not result["evidence_stale"])
+    return result
+
 def reviews(folder):
- base=_workspace(folder)/"reviews";return [decorate(_read_json(p),folder) for p in sorted(base.glob("*.json"))] if base.exists() else []
+    base = _workspace(folder) / "reviews"
+    if not base.exists():
+        return []
+    ev = evidence(folder)
+    return [decorate(_read_json(p), folder, current_ev=ev) for p in sorted(base.glob("*.json"))]
+
 def finalize(folder,root,rid,verdict,notes="",continuity_checks=None):
  _stage(folder,root);record=decorate(_load(folder,rid),folder)
  if record.get("approval"):raise VisualQAError("QA review is already finalized and immutable",409)

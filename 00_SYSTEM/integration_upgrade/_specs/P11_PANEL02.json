@@ -1,0 +1,12 @@
+{
+ "panel_id":"MZ-2026-09-02_P11_PANEL02",
+ "type":"scene",
+ "location":"Early-Fall Storm Streets and Routine Nodes",
+ "action":"Interference spreads into emergency systems; Static begins repeating every danger at once.",
+ "foreground_rain":true,
+ "characters":[
+  {"character":"static","pose_file":"00_SYSTEM/integration_upgrade/character_layers/static/static_14_shout.png","foot_anchor":[620,675],"shadow":"down","reflection_surface":"road_wet_sheet"},
+  {"character":"neonblue","pose_file":"00_SYSTEM/integration_upgrade/character_layers/neonblue/neonblue_16_worried.png","foot_anchor":[240,555],"shadow":"down-right","reflection_surface":"road_wet_sheet"},
+  {"character":"twotone","pose_file":"00_SYSTEM/integration_upgrade/character_layers/twotone/twotone_20_confused.png","foot_anchor":[1030,575],"shadow":"down-left","reflection_surface":"road_wet_sheet"}
+ ]
+}

@@ -1,5 +1,9 @@
 # MonkeyZoo QA Checklist
-**Version:** 1.0
+**Version:** 1.1 — adds the Integration section to Gate A (2026-07-17).
+Before v1.1 this checklist had no criterion that would flag a character
+pasted onto a background as a flat card — a monolithic render and a
+literal card-paste composite scored identically. See
+`00_SYSTEM/integration_upgrade/ARCHITECTURE_FINDINGS.md`.
 
 Two gates. Gate A runs per generated panel batch (Stage 7). Gate B runs once
 per issue before release (Stage 9). A panel/issue passes only with ZERO hard
@@ -33,6 +37,17 @@ fails. Soft fails need a written waiver in qa_report.md.
 - [ ] Emotion on face matches script's emotion field
 - [ ] No unintended text/watermarks in image
 
+### Integration (HARD for composited panels; judge on any panel where a character was placed into a plate)
+- [ ] No card/reference artifacts: no rectangular backdrop, border, number, signature, or backdrop-colored halo at the silhouette
+- [ ] Scale believable against an in-scene reference object (door, can, turnstile — not gut feel)
+- [ ] Feet/body make believable ground contact at a plausible ground-plane position; nobody floats
+- [ ] Contact shadow (or reflection on water/gloss) present under every standing character
+- [ ] Character brightness/tint matches its position's lighting — no flat-lit sticker in a moody scene; key/fill sides read correctly
+- [ ] Environment passes IN FRONT where geometry calls for it (rain, railing, furniture) — not always character-on-top
+- [ ] Multi-character: shared ground plane and depth-consistent scales; nearer overlaps farther; eye-lines land on their targets
+- [ ] The sticker-row test: characters are NOT an evenly spaced same-size lineup across the bottom (unless the story stages a lineup)
+- [ ] Automated pre-check ran: `validate_issue.py <issue> --integration` PASS (catches leftover reference colors + missing contact shadows mechanically; the eye judges the rest)
+
 ### Readability (SOFT unless unusable)
 - [ ] One clear idea; silhouette reads at thumbnail size
 - [ ] Action understandable without dialogue
@@ -64,7 +79,9 @@ with one-line reason in qa_report.md. 10 rejects on same panel → escalate
 - [ ] Next-issue teaser present on rear outside cover
 
 ### Package (HARD)
-- [ ] Exports exist: Print PDF, Web PDF, CBZ, cover.png, promo images
+- [ ] Exports exist: Print PDF, Web PDF, CBZ, promo images
+- [ ] Final cover at `generated_art/covers/main_cover.png` (canonical; verify with
+      `python 00_SYSTEM/scripts/validate_issue.py <folder> --cover`)
 - [ ] Lettering pass done: no bubble covers a face, margins ≥ safe area
 - [ ] Page order verified in both PDFs and CBZ
 - [ ] Social posts ready (all 8 sections of template)

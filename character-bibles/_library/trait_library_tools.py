@@ -141,9 +141,11 @@ def harvested_project_options(bibles_root: Path = BIBLES_ROOT) -> dict[str, list
     found: dict[str, list[dict[str, Any]]] = {category: [] for category in CATEGORIES}
     seen: set[tuple[str, str, str]] = set()
     for bible_path in sorted(bibles_root.glob("MZ-CHAR-*/bible.yaml")):
-        character_id = bible_path.parent.name
-        ident = load_bible(bible_path).get("identification", {})
-        for trait in walk_traits(load_bible(bible_path)):
+        data = load_bible(bible_path)
+        ident = data.get("identification", {})
+        character_id = bible_path.parent.name          # e.g. "MZ-CHAR-001"
+        for trait in walk_traits(data):
+
             key = (trait["category"], str(trait.get("name")), str(trait.get("value")))
             if key in seen:
                 continue

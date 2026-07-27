@@ -1,0 +1,22 @@
+{
+  "panel_id": "MZ-2026-09-02_P12_PANEL03",
+  "type": "scene",
+  "location": "Zoo City Streets",
+  "action": "Scarline closes half the distance toward Static, keeping her voice under the rain.",
+  "foreground_rain": true,
+  "characters": [
+    {
+      "character": "static",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_16_worried.png",
+      "foot_anchor": [330, 560],
+      "shadow": "down-right",
+      "reflection_surface": "sidewalk_sheet_left"
+    },
+    {
+      "character": "scarline",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/scarline/scarline_19_determined.png",
+      "foot_anchor": [700, 610],
+      "shadow": "down-left"
+    }
+  ]
+}

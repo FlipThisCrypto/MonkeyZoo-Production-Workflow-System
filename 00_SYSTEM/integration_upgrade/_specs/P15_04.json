@@ -1,0 +1,15 @@
+{
+  "panel_id": "MZ-2026-09-02_P15_PANEL04",
+  "type": "scene",
+  "location": "Zoo City Streets",
+  "action": "Static caps the marker and reads it back once, testing whether it holds his weight.",
+  "foreground_rain": false,
+  "characters": [
+    {
+      "character": "static",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_19_determined.png",
+      "foot_anchor": [630, 615],
+      "shadow": "down-left"
+    }
+  ]
+}

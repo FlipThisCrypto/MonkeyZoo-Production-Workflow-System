@@ -15,10 +15,12 @@ Open source at
 The local writable production app lives at `character-bibles/_review_app/`.
 
 ```powershell
-.\Start-BananaLab.ps1
+.\Start-BananaLab.ps1             # Defaults to port 8765
+.\Start-BananaLab.ps1 -Port 9000   # Custom local port
 ```
 
-Opens `http://127.0.0.1:8765` (loopback only). GitHub Pages remains a public **read-only** preview — not a writable production host.
+Opens `http://127.0.0.1:8765` (loopback only, configurable via `-Port` or `$env:PORT`). GitHub Pages remains a public **read-only** preview — not a writable production host.
+
 
 | Doc | Contents |
 |---|---|
@@ -62,6 +64,28 @@ Ship evidence and plans:
   Consolas) or substitute your own.
 - **Optional:** Kohya SS for character LoRA training (20+ approved refs per
   character), Krita/CSP for print-final lettering polish.
+
+## Development & tests
+
+The local Studio, validators, and pipeline tooling are covered by a pytest
+suite. From the repo root:
+
+```
+pip install -r requirements-dev.txt  # Studio + validators + test suite
+python -m pytest                     # full suite (the same set CI runs)
+python -m pytest character-bibles/_review_app/tests -q   # just the Studio app
+```
+
+`pytest.ini` pins `norecursedirs` so a bare `pytest` from the root is
+deterministic regardless of local artifact trees (e.g. `06_BACKUPS/`
+snapshots hold full copies of the suite that would otherwise collide at
+collection). CI runs the same suite plus a static-asset check
+(`.github/workflows/validate.yml`).
+
+Read-only GitHub Pages data (`docs/static/*.json`) is regenerated from the
+live repo by `docs/sync_docs.ps1` (which runs the `docs/export_static_*.py`
+exporters — deterministic). Regenerate it at deploy time; it is expected to
+lag the working tree between deploys.
 
 ## Claude skills (`.claude/skills/`)
 
@@ -143,7 +167,7 @@ turn every Zombie/Stayed image into Patch.
 
 | # | Stage | Agent file | In → Out |
 |---|---|---|---|
-| 0 | You | — | rough idea → `01_IDEAS_INBOX/YYYY-MM-idea.md`; run `scripts/new_issue.py YYYY-MM ## "Title"` |
+| 0 | You | — | rough idea → `01_IDEAS_INBOX/YYYY-MM-idea.md`; scaffold the edition in MonkeyZoo Studio (guided intake) |
 | 1 | Intake | `agents/stage_01_intake.md` | idea → `issue_brief.md` |
 | 2 | Continuity | `agents/stage_02_continuity.md` | brief + bibles → canon-safe brief + verdict |
 | 3 | Showrunner | `agents/stage_03_showrunner.md` | brief → `issue_outline.md` (title, logline, arcs, page map, teaser) |
@@ -170,9 +194,10 @@ Do not paste full Character Bibles into script prompts.
 ## Scripts
 
 ```
-python 00_SYSTEM/scripts/new_issue.py 2026-08 6 "Title"      # scaffold next issue
+# scaffold the next edition in MonkeyZoo Studio (guided intake) — the positional new_issue.py CLI is retired
 python 00_SYSTEM/scripts/validate_issue.py 2026-07_Issue_05  # schema + cross-checks
 python 00_SYSTEM/scripts/validate_issue.py 2026-07_Issue_05 --art  # + panel files exist
+python 00_SYSTEM/scripts/validate_issue.py 2026-09_Issue_02 --integration  # + pixel gate on staged integration previews
 python 00_SYSTEM/scripts/build_release.py 2026-07_Issue_05           # CBZ + export check
 python 00_SYSTEM/scripts/build_release.py 2026-07_Issue_05 --archive # archive released issue
 ```

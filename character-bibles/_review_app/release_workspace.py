@@ -1,9 +1,17 @@
 """Evidence-backed release readiness, approval, and hash manifests."""
 from __future__ import annotations
-import datetime as dt, hashlib, json, os, re, tempfile, zipfile
+import datetime as dt, hashlib, json, os, re, sys, tempfile, zipfile
 from contextlib import contextmanager
 from pathlib import Path
 import issue_workflow, visual_qa_workspace
+
+# The cover-location contract is owned by 00_SYSTEM (the source of truth per
+# CLAUDE.md), not duplicated here. app.py already puts this directory on the
+# path; the insert makes the module importable standalone, as the tests do.
+_SYSTEM_SCRIPTS = Path(__file__).resolve().parents[2] / "00_SYSTEM" / "scripts"
+if str(_SYSTEM_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SYSTEM_SCRIPTS))
+import issue_cover  # noqa: E402
 
 class ReleaseError(ValueError):
  def __init__(self,message,status=400):super().__init__(message);self.status=status
@@ -60,16 +68,34 @@ def _resolve_archive(folder,root):
  if primary.exists(): return primary
  legacy=_legacy_archive(folder,root)
  return legacy if legacy.exists() else primary
-def _valid_package(path):
- try:
-  with zipfile.ZipFile(path) as archive:
-   members=[item for item in archive.infolist() if not item.is_dir()]
-   if not members:return False
-   if archive.testzip() is not None:return False
-  return True
- except (OSError,EOFError,RuntimeError,zipfile.BadZipFile,zipfile.LargeZipFile):return False
+_VALID_PACKAGE_CACHE: dict[str, tuple[float, int, bool]] = {}
+
+
+def _valid_package(path: Path) -> bool:
+    key = str(path.resolve())
+    try:
+        st = path.stat()
+        mtime, size = st.st_mtime, st.st_size
+    except OSError:
+        return False
+    if key in _VALID_PACKAGE_CACHE:
+        cached_mtime, cached_size, cached_valid = _VALID_PACKAGE_CACHE[key]
+        if cached_mtime == mtime and cached_size == size:
+            return cached_valid
+    try:
+        with zipfile.ZipFile(path) as archive:
+            members = [item for item in archive.infolist() if not item.is_dir()]
+            if not members:
+                valid = False
+            else:
+                valid = archive.testzip() is None
+    except (OSError, EOFError, RuntimeError, zipfile.BadZipFile, zipfile.LargeZipFile):
+        valid = False
+    _VALID_PACKAGE_CACHE[key] = (mtime, size, valid)
+    return valid
+
 def evidence(folder,root):
- metadata=issue_workflow._json(folder/"metadata.json") or {};exports=folder/"exports";pdfs=sorted(exports.glob("*.pdf")) if exports.exists() else [];package_candidates=sorted([*exports.glob("*.zip"),*exports.glob("*.cbz")]) if exports.exists() else [];packages=[path for path in package_candidates if _valid_package(path)];invalid_packages=[path.name for path in package_candidates if path not in packages];covers=sorted((folder/"generated_art").rglob("*cover*.png")) if (folder/"generated_art").exists() else []
+ metadata=issue_workflow._json(folder/"metadata.json") or {};exports=folder/"exports";pdfs=sorted(exports.glob("*.pdf")) if exports.exists() else [];package_candidates=sorted([*exports.glob("*.zip"),*exports.glob("*.cbz")]) if exports.exists() else [];packages=[path for path in package_candidates if _valid_package(path)];invalid_packages=[path.name for path in package_candidates if path not in packages];covers=issue_cover.cover_evidence_images(folder);final_cover=issue_cover.resolve_final_cover(folder)
  qa=issue_workflow._qa_verdict(folder);qa_report=(folder/"qa_report.md").read_text(encoding="utf-8",errors="replace") if (folder/"qa_report.md").exists() else "";reported_hashes=re.findall(r"(?m)^Evidence hash:\s*([0-9a-f]{64})\s*$",qa_report);current_qa_hash=None
  try:current_qa_hash=visual_qa_workspace.evidence(folder)["evidence_hash"]
  except visual_qa_workspace.VisualQAError:pass
@@ -82,7 +108,7 @@ def evidence(folder,root):
  blockers=[]
  if qa!="passed":blockers.append(f"QA verdict is {qa}; exact PASS is required")
  elif len(reported_hashes)!=1 or not current_qa_hash or reported_hashes[0]!=current_qa_hash:blockers.append("Canonical QA evidence is missing or stale")
- if not covers:blockers.append("No final cover image found")
+ if not final_cover.found:blockers.append(final_cover.blocker)
  if not pdfs or not any(p.stat().st_size for p in pdfs):blockers.append("Final PDF is missing or empty")
  if invalid_packages:blockers.append(f"Invalid CBZ or ZIP packages: {', '.join(invalid_packages)}")
  if not packages:blockers.append("A readable, non-empty CBZ or ZIP package is required")
@@ -96,7 +122,7 @@ def evidence(folder,root):
  digest=hashlib.sha256()
  for entry in entries:digest.update(entry["path"].encode());digest.update(entry["sha256"].encode())
  digest.update((current_qa_hash or "").encode())
- return {"evidence_hash":digest.hexdigest(),"files":entries,"blockers":blockers,"qa_verdict":qa,"qa_evidence_hash":reported_hashes[0] if len(reported_hashes)==1 else None,"qa_evidence_current":bool(current_qa_hash and len(reported_hashes)==1 and reported_hashes[0]==current_qa_hash),"covers":[str(p.relative_to(folder)).replace("\\","/") for p in covers],"pdfs":[p.name for p in pdfs],"packages":[p.name for p in packages],"invalid_packages":invalid_packages,"metadata":{"format":metadata.get("format"),"missing_fields":missing_meta,"placeholders":placeholders},"social_copy_exists":(folder/"social_posts.md").exists(),"checklist_exists":(folder/"final_export_checklist.md").exists(),"archive":{"path":str(archive.relative_to(root)).replace("\\","/"),"exists":archive.exists(),"publication_files":[p.name for p in publication_files],"publication_artifacts":[p.name for p in publication_artifacts]}}
+ return {"evidence_hash":digest.hexdigest(),"files":entries,"blockers":blockers,"qa_verdict":qa,"qa_evidence_hash":reported_hashes[0] if len(reported_hashes)==1 else None,"qa_evidence_current":bool(current_qa_hash and len(reported_hashes)==1 and reported_hashes[0]==current_qa_hash),"covers":[str(p.relative_to(folder)).replace("\\","/") for p in covers],"final_cover":{"path":str(final_cover.path.relative_to(folder)).replace("\\","/") if final_cover.path else None,"source":final_cover.source},"advisories":[final_cover.warning] if final_cover.warning else [],"pdfs":[p.name for p in pdfs],"packages":[p.name for p in packages],"invalid_packages":invalid_packages,"metadata":{"format":metadata.get("format"),"missing_fields":missing_meta,"placeholders":placeholders},"social_copy_exists":(folder/"social_posts.md").exists(),"checklist_exists":(folder/"final_export_checklist.md").exists(),"archive":{"path":str(archive.relative_to(root)).replace("\\","/"),"exists":archive.exists(),"publication_files":[p.name for p in publication_files],"publication_artifacts":[p.name for p in publication_artifacts]}}
 def manifest(folder,root,persist=False):
  _stage(folder,root);ev=evidence(folder,root);data={"schema_version":"1.0","issue_id":issue_workflow._read_issue_id(folder),"created_at":_now() if persist else None,"evidence_hash":ev["evidence_hash"],"files":ev["files"]};data["manifest_hash"]=_hash(json.dumps({k:v for k,v in data.items() if k!="created_at"},sort_keys=True).encode())
  if persist:
@@ -180,17 +206,29 @@ def publish_archive(folder, root, replace=False):
   packages = [p for p in candidates if p.suffix.lower() in {".zip", ".cbz"} and _valid_package(p)]
   if not pdfs or not packages:
    raise ReleaseError("Archive publication requires a non-empty PDF and a valid CBZ/ZIP package", 409)
-  if archive.exists() and replace:
-   shutil.rmtree(archive)
-  archive.mkdir(parents=True, exist_ok=True)
+  # Build the new archive in a staging dir and swap it in only after every
+  # artifact copies successfully, so a failed/interrupted copy cannot destroy
+  # the previously published release archive (which rmtree'd before copying).
+  archive.parent.mkdir(parents=True, exist_ok=True)
+  staging = archive.with_name(f".{archive.name}.staging-{os.getpid()}")
+  if staging.exists():
+   shutil.rmtree(staging)
+  staging.mkdir(parents=True)
   copied = []
-  for path in candidates:
-   destination = archive / path.name
-   # Avoid collisions when multiple covers share basename by using relative stem path hash prefix.
-   if destination.exists() and path.parent != folder and path.parent != exports:
-    destination = archive / f"{path.parent.name}_{path.name}"
-   shutil.copy2(path, destination)
-   copied.append(destination.name)
+  try:
+   for path in candidates:
+    destination = staging / path.name
+    # Avoid collisions when multiple covers share basename by using relative stem path hash prefix.
+    if destination.exists() and path.parent != folder and path.parent != exports:
+     destination = staging / f"{path.parent.name}_{path.name}"
+    shutil.copy2(path, destination)
+    copied.append(destination.name)
+   if archive.exists():
+    shutil.rmtree(archive)
+   os.replace(staging, archive)
+  except BaseException:
+   shutil.rmtree(staging, ignore_errors=True)
+   raise
   # Provenance record inside issue workspace.
   record = {
    "published_at": _now(),

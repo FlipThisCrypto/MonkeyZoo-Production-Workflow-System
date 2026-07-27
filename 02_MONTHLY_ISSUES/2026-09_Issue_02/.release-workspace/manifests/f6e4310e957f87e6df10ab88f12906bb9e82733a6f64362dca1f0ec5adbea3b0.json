@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "MZ-2026-09-02",
+  "created_at": "2026-07-16T15:33:57+00:00",
+  "evidence_hash": "bcadd5e3219bbe49dcae98cf0c00b5a7d25e6e5f2024da0ebe49e15b09c8a1c3",
+  "files": [
+    {
+      "path": "metadata.json",
+      "size": 1679,
+      "sha256": "07c5adbf2a36d2a7fe10035072e732b6b5c43b7f24459114ce779a64f0a4be4f"
+    },
+    {
+      "path": "social_posts.md",
+      "size": 977,
+      "sha256": "a354f1c24141baab14d1ef1acc85ca171775df568eb6671b8f6470fcf8c6c6dd"
+    },
+    {
+      "path": "final_export_checklist.md",
+      "size": 539,
+      "sha256": "aa1c361add4723d2ed651d8f5ec2798cc637dcd63dec12e5818ddbcc059f2fe1"
+    },
+    {
+      "path": "cover_prompt.md",
+      "size": 371,
+      "sha256": "ba884a7d25ab36afc2b055619a50296ec0e02eec927e0e1fb29e317af35d21ae"
+    },
+    {
+      "path": "qa_report.md",
+      "size": 2120,
+      "sha256": "a3f5cda49ad86ebf1fca1ac4e62480f4c3bbdcefe9da96fe88f3fb7f719856dc"
+    },
+    {
+      "path": "generated_art/covers/main_cover.png",
+      "size": 2735272,
+      "sha256": "1cf9b1c013459882c9cd7577ea8a34248801f05fb4dd9eff8cbdb02920b9eebd"
+    },
+    {
+      "path": "exports/MonkeyZoo_MZ-2026-09-02_Web.pdf",
+      "size": 25924099,
+      "sha256": "8e5c5c58f6852eca7bd4ff7860bfde37f73d138c30ab990246c1e98c365d2bf6"
+    },
+    {
+      "path": "exports/MonkeyZoo_MZ-2026-09-02.cbz",
+      "size": 34688337,
+      "sha256": "44c641c7d341529d0e6a1448023500ee5b92015f4df27c7a2b21757065d67134"
+    }
+  ],
+  "manifest_hash": "f6e4310e957f87e6df10ab88f12906bb9e82733a6f64362dca1f0ec5adbea3b0"
+}

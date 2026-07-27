@@ -18,6 +18,41 @@
     "metadata",
     "social copy"
   ],
-  "status": "intake",
-  "workflow_stage": "1. Intake"
+  "status": "release",
+  "workflow_stage": "9. Release",
+  "format": "CHIP-0015",
+  "name": "Signals In The Silence",
+  "description": "MonkeyZoo Issue 02: Static and Clever face citywide storm interference. Six tones form a search pattern; Static builds a method for clear warnings.",
+  "attributes": [
+    {
+      "trait_type": "Series",
+      "value": "MonkeyZoo"
+    },
+    {
+      "trait_type": "Issue",
+      "value": "02"
+    },
+    {
+      "trait_type": "Month",
+      "value": "2026-09"
+    },
+    {
+      "trait_type": "Featured",
+      "value": "Static"
+    },
+    {
+      "trait_type": "Guest",
+      "value": "Clever"
+    },
+    {
+      "trait_type": "ArtTier",
+      "value": "draft_composite"
+    }
+  ],
+  "data": {
+    "@type": "DigitalDocument",
+    "name": "Signals In The Silence",
+    "url": "local://MonkeyZoo_MZ-2026-09-02_Web.pdf",
+    "sha256": "8e5c5c58f6852eca7bd4ff7860bfde37f73d138c30ab990246c1e98c365d2bf6"
+  }
 }

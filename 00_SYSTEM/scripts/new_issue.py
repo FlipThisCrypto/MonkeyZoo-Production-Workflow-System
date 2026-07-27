@@ -11,7 +11,11 @@ import uuid
 from pathlib import Path
 from typing import Any
 
+__all__ = ["create_issue", "IssueCreationError"]
+
+
 FACTORY = Path(__file__).resolve().parents[2]
+
 ISSUE_ID_RE = re.compile(r"^MZ-\d{4}-\d{2}-\d{2}$")
 CHARACTER_ID_RE = re.compile(r"^MZ-CHAR-[A-Z0-9-]+$")
 OUTPUT_REQUIREMENTS = {"cover", "metadata", "social copy", "QA"}
@@ -213,8 +217,9 @@ def create_issue(data: Any, factory: Path = FACTORY) -> dict[str, Any]:
 def main() -> None:
     if len(sys.argv) < 3:
         raise SystemExit("Usage: python new_issue.py YYYY-MM NUMBER [TITLE]")
-    year, month = map(int, sys.argv[1].split("-"))
-    number = int(sys.argv[2])
+    # The positional CLI is retired in favour of the guided Studio intake. Emit a
+    # clear deprecation for any invocation — do not pre-parse argv[1], which used
+    # to crash with a ValueError traceback on a non-YYYY-MM argument.
     raise SystemExit("The CLI now requires the complete guided intake payload; use MonkeyZoo Studio.")
 
 

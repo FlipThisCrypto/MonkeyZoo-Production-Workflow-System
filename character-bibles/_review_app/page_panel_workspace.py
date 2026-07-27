@@ -23,7 +23,11 @@ PANEL = re.compile(r"^\*\*Panel\s+(\d+)\.(\d+)\s*\(([^)]*)\)\*\*\s*$", re.I | re
 FIELDS = {"location":"location", "characters":"characters", "camera":"camera_angle", "action":"action", "emotion":"emotion", "dialogue":"dialogue", "caption":"caption", "sfx":"sfx", "visual notes":"visual_notes", "continuity notes":"continuity_notes", "props":"props"}
 
 
+__all__ = ["validate_plan", "parse_script", "PagePanelError"]
+
+
 class PagePanelError(ValueError):
+
     def __init__(self, message: str, status: int = 400):
         super().__init__(message); self.status = status
 
@@ -146,6 +150,16 @@ def _canonical_plan(plan: dict[str, Any]) -> dict[str, Any]:
     return clean
 
 
+_SCHEMA_CACHE: dict[str, dict] = {}
+
+
+def _get_schema(root: Path) -> dict[str, Any]:
+    key = str(root.resolve())
+    if key not in _SCHEMA_CACHE:
+        _SCHEMA_CACHE[key] = json.loads((root / "00_SYSTEM" / "page_panel_plan_schema.json").read_text(encoding="utf-8"))
+    return _SCHEMA_CACHE[key]
+
+
 def validate_plan(plan: dict[str, Any], root: Path) -> dict[str, Any]:
     findings = []
     pages = plan.get("pages", []) if isinstance(plan, dict) else []
@@ -163,10 +177,11 @@ def validate_plan(plan: dict[str, Any], root: Path) -> dict[str, Any]:
             for field in ("location","action"):
                 if not panel.get(field): findings.append({"level":"error","message":f"{panel.get('panel_id')} is missing {field}"})
     if len(ids) != len(set(ids)): findings.append({"level":"error","message":"Duplicate panel IDs detected"})
-    schema = json.loads((root / "00_SYSTEM" / "page_panel_plan_schema.json").read_text(encoding="utf-8"))
+    schema = _get_schema(root)
     for error in Draft202012Validator(schema).iter_errors(_canonical_plan(plan)):
         findings.append({"level":"error","message":error.message})
     return {"status":"failed" if any(f["level"]=="error" for f in findings) else "passed", "findings":findings, "errors":sum(f["level"]=="error" for f in findings)}
+
 
 
 def validate_canonical_payload(plan: dict[str, Any], root: Path) -> dict[str, Any]:

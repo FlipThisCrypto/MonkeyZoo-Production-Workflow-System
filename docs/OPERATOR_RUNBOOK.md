@@ -8,7 +8,8 @@ Local writable runtime for MonkeyZoo production. GitHub Pages is public **read-o
 .\Start-BananaLab.ps1
 ```
 
-Opens `http://127.0.0.1:8765`.
+Opens `http://127.0.0.1:8765` (or custom port via `-Port <port>` or `$env:PORT`).
+
 
 Manual fallback:
 
@@ -191,7 +192,9 @@ Git is not sufficient for untracked art and package binaries.
 - Dimensions: keep selected panels uniform (QA rejects dimension mismatches)
 - Naming: `generated_art/selected_panels/<panel_id>.png`
 - Import via Art Queue; keep rejected attempts under art-workspace history
-- Cover: `generated_art/covers/main_cover.png` (name must contain `cover`)
+- Cover: `generated_art/covers/main_cover.png` -- the canonical location, defined once in
+  `00_SYSTEM/scripts/issue_cover.py` and shared by the Studio release gate,
+  `validate_issue.py --cover`, `build_release.py` and archive publishing
 - Lettering: production lettering is still operator-owned; do not rely on model balloons
 
 ## PDF / CBZ procedure
@@ -205,7 +208,11 @@ python scripts/package_issue.py 2026-08_Issue_06 --assemble
 
 - `assemble_pages.py` builds lettered web/print layouts and PDF drafts when fonts/Pillow are available
 - `build_release.py` builds CBZ from `layout/web_layout` and reports missing exports
-- Cover discovery order: `exports/cover.png`, then `generated_art/covers/main_cover.png`, then any `*cover*.png`
+- Cover resolution: `generated_art/covers/main_cover.png` (canonical), then `exports/cover.png`
+  (DEPRECATED compatibility fallback -- every surface warns and prints the
+  migration). There is no longer a fuzzy `*cover*.png` sweep: it let a preview
+  render stand in for the deliverable. Check migration status with
+  `python 00_SYSTEM/scripts/issue_cover.py --audit`
 - Place final PDF under `exports/*.pdf` (non-empty)
 - Place CBZ or ZIP under `exports/*.zip` or `exports/*.cbz` that opens as ZIP with at least one member and passes `testzip()`
 - Release stage accepts both `.zip` and `.cbz`

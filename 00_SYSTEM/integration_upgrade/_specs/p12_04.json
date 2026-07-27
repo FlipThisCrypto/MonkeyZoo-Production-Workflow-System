@@ -1,0 +1,22 @@
+{
+  "panel_id": "MZ-2026-09-02_P12_PANEL04",
+  "type": "scene",
+  "location": "Zoo City Streets",
+  "action": "Static answers Scarline: yes, but on his terms, one line at a time.",
+  "foreground_rain": true,
+  "characters": [
+    {
+      "character": "static",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_19_determined.png",
+      "foot_anchor": [360, 620],
+      "shadow": "down-right",
+      "reflection_surface": "sidewalk_sheet_left"
+    },
+    {
+      "character": "scarline",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/scarline/scarline_00_clean_base.png",
+      "foot_anchor": [820, 560],
+      "shadow": "down-left"
+    }
+  ]
+}

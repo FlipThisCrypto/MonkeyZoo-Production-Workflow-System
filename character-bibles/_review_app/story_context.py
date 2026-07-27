@@ -2,11 +2,36 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import os
 import re
+import tempfile
 from pathlib import Path
 from typing import Any
 
+__all__ = ["StoryContextError", "ADVENTURE_STYLES"]
+
+
 import bible_store as store
+
+
+def _atomic_write_text(path: Path, text: str) -> None:
+    """Write via a temp file + fsync + os.replace so a crash or full disk mid-write
+    can't leave a truncated preview/sample file that then fails to parse on read.
+    Matches the atomic writes used by bible_store / release_workspace / story_workspace."""
+    fd, temporary = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=str(path.parent))
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as stream:
+            stream.write(text)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+    except BaseException:
+        try:
+            os.unlink(temporary)
+        except OSError:
+            pass
+        raise
+
 
 ADVENTURE_STYLES = [
     "Superhero adventure",
@@ -43,6 +68,25 @@ ROLE_LIMITS = {
 
 class StoryContextError(ValueError):
     pass
+
+
+# issue_id from the request body becomes a filesystem folder name in
+# issue_output_dir(), so it must be a single safe path component. This accepts
+# the MZ-DRAFT-... default, real MZ-YYYY-MM-NN ids, and freeform labels
+# (e.g. MZ-TEST), but rejects any path separator, parent ref ("..") , drive
+# letter, or dot -- otherwise a POST to /api/story/save|generate-sample could
+# drive an arbitrary-location mkdir + file write (path traversal).
+_SAFE_ISSUE_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$")
+
+
+def safe_issue_id(value: Any) -> str:
+    text = str(value or "").strip()
+    if not _SAFE_ISSUE_ID.fullmatch(text):
+        raise StoryContextError(
+            "issue_id must be a simple identifier (letters, digits, '-', '_') "
+            "with no path separators or '..'"
+        )
+    return text
 
 
 def default_setup() -> dict[str, Any]:
@@ -103,7 +147,7 @@ def save_preview(body: dict[str, Any], bibles_root: Path, workspace_root: Path) 
     written = []
     for name, text in files.items():
         path = out_dir / name
-        path.write_text(text, encoding="utf-8")
+        _atomic_write_text(path, text)
         written.append(str(path))
     return {**preview, "written_files": written}
 
@@ -137,7 +181,7 @@ def generate_sample_issue(body: dict[str, Any], bibles_root: Path, workspace_roo
         written = []
         for name, text in files.items():
             path = out_dir / name
-            path.write_text(text, encoding="utf-8")
+            _atomic_write_text(path, text)
             written.append(str(path))
         result["written_files"] = written
     return result
@@ -146,6 +190,7 @@ def generate_sample_issue(body: dict[str, Any], bibles_root: Path, workspace_roo
 def normalize_setup(body: dict[str, Any]) -> dict[str, Any]:
     setup = default_setup()
     setup.update({key: value for key, value in body.items() if value is not None})
+    setup["issue_id"] = safe_issue_id(setup.get("issue_id"))
     setup["page_count"] = clamp_int(setup.get("page_count"), 1, 64, 4)
     setup["panel_count"] = clamp_int(setup.get("panel_count"), 1, 240, setup["page_count"] * 3)
     setup["adventure_style"] = setup["adventure_style"] if setup["adventure_style"] in ADVENTURE_STYLES else ADVENTURE_STYLES[-1]
@@ -473,7 +518,11 @@ def validate_script_text(script_text: str, packet: dict[str, Any]) -> list[str]:
     warnings = []
     for character in packet["selected_cast"]:
         name = character["display_name"]
-        if name and name.lower() not in text.lower():
+        # Whole-word match: a bare substring test masks a genuinely absent
+        # character whenever their name is embedded in another word (e.g. "Ash"
+        # inside "flash", "Other" inside "brother"), suppressing the very warning
+        # the operator needs.
+        if name and not re.search(rf"\b{re.escape(name)}\b", text, re.I):
             warnings.append(f"{name} is selected but not mentioned in the script.")
         for phrase in character.get("catchphrases_allowed", []):
             value = phrase.get("value") or phrase.get("name") or ""
@@ -496,7 +545,10 @@ def validate_script_text(script_text: str, packet: dict[str, Any]) -> list[str]:
                     warnings.append(f"{character['display_name']} may have incorrect glasses.")
     for character in packet["selected_cast"]:
         for trait in character.get("experimental_review_required", []):
-            if (trait.get("name") or "").lower() in text.lower():
+            trait_name = trait.get("name") or ""
+            # Whole-word match: a bare substring test raises a false advisory when
+            # a short trait name is embedded in another word ("sad" in "saddled").
+            if trait_name and re.search(rf"\b{re.escape(trait_name)}\b", text, re.I):
                 warnings.append(f"{character['display_name']} uses experimental trait '{trait['name']}'; keep as review item.")
     return warnings
 
@@ -575,14 +627,14 @@ def build_sample_script(packet: dict[str, Any]) -> str:
                 f"### Panel {panel_index}",
                 f"- Location: {setup.get('location') or 'MonkeyZoo test setting'}",
                 f"- Characters present: {', '.join(character['display_name'] for character in present)}",
-                f"- Camera angle: medium readable panel",
+                "- Camera angle: medium readable panel",
                 f"- Action: {sample_action(speaker, action_trait, global_panel, setup)}",
                 f"- Emotion: {sample_emotion(global_panel, setup)}",
                 f"- Dialogue: {dialogue}",
                 f"- Caption text: {'A proposed growth beat appears here.' if is_growth_panel(global_panel, packet) else '-'}",
-                f"- SFX: -",
+                "- SFX: -",
                 f"- Visual notes: {visual_note(present)}",
-                f"- Continuity notes: Uses selected context only; any new facts remain proposed.",
+                "- Continuity notes: Uses selected context only; any new facts remain proposed.",
                 "",
             ])
             global_panel += 1
@@ -697,6 +749,7 @@ def propose_continuity_update(packet: dict[str, Any], script_text: str | None = 
 
 
 def issue_output_dir(issue_id: str, workspace_root: Path) -> Path:
+    issue_id = safe_issue_id(issue_id)  # never build a path from an unvalidated id at the sink
     factory_issue = workspace_root / "MonkeyZoo_Comic_Factory" / "02_MONTHLY_ISSUES" / issue_id
     if factory_issue.exists():
         return factory_issue

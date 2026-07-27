@@ -1,0 +1,38 @@
+{
+  "structural": {
+    "pass": true,
+    "problems": [],
+    "story_page_files": 22,
+    "cover_files": 2
+  },
+  "lettering": {
+    "pass": true,
+    "problems": [],
+    "warnings": [],
+    "source_speaking_panels": 60,
+    "rendered_speaking_panels": 60
+  },
+  "shots": {
+    "by_shot": {
+      "wide": 20,
+      "medium": 51,
+      "close": 25
+    },
+    "close_fraction": 0.26,
+    "adjacent_closeups_same_page": [],
+    "distinct_shot_types": 3
+  },
+  "pacing": {
+    "avg": 4.36,
+    "min": 3,
+    "max": 6,
+    "distribution": {
+      "4": 12,
+      "6": 4,
+      "3": 3,
+      "5": 3
+    },
+    "adjacent_same_template": 0
+  },
+  "overall_pass": true
+}

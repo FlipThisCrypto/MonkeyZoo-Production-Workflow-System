@@ -1,0 +1,12 @@
+{
+ "panel_id":"MZ-2026-09-02_P11_PANEL04",
+ "type":"scene",
+ "location":"Early-Fall Storm Streets and Routine Nodes",
+ "action":"NeonBlue and TwoTone flank him without touching him, bodies making a wall against the noise.",
+ "foreground_rain":true,
+ "characters":[
+  {"character":"static","pose_file":"00_SYSTEM/integration_upgrade/character_layers/static/static_27_defeated.png","foot_anchor":[640,585],"shadow":"down","reflection_surface":"road_wet_sheet"},
+  {"character":"neonblue","pose_file":"00_SYSTEM/integration_upgrade/character_layers/neonblue/neonblue_19_determined.png","foot_anchor":[360,670],"shadow":"down-right","reflection_surface":"road_wet_sheet"},
+  {"character":"twotone","pose_file":"00_SYSTEM/integration_upgrade/character_layers/twotone/twotone_19_determined.png","foot_anchor":[930,660],"shadow":"down-left","reflection_surface":"road_wet_sheet"}
+ ]
+}

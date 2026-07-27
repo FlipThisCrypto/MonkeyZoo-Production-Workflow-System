@@ -39,10 +39,27 @@ reverse what you are. The comedy is loud; the loneliness underneath is real.
 - Winter run outside the city. One slope, same rules for everyone: no resets,
   no shortcuts. FusionZoo terminals log runs and power down without judgment.
 
-### The Cracked Chamber (teased, Ed.4 rear cover)
-- A fusion chamber somewhere in the system, cracked and leaking **green light**.
-- Associated with the Zombie Monkey faction: "Not everyone walks away."
-- Status: OPEN THREAD — first issue to use it defines it (then update here).
+### Chamber 0 (Issue 05 — resolves the Ed.4 teaser)
+- The cracked chamber, located: a disused Annex-wing chamber leaking **green
+  light**, orbited by the Stayed. Door deliberately left open (squad's choice).
+- Green glow remains RESERVED for this chamber and zombie contexts.
+
+### The Old Quarter (Issue 06)
+- Zoo City's pre-neon first draft: rounder low-rise architecture, dead cable
+  bundles sagging like vines, faded analog signage. The city never tore it
+  down; it just stopped looking. Only light: Relay 1's mast, blinking red in
+  a stuttering, WRONG rhythm.
+
+### FusionZoo Relay 1 (Issue 06)
+- Abandoned relay station in the Old Quarter. Control room: wall of dead
+  consoles, ONE screen alive with a slow amber heartbeat waveform. Behind it,
+  the prototype chamber hall — bulky riveted first-generation fusion chambers
+  with porthole windows, amber emergency floor strips.
+- **Signal palette: amber/red** (never green — the Pending are not zombies).
+- Evidence of the Keeper: fresh power splices, new cable ties, a folded tarp
+  bed. Identity: OPEN THREAD.
+- After Issue 06: console reads "SIGNAL ACKNOWLEDGED — RETURN PROTOCOL
+  INITIATED"; Patch's crumpled Issue-05 recall notice lies beside the screen.
 
 ### Season locations (proposed — Signal Between Us, Aug 2026–Jan 2027)
 
@@ -86,14 +103,27 @@ costs): `nft_fusion_reference.md` — scripts citing tech MUST pull from it.
 4. The system never lies with data; the *marketing around it* lies constantly.
 5. New tech capabilities require a continuity ledger entry + this file updated.
 
-## 4. Factions
+## 4. Factions & Groups
 
 - **Emo Faction (the leads):** skeptics of permanence; trust the undo button;
   archive truth in the Annex.
-- **Zombie Faction:** teased Ed.4. Working premise (lock on first use): those
-  who never stopped fusing — endless upgrade-chasers left shambling for MORE.
-- **Super, Clever, Cheeky, Lil Devil:** archetype communities in Zoo City.
-  Background color until an issue foregrounds one (then flesh out here).
+- **Zombie Faction — the Stayed (Issue 05, canon):** monkeys who never
+  stopped fusing; shamble in orbit around Chamber 0 chanting "MORE." Not
+  hostile; hungry for upgrades, not monkeys. Tragic-funny, never horror.
+  Named member: **Patch** (bitten ear, bone stump; NeonBlue's old friend) —
+  crossed the threshold after Issue 05 and now travels WITH the squad.
+- **The Pending (Issue 06, canon):** survivors of pre-atomicity prototype
+  fusion experiments (~13 years ago; DAY 4,749 counter), stuck mid-state.
+  NOT zombies: no brains, no green, no decay. **Canon look (adopted from
+  production): blank-white uncolored monkeys with clean outlines.** They
+  speak normally, refuse interference ("Don't. Touch. The state."), and want
+  company, not fixing. Attention visibly stabilizes them. Modern fusion's
+  atomicity makes new Pending impossible (see nft_fusion_reference.md §5).
+- **The Keeper (Issue 06, unseen):** someone maintains Relay 1's power —
+  vigil, not abandonment. Identity: OPEN THREAD.
+- **Super, Clever, Cheeky, Lil Devil:** archetype communities in Zoo City
+  (designs validated by The Fusion Squad PDF — see character bible table).
+  A red-masked Super watcher has shadowed the squad since Issue 05.
 
 ## 5. Tone & World-Logic Guardrails
 

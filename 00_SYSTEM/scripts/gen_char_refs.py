@@ -12,6 +12,8 @@ QA'd winners are then copied into 03_APPROVED_CANON/approved_characters/<name>/.
 """
 import argparse
 import json
+import sys
+import urllib.error
 import urllib.request
 
 BASE = ("cute chibi cartoon MONKEY character (not a human child), oversized "
@@ -137,7 +139,31 @@ def main():
     names = [n.strip() for n in args.only.split(",") if n.strip()] or list(CHARS)
     vkeys = [v.strip() for v in args.variants_only.split(",") if v.strip()]
 
-    n = 0
+    result = run_batch(names, vkeys, args)
+    print(f"{result['ok']} variant generations queued, {result['failed']} failed.")
+    # Exit non-zero when any submission failed so an agent or automated ref run can
+    # detect it instead of trusting a success-looking tally.
+    if result["failed"]:
+        sys.exit(1)
+
+
+def queue(host, workflow):
+    """POST one workflow to ComfyUI. A connection failure returns node_errors
+    (like a rejected graph) instead of crashing the whole batch with a URLError."""
+    body = json.dumps({"prompt": workflow}).encode()
+    req = urllib.request.Request(f"http://{host}/prompt", data=body,
+                                 headers={"Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return json.loads(r.read())
+    except urllib.error.URLError as exc:
+        return {"node_errors": {"connection": f"Failed to connect to http://{host}/prompt: {exc.reason}"}}
+
+
+def run_batch(names, vkeys, args, queue_fn=queue):
+    """Queue each character's selected variants. Returns {'ok': n, 'failed': n};
+    a submission whose response carries node_errors counts as failed."""
+    ok = failed = 0
     for name in names:
         char = CHARS[name]
         for i, (vkey, vdesc) in enumerate(VARIANTS.items()):
@@ -154,16 +180,15 @@ def main():
             dn = 1.0
             if args.img2img:
                 dn = args.denoise or DENOISE_TIERS.get(vkey.split("_")[0], 0.8)
-            body = json.dumps({"prompt": build(name, char, vkey, vdesc, seed,
-                                               denoise=dn, init=init)}).encode()
-            req = urllib.request.Request(f"http://{args.host}/prompt", data=body,
-                                         headers={"Content-Type": "application/json"})
-            with urllib.request.urlopen(req, timeout=30) as r:
-                resp = json.loads(r.read())
+            resp = queue_fn(args.host, build(name, char, vkey, vdesc, seed, denoise=dn, init=init))
             err = resp.get("node_errors")
-            print(f"queued {name}_{vkey} seed={seed} {'ERR ' + json.dumps(err) if err else 'ok'}")
-            n += 1
-    print(f"{n} variant generations queued.")
+            if err:
+                failed += 1
+                print(f"queued {name}_{vkey} seed={seed} ERR {json.dumps(err)}")
+            else:
+                ok += 1
+                print(f"queued {name}_{vkey} seed={seed} ok")
+    return {"ok": ok, "failed": failed}
 
 
 if __name__ == "__main__":

@@ -25,7 +25,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/zoo-city-streets",
-      "primary_image_url": "/media/locations/zoo-city-streets/primary-reference.png"
+      "primary_image_url": "./media/locations/zoo-city-streets/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-FUSIONZOO-PUBLIC",
@@ -41,7 +41,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/fusionzoo-public",
-      "primary_image_url": "/media/locations/fusionzoo-public/primary-reference.png"
+      "primary_image_url": "./media/locations/fusionzoo-public/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-FUSION-ANNEX",
@@ -57,7 +57,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/fusion-annex",
-      "primary_image_url": "/media/locations/fusion-annex/primary-reference.png"
+      "primary_image_url": "./media/locations/fusion-annex/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-FESTIVAL-GROUNDS",
@@ -73,7 +73,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/festival-grounds",
-      "primary_image_url": "/media/locations/festival-grounds/primary-reference.png"
+      "primary_image_url": "./media/locations/festival-grounds/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-FESTIVAL-MAIN-STAGE",
@@ -89,7 +89,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/festival-main-stage",
-      "primary_image_url": "/media/locations/festival-main-stage/primary-reference.png"
+      "primary_image_url": "./media/locations/festival-main-stage/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-FESTIVAL-SERVICE-CORRIDOR",
@@ -105,7 +105,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/festival-service-corridor",
-      "primary_image_url": "/media/locations/festival-service-corridor/primary-reference.png"
+      "primary_image_url": "./media/locations/festival-service-corridor/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-FESTIVAL-CONTROL-NODE",
@@ -121,7 +121,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/festival-control-node",
-      "primary_image_url": "/media/locations/festival-control-node/primary-reference.png"
+      "primary_image_url": "./media/locations/festival-control-node/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-STORM-ROUTINES",
@@ -137,7 +137,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/storm-routines",
-      "primary_image_url": "/media/locations/storm-routines/primary-reference.png"
+      "primary_image_url": "./media/locations/storm-routines/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-TRANSIT-ANNOUNCEMENT-HUB",
@@ -153,7 +153,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/transit-announcement-hub",
-      "primary_image_url": "/media/locations/transit-announcement-hub/primary-reference.png"
+      "primary_image_url": "./media/locations/transit-announcement-hub/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-SCHOOL-PA-ZONE",
@@ -169,7 +169,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/school-pa-zone",
-      "primary_image_url": "/media/locations/school-pa-zone/primary-reference.png"
+      "primary_image_url": "./media/locations/school-pa-zone/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-OLD-RELAY-JUNCTION",
@@ -188,7 +188,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/old-relay-junction",
-      "primary_image_url": "/media/locations/old-relay-junction/primary-reference.png"
+      "primary_image_url": "./media/locations/old-relay-junction/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-HAUNTED-ATTRACTION",
@@ -204,7 +204,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/haunted-attraction",
-      "primary_image_url": "/media/locations/haunted-attraction/primary-reference.png"
+      "primary_image_url": "./media/locations/haunted-attraction/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-FALSE-CHOICE-GALLERY",
@@ -220,7 +220,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/false-choice-gallery",
-      "primary_image_url": "/media/locations/false-choice-gallery/primary-reference.png"
+      "primary_image_url": "./media/locations/false-choice-gallery/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-OLD-ACCESS-PATH",
@@ -236,7 +236,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/old-access-path",
-      "primary_image_url": "/media/locations/old-access-path/primary-reference.png"
+      "primary_image_url": "./media/locations/old-access-path/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-COMMUNITY-MEAL-HALL",
@@ -252,7 +252,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/community-meal-hall",
-      "primary_image_url": "/media/locations/community-meal-hall/primary-reference.png"
+      "primary_image_url": "./media/locations/community-meal-hall/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-AUTO-HARMONY-SEATING",
@@ -268,7 +268,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/auto-harmony-seating",
-      "primary_image_url": "/media/locations/auto-harmony-seating/primary-reference.png"
+      "primary_image_url": "./media/locations/auto-harmony-seating/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-WINTER-EMERGENCY-SHELTER",
@@ -284,7 +284,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/winter-emergency-shelter",
-      "primary_image_url": "/media/locations/winter-emergency-shelter/primary-reference.png"
+      "primary_image_url": "./media/locations/winter-emergency-shelter/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-HEATING-INFRASTRUCTURE",
@@ -300,7 +300,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/heating-infrastructure",
-      "primary_image_url": "/media/locations/heating-infrastructure/primary-reference.png"
+      "primary_image_url": "./media/locations/heating-infrastructure/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-NEW-YEAR-CIVIC-PREP",
@@ -316,7 +316,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/new-year-civic-prep",
-      "primary_image_url": "/media/locations/new-year-civic-prep/primary-reference.png"
+      "primary_image_url": "./media/locations/new-year-civic-prep/primary-reference.webp"
     },
     {
       "location_id": "MZ-LOC-CENTRAL-ECHO-RELAY",
@@ -332,7 +332,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_locations/central-echo-relay",
-      "primary_image_url": "/media/locations/central-echo-relay/primary-reference.png"
+      "primary_image_url": "./media/locations/central-echo-relay/primary-reference.webp"
     }
   ],
   "props": [
@@ -347,7 +347,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/fusionzoo-upgrade-sign",
-      "primary_image_url": "/media/props/fusionzoo-upgrade-sign/primary-reference.png"
+      "primary_image_url": "./media/props/fusionzoo-upgrade-sign/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-FUSION-READY-SCREEN",
@@ -360,7 +360,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/fusion-ready-screen",
-      "primary_image_url": "/media/props/fusion-ready-screen/primary-reference.png"
+      "primary_image_url": "./media/props/fusion-ready-screen/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-FLOATING-EXPLAINER",
@@ -373,7 +373,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/floating-explainer",
-      "primary_image_url": "/media/props/floating-explainer/primary-reference.png"
+      "primary_image_url": "./media/props/floating-explainer/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-ECHO-SYMBOL",
@@ -393,7 +393,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/echo-symbol",
-      "primary_image_url": "/media/props/echo-symbol/primary-reference.png"
+      "primary_image_url": "./media/props/echo-symbol/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-CYAN-RELAY-MARKER",
@@ -409,7 +409,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/cyan-relay-marker",
-      "primary_image_url": "/media/props/cyan-relay-marker/primary-reference.png"
+      "primary_image_url": "./media/props/cyan-relay-marker/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-FESTIVAL-BACKUP-PANEL",
@@ -423,7 +423,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/festival-backup-panel",
-      "primary_image_url": "/media/props/festival-backup-panel/primary-reference.png"
+      "primary_image_url": "./media/props/festival-backup-panel/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-SERVICE-GATE",
@@ -438,7 +438,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/service-gate",
-      "primary_image_url": "/media/props/service-gate/primary-reference.png"
+      "primary_image_url": "./media/props/service-gate/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-CONTROL-BOX",
@@ -452,7 +452,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/control-box",
-      "primary_image_url": "/media/props/control-box/primary-reference.png"
+      "primary_image_url": "./media/props/control-box/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-PUBLIC-PROJECTION-SCREEN",
@@ -466,7 +466,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/public-projection-screen",
-      "primary_image_url": "/media/props/public-projection-screen/primary-reference.png"
+      "primary_image_url": "./media/props/public-projection-screen/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-POWERED-OFF-RADIO",
@@ -481,7 +481,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/powered-off-radio",
-      "primary_image_url": "/media/props/powered-off-radio/primary-reference.png"
+      "primary_image_url": "./media/props/powered-off-radio/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-TRANSIT-BOARD",
@@ -495,7 +495,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/transit-board",
-      "primary_image_url": "/media/props/transit-board/primary-reference.png"
+      "primary_image_url": "./media/props/transit-board/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-SCHOOL-SPEAKER",
@@ -509,7 +509,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/school-speaker",
-      "primary_image_url": "/media/props/school-speaker/primary-reference.png"
+      "primary_image_url": "./media/props/school-speaker/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-PERSONAL-DEVICE-BURST",
@@ -523,7 +523,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/personal-device-burst",
-      "primary_image_url": "/media/props/personal-device-burst/primary-reference.png"
+      "primary_image_url": "./media/props/personal-device-burst/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-SIGNAL-ANALYZER",
@@ -538,7 +538,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/signal-analyzer",
-      "primary_image_url": "/media/props/signal-analyzer/primary-reference.png"
+      "primary_image_url": "./media/props/signal-analyzer/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-SIX-TONE-MOTIF",
@@ -557,7 +557,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/six-tone-motif",
-      "primary_image_url": "/media/props/six-tone-motif/primary-reference.png"
+      "primary_image_url": "./media/props/six-tone-motif/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-MISDIRECT-EXIT-SIGN",
@@ -572,7 +572,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/misdirect-exit-sign",
-      "primary_image_url": "/media/props/misdirect-exit-sign/primary-reference.png"
+      "primary_image_url": "./media/props/misdirect-exit-sign/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-OLD-WALL-MARKING",
@@ -588,7 +588,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/old-wall-marking",
-      "primary_image_url": "/media/props/old-wall-marking/primary-reference.png"
+      "primary_image_url": "./media/props/old-wall-marking/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-FUSIONZOO-RESIDUE",
@@ -603,7 +603,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/fusionzoo-residue",
-      "primary_image_url": "/media/props/fusionzoo-residue/primary-reference.png"
+      "primary_image_url": "./media/props/fusionzoo-residue/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-HAUNTED-THEATRICAL-PROP",
@@ -618,7 +618,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/haunted-theatrical-prop",
-      "primary_image_url": "/media/props/haunted-theatrical-prop/primary-reference.png"
+      "primary_image_url": "./media/props/haunted-theatrical-prop/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-COMMUNITY-TABLE",
@@ -632,7 +632,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/community-table",
-      "primary_image_url": "/media/props/community-table/primary-reference.png"
+      "primary_image_url": "./media/props/community-table/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-EMPTY-PLACESETTING",
@@ -647,7 +647,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/empty-placesetting",
-      "primary_image_url": "/media/props/empty-placesetting/primary-reference.png"
+      "primary_image_url": "./media/props/empty-placesetting/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-SEATING-SYSTEM-UI",
@@ -662,7 +662,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/seating-system-ui",
-      "primary_image_url": "/media/props/seating-system-ui/primary-reference.png"
+      "primary_image_url": "./media/props/seating-system-ui/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-INVITATION-CARD",
@@ -676,7 +676,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/invitation-card",
-      "primary_image_url": "/media/props/invitation-card/primary-reference.png"
+      "primary_image_url": "./media/props/invitation-card/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-HOLIDAY-LIGHTS",
@@ -690,7 +690,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/holiday-lights",
-      "primary_image_url": "/media/props/holiday-lights/primary-reference.png"
+      "primary_image_url": "./media/props/holiday-lights/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-TEMPORARY-HEAT-SOURCE",
@@ -705,7 +705,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/temporary-heat-source",
-      "primary_image_url": "/media/props/temporary-heat-source/primary-reference.png"
+      "primary_image_url": "./media/props/temporary-heat-source/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-HEATING-SEQUENCE-PLATE",
@@ -720,7 +720,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/heating-sequence-plate",
-      "primary_image_url": "/media/props/heating-sequence-plate/primary-reference.png"
+      "primary_image_url": "./media/props/heating-sequence-plate/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-EMERGENCY-SUPPLY-BOARD",
@@ -735,7 +735,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/emergency-supply-board",
-      "primary_image_url": "/media/props/emergency-supply-board/primary-reference.png"
+      "primary_image_url": "./media/props/emergency-supply-board/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-DEBRIS-BRACE",
@@ -750,7 +750,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/debris-brace",
-      "primary_image_url": "/media/props/debris-brace/primary-reference.png"
+      "primary_image_url": "./media/props/debris-brace/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-CENTRAL-RELAY-CONSOLE",
@@ -764,7 +764,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/central-relay-console",
-      "primary_image_url": "/media/props/central-relay-console/primary-reference.png"
+      "primary_image_url": "./media/props/central-relay-console/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-TWO-PATH-DISPLAY",
@@ -779,7 +779,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/two-path-display",
-      "primary_image_url": "/media/props/two-path-display/primary-reference.png"
+      "primary_image_url": "./media/props/two-path-display/primary-reference.webp"
     },
     {
       "prop_id": "MZ-PROP-COMPLETE-ECHO-EMBLEM",
@@ -794,7 +794,7 @@
       "has_bible": true,
       "has_primary_image": true,
       "folder": "03_APPROVED_CANON/approved_props/complete-echo-emblem",
-      "primary_image_url": "/media/props/complete-echo-emblem/primary-reference.png"
+      "primary_image_url": "./media/props/complete-echo-emblem/primary-reference.webp"
     }
   ],
   "expressions": [
@@ -1343,132 +1343,132 @@
       "display_name": "Lil Devil",
       "image_count": 31,
       "base_image": "lildevil_00_clean_base.webp",
-      "base_image_url": "./media/expressions/lil%20devil/lildevil_00_clean_base.webp",
+      "base_image_url": "./media/expressions/lil devil/lildevil_00_clean_base.webp",
       "folder": "03_APPROVED_CANON/approved_expressions/lil devil",
       "images": [
         {
           "filename": "lildevil_00_clean_base.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_00_clean_base.webp"
+          "url": "./media/expressions/lil devil/lildevil_00_clean_base.webp"
         },
         {
           "filename": "lildevil_01_neutral.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_01_neutral.webp"
+          "url": "./media/expressions/lil devil/lildevil_01_neutral.webp"
         },
         {
           "filename": "lildevil_02_threeqtr.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_02_threeqtr.webp"
+          "url": "./media/expressions/lil devil/lildevil_02_threeqtr.webp"
         },
         {
           "filename": "lildevil_03_profile.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_03_profile.webp"
+          "url": "./media/expressions/lil devil/lildevil_03_profile.webp"
         },
         {
           "filename": "lildevil_04_overshoulder.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_04_overshoulder.webp"
+          "url": "./media/expressions/lil devil/lildevil_04_overshoulder.webp"
         },
         {
           "filename": "lildevil_05_portrait.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_05_portrait.webp"
+          "url": "./media/expressions/lil devil/lildevil_05_portrait.webp"
         },
         {
           "filename": "lildevil_06_angry.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_06_angry.webp"
+          "url": "./media/expressions/lil devil/lildevil_06_angry.webp"
         },
         {
           "filename": "lildevil_07_sad.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_07_sad.webp"
+          "url": "./media/expressions/lil devil/lildevil_07_sad.webp"
         },
         {
           "filename": "lildevil_08_shocked.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_08_shocked.webp"
+          "url": "./media/expressions/lil devil/lildevil_08_shocked.webp"
         },
         {
           "filename": "lildevil_09_smile.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_09_smile.webp"
+          "url": "./media/expressions/lil devil/lildevil_09_smile.webp"
         },
         {
           "filename": "lildevil_10_walking.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_10_walking.webp"
+          "url": "./media/expressions/lil devil/lildevil_10_walking.webp"
         },
         {
           "filename": "lildevil_11_armscrossed.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_11_armscrossed.webp"
+          "url": "./media/expressions/lil devil/lildevil_11_armscrossed.webp"
         },
         {
           "filename": "lildevil_12_sitting.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_12_sitting.webp"
+          "url": "./media/expressions/lil devil/lildevil_12_sitting.webp"
         },
         {
           "filename": "lildevil_13_pointing.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_13_pointing.webp"
+          "url": "./media/expressions/lil devil/lildevil_13_pointing.webp"
         },
         {
           "filename": "lildevil_14_shout.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_14_shout.webp"
+          "url": "./media/expressions/lil devil/lildevil_14_shout.webp"
         },
         {
           "filename": "lildevil_15_laughing.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_15_laughing.webp"
+          "url": "./media/expressions/lil devil/lildevil_15_laughing.webp"
         },
         {
           "filename": "lildevil_16_worried.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_16_worried.webp"
+          "url": "./media/expressions/lil devil/lildevil_16_worried.webp"
         },
         {
           "filename": "lildevil_17_disgusted.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_17_disgusted.webp"
+          "url": "./media/expressions/lil devil/lildevil_17_disgusted.webp"
         },
         {
           "filename": "lildevil_18_sleepy.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_18_sleepy.webp"
+          "url": "./media/expressions/lil devil/lildevil_18_sleepy.webp"
         },
         {
           "filename": "lildevil_19_determined.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_19_determined.webp"
+          "url": "./media/expressions/lil devil/lildevil_19_determined.webp"
         },
         {
           "filename": "lildevil_20_confused.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_20_confused.webp"
+          "url": "./media/expressions/lil devil/lildevil_20_confused.webp"
         },
         {
           "filename": "lildevil_21_running.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_21_running.webp"
+          "url": "./media/expressions/lil devil/lildevil_21_running.webp"
         },
         {
           "filename": "lildevil_22_jumping.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_22_jumping.webp"
+          "url": "./media/expressions/lil devil/lildevil_22_jumping.webp"
         },
         {
           "filename": "lildevil_23_waving.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_23_waving.webp"
+          "url": "./media/expressions/lil devil/lildevil_23_waving.webp"
         },
         {
           "filename": "lildevil_24_thinking.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_24_thinking.webp"
+          "url": "./media/expressions/lil devil/lildevil_24_thinking.webp"
         },
         {
           "filename": "lildevil_25_crouching.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_25_crouching.webp"
+          "url": "./media/expressions/lil devil/lildevil_25_crouching.webp"
         },
         {
           "filename": "lildevil_26_reaching.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_26_reaching.webp"
+          "url": "./media/expressions/lil devil/lildevil_26_reaching.webp"
         },
         {
           "filename": "lildevil_27_defeated.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_27_defeated.webp"
+          "url": "./media/expressions/lil devil/lildevil_27_defeated.webp"
         },
         {
           "filename": "lildevil_28_celebrating.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_28_celebrating.webp"
+          "url": "./media/expressions/lil devil/lildevil_28_celebrating.webp"
         },
         {
           "filename": "lildevil_29_lookingup.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_29_lookingup.webp"
+          "url": "./media/expressions/lil devil/lildevil_29_lookingup.webp"
         },
         {
           "filename": "lildevil_30_backview.webp",
-          "url": "./media/expressions/lil%20devil/lildevil_30_backview.webp"
+          "url": "./media/expressions/lil devil/lildevil_30_backview.webp"
         }
       ],
       "static_media": true

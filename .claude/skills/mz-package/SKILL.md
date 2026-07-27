@@ -15,8 +15,15 @@ description: Run MonkeyZoo layout, lettering, exports, and release gates (Stages
    (palette-mode: this Pillow lacks JPEG), social crops per `_social` spec.
 3. Covers: generate via Z-Image using `cover_prompt.md` (scene cover ~69001
    seed family, card-mode variant), letter title/stamps with Pillow, save
-   `exports/cover.png` + `promo_images/variant_cover.png`.
+   `generated_art/covers/main_cover.png` (the canonical final cover -- see
+   `00_SYSTEM/scripts/issue_cover.py`) + `exports/promo_images/variant_cover.png`.
 4. CBZ + export check: `python 00_SYSTEM/scripts/build_release.py <issue-folder>`.
+   For a Genesis-style packaged release, verify its integrity + provenance
+   BEFORE distributing or minting:
+   `python 00_SYSTEM/scripts/genesis/genesis_release.py --verify <genesis-dir>`
+   — re-hashes every SHA256SUMS.txt file and cross-checks the release manifest's
+   per-artifact sha256/bytes (the values CHIP-0015 mints with). Exit 1 lists any
+   corruption or manifest/file provenance drift; never mint a release that fails.
 5. Lanczos scaling is fine for flat-color art; ESRGAN upscale on ZLUDA is
    ~5min/panel — skip unless making print masters.
 6. Programmatic lettering is DRAFT tier: recommend a Krita/CSP polish pass
@@ -24,6 +31,10 @@ description: Run MonkeyZoo layout, lettering, exports, and release gates (Stages
 
 ## Stage 9 — Final QA (Gate B, `00_SYSTEM/qa_checklist.md`)
 - `validate_issue.py <folder> --art` PASS.
+- If any panel was composited via the integration pipeline (staged
+  previews exist in `generated_art/integration_preview/`):
+  `validate_issue.py <folder> --integration` PASS, plus the Gate A
+  "Integration" checklist section judged by eye per panel.
 - Ledger entry appended and consistent with the SHIPPED script; previous
   teaser honored/deferred; new lore copied into world/character bibles;
   next-issue teaser present.

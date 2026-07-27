@@ -1,0 +1,12 @@
+{
+  "panel_id": "MZ-2026-09-02_P14_PANEL06",
+  "type": "scene",
+  "location": "Old Relay Junction",
+  "action": "Ash, by the door the whole time, gives a single approving nod nobody else catches.",
+  "foreground_rain": false,
+  "characters": [
+    {"character": "ash", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/ash/ash_19_determined.png", "foot_anchor": [1080, 545], "shadow": "down-left"},
+    {"character": "neonblue", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/neonblue/neonblue_00_clean_base.png", "foot_anchor": [330, 605], "shadow": "down-right"},
+    {"character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_00_clean_base.png", "foot_anchor": [640, 660], "shadow": "down"}
+  ]
+}

@@ -47,12 +47,28 @@ Each backup includes:
 - Before major canon refactors or bulk art deletes
 - Weekly while actively producing an issue
 
+## Verify a backup (do this before you rely on it)
+
+A backup you cannot trust is worse than none. Re-hash every file against the
+manifest to catch silent corruption / bit-rot **before** a real disaster:
+
+```
+python scripts/backup_production.py --verify 06_BACKUPS/monkeyzoo-backup-<stamp>
+```
+
+Exit 0 = every recorded file exists and matches its size + SHA-256. Exit 1 lists
+each `MISSING` / `SIZE MISMATCH` / `HASH MISMATCH`. Files present in the folder
+but absent from the manifest are reported as `untracked` warnings (they do not
+fail verification). Run this right after creating a backup and again before any
+restore.
+
 ## Restore outline
 
-1. Copy trees from the backup into a MonkeyZoo workspace root.
-2. Confirm Python deps (`.\Start-BananaLab.ps1` or manual venv).
-3. Run `python -m pytest character-bibles/_review_app/tests -q`.
-4. Open Studio and confirm the issue workflow stage and blockers.
+1. **Verify the backup first** (see above); do not restore an unverified backup.
+2. Copy trees from the backup into a MonkeyZoo workspace root.
+3. Confirm Python deps (`.\Start-BananaLab.ps1` or manual venv).
+4. Run `python -m pytest character-bibles/_review_app/tests -q`.
+5. Open Studio and confirm the issue workflow stage and blockers.
 
 ## Security note
 

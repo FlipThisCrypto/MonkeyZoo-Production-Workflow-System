@@ -148,15 +148,10 @@ try {
         Start-Process $url | Out-Null
     }
 
-    # app.py hardcodes 8765; warn if overridden without code change.
-    if ($Port -ne 8765) {
-        Write-Host "NOTE: app.py currently listens on 8765. -Port does not rebind the Flask app yet." -ForegroundColor Yellow
-        Write-Host "Stopping with non-default port request to avoid a misleading launch." -ForegroundColor Yellow
-        throw "Use default port 8765, or update character-bibles/_review_app/app.py to accept a port."
-    }
-
+    $env:PORT = $Port
     Set-Location (Join-Path $Root "character-bibles\_review_app")
     & $pythonExe "app.py"
+
 } catch {
     Write-Fail $_.Exception.Message
     Write-Host ""

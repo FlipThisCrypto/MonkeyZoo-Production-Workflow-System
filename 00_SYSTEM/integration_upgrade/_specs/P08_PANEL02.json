@@ -1,0 +1,13 @@
+{
+  "panel_id": "MZ-2026-09-02_P08_PANEL02",
+  "type": "scene",
+  "location": "Transit Announcement Hub",
+  "action": "Nobody jokes; a steadying hand lands on NeonBlue's shoulder without ceremony.",
+  "foreground_rain": false,
+  "characters": [
+    {"character": "neonblue", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/neonblue/neonblue_27_defeated.png",
+     "foot_anchor": [560, 615], "shadow": "down-left", "reflection_surface": "glossy_floor_full"},
+    {"character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_19_determined.png",
+     "foot_anchor": [820, 520], "shadow": "down-right", "reflection_surface": "glossy_floor_full"}
+  ]
+}

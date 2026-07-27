@@ -1,0 +1,8 @@
+{
+  "approved_at": "2026-07-16T15:33:57+00:00",
+  "issue_id": "MZ-2026-09-02",
+  "evidence_hash": "bcadd5e3219bbe49dcae98cf0c00b5a7d25e6e5f2024da0ebe49e15b09c8a1c3",
+  "manifest_hash": "f6e4310e957f87e6df10ab88f12906bb9e82733a6f64362dca1f0ec5adbea3b0",
+  "note": "Issue 02 draft pipeline release — Static six-tone package",
+  "actor": "project_owner"
+}

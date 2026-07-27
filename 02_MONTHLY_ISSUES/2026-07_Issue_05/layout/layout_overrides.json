@@ -1,0 +1,22 @@
+{
+  "MZ-2026-07-05_P01_PANEL01": { "caption_y": 0.06 },
+  "MZ-2026-07-05_P01_PANEL02": { "bubble_y": 0.14 },
+  "MZ-2026-07-05_P02_PANEL01": { "caption_y": 0.8 },
+  "MZ-2026-07-05_P02_PANEL02": { "bubble_y": 0.13 },
+  "MZ-2026-07-05_P03_PANEL02": { "bubble_y": 0.16 },
+  "MZ-2026-07-05_P03_PANEL03": { "caption_y": 0.78 },
+  "MZ-2026-07-05_P04_PANEL01": { "caption_y": 0.05 },
+  "MZ-2026-07-05_P05_PANEL02": { "caption_y": 0.8, "bubble_y": 0.12 },
+  "MZ-2026-07-05_P06_PANEL01": { "screen_text": "WELLNESS UPDATE READY. PLEASE HOLD STILL.", "screen_x": 0.5, "screen_y": 0.2, "bubble_y": 0.45, "sfx_x": 0.72, "sfx_y": 0.08 },
+  "MZ-2026-07-05_P06_PANEL02": { "caption_y": 0.82, "bubble_y": 0.14 },
+  "MZ-2026-07-05_P07_PANEL01": { "bubble_y": 0.14, "sfx_x": 0.06, "sfx_y": 0.08 },
+  "MZ-2026-07-05_P07_PANEL03": { "crop": [0.0, 0.0, 0.5, 1.0], "caption_y": 0.78 },
+  "MZ-2026-07-05_P08_PANEL01": { "bubble_y": 0.13 },
+  "MZ-2026-07-05_P08_PANEL02": { "caption_y": 0.8 },
+  "_social": {
+    "splash_1x1": { "panel": "MZ-2026-07-05_P04_PANEL01", "size": [1080, 1080] },
+    "zombie_16x9": { "panel": "MZ-2026-07-05_P03_PANEL03", "size": [1600, 900] },
+    "patch_4x5": { "panel": "MZ-2026-07-05_P05_PANEL01", "size": [1080, 1350] },
+    "door_4x5": { "panel": "MZ-2026-07-05_P02_PANEL01", "size": [1080, 1350] }
+  }
+}

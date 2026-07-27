@@ -4,12 +4,40 @@ import copy
 import datetime as dt
 import json
 import os
+import tempfile
+import threading
 from pathlib import Path
 from typing import Any
 
 import yaml
 
+__all__ = ["load_bible", "save_bible", "resolve_character_id", "character_summary", "load_all", "BibleStoreError"]
+
+
 WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
+
+# The Studio dev server is threaded (Flask app.run defaults threaded=True), and a
+# trait/field edit or undo is a read-modify-write over BOTH the bible and its
+# append-only audit history. Without serialization, two concurrent edits to the
+# same character race: last-write-wins can drop an edit, and -- worse -- two
+# concurrent append_history() calls can silently lose an audit entry (each reads
+# the history, appends, and overwrites). A per-character lock (keyed by the
+# RESOLVED id, so an alias and its target share one lock) serializes the whole
+# critical section; distinct characters still edit in parallel. In-process is the
+# right scope for the current single-process server; a future multi-worker
+# (wsgi) deployment would additionally need a cross-process file lock.
+_CHARACTER_LOCKS: dict[str, threading.Lock] = {}
+_CHARACTER_LOCKS_GUARD = threading.Lock()
+
+
+def _character_lock(character_id: str) -> threading.Lock:
+    with _CHARACTER_LOCKS_GUARD:
+        lock = _CHARACTER_LOCKS.get(character_id)
+        if lock is None:
+            lock = threading.Lock()
+            _CHARACTER_LOCKS[character_id] = lock
+        return lock
+
 BIBLES_ROOT = WORKSPACE_ROOT / "character-bibles"
 VALID_STATUSES = {
     "canon",
@@ -36,6 +64,37 @@ VALID_FREQUENCIES = {
 class BibleStoreError(ValueError):
     pass
 
+
+def _atomic_write_text(path: Path, text: str) -> None:
+    """Write text via a temp file + fsync + os.replace so a crash or full disk
+    mid-write cannot truncate/corrupt a canon bible.yaml or its history log
+    (mirrors issue_workflow._atomic_write). The final bytes are identical to a
+    plain write_text, so serialization/canon content is unchanged."""
+    fd, temporary = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=str(path.parent))
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as stream:
+            stream.write(text)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+    except BaseException:
+        try:
+            os.unlink(temporary)
+        except OSError:
+            pass
+        raise
+
+
+def _load_yaml(path: Path) -> Any:
+    """Parse a bible.yaml, turning a malformed file into a clean BibleStoreError
+    (HTTP 400) instead of an uncaught yaml.YAMLError that 500s character
+    resolution app-wide because one bible is corrupt."""
+    try:
+        return yaml.safe_load(path.read_text(encoding="utf-8"))
+    except yaml.YAMLError as exc:
+        raise BibleStoreError(f"Malformed bible: {path}") from exc
+
+
 _IDENTITY_INDEXES: dict[str, dict[str, str]] = {}
 
 
@@ -46,7 +105,7 @@ def _identity_index(root: Path) -> dict[str, str]:
     index: dict[str, str] = {}
     aliases: list[tuple[list[str], str]] = []
     for path in sorted(root.glob("MZ-CHAR-*/bible.yaml")):
-        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        data = _load_yaml(path) or {}
         ident = data.get("identification") or {}
         names = [path.parent.name, ident.get("character_id"), ident.get("current_display_name"), ident.get("personal_name"), ident.get("legacy_label"), ident.get("series_name"), *(ident.get("nicknames") or [])]
         target = ident.get("alias_of") or path.parent.name
@@ -78,7 +137,7 @@ def bible_dirs(root: Path = BIBLES_ROOT) -> list[Path]:
     for path in sorted(root.glob("MZ-CHAR-*")):
         if not (path / "bible.yaml").exists():
             continue
-        data = yaml.safe_load((path / "bible.yaml").read_text(encoding="utf-8")) or {}
+        data = _load_yaml(path / "bible.yaml") or {}
         if not (data.get("identification") or {}).get("alias_of"):
             result.append(path)
     return result
@@ -89,7 +148,7 @@ def load_bible(character_id: str, root: Path = BIBLES_ROOT) -> dict[str, Any]:
     path = root / character_id / "bible.yaml"
     if not path.exists():
         raise BibleStoreError(f"Unknown character: {character_id}")
-    return yaml.safe_load(path.read_text(encoding="utf-8"))
+    return _load_yaml(path)
 
 
 def save_bible(character_id: str, data: dict[str, Any], root: Path = BIBLES_ROOT) -> None:
@@ -97,11 +156,13 @@ def save_bible(character_id: str, data: dict[str, Any], root: Path = BIBLES_ROOT
     path = root / character_id / "bible.yaml"
     if not path.exists():
         raise BibleStoreError(f"Unknown character: {character_id}")
-    path.write_text(yaml.safe_dump(data, sort_keys=False, allow_unicode=True, width=110), encoding="utf-8")
+    _atomic_write_text(path, yaml.safe_dump(data, sort_keys=False, allow_unicode=True, width=110))
+    _IDENTITY_INDEXES.pop(str(root.resolve()), None)
+
 
 
 def load_all(root: Path = BIBLES_ROOT) -> list[tuple[str, dict[str, Any]]]:
-    return [(path.name, yaml.safe_load((path / "bible.yaml").read_text(encoding="utf-8"))) for path in bible_dirs(root)]
+    return [(path.name, _load_yaml(path / "bible.yaml")) for path in bible_dirs(root)]
 
 
 def trait_count(data: Any, status: str | None = None) -> int:
@@ -214,9 +275,15 @@ def get_path(data: Any, path: str) -> Any:
     cursor = data
     for part in path.split("."):
         if isinstance(cursor, list):
-            cursor = cursor[int(part)]
+            try:
+                cursor = cursor[int(part)]
+            except (ValueError, IndexError) as exc:
+                raise BibleStoreError(f"Cannot follow path: {path}") from exc
         elif isinstance(cursor, dict):
-            cursor = cursor[part]
+            try:
+                cursor = cursor[part]
+            except KeyError as exc:
+                raise BibleStoreError(f"Cannot follow path: {path}") from exc
         else:
             raise BibleStoreError(f"Cannot follow path: {path}")
     return cursor
@@ -225,13 +292,16 @@ def get_path(data: Any, path: str) -> Any:
 def set_path(data: Any, path: str, value: Any) -> None:
     parts = path.split(".")
     cursor = data
-    for part in parts[:-1]:
-        cursor = cursor[int(part)] if isinstance(cursor, list) else cursor[part]
-    last = parts[-1]
-    if isinstance(cursor, list):
-        cursor[int(last)] = value
-    else:
-        cursor[last] = value
+    try:
+        for part in parts[:-1]:
+            cursor = cursor[int(part)] if isinstance(cursor, list) else cursor[part]
+        last = parts[-1]
+        if isinstance(cursor, list):
+            cursor[int(last)] = value
+        else:
+            cursor[last] = value
+    except (KeyError, IndexError, ValueError, TypeError) as exc:
+        raise BibleStoreError(f"Cannot follow path: {path}") from exc
 
 
 def history_path(character_id: str, root: Path = BIBLES_ROOT) -> Path:
@@ -244,14 +314,17 @@ def load_history(character_id: str | None, root: Path = BIBLES_ROOT) -> list[dic
     path = history_path(character_id, root)
     if not path.exists():
         return []
-    return json.loads(path.read_text(encoding="utf-8"))
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise BibleStoreError(f"Malformed approval history: {path}") from exc
 
 
 def append_history(character_id: str, entry: dict[str, Any], root: Path = BIBLES_ROOT) -> None:
     path = history_path(character_id, root)
     history = load_history(character_id, root)
     history.append(entry)
-    path.write_text(json.dumps(history, indent=2, ensure_ascii=False), encoding="utf-8")
+    _atomic_write_text(path, json.dumps(history, indent=2, ensure_ascii=False))
 
 
 def audit_entry(action: str, field_path: str, previous: Any, new: Any, note: str | None = None) -> dict[str, Any]:
@@ -268,17 +341,19 @@ def audit_entry(action: str, field_path: str, previous: Any, new: Any, note: str
 
 def update_trait(character_id: str, trait_path: str, updates: dict[str, Any], note: str | None = None,
                  root: Path = BIBLES_ROOT) -> dict[str, Any]:
-    data = load_bible(character_id, root)
-    trait = get_path(data, trait_path)
-    if not isinstance(trait, dict) or "status" not in trait:
-        raise BibleStoreError("Selected path is not a trait")
-    previous = copy.deepcopy(trait)
-    normalized = normalize_trait_updates(updates)
-    review_action = normalized.pop("_review_action", "edit_trait")
-    trait.update(normalized)
-    save_bible(character_id, data, root)
-    append_history(character_id, audit_entry(review_action, trait_path, previous, copy.deepcopy(trait), note), root)
-    return trait
+    cid = resolve_character_id(character_id, root)
+    with _character_lock(cid):
+        data = load_bible(cid, root)
+        trait = get_path(data, trait_path)
+        if not isinstance(trait, dict) or "status" not in trait:
+            raise BibleStoreError("Selected path is not a trait")
+        previous = copy.deepcopy(trait)
+        normalized = normalize_trait_updates(updates)
+        review_action = normalized.pop("_review_action", "edit_trait")
+        trait.update(normalized)
+        save_bible(cid, data, root)
+        append_history(cid, audit_entry(review_action, trait_path, previous, copy.deepcopy(trait), note), root)
+        return trait
 
 
 def normalize_trait_updates(updates: dict[str, Any]) -> dict[str, Any]:
@@ -321,24 +396,28 @@ def normalize_trait_updates(updates: dict[str, Any]) -> dict[str, Any]:
 
 def update_field(character_id: str, field_path: str, value: Any, action: str = "edit_field",
                  note: str | None = None, root: Path = BIBLES_ROOT) -> Any:
-    data = load_bible(character_id, root)
-    previous = copy.deepcopy(get_path(data, field_path))
-    set_path(data, field_path, value)
-    save_bible(character_id, data, root)
-    append_history(character_id, audit_entry(action, field_path, previous, value, note), root)
-    return value
+    cid = resolve_character_id(character_id, root)
+    with _character_lock(cid):
+        data = load_bible(cid, root)
+        previous = copy.deepcopy(get_path(data, field_path))
+        set_path(data, field_path, value)
+        save_bible(cid, data, root)
+        append_history(cid, audit_entry(action, field_path, previous, value, note), root)
+        return value
 
 
 def undo_last(character_id: str, root: Path = BIBLES_ROOT) -> dict[str, Any]:
-    history = load_history(character_id, root)
-    if not history:
-        raise BibleStoreError("No history to undo")
-    last = history.pop()
-    data = load_bible(character_id, root)
-    set_path(data, last["field_path"], last["previous_value"])
-    save_bible(character_id, data, root)
-    history_path(character_id, root).write_text(json.dumps(history, indent=2, ensure_ascii=False), encoding="utf-8")
-    return last
+    cid = resolve_character_id(character_id, root)
+    with _character_lock(cid):
+        history = load_history(cid, root)
+        if not history:
+            raise BibleStoreError("No history to undo")
+        last = history.pop()
+        data = load_bible(cid, root)
+        set_path(data, last["field_path"], last["previous_value"])
+        save_bible(cid, data, root)
+        _atomic_write_text(history_path(cid, root), json.dumps(history, indent=2, ensure_ascii=False))
+        return last
 
 
 def load_source_map(character_id: str | None, root: Path = BIBLES_ROOT) -> dict[str, Any]:

@@ -20,9 +20,28 @@
 05_RELEASE_ARCHIVE/
 06_BACKUPS/
 
+# Scratch/staging trees produced by release verification and audit runs.
+# These contain FULL COPIES of the repo (artifacts/release_staging/), so leaving
+# them untracked-but-unignored risks committing a second copy of the whole
+# project via `git add -A`, and their duplicate test/source files break bare
+# `pytest` and `ruff check .` locally while CI (fresh checkout, no such dir)
+# stays green. Also excluded in pytest.ini and ruff.toml.
+artifacts/
+
 # ── OS / tooling noise ──────────────────────────────────────────────
+# Virtualenv. Both documented launchers (Start-BananaLab.ps1,
+# start-banana-lab.sh) create .venv at the repo root, so without this a
+# `git add -A` would commit an entire interpreter tree.
+.venv/
+venv/
 __pycache__/
 *.pyc
+# coverage.py's SQLite data file: machine-specific, rewritten by every test
+# run. It was committed by accident; a permanently-dirty working tree hides
+# real changes in `git status`.
+.coverage
+.coverage.*
+htmlcov/
 .DS_Store
 Thumbs.db
 desktop.ini
@@ -32,3 +51,17 @@ desktop.ini
 .env
 .env.*
 issues/
+
+# character-integration-upgrade scratch inspection renders (not pipeline output)
+00_SYSTEM/integration_upgrade/_test/
+
+# Full-issue integration: heavy per-panel intermediates are reproducible
+# from _specs/ via build_panel.py; only the assembled review pages + specs
+# are tracked (repo policy: heavy art gitignored, reproducible from packs).
+00_SYSTEM/integration_upgrade/character_layers/
+00_SYSTEM/integration_upgrade/poc/*/final_integrated.png
+02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/MZ-2026-09-02_*.png
+02_MONTHLY_ISSUES/2026-09_Issue_02/generated_art/integration_preview/*_compare.png
+
+# Studio operations log (runtime audit; not source)
+character-bibles/_review_app/logs/

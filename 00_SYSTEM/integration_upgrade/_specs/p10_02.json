@@ -1,0 +1,21 @@
+{
+  "panel_id": "MZ-2026-09-02_P10_PANEL02",
+  "type": "scene",
+  "location": "School / Public Address Zone",
+  "action": "Moodz doesn't even look back, beanie low, already done with the argument; Static behind his shoulder.",
+  "foreground_rain": false,
+  "characters": [
+    {
+      "character": "static",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_16_worried.png",
+      "foot_anchor": [430, 515],
+      "shadow": "down-left"
+    },
+    {
+      "character": "moodz",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/moodz/moodz_19_determined.png",
+      "foot_anchor": [740, 655],
+      "shadow": "down-right"
+    }
+  ]
+}

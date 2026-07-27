@@ -1,0 +1,12 @@
+{
+  "panel_id": "MZ-2026-09-02_P03_PANEL03",
+  "type": "scene",
+  "location": "Early-Fall Storm Streets and Routine Nodes",
+  "action": "TwoTone and NeonBlue pull out their own devices — both screens stutter in the same rhythm at once.",
+  "foreground_rain": true,
+  "characters": [
+    {"character": "twotone", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/twotone/twotone_16_worried.png", "foot_anchor": [320, 545], "shadow": "down-right", "reflection_surface": "road_wet_sheet"},
+    {"character": "neonblue", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/neonblue/neonblue_20_confused.png", "foot_anchor": [980, 600], "shadow": "down-left", "reflection_surface": "road_wet_sheet"},
+    {"character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_19_determined.png", "foot_anchor": [640, 665], "shadow": "down", "reflection_surface": "road_wet_sheet"}
+  ]
+}

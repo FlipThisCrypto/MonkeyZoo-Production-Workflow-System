@@ -1,0 +1,12 @@
+{
+  "panel_id": "MZ-2026-09-02_P08_PANEL05",
+  "type": "closeup",
+  "location": "Zoo City Streets",
+  "closeup": {
+    "character": "static",
+    "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_14_shout.png",
+    "crop_box": [720, 330, 1080, 620],
+    "char_x_frac": 0.5,
+    "head_window": [0.0, 0.98]
+  }
+}

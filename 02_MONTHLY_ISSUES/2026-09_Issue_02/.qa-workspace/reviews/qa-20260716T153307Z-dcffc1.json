@@ -1,0 +1,479 @@
+{
+  "schema_version": "1.0",
+  "review_id": "qa-20260716T153307Z-dcffc1",
+  "issue_id": "MZ-2026-09-02",
+  "created_at": "2026-07-16T15:33:07+00:00",
+  "evidence_hash": "895ae9da1806b2bf794dcffa91a16a348a2522c37762134e08c3e6b8c716fae9",
+  "evidence": {
+    "evidence_hash": "895ae9da1806b2bf794dcffa91a16a348a2522c37762134e08c3e6b8c716fae9",
+    "panels": [
+      {
+        "panel_id": "MZ-2026-09-02_P01_PANEL01",
+        "characters": [
+          "MZ-CHAR-003"
+        ],
+        "dialogue": "STATIC: That click… it repeated.",
+        "caption": "Tiny disruption",
+        "continuity_notes": "Others ignore it",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P01_PANEL01.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "eb40590b5c850277172f734bca7d4e0d2bd25cbaeb95c7c74d733c406252255b",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P01_PANEL02",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-001"
+        ],
+        "dialogue": "MOODZ: You heard it again.",
+        "caption": "School speaker glitch",
+        "continuity_notes": "Moodz believes without pressure",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P01_PANEL02.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "d53f649aa4e78cb4f913ad51028d71d85955fb8f0e85bc81de5fe5e888db3ae0",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P01_PANEL03",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-005"
+        ],
+        "dialogue": "NEONBLUE: Probably just old wires—",
+        "caption": "Quick reassurance risk",
+        "continuity_notes": "NeonBlue believes but soothes too fast",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P01_PANEL03.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "ad3bb73326b91c2aee46c7a7f2d09832cd3a2811787be72dabdf5f6446d03747",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P02_PANEL01",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-002",
+          "MZ-CHAR-005"
+        ],
+        "dialogue": "STATIC: It’s the same burst!",
+        "caption": "Storm burst",
+        "continuity_notes": "Citywide pattern",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P02_PANEL01.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "a12551f0b40ac1a2f4fa5d47e08f931f0d078994b0dc24642505097cdbc3c3cd",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P02_PANEL02",
+        "characters": [
+          "MZ-CHAR-003"
+        ],
+        "dialogue": "STATIC: Before the sound finishes—danger is already here.",
+        "caption": "First reaction",
+        "continuity_notes": "Static first",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P02_PANEL02.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "521bc5d6ee70a0705448c0dcde64693dbd0126215cbd83cc2b1b831367d51614",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P02_PANEL03",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-006"
+        ],
+        "dialogue": "SCARLINE: Don’t drown him out.",
+        "caption": "Space to listen",
+        "continuity_notes": "Scarline protects signal space",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P02_PANEL03.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "4455ab314f78081e76663692db917e9ea437c4ee97c49da61f4ead3655eb02f6",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P03_PANEL01",
+        "characters": [
+          "MZ-CHAR-CLEVER",
+          "MZ-CHAR-003"
+        ],
+        "dialogue": "CLEVER: Hardware first. Pattern later.",
+        "caption": "Clever inspects",
+        "continuity_notes": "Maps mechanism",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P03_PANEL01.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "11c218749b7cab4b18588903a51549cce8183deb64911ce5fe0ae95ac59e4978",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P03_PANEL02",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-CLEVER"
+        ],
+        "dialogue": "STATIC: Six—no, three—no, listen—",
+        "caption": "Overload speech",
+        "continuity_notes": "Correct but unusable delivery",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P03_PANEL02.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "ba8ff75a1e286e446b293c200865056209a73e7edb351d563dda7c7acd692e9f",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P03_PANEL03",
+        "characters": [
+          "MZ-CHAR-CLEVER",
+          "MZ-CHAR-004"
+        ],
+        "dialogue": "ASH: Which part repeats?",
+        "caption": "Ash cuts noise",
+        "continuity_notes": "Proposed Ash line",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P03_PANEL03.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "7f82aeab0e60524de0ab127e266de94962e9ac61fdb8351914f2dc6789e03deb",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P04_PANEL01",
+        "characters": [
+          "MZ-CHAR-CLEVER",
+          "MZ-CHAR-003"
+        ],
+        "dialogue": "CLEVER: Six tones. Structured. Not random.",
+        "caption": "Six tones proven",
+        "continuity_notes": "Clever proves structure",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P04_PANEL01.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "1fccb6a5abf7cf80e70754ebc0b6bd55da4335467ac582f91f65541d88cda3df",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P04_PANEL02",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-005"
+        ],
+        "dialogue": "STATIC: That’s the cyan one… from summer.",
+        "caption": "August frequency match",
+        "continuity_notes": "Continuity with Issue 01",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P04_PANEL02.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "746c6f6fa7ef73e3c77f27d0931004262939a48a12279b46e7fcad51de1309e4",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P04_PANEL03",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-002"
+        ],
+        "dialogue": "TWOTONE: Pair them. Don’t stack them.",
+        "caption": "Paired frequencies",
+        "continuity_notes": "TwoTone support",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P04_PANEL03.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "274fc2e10a3c9b2310ba7133611f2ea29f12549d4c82ba88c61d34aee720cb6d",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P05_PANEL01",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-CLEVER"
+        ],
+        "dialogue": "STATIC: It’s listening for us.",
+        "caption": "Searching not broadcasting",
+        "continuity_notes": "Key midpoint insight",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P05_PANEL01.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "c8eeca5db52f5fcff58c9faa45ae525c481eb3ab2e0119381e8628702ce8d481",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P05_PANEL02",
+        "characters": [
+          "MZ-CHAR-001",
+          "MZ-CHAR-003"
+        ],
+        "dialogue": "MOODZ: He doesn’t have to be comfortable for you.",
+        "caption": "Protection from pressure",
+        "continuity_notes": "Moodz function",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P05_PANEL02.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "60f92e684d1b53c6a3acb3a3b7d08e7547696535d98af20606eb089996f26252",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P05_PANEL03",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-006"
+        ],
+        "dialogue": "SCARLINE: Do you want to keep listening?",
+        "caption": "Clear choice",
+        "continuity_notes": "Agency for Static",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P05_PANEL03.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "8cdbac6f69dfc85026ecf359e039926f4d29b7e577548985e3987fcede988bb8",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P06_PANEL01",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-005",
+          "MZ-CHAR-002"
+        ],
+        "dialogue": "STATIC: Flood—fire—relay—stop—",
+        "caption": "Overload crisis",
+        "continuity_notes": "Confusion risk",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P06_PANEL01.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "d2c5ada9e559823df13fcc8f23c9bd0e164b5abcb36b5fe20c7696d7951b9a3b",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P06_PANEL02",
+        "characters": [
+          "MZ-CHAR-001",
+          "MZ-CHAR-006",
+          "MZ-CHAR-003"
+        ],
+        "dialogue": "MOODZ: Room. Not volume.",
+        "caption": "Space not order",
+        "continuity_notes": "Team growth",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P06_PANEL02.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "6d5e33df452eb6a07bd10b874528d2bea2c6fe80772fd06dd76e81b722e67f85",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P06_PANEL03",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-006"
+        ],
+        "dialogue": "STATIC: Yes. But one line at a time.",
+        "caption": "Choice yes",
+        "continuity_notes": "On his terms",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P06_PANEL03.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "a323b4a3b762d49c633543921a6f37256742dc81b86df3d8c2981051a37e769b",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P07_PANEL01",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-CLEVER"
+        ],
+        "dialogue": "STATIC: The third tone. Every twelve seconds. West sector.",
+        "caption": "One clear warning",
+        "continuity_notes": "Usable communication",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P07_PANEL01.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "38a29ddb379e72382e7933cc79e4ed5c8b2ca62ff7752395cb8ebaca707972ce",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P07_PANEL02",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-CLEVER",
+          "MZ-CHAR-002"
+        ],
+        "dialogue": "CLEVER: Junction confirmed. Acting now.",
+        "caption": "Relay located",
+        "continuity_notes": "Physical Echo node",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P07_PANEL02.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "11f3a50ce1a2d7e1daecb7fe4dbf2c3cc2a36beab1fe72d96d82ce11cf9099f3",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P07_PANEL03",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-005",
+          "MZ-CHAR-004"
+        ],
+        "dialogue": "NEONBLUE: We heard you.",
+        "caption": "Warning used",
+        "continuity_notes": "Belief becomes action",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P07_PANEL03.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "415f168758ddf8afb65151ec99473abe9a8f7e99ad421bd8086ae531ab1a46fc",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P08_PANEL01",
+        "characters": [
+          "MZ-CHAR-003"
+        ],
+        "dialogue": "STATIC: What I sense. What I know. What I fear. What needs checking.",
+        "caption": "Method established",
+        "continuity_notes": "Growth not cure",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P08_PANEL01.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "972164023abaf5e57831df246d615cafbc8aa31d59da6b09d3ae1a3cb9b2d8c6",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P08_PANEL02",
+        "characters": [
+          "MZ-CHAR-003",
+          "MZ-CHAR-CLEVER"
+        ],
+        "dialogue": "CLEVER: I can map the how. You map the why.",
+        "caption": "Guest resolution",
+        "continuity_notes": "Complement not overwrite",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P08_PANEL02.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "3a63eee64fe8319a364b765ef8e4db80c388b241a25ab071d3db7189410b9a50",
+        "error": null
+      },
+      {
+        "panel_id": "MZ-2026-09-02_P08_PANEL03",
+        "characters": [
+          "MZ-CHAR-003"
+        ],
+        "dialogue": "—",
+        "caption": "Final soft tone",
+        "continuity_notes": "Issue 02 final image prop",
+        "path": "generated_art/selected_panels/MZ-2026-09-02_P08_PANEL03.png",
+        "exists": true,
+        "format": "PNG",
+        "width": 1280,
+        "height": 960,
+        "sha256": "902c7cac76b6cff53ddd863e14d4d57c260b0838ed50307d0c36cc08359a8af5",
+        "error": null
+      }
+    ],
+    "checks": {
+      "missing_panels": [],
+      "duplicate_art": [],
+      "invalid_images": [],
+      "dimension_mismatches": [],
+      "identity_missing": [],
+      "unmapped_images": [],
+      "dialogue_or_caption_panels": [
+        "MZ-2026-09-02_P01_PANEL01",
+        "MZ-2026-09-02_P01_PANEL02",
+        "MZ-2026-09-02_P01_PANEL03",
+        "MZ-2026-09-02_P02_PANEL01",
+        "MZ-2026-09-02_P02_PANEL02",
+        "MZ-2026-09-02_P02_PANEL03",
+        "MZ-2026-09-02_P03_PANEL01",
+        "MZ-2026-09-02_P03_PANEL02",
+        "MZ-2026-09-02_P03_PANEL03",
+        "MZ-2026-09-02_P04_PANEL01",
+        "MZ-2026-09-02_P04_PANEL02",
+        "MZ-2026-09-02_P04_PANEL03",
+        "MZ-2026-09-02_P05_PANEL01",
+        "MZ-2026-09-02_P05_PANEL02",
+        "MZ-2026-09-02_P05_PANEL03",
+        "MZ-2026-09-02_P06_PANEL01",
+        "MZ-2026-09-02_P06_PANEL02",
+        "MZ-2026-09-02_P06_PANEL03",
+        "MZ-2026-09-02_P07_PANEL01",
+        "MZ-2026-09-02_P07_PANEL02",
+        "MZ-2026-09-02_P07_PANEL03",
+        "MZ-2026-09-02_P08_PANEL01",
+        "MZ-2026-09-02_P08_PANEL02",
+        "MZ-2026-09-02_P08_PANEL03"
+      ],
+      "continuity_missing": [],
+      "cover_prompt_exists": true,
+      "cover_images": 0,
+      "metadata_missing": [],
+      "checklist_exists": true
+    },
+    "blockers": [],
+    "advisories": [
+      "cover image is absent; Release owns the blocking cover-deliverable requirement"
+    ],
+    "planned_panel_count": 24,
+    "selected_panel_count": 24
+  },
+  "owner_notes": "Issue 02 draft composite pipeline: identity readable, location plates present, no green glow misuse. Draft art tier labeled.",
+  "continuity_checks": [
+    "Static identity readable",
+    "Six-tone continuity with August cyan noted in script",
+    "No complete Echo emblem"
+  ],
+  "verdict": "PASS",
+  "approval": {
+    "approved_at": "2026-07-16T15:33:07+00:00",
+    "verdict": "PASS",
+    "evidence_hash": "895ae9da1806b2bf794dcffa91a16a348a2522c37762134e08c3e6b8c716fae9",
+    "actor": "project_owner"
+  }
+}

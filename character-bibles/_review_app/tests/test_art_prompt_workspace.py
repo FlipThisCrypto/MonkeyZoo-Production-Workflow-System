@@ -109,6 +109,76 @@ def test_plan_change_stales_and_blocks_promotion(factory):
         pack.promote(issue, root, variant["variant_id"])
 
 
+def test_lockless_prompt_fails_validation(factory):
+    # A prompt that does not lead with the locked style phrase must be an error,
+    # mirroring the CLI gate (validate_issue.py) — otherwise the canon lock can be
+    # dropped by a hand-edited pack.
+    root, issue = factory
+    built = pack.build_pack(issue, root)
+    built["panels"][0]["prompt"] = "a custom prompt with no style lock at all, quite long indeed"
+    result = pack.validate_pack(built, root)
+    assert result["status"] == "failed"
+    assert any("does not start with the locked style phrase" in f["message"] for f in result["findings"])
+
+
+def test_lockless_negative_prompt_fails_validation(factory):
+    root, issue = factory
+    built = pack.build_pack(issue, root)
+    built["panels"][0]["negative_prompt"] = "something that is not the base negative prompt at all"
+    result = pack.validate_pack(built, root)
+    assert result["status"] == "failed"
+    assert any("negative_prompt does not start with the base negative prompt" in f["message"]
+               for f in result["findings"])
+
+
+def test_lockless_custom_art_prompt_is_blocked_at_approval(factory):
+    # End-to-end: a canonical plan whose panel supplies a custom art_prompt that
+    # drops the style lock must produce a failing variant that approval refuses,
+    # closing the bypass at the gate a human actually uses.
+    root, issue = factory
+    plan = json.loads((issue / "page_panel_plan.json").read_text(encoding="utf-8"))
+    plan["pages"][0]["panels"][0]["art_prompt"] = (
+        "Bespoke unlocked prompt that intentionally omits the MonkeyZoo house style phrase entirely"
+    )
+    (issue / "page_panel_plan.json").write_text(json.dumps(plan), encoding="utf-8")
+    variant = pack.create_variant(issue, root)
+    assert variant["validation"]["status"] == "failed"
+    with pytest.raises(pack.ArtPromptError, match="validation errors"):
+        pack.approve(issue, root, variant["variant_id"])
+
+
+def test_style_lock_falls_back_when_bible_phrase_is_non_canonical(factory):
+    # A style bible whose quoted phrase does not lead with the canonical prefix
+    # must not leak into the pack; _style_lock falls back to the default.
+    root, _ = factory
+    (root / "00_SYSTEM" / "visual_style_bible.md").write_text(
+        '> **"Totally different house look with more than twenty characters here"**\n',
+        encoding="utf-8",
+    )
+    assert pack._style_lock(root) == pack.DEFAULT_STYLE_LOCK
+
+
+def test_style_lock_uses_canonical_bible_phrase(factory):
+    root, _ = factory
+    phrase = pack.STYLE_LOCK_PREFIX + ": bespoke canonical variant phrase, plenty long enough"
+    (root / "00_SYSTEM" / "visual_style_bible.md").write_text(
+        f'> **"{phrase}"**\n', encoding="utf-8")
+    assert pack._style_lock(root) == phrase
+
+
+def test_non_canonical_pack_lock_fails_validation(factory):
+    root, issue = factory
+    built = pack.build_pack(issue, root)
+    built["style_lock_phrase"] = "Altered non-canonical style phrase of adequate length here"
+    # keep panel prompts leading with the (now altered) lock so ONLY the pack-level
+    # canonical-prefix rule is exercised
+    for panel in built["panels"]:
+        panel["prompt"] = built["style_lock_phrase"] + ". " + panel["prompt"]
+    result = pack.validate_pack(built, root)
+    assert result["status"] == "failed"
+    assert any("must lead with" in f["message"] for f in result["findings"])
+
+
 def test_wrong_stage_and_existing_pack_require_replace(factory):
     root, issue = factory
     state = json.loads((issue / ".workflow-status.json").read_text(encoding="utf-8"))
@@ -125,3 +195,55 @@ def test_wrong_stage_and_existing_pack_require_replace(factory):
         pack.promote(issue, root, variant["variant_id"])
     pack.promote(issue, root, variant["variant_id"], True)
     assert "owner" not in (issue / "art_prompt_pack.json").read_text(encoding="utf-8")
+
+
+# ---------------------------------------------------------------------------
+# Rule 3 style lock: the canonical phrase must survive extraction intact.
+#
+# The lock lives in visual_style_bible.md as a five-line markdown blockquote,
+# and the extractor captured it raw -- so the `\n> ` gutter of every
+# continuation line ended up INSIDE the phrase:
+#
+#     'MonkeyZoo house style: ... round head,\n> huge white oval eyes ...'
+#
+# That string became `style_lock_phrase` in the pack, and Rule 3 makes every
+# panel prompt start with it, so literal `>` characters and newlines were sent
+# to the image model inside the very phrase that defines house style.
+#
+# The Rule 3 gate could not catch it. validate_issue.py checks
+# `style_lock_phrase.startswith("MonkeyZoo house style")`, which the polluted
+# phrase does, and the per-panel check compares each prompt against that same
+# polluted value -- both sides agreed, so the gate passed.
+#
+# Found in 3 of 7 shipped issue packs (2026-08_Issue_01, 2026-09_Issue_02,
+# 2026-10_Issue_01), two of them already published. Those packs are canon and
+# are deliberately NOT rewritten here: they are the reproducibility record for
+# art that has already been generated and human-QA'd.
+# ---------------------------------------------------------------------------
+def test_style_lock_extracted_from_the_real_bible_has_no_markdown_gutter():
+    phrase = pack._style_lock(ROOT)
+    assert "\n" not in phrase, f"newline survived extraction: {phrase!r}"
+    assert ">" not in phrase, f"blockquote gutter survived extraction: {phrase!r}"
+
+
+def test_extracted_style_lock_equals_the_hardcoded_default():
+    """The two independent constructions of the canonical phrase must agree.
+
+    If they ever diverge, one of them is wrong and every prompt built from the
+    losing one is off-canon.
+    """
+    assert pack._style_lock(ROOT) == pack.DEFAULT_STYLE_LOCK
+
+
+def test_unwrap_blockquote_collapses_gutters_and_whitespace():
+    raw = 'first line,\n> second line,\n>   third line'
+    assert pack._unwrap_blockquote(raw) == "first line, second line, third line"
+
+
+def test_style_lock_is_clean_when_read_from_a_workspace_copy(factory):
+    """The fixture copies the real bible into a tmp factory -- same result there."""
+    root, _issue = factory
+    phrase = pack._style_lock(root)
+    assert "\n" not in phrase and ">" not in phrase
+    assert phrase.startswith(pack.STYLE_LOCK_PREFIX)
+    assert phrase == pack.DEFAULT_STYLE_LOCK

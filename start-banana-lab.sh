@@ -28,6 +28,10 @@ if ! "$PYTHON" -c "import flask, PIL, yaml, jsonschema" 2>/dev/null; then
   "$PYTHON" -m pip install flask pillow pyyaml jsonschema
 fi
 
-echo "==> Launching MonkeyZoo Studio at http://127.0.0.1:8765/"
+PORT="${PORT:-8765}"
+export PORT
+
+echo "==> Launching MonkeyZoo Studio at http://127.0.0.1:${PORT}/"
 echo "Press Ctrl+C to stop."
 exec "$PYTHON" "$ROOT/character-bibles/_review_app/app.py"
+

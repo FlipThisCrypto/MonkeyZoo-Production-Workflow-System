@@ -11,7 +11,14 @@
         {
           "panel_id": "MZ-2026-07-05_P01_PANEL01",
           "panel_size": "half",
-          "characters": ["Moodz", "TwoTone", "Static", "Ash", "NeonBlue", "Scarline"],
+          "characters": [
+            "Moodz",
+            "TwoTone",
+            "Static",
+            "Ash",
+            "NeonBlue",
+            "Scarline"
+          ],
           "location": "Zoo City street, night rain, under flickering FusionZoo billboard",
           "camera_angle": "wide establishing, slight low angle",
           "action": "Courier drone drops a glowing pastel envelope into Moodz's mitts; squad huddles under the dying billboard light",
@@ -23,7 +30,11 @@
           "continuity_notes": "Street matches Emo ref #973 backdrop; billboard = Ed.4 signage",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P01_PANEL01",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P01_PANEL01",
-          "references_required": ["references/background_refs/zoo_city_street_plate.png", "03_APPROVED_CANON/approved_characters/ (all six)", "emo.png backdrop ref"],
+          "references_required": [
+            "references/background_refs/zoo_city_street_plate.png",
+            "03_APPROVED_CANON/approved_characters/ (all six)",
+            "emo.png backdrop ref"
+          ],
           "lora_required": [],
           "controlnet_required": "depth",
           "seed_strategy": "per_panel"
@@ -31,7 +42,11 @@
         {
           "panel_id": "MZ-2026-07-05_P01_PANEL02",
           "panel_size": "half",
-          "characters": ["Static", "TwoTone", "Moodz"],
+          "characters": [
+            "Static",
+            "TwoTone",
+            "Moodz"
+          ],
           "location": "Zoo City street, tight on group",
           "camera_angle": "close-up on notice prop, faces behind",
           "action": "The notice unfolds itself, cheerful pastel type (text applied at lettering)",
@@ -43,7 +58,11 @@
           "continuity_notes": "STARTS running joke: Static's danger meter",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P01_PANEL02",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P01_PANEL02",
-          "references_required": ["03_APPROVED_CANON/approved_characters/static/", "03_APPROVED_CANON/approved_characters/twotone/", "03_APPROVED_CANON/approved_characters/moodz/"],
+          "references_required": [
+            "03_APPROVED_CANON/approved_characters/static/",
+            "03_APPROVED_CANON/approved_characters/twotone/",
+            "03_APPROVED_CANON/approved_characters/moodz/"
+          ],
           "lora_required": [],
           "controlnet_required": "openpose",
           "seed_strategy": "per_panel"
@@ -58,7 +77,9 @@
         {
           "panel_id": "MZ-2026-07-05_P02_PANEL01",
           "panel_size": "third",
-          "characters": ["Moodz"],
+          "characters": [
+            "Moodz"
+          ],
           "location": "Annex wing exterior door, service alley",
           "camera_angle": "medium, from behind Moodz facing the door",
           "action": "Green light bleeds from under a rusted door; Moodz studies his reflection in wet glass",
@@ -70,7 +91,10 @@
           "continuity_notes": "Annex established Ed.2; deliberate Ed.4 corridor-reflection echo",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P02_PANEL01",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P02_PANEL01",
-          "references_required": ["03_APPROVED_CANON/approved_characters/moodz/", "references/background_refs/annex_alley_plate.png"],
+          "references_required": [
+            "03_APPROVED_CANON/approved_characters/moodz/",
+            "references/background_refs/annex_alley_plate.png"
+          ],
           "lora_required": [],
           "controlnet_required": "depth",
           "seed_strategy": "per_panel"
@@ -78,7 +102,10 @@
         {
           "panel_id": "MZ-2026-07-05_P02_PANEL02",
           "panel_size": "third",
-          "characters": ["NeonBlue", "Ash"],
+          "characters": [
+            "NeonBlue",
+            "Ash"
+          ],
           "location": "Annex alley",
           "camera_angle": "two-shot, eye level",
           "action": "NeonBlue bounces on his toes; Ash stares at the glowing door seam",
@@ -86,11 +113,14 @@
           "dialogue": "NEONBLUE: \"A free update! That's basically a gift.\" / ASH: \"Gifts knock.\"",
           "caption": "",
           "sfx": "",
-          "visual_notes": "NeonBlue glow subtle; Ash hood up half-lidded; balloons top third",
+          "visual_notes": "NeonBlue cyan root-glow subtle; Ash silver-white fringe over one eye half-lidded; balloons top third",
           "continuity_notes": "Ad-copy joke continues; Ash <=4 words rule",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P02_PANEL02",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P02_PANEL02",
-          "references_required": ["03_APPROVED_CANON/approved_characters/neonblue/", "03_APPROVED_CANON/approved_characters/ash/"],
+          "references_required": [
+            "03_APPROVED_CANON/approved_characters/neonblue/",
+            "03_APPROVED_CANON/approved_characters/ash/"
+          ],
           "lora_required": [],
           "controlnet_required": "openpose",
           "seed_strategy": "per_panel"
@@ -98,7 +128,9 @@
         {
           "panel_id": "MZ-2026-07-05_P02_PANEL03",
           "panel_size": "third",
-          "characters": ["Moodz"],
+          "characters": [
+            "Moodz"
+          ],
           "location": "Annex alley, at the door",
           "camera_angle": "low angle on Moodz's mitt at the door",
           "action": "Moodz pushes the door open into green dark; squad silhouettes behind",
@@ -110,7 +142,10 @@
           "continuity_notes": "Arc positioning: Ed.4 he hesitated at a door, now he leads",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P02_PANEL03",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P02_PANEL03",
-          "references_required": ["03_APPROVED_CANON/approved_characters/moodz/", "references/background_refs/annex_alley_plate.png"],
+          "references_required": [
+            "03_APPROVED_CANON/approved_characters/moodz/",
+            "references/background_refs/annex_alley_plate.png"
+          ],
           "lora_required": [],
           "controlnet_required": "openpose",
           "seed_strategy": "per_panel"
@@ -125,7 +160,10 @@
         {
           "panel_id": "MZ-2026-07-05_P03_PANEL01",
           "panel_size": "third",
-          "characters": ["Moodz", "Static"],
+          "characters": [
+            "Moodz",
+            "Static"
+          ],
           "location": "Annex corridor interior",
           "camera_angle": "wide, deep one-point perspective down corridor",
           "action": "Squad advances; a green pulse breathes from the far end",
@@ -137,7 +175,11 @@
           "continuity_notes": "Corridor = Ed.4 facility design, aged/disused variant",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P03_PANEL01",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P03_PANEL01",
-          "references_required": ["references/background_refs/annex_corridor_plate.png (ESTABLISHING PLATE P00_PLATE01 - generate first)", "03_APPROVED_CANON/approved_characters/moodz/", "03_APPROVED_CANON/approved_characters/static/"],
+          "references_required": [
+            "references/background_refs/annex_corridor_plate.png (ESTABLISHING PLATE P00_PLATE01 - generate first)",
+            "03_APPROVED_CANON/approved_characters/moodz/",
+            "03_APPROVED_CANON/approved_characters/static/"
+          ],
           "lora_required": [],
           "controlnet_required": "depth",
           "seed_strategy": "per_panel"
@@ -145,7 +187,9 @@
         {
           "panel_id": "MZ-2026-07-05_P03_PANEL02",
           "panel_size": "third",
-          "characters": ["The Stayed (3-4 faction zombies)"],
+          "characters": [
+            "The Stayed (3-4 faction zombies)"
+          ],
           "location": "Annex corridor, further in",
           "camera_angle": "over-shoulder from behind squad",
           "action": "Shambling silhouettes resolve out of the green: exposed brains, stitched bodies, slow orbit-walk",
@@ -157,7 +201,10 @@
           "continuity_notes": "ZOMBIE FACTION ON-PAGE DEBUT — resolves Ed.4 teaser",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P03_PANEL02",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P03_PANEL02",
-          "references_required": ["zombie.png (#1997 faction ref)", "references/background_refs/annex_corridor_plate.png"],
+          "references_required": [
+            "zombie.png (#1997 faction ref)",
+            "references/background_refs/annex_corridor_plate.png"
+          ],
           "lora_required": [],
           "controlnet_required": "depth",
           "seed_strategy": "per_panel"
@@ -165,7 +212,9 @@
         {
           "panel_id": "MZ-2026-07-05_P03_PANEL03",
           "panel_size": "third",
-          "characters": ["One of the Stayed"],
+          "characters": [
+            "One of the Stayed"
+          ],
           "location": "Annex corridor",
           "camera_angle": "extreme close-up",
           "action": "Single zombie face fills panel: huge white eyes, pinprick pupils, rotten grin, brain glinting green",
@@ -177,7 +226,9 @@
           "continuity_notes": "Caption pays off Ed.4 rear-cover line verbatim",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P03_PANEL03",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P03_PANEL03",
-          "references_required": ["zombie.png (#1997 faction ref)"],
+          "references_required": [
+            "zombie.png (#1997 faction ref)"
+          ],
           "lora_required": [],
           "controlnet_required": "",
           "seed_strategy": "per_panel"
@@ -192,7 +243,15 @@
         {
           "panel_id": "MZ-2026-07-05_P04_PANEL01",
           "panel_size": "splash",
-          "characters": ["The Stayed (horde 8-10)", "Moodz", "TwoTone", "Static", "Ash", "NeonBlue", "Scarline"],
+          "characters": [
+            "The Stayed (horde 8-10)",
+            "Moodz",
+            "TwoTone",
+            "Static",
+            "Ash",
+            "NeonBlue",
+            "Scarline"
+          ],
           "location": "Chamber 0 hall",
           "camera_angle": "high wide angle looking down into the hall",
           "action": "Cracked glass chamber leaking green pulses at center while the Stayed shuffle around it in slow orbit; squad tiny silhouettes in foreground doorway",
@@ -204,7 +263,11 @@
           "continuity_notes": "Cracked chamber = Ed.4 teaser image, now located: Chamber 0",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P04_PANEL01",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P04_PANEL01",
-          "references_required": ["references/background_refs/chamber0_hall_plate.png (ESTABLISHING PLATE P00_PLATE02 - generate first)", "zombie.png", "composition sketch references/pose_refs/p04_splash_sketch.png"],
+          "references_required": [
+            "references/background_refs/chamber0_hall_plate.png (ESTABLISHING PLATE P00_PLATE02 - generate first)",
+            "zombie.png",
+            "composition sketch references/pose_refs/p04_splash_sketch.png"
+          ],
           "lora_required": [],
           "controlnet_required": "depth",
           "seed_strategy": "per_panel"
@@ -219,7 +282,10 @@
         {
           "panel_id": "MZ-2026-07-05_P05_PANEL01",
           "panel_size": "third",
-          "characters": ["NeonBlue", "Patch"],
+          "characters": [
+            "NeonBlue",
+            "Patch"
+          ],
           "location": "Chamber 0 hall floor",
           "camera_angle": "two-shot, eye level",
           "action": "Patch (bitten ear, bone-stump arm) shuffles up to NeonBlue and stops, head tilted",
@@ -231,7 +297,10 @@
           "continuity_notes": "NEW CHARACTER Patch; smile-drop wind-up, not the drop",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P05_PANEL01",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P05_PANEL01",
-          "references_required": ["zombie.png (#1997 = Patch)", "03_APPROVED_CANON/approved_characters/neonblue/"],
+          "references_required": [
+            "zombie.png (#1997 = Patch)",
+            "03_APPROVED_CANON/approved_characters/neonblue/"
+          ],
           "lora_required": [],
           "controlnet_required": "openpose",
           "seed_strategy": "per_panel"
@@ -239,7 +308,9 @@
         {
           "panel_id": "MZ-2026-07-05_P05_PANEL02",
           "panel_size": "third",
-          "characters": ["NeonBlue"],
+          "characters": [
+            "NeonBlue"
+          ],
           "location": "Chamber 0 hall",
           "camera_angle": "close-up on NeonBlue",
           "action": "The smile finishes falling",
@@ -251,7 +322,9 @@
           "continuity_notes": "Backstory consistent with Ed.4 insecurity; logged as new lore",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P05_PANEL02",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P05_PANEL02",
-          "references_required": ["03_APPROVED_CANON/approved_characters/neonblue/"],
+          "references_required": [
+            "03_APPROVED_CANON/approved_characters/neonblue/"
+          ],
           "lora_required": [],
           "controlnet_required": "",
           "seed_strategy": "per_character_base"
@@ -259,7 +332,10 @@
         {
           "panel_id": "MZ-2026-07-05_P05_PANEL03",
           "panel_size": "third",
-          "characters": ["Patch", "NeonBlue"],
+          "characters": [
+            "Patch",
+            "NeonBlue"
+          ],
           "location": "Chamber 0 hall",
           "camera_angle": "reverse two-shot",
           "action": "Patch leans in, almost gentle",
@@ -271,7 +347,10 @@
           "continuity_notes": "Running joke bent into pathos",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P05_PANEL03",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P05_PANEL03",
-          "references_required": ["zombie.png (#1997 = Patch)", "03_APPROVED_CANON/approved_characters/neonblue/"],
+          "references_required": [
+            "zombie.png (#1997 = Patch)",
+            "03_APPROVED_CANON/approved_characters/neonblue/"
+          ],
           "lora_required": [],
           "controlnet_required": "openpose",
           "seed_strategy": "per_panel"
@@ -286,7 +365,15 @@
         {
           "panel_id": "MZ-2026-07-05_P06_PANEL01",
           "panel_size": "half",
-          "characters": ["Moodz", "TwoTone", "Static", "Ash", "NeonBlue", "Scarline", "The Stayed (turning)"],
+          "characters": [
+            "Moodz",
+            "TwoTone",
+            "Static",
+            "Ash",
+            "NeonBlue",
+            "Scarline",
+            "The Stayed (turning)"
+          ],
           "location": "Chamber 0",
           "camera_angle": "dutch angle, chamber looming",
           "action": "Chamber flares awake; floor lines light a path toward the squad; cracked screen: 'WELLNESS UPDATE READY. PLEASE HOLD STILL.' (text at lettering)",
@@ -298,7 +385,10 @@
           "continuity_notes": "Auto-protocol is PRESSURE not physics — nobody on platform, cannot commit (world bible rule 1)",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P06_PANEL01",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P06_PANEL01",
-          "references_required": ["references/background_refs/chamber0_hall_plate.png", "all six lead ref folders"],
+          "references_required": [
+            "references/background_refs/chamber0_hall_plate.png",
+            "all six lead ref folders"
+          ],
           "lora_required": [],
           "controlnet_required": "depth",
           "seed_strategy": "per_panel"
@@ -306,7 +396,9 @@
         {
           "panel_id": "MZ-2026-07-05_P06_PANEL02",
           "panel_size": "half",
-          "characters": ["Moodz"],
+          "characters": [
+            "Moodz"
+          ],
           "location": "Chamber 0 control panel",
           "camera_angle": "medium, dead-center symmetrical",
           "action": "Moodz walks the lit path and holds the abort switch down. Calm. The green flickers.",
@@ -318,7 +410,10 @@
           "continuity_notes": "Direct arc payoff of Ed.4; abort-during-sync canon since Ed.4",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P06_PANEL02",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P06_PANEL02",
-          "references_required": ["03_APPROVED_CANON/approved_characters/moodz/", "references/background_refs/chamber0_hall_plate.png"],
+          "references_required": [
+            "03_APPROVED_CANON/approved_characters/moodz/",
+            "references/background_refs/chamber0_hall_plate.png"
+          ],
           "lora_required": [],
           "controlnet_required": "openpose",
           "seed_strategy": "per_character_base"
@@ -333,7 +428,10 @@
         {
           "panel_id": "MZ-2026-07-05_P07_PANEL01",
           "panel_size": "third",
-          "characters": ["Scarline", "The Stayed (dimming, background)"],
+          "characters": [
+            "Scarline",
+            "The Stayed (dimming, background)"
+          ],
           "location": "Chamber 0 hall",
           "camera_angle": "medium, Scarline in profile",
           "action": "Chamber powers down. The Stayed sway, still whispering",
@@ -341,11 +439,15 @@
           "dialogue": "THE STAYED: \"more…\" / SCARLINE: \"You can't unplug appetite.\"",
           "caption": "",
           "sfx": "THUD",
-          "visual_notes": "Scarline's ONE line of the issue — full quiet; scarf catches last green",
+          "visual_notes": "Scarline's ONE line of the issue — full quiet; red streak catches last green",
           "continuity_notes": "Scarline speech law: one clear sentence, once",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P07_PANEL01",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P07_PANEL01",
-          "references_required": ["03_APPROVED_CANON/approved_characters/scarline/", "zombie.png", "references/background_refs/chamber0_hall_plate.png"],
+          "references_required": [
+            "03_APPROVED_CANON/approved_characters/scarline/",
+            "zombie.png",
+            "references/background_refs/chamber0_hall_plate.png"
+          ],
           "lora_required": [],
           "controlnet_required": "depth",
           "seed_strategy": "per_panel"
@@ -353,7 +455,10 @@
         {
           "panel_id": "MZ-2026-07-05_P07_PANEL02",
           "panel_size": "third",
-          "characters": ["Moodz", "TwoTone"],
+          "characters": [
+            "Moodz",
+            "TwoTone"
+          ],
           "location": "Annex exit door",
           "camera_angle": "two-shot at threshold",
           "action": "Squad files out; Moodz stops TwoTone's mitt on the door — leaves it open",
@@ -365,7 +470,10 @@
           "continuity_notes": "Ed.4 closing exchange inverted; door-open = new open thread",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P07_PANEL02",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P07_PANEL02",
-          "references_required": ["03_APPROVED_CANON/approved_characters/moodz/", "03_APPROVED_CANON/approved_characters/twotone/"],
+          "references_required": [
+            "03_APPROVED_CANON/approved_characters/moodz/",
+            "03_APPROVED_CANON/approved_characters/twotone/"
+          ],
           "lora_required": [],
           "controlnet_required": "openpose",
           "seed_strategy": "per_panel"
@@ -373,7 +481,9 @@
         {
           "panel_id": "MZ-2026-07-05_P07_PANEL03",
           "panel_size": "third",
-          "characters": ["Patch"],
+          "characters": [
+            "Patch"
+          ],
           "location": "Annex threshold, from inside looking out",
           "camera_angle": "wide, Patch small against rain-lit open doorway",
           "action": "Patch stands at the threshold. Looking at the rain. Not crossing. Not leaving.",
@@ -385,7 +495,10 @@
           "continuity_notes": "Caption = Ed.4 closing thesis paid forward; PATCH AT THRESHOLD = open thread",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P07_PANEL03",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P07_PANEL03",
-          "references_required": ["zombie.png (#1997 = Patch)", "references/background_refs/annex_alley_plate.png"],
+          "references_required": [
+            "zombie.png (#1997 = Patch)",
+            "references/background_refs/annex_alley_plate.png"
+          ],
           "lora_required": [],
           "controlnet_required": "depth",
           "seed_strategy": "per_panel"
@@ -400,7 +513,14 @@
         {
           "panel_id": "MZ-2026-07-05_P08_PANEL01",
           "panel_size": "half",
-          "characters": ["Moodz", "TwoTone", "Static", "Ash", "NeonBlue", "Scarline"],
+          "characters": [
+            "Moodz",
+            "TwoTone",
+            "Static",
+            "Ash",
+            "NeonBlue",
+            "Scarline"
+          ],
           "location": "Zoo City street, rain easing",
           "camera_angle": "wide from behind, street receding",
           "action": "The squad walks home; the Annex glow shrinks behind them",
@@ -412,7 +532,10 @@
           "continuity_notes": "Squad exits unchanged and by choice — franchise voice",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P08_PANEL01",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P08_PANEL01",
-          "references_required": ["references/background_refs/zoo_city_street_plate.png", "all six lead ref folders"],
+          "references_required": [
+            "references/background_refs/zoo_city_street_plate.png",
+            "all six lead ref folders"
+          ],
           "lora_required": [],
           "controlnet_required": "depth",
           "seed_strategy": "per_panel"
@@ -420,7 +543,9 @@
         {
           "panel_id": "MZ-2026-07-05_P08_PANEL02",
           "panel_size": "half",
-          "characters": ["Red-masked silhouette (Super faction, UNNAMED)"],
+          "characters": [
+            "Red-masked silhouette (Super faction, UNNAMED)"
+          ],
           "location": "Rooftop above the street",
           "camera_angle": "low angle up at rooftop edge",
           "action": "A silhouette watches the squad go, red domino mask catching neon; a pastel recall notice flutters in its mitt",
@@ -432,7 +557,9 @@
           "continuity_notes": "NEW OPEN THREAD -> next issue: Super faction",
           "art_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P08_PANEL02",
           "negative_prompt": "SEE art_prompt_pack.json MZ-2026-07-05_P08_PANEL02",
-          "references_required": ["super.png (silhouette shape only)"],
+          "references_required": [
+            "super.png (silhouette shape only)"
+          ],
           "lora_required": [],
           "controlnet_required": "",
           "seed_strategy": "per_panel"

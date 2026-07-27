@@ -1,0 +1,23 @@
+{
+  "panel_id": "MZ-2026-09-02_P10_PANEL03",
+  "type": "scene",
+  "location": "Transit Announcement Hub",
+  "action": "Hub, quieter now; Scarline sits Static down across from her, eye level, no audience.",
+  "foreground_rain": false,
+  "characters": [
+    {
+      "character": "static",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_27_defeated.png",
+      "foot_anchor": [440, 560],
+      "shadow": "down-right",
+      "reflection_surface": "glossy_floor_full"
+    },
+    {
+      "character": "scarline",
+      "pose_file": "00_SYSTEM/integration_upgrade/character_layers/scarline/scarline_19_determined.png",
+      "foot_anchor": [820, 548],
+      "shadow": "down-left",
+      "reflection_surface": "glossy_floor_full"
+    }
+  ]
+}

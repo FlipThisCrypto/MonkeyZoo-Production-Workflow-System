@@ -1,0 +1,167 @@
+{
+  "panel_id": "MZ-2026-09-02_P09_PANEL05",
+  "background_plate": "03_APPROVED_CANON/approved_locations/school-pa-zone/primary-reference.png",
+  "plate_size": [
+    1280,
+    720
+  ],
+  "derivation_note": "Inherited verbatim from plate_calibrations/school-pa-zone (Cycle 18 agent calibration, verified). Location-level plate calibration (panels shot on this plate inherit it). Ground-plane values are art-directed estimates verified by overlay render (estimate-then-inspect), not camera-solver output. Floor-plane lines were extracted programmatically (color-boundary scan + robust least-squares) which tightens the usual eyeball error band, but the plate is hand-drawn cartoon perspective and cheats: right-wall window lines do NOT converge to the floor VP, so only floor-plane lines were used -- characters stand on the floor, so floor convergence governs scaling.",
+  "ground_plane": {
+    "horizon_y": 385,
+    "calibration": {
+      "reference_object": "right-wall window sill, floor-to-sill-top at the near/mid window (x=880)",
+      "calib_x": 880,
+      "calib_y_foot": 688,
+      "calib_height_px": 131,
+      "note": "Vertical from the baseboard/floor join (y=688, on the fitted join line y=0.584x+173) up to the sill front-top edge (y=557) at x=880; round-1 overlay showed the first estimate (122px) stopping ~9px short of the sill edge, corrected to 131. In-world sill height ~0.9 m -- chibi head height, so a chibi character standing at this depth spans roughly this many pixels. Chosen over the far-end banana-shrine pedestal (x=430, foot y=445, h=43px) because the sill is mid-ground where characters will actually be blocked, and the larger pixel span halves the relative scaling error."
+    },
+    "horizon_derivation": "MEASURED from three independent floor-plane lines, each extracted by color-boundary detection (tan floor vs grey locker plinth / plum baseboard / dark tile seam) and robust least-squares fit: left locker-bank base y=-1.17x+812, right baseboard-floor join y=0.584x+173, longitudinal floor-tile seam x=0.547y+141. Pairwise intersections (364,386), (346,375), (357,395) -> consensus vanishing point (355,385); adopted horizon_y=385 (+/-12 uncertainty band). VP sits left of frame center: camera looks slightly right of the hallway axis. Sanity checks: horizon is above the far-wall floor join (y~443) and below the far-wall ceiling join (y~290) as required; implied camera height ~0.38 of hallway height (low, chibi eye-level). Right-wall window top/sill lines cheat upward (hand-drawn art) and were deliberately excluded from the solve. CROSS-CHECK: the same-height window sill measured at two depths validates the horizon -- sill at x=880 is 131px with foot 688, sill at x=610 measures ~64px with foot ~529; predicted from horizon 385: 131*(529-385)/(688-385)=62px. 62~64 -> horizon confirmed within a few px."
+  },
+  "light_sources": [
+    {
+      "id": "ceiling_fluorescent_near",
+      "type": "key",
+      "position_px": [
+        445,
+        55
+      ],
+      "color": "pale yellow-green",
+      "note": "Nearest ceiling fluorescent strip fixture (two more recede down the hall at ~(410,180) and ~(390,238); this one dominates). Sampled tube color (219,234,163) -- institutional yellow-green fluorescent, top-down soft key. NON-LISTED color name: compositor will fall back to neutral grey, which is acceptable here since the cast is subtle; do not substitute 'spring green' (far too saturated)."
+    },
+    {
+      "id": "pa_screen_purple",
+      "type": "fill",
+      "position_px": [
+        428,
+        345
+      ],
+      "color": "magenta",
+      "note": "Glowing purple PA/vending display on the far end wall above the banana shrine, sampled (174,108,211). Closest listed color is 'magenta'; actual hue is violet-purple. Weak rim/fill for characters deep in the hallway only."
+    },
+    {
+      "id": "window_daylight_right",
+      "type": "fill",
+      "position_px": [
+        1060,
+        300
+      ],
+      "color": "cool cyan-white",
+      "note": "Overcast rainy daylight through the big right-wall window (same quality from the whole window row), sampled (91,95,101) -- dim neutral-cool grey-blue. Listed 'cool cyan-white' is directionally right; keep intensity low, it is a soft screen-right fill, not a sun key."
+    }
+  ],
+  "weather": {
+    "indoor": true,
+    "rain_outside_windows": true,
+    "autumn_leaves_indoors": true,
+    "wet_floor_patches": true
+  },
+  "reflective_surfaces": [
+    {
+      "id": "hall_puddle_main",
+      "polygon": [
+        [
+          648,
+          658
+        ],
+        [
+          712,
+          650
+        ],
+        [
+          778,
+          658
+        ],
+        [
+          845,
+          672
+        ],
+        [
+          902,
+          690
+        ],
+        [
+          918,
+          708
+        ],
+        [
+          905,
+          719
+        ],
+        [
+          700,
+          719
+        ],
+        [
+          655,
+          694
+        ],
+        [
+          636,
+          672
+        ]
+      ],
+      "note": "Large grey-blue rain puddle on the hallway tile along the right baseboard (leaves floating in it), cut off by the bottom frame edge between x~700-882. Traced visually from a 2x gridded crop; verified against the calibration overlay render."
+    },
+    {
+      "id": "hall_wet_spot_small",
+      "polygon": [
+        [
+          604,
+          658
+        ],
+        [
+          636,
+          654
+        ],
+        [
+          644,
+          664
+        ],
+        [
+          622,
+          672
+        ],
+        [
+          602,
+          666
+        ]
+      ],
+      "note": "Small separate wet smear just left of the main puddle."
+    },
+    {
+      "id": "window_wet_patch_mid",
+      "polygon": [
+        [
+          538,
+          512
+        ],
+        [
+          592,
+          502
+        ],
+        [
+          638,
+          512
+        ],
+        [
+          646,
+          528
+        ],
+        [
+          600,
+          540
+        ],
+        [
+          548,
+          532
+        ]
+      ],
+      "note": "Smaller wet patch below the middle right-wall window (rain blown in), mid-ground depth."
+    }
+  ],
+  "camera": {
+    "shot_scale": "wide establishing (hallway master; location plate shared by 3 panels)",
+    "angle": "one-point perspective down the hall, eye-level slightly low (chibi eye-height), locked-off"
+  },
+  "decompression_note": "Was MZ-2026-09-02_P01_PANEL02 in the 24-panel edition; same locked beat, renumbered by the 16-page/96-panel format directive."
+}

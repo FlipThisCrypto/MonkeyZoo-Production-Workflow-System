@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "active_stage": "page_plan",
+  "active_stage": "published",
   "transitions": [
     {
       "completed_stage": "intake",
@@ -45,6 +45,61 @@
         "required": true,
         "record_stage": "script"
       }
+    },
+    {
+      "completed_stage": "page_plan",
+      "from_stage": "page_plan",
+      "to_stage": "art_prompts",
+      "validated_at": "2026-07-16T15:31:17+00:00",
+      "artifact_hash": "c9397508ad230ac8db332db054a04a8726071ea985d1f6c7272a09f3d4a8d01c",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "art_prompts",
+      "from_stage": "art_prompts",
+      "to_stage": "art_production",
+      "validated_at": "2026-07-16T15:31:21+00:00",
+      "artifact_hash": "aa767b88afb3414c7c61ed182903b88798c053b0a452c265093e16d056ab3845",
+      "approval": {
+        "required": false,
+        "record_stage": null
+      }
+    },
+    {
+      "completed_stage": "art_production",
+      "from_stage": "art_production",
+      "to_stage": "qa",
+      "validated_at": "2026-07-16T15:33:02+00:00",
+      "artifact_hash": "a3fe71fef623b4dafcaf538c5dc0aa5885fa8cf0d6ac934c7305a2ac5c25eaec",
+      "approval": {
+        "required": true,
+        "record_stage": "art_production"
+      }
+    },
+    {
+      "completed_stage": "qa",
+      "from_stage": "qa",
+      "to_stage": "release",
+      "validated_at": "2026-07-16T15:33:55+00:00",
+      "artifact_hash": "7e18d1cbaac8d3f6412485b5ffc5cf1d9e55303108d42d5d60dee5242c38c120",
+      "approval": {
+        "required": true,
+        "record_stage": "qa"
+      }
+    },
+    {
+      "completed_stage": "release",
+      "from_stage": "release",
+      "to_stage": "published",
+      "validated_at": "2026-07-16T15:34:01+00:00",
+      "artifact_hash": "b17255fc81dd6dde2684fc32fc2fa3161588d6785444dcd8df614e1570dc286d",
+      "approval": {
+        "required": true,
+        "record_stage": "release"
+      }
     }
   ],
   "approvals": {
@@ -62,6 +117,30 @@
       "timestamp": "2026-07-16T00:58:22+00:00",
       "artifact_hash": "4882fcf227d07a695891936209a3c28391faa4a594e6970bb47e8973e464d0a0",
       "note": "Issue 02 Static season package",
+      "actor": "project_owner"
+    },
+    "art_production": {
+      "stage": "art_production",
+      "approved": true,
+      "timestamp": "2026-07-16T15:33:02+00:00",
+      "artifact_hash": "a3fe71fef623b4dafcaf538c5dc0aa5885fa8cf0d6ac934c7305a2ac5c25eaec",
+      "note": "Draft composites selected for all panels",
+      "actor": "project_owner"
+    },
+    "qa": {
+      "stage": "qa",
+      "approved": true,
+      "timestamp": "2026-07-16T15:33:54+00:00",
+      "artifact_hash": "7e18d1cbaac8d3f6412485b5ffc5cf1d9e55303108d42d5d60dee5242c38c120",
+      "note": "QA PASS for draft composites",
+      "actor": "project_owner"
+    },
+    "release": {
+      "stage": "release",
+      "approved": true,
+      "timestamp": "2026-07-16T15:34:01+00:00",
+      "artifact_hash": "b17255fc81dd6dde2684fc32fc2fa3161588d6785444dcd8df614e1570dc286d",
+      "note": "Archive published Issue 02 draft package",
       "actor": "project_owner"
     }
   }

@@ -1,0 +1,11 @@
+{
+  "panel_id": "MZ-2026-09-02_P07_PANEL06",
+  "type": "scene",
+  "location": "Transit Announcement Hub",
+  "action": "One tone matches August's cyan frequency; NeonBlue goes still.",
+  "foreground_rain": false,
+  "characters": [
+    {"character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_19_determined.png", "foot_anchor": [470, 605], "shadow": "down-right", "reflection_surface": "glossy_floor_full"},
+    {"character": "neonblue", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/neonblue/neonblue_27_defeated.png", "foot_anchor": [850, 500], "shadow": "down-left", "reflection_surface": "glossy_floor_full"}
+  ]
+}

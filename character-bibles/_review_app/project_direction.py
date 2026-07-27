@@ -19,17 +19,32 @@ def direction_path(workspace: Path) -> Path:
     return workspace / DIRECTION_REL
 
 
+_DIRECTION_CACHE: dict[str, tuple[float, int, dict[str, Any]]] = {}
+
+
 def load_direction(workspace: Path) -> dict[str, Any]:
     path = direction_path(workspace)
     if not path.is_file():
         raise ProjectDirectionError("project_direction.json is missing", 404)
+    key = str(path.resolve())
+    try:
+        st = path.stat()
+        mtime, size = st.st_mtime, st.st_size
+    except OSError:
+        mtime, size = 0.0, 0
+    if key in _DIRECTION_CACHE:
+        cached_mtime, cached_size, cached_data = _DIRECTION_CACHE[key]
+        if cached_mtime == mtime and cached_size == size:
+            return cached_data
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
         raise ProjectDirectionError("project_direction.json is malformed", 500) from exc
     if not isinstance(data, dict):
         raise ProjectDirectionError("project_direction.json must be an object", 500)
+    _DIRECTION_CACHE[key] = (mtime, size, data)
     return data
+
 
 
 def _all_tasks(data: dict[str, Any]) -> list[dict[str, Any]]:

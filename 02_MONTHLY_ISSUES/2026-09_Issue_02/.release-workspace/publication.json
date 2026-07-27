@@ -1,0 +1,17 @@
+{
+  "published_at": "2026-07-16T15:34:00+00:00",
+  "issue_id": "MZ-2026-09-02",
+  "archive_path": "05_RELEASE_ARCHIVE/2026/2026-09_Issue_02",
+  "evidence_hash": "bcadd5e3219bbe49dcae98cf0c00b5a7d25e6e5f2024da0ebe49e15b09c8a1c3",
+  "manifest_hash": "f6e4310e957f87e6df10ab88f12906bb9e82733a6f64362dca1f0ec5adbea3b0",
+  "files": [
+    "MonkeyZoo_MZ-2026-09-02.cbz",
+    "MonkeyZoo_MZ-2026-09-02_Web.pdf",
+    "release_hash_manifest.json",
+    "metadata.json",
+    "qa_report.md",
+    "social_posts.md",
+    "main_cover.png"
+  ],
+  "actor": "project_owner"
+}

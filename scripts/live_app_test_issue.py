@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import io
 import json
-import sys
 import time
 import traceback
 import urllib.error
@@ -385,8 +384,17 @@ def main() -> int:
             log("ui_console_severe", len(severe) == 0, str(severe[:3]))
         finally:
             driver.quit()
+    except ImportError as exc:
+        # Distinguish "the harness cannot run" from "the UI is broken". Both are
+        # failures -- reporting PASS when the UI was never exercised would be a
+        # false success -- but the old handler folded them together and labelled
+        # a missing package as a UI regression, sending the operator hunting for
+        # a front-end bug that does not exist.
+        log("ui_selenium", False,
+            f"UI CHECK DID NOT RUN (not a UI failure): {exc}. "
+            "Install the test dependencies: pip install -r requirements-dev.txt")
     except Exception as exc:  # noqa: BLE001
-        log("ui_selenium", False, f"{type(exc).__name__}: {exc}")
+        log("ui_selenium", False, f"UI check failed: {type(exc).__name__}: {exc}")
 
     write_report()
     fails = sum(1 for r in REPORT if r["status"] == "FAIL")

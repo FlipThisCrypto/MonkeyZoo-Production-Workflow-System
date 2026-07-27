@@ -1,0 +1,46 @@
+{
+  "panel_id": "MZ-2026-09-02_P07_PANEL01",
+  "source_script_line": "The analyzer screen at the hub resolves noise into six clean spikes; Clever leans in.",
+  "foreground_rain": false,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "clever",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/clever/clever_26_reaching.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          730,
+          585
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "glossy_floor_full"
+      }
+    },
+    {
+      "character": "static",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_24_thinking.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          390,
+          470
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-right"
+      },
+      "reflection": {
+        "enabled": true,
+        "surface": "glossy_floor_full"
+      }
+    }
+  ]
+}

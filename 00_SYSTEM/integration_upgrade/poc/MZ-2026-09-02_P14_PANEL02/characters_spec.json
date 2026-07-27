@@ -1,0 +1,53 @@
+{
+  "panel_id": "MZ-2026-09-02_P14_PANEL02",
+  "source_script_line": "Static stands in the middle, ears wide open, conducting the room toward the tone only he can track.",
+  "foreground_rain": false,
+  "rain_density": 90,
+  "characters": [
+    {
+      "character": "twotone",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/twotone/twotone_26_reaching.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          270,
+          560
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-right"
+      }
+    },
+    {
+      "character": "static",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/static/static_19_determined.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          650,
+          665
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down"
+      }
+    },
+    {
+      "character": "clever",
+      "asset_used": "00_SYSTEM/integration_upgrade/character_layers/clever/clever_19_determined.png",
+      "asset_note": "",
+      "ground_contact": {
+        "surface": "per scene",
+        "foot_anchor_px": [
+          1010,
+          600
+        ]
+      },
+      "lighting": {
+        "shadow_direction": "down-left"
+      }
+    }
+  ]
+}

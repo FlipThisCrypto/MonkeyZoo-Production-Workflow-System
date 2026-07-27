@@ -1,0 +1,12 @@
+{
+  "panel_id": "MZ-2026-09-02_P14_PANEL04",
+  "type": "scene",
+  "location": "Old Relay Junction",
+  "action": "Team acts on Static's warning; systems stabilize enough for a breath.",
+  "foreground_rain": false,
+  "characters": [
+    {"character": "ash", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/ash/ash_00_clean_base.png", "foot_anchor": [1040, 575], "shadow": "down-left"},
+    {"character": "neonblue", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/neonblue/neonblue_19_determined.png", "foot_anchor": [400, 655], "shadow": "down-right"},
+    {"character": "static", "pose_file": "00_SYSTEM/integration_upgrade/character_layers/static/static_16_worried.png", "foot_anchor": [720, 685], "shadow": "down"}
+  ]
+}

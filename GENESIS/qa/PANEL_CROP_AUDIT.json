@@ -1,0 +1,1934 @@
+{
+  "total_panels": 96,
+  "avg_retained_area_pct": 54.8,
+  "panels_over_35pct_loss": 79,
+  "anatomy_clip_risk_panels": 0,
+  "panels_scaled_over_limit": 1,
+  "classification": {
+    "minor_crop": 88,
+    "keep": 7,
+    "recompose_or_regenerate": 1
+  },
+  "panels": [
+    {
+      "page": 1,
+      "panel_id": "MZ-2026-09-02_P01_PANEL01",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        784
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.908,
+      "aspect_mismatch": 1.13,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 19.4,
+      "crop_bottom_pct": 19.4,
+      "retained_area_pct": 61.1,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 1,
+      "panel_id": "MZ-2026-09-02_P01_PANEL02",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        764
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.984,
+      "aspect_mismatch": 1.207,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 20.2,
+      "crop_bottom_pct": 20.2,
+      "retained_area_pct": 59.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 1,
+      "panel_id": "MZ-2026-09-02_P01_PANEL03",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        764
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.984,
+      "aspect_mismatch": 1.207,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 20.2,
+      "crop_bottom_pct": 20.2,
+      "retained_area_pct": 59.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 1,
+      "panel_id": "MZ-2026-09-02_P01_PANEL04",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        784
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.908,
+      "aspect_mismatch": 1.13,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 19.4,
+      "crop_bottom_pct": 19.4,
+      "retained_area_pct": 61.1,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 2,
+      "panel_id": "MZ-2026-09-02_P01_PANEL06",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        1267
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 1.8,
+      "aspect_mismatch": 0.022,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 0.6,
+      "crop_bottom_pct": 0.6,
+      "retained_area_pct": 98.8,
+      "scale_up": 1.78,
+      "classification": "keep",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 2,
+      "panel_id": "MZ-2026-09-02_P01_PANEL05",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 2,
+      "panel_id": "MZ-2026-09-02_P02_PANEL01",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 2,
+      "panel_id": "MZ-2026-09-02_P02_PANEL02",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        623
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.66,
+      "aspect_mismatch": 1.882,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 25.7,
+      "crop_bottom_pct": 25.7,
+      "retained_area_pct": 48.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 3,
+      "panel_id": "MZ-2026-09-02_P02_PANEL03",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        784
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.908,
+      "aspect_mismatch": 1.13,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 19.4,
+      "crop_bottom_pct": 19.4,
+      "retained_area_pct": 61.1,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 3,
+      "panel_id": "MZ-2026-09-02_P02_PANEL04",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        764
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.984,
+      "aspect_mismatch": 1.207,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 20.2,
+      "crop_bottom_pct": 20.2,
+      "retained_area_pct": 59.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 3,
+      "panel_id": "MZ-2026-09-02_P02_PANEL05",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        764
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.984,
+      "aspect_mismatch": 1.207,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 20.2,
+      "crop_bottom_pct": 20.2,
+      "retained_area_pct": 59.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 3,
+      "panel_id": "MZ-2026-09-02_P02_PANEL06",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        784
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.908,
+      "aspect_mismatch": 1.13,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 19.4,
+      "crop_bottom_pct": 19.4,
+      "retained_area_pct": 61.1,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 4,
+      "panel_id": "MZ-2026-09-02_P03_PANEL02",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        1267
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 1.8,
+      "aspect_mismatch": 0.022,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 0.6,
+      "crop_bottom_pct": 0.6,
+      "retained_area_pct": 98.8,
+      "scale_up": 1.78,
+      "classification": "keep",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 4,
+      "panel_id": "MZ-2026-09-02_P03_PANEL01",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 4,
+      "panel_id": "MZ-2026-09-02_P03_PANEL03",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 4,
+      "panel_id": "MZ-2026-09-02_P03_PANEL04",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        623
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.66,
+      "aspect_mismatch": 1.882,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 25.7,
+      "crop_bottom_pct": 25.7,
+      "retained_area_pct": 48.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 5,
+      "panel_id": "MZ-2026-09-02_P03_PANEL05",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        516
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.419,
+      "aspect_mismatch": 2.641,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 29.9,
+      "crop_bottom_pct": 29.9,
+      "retained_area_pct": 40.2,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 5,
+      "panel_id": "MZ-2026-09-02_P03_PANEL06",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        496
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.597,
+      "aspect_mismatch": 2.819,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.7,
+      "crop_bottom_pct": 30.7,
+      "retained_area_pct": 38.7,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 5,
+      "panel_id": "MZ-2026-09-02_P04_PANEL01",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        496
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.597,
+      "aspect_mismatch": 2.819,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.7,
+      "crop_bottom_pct": 30.7,
+      "retained_area_pct": 38.7,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 5,
+      "panel_id": "MZ-2026-09-02_P04_PANEL02",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        496
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.597,
+      "aspect_mismatch": 2.819,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.7,
+      "crop_bottom_pct": 30.7,
+      "retained_area_pct": 38.7,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 5,
+      "panel_id": "MZ-2026-09-02_P04_PANEL03",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        496
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.597,
+      "aspect_mismatch": 2.819,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.7,
+      "crop_bottom_pct": 30.7,
+      "retained_area_pct": 38.7,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 5,
+      "panel_id": "MZ-2026-09-02_P04_PANEL04",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        516
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.419,
+      "aspect_mismatch": 2.641,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 29.9,
+      "crop_bottom_pct": 29.9,
+      "retained_area_pct": 40.2,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 6,
+      "panel_id": "MZ-2026-09-02_P04_PANEL06",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        1267
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 1.8,
+      "aspect_mismatch": 0.022,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 0.6,
+      "crop_bottom_pct": 0.6,
+      "retained_area_pct": 98.8,
+      "scale_up": 1.78,
+      "classification": "keep",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 6,
+      "panel_id": "MZ-2026-09-02_P04_PANEL05",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 6,
+      "panel_id": "MZ-2026-09-02_P05_PANEL01",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 6,
+      "panel_id": "MZ-2026-09-02_P05_PANEL02",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        623
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.66,
+      "aspect_mismatch": 1.882,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 25.7,
+      "crop_bottom_pct": 25.7,
+      "retained_area_pct": 48.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 7,
+      "panel_id": "MZ-2026-09-02_P05_PANEL03",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        516
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.419,
+      "aspect_mismatch": 2.641,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 29.9,
+      "crop_bottom_pct": 29.9,
+      "retained_area_pct": 40.2,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 7,
+      "panel_id": "MZ-2026-09-02_P05_PANEL04",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        496
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.597,
+      "aspect_mismatch": 2.819,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.7,
+      "crop_bottom_pct": 30.7,
+      "retained_area_pct": 38.7,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 7,
+      "panel_id": "MZ-2026-09-02_P05_PANEL05",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        496
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.597,
+      "aspect_mismatch": 2.819,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.7,
+      "crop_bottom_pct": 30.7,
+      "retained_area_pct": 38.7,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 7,
+      "panel_id": "MZ-2026-09-02_P05_PANEL06",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        496
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.597,
+      "aspect_mismatch": 2.819,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.7,
+      "crop_bottom_pct": 30.7,
+      "retained_area_pct": 38.7,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 7,
+      "panel_id": "MZ-2026-09-02_P06_PANEL01",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        496
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.597,
+      "aspect_mismatch": 2.819,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.7,
+      "crop_bottom_pct": 30.7,
+      "retained_area_pct": 38.7,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 7,
+      "panel_id": "MZ-2026-09-02_P06_PANEL02",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        516
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.419,
+      "aspect_mismatch": 2.641,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 29.9,
+      "crop_bottom_pct": 29.9,
+      "retained_area_pct": 40.2,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 8,
+      "panel_id": "MZ-2026-09-02_P06_PANEL06",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        1267
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 1.8,
+      "aspect_mismatch": 0.022,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 0.6,
+      "crop_bottom_pct": 0.6,
+      "retained_area_pct": 98.8,
+      "scale_up": 1.78,
+      "classification": "keep",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 8,
+      "panel_id": "MZ-2026-09-02_P06_PANEL03",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 8,
+      "panel_id": "MZ-2026-09-02_P06_PANEL04",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 8,
+      "panel_id": "MZ-2026-09-02_P06_PANEL05",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        623
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.66,
+      "aspect_mismatch": 1.882,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 25.7,
+      "crop_bottom_pct": 25.7,
+      "retained_area_pct": 48.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 9,
+      "panel_id": "MZ-2026-09-02_P07_PANEL01",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        516
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.419,
+      "aspect_mismatch": 2.641,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 29.9,
+      "crop_bottom_pct": 29.9,
+      "retained_area_pct": 40.2,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 9,
+      "panel_id": "MZ-2026-09-02_P07_PANEL02",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        496
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.597,
+      "aspect_mismatch": 2.819,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.7,
+      "crop_bottom_pct": 30.7,
+      "retained_area_pct": 38.7,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 9,
+      "panel_id": "MZ-2026-09-02_P07_PANEL03",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        496
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.597,
+      "aspect_mismatch": 2.819,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.7,
+      "crop_bottom_pct": 30.7,
+      "retained_area_pct": 38.7,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 9,
+      "panel_id": "MZ-2026-09-02_P07_PANEL04",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        496
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.597,
+      "aspect_mismatch": 2.819,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.7,
+      "crop_bottom_pct": 30.7,
+      "retained_area_pct": 38.7,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 9,
+      "panel_id": "MZ-2026-09-02_P07_PANEL05",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        496
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.597,
+      "aspect_mismatch": 2.819,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.7,
+      "crop_bottom_pct": 30.7,
+      "retained_area_pct": 38.7,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 9,
+      "panel_id": "MZ-2026-09-02_P07_PANEL06",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        516
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.419,
+      "aspect_mismatch": 2.641,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 29.9,
+      "crop_bottom_pct": 29.9,
+      "retained_area_pct": 40.2,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 10,
+      "panel_id": "MZ-2026-09-02_P08_PANEL01",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        945
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.413,
+      "aspect_mismatch": 0.635,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 13.2,
+      "crop_bottom_pct": 13.2,
+      "retained_area_pct": 73.7,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 10,
+      "panel_id": "MZ-2026-09-02_P08_PANEL02",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        410
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 5.561,
+      "aspect_mismatch": 3.783,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 34.0,
+      "crop_bottom_pct": 34.0,
+      "retained_area_pct": 32.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 10,
+      "panel_id": "MZ-2026-09-02_P08_PANEL03",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        410
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 5.561,
+      "aspect_mismatch": 3.783,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 34.0,
+      "crop_bottom_pct": 34.0,
+      "retained_area_pct": 32.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 10,
+      "panel_id": "MZ-2026-09-02_P08_PANEL04",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        410
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 5.561,
+      "aspect_mismatch": 3.783,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 34.0,
+      "crop_bottom_pct": 34.0,
+      "retained_area_pct": 32.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 10,
+      "panel_id": "MZ-2026-09-02_P08_PANEL05",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        410
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 5.561,
+      "aspect_mismatch": 3.783,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 34.0,
+      "crop_bottom_pct": 34.0,
+      "retained_area_pct": 32.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 10,
+      "panel_id": "MZ-2026-09-02_P08_PANEL06",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        430
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 5.302,
+      "aspect_mismatch": 3.525,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 33.2,
+      "crop_bottom_pct": 33.2,
+      "retained_area_pct": 33.5,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 11,
+      "panel_id": "MZ-2026-09-02_P09_PANEL02",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        1267
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 1.8,
+      "aspect_mismatch": 0.022,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 0.6,
+      "crop_bottom_pct": 0.6,
+      "retained_area_pct": 98.8,
+      "scale_up": 1.78,
+      "classification": "keep",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 11,
+      "panel_id": "MZ-2026-09-02_P09_PANEL01",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 11,
+      "panel_id": "MZ-2026-09-02_P09_PANEL03",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 11,
+      "panel_id": "MZ-2026-09-02_P09_PANEL04",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        623
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.66,
+      "aspect_mismatch": 1.882,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 25.7,
+      "crop_bottom_pct": 25.7,
+      "retained_area_pct": 48.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 12,
+      "panel_id": "MZ-2026-09-02_P09_PANEL05",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        784
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.908,
+      "aspect_mismatch": 1.13,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 19.4,
+      "crop_bottom_pct": 19.4,
+      "retained_area_pct": 61.1,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 12,
+      "panel_id": "MZ-2026-09-02_P09_PANEL06",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        764
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.984,
+      "aspect_mismatch": 1.207,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 20.2,
+      "crop_bottom_pct": 20.2,
+      "retained_area_pct": 59.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 12,
+      "panel_id": "MZ-2026-09-02_P10_PANEL01",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        764
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.984,
+      "aspect_mismatch": 1.207,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 20.2,
+      "crop_bottom_pct": 20.2,
+      "retained_area_pct": 59.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 12,
+      "panel_id": "MZ-2026-09-02_P10_PANEL02",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        784
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.908,
+      "aspect_mismatch": 1.13,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 19.4,
+      "crop_bottom_pct": 19.4,
+      "retained_area_pct": 61.1,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 13,
+      "panel_id": "MZ-2026-09-02_P10_PANEL06",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        1267
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 1.8,
+      "aspect_mismatch": 0.022,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 0.6,
+      "crop_bottom_pct": 0.6,
+      "retained_area_pct": 98.8,
+      "scale_up": 1.78,
+      "classification": "keep",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 13,
+      "panel_id": "MZ-2026-09-02_P10_PANEL03",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 13,
+      "panel_id": "MZ-2026-09-02_P10_PANEL04",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 13,
+      "panel_id": "MZ-2026-09-02_P10_PANEL05",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        623
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.66,
+      "aspect_mismatch": 1.882,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 25.7,
+      "crop_bottom_pct": 25.7,
+      "retained_area_pct": 48.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 14,
+      "panel_id": "MZ-2026-09-02_P11_PANEL01",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        784
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.908,
+      "aspect_mismatch": 1.13,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 19.4,
+      "crop_bottom_pct": 19.4,
+      "retained_area_pct": 61.1,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 14,
+      "panel_id": "MZ-2026-09-02_P11_PANEL02",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        764
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.984,
+      "aspect_mismatch": 1.207,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 20.2,
+      "crop_bottom_pct": 20.2,
+      "retained_area_pct": 59.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 14,
+      "panel_id": "MZ-2026-09-02_P11_PANEL03",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        764
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.984,
+      "aspect_mismatch": 1.207,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 20.2,
+      "crop_bottom_pct": 20.2,
+      "retained_area_pct": 59.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 14,
+      "panel_id": "MZ-2026-09-02_P11_PANEL04",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        784
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.908,
+      "aspect_mismatch": 1.13,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 19.4,
+      "crop_bottom_pct": 19.4,
+      "retained_area_pct": 61.1,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 15,
+      "panel_id": "MZ-2026-09-02_P11_PANEL05",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        1052
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.167,
+      "aspect_mismatch": 0.39,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 9.0,
+      "crop_bottom_pct": 9.0,
+      "retained_area_pct": 82.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 15,
+      "panel_id": "MZ-2026-09-02_P11_PANEL06",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        1032
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.209,
+      "aspect_mismatch": 0.432,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 9.8,
+      "crop_bottom_pct": 9.8,
+      "retained_area_pct": 80.5,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 15,
+      "panel_id": "MZ-2026-09-02_P12_PANEL01",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        1052
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.167,
+      "aspect_mismatch": 0.39,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 9.0,
+      "crop_bottom_pct": 9.0,
+      "retained_area_pct": 82.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 16,
+      "panel_id": "MZ-2026-09-02_P12_PANEL02",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        1009
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.26,
+      "aspect_mismatch": 0.482,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 10.7,
+      "crop_bottom_pct": 10.7,
+      "retained_area_pct": 78.7,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 16,
+      "panel_id": "MZ-2026-09-02_P12_PANEL03",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        507
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.497,
+      "aspect_mismatch": 2.719,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.2,
+      "crop_bottom_pct": 30.2,
+      "retained_area_pct": 39.5,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 16,
+      "panel_id": "MZ-2026-09-02_P12_PANEL04",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        507
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.497,
+      "aspect_mismatch": 2.719,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.2,
+      "crop_bottom_pct": 30.2,
+      "retained_area_pct": 39.5,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 16,
+      "panel_id": "MZ-2026-09-02_P12_PANEL05",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        507
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.497,
+      "aspect_mismatch": 2.719,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 30.2,
+      "crop_bottom_pct": 30.2,
+      "retained_area_pct": 39.5,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 16,
+      "panel_id": "MZ-2026-09-02_P12_PANEL06",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        527
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 4.326,
+      "aspect_mismatch": 2.549,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 29.5,
+      "crop_bottom_pct": 29.5,
+      "retained_area_pct": 41.1,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 17,
+      "panel_id": "MZ-2026-09-02_P13_PANEL01",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        1267
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 1.8,
+      "aspect_mismatch": 0.022,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 0.6,
+      "crop_bottom_pct": 0.6,
+      "retained_area_pct": 98.8,
+      "scale_up": 1.78,
+      "classification": "keep",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 17,
+      "panel_id": "MZ-2026-09-02_P13_PANEL02",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 17,
+      "panel_id": "MZ-2026-09-02_P13_PANEL03",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 17,
+      "panel_id": "MZ-2026-09-02_P13_PANEL04",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        623
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.66,
+      "aspect_mismatch": 1.882,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 25.7,
+      "crop_bottom_pct": 25.7,
+      "retained_area_pct": 48.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 18,
+      "panel_id": "MZ-2026-09-02_P13_PANEL06",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        1460
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 1.562,
+      "aspect_mismatch": 0.216,
+      "crop_left_pct": 6.1,
+      "crop_right_pct": 6.1,
+      "crop_top_pct": 0.0,
+      "crop_bottom_pct": 0.0,
+      "retained_area_pct": 87.8,
+      "scale_up": 2.03,
+      "classification": "recompose_or_regenerate",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 18,
+      "panel_id": "MZ-2026-09-02_P13_PANEL05",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        828
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.754,
+      "aspect_mismatch": 0.976,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 17.7,
+      "crop_bottom_pct": 17.7,
+      "retained_area_pct": 64.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 18,
+      "panel_id": "MZ-2026-09-02_P14_PANEL01",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        848
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.689,
+      "aspect_mismatch": 0.911,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 16.9,
+      "crop_bottom_pct": 16.9,
+      "retained_area_pct": 66.1,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 19,
+      "panel_id": "MZ-2026-09-02_P14_PANEL02",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        623
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.66,
+      "aspect_mismatch": 1.882,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 25.7,
+      "crop_bottom_pct": 25.7,
+      "retained_area_pct": 48.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 19,
+      "panel_id": "MZ-2026-09-02_P14_PANEL03",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 19,
+      "panel_id": "MZ-2026-09-02_P14_PANEL04",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 19,
+      "panel_id": "MZ-2026-09-02_P14_PANEL05",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 19,
+      "panel_id": "MZ-2026-09-02_P14_PANEL06",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        623
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.66,
+      "aspect_mismatch": 1.882,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 25.7,
+      "crop_bottom_pct": 25.7,
+      "retained_area_pct": 48.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 20,
+      "panel_id": "MZ-2026-09-02_P15_PANEL01",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        784
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.908,
+      "aspect_mismatch": 1.13,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 19.4,
+      "crop_bottom_pct": 19.4,
+      "retained_area_pct": 61.1,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 20,
+      "panel_id": "MZ-2026-09-02_P15_PANEL02",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        764
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.984,
+      "aspect_mismatch": 1.207,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 20.2,
+      "crop_bottom_pct": 20.2,
+      "retained_area_pct": 59.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 20,
+      "panel_id": "MZ-2026-09-02_P15_PANEL03",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        764
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.984,
+      "aspect_mismatch": 1.207,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 20.2,
+      "crop_bottom_pct": 20.2,
+      "retained_area_pct": 59.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 20,
+      "panel_id": "MZ-2026-09-02_P15_PANEL04",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        784
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.908,
+      "aspect_mismatch": 1.13,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 19.4,
+      "crop_bottom_pct": 19.4,
+      "retained_area_pct": 61.1,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 21,
+      "panel_id": "MZ-2026-09-02_P15_PANEL05",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        623
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.66,
+      "aspect_mismatch": 1.882,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 25.7,
+      "crop_bottom_pct": 25.7,
+      "retained_area_pct": 48.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 21,
+      "panel_id": "MZ-2026-09-02_P15_PANEL06",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 21,
+      "panel_id": "MZ-2026-09-02_P16_PANEL01",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 21,
+      "panel_id": "MZ-2026-09-02_P16_PANEL02",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        603
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.781,
+      "aspect_mismatch": 2.003,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 26.5,
+      "crop_bottom_pct": 26.5,
+      "retained_area_pct": 47.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 21,
+      "panel_id": "MZ-2026-09-02_P16_PANEL03",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        623
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 3.66,
+      "aspect_mismatch": 1.882,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 25.7,
+      "crop_bottom_pct": 25.7,
+      "retained_area_pct": 48.6,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 22,
+      "panel_id": "MZ-2026-09-02_P16_PANEL04",
+      "shot": "medium",
+      "slot_px": [
+        2280,
+        1052
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.167,
+      "aspect_mismatch": 0.39,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 9.0,
+      "crop_bottom_pct": 9.0,
+      "retained_area_pct": 82.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 22,
+      "panel_id": "MZ-2026-09-02_P16_PANEL05",
+      "shot": "close",
+      "slot_px": [
+        2280,
+        1032
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.209,
+      "aspect_mismatch": 0.432,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 9.8,
+      "crop_bottom_pct": 9.8,
+      "retained_area_pct": 80.5,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    },
+    {
+      "page": 22,
+      "panel_id": "MZ-2026-09-02_P16_PANEL06",
+      "shot": "wide",
+      "slot_px": [
+        2280,
+        1052
+      ],
+      "source_ratio": 1.778,
+      "target_ratio": 2.167,
+      "aspect_mismatch": 0.39,
+      "crop_left_pct": 0.0,
+      "crop_right_pct": 0.0,
+      "crop_top_pct": 9.0,
+      "crop_bottom_pct": 9.0,
+      "retained_area_pct": 82.0,
+      "scale_up": 1.78,
+      "classification": "minor_crop",
+      "anatomy_clip_risk": false
+    }
+  ]
+}
